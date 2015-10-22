@@ -1,0 +1,469 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D7F0B6517FAF6F700D46F08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B6417FAF6F700D46F08 /* Foundation.framework */; };
+		2D7F0B6717FAF6F700D46F08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B6617FAF6F700D46F08 /* CoreGraphics.framework */; };
+		2D7F0B6917FAF6F700D46F08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B6817FAF6F700D46F08 /* UIKit.framework */; };
+		2D7F0B6F17FAF6F700D46F08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D7F0B6D17FAF6F700D46F08 /* InfoPlist.strings */; };
+		2D7F0B7117FAF6F700D46F08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F0B7017FAF6F700D46F08 /* main.m */; };
+		2D7F0B7517FAF6F700D46F08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F0B7417FAF6F700D46F08 /* AppDelegate.m */; };
+		2D7F0B7B17FAF6F700D46F08 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F0B7A17FAF6F700D46F08 /* ViewController.m */; };
+		2D7F0B7D17FAF6F700D46F08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D7F0B7C17FAF6F700D46F08 /* Images.xcassets */; };
+		2D7F0B8417FAF6F700D46F08 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B8317FAF6F700D46F08 /* XCTest.framework */; };
+		2D7F0B8517FAF6F700D46F08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B6417FAF6F700D46F08 /* Foundation.framework */; };
+		2D7F0B8617FAF6F700D46F08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7F0B6817FAF6F700D46F08 /* UIKit.framework */; };
+		2D7F0B8E17FAF6F700D46F08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D7F0B8C17FAF6F700D46F08 /* InfoPlist.strings */; };
+		2D7F0B9017FAF6F700D46F08 /* testElacticScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F0B8F17FAF6F700D46F08 /* testElacticScrollTests.m */; };
+		2D7F0B9B17FAFA0B00D46F08 /* ElasticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F0B9A17FAFA0B00D46F08 /* ElasticTableView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D7F0B8717FAF6F700D46F08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D7F0B5917FAF6F700D46F08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D7F0B6017FAF6F700D46F08;
+			remoteInfo = testElacticScroll;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D7F0B6117FAF6F700D46F08 /* testElacticScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testElacticScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D7F0B6417FAF6F700D46F08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2D7F0B6617FAF6F700D46F08 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D7F0B6817FAF6F700D46F08 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2D7F0B6C17FAF6F700D46F08 /* testElacticScroll-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testElacticScroll-Info.plist"; sourceTree = "<group>"; };
+		2D7F0B6E17FAF6F700D46F08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D7F0B7017FAF6F700D46F08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2D7F0B7217FAF6F700D46F08 /* testElacticScroll-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testElacticScroll-Prefix.pch"; sourceTree = "<group>"; };
+		2D7F0B7317FAF6F700D46F08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D7F0B7417FAF6F700D46F08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2D7F0B7917FAF6F700D46F08 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2D7F0B7A17FAF6F700D46F08 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2D7F0B7C17FAF6F700D46F08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2D7F0B8217FAF6F700D46F08 /* testElacticScrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testElacticScrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D7F0B8317FAF6F700D46F08 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2D7F0B8B17FAF6F700D46F08 /* testElacticScrollTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testElacticScrollTests-Info.plist"; sourceTree = "<group>"; };
+		2D7F0B8D17FAF6F700D46F08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D7F0B8F17FAF6F700D46F08 /* testElacticScrollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testElacticScrollTests.m; sourceTree = "<group>"; };
+		2D7F0B9917FAFA0B00D46F08 /* ElasticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElasticTableView.h; sourceTree = "<group>"; };
+		2D7F0B9A17FAFA0B00D46F08 /* ElasticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElasticTableView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D7F0B5E17FAF6F700D46F08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B6717FAF6F700D46F08 /* CoreGraphics.framework in Frameworks */,
+				2D7F0B6917FAF6F700D46F08 /* UIKit.framework in Frameworks */,
+				2D7F0B6517FAF6F700D46F08 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D7F0B7F17FAF6F700D46F08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B8417FAF6F700D46F08 /* XCTest.framework in Frameworks */,
+				2D7F0B8617FAF6F700D46F08 /* UIKit.framework in Frameworks */,
+				2D7F0B8517FAF6F700D46F08 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D7F0B5817FAF6F700D46F08 = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B6A17FAF6F700D46F08 /* testElacticScroll */,
+				2D7F0B8917FAF6F700D46F08 /* testElacticScrollTests */,
+				2D7F0B6317FAF6F700D46F08 /* Frameworks */,
+				2D7F0B6217FAF6F700D46F08 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D7F0B6217FAF6F700D46F08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B6117FAF6F700D46F08 /* testElacticScroll.app */,
+				2D7F0B8217FAF6F700D46F08 /* testElacticScrollTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D7F0B6317FAF6F700D46F08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B6417FAF6F700D46F08 /* Foundation.framework */,
+				2D7F0B6617FAF6F700D46F08 /* CoreGraphics.framework */,
+				2D7F0B6817FAF6F700D46F08 /* UIKit.framework */,
+				2D7F0B8317FAF6F700D46F08 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D7F0B6A17FAF6F700D46F08 /* testElacticScroll */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B7317FAF6F700D46F08 /* AppDelegate.h */,
+				2D7F0B7417FAF6F700D46F08 /* AppDelegate.m */,
+				2D7F0B7917FAF6F700D46F08 /* ViewController.h */,
+				2D7F0B7A17FAF6F700D46F08 /* ViewController.m */,
+				2D7F0B7C17FAF6F700D46F08 /* Images.xcassets */,
+				2D7F0B6B17FAF6F700D46F08 /* Supporting Files */,
+				2D7F0B9917FAFA0B00D46F08 /* ElasticTableView.h */,
+				2D7F0B9A17FAFA0B00D46F08 /* ElasticTableView.m */,
+			);
+			path = testElacticScroll;
+			sourceTree = "<group>";
+		};
+		2D7F0B6B17FAF6F700D46F08 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B6C17FAF6F700D46F08 /* testElacticScroll-Info.plist */,
+				2D7F0B6D17FAF6F700D46F08 /* InfoPlist.strings */,
+				2D7F0B7017FAF6F700D46F08 /* main.m */,
+				2D7F0B7217FAF6F700D46F08 /* testElacticScroll-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2D7F0B8917FAF6F700D46F08 /* testElacticScrollTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B8F17FAF6F700D46F08 /* testElacticScrollTests.m */,
+				2D7F0B8A17FAF6F700D46F08 /* Supporting Files */,
+			);
+			path = testElacticScrollTests;
+			sourceTree = "<group>";
+		};
+		2D7F0B8A17FAF6F700D46F08 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D7F0B8B17FAF6F700D46F08 /* testElacticScrollTests-Info.plist */,
+				2D7F0B8C17FAF6F700D46F08 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D7F0B6017FAF6F700D46F08 /* testElacticScroll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D7F0B9317FAF6F700D46F08 /* Build configuration list for PBXNativeTarget "testElacticScroll" */;
+			buildPhases = (
+				2D7F0B5D17FAF6F700D46F08 /* Sources */,
+				2D7F0B5E17FAF6F700D46F08 /* Frameworks */,
+				2D7F0B5F17FAF6F700D46F08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testElacticScroll;
+			productName = testElacticScroll;
+			productReference = 2D7F0B6117FAF6F700D46F08 /* testElacticScroll.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D7F0B8117FAF6F700D46F08 /* testElacticScrollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D7F0B9617FAF6F700D46F08 /* Build configuration list for PBXNativeTarget "testElacticScrollTests" */;
+			buildPhases = (
+				2D7F0B7E17FAF6F700D46F08 /* Sources */,
+				2D7F0B7F17FAF6F700D46F08 /* Frameworks */,
+				2D7F0B8017FAF6F700D46F08 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D7F0B8817FAF6F700D46F08 /* PBXTargetDependency */,
+			);
+			name = testElacticScrollTests;
+			productName = testElacticScrollTests;
+			productReference = 2D7F0B8217FAF6F700D46F08 /* testElacticScrollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D7F0B5917FAF6F700D46F08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Cupid plc";
+				TargetAttributes = {
+					2D7F0B8117FAF6F700D46F08 = {
+						TestTargetID = 2D7F0B6017FAF6F700D46F08;
+					};
+				};
+			};
+			buildConfigurationList = 2D7F0B5C17FAF6F700D46F08 /* Build configuration list for PBXProject "testElacticScroll" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D7F0B5817FAF6F700D46F08;
+			productRefGroup = 2D7F0B6217FAF6F700D46F08 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D7F0B6017FAF6F700D46F08 /* testElacticScroll */,
+				2D7F0B8117FAF6F700D46F08 /* testElacticScrollTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D7F0B5F17FAF6F700D46F08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B7D17FAF6F700D46F08 /* Images.xcassets in Resources */,
+				2D7F0B6F17FAF6F700D46F08 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D7F0B8017FAF6F700D46F08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B8E17FAF6F700D46F08 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D7F0B5D17FAF6F700D46F08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B7B17FAF6F700D46F08 /* ViewController.m in Sources */,
+				2D7F0B9B17FAFA0B00D46F08 /* ElasticTableView.m in Sources */,
+				2D7F0B7517FAF6F700D46F08 /* AppDelegate.m in Sources */,
+				2D7F0B7117FAF6F700D46F08 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D7F0B7E17FAF6F700D46F08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D7F0B9017FAF6F700D46F08 /* testElacticScrollTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D7F0B8817FAF6F700D46F08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D7F0B6017FAF6F700D46F08 /* testElacticScroll */;
+			targetProxy = 2D7F0B8717FAF6F700D46F08 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D7F0B6D17FAF6F700D46F08 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D7F0B6E17FAF6F700D46F08 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2D7F0B8C17FAF6F700D46F08 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D7F0B8D17FAF6F700D46F08 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D7F0B9117FAF6F700D46F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2D7F0B9217FAF6F700D46F08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D7F0B9417FAF6F700D46F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testElacticScroll/testElacticScroll-Prefix.pch";
+				INFOPLIST_FILE = "testElacticScroll/testElacticScroll-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2D7F0B9517FAF6F700D46F08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testElacticScroll/testElacticScroll-Prefix.pch";
+				INFOPLIST_FILE = "testElacticScroll/testElacticScroll-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2D7F0B9717FAF6F700D46F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/testElacticScroll.app/testElacticScroll";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testElacticScroll/testElacticScroll-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "testElacticScrollTests/testElacticScrollTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2D7F0B9817FAF6F700D46F08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/testElacticScroll.app/testElacticScroll";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "testElacticScroll/testElacticScroll-Prefix.pch";
+				INFOPLIST_FILE = "testElacticScrollTests/testElacticScrollTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D7F0B5C17FAF6F700D46F08 /* Build configuration list for PBXProject "testElacticScroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D7F0B9117FAF6F700D46F08 /* Debug */,
+				2D7F0B9217FAF6F700D46F08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D7F0B9317FAF6F700D46F08 /* Build configuration list for PBXNativeTarget "testElacticScroll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D7F0B9417FAF6F700D46F08 /* Debug */,
+				2D7F0B9517FAF6F700D46F08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2D7F0B9617FAF6F700D46F08 /* Build configuration list for PBXNativeTarget "testElacticScrollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D7F0B9717FAF6F700D46F08 /* Debug */,
+				2D7F0B9817FAF6F700D46F08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D7F0B5917FAF6F700D46F08 /* Project object */;
+}

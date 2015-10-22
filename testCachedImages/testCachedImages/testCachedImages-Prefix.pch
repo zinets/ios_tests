@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'testCachedImages' target in the 'testCachedImages' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
