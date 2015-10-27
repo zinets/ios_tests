@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger, ButtonStyle) {
     ButtonStyleNone,
     ButtonStyleHamburger,
     ButtonStyleArrowLeft,
+    ButtonStyleCheck,
 };
 
 @interface PathHelper : NSObject

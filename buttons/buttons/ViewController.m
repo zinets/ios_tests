@@ -20,15 +20,20 @@
 
     DynamicButton *btn = [[DynamicButton alloc] initWithStyle:(ButtonStyleArrowLeft)];
     btn.origin = (CGPoint){20, 120};
+    btn.highlightStrokeColor = [UIColor redColor];
+    
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
+    
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 1;
 }
 
 - (void)onTap:(DynamicButton *)sender {
     if (sender.buttonStyle != ButtonStyleHamburger) {
         [sender setButtonStyle:ButtonStyleHamburger animated:YES];
     } else {
-        [sender setButtonStyle:ButtonStyleArrowLeft animated:YES];        
+        [sender setButtonStyle:ButtonStyleCheck animated:YES];        
     }
 }
 

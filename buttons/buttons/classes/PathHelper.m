@@ -61,9 +61,15 @@
     
     switch (style) {
         case ButtonStyleHamburger:
-            line1Path = [self createLineWithCenter:center raduis:size / 2 angle:0];
-            line2Path = [self createLineWithCenter:center raduis:size / 2 angle:0 offset:(CGPoint){0, size / -3.2}];
-            line3Path = [self createLineWithCenter:center raduis:size / 2 angle:0 offset:(CGPoint){0, size / 3.2}];
+            line1Path = [self createLineWithCenter:center
+                                            raduis:size / 2 angle:0];
+            line2Path = [self createLineWithCenter:center
+                                            raduis:size / 2 angle:0
+                                            offset:(CGPoint){0, size / -3.2}];
+            line3Path = [self createLineWithCenter:center
+                                            raduis:size / 2
+                                             angle:0
+                                            offset:(CGPoint){0, size / 3.2}];
             line4Path = line1Path;
             break;
         case ButtonStyleArrowLeft:
@@ -71,6 +77,16 @@
             line2Path = [self createLineFromStart:CGPointMake(offset.x + lineWidth, center.y) toEnd:CGPointMake(offset.x + size / 3.2, center.y + size /3.2)];
             line3Path = [self createLineFromStart:CGPointMake(offset.x + lineWidth, center.y) toEnd:CGPointMake(offset.x + size / 3.2, center.y - size /3.2)];
             line4Path = line1Path;
+            break;
+        case ButtonStyleCheck:
+            line1Path = [self createLineFromStart:(CGPoint){offset.x + size / 4, offset.y + size / 4}
+                                            toEnd:center
+                                           offset:(CGPoint){-size / 8, size / 4}];
+            line2Path = line1Path;
+            line3Path = [self createLineFromStart:center
+                                            toEnd:(CGPoint){offset.x + size, offset.y}
+                                           offset:(CGPoint){-size / 8, size / 4}];
+            line4Path = line3Path;
             break;
         default:
             line1Path = line2Path = line3Path = line4Path = CGPathCreateMutable();

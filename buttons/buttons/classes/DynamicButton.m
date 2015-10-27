@@ -135,11 +135,37 @@
 #pragma mark - actions
 
 - (void)highlightAction:(id)sender {
-    
+    for (CAShapeLayer *sublayer in self.allLayers) {
+        sublayer.strokeColor = (self.highlightStrokeColor ? self.highlightStrokeColor : self.strokeColor).CGColor;
+    }
+//    
+//    CASpringAnimation *anim = [CASpringAnimation animationWithKeyPath:@"transform.scale"];
+//    anim.removedOnCompletion = YES;
+//    anim.damping = 20;
+//    anim.initialVelocity = 0;
+//    anim.fillMode = kCAFillModeForwards;
+//    anim.stiffness = 1000;
+//    anim.toValue = @1.2;
+//    anim.duration = anim.settlingDuration;
+//    
+////    [self.layer addAnimation:anim forKey:@"scaleup"];
 }
 
 - (void)unhighlightAction:(id)sender {
-    
+    for (CAShapeLayer *sublayer in self.allLayers) {
+        sublayer.strokeColor = self.strokeColor.CGColor;
+    }
+//    
+//    CASpringAnimation *anim = [CASpringAnimation animationWithKeyPath:@"transform.scale"];
+//    anim.removedOnCompletion = YES;
+//    anim.damping = 100;
+//    anim.initialVelocity = 20;
+//    anim.fillMode = kCAFillModeForwards;
+//    anim.stiffness = 100;
+//    anim.toValue = @1.2;
+//    anim.duration = anim.settlingDuration;
+//    
+////    [self.layer addAnimation:anim forKey:@"scaledown"];
 }
 
 @end
