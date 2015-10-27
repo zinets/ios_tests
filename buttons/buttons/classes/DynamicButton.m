@@ -103,19 +103,22 @@
 }
 
 - (void)setButtonStyle:(ButtonStyle)buttonStyle animated:(BOOL)animated {
-    _buttonStyle = buttonStyle;
-    NSArray *paths = [PathHelper pathForButtonWithStyle:_buttonStyle size:intSize offset:intOffset lineWidth:_lineWidth];
-    for (int x = 0; x < self.allLayers.count; x++) {
-        if (animated) {
-            CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
-            anim.fromValue = (__bridge id _Nullable)(self.allLayers[x].path);
-            anim.toValue = paths[x];
-            
-            [self.allLayers[x] addAnimation:anim forKey:@"animateLine"];
-        } else {
-            [self.allLayers[x] removeAllAnimations];
+    if (_buttonStyle != buttonStyle) {
+        _buttonStyle = buttonStyle;
+        NSArray *paths = [PathHelper pathForButtonWithStyle:_buttonStyle size:intSize offset:intOffset lineWidth:_lineWidth];
+        for (int x = 0; x < self.allLayers.count; x++) {
+            if (animated) {
+                CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
+                anim.fromValue = (__bridge id _Nullable)(self.allLayers[x].path);
+                anim.toValue = paths[x];
+                anim.duration = .25;
+                
+                [self.allLayers[x] addAnimation:anim forKey:@"animateLine"];
+            } else {
+                [self.allLayers[x] removeAllAnimations];
+            }
+            self.allLayers[x].path = (__bridge CGPathRef _Nullable)paths[x];
         }
-        self.allLayers[x].path = (__bridge CGPathRef _Nullable)paths[x];
     }
 }
 

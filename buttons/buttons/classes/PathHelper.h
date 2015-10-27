@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, ButtonStyle) {
+    ButtonStyleNone,
     ButtonStyleHamburger,
+    ButtonStyleArrowLeft,
 };
 
 @interface PathHelper : NSObject

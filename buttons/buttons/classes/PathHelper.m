@@ -47,6 +47,10 @@
     return path;
 }
 
++ (CGPathRef)createLineFromStart:(CGPoint)start toEnd:(CGPoint)end {
+    return [self createLineFromStart:start toEnd:end offset:(CGPointZero)];
+}
+
 #pragma mark - public
 
 /// вернем массив из 4х path
@@ -62,8 +66,14 @@
             line3Path = [self createLineWithCenter:center raduis:size / 2 angle:0 offset:(CGPoint){0, size / 3.2}];
             line4Path = line1Path;
             break;
-            
+        case ButtonStyleArrowLeft:
+            line1Path = [self createLineFromStart:CGPointMake(offset.x + lineWidth, center.y) toEnd:CGPointMake(offset.x + size, center.y)];
+            line2Path = [self createLineFromStart:CGPointMake(offset.x + lineWidth, center.y) toEnd:CGPointMake(offset.x + size / 3.2, center.y + size /3.2)];
+            line3Path = [self createLineFromStart:CGPointMake(offset.x + lineWidth, center.y) toEnd:CGPointMake(offset.x + size / 3.2, center.y - size /3.2)];
+            line4Path = line1Path;
+            break;
         default:
+            line1Path = line2Path = line3Path = line4Path = CGPathCreateMutable();
             break;
     }
     

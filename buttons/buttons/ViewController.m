@@ -18,9 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    DynamicButton *btn = [[DynamicButton alloc] initWithStyle:(ButtonStyleHamburger)];
+    DynamicButton *btn = [[DynamicButton alloc] initWithStyle:(ButtonStyleArrowLeft)];
     btn.origin = (CGPoint){20, 120};
+    [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
+}
+
+- (void)onTap:(DynamicButton *)sender {
+    if (sender.buttonStyle != ButtonStyleHamburger) {
+        [sender setButtonStyle:ButtonStyleHamburger animated:YES];
+    } else {
+        [sender setButtonStyle:ButtonStyleArrowLeft animated:YES];        
+    }
 }
 
 @end

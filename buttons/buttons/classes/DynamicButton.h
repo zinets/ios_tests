@@ -18,4 +18,5 @@
 @property (nonatomic, strong) UIColor *highlightStrokeColor;
 
 - (instancetype)initWithStyle:(ButtonStyle)style;
+- (void)setButtonStyle:(ButtonStyle)buttonStyle animated:(BOOL)animated;
 @end
