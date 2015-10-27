@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C" : 0,
+    "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1C1FF983-FA04-4E3F-A63D-13FB4D063063",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C" : "ios_tests\/",
+    "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A" : "mobile_ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "buttons",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "buttons\/buttons.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zinets\/ios_tests.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/lgw.to.ropot.net:10164\/mobile_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A"
+    }
+  ]
+}

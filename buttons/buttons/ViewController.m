@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DynamicButton.h"
 
 @interface ViewController ()
 
@@ -16,12 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    DynamicButton *btn = [[DynamicButton alloc] initWithStyle:(ButtonStyleHamburger)];
+    btn.origin = (CGPoint){20, 120};
+    [self.view addSubview:btn];
 }
 
 @end

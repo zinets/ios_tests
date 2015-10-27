@@ -13,6 +13,10 @@
 		3BDCEC3D1BDF716B0086F75B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BDCEC3B1BDF716B0086F75B /* Main.storyboard */; };
 		3BDCEC3F1BDF716B0086F75B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDCEC3E1BDF716B0086F75B /* Assets.xcassets */; };
 		3BDCEC421BDF716B0086F75B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BDCEC401BDF716B0086F75B /* LaunchScreen.storyboard */; };
+		3BDCEC4C1BDF71BC0086F75B /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCEC4B1BDF71BC0086F75B /* PathHelper.m */; };
+		3BDCEC4F1BDF759E0086F75B /* DynamicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCEC4E1BDF759E0086F75B /* DynamicButton.m */; };
+		3BDCEC521BDF75C50086F75B /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCEC511BDF75C50086F75B /* ColorButton.m */; };
+		3BDCEC551BDF82C40086F75B /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCEC541BDF82C40086F75B /* UIView+Geometry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		3BDCEC3E1BDF716B0086F75B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BDCEC411BDF716B0086F75B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BDCEC431BDF716B0086F75B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BDCEC4A1BDF71BC0086F75B /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PathHelper.h; path = classes/PathHelper.h; sourceTree = "<group>"; };
+		3BDCEC4B1BDF71BC0086F75B /* PathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PathHelper.m; path = classes/PathHelper.m; sourceTree = "<group>"; };
+		3BDCEC4D1BDF759E0086F75B /* DynamicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicButton.h; path = classes/DynamicButton.h; sourceTree = "<group>"; };
+		3BDCEC4E1BDF759E0086F75B /* DynamicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicButton.m; path = classes/DynamicButton.m; sourceTree = "<group>"; };
+		3BDCEC501BDF75C50086F75B /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorButton.h; path = ../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/ColorButton.h; sourceTree = "<group>"; };
+		3BDCEC511BDF75C50086F75B /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorButton.m; path = ../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/ColorButton.m; sourceTree = "<group>"; };
+		3BDCEC531BDF82C40086F75B /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Geometry.h"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIView+Geometry.h"; sourceTree = "<group>"; };
+		3BDCEC541BDF82C40086F75B /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Geometry.m"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIView+Geometry.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 		3BDCEC311BDF716B0086F75B /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				3BDCEC491BDF718E0086F75B /* classes */,
 				3BDCEC351BDF716B0086F75B /* AppDelegate.h */,
 				3BDCEC361BDF716B0086F75B /* AppDelegate.m */,
 				3BDCEC381BDF716B0086F75B /* ViewController.h */,
@@ -77,6 +90,21 @@
 				3BDCEC331BDF716B0086F75B /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BDCEC491BDF718E0086F75B /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				3BDCEC531BDF82C40086F75B /* UIView+Geometry.h */,
+				3BDCEC541BDF82C40086F75B /* UIView+Geometry.m */,
+				3BDCEC501BDF75C50086F75B /* ColorButton.h */,
+				3BDCEC511BDF75C50086F75B /* ColorButton.m */,
+				3BDCEC4A1BDF71BC0086F75B /* PathHelper.h */,
+				3BDCEC4B1BDF71BC0086F75B /* PathHelper.m */,
+				3BDCEC4D1BDF759E0086F75B /* DynamicButton.h */,
+				3BDCEC4E1BDF759E0086F75B /* DynamicButton.m */,
+			);
+			name = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BDCEC551BDF82C40086F75B /* UIView+Geometry.m in Sources */,
+				3BDCEC4C1BDF71BC0086F75B /* PathHelper.m in Sources */,
+				3BDCEC521BDF75C50086F75B /* ColorButton.m in Sources */,
+				3BDCEC4F1BDF759E0086F75B /* DynamicButton.m in Sources */,
 				3BDCEC3A1BDF716B0086F75B /* ViewController.m in Sources */,
 				3BDCEC371BDF716B0086F75B /* AppDelegate.m in Sources */,
 				3BDCEC341BDF716B0086F75B /* main.m in Sources */,
