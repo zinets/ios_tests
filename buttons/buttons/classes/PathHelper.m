@@ -89,7 +89,7 @@
             line4Path = line3Path;
             break;
         default:
-            line1Path = line2Path = line3Path = line4Path = CGPathCreateMutable();
+            line1Path = line2Path = line3Path = line4Path = CGPathCreateMutable(); 
             break;
     }
     
