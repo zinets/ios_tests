@@ -14,6 +14,8 @@
 		3B3FEDB81BE26332006763E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FEDB71BE26332006763E7 /* Assets.xcassets */; };
 		3B3FEDBB1BE26332006763E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B3FEDB91BE26332006763E7 /* LaunchScreen.storyboard */; };
 		3B3FEDC41BE26944006763E7 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FEDC31BE26944006763E7 /* UIView+Geometry.m */; };
+		3B3FEDCA1BE347A6006763E7 /* UIBezierPath+Interpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FEDC91BE347A6006763E7 /* UIBezierPath+Interpolation.m */; };
+		3B3FEDCD1BE347ED006763E7 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FEDCC1BE347ED006763E7 /* CGPointExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		3B3FEDBC1BE26332006763E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3FEDC21BE26944006763E7 /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Geometry.h"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIView+Geometry.h"; sourceTree = "<group>"; };
 		3B3FEDC31BE26944006763E7 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Geometry.m"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIView+Geometry.m"; sourceTree = "<group>"; };
+		3B3FEDC81BE347A6006763E7 /* UIBezierPath+Interpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Interpolation.h"; sourceTree = "<group>"; };
+		3B3FEDC91BE347A6006763E7 /* UIBezierPath+Interpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Interpolation.m"; sourceTree = "<group>"; };
+		3B3FEDCB1BE347ED006763E7 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
+		3B3FEDCC1BE347ED006763E7 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 			children = (
 				3B3FEDC21BE26944006763E7 /* UIView+Geometry.h */,
 				3B3FEDC31BE26944006763E7 /* UIView+Geometry.m */,
+				3B3FEDCB1BE347ED006763E7 /* CGPointExtension.h */,
+				3B3FEDCC1BE347ED006763E7 /* CGPointExtension.m */,
+				3B3FEDC81BE347A6006763E7 /* UIBezierPath+Interpolation.h */,
+				3B3FEDC91BE347A6006763E7 /* UIBezierPath+Interpolation.m */,
 				3B3FEDAE1BE26332006763E7 /* AppDelegate.h */,
 				3B3FEDAF1BE26332006763E7 /* AppDelegate.m */,
 				3B3FEDB11BE26332006763E7 /* ViewController.h */,
@@ -154,7 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3FEDCD1BE347ED006763E7 /* CGPointExtension.m in Sources */,
 				3B3FEDC41BE26944006763E7 /* UIView+Geometry.m in Sources */,
+				3B3FEDCA1BE347A6006763E7 /* UIBezierPath+Interpolation.m in Sources */,
 				3B3FEDB31BE26332006763E7 /* ViewController.m in Sources */,
 				3B3FEDB01BE26332006763E7 /* AppDelegate.m in Sources */,
 				3B3FEDAD1BE26332006763E7 /* main.m in Sources */,
@@ -304,6 +316,7 @@
 				3B3FEDC11BE26332006763E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
