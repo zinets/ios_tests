@@ -165,7 +165,7 @@
     BOOL res = NO;
     if ([fileItem.fileName containsString:@".png"]) {
         NSData *fileData = [[NSData alloc] initWithContentsOfFile:fileItem.fileName];
-        NSAssert(fileData == nil, @"Все очень плохо, не открылся файл %@", fileItem.fileName);
+        NSAssert(fileData != nil, @"Все очень плохо, не открылся файл %@", fileItem.fileName);
         
         NSBitmapImageRep *bmp = [[NSBitmapImageRep alloc] initWithData:fileData];
         if (bmp) {
