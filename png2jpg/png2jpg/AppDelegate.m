@@ -164,18 +164,19 @@
 -(BOOL)processFile:(ListItem *)fileItem destPath:(NSString *)destPath {
     BOOL res = NO;
     if ([fileItem.fileName containsString:@".png"]) {
-        NSImage *img = [[NSImage alloc] initWithContentsOfFile:fileItem.fileName];
-        if (img) {
-            NSData *data = [[[img representations] objectAtIndex:0] representationUsingType:NSJPEGFileType properties:nil];
+        NSData *fileData = [[NSData alloc] initWithContentsOfFile:fileItem.fileName];
+        NSAssert(fileData == nil, @"Все очень плохо, не открылся файл %@", fileItem.fileName);
+        
+        NSBitmapImageRep *bmp = [[NSBitmapImageRep alloc] initWithData:fileData];
+        if (bmp) {
+            NSData *data = [bmp representationUsingType:NSJPEGFileType properties:@{}];
             if (data && data.length > 0) {
                 NSString *newFn = [destPath stringByAppendingString:[fileItem.fileName lastPathComponent]];
                 res = [data writeToFile:newFn atomically:YES];
-                fileItem.fileSizeAfterSaving = @(data.length);
+                fileItem.fileSizeAfterSaving = [NSString stringWithFormat:@"%@", @(data.length)];
             } else {
                 NSLog(@"ERROR! empty data!");
             }
-        } else {
-            NSLog(@"ERROR! empty image!");
         }
     }
     
