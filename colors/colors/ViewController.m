@@ -114,7 +114,7 @@
 
 - (void)onTimer:(id)sender {
 //    func1();
-    func8();
+    func12();
     
     
     for (int x = 0; x < LEDS_COUNT; x++) {

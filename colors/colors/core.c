@@ -248,3 +248,83 @@ void func8 () {
         index2 = 14;
     }
 }
+
+// плавное нарастание (wtf - не в ту сторону) яркости
+void func9() {
+    const int step = 255 / NUM_LEDS;
+    static int index = 0;
+    
+    // push
+    for (int x = NUM_LEDS - 1; x > 0; x--) {
+        HSBColor *clr1 = &leds[x];
+        HSBColor *clr2 = &leds[x - 1];
+        clr1->brightness = clr2->brightness;
+    }
+    HSBColor *clr = &leds[0];
+    clr->brightness = step * index;
+    
+    index = (index + 1) % NUM_LEDS;
+}
+
+void func10() {
+    static int index = 0;
+    
+    // push
+    for (int x = NUM_LEDS - 1; x > 0; x--) {
+        HSBColor *clr1 = &leds[x];
+        HSBColor *clr2 = &leds[x - 1];
+        clr1->hue = clr2->hue;
+    }
+    HSBColor *clr = &leds[0];
+    clr->hue = index;    
+    index = (index + 1) % 255;
+}
+
+// нарастание цвета + нарастание яркости вперед
+void func11() {
+    static int hue_index = 0;
+    static unsigned int b_index = NUM_LEDS;
+    const int step = 255 / NUM_LEDS;
+    
+    // push
+    for (int x = NUM_LEDS - 1; x > 0; x--) {
+        HSBColor *clr1 = &leds[x];
+        HSBColor *clr2 = &leds[x - 1];
+        clr1->hue = clr2->hue;
+        clr1->brightness = clr2->brightness;
+    }
+    HSBColor *clr = &leds[0];
+    clr->hue = hue_index;
+    clr->brightness = step * b_index;
+    
+    hue_index = (hue_index + 1) % 255;
+    if (--b_index == 0) {
+        b_index = NUM_LEDS;
+    }
+    
+}
+
+// нарастание цвета + нарастание яркости вперед
+void func12() {
+    static int hue_index = 0;
+    static int b_index = 255;
+    static int dir = 9;
+    
+    // push
+    for (int x = NUM_LEDS - 1; x > 0; x--) {
+        HSBColor *clr1 = &leds[x];
+        HSBColor *clr2 = &leds[x - 1];
+        clr1->hue = clr2->hue;
+        clr1->brightness = clr2->brightness;
+    }
+    HSBColor *clr = &leds[0];
+    clr->hue = hue_index;
+    clr->brightness = b_index;
+    
+    hue_index = (hue_index + 1) % 255;
+    b_index += dir;
+    
+    if (b_index < 120 || b_index > 255 - dir) {
+        dir = -dir;
+    }
+}
