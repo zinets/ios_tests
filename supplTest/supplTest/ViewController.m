@@ -11,55 +11,77 @@
 
 #import "CollectionDataSource.h"
 #import "CollectionViewCell.h"
+#import "CollectionHeader.h"
+#import "CollectionHeader2.h"
+#import "CollectionFooter1.h"
+#import "SectionHeader.h"
+
 
 @interface ViewController () <UICollectionViewDataSource> {
     SearchLayout *layout;
     CollectionDataSource *dataSource;
 }
 @property (nonatomic, strong) UICollectionView *collection;
+@property (nonatomic, strong) NSString *headerId;
 @end
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
     MenuItemReload,
+    MenuItemInvalidateLayout,
+    MenuItemInvalidateHeader,
 };
+
+#define MENU_ITEMS @[@"reload", @"invalidate", @"invalidate header"]
 
 @implementation ViewController
 
 
 #define CELL_ID @"cell_id"
+#define HEADER_ID1 @"collection_header"
+#define HEADER_ID2 @"collection_header2"
+#define FOOTER_ID @"collection_footer"
+#define SECTION_HEADER_ID @"section_header"
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
     self.view.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.8];
     
-    NSArray *titlesArray    = [[NSArray alloc] initWithObjects:@"PROFILE", @"FEED", @"ACTIVITY", @"SETTINGS", nil];
-    NSArray *imagesArray   = [[NSArray alloc] initWithObjects:@"ic_profile", @"ic_feed", @"ic_activity", @"ic_settings", nil];
-    
-    TGLGuillotineMenu *menuVC = [[TGLGuillotineMenu alloc] initWithViewControllers:@[] MenuTitles:titlesArray andImagesTitles:imagesArray];
-    menuVC.delegate = self;
-
-    
-    CGRect frm = self.view.bounds;
-    frm.origin.y += 70;
-    frm.size.height -= 70;
-    
+   
     dataSource = [CollectionDataSource new];
     
     layout = [SearchLayout new];
     layout.dataSource = dataSource;
     
-    _collection = [[UICollectionView alloc] initWithFrame:frm collectionViewLayout:layout];
+    _collection = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     _collection.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     _collection.backgroundColor = [UIColor colorWithHex:0x83d812];
     
     _collection.dataSource = self;
     
+    // ячейка
     [_collection registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
+    
+    // заголовок таблицы
+    [_collection registerClass:[CollectionHeader class] forSupplementaryViewOfKind:SupplementaryKindCollectionHeader withReuseIdentifier:HEADER_ID1];
+    [_collection registerNib:[UINib nibWithNibName:@"CollectionHeader2" bundle:nil]
+  forSupplementaryViewOfKind:SupplementaryKindCollectionHeader
+         withReuseIdentifier:HEADER_ID2];
+    // футер таблицы
+    [_collection registerNib:[UINib nibWithNibName:@"CollectionFooter1" bundle:nil]
+  forSupplementaryViewOfKind:SupplementaryKindCollectionFooter
+         withReuseIdentifier:FOOTER_ID];
+    
+    // заголовок секции
+    [_collection registerNib:[UINib nibWithNibName:@"SectionHeader" bundle:nil]
+  forSupplementaryViewOfKind:SupplementaryKindSectionHeader
+         withReuseIdentifier:SECTION_HEADER_ID];
     
     [self.view addSubview:_collection];
     
     // buttons
-    self.menu.menuTitles = @[@"reload"];
+    self.menu.menuTitles = MENU_ITEMS;
 }
 
 #pragma mark - delegation
@@ -79,12 +101,36 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:SupplementaryKindCollectionHeader]) {
+        CollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:self.headerId forIndexPath:indexPath];
+        
+        return header;
+    } else if ([kind isEqualToString:SupplementaryKindSectionHeader]) {
+        SectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:SECTION_HEADER_ID forIndexPath:indexPath];
+        
+        return header;
+    } else if ([kind isEqualToString:SupplementaryKindCollectionFooter]) {
+        CollectionFooter1 *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:FOOTER_ID forIndexPath:indexPath];
+        
+        return footer;
+    }
+    return nil;
+}
+
+#pragma mark - menu
+
 -(void)selectedMenuItemAtIndex:(NSInteger)index{
     switch (index) {
         case MenuItemReload:
             [self reloadAll];
             break;
-            
+        case MenuItemInvalidateLayout:
+            [self invalidateAll];
+            break;
+        case MenuItemInvalidateHeader:
+            [self invalidateHeaderOnly];
+            break;
         default:
             break;
     }
@@ -93,7 +139,21 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 #pragma mark - reload crap
 
 - (void)reloadAll {
+    [self.collection reloadData];
+}
+
+- (void)invalidateAll {
+    [self.collection.collectionViewLayout invalidateLayout];
+}
+
+- (void)invalidateHeaderOnly {
     
+}
+
+#pragma mark - getters
+
+-(NSString *)headerId {
+    return HEADER_ID2;
 }
 
 @end

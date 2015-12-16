@@ -21,6 +21,11 @@
         [self.contentView addSubview:lbl];
         
         self.backgroundColor = [UIColor colorWithHex:random() & 0xffffff];
+        
+        UILabel *lbl2 = [[UILabel alloc] initWithFrame:(CGRect){{2, 2}, {0, 0}}];
+        lbl2.text = @"cell";
+        [lbl2 sizeToFit];
+        [self.contentView addSubview:lbl2];
     }
     return self;
 }
