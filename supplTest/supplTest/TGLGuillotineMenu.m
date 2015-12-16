@@ -297,7 +297,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.menuTitles.count;
 }
 
 
@@ -342,7 +342,7 @@
         [strongDelegate selectedMenuItemAtIndex:indexPath.row];
     }
     
-    [self presentController:[self.viewControllers objectAtIndex:indexPath.row]];
+//    [self presentController:[self.viewControllers objectAtIndex:indexPath.row]];
     self.navigationItem.title = [self.menuTitles objectAtIndex:indexPath.row];
     [self dismissMenu];
 }

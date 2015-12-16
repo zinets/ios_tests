@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TGLGuillotineMenu.h"
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController <TGLGuillotineMenuDelegate>
+@property (nonatomic, weak) TGLGuillotineMenu *menu;
 
 @end
 

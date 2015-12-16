@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SearchLayout.h"
 
-@interface CollectionDataSource : NSObject
+@protocol CollectionDataSourceProto <NSObject>
+- (NSInteger)numberOfSections;
+- (NSInteger)numberOfItemsInSection:(NSInteger)section;
+- (NSString *)textForItemAtIndexpath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface CollectionDataSource : NSObject <LayoutDataSource, CollectionDataSourceProto>
 
 @end
