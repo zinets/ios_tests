@@ -17,5 +17,5 @@
 @end
 
 @interface CollectionDataSource : NSObject <LayoutDataSource, CollectionDataSourceProto>
-
+@property (nonatomic, assign) BOOL check;
 @end

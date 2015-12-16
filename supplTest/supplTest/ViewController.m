@@ -15,7 +15,7 @@
 #import "CollectionHeader2.h"
 #import "CollectionFooter1.h"
 #import "SectionHeader.h"
-
+#import "CollectionBanner.h"
 
 @interface ViewController () <UICollectionViewDataSource> {
     SearchLayout *layout;
@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 #define HEADER_ID2 @"collection_header2"
 #define FOOTER_ID @"collection_footer"
 #define SECTION_HEADER_ID @"section_header"
+#define BANNER_ID @"banner"
 
 
 - (void)viewDidLoad {
@@ -78,10 +79,15 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
   forSupplementaryViewOfKind:SupplementaryKindSectionHeader
          withReuseIdentifier:SECTION_HEADER_ID];
     
+    // баннеры
+    [_collection registerNib:[UINib nibWithNibName:@"CollectionBanner" bundle:nil] forSupplementaryViewOfKind:SupplementaryKindBanner withReuseIdentifier:BANNER_ID];
+    
     [self.view addSubview:_collection];
     
     // buttons
     self.menu.menuTitles = MENU_ITEMS;
+    
+    _headerId = HEADER_ID1;
 }
 
 #pragma mark - delegation
@@ -114,6 +120,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
         CollectionFooter1 *footer = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:FOOTER_ID forIndexPath:indexPath];
         
         return footer;
+    } else if ([kind isEqualToString:SupplementaryKindBanner]) {
+        CollectionBanner *banner = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:BANNER_ID forIndexPath:indexPath];
+        
+        return banner;
     }
     return nil;
 }
@@ -147,13 +157,25 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 }
 
 - (void)invalidateHeaderOnly {
+    [self.collection performBatchUpdates:^{
+        dataSource.check = NO;
+        [self.collection.collectionViewLayout invalidateLayout];
+    } completion:^(BOOL finished) {
+        if ([_headerId isEqualToString:HEADER_ID1]) {
+            _headerId = HEADER_ID2;
+        } else {
+            _headerId = HEADER_ID1;
+        }
+        dataSource.check = YES;
+        [self.collection.collectionViewLayout invalidateLayout];
+    }];
+
     
-}
-
-#pragma mark - getters
-
--(NSString *)headerId {
-    return HEADER_ID2;
+//    UICollectionViewLayoutInvalidationContext *ctx = [UICollectionViewLayoutInvalidationContext new];
+//    _headerId = HEADER_ID2;
+    
+//    [ctx invalidateSupplementaryElementsOfKind:SupplementaryKindCollectionHeader atIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+//    [self.collection.collectionViewLayout invalidateLayoutWithContext:ctx];
 }
 
 @end

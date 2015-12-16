@@ -27,6 +27,8 @@
 		3B110B751C214B6B004B8F00 /* CollectionFooter1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B110B731C214B6B004B8F00 /* CollectionFooter1.xib */; };
 		3B110B791C21533A004B8F00 /* CollectionHeader2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B110B771C21533A004B8F00 /* CollectionHeader2.m */; };
 		3B110B7A1C21533A004B8F00 /* CollectionHeader2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B110B781C21533A004B8F00 /* CollectionHeader2.xib */; };
+		3B110B7E1C21639C004B8F00 /* CollectionBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B110B7C1C21639C004B8F00 /* CollectionBanner.m */; };
+		3B110B7F1C21639C004B8F00 /* CollectionBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B110B7D1C21639C004B8F00 /* CollectionBanner.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,9 @@
 		3B110B761C21533A004B8F00 /* CollectionHeader2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeader2.h; sourceTree = "<group>"; };
 		3B110B771C21533A004B8F00 /* CollectionHeader2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeader2.m; sourceTree = "<group>"; };
 		3B110B781C21533A004B8F00 /* CollectionHeader2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeader2.xib; sourceTree = "<group>"; };
+		3B110B7B1C21639C004B8F00 /* CollectionBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionBanner.h; sourceTree = "<group>"; };
+		3B110B7C1C21639C004B8F00 /* CollectionBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionBanner.m; sourceTree = "<group>"; };
+		3B110B7D1C21639C004B8F00 /* CollectionBanner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionBanner.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,9 @@
 				3B110B761C21533A004B8F00 /* CollectionHeader2.h */,
 				3B110B771C21533A004B8F00 /* CollectionHeader2.m */,
 				3B110B781C21533A004B8F00 /* CollectionHeader2.xib */,
+				3B110B7B1C21639C004B8F00 /* CollectionBanner.h */,
+				3B110B7C1C21639C004B8F00 /* CollectionBanner.m */,
+				3B110B7D1C21639C004B8F00 /* CollectionBanner.xib */,
 			);
 			name = collection;
 			sourceTree = "<group>";
@@ -221,6 +229,7 @@
 				3B110B471C205BD7004B8F00 /* Main.storyboard in Resources */,
 				3B110B751C214B6B004B8F00 /* CollectionFooter1.xib in Resources */,
 				3B110B681C2139AF004B8F00 /* menuButton@2x.png in Resources */,
+				3B110B7F1C21639C004B8F00 /* CollectionBanner.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +249,7 @@
 				3B110B791C21533A004B8F00 /* CollectionHeader2.m in Sources */,
 				3B110B561C205CC2004B8F00 /* SearchLayout.m in Sources */,
 				3B110B661C213847004B8F00 /* TGLGuillotineMenu.m in Sources */,
+				3B110B7E1C21639C004B8F00 /* CollectionBanner.m in Sources */,
 				3B110B411C205BD7004B8F00 /* AppDelegate.m in Sources */,
 				3B110B631C205F4E004B8F00 /* CollectionViewCell.m in Sources */,
 				3B110B741C214B6B004B8F00 /* CollectionFooter1.m in Sources */,
