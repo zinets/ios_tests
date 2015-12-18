@@ -14,6 +14,12 @@
 		3B38AEB81C24380F00078618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEB71C24380F00078618 /* Assets.xcassets */; };
 		3B38AEBB1C24380F00078618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEB91C24380F00078618 /* LaunchScreen.storyboard */; };
 		3B38AEC31C2438DD00078618 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEC21C2438DD00078618 /* bg@2x.png */; };
+		3B38AEC71C24408000078618 /* PageLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AEC61C24408000078618 /* PageLayout.m */; };
+		3B38AECD1C24413100078618 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AECC1C24413100078618 /* UIColor+MUIColor.m */; };
+		3B38AED01C24414100078618 /* BookmarkCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AECF1C24414100078618 /* BookmarkCellAttributes.m */; };
+		3B38AED31C2441E500078618 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AED21C2441E500078618 /* UIView+Geometry.m */; };
+		3B38AED71C2442DE00078618 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AED51C2442DE00078618 /* CollectionViewCell.m */; };
+		3B38AED81C2442DE00078618 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AED61C2442DE00078618 /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,17 @@
 		3B38AEBA1C24380F00078618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B38AEBC1C24380F00078618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B38AEC21C2438DD00078618 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		3B38AEC51C24408000078618 /* PageLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageLayout.h; sourceTree = "<group>"; };
+		3B38AEC61C24408000078618 /* PageLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageLayout.m; sourceTree = "<group>"; };
+		3B38AECB1C24413100078618 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		3B38AECC1C24413100078618 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		3B38AECE1C24414100078618 /* BookmarkCellAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkCellAttributes.h; sourceTree = "<group>"; };
+		3B38AECF1C24414100078618 /* BookmarkCellAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkCellAttributes.m; sourceTree = "<group>"; };
+		3B38AED11C2441E500078618 /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
+		3B38AED21C2441E500078618 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
+		3B38AED41C2442DE00078618 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		3B38AED51C2442DE00078618 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		3B38AED61C2442DE00078618 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +77,11 @@
 		3B38AEAA1C24380F00078618 /* NYQ */ = {
 			isa = PBXGroup;
 			children = (
+				3B38AED11C2441E500078618 /* UIView+Geometry.h */,
+				3B38AED21C2441E500078618 /* UIView+Geometry.m */,
+				3B38AECB1C24413100078618 /* UIColor+MUIColor.h */,
+				3B38AECC1C24413100078618 /* UIColor+MUIColor.m */,
+				3B38AEC41C24407500078618 /* collection */,
 				3B38AEAE1C24380F00078618 /* AppDelegate.h */,
 				3B38AEAF1C24380F00078618 /* AppDelegate.m */,
 				3B38AEB11C24380F00078618 /* ViewController.h */,
@@ -80,6 +102,20 @@
 				3B38AEAC1C24380F00078618 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B38AEC41C24407500078618 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				3B38AECE1C24414100078618 /* BookmarkCellAttributes.h */,
+				3B38AECF1C24414100078618 /* BookmarkCellAttributes.m */,
+				3B38AEC51C24408000078618 /* PageLayout.h */,
+				3B38AEC61C24408000078618 /* PageLayout.m */,
+				3B38AED41C2442DE00078618 /* CollectionViewCell.h */,
+				3B38AED51C2442DE00078618 /* CollectionViewCell.m */,
+				3B38AED61C2442DE00078618 /* CollectionViewCell.xib */,
+			);
+			name = collection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +180,7 @@
 				3B38AEB81C24380F00078618 /* Assets.xcassets in Resources */,
 				3B38AEC31C2438DD00078618 /* bg@2x.png in Resources */,
 				3B38AEB61C24380F00078618 /* Main.storyboard in Resources */,
+				3B38AED81C2442DE00078618 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,8 +191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B38AED31C2441E500078618 /* UIView+Geometry.m in Sources */,
+				3B38AECD1C24413100078618 /* UIColor+MUIColor.m in Sources */,
+				3B38AEC71C24408000078618 /* PageLayout.m in Sources */,
 				3B38AEB31C24380F00078618 /* ViewController.m in Sources */,
+				3B38AED01C24414100078618 /* BookmarkCellAttributes.m in Sources */,
 				3B38AEB01C24380F00078618 /* AppDelegate.m in Sources */,
+				3B38AED71C2442DE00078618 /* CollectionViewCell.m in Sources */,
 				3B38AEAD1C24380F00078618 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
