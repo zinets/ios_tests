@@ -9,10 +9,16 @@
 #import "CollectionViewCell.h"
 #import "UIColor+MUIColor.h"
 
-@implementation CollectionViewCell
+@implementation CollectionViewCell {    
+    __weak IBOutlet UIImageView *_imageView;
+}
 
 - (void)awakeFromNib {
     self.contentView.backgroundColor = [UIColor colorWithHex:random()];
+}
+
+-(void)setImage:(UIImage *)image {
+    _imageView.backgroundColor = [UIColor colorWithHex:random()];
 }
 
 @end
