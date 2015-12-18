@@ -14,7 +14,7 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         UILabel *lbl = [[UILabel alloc] initWithFrame:(CGRect){{3, 3}, {0, 0}}];
-        lbl.text = @"collection header";
+        lbl.text = @"я - collection banner";
         [lbl sizeToFit];
         [self addSubview:lbl];
         

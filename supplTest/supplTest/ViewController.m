@@ -17,12 +17,12 @@
 #import "SectionHeader.h"
 #import "CollectionBanner.h"
 
-@interface ViewController () <UICollectionViewDataSource> {
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     SearchLayout *layout;
     CollectionDataSource *dataSource;
 }
 @property (nonatomic, strong) UICollectionView *collection;
-@property (nonatomic, strong) NSString *headerId;
+
 @end
 
 typedef NS_ENUM(NSUInteger, MenuItem) {
@@ -37,8 +37,8 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 
 
 #define CELL_ID @"cell_id"
-#define HEADER_ID1 @"collection_header"
-#define HEADER_ID2 @"collection_header2"
+#define HEADER_ID_BANNER @"collection_header"
+#define HEADER_ID_FLIRTCAST @"collection_header2"
 #define FOOTER_ID @"collection_footer"
 #define SECTION_HEADER_ID @"section_header"
 #define BANNER_ID @"banner"
@@ -57,18 +57,19 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     
     _collection = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     _collection.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    _collection.backgroundColor = [UIColor colorWithHex:0x83d812];
+    _collection.backgroundColor = [UIColor lightGrayColor];
     
     _collection.dataSource = self;
+    _collection.delegate = self;
     
     // ячейка
     [_collection registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
     
     // заголовок таблицы
-    [_collection registerClass:[CollectionHeader class] forSupplementaryViewOfKind:SupplementaryKindCollectionHeader withReuseIdentifier:HEADER_ID1];
+    [_collection registerClass:[CollectionHeader class] forSupplementaryViewOfKind:SupplementaryKindCollectionHeaderBanner withReuseIdentifier:HEADER_ID_BANNER];
     [_collection registerNib:[UINib nibWithNibName:@"CollectionHeader2" bundle:nil]
-  forSupplementaryViewOfKind:SupplementaryKindCollectionHeader
-         withReuseIdentifier:HEADER_ID2];
+  forSupplementaryViewOfKind:SupplementaryKindCollectionHeaderFlirtcast
+         withReuseIdentifier:HEADER_ID_FLIRTCAST];
     // футер таблицы
     [_collection registerNib:[UINib nibWithNibName:@"CollectionFooter1" bundle:nil]
   forSupplementaryViewOfKind:SupplementaryKindCollectionFooter
@@ -86,8 +87,6 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
     
     // buttons
     self.menu.menuTitles = MENU_ITEMS;
-    
-    _headerId = HEADER_ID1;
 }
 
 #pragma mark - delegation
@@ -108,8 +107,12 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString:SupplementaryKindCollectionHeader]) {
-        CollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:self.headerId forIndexPath:indexPath];
+    if ([kind isEqualToString:SupplementaryKindCollectionHeaderBanner]) {
+        CollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:HEADER_ID_BANNER forIndexPath:indexPath];
+        
+        return header;
+    } else if ([kind isEqualToString:SupplementaryKindCollectionHeaderFlirtcast]) {
+        CollectionHeader *header = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:HEADER_ID_FLIRTCAST forIndexPath:indexPath];
         
         return header;
     } else if ([kind isEqualToString:SupplementaryKindSectionHeader]) {
@@ -126,6 +129,10 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
         return banner;
     }
     return nil;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self invalidateHeaderOnly];
 }
 
 #pragma mark - menu
@@ -157,25 +164,20 @@ typedef NS_ENUM(NSUInteger, MenuItem) {
 }
 
 - (void)invalidateHeaderOnly {
+    CATransition *a = [CATransition animation];
+//    [self.collection.layer addAnimation:a forKey:@""];
+    
+    static int c = 0;
     [self.collection performBatchUpdates:^{
-        dataSource.check = NO;
+        dataSource.flirtcastVisible = c++ % 3 == 0;;
+        dataSource.headerBannerVisible = c % 2 == 0;
         [self.collection.collectionViewLayout invalidateLayout];
+        
     } completion:^(BOOL finished) {
-        if ([_headerId isEqualToString:HEADER_ID1]) {
-            _headerId = HEADER_ID2;
-        } else {
-            _headerId = HEADER_ID1;
-        }
-        dataSource.check = YES;
-        [self.collection.collectionViewLayout invalidateLayout];
+        
     }];
 
     
-//    UICollectionViewLayoutInvalidationContext *ctx = [UICollectionViewLayoutInvalidationContext new];
-//    _headerId = HEADER_ID2;
-    
-//    [ctx invalidateSupplementaryElementsOfKind:SupplementaryKindCollectionHeader atIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
-//    [self.collection.collectionViewLayout invalidateLayoutWithContext:ctx];
 }
 
 @end

@@ -31,24 +31,26 @@
 }
 
 -(CGSize)layout:(UICollectionViewLayout *)layout supplementarySizeForKind:(NSString *)kind forIndexpath:(NSIndexPath *)indexPath {
+    CGSize res = CGSizeZero;
     if ([kind isEqualToString:SupplementaryKindBanner]) {
         if (indexPath.row == 0) {
-            return (CGSize){320, 50};
+            res = (CGSize){320, 50};
         } else {
-            return (CGSize){212, 212};
+            res = (CGSize){212, 212};
         }
-    } else if ([kind isEqualToString:SupplementaryKindCollectionHeader]) {
-        return (CGSize){320, self.check ? 100 : 0};
-    } else {
-        return (CGSize){320, 100};
+    } else if ([kind isEqualToString:SupplementaryKindCollectionHeaderBanner] && self.headerBannerVisible) {
+        res = (CGSize){320, 70};
+    } else if ([kind isEqualToString:SupplementaryKindCollectionHeaderFlirtcast] && self.flirtcastVisible) {
+        res = (CGSize){320, 70};
     }
+    return res;
 }
 
 - (NSInteger)layout:(UICollectionViewLayout *)layout numberOfBannersInSection:(NSInteger)section {
     NSInteger res = 0;
     switch (section) {
         case 0:
-            res = self.check ? 2 : 1;
+            res = 2;
             break;
         case 1:
             res = 1;

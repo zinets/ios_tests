@@ -17,5 +17,6 @@
 @end
 
 @interface CollectionDataSource : NSObject <LayoutDataSource, CollectionDataSourceProto>
-@property (nonatomic, assign) BOOL check;
+@property (nonatomic, assign) BOOL flirtcastVisible;
+@property (nonatomic, assign) BOOL headerBannerVisible;
 @end
