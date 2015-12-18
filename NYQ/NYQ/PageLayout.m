@@ -51,13 +51,13 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.itemSize = (CGSize){250, 250};
+        self.itemSize = (CGSize){256, 256};
         self.minimumInteritemSpacing = 0;
         self.minimumLineSpacing = 0;
-        self.sectionInset = (UIEdgeInsets){9, 9, 9, 9};
+        self.sectionInset = (UIEdgeInsets){0, 0, 0, 0};
         
         self.scrollingSpeed = 300.f;
-        self.scrollingEdgeInsets = (UIEdgeInsets){8, 8, 8, 8};
+        self.scrollingEdgeInsets = UIEdgeInsetsZero;
     }
     return self;
 }

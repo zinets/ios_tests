@@ -13,17 +13,44 @@
 
 @interface ViewController () <UICollectionViewDataSource, PageLayoutProto> {
     UICollectionView *_collection;
+    NSMutableArray <UIImage *>*slices;
 }
 
 @end
 
 #define CELL_ID @"cell"
 
+#warning добавить по тапу что-то - например пожелания
+
 @implementation ViewController
+
+#pragma mark - images loading
+
+- (UIImage *)croppedImage:(CGRect)bounds from:(UIImage *)source{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([source CGImage], bounds);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return croppedImage;
+}
+
+- (void)fillImages {
+    slices = [NSMutableArray arrayWithCapacity:12];
+    UIImage *srcImage = [UIImage imageNamed:@"pic"];
+    for (int x = 0; x < 3; x++) {
+        for (int y = 0; y < 4; y++) {
+            CGRect frm = (CGRect){{x * 256, y * 256}, {256, 256}};
+            [slices addObject:[self croppedImage:frm from:srcImage]];
+        }
+    }
+}
+
+#pragma mark -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self fillImages];
+    
     PageLayout *layout = [PageLayout new];
     layout.delegate = self;
     
@@ -49,7 +76,8 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
-    cell.image = nil;
+
+    cell.image = slices[indexPath.item];
     
     return cell;
 }
@@ -71,7 +99,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 - (void)collectionView:(UICollectionView *)collectionView
      didMoveItemAtPath:(NSIndexPath *)fromIndex
                 toPath:(NSIndexPath *)toIndex {
-    
+    [slices exchangeObjectAtIndex:fromIndex.item withObjectAtIndex:toIndex.item];
 }
 
 @end

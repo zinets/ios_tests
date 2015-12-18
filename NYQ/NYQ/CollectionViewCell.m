@@ -18,7 +18,11 @@
 }
 
 -(void)setImage:(UIImage *)image {
-    _imageView.backgroundColor = [UIColor colorWithHex:random()];
+    if (image) {
+        _imageView.image = image;
+    } else {
+        _imageView.backgroundColor = [UIColor colorWithHex:random()];
+    }
 }
 
 @end
