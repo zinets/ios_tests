@@ -51,13 +51,13 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.itemSize = (CGSize){256, 256};
+        self.itemSize = (CGSize){250, 250};
         self.minimumInteritemSpacing = 0;
         self.minimumLineSpacing = 0;
-        self.sectionInset = (UIEdgeInsets){0, 0, 0, 0};
+        self.sectionInset = (UIEdgeInsets){9, 9, 9, 9};
         
         self.scrollingSpeed = 300.f;
-        self.scrollingEdgeInsets = (UIEdgeInsets){0, 0, 0, 0};
+        self.scrollingEdgeInsets = (UIEdgeInsets){8, 8, 8, 8};
     }
     return self;
 }
@@ -87,11 +87,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         [self setupGestures];
     }
     
-    if (CGRectIsLandscape(self.collectionView.bounds)) {
-        self.sectionInset = (UIEdgeInsets){0, 0, 0, 0};
-    } else {
-        self.sectionInset = (UIEdgeInsets){0, 0, 0, 0};
-    }
+//    if (CGRectIsLandscape(self.collectionView.bounds)) {
+//        self.sectionInset = (UIEdgeInsets){8, 8, 8, 8};
+//    } else {
+//        self.sectionInset = (UIEdgeInsets){8, 8, 8, 8};
+//    }
 }
 
 #pragma mark - setters
@@ -346,8 +346,10 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
             }
             [_fakeCell removeFromSuperview];
             
-#warning TODO            StartBookmarkCell *cell = (StartBookmarkCell *)[self.collectionView cellForItemAtIndexPath:index];
-//            _fakeCell = [cell makeSnapshoot];
+            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:index];
+            _fakeCell = [cell snapshotViewAfterScreenUpdates:NO];
+            _fakeCell.frame = cell.frame;
+            
             [self.collectionView addSubview:_fakeCell];
             fakeCellCenter = _fakeCell.center;
             [UIView animateWithDuration:0.2 animations:^{

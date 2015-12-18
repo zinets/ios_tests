@@ -11,7 +11,7 @@
 #import "PageLayout.h"
 #import "CollectionViewCell.h"
 
-@interface ViewController () <UICollectionViewDataSource> {
+@interface ViewController () <UICollectionViewDataSource, PageLayoutProto> {
     UICollectionView *_collection;
 }
 
@@ -25,8 +25,11 @@
     [super viewDidLoad];
 
     PageLayout *layout = [PageLayout new];
+    layout.delegate = self;
+    
     _collection = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     _collection.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _collection.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_collection];
     
     [_collection registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:CELL_ID];
@@ -47,9 +50,28 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     
+    
     return cell;
 }
 
+#pragma mark - moving delegation
 
+- (BOOL)collectionView:(UICollectionView *)collectionView
+canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView
+canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+           toIndexPath:(NSIndexPath *)toIndexPath {
+    return YES;
+}
+
+/// ячейки поменялись местами - нужно обновить датасорс
+- (void)collectionView:(UICollectionView *)collectionView
+     didMoveItemAtPath:(NSIndexPath *)fromIndex
+                toPath:(NSIndexPath *)toIndex {
+    
+}
 
 @end

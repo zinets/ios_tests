@@ -82,15 +82,8 @@
 				3B38AECB1C24413100078618 /* UIColor+MUIColor.h */,
 				3B38AECC1C24413100078618 /* UIColor+MUIColor.m */,
 				3B38AEC41C24407500078618 /* collection */,
-				3B38AEAE1C24380F00078618 /* AppDelegate.h */,
-				3B38AEAF1C24380F00078618 /* AppDelegate.m */,
 				3B38AEB11C24380F00078618 /* ViewController.h */,
 				3B38AEB21C24380F00078618 /* ViewController.m */,
-				3B38AEB41C24380F00078618 /* Main.storyboard */,
-				3B38AEB71C24380F00078618 /* Assets.xcassets */,
-				3B38AEB91C24380F00078618 /* LaunchScreen.storyboard */,
-				3B38AEBC1C24380F00078618 /* Info.plist */,
-				3B38AEC21C2438DD00078618 /* bg@2x.png */,
 				3B38AEAB1C24380F00078618 /* Supporting Files */,
 			);
 			path = NYQ;
@@ -99,6 +92,13 @@
 		3B38AEAB1C24380F00078618 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B38AEAE1C24380F00078618 /* AppDelegate.h */,
+				3B38AEAF1C24380F00078618 /* AppDelegate.m */,
+				3B38AEB41C24380F00078618 /* Main.storyboard */,
+				3B38AEB71C24380F00078618 /* Assets.xcassets */,
+				3B38AEB91C24380F00078618 /* LaunchScreen.storyboard */,
+				3B38AEBC1C24380F00078618 /* Info.plist */,
+				3B38AEC21C2438DD00078618 /* bg@2x.png */,
 				3B38AEAC1C24380F00078618 /* main.m */,
 			);
 			name = "Supporting Files";
