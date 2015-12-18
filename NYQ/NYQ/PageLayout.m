@@ -99,11 +99,6 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 -(void)setEditingMode:(BOOL)editingMode {
     if (editingMode != _editingMode) {
         _editingMode = editingMode;
-        if (_editingMode && [self.delegate respondsToSelector:@selector(collectionViewWillStartEditing:)]) {
-            [self.delegate collectionViewWillStartEditing:self.collectionView];
-        } else if (!_editingMode && [self.delegate respondsToSelector:@selector(collectionViewDidEndEditing:)]) {
-            [self.delegate collectionViewDidEndEditing:self.collectionView];
-        }
         [self invalidateLayout];
     }
 }
@@ -162,11 +157,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 - (CGFloat)shiftValue {
-    if ([self.delegate respondsToSelector:@selector(directionForChangingLayout:)]) {
-        return [self.delegate directionForChangingLayout:self.collectionView] == ChangeLayoutDirectionToLeft ? -500 : 500;
-    } else {
         return -100;
-    }
 }
 
 -(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
@@ -409,6 +400,12 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 -(void)handleTap:(UITapGestureRecognizer *)sender {
     self.editingMode = NO;
+    if ([self.delegate respondsToSelector:@selector(wasTapAt:)]) {
+        CGPoint pt = [sender locationInView:self.collectionView];
+        NSIndexPath * path = [self.collectionView indexPathForItemAtPoint:pt];
+        if (path)
+            [self.delegate wasTapAt:path];
+    }
 }
 
 #pragma mark - timer

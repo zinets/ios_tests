@@ -99,7 +99,14 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 - (void)collectionView:(UICollectionView *)collectionView
      didMoveItemAtPath:(NSIndexPath *)fromIndex
                 toPath:(NSIndexPath *)toIndex {
-    [slices exchangeObjectAtIndex:fromIndex.item withObjectAtIndex:toIndex.item];
+    UIImage *fromImage = slices[fromIndex.item];
+    [slices removeObject:fromImage];
+    [slices insertObject:fromImage atIndex:toIndex.item];
 }
+
+- (void)wasTapAt:(NSIndexPath *)indexPath {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
 
 @end

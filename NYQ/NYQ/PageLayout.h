@@ -28,12 +28,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 - (void)collectionView:(UICollectionView *)collectionView
      didMoveItemAtPath:(NSIndexPath *)fromIndex
                 toPath:(NSIndexPath *)toIndex;
-@optional
-/// начинаем/кончаем редактировать закладки
-- (void)collectionViewWillStartEditing:(UICollectionView *)collectionView;
-- (void)collectionViewDidEndEditing:(UICollectionView *)collectionView;
-// на случай, если мы хотим анимировать смену режима сдвигом влево-вправо - раскладка ничего не знает о текущем режиме, так что ей надо подсказать, в какую сторону смещать "старые" и "новые" элементы
-- (ChangeLayoutDirection)directionForChangingLayout:(UICollectionView *)collectionView;
+- (void)wasTapAt:(NSIndexPath *)indexPath;
 @end
 
 
