@@ -7,7 +7,6 @@
 //
 
 #import "CollectionViewCell.h"
-#import "UIColor+MUIColor.h"
 
 @implementation CollectionViewCell {    
     __weak IBOutlet UIImageView *_imageView;

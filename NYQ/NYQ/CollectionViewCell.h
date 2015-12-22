@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+MUIColor.h"
 
 @interface CollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIImage *image;

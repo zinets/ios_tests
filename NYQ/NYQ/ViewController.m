@@ -15,7 +15,7 @@
     UICollectionView *_collection;
     NSMutableArray <UIImage *>*slices;
 }
-
+//@property (nonatomic) NSInteger
 @end
 
 #define CELL_ID @"cell"
@@ -33,12 +33,36 @@
     return croppedImage;
 }
 
+- (UIImage *)loadImage:(NSString *)fn {
+    UIImage *img = [UIImage imageNamed:fn];
+    
+    CGSize sz = img.size;
+    CGSize destSize = [UIScreen mainScreen].bounds.size;
+    
+    UIGraphicsBeginImageContextWithOptions(destSize, YES, 0);
+    
+    CGFloat hRatio = destSize.width / sz.width;
+    CGFloat vRatio = destSize.height / sz.height;
+    CGPoint origin = CGPointZero;
+    if (hRatio < vRatio) {
+        sz = CGSizeApplyAffineTransform(sz, CGAffineTransformMakeScale(vRatio, vRatio));
+        origin.x = (destSize.width - sz.width) / 2;
+    } else {
+        sz = CGSizeApplyAffineTransform(sz, CGAffineTransformMakeScale(hRatio, hRatio));
+        origin.y = (destSize.height - sz.height) / 2;
+    }
+    [img drawInRect:(CGRect){origin, sz}];
+    UIImage *res = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return res;
+}
+
 - (void)fillImages {
     slices = [NSMutableArray arrayWithCapacity:12];
-    UIImage *srcImage = [UIImage imageNamed:@"pic"];
-    for (int x = 0; x < 3; x++) {
-        for (int y = 0; y < 4; y++) {
-            CGRect frm = (CGRect){{x * 256, y * 256}, {256, 256}};
+    UIImage *srcImage = [self loadImage:@"calendar-2016.jpg"];
+    for (int y = 0; y < 4; y++) {
+        for (int x = 0; x < 3; x++) {
+            CGRect frm = (CGRect){{x * 512, y * 512}, {512, 512}};
             [slices addObject:[self croppedImage:frm from:srcImage]];
         }
     }
@@ -105,7 +129,23 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (void)wasTapAt:(NSIndexPath *)indexPath {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    UICollectionViewCell * cell = [_collection cellForItemAtIndexPath:indexPath];
+
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    cell.layer.zPosition = 100;
+    
+    CATransform3D transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+    transform.m34 = 1.0 / 800.0;
+    
+    [animation setToValue:[NSValue valueWithCATransform3D:transform]];
+    [animation setDuration:.75];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [animation setFillMode:kCAFillModeForwards];
+    [animation setAutoreverses:YES];
+    [animation setRemovedOnCompletion:YES];
+    [animation setDelegate:self];
+    
+    [cell.layer addAnimation:animation forKey:@"test"];
 }
 
 
