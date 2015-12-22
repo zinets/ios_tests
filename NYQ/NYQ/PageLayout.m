@@ -163,8 +163,10 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 -(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
     UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
-    if (!self.editingMode) {
-        attr.center = (CGPoint){self.shiftValue, attr.center.y};
+    if ([_indexPathsToAnimate containsObject:itemIndexPath]) {
+        attr.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(0.2, 0.2), M_PI);
+        attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMaxY(self.collectionView.bounds));
+        [_indexPathsToAnimate removeObject:itemIndexPath];
     }
     return attr;
 }
@@ -180,10 +182,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     } else {
         attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
     }
-    attr = [attr copy];
 
-    if (!self.editingMode) {
-        attr.center = (CGPoint){-self.shiftValue, attr.center.y};
+    if ([_indexPathsToAnimate containsObject:itemIndexPath]) {
+        attr.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.2, 1.2), M_PI);
+        attr.center = CGPointMake(CGRectGetMidX(self.collectionView.bounds), CGRectGetMaxY(self.collectionView.bounds));
+        [_indexPathsToAnimate removeObject:itemIndexPath];
     }
     return attr;
 }

@@ -19,6 +19,7 @@
 @property (nonatomic) NSInteger cols;
 @property (nonatomic) NSInteger rows;
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic) BOOL mixedMode;
 @end
 
 #define CELL_ID @"cell"
@@ -36,7 +37,7 @@
     return croppedImage;
 }
 
-- (UIImage *)loadImage:(NSString *)fn {
+- (UIImage *)loadImage:(NSString *)fn{
     UIImage *img = [UIImage imageNamed:fn];
     
     CGSize sz = img.size;
@@ -55,8 +56,44 @@
         origin.y = (destSize.height - sz.height) / 2;
     }
     [img drawInRect:(CGRect){origin, sz}];
+    
+    if (self.mixedMode) {
+        CGPoint startPoint = CGPointZero;
+        CGPoint points[4] = {(CGPoint){256 - 100, 256 - 50},
+            (CGPoint){512 - 50, 512 - 100},
+            (CGPoint){256 - 50, 768 - 50},
+            (CGPoint){768 - 100, 768 - 50}};
+        NSInteger code[4] = {1, 7, 9, 3};
+
+        UIFont *font = [UIFont boldSystemFontOfSize:48];
+        UIColor *clr = [UIColor blackColor];
+        NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        style.alignment = NSTextAlignmentCenter;
+        NSDictionary *dict = @{NSFontAttributeName : font,
+                               NSForegroundColorAttributeName : clr,
+                               NSParagraphStyleAttributeName : style};
+        
+        for (int x = 0; x < 4; x++) {
+            CGPoint pt = points[x];
+            CGRect rect = (CGRect){pt, {100, 100}};
+            UIBezierPath *rectanglePath = [UIBezierPath bezierPathWithOvalInRect:rect];
+            [[UIColor yellowColor] setFill];
+            [rectanglePath fill];
+            
+            pt.y = (CGRectGetMidY(rect) - (font.lineHeight / 2));
+            [[NSString stringWithFormat:@"%@", @(code[x])] drawInRect:(CGRect){pt, {100, 100}} withAttributes:dict];
+            
+//            if (!CGPointEqualToPoint(CGPointZero, startPoint)) {
+//                UIBezierPath *arrow = [UIBezierPath bezierPath];
+//                arrow moveToPoint:<#(CGPoint)#>
+//            }
+            
+        }
+    }
+    
     UIImage *res = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
     return res;
 }
 
@@ -69,7 +106,11 @@
     for (int y = 0; y < self.rows; y++) {
         for (int x = 0; x < self.cols; x++) {
             CGRect frm = (CGRect){{x * csz.width, y * csz.height}, csz};
-            [slices addObject:[self croppedImage:frm from:srcImage]];
+            if (self.mixedMode) {
+                [slices insertObject:[self croppedImage:frm from:srcImage] atIndex:0];
+            } else {
+                [slices addObject:[self croppedImage:frm from:srcImage]];
+            }
         }
     }
 }
@@ -80,6 +121,7 @@
     [super viewDidLoad];
     _cols = 3;
     _rows = 4;
+    
     self.imageName = @"Beautiful-Christmas-Tree-Wallpapers-7.jpg";
     [self fillImages:self.imageName];
     
@@ -104,24 +146,16 @@
     
 }
 
-//-(void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    
-//    [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(swapCells:) userInfo:nil repeats:NO];
-//}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(swapCells:) userInfo:nil repeats:NO];
+}
 
 - (void)swapCells:(id)sender {
-    NSInteger count = self.cols * self.rows;
-    
-    for (int x = 0; x < 1; x++) {
-        NSInteger idx1 = 0;//random() % count;
-        NSInteger idx2 = 2;//random() % count;
-        
-        [slices exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
-        NSIndexPath *p1 = [NSIndexPath indexPathForItem:idx1 inSection:0];
-        NSIndexPath *p2 = [NSIndexPath indexPathForItem:idx2 inSection:0];
-        [_collection reloadItemsAtIndexPaths:@[p1, p2]];
-    }
+    self.mixedMode = YES;
+    [self fillImages:self.imageName];
+    [_collection reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
 #pragma mark - setters
@@ -152,7 +186,7 @@
 #pragma mark - collection
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.cols * self.rows;
+    return slices.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
