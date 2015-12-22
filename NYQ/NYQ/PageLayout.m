@@ -98,6 +98,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 
 -(void)setEditingMode:(BOOL)editingMode {
     if (editingMode != _editingMode) {
+        NSLog(@"%s - %@", __PRETTY_FUNCTION__, @(editingMode));
         _editingMode = editingMode;
         [self invalidateLayout];
     }
@@ -161,7 +162,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 }
 
 -(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-    UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+    UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
     if (!self.editingMode) {
         attr.center = (CGPoint){self.shiftValue, attr.center.y};
     }
@@ -280,46 +281,53 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
         return self.fromIndexPath != nil;
     }
     if ([gestureRecognizer isEqual:tapRecognizer]) {
-        return self.editingMode;
+        return YES;//self.editingMode;
     }
     return YES;
 }
 
 - (void)handlePanGesture:(UIPanGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateChanged) {
-        fingerPos = [sender translationInView:self.collectionView];
-        _fakeCell.center = CGPointAdd(fakeCellCenter, fingerPos);
-        
-        if ([self scrollDirection] == UICollectionViewScrollDirectionVertical) {
-            if (_fakeCell.center.y < (CGRectGetMinY(self.collectionView.bounds) + self.scrollingEdgeInsets.top)) {
-                [self setupScrollTimerInDirection:ScrollDirectionUp];
-            } else {
-                if (_fakeCell.center.y > (CGRectGetMaxY(self.collectionView.bounds) - self.scrollingEdgeInsets.bottom)) {
-                    [self setupScrollTimerInDirection:ScrollDirectionDown];
-                }
-                else {
-                    [self invalidatesScrollTimer];
-                }
-            }
-        } else {
-            if (_fakeCell.center.x < (CGRectGetMinX(self.collectionView.bounds) + self.scrollingEdgeInsets.left)) {
-                [self setupScrollTimerInDirection:ScrollDirectionLeft];
-            } else {
-                if (_fakeCell.center.x > (CGRectGetMaxX(self.collectionView.bounds) - self.scrollingEdgeInsets.right)) {
-                    [self setupScrollTimerInDirection:ScrollDirectionRight];
+    switch (sender.state) {
+        case UIGestureRecognizerStateChanged: {
+            fingerPos = [sender translationInView:self.collectionView];
+            _fakeCell.center = CGPointAdd(fakeCellCenter, fingerPos);
+            
+            if ([self scrollDirection] == UICollectionViewScrollDirectionVertical) {
+                if (_fakeCell.center.y < (CGRectGetMinY(self.collectionView.bounds) + self.scrollingEdgeInsets.top)) {
+                    [self setupScrollTimerInDirection:ScrollDirectionUp];
                 } else {
-                    [self invalidatesScrollTimer];
+                    if (_fakeCell.center.y > (CGRectGetMaxY(self.collectionView.bounds) - self.scrollingEdgeInsets.bottom)) {
+                        [self setupScrollTimerInDirection:ScrollDirectionDown];
+                    }
+                    else {
+                        [self invalidatesScrollTimer];
+                    }
+                }
+            } else {
+                if (_fakeCell.center.x < (CGRectGetMinX(self.collectionView.bounds) + self.scrollingEdgeInsets.left)) {
+                    [self setupScrollTimerInDirection:ScrollDirectionLeft];
+                } else {
+                    if (_fakeCell.center.x > (CGRectGetMaxX(self.collectionView.bounds) - self.scrollingEdgeInsets.right)) {
+                        [self setupScrollTimerInDirection:ScrollDirectionRight];
+                    } else {
+                        [self invalidatesScrollTimer];
+                    }
                 }
             }
-        }
-        
-        if (scrollDirection > ScrollDirectionUnknown) {
-            return;
-        }
-        
-        CGPoint point = [sender locationInView:self.collectionView];
-        NSIndexPath *indexPath = [self indexPathForItemClosestToPoint:point];
-        [self warpToIndexPath:indexPath];
+            
+            if (scrollDirection > ScrollDirectionUnknown) {
+                return;
+            }
+            
+            CGPoint point = [sender locationInView:self.collectionView];
+            NSIndexPath *indexPath = [self indexPathForItemClosestToPoint:point];
+            [self warpToIndexPath:indexPath];
+        } break;
+        case UIGestureRecognizerStateEnded:
+            self.editingMode = NO;
+            break;
+        default:
+            break;
     }
 }
 
