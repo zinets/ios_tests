@@ -16,18 +16,28 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X7r-Py-M88">
                         <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRg-59-xin">
+                        <rect key="frame" x="10" y="8" width="150" height="33"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                        <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="X7r-Py-M88" secondAttribute="bottom" id="D6U-RE-jP3"/>
                 <constraint firstItem="X7r-Py-M88" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HwG-Fq-Tv1"/>
+                <constraint firstItem="qRg-59-xin" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="LqD-Eh-Rdk"/>
+                <constraint firstItem="qRg-59-xin" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="QJx-z5-nZH"/>
                 <constraint firstItem="X7r-Py-M88" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XuM-6S-gaj"/>
                 <constraint firstAttribute="trailing" secondItem="X7r-Py-M88" secondAttribute="trailing" id="cGc-zx-dLn"/>
+                <constraint firstAttribute="trailing" secondItem="qRg-59-xin" secondAttribute="trailing" constant="10" id="kk0-5b-oAP"/>
             </constraints>
             <size key="customSize" width="170" height="170"/>
             <connections>
                 <outlet property="_imageView" destination="X7r-Py-M88" id="g9g-42-2Lf"/>
+                <outlet property="lbl" destination="qRg-59-xin" id="cVD-93-h8m"/>
             </connections>
             <point key="canvasLocation" x="323" y="597"/>
         </collectionViewCell>

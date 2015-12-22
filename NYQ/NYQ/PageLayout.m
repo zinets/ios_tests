@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
 -(instancetype)init {
     self = [super init];
     if (self) {
-        self.itemSize = (CGSize){256, 256};
+//        self.itemSize = (CGSize){256, 256};
         self.minimumInteritemSpacing = 0;
         self.minimumLineSpacing = 0;
         self.sectionInset = (UIEdgeInsets){0, 0, 0, 0};
@@ -180,6 +180,7 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
     } else {
         attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
     }
+    attr = [attr copy];
 
     if (!self.editingMode) {
         attr.center = (CGPoint){-self.shiftValue, attr.center.y};

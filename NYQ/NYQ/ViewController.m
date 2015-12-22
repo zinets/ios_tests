@@ -13,9 +13,12 @@
 
 @interface ViewController () <UICollectionViewDataSource, PageLayoutProto> {
     UICollectionView *_collection;
+    PageLayout *layout;
     NSMutableArray <UIImage *>*slices;
 }
-//@property (nonatomic) NSInteger
+@property (nonatomic) NSInteger cols;
+@property (nonatomic) NSInteger rows;
+@property (nonatomic, strong) NSString *imageName;
 @end
 
 #define CELL_ID @"cell"
@@ -57,12 +60,15 @@
     return res;
 }
 
-- (void)fillImages {
-    slices = [NSMutableArray arrayWithCapacity:12];
-    UIImage *srcImage = [self loadImage:@"calendar-2016.jpg"];
-    for (int y = 0; y < 4; y++) {
-        for (int x = 0; x < 3; x++) {
-            CGRect frm = (CGRect){{x * 512, y * 512}, {512, 512}};
+- (void)fillImages:(NSString *)imageName {
+    slices = [NSMutableArray arrayWithCapacity:self.cols * self.rows];
+    UIImage *srcImage = [self loadImage:imageName];
+    CGFloat w = ([UIScreen mainScreen].bounds.size.width / self.cols) * [UIScreen mainScreen].scale;
+    CGFloat h = ([UIScreen mainScreen].bounds.size.height / self.rows) * [UIScreen mainScreen].scale;
+    CGSize csz = (CGSize){w, h};
+    for (int y = 0; y < self.rows; y++) {
+        for (int x = 0; x < self.cols; x++) {
+            CGRect frm = (CGRect){{x * csz.width, y * csz.height}, csz};
             [slices addObject:[self croppedImage:frm from:srcImage]];
         }
     }
@@ -72,10 +78,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self fillImages];
+    _cols = 3;
+    _rows = 4;
+    self.imageName = @"Beautiful-Christmas-Tree-Wallpapers-7.jpg";
+    [self fillImages:self.imageName];
     
-    PageLayout *layout = [PageLayout new];
+    layout = [PageLayout new];
+    CGFloat w = [UIScreen mainScreen].bounds.size.width / self.cols;
+    CGFloat h = [UIScreen mainScreen].bounds.size.height / self.rows;
+
+    layout.itemSize = (CGSize){w, h};
     layout.delegate = self;
     
     _collection = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -92,17 +104,62 @@
     
 }
 
+//-(void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    
+//    [NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(swapCells:) userInfo:nil repeats:NO];
+//}
+
+- (void)swapCells:(id)sender {
+    NSInteger count = self.cols * self.rows;
+    
+    for (int x = 0; x < 1; x++) {
+        NSInteger idx1 = 0;//random() % count;
+        NSInteger idx2 = 2;//random() % count;
+        
+        [slices exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
+        NSIndexPath *p1 = [NSIndexPath indexPathForItem:idx1 inSection:0];
+        NSIndexPath *p2 = [NSIndexPath indexPathForItem:idx2 inSection:0];
+        [_collection reloadItemsAtIndexPaths:@[p1, p2]];
+    }
+}
+
+#pragma mark - setters
+
+- (void)updateLayoutSize {
+    CGFloat w = [UIScreen mainScreen].bounds.size.width / self.cols;
+    CGFloat h = [UIScreen mainScreen].bounds.size.height / self.rows;
+    
+    layout.itemSize = (CGSize){w, h};
+    [self fillImages:self.imageName];
+    [_collection reloadSections:[NSIndexSet indexSetWithIndex:0]];
+}
+
+-(void)setCols:(NSInteger)cols {
+    if (cols != _cols) {
+        _cols = cols;
+        [self updateLayoutSize];
+    }
+}
+
+-(void)setRows:(NSInteger)rows {
+    if (rows != _rows) {
+        _rows = rows;
+        [self updateLayoutSize];
+    }
+}
+
 #pragma mark - collection
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 12;
+    return self.cols * self.rows;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
 
     cell.image = slices[indexPath.item];
-    
+    cell.lbl.text = [NSString stringWithFormat:@"%p", slices[indexPath.item]];
     return cell;
 }
 

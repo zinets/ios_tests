@@ -11,4 +11,5 @@
 
 @interface CollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIImage *image;
+@property (weak, nonatomic) IBOutlet UILabel *lbl;
 @end
