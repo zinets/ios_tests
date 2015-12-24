@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 #import "PageLayout.h"
 #import "CollectionViewCell.h"
@@ -14,7 +15,7 @@
 @interface ViewController () <UICollectionViewDataSource, PageLayoutProto> {
     UICollectionView *_collection;
     PageLayout *layout;
-    NSMutableArray <UIImage *>*slices;
+    NSMutableArray <NSDictionary <NSNumber *, UIImage *>*>*slices;
 }
 @property (nonatomic) NSInteger cols;
 @property (nonatomic) NSInteger rows;
@@ -58,14 +59,13 @@
     [img drawInRect:(CGRect){origin, sz}];
     
     if (self.mixedMode) {
-        CGPoint startPoint = CGPointZero;
         CGPoint points[4] = {(CGPoint){256 - 100, 256 - 50},
             (CGPoint){512 - 50, 512 - 100},
             (CGPoint){256 - 50, 768 - 50},
             (CGPoint){768 - 100, 768 - 50}};
         NSInteger code[4] = {1, 7, 9, 3};
 
-        UIFont *font = [UIFont boldSystemFontOfSize:48];
+        UIFont *font = [UIFont fontWithName:@"Herculanum" size:80]; //[UIFont boldSystemFontOfSize:48];
         UIColor *clr = [UIColor blackColor];
         NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         style.alignment = NSTextAlignmentCenter;
@@ -82,12 +82,6 @@
             
             pt.y = (CGRectGetMidY(rect) - (font.lineHeight / 2));
             [[NSString stringWithFormat:@"%@", @(code[x])] drawInRect:(CGRect){pt, {100, 100}} withAttributes:dict];
-            
-//            if (!CGPointEqualToPoint(CGPointZero, startPoint)) {
-//                UIBezierPath *arrow = [UIBezierPath bezierPath];
-//                arrow moveToPoint:<#(CGPoint)#>
-//            }
-            
         }
     }
     
@@ -103,13 +97,16 @@
     CGFloat w = ([UIScreen mainScreen].bounds.size.width / self.cols) * [UIScreen mainScreen].scale;
     CGFloat h = ([UIScreen mainScreen].bounds.size.height / self.rows) * [UIScreen mainScreen].scale;
     CGSize csz = (CGSize){w, h};
+    NSInteger count = self.cols * self.rows;
     for (int y = 0; y < self.rows; y++) {
         for (int x = 0; x < self.cols; x++) {
             CGRect frm = (CGRect){{x * csz.width, y * csz.height}, csz};
+            NSInteger index = x + self.cols * y;
+            NSDictionary *obj = @{@(index) : [self croppedImage:frm from:srcImage]};
             if (self.mixedMode) {
-                [slices insertObject:[self croppedImage:frm from:srcImage] atIndex:0];
+                [slices insertObject:obj atIndex:0];
             } else {
-                [slices addObject:[self croppedImage:frm from:srcImage]];
+                [slices addObject:obj];
             }
         }
     }
@@ -192,8 +189,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
 
-    cell.image = slices[indexPath.item];
-    cell.lbl.text = [NSString stringWithFormat:@"%p", slices[indexPath.item]];
+    cell.image = [[slices[indexPath.item] allValues] firstObject];
     return cell;
 }
 
@@ -214,9 +210,11 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 - (void)collectionView:(UICollectionView *)collectionView
      didMoveItemAtPath:(NSIndexPath *)fromIndex
                 toPath:(NSIndexPath *)toIndex {
-    UIImage *fromImage = slices[fromIndex.item];
+    NSDictionary *fromImage = slices[fromIndex.item];
     [slices removeObject:fromImage];
     [slices insertObject:fromImage atIndex:toIndex.item];
+    
+    [self checkForFinish];
 }
 
 - (void)wasTapAt:(NSIndexPath *)indexPath {
@@ -239,5 +237,29 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
     [cell.layer addAnimation:animation forKey:@"test"];
 }
 
+#pragma mark -
+
+- (void)checkForFinish {
+    BOOL solved = YES;
+    for (int x = 0; x < slices.count; x++) {
+        NSDictionary <NSNumber *, id>*obj = slices[x];
+        NSNumber *index = [[obj allKeys] firstObject];
+        solved &= [index intValue] == x;
+        if (!solved) {
+            break;
+        }
+    }
+    if (!solved) {
+        [self playJingleBell];
+    }
+}
+
+-(void)playJingleBell {
+    CFBundleRef mainBundle = CFBundleGetMainBundle(); /* Define mainBundle as the current app's bundle */
+    CFURLRef fileURL = CFBundleCopyResourceURL(mainBundle, (CFStringRef)@"jingleBell", CFSTR("wav"), NULL); /* Set Bundle as Main Bundle, Define Sound Filename, Define Sound Filetype */
+    UInt32 soundID; /* define soundID as a 32Bit Unsigned Integer */
+    AudioServicesCreateSystemSoundID (fileURL, &soundID); /* Assign Sound to SoundID */
+    AudioServicesPlaySystemSound(soundID); /* Now play the sound associated with this sound ID */
+}
 
 @end
