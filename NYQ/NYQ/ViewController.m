@@ -297,6 +297,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
     UInt32 soundID; /* define soundID as a 32Bit Unsigned Integer */
     AudioServicesCreateSystemSoundID (fileURL, &soundID); /* Assign Sound to SoundID */
     AudioServicesPlaySystemSound(soundID); /* Now play the sound associated with this sound ID */
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 @end
