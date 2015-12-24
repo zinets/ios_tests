@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import "UIView+Geometry.h"
 
 #import "PageLayout.h"
 #import "CollectionViewCell.h"
@@ -26,6 +27,12 @@
 #define CELL_ID @"cell"
 
 #warning добавить по тапу что-то - например пожелания
+
+CGPoint const points[4] = {(CGPoint){256 - 100, 256 - 50},
+    (CGPoint){512 - 50, 512 - 100},
+    (CGPoint){256 - 50, 768 - 50},
+    (CGPoint){768 - 100, 768 - 50}};
+NSInteger code[4] = {1, 7, 9, 3};
 
 @implementation ViewController
 
@@ -59,12 +66,6 @@
     [img drawInRect:(CGRect){origin, sz}];
     
     if (self.mixedMode) {
-        CGPoint points[4] = {(CGPoint){256 - 100, 256 - 50},
-            (CGPoint){512 - 50, 512 - 100},
-            (CGPoint){256 - 50, 768 - 50},
-            (CGPoint){768 - 100, 768 - 50}};
-        NSInteger code[4] = {1, 7, 9, 3};
-
         UIFont *font = [UIFont fontWithName:@"Herculanum" size:80]; //[UIFont boldSystemFontOfSize:48];
         UIColor *clr = [UIColor blackColor];
         NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -239,6 +240,42 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark -
 
+- (void)delayedUpdate {
+    [self playJingleBell];
+    self.mixedMode = NO;
+    [self fillImages:self.imageName];
+    [_collection reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    _collection.userInteractionEnabled = NO;
+    for (int x = 0; x < 4; x++) {
+        CGPoint pt = points[x];
+        CGRect rect = (CGRect){pt, {100, 100}};
+        UILabel *v = [[UILabel alloc] initWithFrame:rect];
+        v.layer.cornerRadius = 50;
+        v.clipsToBounds = YES;
+        v.backgroundColor = [UIColor yellowColor];
+        UIFont *font = [UIFont fontWithName:@"Herculanum" size:80];
+        v.font = font;
+        v.textColor = [UIColor blackColor];
+        v.textAlignment = NSTextAlignmentCenter;
+        v.text = [NSString stringWithFormat:@"%@", @(code[x])];
+        [_collection addSubview:v];
+        
+        [UIView animateWithDuration:0.35 + x * 0.1
+                              delay:0
+             usingSpringWithDamping:4
+              initialSpringVelocity:7
+                            options:0
+                         animations:^{
+                             CGFloat d = _collection.width / 4;
+                             v.centerX = d / 2 + d * x;
+                             v.centerY = _collection.height / 2;
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+    }
+    
+}
+
 - (void)checkForFinish {
     BOOL solved = YES;
     for (int x = 0; x < slices.count; x++) {
@@ -250,7 +287,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
         }
     }
     if (!solved) {
-        [self playJingleBell];
+        [self performSelector:@selector(delayedUpdate) withObject:nil afterDelay:0.5];
     }
 }
 
