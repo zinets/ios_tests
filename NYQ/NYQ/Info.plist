@@ -42,5 +42,7 @@
 	<array>
 		<string>Herculanum.ttf</string>
 	</array>
+	<key>CFBundleDisplayName</key>
+	<string>Нажми меня!</string>
 </dict>
 </plist>

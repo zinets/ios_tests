@@ -28,11 +28,13 @@
 
 #warning добавить по тапу что-то - например пожелания
 
-CGPoint const points[4] = {(CGPoint){256 - 100, 256 - 50},
+NSInteger const codeLength = 4;
+CGPoint const points[codeLength] = {(CGPoint){256 - 100, 256 - 50},
     (CGPoint){512 - 50, 512 - 100},
     (CGPoint){256 - 50, 768 - 50},
     (CGPoint){768 - 100, 768 - 50}};
-NSInteger code[4] = {1, 7, 9, 3};
+
+NSInteger code[codeLength] = {3, 7, 1, 5};
 
 @implementation ViewController
 
@@ -286,7 +288,7 @@ canMoveItemAtIndexPath:(NSIndexPath *)indexPath
             break;
         }
     }
-    if (!solved) {
+    if (solved) {
         [self performSelector:@selector(delayedUpdate) withObject:nil afterDelay:0.5];
     }
 }

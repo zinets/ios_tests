@@ -13,7 +13,6 @@
 		3B38AEB61C24380F00078618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEB41C24380F00078618 /* Main.storyboard */; };
 		3B38AEB81C24380F00078618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEB71C24380F00078618 /* Assets.xcassets */; };
 		3B38AEBB1C24380F00078618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEB91C24380F00078618 /* LaunchScreen.storyboard */; };
-		3B38AEC31C2438DD00078618 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B38AEC21C2438DD00078618 /* bg@2x.png */; };
 		3B38AEC71C24408000078618 /* PageLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AEC61C24408000078618 /* PageLayout.m */; };
 		3B38AECD1C24413100078618 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AECC1C24413100078618 /* UIColor+MUIColor.m */; };
 		3B38AED01C24414100078618 /* BookmarkCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B38AECF1C24414100078618 /* BookmarkCellAttributes.m */; };
@@ -24,6 +23,7 @@
 		3B674C591C2BD76B002689A7 /* Herculanum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B674C581C2BD760002689A7 /* Herculanum.ttf */; };
 		3B674C5B1C2BD9C6002689A7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B674C5A1C2BD9C6002689A7 /* AudioToolbox.framework */; };
 		3B674C5D1C2BDA0F002689A7 /* jingleBell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3B674C5C1C2BDA0F002689A7 /* jingleBell.wav */; };
+		3B674C601C2D204A002689A7 /* bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3B674C5F1C2D204A002689A7 /* bg.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,6 @@
 		3B38AEB71C24380F00078618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B38AEBA1C24380F00078618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B38AEBC1C24380F00078618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B38AEC21C2438DD00078618 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		3B38AEC51C24408000078618 /* PageLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageLayout.h; sourceTree = "<group>"; };
 		3B38AEC61C24408000078618 /* PageLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageLayout.m; sourceTree = "<group>"; };
 		3B38AECB1C24413100078618 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		3B674C581C2BD760002689A7 /* Herculanum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Herculanum.ttf; sourceTree = "<group>"; };
 		3B674C5A1C2BD9C6002689A7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3B674C5C1C2BDA0F002689A7 /* jingleBell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jingleBell.wav; sourceTree = "<group>"; };
+		3B674C5F1C2D204A002689A7 /* bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +102,7 @@
 		3B38AEAB1C24380F00078618 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B674C5F1C2D204A002689A7 /* bg.jpeg */,
 				3B674C371C2942C2002689A7 /* Beautiful-Christmas-Tree-Wallpapers-7.jpg */,
 				3B38AEAE1C24380F00078618 /* AppDelegate.h */,
 				3B38AEAF1C24380F00078618 /* AppDelegate.m */,
@@ -109,7 +110,6 @@
 				3B38AEB71C24380F00078618 /* Assets.xcassets */,
 				3B38AEB91C24380F00078618 /* LaunchScreen.storyboard */,
 				3B38AEBC1C24380F00078618 /* Info.plist */,
-				3B38AEC21C2438DD00078618 /* bg@2x.png */,
 				3B38AEAC1C24380F00078618 /* main.m */,
 				3B674C5C1C2BDA0F002689A7 /* jingleBell.wav */,
 				3B674C581C2BD760002689A7 /* Herculanum.ttf */,
@@ -192,8 +192,8 @@
 				3B38AEBB1C24380F00078618 /* LaunchScreen.storyboard in Resources */,
 				3B38AEB81C24380F00078618 /* Assets.xcassets in Resources */,
 				3B674C5D1C2BDA0F002689A7 /* jingleBell.wav in Resources */,
-				3B38AEC31C2438DD00078618 /* bg@2x.png in Resources */,
 				3B38AEB61C24380F00078618 /* Main.storyboard in Resources */,
+				3B674C601C2D204A002689A7 /* bg.jpeg in Resources */,
 				3B674C591C2BD76B002689A7 /* Herculanum.ttf in Resources */,
 				3B38AED81C2442DE00078618 /* CollectionViewCell.xib in Resources */,
 				3B674C381C2942C2002689A7 /* Beautiful-Christmas-Tree-Wallpapers-7.jpg in Resources */,
