@@ -28,11 +28,15 @@
 
     usedFrames = [NSMutableArray array];
     
-    cubes = [[Cubes alloc] initWithFrame:(CGRect){{10, 50}, {300, 600}}];
+    cubes = [[Cubes alloc] initWithFrame:(CGRect){{10, 80}, {300, 600}}];
     [self.view addSubview:cubes];
 }
 
 - (void)optimize {
+    if (usedFrames.count < 2) {
+        return;
+    }
+    
     BOOL proceededH = YES;
     BOOL proceededV = YES;
     
@@ -101,58 +105,120 @@
         }
     }
 
-    usedFrames = [NSMutableArray arrayWithArray:[arr sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
-        NSComparisonResult res = NSOrderedSame;
-        CGRect f1 = [obj1 CGRectValue];
-        CGRect f2 = [obj2 CGRectValue];
-        if (f1.origin.y < f2.origin.y) {
-            res = NSOrderedAscending;
-        } else if (f1.origin.y > f2.origin.y) {
-            res = NSOrderedDescending;
-        }
-        return res;
-    }]];
+    usedFrames = arr;
 }
 
 - (CGRect)findRectForSize:(CGSize)newSize inRect:(CGRect)bounds {
     // начинать надо будет не с 0, а с инсетов
     CGRect res = (CGRect){CGPointZero, newSize};
     if (usedFrames.count > 0) {
-        // в usedFrames уже соптимизированные блоки
-        __block CGFloat minHeight = 0; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
-        [usedFrames enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            CGRect nextFrame = [obj CGRectValue];
+        // в usedFrames уже соптимизированные блоки, но их надо отсортировать "по горизонтали"
+        
+        usedFrames = [NSMutableArray arrayWithArray:[usedFrames sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
+            NSComparisonResult res = NSOrderedSame;
+            CGRect f1 = [obj1 CGRectValue];
+            CGRect f2 = [obj2 CGRectValue];
+            if (f1.origin.y < f2.origin.y) {
+                res = NSOrderedAscending;
+            } else if (f1.origin.y > f2.origin.y) {
+                res = NSOrderedDescending;
+            }
+            return res;
+        }]];
+        
+        BOOL found = NO;
+        CGFloat minHeight = CGFLOAT_MAX; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
+        while (!found) {
+
+            BOOL intersected = NO;
+            CGRect nextFrame;
+            for (NSValue *obj in usedFrames) {
+                nextFrame = [obj CGRectValue];
+                if (CGRectIntersectsRect(nextFrame, res)) {
+                    intersected = YES;
+                    break;
+                }
+            }
+
             minHeight = MIN(minHeight, nextFrame.origin.y + nextFrame.size.height);
-        }];
-    } else {
-        [usedFrames addObject:[NSValue valueWithCGRect:res]];
+            
+            if (intersected) {
+                res.origin.x += nextFrame.size.width; // + spacing
+                if (res.origin.x + res.size.width > bounds.size.width) {
+                    res.origin.y = minHeight;                    
+                    res.origin.x = 0; // inset
+                    
+                    minHeight = nextFrame.origin.y + nextFrame.size.height;
+                }
+            } else {
+                if (res.origin.x + res.size.width <= bounds.size.width) {
+                    // этот фрейм нам подходит
+                    found = YES;
+                    break;
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+//            // или вот тут стартовать с инсета
+//            CGFloat minHeight = CGFLOAT_MAX; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
+//            for (NSValue *obj in usedFrames) {
+//                CGRect nextFrame = [obj CGRectValue];
+//                minHeight = MIN(minHeight, nextFrame.origin.y + nextFrame.size.height);
+//                
+//                if (CGRectIntersectsRect(nextFrame, res)) {
+//                    res.origin.x += nextFrame.size.width; // + spacing
+//                    if (res.origin.x + res.size.width > bounds.size.width) {
+//                        res.origin.y = minHeight;
+//                        
+//                        res.origin.x = 0; // inset
+//                    }
+//                } else {
+//                    if (res.origin.x + res.size.width <= bounds.size.width) {
+//                        // этот фрейм нам подходит
+//                        found = YES;
+//                        break;
+//                    }
+//                }
+//            };
+        }
     }
+    [usedFrames addObject:[NSValue valueWithCGRect:res]];
     
     return res;
 }
 
 - (IBAction)onTap:(id)sender {
-    [usedFrames removeAllObjects];
-    
-    NSValue *f = [NSValue valueWithCGRect:(CGRect){{0, 0}, {3, 3}}];
-    [usedFrames addObject:f];
-    f = [NSValue valueWithCGRect:(CGRect){{3, 0}, {3, 3}}];
-    [usedFrames addObject:f];
-    f = [NSValue valueWithCGRect:(CGRect){{0, 3}, {3, 3}}];
-    [usedFrames addObject:f];
-    f = [NSValue valueWithCGRect:(CGRect){{3, 3}, {3, 2}}];
-    [usedFrames addObject:f];
-//    f = [NSValue valueWithCGRect:(CGRect){{2, 2}, {2, 2}}];
-//    [usedFrames addObject:f];
-//    f = [NSValue valueWithCGRect:(CGRect){{4, 2}, {2, 1}}];
-//    [usedFrames addObject:f];
+//    [usedFrames removeAllObjects];
 //    
-//    f = [NSValue valueWithCGRect:(CGRect){{0, 4}, {2, 2}}];
+//    NSValue *f = [NSValue valueWithCGRect:(CGRect){{0, 0}, {3, 3}}];
 //    [usedFrames addObject:f];
-//    f = [NSValue valueWithCGRect:(CGRect){{2, 4}, {2, 2}}];
+//    f = [NSValue valueWithCGRect:(CGRect){{3, 0}, {3, 3}}];
 //    [usedFrames addObject:f];
-//    f = [NSValue valueWithCGRect:(CGRect){{4, 3}, {2, 2}}];
+//    f = [NSValue valueWithCGRect:(CGRect){{0, 3}, {3, 3}}];
 //    [usedFrames addObject:f];
+//    f = [NSValue valueWithCGRect:(CGRect){{3, 3}, {3, 2}}];
+//    [usedFrames addObject:f];
+////    f = [NSValue valueWithCGRect:(CGRect){{2, 2}, {2, 2}}];
+////    [usedFrames addObject:f];
+////    f = [NSValue valueWithCGRect:(CGRect){{4, 2}, {2, 1}}];
+////    [usedFrames addObject:f];
+////    
+////    f = [NSValue valueWithCGRect:(CGRect){{0, 4}, {2, 2}}];
+////    [usedFrames addObject:f];
+////    f = [NSValue valueWithCGRect:(CGRect){{2, 4}, {2, 2}}];
+////    [usedFrames addObject:f];
+////    f = [NSValue valueWithCGRect:(CGRect){{4, 3}, {2, 2}}];
+////    [usedFrames addObject:f];
 
 
     
@@ -166,7 +232,7 @@
 - (IBAction)onAdd:(id)sender {
     NSInteger width = [edW.text integerValue];
     NSInteger height = [edH.text integerValue];
-    [self findRectForSize:(CGSize){width, height} inRect:(CGRect){{0, 0}, {0, 6}}];
+    [self findRectForSize:(CGSize){width, height} inRect:(CGRect){{0, 0}, {6, 0}}];
 
     [self optimize];
     cubes.frames = usedFrames;
@@ -176,5 +242,27 @@
     [usedFrames removeAllObjects];
     cubes.frames = usedFrames;
 }
+
+-(void)addBlock:(CGSize)sz {
+    [self findRectForSize:sz inRect:(CGRect){{0, 0}, {6, 0}}];
+    
+    [self optimize];
+    cubes.frames = usedFrames;
+}
+
+- (IBAction)on2x2:(id)sender {
+    [self addBlock:(CGSize){2, 2}];
+}
+- (IBAction)on3x2:(id)sender {
+    [self addBlock:(CGSize){3, 2}];
+}
+- (IBAction)on2x1:(id)sender {
+    [self addBlock:(CGSize){2, 1}];
+}
+- (IBAction)on2x3:(id)sender {
+    [self addBlock:(CGSize){2, 3}];
+}
+
+
 
 @end
