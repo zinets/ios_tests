@@ -37,75 +37,79 @@
         return;
     }
     
-    BOOL proceededH = YES;
-    BOOL proceededV = YES;
-    
-    NSMutableArray *arr = [NSMutableArray arrayWithArray:[usedFrames sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
-        NSComparisonResult res = NSOrderedSame;
-        CGRect f1 = [obj1 CGRectValue];
-        CGRect f2 = [obj2 CGRectValue];
-        if (f1.origin.y < f2.origin.y) {
-            res = NSOrderedAscending;
-        } else if (f1.origin.y > f2.origin.y) {
-            res = NSOrderedDescending;
-        }
-        return res;
-    }]];
-    
-    while (proceededH) {
-        // horizontal
-        proceededH = NO;
-        
-        for (int x = 0; x < arr.count - 1; x++) {
-            CGRect f1 = [arr[x] CGRectValue];
-            CGRect f2 = [arr[x + 1] CGRectValue];
-            if (f1.origin.y == f2.origin.y &&
-                f1.size.height == f2.size.height &&
-                f2.origin.x == f1.origin.x + f1.size.width + spacing) {
-                
-                CGRect newFrame = CGRectUnion(f1, f2);
-                arr[x] = [NSValue valueWithCGRect:newFrame];
-                [arr removeObjectAtIndex:x + 1];
-                
-                proceededH = YES;
-                break;
-            }
-        }
-    }
-    
-    arr = [NSMutableArray arrayWithArray:[arr sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
-        NSComparisonResult res = NSOrderedSame;
-        CGRect f1 = [obj1 CGRectValue];
-        CGRect f2 = [obj2 CGRectValue];
-        if (f1.origin.x < f2.origin.x) {
-            res = NSOrderedAscending;
-        } else if (f1.origin.x > f2.origin.x) {
-            res = NSOrderedDescending;
-        }
-        return res;
-    }]];
-    
-    while (proceededV) {
-        // vertical
-        proceededV = NO;
-        for (int x = 0; x < arr.count - 1; x++) {
-            CGRect f1 = [arr[x] CGRectValue];
-            CGRect f2 = [arr[x + 1] CGRectValue];
-            if (f1.origin.x == f2.origin.x &&
-                f1.size.width == f2.size.width &&
-                f2.origin.y == f1.origin.y + f1.size.height + spacing) {
-                
-                CGRect newFrame = CGRectUnion(f1, f2);
-                arr[x] = [NSValue valueWithCGRect:newFrame];
-                [arr removeObjectAtIndex:x + 1];
-                
-                proceededV = YES;
-                break;
-            }
-        }
-    }
+    BOOL anyProcees = YES;
+    while (anyProcees) {
+        BOOL proceededH = YES;
+        BOOL proceededV = YES;
 
-    usedFrames = arr;
+        NSMutableArray *arr = [NSMutableArray arrayWithArray:[usedFrames sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
+            NSComparisonResult res = NSOrderedSame;
+            CGRect f1 = [obj1 CGRectValue];
+            CGRect f2 = [obj2 CGRectValue];
+            if (f1.origin.y < f2.origin.y) {
+                res = NSOrderedAscending;
+            } else if (f1.origin.y > f2.origin.y) {
+                res = NSOrderedDescending;
+            }
+            return res;
+        }]];
+        anyProcees = NO;
+        while (proceededH) {
+            // horizontal
+            proceededH = NO;
+            
+            for (int x = 0; x < arr.count - 1; x++) {
+                CGRect f1 = [arr[x] CGRectValue];
+                CGRect f2 = [arr[x + 1] CGRectValue];
+                if (f1.origin.y == f2.origin.y &&
+                    f1.size.height == f2.size.height &&
+                    f2.origin.x == f1.origin.x + f1.size.width + spacing) {
+                    
+                    CGRect newFrame = CGRectUnion(f1, f2);
+                    arr[x] = [NSValue valueWithCGRect:newFrame];
+                    [arr removeObjectAtIndex:x + 1];
+                    
+                    proceededH = YES;
+                    anyProcees = YES;
+                    break;
+                }
+            }
+        }
+        
+        arr = [NSMutableArray arrayWithArray:[arr sortedArrayWithOptions:(0) usingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
+            NSComparisonResult res = NSOrderedSame;
+            CGRect f1 = [obj1 CGRectValue];
+            CGRect f2 = [obj2 CGRectValue];
+            if (f1.origin.x < f2.origin.x) {
+                res = NSOrderedAscending;
+            } else if (f1.origin.x > f2.origin.x) {
+                res = NSOrderedDescending;
+            }
+            return res;
+        }]];
+        
+        while (proceededV) {
+            // vertical
+            proceededV = NO;
+            for (int x = 0; x < arr.count - 1; x++) {
+                CGRect f1 = [arr[x] CGRectValue];
+                CGRect f2 = [arr[x + 1] CGRectValue];
+                if (f1.origin.x == f2.origin.x &&
+                    f1.size.width == f2.size.width &&
+                    f2.origin.y == f1.origin.y + f1.size.height + spacing) {
+                    
+                    CGRect newFrame = CGRectUnion(f1, f2);
+                    arr[x] = [NSValue valueWithCGRect:newFrame];
+                    [arr removeObjectAtIndex:x + 1];
+                    
+                    proceededV = YES;
+                    anyProcees = YES;
+                    break;
+                }
+            }
+        }
+        usedFrames = arr;
+    }
 }
 
 - (CGRect)findRectForSize:(CGSize)newSize inRect:(CGRect)bounds {
@@ -157,39 +161,6 @@
                     break;
                 }
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-//            // или вот тут стартовать с инсета
-//            CGFloat minHeight = CGFLOAT_MAX; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
-//            for (NSValue *obj in usedFrames) {
-//                CGRect nextFrame = [obj CGRectValue];
-//                minHeight = MIN(minHeight, nextFrame.origin.y + nextFrame.size.height);
-//                
-//                if (CGRectIntersectsRect(nextFrame, res)) {
-//                    res.origin.x += nextFrame.size.width; // + spacing
-//                    if (res.origin.x + res.size.width > bounds.size.width) {
-//                        res.origin.y = minHeight;
-//                        
-//                        res.origin.x = 0; // inset
-//                    }
-//                } else {
-//                    if (res.origin.x + res.size.width <= bounds.size.width) {
-//                        // этот фрейм нам подходит
-//                        found = YES;
-//                        break;
-//                    }
-//                }
-//            };
         }
     }
     [usedFrames addObject:[NSValue valueWithCGRect:res]];
@@ -261,6 +232,12 @@
 }
 - (IBAction)on2x3:(id)sender {
     [self addBlock:(CGSize){2, 3}];
+}
+- (IBAction)on1x2:(id)sender {
+    [self addBlock:(CGSize){1, 2}];
+}
+- (IBAction)on4x4:(id)sender {
+    [self addBlock:(CGSize){4, 4}];
 }
 
 

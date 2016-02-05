@@ -93,6 +93,20 @@
                                     <action selector="on2x3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZHB-Aa-fJT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chy-dI-suh">
+                                <rect key="frame" x="165" y="49" width="46" height="30"/>
+                                <state key="normal" title="1*2"/>
+                                <connections>
+                                    <action selector="on1x2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hs-Gf-nCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHC-O2-ovq">
+                                <rect key="frame" x="219" y="49" width="46" height="30"/>
+                                <state key="normal" title="4*4"/>
+                                <connections>
+                                    <action selector="on4x4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2C-6f-FuQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
