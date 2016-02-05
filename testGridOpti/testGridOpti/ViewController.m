@@ -117,12 +117,16 @@
 - (CGRect)findRectForSize:(CGSize)newSize inRect:(CGRect)bounds {
     // начинать надо будет не с 0, а с инсетов
     CGRect res = (CGRect){CGPointZero, newSize};
-    // в usedFrames уже соптимизированные блоки
-    __block CGFloat minHeight = 0; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
-    [usedFrames enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        CGRect nextFrame = [obj CGRectValue];
-        minHeight = MIN(minHeight, nextFrame.origin.y + nextFrame.size.height);
-    }];
+    if (usedFrames.count > 0) {
+        // в usedFrames уже соптимизированные блоки
+        __block CGFloat minHeight = 0; // ну точнее это не высота, а миним. отступ блока от верха в текущем ряду
+        [usedFrames enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            CGRect nextFrame = [obj CGRectValue];
+            minHeight = MIN(minHeight, nextFrame.origin.y + nextFrame.size.height);
+        }];
+    } else {
+        [usedFrames addObject:[NSValue valueWithCGRect:res]];
+    }
     
     return res;
 }
@@ -162,7 +166,10 @@
 - (IBAction)onAdd:(id)sender {
     NSInteger width = [edW.text integerValue];
     NSInteger height = [edH.text integerValue];
-    
+    [self findRectForSize:(CGSize){width, height} inRect:(CGRect){{0, 0}, {0, 6}}];
+
+    [self optimize];
+    cubes.frames = usedFrames;
     
 }
 - (IBAction)onReset:(id)sender {
