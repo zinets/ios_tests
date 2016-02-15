@@ -1,17 +1,13 @@
 //
 //  AppDelegate.m
-//  testCollectionModes
+//  stackCollectionTest
 //
-//  Created by Zinets Victor on 1/29/16.
+//  Created by Zinets Victor on 2/12/16.
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
-
-#import "Layout.h"
-#import "CollectionController.h"
 
 @interface AppDelegate ()
 
@@ -21,19 +17,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor blackColor];
-    
-    
-//    CollectionController *collectionCtrl = [[CollectionController alloc] initWithCollectionViewLayout:[Layout new]];
-//    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:collectionCtrl];
-    
-    ViewController *collectionCtrl = [ViewController new];
-    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:collectionCtrl];
 
+    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyWindow];
+    
     self.window.rootViewController = navCtrl;
     
-    [self.window makeKeyAndVisible];
+    navCtrl.viewControllers = @[[ViewController new]];
+    
     return YES;
 }
 

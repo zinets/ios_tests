@@ -74,21 +74,16 @@ static NSString * const reuseIdentifier2 = @"CellExt";
 -(void)setGridMode:(BOOL)gridMode {
     if (_gridMode != gridMode) {
         _gridMode = gridMode;
-        NSArray *a = [self.collectionView indexPathsForVisibleItems];
-        NSIndexPath *index = nil;
-        
-        if (a.count > 0) {
-            NSInteger idx = 0;//a.count / 2;
-            index = a[idx];
-            
-            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:index];
-//            NSLog(@"%@", cell);
-        }
-        [self.collectionView setCollectionViewLayout:[Layout new] animated:YES];
+
+//        [self.collectionView setCollectionViewLayout:[Layout new]
+//                                            animated:YES];
+
 //        [self.collectionView performBatchUpdates:^{
 //            
 //        } completion:^(BOOL finished) {
 //        }];
+        
+        [self.collectionView.collectionViewLayout invalidateLayout];
     }
 }
 
