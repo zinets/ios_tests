@@ -20,6 +20,23 @@
     PhotoScrollerView *photos;
 }
 
+-(void)prepareForReuse {
+    [super prepareForReuse];
+    
+    photos.contentOffset = CGPointZero;
+    [images removeAllObjects];
+    for (int x = 0; x < 4; x++) {
+        NSString *fn = [NSString stringWithFormat:@"p%ld.jpg", random() % 16];
+        [images addObject:fn];
+    }
+}
+
+-(void)setTitle:(NSString *)title {
+    _title = title;
+    testLabel.text = _title;
+    [testLabel sizeToFit];
+}
+
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 5;
@@ -47,10 +64,6 @@
 
 -(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    testLabel.text = [NSString stringWithFormat:@"cell %@", @(layoutAttributes.indexPath.item)];
-    [testLabel sizeToFit];
-    
     [photos reloadPhotos];
 }
 
@@ -64,6 +77,8 @@
     UIImageView *res = (id)[scroller dequeueView];
     if (!res) {
         res = [[UIImageView alloc] initWithFrame:scroller.bounds];
+        res.contentMode = UIViewContentModeScaleAspectFill;
+        res.clipsToBounds = YES;
     }
     res.image = [UIImage imageNamed:images[index]];
     return res;

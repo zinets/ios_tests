@@ -35,6 +35,7 @@
 		3BAF5E171C71BA7C0063DAC5 /* p13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E141C71BA7C0063DAC5 /* p13.jpg */; };
 		3BAF5E181C71BA7C0063DAC5 /* p14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E151C71BA7C0063DAC5 /* p14.jpg */; };
 		3BAF5E191C71BA7C0063DAC5 /* p15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E161C71BA7C0063DAC5 /* p15.jpg */; };
+		3BAF5E1C1C71CE830063DAC5 /* StackCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E1B1C71CE830063DAC5 /* StackCellAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		3BAF5E141C71BA7C0063DAC5 /* p13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p13.jpg; sourceTree = "<group>"; };
 		3BAF5E151C71BA7C0063DAC5 /* p14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p14.jpg; sourceTree = "<group>"; };
 		3BAF5E161C71BA7C0063DAC5 /* p15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p15.jpg; sourceTree = "<group>"; };
+		3BAF5E1A1C71CE830063DAC5 /* StackCellAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackCellAttributes.h; sourceTree = "<group>"; };
+		3BAF5E1B1C71CE830063DAC5 /* StackCellAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackCellAttributes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				3BAF5DE01C6E27610063DAC5 /* StackLayout.m */,
 				3BAF5DE31C6E27DD0063DAC5 /* StackCell.h */,
 				3BAF5DE41C6E27DD0063DAC5 /* StackCell.m */,
+				3BAF5E1A1C71CE830063DAC5 /* StackCellAttributes.h */,
+				3BAF5E1B1C71CE830063DAC5 /* StackCellAttributes.m */,
 			);
 			name = collection;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 				3BAF5DE11C6E27610063DAC5 /* StackLayout.m in Sources */,
 				3BAF5DE81C6E28710063DAC5 /* UIColor+MUIColor.m in Sources */,
 				3BAF5DD01C6E263D0063DAC5 /* ViewController.m in Sources */,
+				3BAF5E1C1C71CE830063DAC5 /* StackCellAttributes.m in Sources */,
 				3BAF5DCD1C6E263D0063DAC5 /* AppDelegate.m in Sources */,
 				3BAF5DEF1C6E2B2C0063DAC5 /* UIView+Geometry.m in Sources */,
 				3BAF5DE51C6E27DD0063DAC5 /* StackCell.m in Sources */,

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StackLayout : UICollectionViewLayout
+@protocol StackLayoutDelegate <NSObject>
+- (void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath;
+@end
 
+@interface StackLayout : UICollectionViewLayout
+@property (nonatomic, weak) id <StackLayoutDelegate> delegate;
 @end
