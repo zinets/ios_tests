@@ -12,14 +12,17 @@
 @implementation StackLayout
 
 -(CGSize)collectionViewContentSize {
-    return self.collectionView.bounds.size;
+    CGSize sz = self.collectionView.bounds.size;
+    sz.width -= self.collectionView.contentInset.left + self.collectionView.contentInset.right;
+    sz.height -= self.collectionView.contentInset.top + self.collectionView.contentInset.bottom;
+    return sz;
 }
 
 -(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     CGFloat const transformKoef = 0.07;
     CGFloat const height = 415.0;
-    CGFloat const vert_spacing = 10;
+    CGFloat const vert_spacing = 7;
     switch (indexPath.item) {
         case 0:
             attr.frame = (CGRect){{15, 30}, {290, height}};
@@ -27,7 +30,7 @@
             attr.transform3D = CATransform3DIdentity;
 //            attr.zIndex = 100 - indexPath.item;
             break;
-        case 4:
+        case 3:
             attr.frame = (CGRect){{15, 30}, {290, height}};
             attr.alpha = 0.;
             attr.transform3D = CATransform3DMakeScale(1 - transformKoef * indexPath.item, 1 - transformKoef * indexPath.item, 1);
