@@ -86,6 +86,15 @@
             CGFloat delta = pt.x - startPt.x;
             CGPoint center = startCenter;
             center.x += delta;
+            NSInteger numberOfCells = [self.collectionView numberOfItemsInSection:0];
+            CGFloat depth = ABS(delta / (self.collectionView.bounds.size.width / 2)) / numberOfCells;
+            NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+            [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                StackCellAttributes *attr = attributes[obj];
+                attr.depth -= depth;
+                
+                [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+            }];
             
             topCell.center = center;
         } break;
