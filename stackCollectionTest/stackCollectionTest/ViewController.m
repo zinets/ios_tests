@@ -46,7 +46,7 @@ static NSInteger counter = 0;
 
 - (StackLayout *)listLayout {
     if (!_listLayout) {
-        _listLayout = [[StackLayout alloc] init];
+        _listLayout = [[StackLayout2 alloc] init];
         _listLayout.delegate = self;
     }
     return _listLayout;
