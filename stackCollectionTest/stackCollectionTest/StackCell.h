@@ -13,5 +13,5 @@
 
 static NSString *const reuseIdStackCell = @"stjswrg";
 @interface StackCell : UICollectionViewCell
-
+@property (nonatomic, strong) NSString *title;
 @end

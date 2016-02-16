@@ -23,7 +23,7 @@
 
 @implementation ViewController
 
-#define ITEMS_COUNT 4
+#define ITEMS_COUNT 5
 
 static NSInteger counter = 0;
 

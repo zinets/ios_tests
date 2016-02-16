@@ -14,4 +14,5 @@
 
 @interface StackLayout : UICollectionViewLayout
 @property (nonatomic, weak) id <StackLayoutDelegate> delegate;
+@property (nonatomic, assign) BOOL canPan;
 @end

@@ -8,6 +8,7 @@
 
 #import "StackCell.h"
 #import "PhotoScrollerView.h"
+#import "StackCellAttributes.h"
 
 @interface StackCell () <PhotoScrollerViewProto> {
     NSMutableArray *images;
@@ -62,8 +63,13 @@
     return self;
 }
 
--(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+-(void)applyLayoutAttributes:(StackCellAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
+//    if (CATransform3DEqualToTransform(layoutAttributes.transform3D, CATransform3DIdentity)) {
+        CABasicAnimation *a = [CABasicAnimation animationWithKeyPath:@"transform"];
+        [self.layer addAnimation:a forKey:@"animate"];
+//    }
+    
     [photos reloadPhotos];
 }
 
