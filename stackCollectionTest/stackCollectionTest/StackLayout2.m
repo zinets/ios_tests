@@ -48,6 +48,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
     }
     
     CGFloat const height = 415.0;
+    // идея такая: раскладка работает с 5-ю ячейками; одна - справа, "просмотренный" профиль; затем 3 ячейки в глубину
     
     NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:0];
     for (int x = 0; x < numberOfItems; x++) {

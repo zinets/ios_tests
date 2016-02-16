@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @protocol StackLayoutDelegate <NSObject>
+@required
 - (void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath;
 - (void)layout:(id)sender didRestoreItemAtIndexpath:(NSIndexPath *)indexPath;
+- (BOOL)hasRemovedItems:(id)sender;
 @end
 
 @interface StackLayout : UICollectionViewLayout
