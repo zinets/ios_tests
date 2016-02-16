@@ -46,10 +46,9 @@
             [attributes setObject:attr forKey:idx];
         }
         attr.frame = (CGRect){{15, 30}, {290, height}};
-        attr.alpha = 1;
-        attr.transform3D = CATransform3DIdentity;
         attr.zIndex = 100 - x;
-        attr.depth = (CGFloat) x / numberOfItems;
+#warning а если 1 ячейка?
+        attr.depth = (CGFloat) x / (numberOfItems - 1);
     }
 }
 
@@ -79,20 +78,28 @@
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
-            startPt = [sender locationInView:self.collectionView];
+            startPt = pt;
             startCenter = topCell.center;
             
         } break;
         case UIGestureRecognizerStateChanged: {
-
             CGFloat delta = pt.x - startPt.x;
             CGPoint center = startCenter;
             center.x += delta;
+            
+            topCell.center = center;
         } break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled: {
-
             CGFloat delta = pt.x - startPt.x;
+            CGPoint center = startCenter;
+            center.x += delta;
+            if (CGRectContainsPoint(self.collectionView.bounds, center)) {
+                topCell.center = startCenter;
+            } else {
+                topCell.center = center;
+                [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
+            }
         } break;
         default:
             break;

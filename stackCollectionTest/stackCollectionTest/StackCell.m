@@ -71,22 +71,21 @@
 }
 
 -(void)setDepth:(CGFloat)depth {
-    if (depth != _depth) {
-        _depth = depth;
-        self.alpha = 1 - _depth;
-        
-        static CGFloat const magicK = 0.35;
-        static CGFloat const maxDepthHeight = 35; // макс сдвиг вверх ячейки
-        CGFloat k = _depth * magicK;
-        CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
-        
-        CGAffineTransform transform = CGAffineTransformIdentity;
-        transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
-        k = 1 - k;
-        transform = CGAffineTransformScale(transform, k, k);
+    _depth = depth;
+    self.alpha = 1 - _depth;
+    
+    static CGFloat const magicK = 0.35;
+    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
+    CGFloat k = _depth * magicK;
+    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+    
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
+    k = 1 - k;
+    transform = CGAffineTransformScale(transform, k, k);
+    
+    self.transform = transform;
 
-        self.transform = transform;
-    }
 }
 
 #pragma mark - photos

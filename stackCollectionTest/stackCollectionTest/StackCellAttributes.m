@@ -25,11 +25,7 @@
 }
 
 -(void)setDepth:(CGFloat)depth {
-    depth = MIN(1, MAX(0, depth));
-    if (depth != _depth) {
-        _depth = depth;
-        
-    }
+    _depth = MIN(1, MAX(0, depth));
 }
 
 @end
