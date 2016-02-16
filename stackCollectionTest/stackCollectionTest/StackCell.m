@@ -32,13 +32,7 @@
     }
 }
 
--(void)setTitle:(NSString *)title {
-    _title = title;
-    testLabel.text = _title;
-    [testLabel sizeToFit];
-}
-
--(instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
@@ -65,12 +59,34 @@
 
 -(void)applyLayoutAttributes:(StackCellAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
-//    if (CATransform3DEqualToTransform(layoutAttributes.transform3D, CATransform3DIdentity)) {
-        CABasicAnimation *a = [CABasicAnimation animationWithKeyPath:@"transform"];
-        [self.layer addAnimation:a forKey:@"animate"];
-//    }
-    
-    [photos reloadPhotos];
+    self.depth = layoutAttributes.depth;
+}
+
+#pragma mark - setters
+
+-(void)setTitle:(NSString *)title {
+    _title = title;
+    testLabel.text = _title;
+    [testLabel sizeToFit];
+}
+
+-(void)setDepth:(CGFloat)depth {
+    if (depth != _depth) {
+        _depth = depth;
+        self.alpha = 1 - _depth;
+        
+        static CGFloat const magicK = 0.35;
+        static CGFloat const maxDepthHeight = 35; // макс сдвиг вверх ячейки
+        CGFloat k = _depth * magicK;
+        CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+        
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
+        k = 1 - k;
+        transform = CGAffineTransformScale(transform, k, k);
+
+        self.transform = transform;
+    }
 }
 
 #pragma mark - photos
