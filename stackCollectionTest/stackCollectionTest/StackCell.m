@@ -23,7 +23,7 @@
 
 -(void)prepareForReuse {
     [super prepareForReuse];
-    
+    self.alpha = 0;
     photos.contentOffset = CGPointZero;
     [images removeAllObjects];
     for (int x = 0; x < 4; x++) {
@@ -53,6 +53,7 @@
         testLabel = [[UILabel alloc] initWithFrame:(CGRectZero)];
         [self.contentView addSubview:testLabel];
         
+        self.depth = 1;        
     }
     return self;
 }
@@ -71,21 +72,22 @@
 }
 
 -(void)setDepth:(CGFloat)depth {
-    _depth = depth;
-    self.alpha = 1 - _depth;
-    
-    static CGFloat const magicK = 0.35;
-    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
-    CGFloat k = _depth * magicK;
-    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
-    
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
-    k = 1 - k;
-    transform = CGAffineTransformScale(transform, k, k);
-    
-    self.transform = transform;
-
+//    if (depth != _depth) {
+        _depth = depth;
+        self.alpha = 1 - _depth;
+        
+        static CGFloat const magicK = 0.35;
+        static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
+        CGFloat k = _depth * magicK;
+        CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+        
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
+        k = 1 - k;
+        transform = CGAffineTransformScale(transform, k, k);
+        
+        self.transform = transform;
+//    }
 }
 
 #pragma mark - photos

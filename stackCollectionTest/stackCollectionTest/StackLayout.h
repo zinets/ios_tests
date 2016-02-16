@@ -10,6 +10,7 @@
 
 @protocol StackLayoutDelegate <NSObject>
 - (void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath;
+- (void)layout:(id)sender didRestoreItemAtIndexpath:(NSIndexPath *)indexPath;
 @end
 
 @interface StackLayout : UICollectionViewLayout
