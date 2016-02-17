@@ -37,7 +37,8 @@
 
 -(void)setItemIndex:(NSInteger)itemIndex {
     _itemIndex = itemIndex;
-    _items = [NSMutableArray arrayWithArray:[intData subarrayWithRange:(NSRange){self.itemIndex, self.capacity}]];
+    NSInteger maxCount = MIN(intData.count - itemIndex, self.capacity);
+    _items = [NSMutableArray arrayWithArray:[intData subarrayWithRange:(NSRange){self.itemIndex, maxCount}]];
 }
 
 -(instancetype)initWithData:(NSArray *)data {

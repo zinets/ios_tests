@@ -234,7 +234,6 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                     if (center.x < self.collectionView.bounds.size.width) { // возрващаем
                         UICollectionViewLayoutAttributes *attr = attributes[[NSIndexPath indexPathForItem:1 inSection:0]];
                         center = attr.center;
-//                        [self.collectionView reloadData];
                         [UIView animateWithDuration:0.25 animations:^{
                             fakeCell.center = center;
                             self.scrollDirection = CellScrollingDirectionNone;
