@@ -26,6 +26,17 @@
 
 -(void)setDepth:(CGFloat)depth {
     _depth = MIN(1, MAX(0, depth));
+    if (depth != _depth) {
+        _depth = depth;
+    }
+}
+
+-(NSString *)debugDescription {
+    NSString *res = [super debugDescription];
+
+    res = [res stringByAppendingFormat:@"; depth = %f", self.depth];
+    
+    return res;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "StackLayout.h"
 #import "StackCellAttributes.h"
 #import "UIView+Geometry.h"
+#import "Utils.h"
 
 typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
     CellScrollingDirectionNone,
@@ -27,6 +28,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
     
     UIPanGestureRecognizer *panRecognizer;
     CGPoint startPt, startCenter;
+    UIView *fakeCell;
 }
 
 -(CGSize)collectionViewContentSize {
@@ -34,6 +36,10 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
     sz.width -= self.collectionView.contentInset.left + self.collectionView.contentInset.right;
     sz.height -= self.collectionView.contentInset.top + self.collectionView.contentInset.bottom;
     return sz;
+}
+
+- (NSInteger)numberOfItems {
+    return MIN(4, [self.collectionView numberOfItemsInSection:0]);
 }
 
 -(void)prepareLayout {
@@ -48,9 +54,8 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
     }
     
     CGFloat const height = 415.0;
-    // идея такая: раскладка работает с 5-ю ячейками; одна - справа, "просмотренный" профиль; затем 3 ячейки в глубину
     
-    NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:0];
+    NSInteger numberOfItems = [self numberOfItems];
     for (int x = 0; x < numberOfItems; x++) {
         NSIndexPath *idx = [NSIndexPath indexPathForItem:x inSection:0];
         StackCellAttributes *attr = attributes[idx];
@@ -59,6 +64,11 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             [attributes setObject:attr forKey:idx];
         }
         attr.frame = (CGRect){{15, 30}, {290, height}};
+        if (self.scrollDirection == CellScrollingDirectionRestoring && x == 0) {
+            CGPoint c = attr.center;
+            c.x += self.collectionView.bounds.size.width / 3;
+            attr.center = c;
+        }
         attr.zIndex = 100 - x;
         if (numberOfItems > 1) {
             attr.depth = (CGFloat) x / (numberOfItems - 1);
@@ -68,7 +78,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
 
 -(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray <UICollectionViewLayoutAttributes *> *res = [NSMutableArray array];
-    for (int x = 0; x < [self.collectionView numberOfItemsInSection:0]; x++) {
+    for (int x = 0; x < [self numberOfItems]; x++) {
         UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:x inSection:0]];
         [res addObject:attr];
     }
@@ -94,19 +104,29 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             startPt = pt;
             startCenter = topCell.center;
             self.scrollDirection = CellScrollingDirectionNone;
+            
+            fakeCell = [topCell snapshotViewAfterScreenUpdates:YES];
+            borderControl(fakeCell);
+            [self.collectionView addSubview:fakeCell];
+            fakeCell.frame = topCell.frame;
+            fakeCell.alpha = 1;
+            topCell.alpha = 0;
         } break;
         case UIGestureRecognizerStateChanged: {
             CGFloat delta = pt.x - startPt.x;
             // мы можем пальцем возюкать туды-сюды, но определив раз направление больше не меняем тип!
             if (self.scrollDirection == CellScrollingDirectionNone) {
-                if (delta < 0) {
+                if (delta < 0 && [self.delegate hasRemovedItems:self]) {
                     self.scrollDirection = CellScrollingDirectionRestoring;
+                    [self invalidateLayout];
+                    
+                    break;
                 } else {
                     self.scrollDirection = CellScrollingDirectionRemoving;
                 } // думаю нет смысла проверять вариант, когда смещение == 0
             }
             
-            NSInteger numberOfCells = [self.collectionView numberOfItemsInSection:0];
+            NSInteger numberOfCells = [self numberOfItems];;
             CGPoint center = startCenter;
             
             switch (self.scrollDirection) {
@@ -114,16 +134,18 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                     center.x += delta;
                     CGFloat depth = 1;
                     if (numberOfCells > 1) {
-                        CGFloat maxDepth = 1.0 / numberOfCells;
-                        depth = MAX(0, MIN(maxDepth, delta / (self.collectionView.bounds.size.width / 2) / numberOfCells));
+                        CGFloat maxDepth = 1.0 / (numberOfCells - 1);
+                        depth = MAX(0, MIN(maxDepth, delta / (self.collectionView.bounds.size.width / 2) / (numberOfCells - 1)));
                     }
                     NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
                     [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        StackCellAttributes *attr = [attributes[obj] copy];
-                        attr.depth -= depth; // copy чтобы не накапливалось изменение лавинообразно
-                        [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                        if (![obj isEqual:indexPath]) {
+                            StackCellAttributes *attr = [attributes[obj] copy];
+                            attr.depth -= depth; // copy чтобы не накапливалось изменение лавинообразно
+                            [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                        }
                     }];
-                    topCell.center = center;
+                    fakeCell.center = center;
                 } break;
                     
                 default:
@@ -135,33 +157,73 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             CGPoint v = [sender velocityInView:sender.view];
             CGFloat timeToPredict = 0.15;
             CGFloat delta = pt.x - startPt.x;
-            CGPoint center = startCenter;
+            __block CGPoint center = startCenter;
             center.x += delta + timeToPredict * v.x;
             
             switch (self.scrollDirection) {
                 case CellScrollingDirectionRemoving: {
-                    if (center.x > self.collectionView.bounds.size.width) { // смахивание справо срабатывает если не просто "за фрейм коллекции, а только "справа от коллекции"
-                        [UIView animateWithDuration:0.15 animations:^{
-                            topCell.transform = CGAffineTransformMakeTranslation(center.x, 0);
-                        } completion:^(BOOL finished) {
-                            topCell.alpha = 0;
-                            //                    StackCellAttributes *attr = attributes[indexPath];
-                            //                    attr.depth = 0;
-                            //                    [topCell applyLayoutAttributes:attr];
-                            
+                    if (center.x > self.collectionView.bounds.size.width) { // смахивание справо срабатывает если не просто "за фрейм
+                        center.x += self.collectionView.bounds.size.width;
+                        [UIView animateWithDuration:0.25 animations:^{
+                            fakeCell.center = center;
                             [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
-                        }];
-                    } else {
-                        [UIView animateWithDuration:0.15 animations:^{
-                            topCell.center = startCenter;
+                            [self invalidateLayout];
+                            
                             NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
                             [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                 StackCellAttributes *attr = attributes[obj];
                                 [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
                             }];
+                            fakeCell.alpha = 0;
+                        } completion:^(BOOL finished) {
+                            [fakeCell removeFromSuperview];
                         }];
-                        
+                    } else {
+                        center = startCenter;
+                        [UIView animateWithDuration:0.25 animations:^{
+                            fakeCell.center = center;
+                            
+                            NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                            [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (![obj isEqual:indexPath]) {
+                                    StackCellAttributes *attr = attributes[obj];
+                                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                                }
+                            }];
+                        } completion:^(BOOL finished) {
+                            topCell.alpha = 1;
+                            fakeCell.alpha = 0;
+                            [fakeCell removeFromSuperview];
+                        }];
+
                     }
+                    
+                    
+                    
+                    
+                    
+                    
+//                    [UIView animateWithDuration:.25 animations:^{
+//                        if (center.x > self.collectionView.bounds.size.width) { // смахивание справо срабатывает если не просто "за фрейм коллекции, а только "справа от коллекции"
+//                            center.x += self.collectionView.bounds.size.width;
+//                            fakeCell.center = center;
+//                            [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
+//                            [self invalidateLayout];
+//                        } else {
+//                            fakeCell.center = startCenter;
+//                        }
+//                        NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+//                        [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                            if (![obj isEqual:indexPath]) {
+//                                StackCellAttributes *attr = attributes[obj];
+//                                [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+//                            }
+//                        }];
+//                    } completion:^(BOOL finished) {
+//                        topCell.alpha = 1;
+//                        fakeCell.alpha = 0;
+//                        [fakeCell removeFromSuperview];
+//                    }];
                 } break;
                     
                 default:
@@ -172,5 +234,19 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             break;
     }
 }
+
+//-(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
+//    StackCellAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+//    NSLog(@"%@", attr);
+////    if (itemIndexPath.item == 0) {
+//        attr.alpha = 0;
+////        
+////        CGPoint c = attr.center;
+////        c.x += self.collectionView.bounds.size.width;
+////        attr.center = c;
+////    }
+//    
+//    return attr;
+//}
 
 @end

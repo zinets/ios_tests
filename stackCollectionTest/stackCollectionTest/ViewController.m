@@ -13,27 +13,74 @@
 
 #import "Utils.h"
 
+@interface SubItems : NSObject {
+    NSMutableArray *intData;
+}
+- (instancetype)initWithData:(NSArray *)data;
+@property (nonatomic, assign) NSInteger itemIndex;
+@property (nonatomic, readonly) NSMutableArray <NSDictionary *> *items;
+@property (nonatomic, assign) NSInteger capacity;
+
+- (void)reset;
+@end
+
+@implementation SubItems
+
+-(void)reset {
+    self.itemIndex = 0;
+}
+
+-(void)setCapacity:(NSInteger)capacity {
+    _capacity = capacity;
+    [self reset];
+}
+
+-(void)setItemIndex:(NSInteger)itemIndex {
+    _itemIndex = itemIndex;
+    _items = [NSMutableArray arrayWithArray:[intData subarrayWithRange:(NSRange){self.itemIndex, self.capacity}]];
+}
+
+-(instancetype)initWithData:(NSArray *)data {
+    if (self = [super init]) {
+        intData = (id)data;
+        self.capacity = 4;
+    }
+    return self;
+}
+
+@end
+
+#pragma mark -
+
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, StackLayoutDelegate> {
-    NSMutableArray *items;
+    SubItems *subItems;
 }
 @property (nonatomic, strong) StackLayout *listLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
+
 
 @end
 
 @implementation ViewController
 
-#define ITEMS_COUNT 4
-
-static NSInteger counter = 0;
+#define ITEMS_COUNT 14
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    items = [NSMutableArray array];
+    NSMutableArray *items = [NSMutableArray array];
     
-    for (int x = 0; x < ITEMS_COUNT; x++) {
-        [items addObject:[NSString stringWithFormat:@"item #%@", @(counter++)]];
+    for (int i = 1; i < ITEMS_COUNT; i++) {
+        NSMutableArray *images = [NSMutableArray arrayWithCapacity:4];
+        for (int x = 0; x < 4; x++) {
+            NSString *fn = [NSString stringWithFormat:@"p%ld.jpg", arc4random() % 16];
+            [images addObject:[UIImage imageNamed:fn]];
+        }
+        NSString *title = [NSString stringWithFormat:@"item #%@", @(i)];
+        NSDictionary *d = @{@"title" : title,
+                            @"images" : images};
+        [items addObject:d];
     }
+    subItems = [[SubItems alloc] initWithData:items];
     
     [self.view addSubview:self.collectionView];
 }
@@ -66,24 +113,28 @@ static NSInteger counter = 0;
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return items.count;
+    return subItems.items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StackCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdStackCell forIndexPath:indexPath];
-    cell.title = items[indexPath.item];
+    NSDictionary *d = subItems.items[indexPath.item];
+    cell.title = d[@"title"];
+    cell.images = d[@"images"];
+    
     return cell;
 }
 
 #pragma mark - stack
 
 -(void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath {
-    [items removeObjectAtIndex:0];
-    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-    
-    [items addObject:[NSString stringWithFormat:@"item #%@", @(counter++)]];
-    NSIndexPath *newItemPath = [NSIndexPath indexPathForItem:(items.count - 1) inSection:0];
-    [self.collectionView insertItemsAtIndexPaths:@[newItemPath]];
+    subItems.itemIndex++;
+
+    [self.collectionView reloadData];
+}
+
+- (BOOL)hasRemovedItems:(id)sender {
+    return NO;
 }
 
 @end

@@ -115,10 +115,10 @@
 			children = (
 				3BAF5DEC1C6E288B0063DAC5 /* external */,
 				3BAF5DE21C6E27660063DAC5 /* collection */,
-				3BAF5DCB1C6E263D0063DAC5 /* AppDelegate.h */,
-				3BAF5DCC1C6E263D0063DAC5 /* AppDelegate.m */,
 				3BAF5DCE1C6E263D0063DAC5 /* ViewController.h */,
 				3BAF5DCF1C6E263D0063DAC5 /* ViewController.m */,
+				3BAF5DCB1C6E263D0063DAC5 /* AppDelegate.h */,
+				3BAF5DCC1C6E263D0063DAC5 /* AppDelegate.m */,
 				3BAF5DD11C6E263D0063DAC5 /* Main.storyboard */,
 				3BAF5DD41C6E263D0063DAC5 /* Assets.xcassets */,
 				3BAF5DD61C6E263D0063DAC5 /* LaunchScreen.storyboard */,

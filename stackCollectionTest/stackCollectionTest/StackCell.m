@@ -11,7 +11,7 @@
 #import "StackCellAttributes.h"
 
 @interface StackCell () <PhotoScrollerViewProto> {
-    NSMutableArray *images;
+    UIView *cv;
 }
 
 @end
@@ -25,23 +25,14 @@
     [super prepareForReuse];
     self.alpha = 0;
     photos.contentOffset = CGPointZero;
-    [images removeAllObjects];
-    for (int x = 0; x < 4; x++) {
-        NSString *fn = [NSString stringWithFormat:@"p%ld.jpg", random() % 16];
-        [images addObject:fn];
-    }
+    self.images = nil;
+    [photos reloadPhotos];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
-        
-        images = [NSMutableArray arrayWithCapacity:4];
-        for (int x = 0; x < 4; x++) {
-            NSString *fn = [NSString stringWithFormat:@"p%ld.jpg", random() % 16];
-            [images addObject:fn];
-        }
         
         photos = [[PhotoScrollerView alloc] initWithFrame:self.bounds];
         photos.dataSource = self;
@@ -53,6 +44,10 @@
         testLabel = [[UILabel alloc] initWithFrame:(CGRectZero)];
         [self.contentView addSubview:testLabel];
         
+        cv = [[UIView alloc] initWithFrame:(CGRect){{0, 0}, {10, 10}}];
+        cv.backgroundColor = [UIColor redColor];
+        [self.contentView addSubview:cv];
+        
         self.depth = 1;        
     }
     return self;
@@ -61,9 +56,15 @@
 -(void)applyLayoutAttributes:(StackCellAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
     self.depth = layoutAttributes.depth;
+    cv.center = CGRectGetCenter(self.bounds);
 }
 
 #pragma mark - setters
+
+-(void)setImages:(NSArray *)images {
+    _images = images;
+    [photos reloadPhotos];
+}
 
 -(void)setTitle:(NSString *)title {
     _title = title;
@@ -71,29 +72,28 @@
     [testLabel sizeToFit];
 }
 
--(void)setDepth:(CGFloat)depth {
-//    if (depth != _depth) {
-        _depth = depth;
-        self.alpha = 1 - _depth;
-        
-        static CGFloat const magicK = 0.35;
-        static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
-        CGFloat k = _depth * magicK;
-        CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
-        
-        CGAffineTransform transform = CGAffineTransformIdentity;
-        transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
-        k = 1 - k;
-        transform = CGAffineTransformScale(transform, k, k);
-        
-        self.transform = transform;
-//    }
+-(void)setDepth:(CGFloat)depth {    
+    _depth = depth;
+    self.alpha = 1 - _depth;
+    
+    static CGFloat const magicK = 0.35;
+    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
+    CGFloat k = _depth * magicK;
+    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+    
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
+    k = 1 - k;
+    transform = CGAffineTransformScale(transform, k, k);
+    
+    self.transform = transform;
 }
+
 
 #pragma mark - photos
 
 - (NSInteger)numberOfPhotos {
-    return images.count;
+    return self.images.count;
 }
 
 - (UIView *)scroller:(PhotoScrollerView *)scroller viewForIndex:(NSInteger)index {
@@ -103,7 +103,7 @@
         res.contentMode = UIViewContentModeScaleAspectFill;
         res.clipsToBounds = YES;
     }
-    res.image = [UIImage imageNamed:images[index]];
+    res.image = self.images[index];
     return res;
 }
 
