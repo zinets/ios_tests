@@ -134,7 +134,7 @@
 }
 
 - (BOOL)hasRemovedItems:(id)sender {
-    return NO;
+    return YES;
 }
 
 @end

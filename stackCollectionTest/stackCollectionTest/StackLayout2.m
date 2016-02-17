@@ -63,15 +63,22 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             attr = [StackCellAttributes layoutAttributesForCellWithIndexPath:idx];
             [attributes setObject:attr forKey:idx];
         }
-        attr.frame = (CGRect){{15, 30}, {290, height}};
-        if (self.scrollDirection == CellScrollingDirectionRestoring && x == 0) {
-            CGPoint c = attr.center;
-            c.x += self.collectionView.bounds.size.width / 3;
-            attr.center = c;
-        }
         attr.zIndex = 100 - x;
-        if (numberOfItems > 1) {
-            attr.depth = (CGFloat) x / (numberOfItems - 1);
+        if (self.scrollDirection == CellScrollingDirectionRestoring) {
+            if (x == 0) {
+                attr.frame = (CGRect){{15 + self.collectionView.bounds.size.width, 30}, {290, height}};
+                attr.depth = 0;
+            } else {
+                attr.frame = (CGRect){{15, 30}, {290, height}};
+                if (numberOfItems > 1) {
+                    attr.depth = (CGFloat) (x - 1) / (numberOfItems - 1);
+                }
+            }
+        } else {
+            attr.frame = (CGRect){{15, 30}, {290, height}};
+            if (numberOfItems > 1) {
+                attr.depth = (CGFloat) x / (numberOfItems - 1);
+            }
         }
     }
 }
@@ -95,22 +102,14 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
 #pragma mark - gestures
 
 - (void)onPanRecognized:(UIPanGestureRecognizer *)sender {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-    UICollectionViewCell *topCell = [self.collectionView cellForItemAtIndexPath:indexPath];
     CGPoint pt = [sender locationInView:self.collectionView];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan: {
             startPt = pt;
-            startCenter = topCell.center;
             self.scrollDirection = CellScrollingDirectionNone;
             
-            fakeCell = [topCell snapshotViewAfterScreenUpdates:YES];
-            borderControl(fakeCell);
-            [self.collectionView addSubview:fakeCell];
-            fakeCell.frame = topCell.frame;
-            fakeCell.alpha = 1;
-            topCell.alpha = 0;
         } break;
         case UIGestureRecognizerStateChanged: {
             CGFloat delta = pt.x - startPt.x;
@@ -118,12 +117,29 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             if (self.scrollDirection == CellScrollingDirectionNone) {
                 if (delta < 0 && [self.delegate hasRemovedItems:self]) {
                     self.scrollDirection = CellScrollingDirectionRestoring;
-                    [self invalidateLayout];
-                    
-                    break;
                 } else {
                     self.scrollDirection = CellScrollingDirectionRemoving;
+
                 } // думаю нет смысла проверять вариант, когда смещение == 0
+                [self prepareLayout];
+                NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    StackCellAttributes *attr = attributes[obj];
+                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                }];
+
+                UICollectionViewCell *topCell = [self.collectionView cellForItemAtIndexPath:indexPath];
+                startCenter = topCell.center;
+                
+                fakeCell = [topCell snapshotViewAfterScreenUpdates:YES];
+                borderControl(fakeCell);
+                [self.collectionView addSubview:fakeCell];
+                fakeCell.frame = topCell.frame;
+                fakeCell.alpha = 1;
+                topCell.alpha = 0;
+                break;
+            } else {
+                
             }
             
             NSInteger numberOfCells = [self numberOfItems];;
@@ -154,6 +170,8 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
         } break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled: {
+            UICollectionViewCell *topCell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            
             CGPoint v = [sender velocityInView:sender.view];
             CGFloat timeToPredict = 0.15;
             CGFloat delta = pt.x - startPt.x;
@@ -197,33 +215,6 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                         }];
 
                     }
-                    
-                    
-                    
-                    
-                    
-                    
-//                    [UIView animateWithDuration:.25 animations:^{
-//                        if (center.x > self.collectionView.bounds.size.width) { // смахивание справо срабатывает если не просто "за фрейм коллекции, а только "справа от коллекции"
-//                            center.x += self.collectionView.bounds.size.width;
-//                            fakeCell.center = center;
-//                            [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
-//                            [self invalidateLayout];
-//                        } else {
-//                            fakeCell.center = startCenter;
-//                        }
-//                        NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
-//                        [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                            if (![obj isEqual:indexPath]) {
-//                                StackCellAttributes *attr = attributes[obj];
-//                                [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
-//                            }
-//                        }];
-//                    } completion:^(BOOL finished) {
-//                        topCell.alpha = 1;
-//                        fakeCell.alpha = 0;
-//                        [fakeCell removeFromSuperview];
-//                    }];
                 } break;
                     
                 default:
