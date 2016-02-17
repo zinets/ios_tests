@@ -31,8 +31,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.layer.cornerRadius = 5;
-        self.layer.masksToBounds = YES;
+        self.contentView.layer.cornerRadius = 5;
+        self.contentView.layer.masksToBounds = YES;
         
         photos = [[PhotoScrollerView alloc] initWithFrame:self.bounds];
         photos.dataSource = self;
@@ -74,7 +74,7 @@
 
 -(void)setDepth:(CGFloat)depth {    
     _depth = depth;
-    self.alpha = 1 - _depth;
+//    self.alpha = 1 - _depth;
     
     static CGFloat const magicK = 0.35;
     static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
