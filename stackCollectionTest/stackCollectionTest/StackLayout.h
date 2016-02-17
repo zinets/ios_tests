@@ -17,10 +17,6 @@
 
 @interface StackLayout : UICollectionViewLayout
 @property (nonatomic, weak) id <StackLayoutDelegate> delegate;
-@property (nonatomic, assign) BOOL canPan;
-@end
-
-
-@interface StackLayout2 : UICollectionViewLayout
-@property (nonatomic, weak) id <StackLayoutDelegate> delegate;
+/// расстояние в глубину между соседними ячейками; 0,25 по умолчанию из расчета 4 ячейки в стопке (считая самую нижнюю, которая прозрачна до момента начала свайпа)
+@property (nonatomic, assign) CGFloat spacing;
 @end

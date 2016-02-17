@@ -64,7 +64,7 @@
 
 @implementation ViewController
 
-#define ITEMS_COUNT 5
+#define ITEMS_COUNT 6
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -94,7 +94,7 @@
 
 - (StackLayout *)listLayout {
     if (!_listLayout) {
-        _listLayout = [[StackLayout2 alloc] init];
+        _listLayout = [[StackLayout alloc] init];
         _listLayout.delegate = self;
     }
     return _listLayout;

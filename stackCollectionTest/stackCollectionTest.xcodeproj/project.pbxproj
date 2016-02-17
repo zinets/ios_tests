@@ -13,7 +13,6 @@
 		3BAF5DD31C6E263D0063DAC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5DD11C6E263D0063DAC5 /* Main.storyboard */; };
 		3BAF5DD51C6E263D0063DAC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5DD41C6E263D0063DAC5 /* Assets.xcassets */; };
 		3BAF5DD81C6E263D0063DAC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5DD61C6E263D0063DAC5 /* LaunchScreen.storyboard */; };
-		3BAF5DE11C6E27610063DAC5 /* StackLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5DE01C6E27610063DAC5 /* StackLayout.m */; };
 		3BAF5DE51C6E27DD0063DAC5 /* StackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5DE41C6E27DD0063DAC5 /* StackCell.m */; };
 		3BAF5DE81C6E28710063DAC5 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5DE71C6E28710063DAC5 /* UIColor+MUIColor.m */; };
 		3BAF5DEB1C6E28880063DAC5 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5DEA1C6E28880063DAC5 /* Utils.m */; };
@@ -35,7 +34,7 @@
 		3BAF5E181C71BA7C0063DAC5 /* p14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E151C71BA7C0063DAC5 /* p14.jpg */; };
 		3BAF5E191C71BA7C0063DAC5 /* p15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E161C71BA7C0063DAC5 /* p15.jpg */; };
 		3BAF5E1C1C71CE830063DAC5 /* StackCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E1B1C71CE830063DAC5 /* StackCellAttributes.m */; };
-		3BAF5E261C72F4880063DAC5 /* StackLayout2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E251C72F4880063DAC5 /* StackLayout2.m */; };
+		3BAF5E261C72F4880063DAC5 /* StackLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E251C72F4880063DAC5 /* StackLayout.m */; };
 		3BAF5E2F1C7494800063DAC5 /* PhotoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E2E1C7494800063DAC5 /* PhotoScrollerView.m */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		3BAF5DD71C6E263D0063DAC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BAF5DD91C6E263D0063DAC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BAF5DDF1C6E27610063DAC5 /* StackLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackLayout.h; sourceTree = "<group>"; };
-		3BAF5DE01C6E27610063DAC5 /* StackLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackLayout.m; sourceTree = "<group>"; };
 		3BAF5DE31C6E27DD0063DAC5 /* StackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackCell.h; sourceTree = "<group>"; };
 		3BAF5DE41C6E27DD0063DAC5 /* StackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackCell.m; sourceTree = "<group>"; };
 		3BAF5DE61C6E28710063DAC5 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 		3BAF5E161C71BA7C0063DAC5 /* p15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p15.jpg; sourceTree = "<group>"; };
 		3BAF5E1A1C71CE830063DAC5 /* StackCellAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackCellAttributes.h; sourceTree = "<group>"; };
 		3BAF5E1B1C71CE830063DAC5 /* StackCellAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackCellAttributes.m; sourceTree = "<group>"; };
-		3BAF5E251C72F4880063DAC5 /* StackLayout2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackLayout2.m; sourceTree = "<group>"; };
+		3BAF5E251C72F4880063DAC5 /* StackLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackLayout.m; sourceTree = "<group>"; };
 		3BAF5E2D1C7494800063DAC5 /* PhotoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoScrollerView.h; sourceTree = "<group>"; };
 		3BAF5E2E1C7494800063DAC5 /* PhotoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoScrollerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,8 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				3BAF5DDF1C6E27610063DAC5 /* StackLayout.h */,
-				3BAF5DE01C6E27610063DAC5 /* StackLayout.m */,
-				3BAF5E251C72F4880063DAC5 /* StackLayout2.m */,
+				3BAF5E251C72F4880063DAC5 /* StackLayout.m */,
 				3BAF5DE31C6E27DD0063DAC5 /* StackCell.h */,
 				3BAF5DE41C6E27DD0063DAC5 /* StackCell.m */,
 				3BAF5E1A1C71CE830063DAC5 /* StackCellAttributes.h */,
@@ -267,7 +264,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BAF5DE11C6E27610063DAC5 /* StackLayout.m in Sources */,
 				3BAF5E2F1C7494800063DAC5 /* PhotoScrollerView.m in Sources */,
 				3BAF5DE81C6E28710063DAC5 /* UIColor+MUIColor.m in Sources */,
 				3BAF5DD01C6E263D0063DAC5 /* ViewController.m in Sources */,
@@ -275,7 +271,7 @@
 				3BAF5DCD1C6E263D0063DAC5 /* AppDelegate.m in Sources */,
 				3BAF5DEF1C6E2B2C0063DAC5 /* UIView+Geometry.m in Sources */,
 				3BAF5DE51C6E27DD0063DAC5 /* StackCell.m in Sources */,
-				3BAF5E261C72F4880063DAC5 /* StackLayout2.m in Sources */,
+				3BAF5E261C72F4880063DAC5 /* StackLayout.m in Sources */,
 				3BAF5DEB1C6E28880063DAC5 /* Utils.m in Sources */,
 				3BAF5DCA1C6E263D0063DAC5 /* main.m in Sources */,
 			);
