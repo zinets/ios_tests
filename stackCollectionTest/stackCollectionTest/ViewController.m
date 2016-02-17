@@ -129,12 +129,16 @@
 
 -(void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath {
     subItems.itemIndex++;
+//    [self.collectionView reloadData];
+}
 
+- (void)layout:(id)sender willRestoreItemAtIndexpath:(NSIndexPath *)indexPath {
+    subItems.itemIndex--;    
     [self.collectionView reloadData];
 }
 
 - (BOOL)hasRemovedItems:(id)sender {
-    return YES;
+    return subItems.itemIndex > 0;
 }
 
 @end

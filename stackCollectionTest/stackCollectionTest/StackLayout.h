@@ -11,7 +11,7 @@
 @protocol StackLayoutDelegate <NSObject>
 @required
 - (void)layout:(id)sender didRemoveItemAtIndexpath:(NSIndexPath *)indexPath;
-- (void)layout:(id)sender didRestoreItemAtIndexpath:(NSIndexPath *)indexPath;
+- (void)layout:(id)sender willRestoreItemAtIndexpath:(NSIndexPath *)indexPath;
 - (BOOL)hasRemovedItems:(id)sender;
 @end
 

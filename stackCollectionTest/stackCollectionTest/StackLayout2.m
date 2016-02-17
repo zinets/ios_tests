@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
         attr.zIndex = 100 - x;
         if (self.scrollDirection == CellScrollingDirectionRestoring) {
             if (x == 0) {
-                attr.frame = (CGRect){{15 + self.collectionView.bounds.size.width, 30}, {290, height}};
+                attr.frame = (CGRect){{self.collectionView.bounds.size.width - 1, 30}, {290, height}};
                 attr.depth = 0;
             } else {
                 attr.frame = (CGRect){{15, 30}, {290, height}};
@@ -117,32 +117,29 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             if (self.scrollDirection == CellScrollingDirectionNone) {
                 if (delta < 0 && [self.delegate hasRemovedItems:self]) {
                     self.scrollDirection = CellScrollingDirectionRestoring;
+                    [self.delegate layout:self willRestoreItemAtIndexpath:indexPath];
                 } else {
                     self.scrollDirection = CellScrollingDirectionRemoving;
 
                 } // думаю нет смысла проверять вариант, когда смещение == 0
-                [self prepareLayout];
-                NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
-                [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    StackCellAttributes *attr = attributes[obj];
-                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
-                }];
+                [self.collectionView reloadData];
+                break;
+            }
 
-                UICollectionViewCell *topCell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            UICollectionViewCell *topCell = [self.collectionView cellForItemAtIndexPath:indexPath];
+            if (!fakeCell) {
                 startCenter = topCell.center;
-                
+
                 fakeCell = [topCell snapshotViewAfterScreenUpdates:YES];
                 borderControl(fakeCell);
+                
                 [self.collectionView addSubview:fakeCell];
                 fakeCell.frame = topCell.frame;
                 fakeCell.alpha = 1;
-                topCell.alpha = 0;
-                break;
-            } else {
-                
             }
+            topCell.alpha = 0;
             
-            NSInteger numberOfCells = [self numberOfItems];;
+            NSInteger numberOfCells = [self numberOfItems];
             CGPoint center = startCenter;
             
             switch (self.scrollDirection) {
@@ -163,7 +160,23 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                     }];
                     fakeCell.center = center;
                 } break;
-                    
+                case CellScrollingDirectionRestoring: {
+                    center.x += delta;
+                    CGFloat depth = 1;
+                    if (numberOfCells > 1) {
+                        CGFloat maxDepth = 1.0 / (numberOfCells - 1);
+                        depth = MAX(0, MIN(maxDepth, -delta / (self.collectionView.bounds.size.width / 2) / (numberOfCells - 1)));
+                    }
+                    NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                    [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if (![obj isEqual:indexPath]) {
+                            StackCellAttributes *attr = [attributes[obj] copy];
+                            attr.depth = depth; // copy чтобы не накапливалось изменение лавинообразно
+                            [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                        }
+                    }];
+                    fakeCell.center = center;
+                } break;
                 default:
                     break;
             }
@@ -185,7 +198,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                         [UIView animateWithDuration:0.25 animations:^{
                             fakeCell.center = center;
                             [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
-                            [self invalidateLayout];
+                            [self.collectionView reloadData];
                             
                             NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
                             [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -195,6 +208,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                             fakeCell.alpha = 0;
                         } completion:^(BOOL finished) {
                             [fakeCell removeFromSuperview];
+                            fakeCell = nil;
                         }];
                     } else {
                         center = startCenter;
@@ -212,11 +226,54 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                             topCell.alpha = 1;
                             fakeCell.alpha = 0;
                             [fakeCell removeFromSuperview];
+                            fakeCell = nil;
                         }];
-
                     }
                 } break;
-                    
+                case CellScrollingDirectionRestoring: {
+                    if (center.x < self.collectionView.bounds.size.width) { // возрващаем
+                        UICollectionViewLayoutAttributes *attr = attributes[[NSIndexPath indexPathForItem:1 inSection:0]];
+                        center = attr.center;
+//                        [self.collectionView reloadData];
+                        [UIView animateWithDuration:0.25 animations:^{
+                            fakeCell.center = center;
+                            self.scrollDirection = CellScrollingDirectionNone;
+                            
+                            NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                            [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (![obj isEqual:indexPath]) {
+                                    StackCellAttributes *attr = attributes[obj];
+                                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                                }
+                            }];
+                        } completion:^(BOOL finished) {
+                            [self.collectionView reloadData];
+                            topCell.center = startCenter;
+                            topCell.alpha = 1;
+                            [fakeCell removeFromSuperview];
+                            fakeCell = nil;
+                        }];
+                    } else {
+                        center = startCenter;
+                        [UIView animateWithDuration:0.25 animations:^{
+                            fakeCell.center = center;
+                            [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
+
+                            NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                            [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (![obj isEqual:indexPath]) {
+                                    StackCellAttributes *attr = attributes[obj];
+                                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                                }
+                            }];
+                        } completion:^(BOOL finished) {
+                            topCell.alpha = 1;
+                            fakeCell.alpha = 0;
+                            [fakeCell removeFromSuperview];
+                            fakeCell = nil;
+                        }];
+                    }
+                } break;
                 default:
                     break;
             }
@@ -225,19 +282,5 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             break;
     }
 }
-
-//-(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-//    StackCellAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
-//    NSLog(@"%@", attr);
-////    if (itemIndexPath.item == 0) {
-//        attr.alpha = 0;
-////        
-////        CGPoint c = attr.center;
-////        c.x += self.collectionView.bounds.size.width;
-////        attr.center = c;
-////    }
-//    
-//    return attr;
-//}
 
 @end
