@@ -231,7 +231,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                             [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
                             // метод делегата сдвинет индекс в датасорсе - для стока это не надо, но у нас же должно быть "скольжение" по списку юзеров
                             
-                            [self createLayoutForRestoring];
+                            [self createLayoutForRestoring]; // а потом пересчитаю раскладку как если б топовая ячейка была за экраном - это даст мне анимацию "поднятия" ячеек в стопке и reload в конце просто подгрузит самую нижнюю ячейку
                             NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
                             [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                 if (![obj isEqual:indexPath]) {
@@ -272,6 +272,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                         [UIView animateWithDuration:0.25 animations:^{
                             fakeCell.center = center;
                             self.scrollDirection = CellScrollingDirectionNone;
+                            // опять же для анимации - делаю раскладку для "обычной" стопки, в нее мы переходим после окончания анимации
                             [self createGeneralLayout];
                             NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
                             [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -279,19 +280,17 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                                     StackCellAttributes *attr = attributes[obj];
                                     [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
                                 }
-                            }];
+                            }]; // ячейки кроме топовой принимают атрибуты "обычной" раскладки
                         } completion:^(BOOL finished) {
                             [self.collectionView reloadData];
-                            topCell.center = startCenter;
-                            topCell.alpha = 1;
                             [fakeCell removeFromSuperview];
                             fakeCell = nil;
                         }];
-                    } else {
+                    } else { // не дотянули ячейку до состояния, когда можно вернуть ее в стопку
                         center = startCenter;
                         [UIView animateWithDuration:0.25 animations:^{
-                            fakeCell.center = center;
-                            [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
+                            fakeCell.center = center; // вернули визуально топовую ячейку (ее картинку)
+                            [self.delegate layout:self didRemoveItemAtIndexpath:indexPath]; // сдвинули датасорц, чтобы ячейка за экраном не считалась
                             self.scrollDirection = CellScrollingDirectionNone;
                             
                             NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
