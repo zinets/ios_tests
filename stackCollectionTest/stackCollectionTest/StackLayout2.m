@@ -227,11 +227,20 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                             // убираем фейковую ячейку вправо за экран, с фейдом в 0, потом обнулить фейковую ячейку
                             fakeCell.center = center;
                             fakeCell.alpha = 0;
-                        } completion:^(BOOL finished) {
+                            
                             [self.delegate layout:self didRemoveItemAtIndexpath:indexPath];
                             // метод делегата сдвинет индекс в датасорсе - для стока это не надо, но у нас же должно быть "скольжение" по списку юзеров
+                            
+                            [self createLayoutForRestoring];
+                            NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
+                            [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (![obj isEqual:indexPath]) {
+                                    StackCellAttributes *attr = attributes[obj];
+                                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                                }
+                            }];
+                        } completion:^(BOOL finished) {
                             [self.collectionView reloadData];
-                            // минус этого ^^^^^^^^^^ метода в том, что если резко смахнуть ячейку - так, чтобы стопка не успела "подтянуться" вверх - обновление стопки будет рывком.. пока не нашел нормального варианта
                             [fakeCell removeFromSuperview];
                             fakeCell = nil;
                         }];

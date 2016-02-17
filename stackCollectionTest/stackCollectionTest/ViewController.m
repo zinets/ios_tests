@@ -64,7 +64,7 @@
 
 @implementation ViewController
 
-#define ITEMS_COUNT 14
+#define ITEMS_COUNT 5
 
 - (void)viewDidLoad {
     [super viewDidLoad];
