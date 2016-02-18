@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
         if (!attributes) {
             attributes = [NSMutableDictionary dictionary];
         }
-        self.spacing = 0.25;
+        self.spacing = 0.33;
     }
     return self;
 }
@@ -100,9 +100,11 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
         }
         attr.zIndex = 100 - x;
         attr.frame = [self normalFrame];
-        if (numberOfItems > 1) {
-//            attr.depth = (CGFloat) x / (numberOfItems - 1);
-            attr.depth = self.spacing * x;
+        if (x == 0) {
+            attr.depth = 0;
+        } else {
+            CGFloat depth = (CGFloat) x / (numberOfItems - 1);
+            attr.depth = MIN(depth, x * self.spacing);
         }
     }
 }
@@ -124,8 +126,8 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
             attr.depth = 0;
         } else {
             attr.frame = [self normalFrame];
-//            attr.depth = (CGFloat) (x - 1) / (numberOfItems - 1);
-            attr.depth = self.spacing * x;
+            CGFloat depth = (CGFloat) (x - 1) / (numberOfItems - 1);
+            attr.depth = MIN(depth, (x - 1) * self.spacing);
         }
     }
 }
@@ -184,7 +186,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                     center.x += delta;
                     CGFloat depth = 1; // расчет - на сколько меняется "глубина" ячейки при сдвиге топовой ячейки
                     if (numberOfCells > 1) {
-                        CGFloat maxDepth = 1.0 / (numberOfCells - 1);
+                        CGFloat maxDepth = self.spacing; //1.0 / (numberOfCells - 1);
                         depth = MAX(0, MIN(maxDepth, delta / (self.collectionView.bounds.size.width / 2) / (numberOfCells - 1)));
                     }
                     NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
@@ -192,7 +194,8 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                         if (![obj isEqual:indexPath]) {
                             StackCellAttributes *attr = [attributes[obj] copy];
                             attr.depth -= depth; // copy чтобы не накапливалось изменение лавинообразно - вычисленное значение - это абс. значение от старта процесса; кроме того я не хочу менять кешированные атрибуты
-                            [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                            UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:obj];
+                            [cell applyLayoutAttributes:attr];
                         }
                     }];
                     // показали образ ячейки в новой точке
@@ -200,7 +203,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                 } break;
                 case CellScrollingDirectionRestoring: {
                     center.x += delta;
-                    CGFloat maxDepth = 1.0 / (numberOfCells - 1);
+                    CGFloat maxDepth = self.spacing; // 1.0 / (numberOfCells - 1);
                     CGFloat depth = MAX(0, MIN(maxDepth, -delta / (self.collectionView.bounds.size.width / 2) / (numberOfCells - 1)));
                     // depth - глубина для текущего сдвига; все ячейки опускаем на эту глубину - кроме "топовой"
                     NSArray <NSIndexPath *> *cells = [self.collectionView indexPathsForVisibleItems];
@@ -243,10 +246,12 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                             [cells enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                                 if (![obj isEqual:indexPath]) {
                                     StackCellAttributes *attr = attributes[obj];
-                                    [[self.collectionView cellForItemAtIndexPath:obj] applyLayoutAttributes:attr];
+                                    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:obj];
+                                    [cell applyLayoutAttributes:attr];
                                 }
                             }];
                         } completion:^(BOOL finished) {
+                            topCell.alpha = 1;
                             [self.collectionView reloadData];
                             [fakeCell removeFromSuperview];
                             fakeCell = nil;
@@ -289,6 +294,7 @@ typedef NS_ENUM(NSUInteger, CellScrollingDirection) {
                                 }
                             }]; // ячейки кроме топовой принимают атрибуты "обычной" раскладки
                         } completion:^(BOOL finished) {
+                            topCell.alpha = 1;
                             [self.collectionView reloadData];
                             [fakeCell removeFromSuperview];
                             fakeCell = nil;

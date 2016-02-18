@@ -23,10 +23,8 @@
 
 -(void)prepareForReuse {
     [super prepareForReuse];
-    self.alpha = 0;
     photos.contentOffset = CGPointZero;
     self.images = nil;
-    [photos reloadPhotos];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
