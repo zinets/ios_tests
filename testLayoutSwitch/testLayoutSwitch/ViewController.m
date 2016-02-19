@@ -73,10 +73,7 @@ typedef NS_ENUM(NSUInteger, Layout) {
         if (arr.count > 0) {
             [self.collectionView selectItemAtIndexPath:[arr firstObject] animated:NO scrollPosition:(UICollectionViewScrollPositionNone)];
         }
-
-        [self.collectionView setCollectionViewLayout:l animated:YES completion:^(BOOL finished) {
-            [self.collectionView reloadData];
-        }];
+        [self.collectionView setCollectionViewLayout:l animated:YES];       
         [self.collectionView reloadItemsAtIndexPaths:arr];
     }
 }

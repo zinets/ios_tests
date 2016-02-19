@@ -32,4 +32,9 @@
     [label sizeToFit];
 }
 
+-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [super applyLayoutAttributes:layoutAttributes];
+    [self invalidateIntrinsicContentSize];
+}
+
 @end
