@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CellType2.h
 //  testLayoutSwitch
 //
 //  Created by Zinets Victor on 2/19/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UICollectionViewDataSource>
-
+@interface CellType2 : UICollectionViewCell
 
 @end
-

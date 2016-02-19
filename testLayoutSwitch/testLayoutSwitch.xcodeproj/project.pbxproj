@@ -13,6 +13,11 @@
 		3BAF5E801C7715330063DAC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E7E1C7715330063DAC5 /* Main.storyboard */; };
 		3BAF5E821C7715330063DAC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E811C7715330063DAC5 /* Assets.xcassets */; };
 		3BAF5E851C7715330063DAC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E831C7715330063DAC5 /* LaunchScreen.storyboard */; };
+		3BAF5E921C7717E00063DAC5 /* CellType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E911C7717E00063DAC5 /* CellType1.m */; };
+		3BAF5E951C7718610063DAC5 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E941C7718610063DAC5 /* UIColor+MUIColor.m */; };
+		3BAF5E981C771B670063DAC5 /* CellType2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E971C771B670063DAC5 /* CellType2.m */; };
+		3BAF5E9B1C771F9A0063DAC5 /* LeftLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E9A1C771F9A0063DAC5 /* LeftLayout.m */; };
+		3BAF5E9E1C771FC00063DAC5 /* RightLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E9D1C771FC00063DAC5 /* RightLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,16 @@
 		3BAF5E811C7715330063DAC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BAF5E841C7715330063DAC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BAF5E861C7715330063DAC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BAF5E901C7717E00063DAC5 /* CellType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellType1.h; sourceTree = "<group>"; };
+		3BAF5E911C7717E00063DAC5 /* CellType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellType1.m; sourceTree = "<group>"; };
+		3BAF5E931C7718610063DAC5 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		3BAF5E941C7718610063DAC5 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		3BAF5E961C771B670063DAC5 /* CellType2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellType2.h; sourceTree = "<group>"; };
+		3BAF5E971C771B670063DAC5 /* CellType2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellType2.m; sourceTree = "<group>"; };
+		3BAF5E991C771F9A0063DAC5 /* LeftLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftLayout.h; sourceTree = "<group>"; };
+		3BAF5E9A1C771F9A0063DAC5 /* LeftLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftLayout.m; sourceTree = "<group>"; };
+		3BAF5E9C1C771FC00063DAC5 /* RightLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightLayout.h; sourceTree = "<group>"; };
+		3BAF5E9D1C771FC00063DAC5 /* RightLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,9 @@
 		3BAF5E741C7715330063DAC5 /* testLayoutSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				3BAF5E931C7718610063DAC5 /* UIColor+MUIColor.h */,
+				3BAF5E941C7718610063DAC5 /* UIColor+MUIColor.m */,
+				3BAF5E8C1C7715650063DAC5 /* collection */,
 				3BAF5E781C7715330063DAC5 /* AppDelegate.h */,
 				3BAF5E791C7715330063DAC5 /* AppDelegate.m */,
 				3BAF5E7B1C7715330063DAC5 /* ViewController.h */,
@@ -77,6 +95,21 @@
 				3BAF5E761C7715330063DAC5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BAF5E8C1C7715650063DAC5 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				3BAF5E901C7717E00063DAC5 /* CellType1.h */,
+				3BAF5E911C7717E00063DAC5 /* CellType1.m */,
+				3BAF5E961C771B670063DAC5 /* CellType2.h */,
+				3BAF5E971C771B670063DAC5 /* CellType2.m */,
+				3BAF5E991C771F9A0063DAC5 /* LeftLayout.h */,
+				3BAF5E9A1C771F9A0063DAC5 /* LeftLayout.m */,
+				3BAF5E9C1C771FC00063DAC5 /* RightLayout.h */,
+				3BAF5E9D1C771FC00063DAC5 /* RightLayout.m */,
+			);
+			name = collection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAF5E9B1C771F9A0063DAC5 /* LeftLayout.m in Sources */,
 				3BAF5E7D1C7715330063DAC5 /* ViewController.m in Sources */,
+				3BAF5E921C7717E00063DAC5 /* CellType1.m in Sources */,
+				3BAF5E981C771B670063DAC5 /* CellType2.m in Sources */,
+				3BAF5E9E1C771FC00063DAC5 /* RightLayout.m in Sources */,
 				3BAF5E7A1C7715330063DAC5 /* AppDelegate.m in Sources */,
 				3BAF5E771C7715330063DAC5 /* main.m in Sources */,
+				3BAF5E951C7718610063DAC5 /* UIColor+MUIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
