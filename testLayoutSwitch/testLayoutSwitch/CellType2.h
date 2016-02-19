@@ -6,8 +6,9 @@
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CellType1.h"
+#import "UIColor+MUIColor.h"
 
-@interface CellType2 : UICollectionViewCell
+@interface CellType2 : CellType1
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "CellType2.h"
-#import "UIColor+MUIColor.h"
 
 @implementation CellType2
 

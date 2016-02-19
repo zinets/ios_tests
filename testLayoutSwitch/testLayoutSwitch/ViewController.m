@@ -69,9 +69,13 @@ typedef NS_ENUM(NSUInteger, Layout) {
                 break;
         }
         
-        [self.collectionView setCollectionViewLayout:l animated:YES completion:^(BOOL finished) {
-            
-        }];
+        NSArray *arr = [self.collectionView indexPathsForVisibleItems];
+        if (arr.count > 0) {
+            [self.collectionView selectItemAtIndexPath:[arr firstObject] animated:NO scrollPosition:(UICollectionViewScrollPositionNone)];
+        }
+
+        [self.collectionView setCollectionViewLayout:l animated:NO];
+        [self.collectionView reloadData];
     }
 }
 
@@ -114,8 +118,19 @@ typedef NS_ENUM(NSUInteger, Layout) {
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[CellType1 description] forIndexPath:indexPath];
-    return cell;
+    switch (self.layoutType) {
+        case Layout1: {
+            CellType1 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[CellType1 description] forIndexPath:indexPath];
+            cell.title = [NSString stringWithFormat:@"small cell #%@", @(indexPath.item)];
+            return cell;
+        }
+        case Layout2: {
+            CellType2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[CellType2 description] forIndexPath:indexPath];
+            cell.title = [NSString stringWithFormat:@"big cell #%@", @(indexPath.item)];
+            return cell;
+        }
+    }
+
 }
 
 @end

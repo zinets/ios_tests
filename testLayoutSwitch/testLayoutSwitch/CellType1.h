@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CellType1 : UICollectionViewCell
-
+@property (nonatomic, strong) NSString *title;
 @end

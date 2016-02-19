@@ -10,4 +10,16 @@
 
 @implementation LeftLayout
 
+-(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
+    UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
+    attr.center = (CGPoint){-100, attr.center.y};
+    return attr;
+}
+
+-(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
+    UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
+    attr.center = (CGPoint){-100, attr.center.y};
+    return attr;
+}
+
 @end
