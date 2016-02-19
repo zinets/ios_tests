@@ -74,8 +74,10 @@ typedef NS_ENUM(NSUInteger, Layout) {
             [self.collectionView selectItemAtIndexPath:[arr firstObject] animated:NO scrollPosition:(UICollectionViewScrollPositionNone)];
         }
 
-        [self.collectionView setCollectionViewLayout:l animated:NO];
-        [self.collectionView reloadData];
+        [self.collectionView setCollectionViewLayout:l animated:YES completion:^(BOOL finished) {
+            [self.collectionView reloadData];
+        }];
+        [self.collectionView reloadItemsAtIndexPaths:arr];
     }
 }
 
@@ -121,7 +123,7 @@ typedef NS_ENUM(NSUInteger, Layout) {
     switch (self.layoutType) {
         case Layout1: {
             CellType1 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[CellType1 description] forIndexPath:indexPath];
-            cell.title = [NSString stringWithFormat:@"small cell #%@", @(indexPath.item)];
+            cell.title = [NSString stringWithFormat:@"small #%@", @(indexPath.item)];
             return cell;
         }
         case Layout2: {
