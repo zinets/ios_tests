@@ -97,7 +97,12 @@
         res.contentMode = UIViewContentModeScaleAspectFill;
         res.clipsToBounds = YES;
     }
-    [res loadImageFromUrl:self.images[index]];
+    UIImage *img = [UIImage imageNamed:self.images[index]];
+    if (img) {
+        res.image = img;
+    } else {
+        [res loadImageFromUrl:self.images[index]];
+    }
     return res;
 }
 
