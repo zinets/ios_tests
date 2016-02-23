@@ -114,8 +114,7 @@
     [self reloadPhotos];
 }
 
--(void)reloadPhotos
-{
+- (void)reloadPhotos {
     [visiblePhotos.allValues enumerateObjectsUsingBlock:^(UIView * obj, NSUInteger idx, BOOL *stop) {
         [obj removeFromSuperview];
         [reusePool addObject:obj];
@@ -126,7 +125,6 @@
     if (nums > 0) {
         frames = [NSMutableArray arrayWithCapacity:nums];
         
-        CGRect frm = {};
         CGSize contentSize = (CGSize){0, self.bounds.size.height};
         if (self.verticalScrolling) {
             contentSize = (CGSize){self.bounds.size.width, 0};

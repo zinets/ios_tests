@@ -67,7 +67,7 @@
 
 @implementation ViewController
 
-#define ITEMS_COUNT 6
+#define ITEMS_COUNT 10
 
 - (void)loadUrls {
     NSMutableArray *items = [NSMutableArray array];

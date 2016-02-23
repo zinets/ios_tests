@@ -25,7 +25,7 @@
 -(void)prepareForReuse {
     [super prepareForReuse];
     photos.contentOffset = CGPointZero;
-    self.images = nil;
+//    self.images = nil;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -41,6 +41,7 @@
         self.contentView.backgroundColor = [UIColor colorWithHex:random() & 0x00ffffff];
         
         testLabel = [[UILabel alloc] initWithFrame:(CGRectZero)];
+        testLabel.numberOfLines = 0;
         [self.contentView addSubview:testLabel];
         
         cv = [[UIView alloc] initWithFrame:(CGRect){{0, 0}, {10, 10}}];
@@ -62,27 +63,9 @@
 
 -(void)setTitle:(NSString *)title {
     _title = title;
-    testLabel.text = _title;
+    testLabel.text = [NSString stringWithFormat:@"%@\naddr: %p\nphotos: %p", _title, self, photos];
     [testLabel sizeToFit];
 }
-
-//-(void)setDepth:(CGFloat)depth {    
-//    _depth = depth;
-////    self.alpha = 1 - _depth;
-//    
-//    static CGFloat const magicK = 0.35;
-//    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
-//    CGFloat k = _depth * magicK;
-//    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
-//    
-//    CGAffineTransform transform = CGAffineTransformIdentity;
-//    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
-//    k = 1 - k;
-//    transform = CGAffineTransformScale(transform, k, k);
-//    
-//    self.transform = transform;
-//}
-
 
 #pragma mark - photos
 
@@ -91,19 +74,30 @@
 }
 
 - (UIView *)scroller:(PhotoScrollerView *)scroller viewForIndex:(NSInteger)index {
-    UrlImageView2 *res = (id)[scroller dequeueView];
-    if (!res) {
-        res = [[UrlImageView2 alloc] initWithFrame:scroller.bounds];
-        res.contentMode = UIViewContentModeScaleAspectFill;
-        res.clipsToBounds = YES;
-    }
     UIImage *img = [UIImage imageNamed:self.images[index]];
     if (img) {
+        UIImageView *res = (id)[scroller dequeueView];
+        if (!res) {
+            res = [[UIImageView alloc] initWithFrame:scroller.bounds];
+            res.contentMode = UIViewContentModeScaleAspectFill;
+            res.clipsToBounds = YES;
+        }
         res.image = img;
+        
+        return res;
     } else {
+        UrlImageView2 *res = (id)[scroller dequeueView];
+        if (!res) {
+            res = [[UrlImageView2 alloc] initWithFrame:scroller.bounds];
+            res.allowLoadingAnimation = NO;
+            res.contentMode = UIViewContentModeScaleAspectFill;
+            res.clipsToBounds = YES;
+        }
+
         [res loadImageFromUrl:self.images[index]];
+        
+        return res;
     }
-    return res;
 }
 
 @end
