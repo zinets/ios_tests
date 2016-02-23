@@ -34,8 +34,14 @@
 		3BAF5E181C71BA7C0063DAC5 /* p14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E151C71BA7C0063DAC5 /* p14.jpg */; };
 		3BAF5E191C71BA7C0063DAC5 /* p15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF5E161C71BA7C0063DAC5 /* p15.jpg */; };
 		3BAF5E2F1C7494800063DAC5 /* PhotoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E2E1C7494800063DAC5 /* PhotoScrollerView.m */; };
-		3BAF5E5E1C76093C0063DAC5 /* StackCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E5B1C76093C0063DAC5 /* StackCellAttributes.m */; };
 		3BAF5E5F1C76093C0063DAC5 /* StackLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5E5D1C76093C0063DAC5 /* StackLayout.m */; };
+		3BAF5EA91C7B16740063DAC5 /* StackCellAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EA81C7B16740063DAC5 /* StackCellAttributes.m */; };
+		3BAF5EC01C7C49A00063DAC5 /* UrlImageView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EBF1C7C49A00063DAC5 /* UrlImageView2.m */; };
+		3BAF5EC31C7C49E40063DAC5 /* TNImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EC21C7C49E40063DAC5 /* TNImageDownloader.m */; };
+		3BAF5EC61C7C49F60063DAC5 /* TNCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EC51C7C49F60063DAC5 /* TNCache.m */; };
+		3BAF5EC91C7C49FC0063DAC5 /* TNSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EC81C7C49FC0063DAC5 /* TNSafeMutableDictionary.m */; };
+		3BAF5ECC1C7C4A290063DAC5 /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5ECB1C7C4A290063DAC5 /* UIImage+Thumbnails.m */; };
+		3BAF5ECF1C7C4A350063DAC5 /* UIImage+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5ECE1C7C4A350063DAC5 /* UIImage+Cache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,10 +81,23 @@
 		3BAF5E161C71BA7C0063DAC5 /* p15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p15.jpg; sourceTree = "<group>"; };
 		3BAF5E2D1C7494800063DAC5 /* PhotoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoScrollerView.h; sourceTree = "<group>"; };
 		3BAF5E2E1C7494800063DAC5 /* PhotoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoScrollerView.m; sourceTree = "<group>"; };
-		3BAF5E5A1C76093C0063DAC5 /* StackCellAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackCellAttributes.h; path = ../../../trunk/MUIControls/MUIControls/Classes/StackCellAttributes.h; sourceTree = "<group>"; };
-		3BAF5E5B1C76093C0063DAC5 /* StackCellAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackCellAttributes.m; path = ../../../trunk/MUIControls/MUIControls/Classes/StackCellAttributes.m; sourceTree = "<group>"; };
 		3BAF5E5C1C76093C0063DAC5 /* StackLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackLayout.h; path = ../../../trunk/MUIControls/MUIControls/Classes/StackLayout.h; sourceTree = "<group>"; };
 		3BAF5E5D1C76093C0063DAC5 /* StackLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackLayout.m; path = ../../../trunk/MUIControls/MUIControls/Classes/StackLayout.m; sourceTree = "<group>"; };
+		3BAF5EA71C7B16740063DAC5 /* StackCellAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackCellAttributes.h; path = ../../../trunk/MUIControls/MUIControls/Classes/StackCellAttributes.h; sourceTree = "<group>"; };
+		3BAF5EA81C7B16740063DAC5 /* StackCellAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackCellAttributes.m; path = ../../../trunk/MUIControls/MUIControls/Classes/StackCellAttributes.m; sourceTree = "<group>"; };
+		3BAF5EBD1C7C47CF0063DAC5 /* images.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = images.h; sourceTree = "<group>"; };
+		3BAF5EBE1C7C49A00063DAC5 /* UrlImageView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrlImageView2.h; path = ../../../trunk/MUIControls/MUIControls/Classes/UrlImageView2.h; sourceTree = "<group>"; };
+		3BAF5EBF1C7C49A00063DAC5 /* UrlImageView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrlImageView2.m; path = ../../../trunk/MUIControls/MUIControls/Classes/UrlImageView2.m; sourceTree = "<group>"; };
+		3BAF5EC11C7C49E40063DAC5 /* TNImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNImageDownloader.h; path = ../../../trunk/TNCache/TNCache/TNImageDownloader.h; sourceTree = "<group>"; };
+		3BAF5EC21C7C49E40063DAC5 /* TNImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNImageDownloader.m; path = ../../../trunk/TNCache/TNCache/TNImageDownloader.m; sourceTree = "<group>"; };
+		3BAF5EC41C7C49F60063DAC5 /* TNCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNCache.h; path = ../../../trunk/TNCache/TNCache/TNCache.h; sourceTree = "<group>"; };
+		3BAF5EC51C7C49F60063DAC5 /* TNCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNCache.m; path = ../../../trunk/TNCache/TNCache/TNCache.m; sourceTree = "<group>"; };
+		3BAF5EC71C7C49FC0063DAC5 /* TNSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNSafeMutableDictionary.h; path = ../../../trunk/TNCache/TNCache/TNSafeMutableDictionary.h; sourceTree = "<group>"; };
+		3BAF5EC81C7C49FC0063DAC5 /* TNSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNSafeMutableDictionary.m; path = ../../../trunk/TNCache/TNCache/TNSafeMutableDictionary.m; sourceTree = "<group>"; };
+		3BAF5ECA1C7C4A290063DAC5 /* UIImage+Thumbnails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Thumbnails.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Thumbnails.h"; sourceTree = "<group>"; };
+		3BAF5ECB1C7C4A290063DAC5 /* UIImage+Thumbnails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Thumbnails.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Thumbnails.m"; sourceTree = "<group>"; };
+		3BAF5ECD1C7C4A350063DAC5 /* UIImage+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Cache.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.h"; sourceTree = "<group>"; };
+		3BAF5ECE1C7C4A350063DAC5 /* UIImage+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Cache.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +134,7 @@
 				3BAF5DE21C6E27660063DAC5 /* collection */,
 				3BAF5DCE1C6E263D0063DAC5 /* ViewController.h */,
 				3BAF5DCF1C6E263D0063DAC5 /* ViewController.m */,
+				3BAF5EBD1C7C47CF0063DAC5 /* images.h */,
 				3BAF5DCB1C6E263D0063DAC5 /* AppDelegate.h */,
 				3BAF5DCC1C6E263D0063DAC5 /* AppDelegate.m */,
 				3BAF5DD11C6E263D0063DAC5 /* Main.storyboard */,
@@ -153,10 +173,10 @@
 		3BAF5DE21C6E27660063DAC5 /* collection */ = {
 			isa = PBXGroup;
 			children = (
-				3BAF5E5A1C76093C0063DAC5 /* StackCellAttributes.h */,
-				3BAF5E5B1C76093C0063DAC5 /* StackCellAttributes.m */,
 				3BAF5E5C1C76093C0063DAC5 /* StackLayout.h */,
 				3BAF5E5D1C76093C0063DAC5 /* StackLayout.m */,
+				3BAF5EA71C7B16740063DAC5 /* StackCellAttributes.h */,
+				3BAF5EA81C7B16740063DAC5 /* StackCellAttributes.m */,
 				3BAF5DE31C6E27DD0063DAC5 /* StackCell.h */,
 				3BAF5DE41C6E27DD0063DAC5 /* StackCell.m */,
 			);
@@ -172,8 +192,20 @@
 				3BAF5DEE1C6E2B2C0063DAC5 /* UIView+Geometry.m */,
 				3BAF5DE61C6E28710063DAC5 /* UIColor+MUIColor.h */,
 				3BAF5DE71C6E28710063DAC5 /* UIColor+MUIColor.m */,
+				3BAF5EBE1C7C49A00063DAC5 /* UrlImageView2.h */,
+				3BAF5EBF1C7C49A00063DAC5 /* UrlImageView2.m */,
+				3BAF5EC11C7C49E40063DAC5 /* TNImageDownloader.h */,
+				3BAF5EC21C7C49E40063DAC5 /* TNImageDownloader.m */,
+				3BAF5EC41C7C49F60063DAC5 /* TNCache.h */,
+				3BAF5EC51C7C49F60063DAC5 /* TNCache.m */,
+				3BAF5EC71C7C49FC0063DAC5 /* TNSafeMutableDictionary.h */,
+				3BAF5EC81C7C49FC0063DAC5 /* TNSafeMutableDictionary.m */,
+				3BAF5ECA1C7C4A290063DAC5 /* UIImage+Thumbnails.h */,
+				3BAF5ECB1C7C4A290063DAC5 /* UIImage+Thumbnails.m */,
 				3BAF5DE91C6E28880063DAC5 /* Utils.h */,
 				3BAF5DEA1C6E28880063DAC5 /* Utils.m */,
+				3BAF5ECD1C7C4A350063DAC5 /* UIImage+Cache.h */,
+				3BAF5ECE1C7C4A350063DAC5 /* UIImage+Cache.m */,
 			);
 			name = external;
 			sourceTree = "<group>";
@@ -264,16 +296,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BAF5E5E1C76093C0063DAC5 /* StackCellAttributes.m in Sources */,
 				3BAF5E2F1C7494800063DAC5 /* PhotoScrollerView.m in Sources */,
 				3BAF5DE81C6E28710063DAC5 /* UIColor+MUIColor.m in Sources */,
 				3BAF5DD01C6E263D0063DAC5 /* ViewController.m in Sources */,
+				3BAF5EA91C7B16740063DAC5 /* StackCellAttributes.m in Sources */,
+				3BAF5EC01C7C49A00063DAC5 /* UrlImageView2.m in Sources */,
+				3BAF5EC91C7C49FC0063DAC5 /* TNSafeMutableDictionary.m in Sources */,
 				3BAF5E5F1C76093C0063DAC5 /* StackLayout.m in Sources */,
 				3BAF5DCD1C6E263D0063DAC5 /* AppDelegate.m in Sources */,
 				3BAF5DEF1C6E2B2C0063DAC5 /* UIView+Geometry.m in Sources */,
 				3BAF5DE51C6E27DD0063DAC5 /* StackCell.m in Sources */,
+				3BAF5ECF1C7C4A350063DAC5 /* UIImage+Cache.m in Sources */,
 				3BAF5DEB1C6E28880063DAC5 /* Utils.m in Sources */,
+				3BAF5ECC1C7C4A290063DAC5 /* UIImage+Thumbnails.m in Sources */,
+				3BAF5EC31C7C49E40063DAC5 /* TNImageDownloader.m in Sources */,
 				3BAF5DCA1C6E263D0063DAC5 /* main.m in Sources */,
+				3BAF5EC61C7C49F60063DAC5 /* TNCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +421,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"TEST=1",
+				);
 				INFOPLIST_FILE = stackCollectionTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.stackCollectionTest;

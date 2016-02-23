@@ -8,17 +8,29 @@
 
 #import "LeftLayout.h"
 
-@implementation LeftLayout
+@implementation LeftLayout {
+    CGPoint centerPoint;
+}
+
+//- (void)prepareForTransitionToLayout:(UICollectionViewLayout *)newLayout {
+//    centerPoint = (CGPoint){};
+//}
+
+//- (void)prepareForTransitionFromLayout:(UICollectionViewLayout *)oldLayout NS_AVAILABLE_IOS(7_0);
+
 
 -(UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-    UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
-    attr.center = (CGPoint){-100, attr.center.y};
+    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:itemIndexPath];
+    CGFloat y = [self collectionViewContentSize].height / 2;
+    y = self.collectionView.contentSize.height / 2;
+    attr.center = (CGPoint){-100, y};
     return attr;
 }
 
 -(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
-    UICollectionViewLayoutAttributes *attr = [[self layoutAttributesForItemAtIndexPath:itemIndexPath] copy];
-    attr.center = (CGPoint){-100, attr.center.y};
+    UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:itemIndexPath];
+    CGFloat y = self.collectionView.contentSize.height / 2;
+    attr.center = (CGPoint){-100, y};
     return attr;
 }
 

@@ -9,6 +9,7 @@
 #import "StackCell.h"
 #import "PhotoScrollerView.h"
 #import "StackCellAttributes.h"
+#import "UrlImageView2.h"
 
 @interface StackCell () <PhotoScrollerViewProto> {
     UIView *cv;
@@ -46,16 +47,11 @@
         cv.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:cv];
         
-        self.depth = 1;        
+//        self.depth = 1;        
     }
     return self;
 }
 
--(void)applyLayoutAttributes:(StackCellAttributes *)layoutAttributes {
-    [super applyLayoutAttributes:layoutAttributes];
-    self.depth = layoutAttributes.depth;
-    cv.center = CGRectGetCenter(self.bounds);
-}
 
 #pragma mark - setters
 
@@ -70,22 +66,22 @@
     [testLabel sizeToFit];
 }
 
--(void)setDepth:(CGFloat)depth {    
-    _depth = depth;
-//    self.alpha = 1 - _depth;
-    
-    static CGFloat const magicK = 0.35;
-    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
-    CGFloat k = _depth * magicK;
-    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
-    
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
-    k = 1 - k;
-    transform = CGAffineTransformScale(transform, k, k);
-    
-    self.transform = transform;
-}
+//-(void)setDepth:(CGFloat)depth {    
+//    _depth = depth;
+////    self.alpha = 1 - _depth;
+//    
+//    static CGFloat const magicK = 0.35;
+//    static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
+//    CGFloat k = _depth * magicK;
+//    CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+//    
+//    CGAffineTransform transform = CGAffineTransformIdentity;
+//    transform = CGAffineTransformTranslate(transform, 0, - _depth * (maxDepthHeight + kh));
+//    k = 1 - k;
+//    transform = CGAffineTransformScale(transform, k, k);
+//    
+//    self.transform = transform;
+//}
 
 
 #pragma mark - photos
@@ -95,13 +91,13 @@
 }
 
 - (UIView *)scroller:(PhotoScrollerView *)scroller viewForIndex:(NSInteger)index {
-    UIImageView *res = (id)[scroller dequeueView];
+    UrlImageView2 *res = (id)[scroller dequeueView];
     if (!res) {
-        res = [[UIImageView alloc] initWithFrame:scroller.bounds];
+        res = [[UrlImageView2 alloc] initWithFrame:scroller.bounds];
         res.contentMode = UIViewContentModeScaleAspectFill;
         res.clipsToBounds = YES;
     }
-    res.image = self.images[index];
+    [res loadImageFromUrl:self.images[index]];
     return res;
 }
 
