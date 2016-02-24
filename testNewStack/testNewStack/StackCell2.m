@@ -23,15 +23,31 @@
         
         self.title = [NSString stringWithFormat:@"cell: %p", self];
         
-        self.contentView.backgroundColor = [UIColor colorWithHex:arc4random()];
+        self.contentView.backgroundColor = [UIColor colorWithHex:arc4random() & 0xffffff];
+        
+        UIView *mark = [[UIView alloc] initWithFrame:(CGRect){{}, {10, 10}}];
+        mark.backgroundColor = [UIColor redColor];
+        mark.center = (CGPoint){frame.size.width / 2, frame.size.height / 2};
+        mark.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+        [self.contentView addSubview:mark];
+        self.contentView.layer.borderColor = [UIColor redColor].CGColor;
+        self.contentView.layer.borderWidth = 1;
     }
     return self;
 }
 
 -(void)setTitle:(NSString *)title {
     _title = title;
-    titleLabel.text = _title;
+    titleLabel.text = [NSString stringWithFormat:@"cell: %p\n%@", self, _title];
     [titleLabel sizeToFit];
+}
+
+-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+//    CATransition *t = [CATransition animation];
+//    [self.layer addAnimation:t forKey:@"attr"];
+    
+    [super applyLayoutAttributes:layoutAttributes];
+
 }
 
 @end

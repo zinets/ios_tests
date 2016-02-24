@@ -8,12 +8,17 @@
 
 #import "StackLayout2.h"
 
+#define CELL_WIDTH 290.
+#define CELL_INSET 15.
+
 @implementation StackLayout2 {
     NSMutableDictionary <NSIndexPath *, UICollectionViewLayoutAttributes *> *attributes;
     UIPanGestureRecognizer *panRecognizer;
     
     // воображаемый сдвиг воображаемой ленты из ячеек
-    CGPoint internalOffset, startPt;
+    CGPoint internalOffset, startPt, lastPt;
+    // индекс верхнего в стопке элемента - связан с отступом как отступ/ширина элемента
+    NSInteger internalIndex;
 }
 
 -(CGSize)collectionViewContentSize {
@@ -45,7 +50,8 @@
     for (int x = 0; x < numOfItems; x++) {
         NSIndexPath *idx = [NSIndexPath indexPathForItem:x inSection:0];
         UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:idx];
-        attr.frame = (CGRect){{15 + internalOffset.x, 40}, {290, 400}};
+        attr.frame = (CGRect){{CELL_INSET, 40}, {CELL_WIDTH, 415}};
+        [self recalcAttributes:attr];
         [attributes setObject:attr forKey:idx];
     }
 }
@@ -58,26 +64,88 @@
     return attributes[indexPath];
 }
 
+#pragma mark - int
+
+- (NSInteger)currentIndex {
+    NSInteger res = 0;
+    NSInteger numberOItems = [self.collectionView numberOfItemsInSection:0];
+    
+    res = (-internalOffset.x + CELL_WIDTH / 2) / CELL_WIDTH;
+    res = MIN(numberOItems - 1, MAX(0, res));
+    
+    return res;
+}
+
+- (CGAffineTransform)transformForDepth:(CGFloat)depth {
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    if (depth > 0) {
+        static CGFloat const magicK = 0.35;
+        static CGFloat const maxDepthHeight = 25; // макс сдвиг вверх ячейки
+        CGFloat k = depth * magicK;
+#warning привязать 415 к высоте коллекции
+        CGFloat kh = magicK * 415 / 2; // компенсация сжатия для правильного сдвига вверх
+        
+        transform = CGAffineTransformTranslate(transform, 0, - depth * (maxDepthHeight + kh));
+        k = 1 - k;
+        transform = CGAffineTransformScale(transform, k, k);
+    }
+    return transform;
+}
+
+- (void)recalcAttributes:(UICollectionViewLayoutAttributes *)attr {
+    NSInteger indexOfItem = attr.indexPath.item;
+    NSInteger topIndex = -internalOffset.x / CELL_WIDTH;
+    if (indexOfItem == topIndex) {
+        CGPoint c = attr.center;
+        CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH ;
+        c.x -= dx;
+        attr.transform = CGAffineTransformIdentity;
+        attr.center = c;
+        attr.zIndex = 100;
+    } else if (indexOfItem > topIndex && indexOfItem < topIndex + 4) {
+        CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH;
+        CGFloat depth = 1/4 - MAX(0, MIN(1, dx / CELL_WIDTH)) / 4;
+        NSLog(@"%f",depth);
+        depth += (indexOfItem - topIndex) / 4.0;
+
+        attr.transform = [self transformForDepth:depth];
+        attr.zIndex = 100 - indexOfItem;
+    } else if (indexOfItem < topIndex) {
+        CGPoint c = attr.center;
+        c.x -= self.collectionView.bounds.size.width;
+        attr.center = c;
+        attr.alpha = 0;
+        attr.transform = CGAffineTransformIdentity;
+        attr.zIndex = 1000;
+    } else if (indexOfItem > topIndex + 3) {
+        attr.alpha = 0;
+        attr.transform = CGAffineTransformIdentity;
+        attr.zIndex = 0;
+    }
+}
+
 #pragma mark - recognizer
 
 - (void)onPanRecognized:(UIPanGestureRecognizer *)sender {
     CGPoint pt = [sender locationInView:self.collectionView];
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
-            startPt = pt;
+            lastPt = pt;
+            startPt = internalOffset;
             break;
         case UIGestureRecognizerStateChanged:
-            internalOffset.x += pt.x - startPt.x;
-            startPt = pt;
-            
+            internalOffset.x += pt.x - lastPt.x;
+            lastPt = pt;
+
             [self invalidateLayout];
             break;
         case UIGestureRecognizerStateEnded:
-        case UIGestureRecognizerStateCancelled:
-            internalOffset.x = 0;
+        case UIGestureRecognizerStateCancelled: {
+            NSInteger index = [self currentIndex];
+            internalOffset.x = -index * CELL_WIDTH;
             
             [self invalidateLayout];
-            break;
+        } break;
         default:
             break;
     }
