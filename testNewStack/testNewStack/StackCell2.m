@@ -42,12 +42,12 @@
     [titleLabel sizeToFit];
 }
 
--(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+//-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
 //    CATransition *t = [CATransition animation];
 //    [self.layer addAnimation:t forKey:@"attr"];
-    
-    [super applyLayoutAttributes:layoutAttributes];
-
-}
+//    
+//    [super applyLayoutAttributes:layoutAttributes];
+//    [self invalidateIntrinsicContentSize];
+//}
 
 @end

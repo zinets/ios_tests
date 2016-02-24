@@ -54,6 +54,7 @@ static NSString *const reuseIdCell2 = @"erbg";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StackCell2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdCell2 forIndexPath:indexPath];
     cell.title = [NSString stringWithFormat:@"%d", indexPath.item];
+    NSLog(@"%s\nrequested %@", __PRETTY_FUNCTION__, indexPath);
     return cell;
 }
 

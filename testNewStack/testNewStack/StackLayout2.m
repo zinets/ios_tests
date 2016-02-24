@@ -95,29 +95,39 @@
 - (void)recalcAttributes:(UICollectionViewLayoutAttributes *)attr {
     NSInteger indexOfItem = attr.indexPath.item;
     NSInteger topIndex = -internalOffset.x / CELL_WIDTH;
-    if (indexOfItem == topIndex) {
+    if (indexOfItem == topIndex) {              // самая верхняя ячейка в стопке
         CGPoint c = attr.center;
         CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH ;
         c.x -= dx;
         attr.transform = CGAffineTransformIdentity;
         attr.center = c;
         attr.zIndex = 100;
-    } else if (indexOfItem > topIndex && indexOfItem < topIndex + 4) {
-        CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH;
-        CGFloat depth = 1/4 - MAX(0, MIN(1, dx / CELL_WIDTH)) / 4;
-        NSLog(@"%f",depth);
-        depth += (indexOfItem - topIndex) / 4.0;
-
-        attr.transform = [self transformForDepth:depth];
-        attr.zIndex = 100 - indexOfItem;
-    } else if (indexOfItem < topIndex) {
+    } else if (indexOfItem < topIndex) {        // ячейки ЕЩЕ выше (смахнутые в сторону)
         CGPoint c = attr.center;
         c.x -= self.collectionView.bounds.size.width;
         attr.center = c;
         attr.alpha = 0;
         attr.transform = CGAffineTransformIdentity;
         attr.zIndex = 1000;
-    } else if (indexOfItem > topIndex + 3) {
+    } else if (indexOfItem > topIndex && indexOfItem < topIndex + 4) { // ячейки на экране, 4 шт
+        CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH;
+        CGFloat depth = 1/4 - MAX(0, MIN(1, dx / CELL_WIDTH)) / 4;
+        depth += (indexOfItem - topIndex) / 4.0;
+
+        attr.transform = [self transformForDepth:depth];
+        attr.zIndex = 100 - indexOfItem;
+    } else if (indexOfItem == topIndex + 4) {   // следующая ячейка после 4-х - невидимая в статике
+        CGFloat dx = - internalOffset.x - topIndex * CELL_WIDTH;
+        CGFloat depth = 1/4 - MAX(0, MIN(1, dx / CELL_WIDTH)) / 4;
+        depth += (indexOfItem - topIndex) / 4.0;
+        
+        attr.transform = [self transformForDepth:depth];
+        attr.zIndex = 100 - indexOfItem;
+        attr.alpha = dx / CELL_WIDTH;
+    } else  {           // все что ниже
+        CGPoint c = attr.center;
+        c.x -= self.collectionView.bounds.size.width;
+        attr.center = c;
         attr.alpha = 0;
         attr.transform = CGAffineTransformIdentity;
         attr.zIndex = 0;
@@ -137,18 +147,25 @@
             internalOffset.x += pt.x - lastPt.x;
             lastPt = pt;
 
-            [self invalidateLayout];
+//            [self invalidateLayout];
             break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled: {
+            CGPoint v = [sender velocityInView:sender.view];
+            CGFloat timeToPredict = 0.1;
+            CGFloat dx = timeToPredict * v.x;
+            internalOffset.x += dx;
+            
             NSInteger index = [self currentIndex];
             internalOffset.x = -index * CELL_WIDTH;
             
-            [self invalidateLayout];
+//            [self invalidateLayout];
         } break;
         default:
             break;
     }
+
+    [self invalidateLayout];
 }
 
 @end
