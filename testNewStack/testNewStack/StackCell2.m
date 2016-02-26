@@ -42,12 +42,30 @@
     [titleLabel sizeToFit];
 }
 
-//-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
-//    CATransition *t = [CATransition animation];
-//    [self.layer addAnimation:t forKey:@"attr"];
-//    
-//    [super applyLayoutAttributes:layoutAttributes];
-//    [self invalidateIntrinsicContentSize];
+//-(void)setCenter:(CGPoint)center {
+//    [UIView animateWithDuration:0.25 animations:^{
+//        [super setCenter:center];
+//    }];
 //}
+
+-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    CAAnimationGroup *ag = [CAAnimationGroup animation];
+    
+    CABasicAnimation *ta = [CABasicAnimation animationWithKeyPath:@"transform"];
+    ta.toValue = [NSValue valueWithCGAffineTransform:layoutAttributes.transform];
+
+    CABasicAnimation *tc = [CABasicAnimation animationWithKeyPath:@"center"];
+    ta.toValue = [NSValue valueWithCGPoint:layoutAttributes.center];
+    
+    ag.animations = @[ta, tc];
+    [self.layer addAnimation:ag forKey:@"asd"];
+    
+    if (layoutAttributes.indexPath.item == 1) {
+    NSLog(@"\n\n\n%@\n%@",
+          [NSValue valueWithCGRect:self.frame],
+          [NSValue valueWithCGRect:layoutAttributes.frame]);
+
+    }
+}
 
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import "StackLayout.h"
+#import "StackLayout2.h"
 #import "StackCell.h"
 
 #import "Utils.h"
@@ -60,6 +61,7 @@
     SubItems *subItems;
 }
 @property (nonatomic, strong) StackLayout *listLayout;
+@property (nonatomic, strong) StackLayout2 *stackLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 
@@ -191,7 +193,7 @@
     NSMutableArray *items = [NSMutableArray array];
     for (int i = 1; i < ITEMS_COUNT; i++) {
         NSMutableArray *images = [NSMutableArray arrayWithCapacity:4];
-        for (int x = 0; x < 4; x++) {
+        for (int x = 0; x < 6; x++) {
             NSString *fn = [NSString stringWithFormat:@"p%ld.jpg", arc4random() % 16];
             [images addObject:fn];
         }
@@ -241,9 +243,17 @@
     return _listLayout;
 }
 
+- (StackLayout2 *)stackLayout {
+    if (!_stackLayout) {
+        _stackLayout = [[StackLayout2 alloc] init];
+    }
+    return _stackLayout;
+}
+
+
 -(UICollectionView *)collectionView {
     if (!_collectionView) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.listLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.stackLayout];
         [self registerCells];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;

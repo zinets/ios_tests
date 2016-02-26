@@ -48,13 +48,13 @@ static NSString *const reuseIdCell2 = @"erbg";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 20;
+    return 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     StackCell2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdCell2 forIndexPath:indexPath];
     cell.title = [NSString stringWithFormat:@"%d", indexPath.item];
-    NSLog(@"%s\nrequested %@", __PRETTY_FUNCTION__, indexPath);
+
     return cell;
 }
 

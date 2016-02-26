@@ -42,6 +42,7 @@
 		3BAF5EC91C7C49FC0063DAC5 /* TNSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5EC81C7C49FC0063DAC5 /* TNSafeMutableDictionary.m */; };
 		3BAF5ECC1C7C4A290063DAC5 /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5ECB1C7C4A290063DAC5 /* UIImage+Thumbnails.m */; };
 		3BAF5ECF1C7C4A350063DAC5 /* UIImage+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5ECE1C7C4A350063DAC5 /* UIImage+Cache.m */; };
+		3BAF5F361C7DB7B90063DAC5 /* StackLayout2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF5F351C7DB7B90063DAC5 /* StackLayout2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,8 @@
 		3BAF5ECB1C7C4A290063DAC5 /* UIImage+Thumbnails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Thumbnails.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Thumbnails.m"; sourceTree = "<group>"; };
 		3BAF5ECD1C7C4A350063DAC5 /* UIImage+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Cache.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.h"; sourceTree = "<group>"; };
 		3BAF5ECE1C7C4A350063DAC5 /* UIImage+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Cache.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.m"; sourceTree = "<group>"; };
+		3BAF5F341C7DB7B90063DAC5 /* StackLayout2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StackLayout2.h; path = ../../testNewStack/testNewStack/StackLayout2.h; sourceTree = "<group>"; };
+		3BAF5F351C7DB7B90063DAC5 /* StackLayout2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StackLayout2.m; path = ../../testNewStack/testNewStack/StackLayout2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 			children = (
 				3BAF5E5C1C76093C0063DAC5 /* StackLayout.h */,
 				3BAF5E5D1C76093C0063DAC5 /* StackLayout.m */,
+				3BAF5F341C7DB7B90063DAC5 /* StackLayout2.h */,
+				3BAF5F351C7DB7B90063DAC5 /* StackLayout2.m */,
 				3BAF5EA71C7B16740063DAC5 /* StackCellAttributes.h */,
 				3BAF5EA81C7B16740063DAC5 /* StackCellAttributes.m */,
 				3BAF5DE31C6E27DD0063DAC5 /* StackCell.h */,
@@ -309,6 +314,7 @@
 				3BAF5ECF1C7C4A350063DAC5 /* UIImage+Cache.m in Sources */,
 				3BAF5DEB1C6E28880063DAC5 /* Utils.m in Sources */,
 				3BAF5ECC1C7C4A290063DAC5 /* UIImage+Thumbnails.m in Sources */,
+				3BAF5F361C7DB7B90063DAC5 /* StackLayout2.m in Sources */,
 				3BAF5EC31C7C49E40063DAC5 /* TNImageDownloader.m in Sources */,
 				3BAF5DCA1C6E263D0063DAC5 /* main.m in Sources */,
 				3BAF5EC61C7C49F60063DAC5 /* TNCache.m in Sources */,
