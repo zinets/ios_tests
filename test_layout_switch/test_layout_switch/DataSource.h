@@ -21,4 +21,5 @@
 - (id<ResultObject>)objectByIndexPath:(NSIndexPath *)indexpath;
 
 - (void)fillCellType1;
+- (void)fillCellType2;
 @end

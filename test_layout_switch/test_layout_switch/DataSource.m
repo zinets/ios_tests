@@ -81,19 +81,48 @@
     }
 }
 
+static const CellType startCells[2][6] = {
+    {
+        CellType1, CellTypeSquareCell, CellType1,
+        CellTypeWideBanner,
+        CellType1, CellType1
+    }, {
+        CellType1, CellType1, CellType1,
+        CellTypeWideBanner,
+        CellType1, CellType1
+    }
+};
+
+static const CellType cells2[2][6] = {
+    {
+        CellType1, CellType1, CellType1,
+        CellTypeBigCell,
+        CellType1, CellType1
+    }, {
+        CellType1, CellType1, CellType1,
+        CellTypeWideBanner,
+        CellType1, CellType1
+    }
+};
+
 - (void)fillCellType1 {
-    CellType cells[2][10] = {
-        {CellType1, CellType1, CellType1, CellType1, CellType1, CellType1, CellType1, CellTypeBigCell, CellType1, CellType1},
-        {CellTypeWideBanner, CellTypeWideBanner, CellTypeWideBanner, CellTypeWideBanner, CellType1, CellType1, CellType1, CellType1, CellType1, CellType1}
-    };
-    
     for (int section = 0; section < 2; section++) {
         NSMutableOrderedSet *storage = data[section];
         [storage removeAllObjects];
-        for (int x = 0; x < 10; x++) {
-            [storage addObject:[[self resultObjectByType:cells[section][x]] new]];
+        for (int x = 0; x < 6; x++) {
+            [storage addObject:[[self resultObjectByType:startCells[section][x]] new]];
         }
-    }    
+    }
+}
+
+- (void)fillCellType2 {
+    for (int section = 0; section < 2; section++) {
+        NSMutableOrderedSet *storage = data[section];
+        [storage removeAllObjects];
+        for (int x = 0; x < 6; x++) {
+            [storage addObject:[[self resultObjectByType:cells2[section][x]] new]];
+        }
+    }
 }
 
 @end

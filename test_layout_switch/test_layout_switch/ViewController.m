@@ -19,6 +19,7 @@
 
 typedef NS_ENUM(NSUInteger, ButtonType) {
     ButtonTypeFill1,
+    ButtonTypeFill2,
 };
 
 
@@ -30,14 +31,14 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{5, 5}, {50, 40}};
     btn.tag = ButtonTypeFill1;
-    [btn setTitle:@"left" forState:(UIControlStateNormal)];
+    [btn setTitle:@"stack1" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
     
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{55, 5}, {50, 40}};
-    btn.tag = 2;
-    [btn setTitle:@"right" forState:(UIControlStateNormal)];
+    btn.tag = ButtonTypeFill2;
+    [btn setTitle:@"stack2" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
 }
@@ -48,6 +49,10 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     switch (sender.tag) {
         case ButtonTypeFill1: {
             [self.dataSource fillCellType1];
+            [self.collectionView reloadData];
+        } break;
+        case ButtonTypeFill2: {
+            [self.dataSource fillCellType2];
             [self.collectionView reloadData];
         } break;
         default:
