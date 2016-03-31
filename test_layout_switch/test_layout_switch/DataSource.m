@@ -66,31 +66,34 @@
 
 #pragma mark -
 
-- (id)createResultType1 {
-    id obj = [ResultType1 new];
-    
-    return obj;
+- (Class)resultObjectByType:(CellType)type {
+    switch (type) {
+        case CellType1:
+            return [ResultType1 class];
+        case CellTypeBigCell:
+            return [ResultTypeBigCell class];
+        case CellTypeSquareCell:
+            return [ResultTypeSquareCell class];
+        case CellTypeWideBanner:
+            return [ResultTypeWideBanner class];
+        default:
+            return Nil;
+    }
 }
 
 - (void)fillCellType1 {
-    NSMutableOrderedSet *storage = data[0];
-    [storage removeAllObjects];
-    for (int x = 0; x < 12; x++) {
-        [storage addObject:[ResultType1 new]];
-        if (x == 2) {
-            [storage addObject:[ResultTypeSquareCell new]];
-        }
-        if (x == 4) {
-            [storage addObject:[ResultTypeBigCell new]];
-        }
-    }
+    CellType cells[2][10] = {
+        {CellType1, CellType1, CellType1, CellType1, CellType1, CellType1, CellType1, CellTypeBigCell, CellType1, CellType1},
+        {CellTypeWideBanner, CellTypeWideBanner, CellTypeWideBanner, CellTypeWideBanner, CellType1, CellType1, CellType1, CellType1, CellType1, CellType1}
+    };
     
-    storage = data[1];
-    [storage removeAllObjects];
-    for (int x = 0; x < 2; x++) {
-        [storage addObject:[ResultTypeWideBanner new]];
-    }
-
+    for (int section = 0; section < 2; section++) {
+        NSMutableOrderedSet *storage = data[section];
+        [storage removeAllObjects];
+        for (int x = 0; x < 10; x++) {
+            [storage addObject:[[self resultObjectByType:cells[section][x]] new]];
+        }
+    }    
 }
 
 @end
