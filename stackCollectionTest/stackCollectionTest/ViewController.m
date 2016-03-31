@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 
-#import "StackLayout.h"
 #import "StackLayout2.h"
 #import "StackCell.h"
 
@@ -60,7 +59,6 @@
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, StackLayoutDelegate> {
     SubItems *subItems;
 }
-@property (nonatomic, strong) StackLayout *listLayout;
 @property (nonatomic, strong) StackLayout2 *stackLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -233,14 +231,6 @@
 
 - (void)registerCells {
     [self.collectionView registerClass:[StackCell class] forCellWithReuseIdentifier:reuseIdStackCell];
-}
-
-- (StackLayout *)listLayout {
-    if (!_listLayout) {
-        _listLayout = [[StackLayout alloc] init];
-        _listLayout.delegate = self;
-    }
-    return _listLayout;
 }
 
 - (StackLayout2 *)stackLayout {

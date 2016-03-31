@@ -8,7 +8,7 @@
 
 #import "StackCell.h"
 #import "PhotoScrollerView.h"
-#import "StackCellAttributes.h"
+
 #import "UrlImageView2.h"
 
 @interface StackCell () <PhotoScrollerViewProto> {
