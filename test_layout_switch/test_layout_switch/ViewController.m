@@ -69,6 +69,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
         _leftLayout = [[UICollectionViewFlowLayout alloc] init];
         _leftLayout.minimumInteritemSpacing = 4;
         _leftLayout.minimumLineSpacing = 4;
+        _leftLayout.sectionInset = (UIEdgeInsets){4,0,0,0};
     }
     return _leftLayout;
 }
@@ -82,6 +83,9 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
         _collectionView.delegate = self;
         
         [_collectionView registerClass:[Cell1 class] forCellWithReuseIdentifier:reuseIdCell1];
+        [_collectionView registerClass:[WideBanner class] forCellWithReuseIdentifier:reuseIdCellWideBanner];
+        [_collectionView registerClass:[SquareCell class] forCellWithReuseIdentifier:reuseIdCellSquareCell];
+        [_collectionView registerClass:[BigCell class] forCellWithReuseIdentifier:reuseIdCellBigCell];
     }
     return _collectionView;
 }

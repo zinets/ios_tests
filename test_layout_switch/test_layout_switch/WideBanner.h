@@ -1,14 +1,13 @@
 //
-//  Cell1.h
+//  WideBanner.h
 //  test_layout_switch
 //
 //  Created by Zinets Victor on 3/31/16.
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Cell1.h"
 
-@interface Cell1 : UICollectionViewCell {
-    UILabel *lbl;
-}
+@interface WideBanner : Cell1
+
 @end

@@ -9,7 +9,7 @@
 #import "Cell1.h"
 
 @implementation Cell1 {
-    UILabel *lbl;
+
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {

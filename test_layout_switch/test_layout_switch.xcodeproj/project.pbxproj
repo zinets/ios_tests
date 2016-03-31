@@ -15,7 +15,10 @@
 		3B2974111CAD3FC900D3B743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B29740F1CAD3FC900D3B743 /* LaunchScreen.storyboard */; };
 		3B29741B1CAD429A00D3B743 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29741A1CAD429A00D3B743 /* DataSource.m */; };
 		3B29741F1CAD456500D3B743 /* Cell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29741E1CAD456500D3B743 /* Cell1.m */; };
-		3B2974221CAD46C800D3B743 /* ResultType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974211CAD46C800D3B743 /* ResultType1.m */; };
+		3B2974221CAD46C800D3B743 /* ResultTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974211CAD46C800D3B743 /* ResultTypes.m */; };
+		3B2974261CAD4B1400D3B743 /* WideBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974251CAD4B1400D3B743 /* WideBanner.m */; };
+		3B2974291CAD4EA600D3B743 /* SquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974281CAD4EA600D3B743 /* SquareCell.m */; };
+		3B29742C1CAD51D900D3B743 /* BigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29742B1CAD51D900D3B743 /* BigCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +36,15 @@
 		3B29741A1CAD429A00D3B743 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		3B29741D1CAD456500D3B743 /* Cell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell1.h; sourceTree = "<group>"; };
 		3B29741E1CAD456500D3B743 /* Cell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell1.m; sourceTree = "<group>"; };
-		3B2974201CAD46C800D3B743 /* ResultType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultType1.h; sourceTree = "<group>"; };
-		3B2974211CAD46C800D3B743 /* ResultType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultType1.m; sourceTree = "<group>"; };
+		3B2974201CAD46C800D3B743 /* ResultTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTypes.h; sourceTree = "<group>"; };
+		3B2974211CAD46C800D3B743 /* ResultTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTypes.m; sourceTree = "<group>"; };
 		3B2974231CAD46DE00D3B743 /* Protos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Protos.h; sourceTree = "<group>"; };
+		3B2974241CAD4B1400D3B743 /* WideBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideBanner.h; sourceTree = "<group>"; };
+		3B2974251CAD4B1400D3B743 /* WideBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideBanner.m; sourceTree = "<group>"; };
+		3B2974271CAD4EA600D3B743 /* SquareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareCell.h; sourceTree = "<group>"; };
+		3B2974281CAD4EA600D3B743 /* SquareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareCell.m; sourceTree = "<group>"; };
+		3B29742A1CAD51D900D3B743 /* BigCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigCell.h; sourceTree = "<group>"; };
+		3B29742B1CAD51D900D3B743 /* BigCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				3B2974231CAD46DE00D3B743 /* Protos.h */,
+				3B2974201CAD46C800D3B743 /* ResultTypes.h */,
+				3B2974211CAD46C800D3B743 /* ResultTypes.m */,
 				3B2974191CAD429A00D3B743 /* DataSource.h */,
 				3B29741A1CAD429A00D3B743 /* DataSource.m */,
-				3B2974201CAD46C800D3B743 /* ResultType1.h */,
-				3B2974211CAD46C800D3B743 /* ResultType1.m */,
 			);
 			name = datasource;
 			sourceTree = "<group>";
@@ -108,6 +117,12 @@
 			children = (
 				3B29741D1CAD456500D3B743 /* Cell1.h */,
 				3B29741E1CAD456500D3B743 /* Cell1.m */,
+				3B2974241CAD4B1400D3B743 /* WideBanner.h */,
+				3B2974251CAD4B1400D3B743 /* WideBanner.m */,
+				3B2974271CAD4EA600D3B743 /* SquareCell.h */,
+				3B2974281CAD4EA600D3B743 /* SquareCell.m */,
+				3B29742A1CAD51D900D3B743 /* BigCell.h */,
+				3B29742B1CAD51D900D3B743 /* BigCell.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -182,11 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2974221CAD46C800D3B743 /* ResultType1.m in Sources */,
+				3B2974291CAD4EA600D3B743 /* SquareCell.m in Sources */,
+				3B2974221CAD46C800D3B743 /* ResultTypes.m in Sources */,
 				3B2974091CAD3FC900D3B743 /* ViewController.m in Sources */,
 				3B29741F1CAD456500D3B743 /* Cell1.m in Sources */,
 				3B2974061CAD3FC900D3B743 /* AppDelegate.m in Sources */,
+				3B2974261CAD4B1400D3B743 /* WideBanner.m in Sources */,
 				3B29741B1CAD429A00D3B743 /* DataSource.m in Sources */,
+				3B29742C1CAD51D900D3B743 /* BigCell.m in Sources */,
 				3B2974031CAD3FC900D3B743 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

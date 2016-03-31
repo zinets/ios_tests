@@ -7,7 +7,7 @@
 //
 
 #import "DataSource.h"
-#import "ResultType1.h"
+#import "ResultTypes.h"
 
 @interface DataSource () {
     NSArray <NSMutableOrderedSet *> *data;
@@ -37,7 +37,26 @@
 }
 
 - (CGSize)objectSizeByIndexPath:(NSIndexPath *)indexpath {
-    return (CGSize){104, 104};
+    id obj = data[indexpath.section][indexpath.item];
+    CGSize sz = CGSizeZero;
+    
+    switch ([obj cellType]) {
+        case CellType1:
+            sz = (CGSize){104, 104};
+            break;
+        case CellTypeWideBanner:
+            sz = (CGSize){320, 104};
+            break;
+        case CellTypeSquareCell:
+            sz = (CGSize){212, 212};
+            break;
+        case CellTypeBigCell:
+            sz = (CGSize){320, 212};
+            break;
+        default:
+            break;
+    }
+    return sz;
 }
 
 - (id<ResultObject>)objectByIndexPath:(NSIndexPath *)indexpath {
@@ -58,7 +77,20 @@
     [storage removeAllObjects];
     for (int x = 0; x < 12; x++) {
         [storage addObject:[ResultType1 new]];
+        if (x == 2) {
+            [storage addObject:[ResultTypeSquareCell new]];
+        }
+        if (x == 4) {
+            [storage addObject:[ResultTypeBigCell new]];
+        }
     }
+    
+    storage = data[1];
+    [storage removeAllObjects];
+    for (int x = 0; x < 2; x++) {
+        [storage addObject:[ResultTypeWideBanner new]];
+    }
+
 }
 
 @end
