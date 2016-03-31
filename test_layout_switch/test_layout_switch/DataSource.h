@@ -14,6 +14,11 @@
 #import "SquareCell.h"
 #import "BigCell.h"
 
+@protocol DataSourceDelegate <NSObject>
+@required
+- (void)searchDataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes removedData:(NSArray <NSIndexPath *> *)removedIndexes;
+@end
+
 @interface DataSource : NSObject
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
@@ -22,4 +27,9 @@
 
 - (void)fillCellType1;
 - (void)fillCellType2;
+- (void)insertWideBanner;
+- (void)replaceCells;
+- (void)deleteBanners;
+
+@property (nonatomic, weak) id<DataSourceDelegate>delegate;
 @end

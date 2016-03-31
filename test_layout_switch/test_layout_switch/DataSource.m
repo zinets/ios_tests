@@ -93,13 +93,13 @@ static const CellType startCells[2][6] = {
     }
 };
 
-static const CellType cells2[2][6] = {
+static const CellType cells2[2][5] = {
     {
         CellType1, CellType1, CellType1,
         CellTypeBigCell,
-        CellType1, CellType1
+        CellType1
     }, {
-        CellType1, CellType1, CellType1,
+        CellType1, CellType1,
         CellTypeWideBanner,
         CellType1, CellType1
     }
@@ -119,9 +119,47 @@ static const CellType cells2[2][6] = {
     for (int section = 0; section < 2; section++) {
         NSMutableOrderedSet *storage = data[section];
         [storage removeAllObjects];
-        for (int x = 0; x < 6; x++) {
+        for (int x = 0; x < 5; x++) {
             [storage addObject:[[self resultObjectByType:cells2[section][x]] new]];
         }
+    }
+}
+
+- (void)insertWideBanner {
+    NSMutableOrderedSet *storage = data[0];
+    [storage insertObject:[[self resultObjectByType:(CellTypeWideBanner)] new]
+                  atIndex:3];
+    [self.delegate searchDataSource:self didAddData:@[[NSIndexPath indexPathForItem:3 inSection:0]] removedData:nil];
+}
+
+- (void)replaceCells {
+    NSMutableOrderedSet *storage = data[0];
+    [storage removeObjectAtIndex:1];
+    NSArray *removed = @[[NSIndexPath indexPathForItem:1 inSection:0]];
+    [storage insertObject:[[self resultObjectByType:(CellTypeWideBanner)] new]
+                  atIndex:1];
+    NSArray *added = @[[NSIndexPath indexPathForItem:1 inSection:0]];
+    
+    [self.delegate searchDataSource:self
+                         didAddData:added
+                        removedData:removed];
+}
+
+- (void)deleteBanners {
+    NSMutableOrderedSet *storage = data[0];
+    __block NSMutableArray *arr = [NSMutableArray array];
+    __block NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+    [storage enumerateObjectsUsingBlock:^(id<ResultObject> obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj cellType] == CellTypeWideBanner) {
+            [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
+            [set addIndex:idx];
+        }
+    }];
+    if (arr.count > 0) {
+        [storage removeObjectsAtIndexes:set];
+        [self.delegate searchDataSource:self
+                             didAddData:nil
+                            removedData:arr];
     }
 }
 
