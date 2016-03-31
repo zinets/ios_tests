@@ -22,24 +22,22 @@
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{5, 5}, {50, 40}};
+    btn.tag = 1;
     [btn setTitle:@"left" forState:(UIControlStateNormal)];
-    [btn addTarget:self action:@selector(onTap1:) forControlEvents:(UIControlEventTouchUpInside)];
+    [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
     
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{55, 5}, {50, 40}};
+    btn.tag = 2;
     [btn setTitle:@"right" forState:(UIControlStateNormal)];
-    [btn addTarget:self action:@selector(onTap2:) forControlEvents:(UIControlEventTouchUpInside)];
+    [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
 }
 
 #pragma mark - actions
 
--(void)onTap1:(id)sender {
-
-}
-
--(void)onTap2:(id)sender {
+-(void)onTap:(UIButton *)sender {
 
 }
 
