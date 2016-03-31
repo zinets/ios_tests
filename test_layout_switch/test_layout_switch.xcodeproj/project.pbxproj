@@ -13,6 +13,9 @@
 		3B29740C1CAD3FC900D3B743 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B29740A1CAD3FC900D3B743 /* Main.storyboard */; };
 		3B29740E1CAD3FC900D3B743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B29740D1CAD3FC900D3B743 /* Assets.xcassets */; };
 		3B2974111CAD3FC900D3B743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B29740F1CAD3FC900D3B743 /* LaunchScreen.storyboard */; };
+		3B29741B1CAD429A00D3B743 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29741A1CAD429A00D3B743 /* DataSource.m */; };
+		3B29741F1CAD456500D3B743 /* Cell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29741E1CAD456500D3B743 /* Cell1.m */; };
+		3B2974221CAD46C800D3B743 /* ResultType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974211CAD46C800D3B743 /* ResultType1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,13 @@
 		3B29740D1CAD3FC900D3B743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B2974101CAD3FC900D3B743 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B2974121CAD3FC900D3B743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B2974191CAD429A00D3B743 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		3B29741A1CAD429A00D3B743 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3B29741D1CAD456500D3B743 /* Cell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell1.h; sourceTree = "<group>"; };
+		3B29741E1CAD456500D3B743 /* Cell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell1.m; sourceTree = "<group>"; };
+		3B2974201CAD46C800D3B743 /* ResultType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultType1.h; sourceTree = "<group>"; };
+		3B2974211CAD46C800D3B743 /* ResultType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultType1.m; sourceTree = "<group>"; };
+		3B2974231CAD46DE00D3B743 /* Protos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Protos.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,8 @@
 		3B2974001CAD3FC900D3B743 /* test_layout_switch */ = {
 			isa = PBXGroup;
 			children = (
+				3B29741C1CAD454300D3B743 /* cells */,
+				3B2974181CAD426100D3B743 /* datasource */,
 				3B2974041CAD3FC900D3B743 /* AppDelegate.h */,
 				3B2974051CAD3FC900D3B743 /* AppDelegate.m */,
 				3B2974071CAD3FC900D3B743 /* ViewController.h */,
@@ -77,6 +89,27 @@
 				3B2974021CAD3FC900D3B743 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B2974181CAD426100D3B743 /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				3B2974231CAD46DE00D3B743 /* Protos.h */,
+				3B2974191CAD429A00D3B743 /* DataSource.h */,
+				3B29741A1CAD429A00D3B743 /* DataSource.m */,
+				3B2974201CAD46C800D3B743 /* ResultType1.h */,
+				3B2974211CAD46C800D3B743 /* ResultType1.m */,
+			);
+			name = datasource;
+			sourceTree = "<group>";
+		};
+		3B29741C1CAD454300D3B743 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B29741D1CAD456500D3B743 /* Cell1.h */,
+				3B29741E1CAD456500D3B743 /* Cell1.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2974221CAD46C800D3B743 /* ResultType1.m in Sources */,
 				3B2974091CAD3FC900D3B743 /* ViewController.m in Sources */,
+				3B29741F1CAD456500D3B743 /* Cell1.m in Sources */,
 				3B2974061CAD3FC900D3B743 /* AppDelegate.m in Sources */,
+				3B29741B1CAD429A00D3B743 /* DataSource.m in Sources */,
 				3B2974031CAD3FC900D3B743 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,13 +7,20 @@
 //
 
 #import "ViewController.h"
+#import "DataSource.h"
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *leftLayout;
+@property (nonatomic, strong) DataSource *dataSource;
 @end
 
 @implementation ViewController
+
+typedef NS_ENUM(NSUInteger, ButtonType) {
+    ButtonTypeFill1,
+};
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,7 +29,7 @@
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{5, 5}, {50, 40}};
-    btn.tag = 1;
+    btn.tag = ButtonTypeFill1;
     [btn setTitle:@"left" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
@@ -38,14 +45,30 @@
 #pragma mark - actions
 
 -(void)onTap:(UIButton *)sender {
-
+    switch (sender.tag) {
+        case ButtonTypeFill1: {
+            [self.dataSource fillCellType1];
+            [self.collectionView reloadData];
+        } break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - getters
 
+-(DataSource *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [[DataSource alloc] init];
+    }
+    return _dataSource;
+}
+
 -(UICollectionViewFlowLayout *)leftLayout {
     if (!_leftLayout) {
         _leftLayout = [[UICollectionViewFlowLayout alloc] init];
+        _leftLayout.minimumInteritemSpacing = 4;
+        _leftLayout.minimumLineSpacing = 4;
     }
     return _leftLayout;
 }
@@ -57,18 +80,31 @@
         _collectionView.backgroundColor = [UIColor lightGrayColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
+        
+        [_collectionView registerClass:[Cell1 class] forCellWithReuseIdentifier:reuseIdCell1];
     }
     return _collectionView;
 }
 
 #pragma mark - collection
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [self.dataSource numberOfSections];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return [self.dataSource numberOfItemsInSection:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    id<ResultObject> res = [self.dataSource objectByIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[res cellReuseID] forIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.dataSource objectSizeByIndexPath:indexPath];
 }
 
 @end
