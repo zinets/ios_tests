@@ -8,15 +8,26 @@
 
 #import "Cell1.h"
 
-@implementation Cell1
+@implementation Cell1 {
+    UILabel *lbl;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.contentView.layer.borderWidth = 2;
         self.contentView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.contentView.backgroundColor = [UIColor blueColor];
+        
+        lbl = [[UILabel alloc] initWithFrame:self.bounds];
+        lbl.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        lbl.backgroundColor = [UIColor blueColor];
+        lbl.numberOfLines = 0;
+        [self.contentView addSubview:lbl];
     }
     return self;
+}
+
+-(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    lbl.text = [NSString stringWithFormat:@"%@\n%d - %d", [[self class] description], layoutAttributes.indexPath.section, layoutAttributes.indexPath.item];
 }
 
 @end
