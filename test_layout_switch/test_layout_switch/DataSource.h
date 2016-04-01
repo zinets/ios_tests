@@ -12,8 +12,15 @@
 
 @protocol DataSourceDelegate <NSObject>
 @required
-- (void)searchDataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes removedData:(NSArray <NSIndexPath *> *)removedIndexes;
+- (void)dataSource:(id)sender
+        didAddData:(NSArray <NSIndexPath *> *)newIndexes
+       removedData:(NSArray <NSIndexPath *> *)removedIndexes;
 @end
+
+typedef NS_ENUM(NSUInteger, DataSourceMode) {
+    DataSourceMode1,
+    DataSourceMode2,
+};
 
 @interface DataSource : NSObject
 - (NSInteger)numberOfSections;
@@ -26,6 +33,10 @@
 - (void)insertWideBanner;
 - (void)replaceCells;
 - (void)deleteBanners;
+- (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath;
+/// метод меняет все "банеры" - сначала удаляет одни, выполняет блок, вставляет другие
+- (void)switchToMode:(DataSourceMode)mode withBlock:(void (^)())block;
 
+@property (nonatomic, assign) DataSourceMode mode;
 @property (nonatomic, weak) id<DataSourceDelegate>delegate;
 @end

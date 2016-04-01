@@ -41,10 +41,10 @@
     
     switch ([obj cellType]) {
         case CellType1:
-            sz = (CGSize){104, 104};
+            sz = (CGSize){106, 106};
             break;
         case CellTypeWideBanner:
-            sz = (CGSize){320, 104};
+            sz = (CGSize){320, 106};
             break;
         case CellTypeSquareCell:
             sz = (CGSize){212, 212};
@@ -128,7 +128,7 @@ static const CellType cells2[2][5] = {
     NSMutableOrderedSet *storage = data[0];
     [storage insertObject:[[self resultObjectByType:(CellTypeWideBanner)] new]
                   atIndex:3];
-    [self.delegate searchDataSource:self didAddData:@[[NSIndexPath indexPathForItem:3 inSection:0]] removedData:nil];
+    [self.delegate dataSource:self didAddData:@[[NSIndexPath indexPathForItem:3 inSection:0]] removedData:nil];
 }
 
 - (void)replaceCells {
@@ -139,7 +139,7 @@ static const CellType cells2[2][5] = {
                   atIndex:1];
     NSArray *added = @[[NSIndexPath indexPathForItem:1 inSection:0]];
     
-    [self.delegate searchDataSource:self
+    [self.delegate dataSource:self
                          didAddData:added
                         removedData:removed];
 }
@@ -156,9 +156,67 @@ static const CellType cells2[2][5] = {
     }];
     if (arr.count > 0) {
         [storage removeObjectsAtIndexes:set];
-        [self.delegate searchDataSource:self
+        [self.delegate dataSource:self
                              didAddData:nil
                             removedData:arr];
+    }
+}
+
+- (void)deleteItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableOrderedSet *storage = data[indexPath.section];
+    [storage removeObjectAtIndex:indexPath.item];
+    
+    [self.delegate dataSource:self didAddData:nil removedData:@[indexPath]];
+}
+
+// для простоты только в секции 0
+- (void)switchToMode:(DataSourceMode)mode withBlock:(void (^)())block {
+    
+    self.mode = mode;
+    if (mode == DataSourceMode1) {
+        if (block) {
+            block();
+        }
+        return;
+    }
+    
+    NSMutableOrderedSet *storage = data[0];
+    __block NSMutableArray *arr = [NSMutableArray array];
+    __block NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+    [storage enumerateObjectsUsingBlock:^(id <ResultObject> obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj cellType] == CellTypeWideBanner ||
+            [obj cellType] == CellTypeSquareCell) {
+            [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
+            [set addIndex:idx];
+        }
+    }];
+    // сначала ищу все ячейки wide и square, если есть - удаляю
+    if (arr.count > 0) {
+        [storage removeObjectsAtIndexes:set];
+        [self.delegate dataSource:self
+                       didAddData:nil
+                      removedData:arr];
+    }
+    // затем блок; в нем коллекция переключит раскладку, теоретически остаются только элементы, "общие" для разных режимов
+    if (block) {
+        block();
+    }
+    // затем вставляются новые элементы, которые присущи новой раскладке (ну допустим буду добавлять их только если были удаленные - просто для упрощения и проверки переключения именно раскладки
+    if (arr.count) {
+        [arr removeAllObjects];
+        [arr addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                      atIndex:0];
+        
+        [arr addObject:[NSIndexPath indexPathForRow:3 inSection:0]];
+        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                      atIndex:3];
+        
+        [arr addObject:[NSIndexPath indexPathForRow:6 inSection:0]];
+        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                      atIndex:6];
+        
+        [self.delegate dataSource:self didAddData:arr removedData:nil];
     }
 }
 

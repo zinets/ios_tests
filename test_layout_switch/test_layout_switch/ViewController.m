@@ -101,10 +101,20 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
             [self.dataSource fillCellType2];
             [self.collectionView reloadData];
         } break;
-        case ButtonTypeSwitchLayout:
-            [self.dataSource fillCellType2];
-            [self.collectionView setCollectionViewLayout:self.layout2 animated:YES];
-            break;
+        case ButtonTypeSwitchLayout: {
+            switch (self.dataSource.mode) {
+                case DataSourceMode1: {
+                    [self.dataSource switchToMode:DataSourceMode2 withBlock:^{
+                        [self.collectionView setCollectionViewLayout:self.layout2 animated:YES];
+                    }];
+                } break;
+                case DataSourceMode2: {
+                    [self.dataSource switchToMode:DataSourceMode1 withBlock:^{
+                        [self.collectionView setCollectionViewLayout:self.layout1 animated:YES];
+                    }];
+                } break;
+            }
+        } break;
         case ButtonTypeInsertBanner:
             [self.dataSource insertWideBanner];
             break;
@@ -132,9 +142,9 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
 -(UICollectionViewFlowLayout *)layout1 {
     if (!_layout1) {
         _layout1 = [[UICollectionViewFlowLayout alloc] init];
-        _layout1.minimumInteritemSpacing = 4;
-        _layout1.minimumLineSpacing = 4;
-        _layout1.sectionInset = (UIEdgeInsets){4,0,0,0};
+        _layout1.minimumInteritemSpacing = 1;
+        _layout1.minimumLineSpacing = 1;
+        _layout1.sectionInset = (UIEdgeInsets){1,0,0,0};
     }
     return _layout1;
 }
@@ -142,9 +152,9 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
 -(UICollectionViewFlowLayout *)layout2 {
     if (!_layout2) {
         _layout2 = [[UICollectionViewFlowLayout alloc] init];
-        _layout2.minimumInteritemSpacing = 0;
-        _layout2.minimumLineSpacing = 8;
-        _layout2.sectionInset = (UIEdgeInsets){0,0,0,0};
+        _layout2.minimumInteritemSpacing = 4;
+        _layout2.minimumLineSpacing = 4;
+        _layout2.sectionInset = (UIEdgeInsets){4,0,0,0};
     }
     return _layout2;
 }
@@ -195,11 +205,12 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s\n%@", __PRETTY_FUNCTION__, [[collectionView cellForItemAtIndexPath:indexPath] description]);
+    [self.dataSource deleteItemAtIndexPath:indexPath];
 }
 
 #pragma mark - datasource delegation
 
-- (void)searchDataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes removedData:(NSArray <NSIndexPath *> *)removedIndexes {
+- (void)dataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes removedData:(NSArray <NSIndexPath *> *)removedIndexes {
     [self.collectionView performBatchUpdates:^{
         if (removedIndexes.count > 0) {
             [self.collectionView deleteItemsAtIndexPaths:removedIndexes];
