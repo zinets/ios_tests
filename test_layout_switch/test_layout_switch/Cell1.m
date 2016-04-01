@@ -28,6 +28,7 @@
 
 -(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     lbl.text = [NSString stringWithFormat:@"%@\n%d - %d", [[self class] description], layoutAttributes.indexPath.section, layoutAttributes.indexPath.item];
+    [self layoutIfNeeded]; 
 }
 
 @end

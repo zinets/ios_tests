@@ -50,7 +50,7 @@
             sz = (CGSize){212, 212};
             break;
         case CellTypeBigCell:
-            sz = (CGSize){320, 212};
+            sz = (CGSize){320, (self.mode == DataSourceMode1 ? 212 : 50)};
             break;
         default:
             break;
@@ -173,50 +173,80 @@ static const CellType cells2[2][5] = {
 - (void)switchToMode:(DataSourceMode)mode withBlock:(void (^)())block {
     
     self.mode = mode;
-    if (mode == DataSourceMode1) {
-        if (block) {
-            block();
-        }
-        return;
-    }
     
     NSMutableOrderedSet *storage = data[0];
     __block NSMutableArray *arr = [NSMutableArray array];
     __block NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
-    [storage enumerateObjectsUsingBlock:^(id <ResultObject> obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj cellType] == CellTypeWideBanner ||
-            [obj cellType] == CellTypeSquareCell) {
-            [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
-            [set addIndex:idx];
-        }
-    }];
-    // сначала ищу все ячейки wide и square, если есть - удаляю
-    if (arr.count > 0) {
-        [storage removeObjectsAtIndexes:set];
-        [self.delegate dataSource:self
-                       didAddData:nil
-                      removedData:arr];
-    }
-    // затем блок; в нем коллекция переключит раскладку, теоретически остаются только элементы, "общие" для разных режимов
-    if (block) {
-        block();
-    }
-    // затем вставляются новые элементы, которые присущи новой раскладке (ну допустим буду добавлять их только если были удаленные - просто для упрощения и проверки переключения именно раскладки
-    if (arr.count) {
-        [arr removeAllObjects];
-        [arr addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
-                      atIndex:0];
-        
-        [arr addObject:[NSIndexPath indexPathForRow:3 inSection:0]];
-        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
-                      atIndex:3];
-        
-        [arr addObject:[NSIndexPath indexPathForRow:6 inSection:0]];
-        [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
-                      atIndex:6];
-        
-        [self.delegate dataSource:self didAddData:arr removedData:nil];
+    
+    switch (self.mode) {
+        case DataSourceMode1: {
+            [storage enumerateObjectsUsingBlock:^(id <ResultObject> obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj cellType] == CellType1) {
+                    [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
+                    [set addIndex:idx];
+                }
+            }];
+            if (set.count) {
+                [storage removeObjectsAtIndexes:set];
+                [self.delegate dataSource:self
+                               didAddData:nil
+                              removedData:arr];
+            }
+            if (block) {
+                block();
+            }
+            if (set.count) {
+                [arr removeAllObjects];
+                [set enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+                    [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
+                    [storage insertObject:[[self resultObjectByType:(CellTypeWideBanner)] new]
+                                  atIndex:idx];
+                }];
+                [self.delegate dataSource:self
+                               didAddData:arr
+                              removedData:nil];
+            }
+        } break;
+        case DataSourceMode2: {
+            [storage enumerateObjectsUsingBlock:^(id <ResultObject> obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj cellType] == CellTypeWideBanner ||
+                    [obj cellType] == CellTypeSquareCell) {
+                    [arr addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
+                    [set addIndex:idx];
+                }
+            }];
+            // сначала ищу все ячейки wide и square, если есть - удаляю
+            if (arr.count > 0) {
+                [storage removeObjectsAtIndexes:set];
+                [self.delegate dataSource:self
+                               didAddData:nil
+                              removedData:arr];
+            }
+            // затем блок; в нем коллекция переключит раскладку, теоретически остаются только элементы, "общие" для разных режимов
+            if (block) {
+                block();
+            }
+            // затем вставляются новые элементы, которые присущи новой раскладке (ну допустим буду добавлять их только если были удаленные - просто для упрощения и проверки переключения именно раскладки
+            if (arr.count) {
+                [arr removeAllObjects];
+                [arr addObject:[NSIndexPath indexPathForItem:0 inSection:0]];
+                [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                              atIndex:0];
+                
+                [arr addObject:[NSIndexPath indexPathForItem:3 inSection:0]];
+                [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                              atIndex:3];
+                
+                [arr addObject:[NSIndexPath indexPathForItem:6 inSection:0]];
+                [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
+                              atIndex:6];
+                
+                [self.delegate dataSource:self didAddData:arr removedData:nil];
+            }
+        } break;
+            
+        default:
+            break;
     }
 }
 
