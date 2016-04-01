@@ -8,11 +8,19 @@
 
 #import "Protos.h"
 
-@interface ResultType1 : NSObject <ResultObject>
+#import "Cell1.h"
+#import "WideBanner.h"
+#import "SquareCell.h"
+#import "BigCell.h"
+
+@interface BaseResultType : NSObject <ResultObject>
 @end
-@interface ResultTypeWideBanner : NSObject <ResultObject>
+
+@interface ResultType1 : BaseResultType // первый тип ячейки, 104*104
 @end
-@interface ResultTypeSquareCell : NSObject <ResultObject>
+@interface ResultTypeWideBanner : BaseResultType // 320*104
 @end
-@interface ResultTypeBigCell : NSObject <ResultObject>
+@interface ResultTypeSquareCell : BaseResultType // 212*212
+@end
+@interface ResultTypeBigCell : BaseResultType // 320*212
 @end

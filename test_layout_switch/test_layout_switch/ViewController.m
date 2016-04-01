@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{5, 5}, {55, 40}};
     btn.tag = ButtonTypeFill1;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];
     [btn setTitle:@"stack1" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -46,6 +47,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{65, 5}, {55, 40}};
     btn.tag = ButtonTypeFill2;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];
     [btn setTitle:@"stack2" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -53,6 +55,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{120, 5}, {60, 40}};
     btn.tag = ButtonTypeSwitchLayout;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];
     [btn setTitle:@"switch" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -60,6 +63,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{185, 5}, {60, 40}};
     btn.tag = ButtonTypeInsertBanner;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];
     [btn setTitle:@"insert" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -67,6 +71,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{240, 5}, {60, 40}};
     btn.tag = ButtonTypeReplaceCells;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];
     [btn setTitle:@"change" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -74,6 +79,7 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
     btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     btn.frame = (CGRect){{305, 5}, {60, 40}};
     btn.tag = ButtonTypeDeleteBanners;
+    [btn setTitleColor:[UIColor colorWithHex:random() & 0XFFFFFF] forState:(UIControlStateNormal)];    
     [btn setTitle:@"delete" forState:(UIControlStateNormal)];
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [scroller addSubview:btn];
@@ -154,10 +160,14 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         
-        [_collectionView registerClass:[Cell1 class] forCellWithReuseIdentifier:reuseIdCell1];
-        [_collectionView registerClass:[WideBanner class] forCellWithReuseIdentifier:reuseIdCellWideBanner];
-        [_collectionView registerClass:[SquareCell class] forCellWithReuseIdentifier:reuseIdCellSquareCell];
-        [_collectionView registerClass:[BigCell class] forCellWithReuseIdentifier:reuseIdCellBigCell];
+        [_collectionView registerClass:[ResultType1 cellClass]
+            forCellWithReuseIdentifier:[ResultType1 cellReuseID]];
+        [_collectionView registerClass:[ResultTypeWideBanner cellClass]
+            forCellWithReuseIdentifier:[ResultTypeWideBanner cellReuseID]];
+        [_collectionView registerClass:[ResultTypeSquareCell cellClass]
+            forCellWithReuseIdentifier:[ResultTypeSquareCell cellReuseID]];
+        [_collectionView registerClass:[ResultTypeBigCell cellClass]
+            forCellWithReuseIdentifier:[ResultTypeBigCell cellReuseID]];
     }
     return _collectionView;
 }

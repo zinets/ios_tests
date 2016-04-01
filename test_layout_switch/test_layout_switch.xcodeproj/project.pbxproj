@@ -19,6 +19,7 @@
 		3B2974261CAD4B1400D3B743 /* WideBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974251CAD4B1400D3B743 /* WideBanner.m */; };
 		3B2974291CAD4EA600D3B743 /* SquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2974281CAD4EA600D3B743 /* SquareCell.m */; };
 		3B29742C1CAD51D900D3B743 /* BigCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29742B1CAD51D900D3B743 /* BigCell.m */; };
+		3B29742F1CAD683D00D3B743 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B29742E1CAD683D00D3B743 /* UIColor+MUIColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		3B2974281CAD4EA600D3B743 /* SquareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareCell.m; sourceTree = "<group>"; };
 		3B29742A1CAD51D900D3B743 /* BigCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigCell.h; sourceTree = "<group>"; };
 		3B29742B1CAD51D900D3B743 /* BigCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigCell.m; sourceTree = "<group>"; };
+		3B29742D1CAD683D00D3B743 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		3B29742E1CAD683D00D3B743 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 		3B2974001CAD3FC900D3B743 /* test_layout_switch */ = {
 			isa = PBXGroup;
 			children = (
+				3B29742D1CAD683D00D3B743 /* UIColor+MUIColor.h */,
+				3B29742E1CAD683D00D3B743 /* UIColor+MUIColor.m */,
 				3B29741C1CAD454300D3B743 /* cells */,
 				3B2974181CAD426100D3B743 /* datasource */,
 				3B2974041CAD3FC900D3B743 /* AppDelegate.h */,
@@ -206,6 +211,7 @@
 				3B29741B1CAD429A00D3B743 /* DataSource.m in Sources */,
 				3B29742C1CAD51D900D3B743 /* BigCell.m in Sources */,
 				3B2974031CAD3FC900D3B743 /* main.m in Sources */,
+				3B29742F1CAD683D00D3B743 /* UIColor+MUIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

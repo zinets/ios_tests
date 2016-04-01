@@ -8,14 +8,37 @@
 
 #import "ResultTypes.h"
 
+@implementation BaseResultType
+
+- (CellType)cellType {
+    NSAssert(YES, @"must be overriden!");
+    return NSNotFound;
+}
+
++ (Class)cellClass {
+    NSAssert(YES, @"must be overriden!");
+    return Nil;
+}
+
+- (NSString *)cellReuseID {
+    return [self.class cellReuseID];
+}
+
++ (NSString *)cellReuseID {
+    return [self description];
+}
+
+@end
+
+
 @implementation ResultType1
 
 - (CellType)cellType {
     return CellType1;
 }
 
-- (NSString *)cellReuseID {
-    return reuseIdCell1;
++ (Class)cellClass {
+    return [Cell1 class];
 }
 
 @end
@@ -26,8 +49,8 @@
     return CellTypeWideBanner;
 }
 
-- (NSString *)cellReuseID {
-    return reuseIdCellWideBanner;
++ (Class)cellClass {
+    return [WideBanner class];
 }
 
 @end
@@ -38,8 +61,8 @@
     return CellTypeSquareCell;
 }
 
-- (NSString *)cellReuseID {
-    return reuseIdCellSquareCell;
++ (Class)cellClass {
+    return [SquareCell class];
 }
 
 @end
@@ -50,8 +73,8 @@
     return CellTypeBigCell;
 }
 
-- (NSString *)cellReuseID {
-    return reuseIdCellBigCell;
++ (Class)cellClass {
+    return [BigCell class];
 }
 
 @end

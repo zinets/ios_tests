@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Protos.h"
 
-#import "Cell1.h"
-#import "WideBanner.h"
-#import "SquareCell.h"
-#import "BigCell.h"
+#import "ResultTypes.h"
 
 @protocol DataSourceDelegate <NSObject>
 @required

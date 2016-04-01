@@ -7,7 +7,6 @@
 //
 
 #import "DataSource.h"
-#import "ResultTypes.h"
 
 @interface DataSource () {
     NSArray <NSMutableOrderedSet *> *data;
