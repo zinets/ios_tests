@@ -237,9 +237,10 @@ static const CellType cells2[2][5] = {
                 [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
                               atIndex:3];
                 
-                [arr addObject:[NSIndexPath indexPathForItem:6 inSection:0]];
+                NSInteger lastIndex = storage.count;
+                [arr addObject:[NSIndexPath indexPathForItem:lastIndex inSection:0]];
                 [storage insertObject:[[self resultObjectByType:(CellTypeBigCell)] new]
-                              atIndex:6];
+                              atIndex:lastIndex];
                 
                 [self.delegate dataSource:self didAddData:arr removedData:nil];
             }
