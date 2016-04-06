@@ -210,7 +210,8 @@ typedef NS_ENUM(NSUInteger, ButtonType) {
 
 #pragma mark - datasource delegation
 
-- (void)dataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes removedData:(NSArray <NSIndexPath *> *)removedIndexes {
+- (void)dataSource:(id)sender didAddData:(NSArray <NSIndexPath *> *)newIndexes
+       removedData:(NSArray <NSIndexPath *> *)removedIndexes {
     [self.collectionView performBatchUpdates:^{
         if (removedIndexes.count > 0) {
             [self.collectionView deleteItemsAtIndexPaths:removedIndexes];

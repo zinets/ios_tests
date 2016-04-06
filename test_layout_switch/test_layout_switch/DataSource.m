@@ -13,8 +13,6 @@
 }
 @end
 
-
-
 @implementation DataSource
 
 -(instancetype)init {
@@ -135,9 +133,10 @@ static const CellType cells2[2][5] = {
     NSMutableOrderedSet *storage = data[0];
     [storage removeObjectAtIndex:1];
     NSArray *removed = @[[NSIndexPath indexPathForItem:1 inSection:0]];
+    
     [storage insertObject:[[self resultObjectByType:(CellTypeWideBanner)] new]
-                  atIndex:1];
-    NSArray *added = @[[NSIndexPath indexPathForItem:1 inSection:0]];
+                  atIndex:0];
+    NSArray *added = @[[NSIndexPath indexPathForItem:0 inSection:0]];
     
     [self.delegate dataSource:self
                          didAddData:added
