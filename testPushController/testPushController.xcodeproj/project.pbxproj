@@ -15,6 +15,9 @@
 		3B4991171CBE75850035BB53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4991151CBE75850035BB53 /* LaunchScreen.storyboard */; };
 		3B4991241CBE79060035BB53 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */; };
 		3B4991281CBE7E240035BB53 /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991271CBE7E240035BB53 /* Controllers.m */; };
+		3BD3C5BA1CBE840B00A830A2 /* t1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B71CBE840B00A830A2 /* t1@2x.png */; };
+		3BD3C5BB1CBE840B00A830A2 /* t2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B81CBE840B00A830A2 /* t2@2x.png */; };
+		3BD3C5BC1CBE840B00A830A2 /* t3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B91CBE840B00A830A2 /* t3@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		3B4991261CBE7E240035BB53 /* Controllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
 		3B4991271CBE7E240035BB53 /* Controllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
+		3BD3C5B71CBE840B00A830A2 /* t1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t1@2x.png"; sourceTree = "<group>"; };
+		3BD3C5B81CBE840B00A830A2 /* t2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t2@2x.png"; sourceTree = "<group>"; };
+		3BD3C5B91CBE840B00A830A2 /* t3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t3@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,9 @@
 		3B4991071CBE75850035BB53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BD3C5B71CBE840B00A830A2 /* t1@2x.png */,
+				3BD3C5B81CBE840B00A830A2 /* t2@2x.png */,
+				3BD3C5B91CBE840B00A830A2 /* t3@2x.png */,
 				3B4991081CBE75850035BB53 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -156,8 +165,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD3C5BC1CBE840B00A830A2 /* t3@2x.png in Resources */,
+				3BD3C5BB1CBE840B00A830A2 /* t2@2x.png in Resources */,
 				3B4991171CBE75850035BB53 /* LaunchScreen.storyboard in Resources */,
 				3B4991141CBE75850035BB53 /* Assets.xcassets in Resources */,
+				3BD3C5BA1CBE840B00A830A2 /* t1@2x.png in Resources */,
 				3B4991121CBE75850035BB53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +334,7 @@
 				3B49911D1CBE75850035BB53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
