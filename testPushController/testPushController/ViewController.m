@@ -127,7 +127,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == _scroller) {
         CGRect frm = self.fakePhotoView.frame;
-        frm.origin = (CGPoint){0, _scroller.contentOffset.y};
+        frm.origin = (CGPoint){0, _scroller.contentOffset.y + _scroller.contentInset.top};
         self.fakePhotoView.frame = frm;
     }
 }
