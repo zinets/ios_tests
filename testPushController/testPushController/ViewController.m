@@ -70,15 +70,32 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell #%d", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"Cell #%d", indexPath.row % 3];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"cell addr: %p", cell];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    UIViewController *ctrl = nil;
+    switch (indexPath.row % 3) {
+        case 0:
+            ctrl = [Controller0 new];
+            break;
+        case 1:
+            ctrl = [Controller1 new];
+            break;
+        case 2:
+            ctrl = [Controller2 new];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 @end

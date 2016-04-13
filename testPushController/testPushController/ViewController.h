@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "debug.h"
+#import "Controllers.h"
 
 @interface ViewController : UIViewController
 

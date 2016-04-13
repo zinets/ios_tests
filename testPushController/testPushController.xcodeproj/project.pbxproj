@@ -14,6 +14,7 @@
 		3B4991141CBE75850035BB53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4991131CBE75850035BB53 /* Assets.xcassets */; };
 		3B4991171CBE75850035BB53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4991151CBE75850035BB53 /* LaunchScreen.storyboard */; };
 		3B4991241CBE79060035BB53 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */; };
+		3B4991281CBE7E240035BB53 /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991271CBE7E240035BB53 /* Controllers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		3B4991211CBE78E40035BB53 /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = debug.h; path = ../../../trunk/Flirt/Flirt/Config/debug.h; sourceTree = "<group>"; };
 		3B4991221CBE79060035BB53 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		3B4991261CBE7E240035BB53 /* Controllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
+		3B4991271CBE7E240035BB53 /* Controllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 		3B4991061CBE75850035BB53 /* testPushController */ = {
 			isa = PBXGroup;
 			children = (
+				3B4991251CBE7E090035BB53 /* controllers */,
 				3B4991211CBE78E40035BB53 /* debug.h */,
 				3B4991221CBE79060035BB53 /* UIColor+MUIColor.h */,
 				3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */,
@@ -84,6 +88,15 @@
 				3B4991081CBE75850035BB53 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B4991251CBE7E090035BB53 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B4991261CBE7E240035BB53 /* Controllers.h */,
+				3B4991271CBE7E240035BB53 /* Controllers.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B49910F1CBE75850035BB53 /* ViewController.m in Sources */,
+				3B4991281CBE7E240035BB53 /* Controllers.m in Sources */,
 				3B49910C1CBE75850035BB53 /* AppDelegate.m in Sources */,
 				3B4991091CBE75850035BB53 /* main.m in Sources */,
 				3B4991241CBE79060035BB53 /* UIColor+MUIColor.m in Sources */,
