@@ -44,6 +44,7 @@
 		3BA557551CBF7ACA0043DB70 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		3BA557561CBF7ACA0043DB70 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		3BA5575F1CBF7DB20043DB70 /* t0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t0@2x.png"; sourceTree = "<group>"; };
+		3BA557701CBFB9CA0043DB70 /* NavProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavProtocols.h; sourceTree = "<group>"; };
 		3BD3C5B71CBE840B00A830A2 /* t1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t1@2x.png"; sourceTree = "<group>"; };
 		3BD3C5B81CBE840B00A830A2 /* t2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t2@2x.png"; sourceTree = "<group>"; };
 		3BD3C5B91CBE840B00A830A2 /* t3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t3@2x.png"; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		3B4991061CBE75850035BB53 /* testPushController */ = {
 			isa = PBXGroup;
 			children = (
+				3BA5576F1CBFB9530043DB70 /* protos */,
 				3BD3C5BD1CBE858600A830A2 /* utils */,
 				3B4991251CBE7E090035BB53 /* controllers */,
 				3BA557551CBF7ACA0043DB70 /* NavigationController.h */,
@@ -117,6 +119,14 @@
 				3B4991271CBE7E240035BB53 /* Controllers.m */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		3BA5576F1CBFB9530043DB70 /* protos */ = {
+			isa = PBXGroup;
+			children = (
+				3BA557701CBFB9CA0043DB70 /* NavProtocols.h */,
+			);
+			name = protos;
 			sourceTree = "<group>";
 		};
 		3BD3C5BD1CBE858600A830A2 /* utils */ = {

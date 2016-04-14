@@ -137,12 +137,6 @@
     }
 }
 
-#pragma mark - nav animation
 
--(NSObject<UIViewControllerAnimatedTransitioning> *)animator {
-    PushAnimator *animator = [PushAnimator new];
-    
-    return animator;
-}
 
 @end

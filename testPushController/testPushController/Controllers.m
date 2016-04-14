@@ -7,6 +7,7 @@
 //
 
 #import "Controllers.h"
+#import "PushAnimator.h"
 
 @implementation BaseController
 
@@ -48,7 +49,16 @@
 
 @end
 
-@implementation Controller1
+@implementation Controller1 {
+    PushAnimator *animator ;
+}
+
+-(instancetype)init {
+    if (self = [super init]) {
+        self.animator = [PushAnimator new];
+    }
+    return self;
+}
 
 -(void)viewDidLoad {
     [super viewDidLoad];

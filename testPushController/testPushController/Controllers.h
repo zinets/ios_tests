@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol ControllerAnimation <NSObject>
-@optional
-- (void)animateAppearing:(CGFloat)duration;
-- (void)animateDisappearing:(CGFloat)duration;
-@end
+#import "NavProtocols.h"
 
 @interface BaseController : UIViewController <ControllerAnimation> {
     UILabel *label;
@@ -25,9 +20,10 @@
 @interface Controller0 : BaseController
 @end
 
-@interface Controller1 : BaseController {
+@interface Controller1 : BaseController <CustomNavigationAnimation> {
     UIButton *button;
 }
+@property (nonatomic, strong) NSObject <NavigationAnimator> *animator;
 @end
 
 @interface Controller2 : BaseController

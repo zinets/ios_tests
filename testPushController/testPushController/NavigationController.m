@@ -7,19 +7,18 @@
 //
 
 #import "NavigationController.h"
+#import "PushAnimator.h"
 
 @interface NavigationController () {
     
 }
-@property (nonatomic, weak) NSObject <UIViewControllerAnimatedTransitioning> *animator;
+@property (nonatomic, weak) NSObject <NavigationAnimator> *animator;
 @end
 
 @implementation NavigationController
 
 -(instancetype)initWithRootViewController:(UIViewController *)rootViewController {
     if (self = [super initWithRootViewController:rootViewController]) {
-        self.delegate = self;
-        
         self.view.backgroundColor = [UIColor orangeColor];
         
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"t0"]];
@@ -30,12 +29,16 @@
 }
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [super pushViewController:viewController animated:animated];
     if ([viewController conformsToProtocol:@protocol(CustomNavigationAnimation)]) {
         UIViewController <CustomNavigationAnimation> *vc = (id)viewController;
-        self.animator = vc.animator;
+        _animator = vc.animator;
         self.delegate = self;
+    } else {
+        self.delegate = nil;
+        self.animator = nil;
     }
+    
+    [super pushViewController:viewController animated:animated];
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
@@ -93,12 +96,10 @@
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC {
     if (self.animator) {
-//        animator.closing = operation == UINavigationControllerOperationPop;
-        
-        return self.animator;
-    } else {
-        return nil;
+        self.animator.operation = operation;
     }
+    
+    return self.animator;
 }
 
 @end

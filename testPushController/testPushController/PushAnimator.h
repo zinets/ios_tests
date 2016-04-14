@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Controllers.h"
+#import "NavProtocols.h"
 
-@interface PushAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-@property (nonatomic, assign) BOOL closing;
+@interface PushAnimator : NSObject <NavigationAnimator>
+@property (nonatomic, assign) UINavigationControllerOperation operation;
 @end

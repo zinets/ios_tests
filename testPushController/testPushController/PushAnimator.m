@@ -21,7 +21,7 @@
     UIView *fromView = fromViewController.view;
     UIView *toView = (id)toViewController.view;
    
-    if (!self.closing) {
+    if (self.operation == UINavigationControllerOperationPush) {
         CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
         toView.frame = toFrame;
         toView.transform = CGAffineTransformMakeTranslation(toView.frame.size.width, 0);
@@ -40,8 +40,7 @@
             fromView.transform = CGAffineTransformIdentity;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
-    }
-    else {
+    } else {
         CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
         toView.frame = toFrame;
         toView.transform = CGAffineTransformMakeTranslation(-toView.frame.size.width, 0);
