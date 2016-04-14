@@ -15,7 +15,7 @@
     
     self.view.backgroundColor = self.color;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){{0, 70}, {320, 30}}];
+    label = [[UILabel alloc] initWithFrame:(CGRect){{0, 70}, {320, 30}}];
     label.font = [UIFont systemFontOfSize:20];
     label.text = self.text;
     [self.view addSubview:label];
@@ -31,6 +31,19 @@
 
 -(UIColor *)color {
     return [UIColor yellowColor];
+}
+
+-(void)animateAppearing:(CGFloat)duration {
+    self.view.backgroundColor = [UIColor clearColor];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.backgroundColor = [self color];
+    }];
+}
+
+-(void)animateDisappearing:(CGFloat)duration {
+    [UIView animateWithDuration:duration animations:^{
+        self.view.backgroundColor = [UIColor clearColor];
+    }];
 }
 
 @end
@@ -56,7 +69,7 @@
 }
 
 -(UIColor *)color {
-    return [UIColor magentaColor];
+    return [UIColor clearColor];
 }
 
 @end
@@ -69,6 +82,24 @@
 
 -(UIColor *)color {
     return [UIColor redColor];
+}
+
+-(void)animateAppearing:(CGFloat)duration {
+    label.transform = CGAffineTransformMakeRotation(10);
+    label.transform = CGAffineTransformScale(label.transform, 0.1, 0.1);
+    [UIView animateWithDuration:duration animations:^{
+        label.transform = CGAffineTransformIdentity;
+        self.view.backgroundColor = [self color];
+    }];
+}
+
+-(void)animateDisappearing:(CGFloat)duration {
+    [UIView animateWithDuration:duration animations:^{
+        label.transform = CGAffineTransformMakeRotation(10);
+        label.transform = CGAffineTransformScale(label.transform, 0.1, 0.1);
+        
+        self.view.backgroundColor = [UIColor clearColor];
+    }];
 }
 
 @end

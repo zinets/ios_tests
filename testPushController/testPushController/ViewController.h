@@ -10,8 +10,11 @@
 #import "debug.h"
 #import "Controllers.h"
 
-@interface ViewController : UIViewController
+@protocol CustomNavigationAnimation <NSObject>
+@property (nonatomic, strong) NSObject <UIViewControllerAnimatedTransitioning> *animator;
+@end
 
+@interface ViewController : UIViewController <CustomNavigationAnimation>
 
 @end
 

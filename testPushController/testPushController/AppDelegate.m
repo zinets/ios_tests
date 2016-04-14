@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NavigationController.h"
 #import "ViewController.h"
 
 @interface AppDelegate ()
@@ -20,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor lightGrayColor];
     
-    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    NavigationController *navCtrl = [[NavigationController alloc] initWithRootViewController:[ViewController new]];
     self.window.rootViewController = navCtrl;
     [self.window makeKeyAndVisible];
     

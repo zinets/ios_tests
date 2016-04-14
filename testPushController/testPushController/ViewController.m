@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PushAnimator.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIScrollView *scroller;
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.scroller];
     
@@ -33,7 +34,7 @@
         _scroller = [[UIScrollView alloc] initWithFrame:self.view.bounds];
         _scroller.pagingEnabled = YES;
         _scroller.contentSize = (CGSize){self.view.bounds.size.width, self.view.bounds.size.height * 2};
-        
+        _scroller.backgroundColor = [UIColor whiteColor];
         _scroller.delegate = self;
     }
     return _scroller;
@@ -45,6 +46,7 @@
         frm.size.height -= 64;
         frm.origin.y = 64;
         _fakePhotoView = [[UILabel alloc] initWithFrame:frm];
+        _fakePhotoView.backgroundColor = [UIColor clearColor];
         borderControlWithParams(_fakePhotoView, 2, 0x7fff0000);
         ((UILabel *)_fakePhotoView).text = @"fake photo scroller here";
         
@@ -75,7 +77,7 @@
         frm.origin.y += frm.size.height + 64;
         frm.size.height -= 64;
         _table = [[UITableView alloc] initWithFrame:frm style:(UITableViewStylePlain)];
-        _table.backgroundColor = [UIColor colorWithHex:0xff4040];
+        _table.backgroundColor = [UIColor clearColor];//colorWithHex:0xff4040];
         
         _table.dataSource = self;
         _table.delegate = self;
@@ -96,6 +98,7 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"Cell #%d", indexPath.row % 3];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"cell addr: %p", cell];
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }
@@ -129,7 +132,17 @@
         CGRect frm = self.fakePhotoView.frame;
         frm.origin = (CGPoint){0, _scroller.contentOffset.y + _scroller.contentInset.top};
         self.fakePhotoView.frame = frm;
+        CGFloat alpha = 1 - scrollView.contentOffset.y / (scrollView.contentSize.height - scrollView.bounds.size.height);
+        scrollView.backgroundColor = [UIColor colorWithHex:0xffffff alpha:alpha];
     }
+}
+
+#pragma mark - nav animation
+
+-(NSObject<UIViewControllerAnimatedTransitioning> *)animator {
+    PushAnimator *animator = [PushAnimator new];
+    
+    return animator;
 }
 
 @end

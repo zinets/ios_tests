@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseController : UIViewController
+@protocol ControllerAnimation <NSObject>
+@optional
+- (void)animateAppearing:(CGFloat)duration;
+- (void)animateDisappearing:(CGFloat)duration;
+@end
+
+@interface BaseController : UIViewController <ControllerAnimation> {
+    UILabel *label;
+}
 @property (nonatomic, readonly) UIColor *color;
 @property (nonatomic, readonly) NSString *text;
 @end
