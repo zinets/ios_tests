@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "PushAnimator.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UIScrollView *scroller;
