@@ -17,16 +17,16 @@
 
 @implementation NavigationController
 
--(instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    if (self = [super initWithRootViewController:rootViewController]) {
-        self.view.backgroundColor = [UIColor orangeColor];
-        
-        UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"t0"]];
-        iv.center = (CGPoint){160, 250};
-        [self.view insertSubview:iv atIndex:0];
-    }
-    return self;
-}
+//-(instancetype)initWithRootViewController:(UIViewController *)rootViewController {
+//    if (self = [super initWithRootViewController:rootViewController]) {
+//        self.view.backgroundColor = [UIColor orangeColor];
+//        
+//        UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"t0"]];
+//        iv.center = (CGPoint){160, 250};
+//        [self.view insertSubview:iv atIndex:0];
+//    }
+//    return self;
+//}
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if ([viewController conformsToProtocol:@protocol(CustomNavigationAnimation)]) {

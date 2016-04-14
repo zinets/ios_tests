@@ -10,5 +10,6 @@
 #import "NavProtocols.h"
 
 @interface PushAnimator : NSObject <NavigationAnimator>
++ (instancetype)instance;
 @property (nonatomic, assign) UINavigationControllerOperation operation;
 @end

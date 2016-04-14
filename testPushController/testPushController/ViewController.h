@@ -10,7 +10,7 @@
 #import "debug.h"
 #import "Controllers.h"
 
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController <ControllerAnimation>
 
 @end
 

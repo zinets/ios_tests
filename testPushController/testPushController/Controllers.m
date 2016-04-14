@@ -47,15 +47,27 @@
     }];
 }
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    button = [UIButton buttonWithType:(UIButtonTypeSystem)];
+    button.frame = (CGRect){{15, 150}, {290, 40}};
+    
+    [button setTitle:@"push Controller 1 (custom)" forState:(UIControlStateNormal)];
+    [button addTarget:self action:@selector(onButtonTap:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:button];
+}
+
+- (void)onButtonTap:(id)sender {
+    [self.navigationController pushViewController:[Controller1 new] animated:YES];
+}
+
 @end
 
-@implementation Controller1 {
-    PushAnimator *animator ;
-}
+@implementation Controller1
 
 -(instancetype)init {
     if (self = [super init]) {
-        self.animator = [PushAnimator new];
+        self.animator = [PushAnimator instance];
     }
     return self;
 }

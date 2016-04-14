@@ -11,6 +11,7 @@
 
 @interface BaseController : UIViewController <ControllerAnimation> {
     UILabel *label;
+    UIButton *button;
 }
 @property (nonatomic, readonly) UIColor *color;
 @property (nonatomic, readonly) NSString *text;
@@ -20,9 +21,7 @@
 @interface Controller0 : BaseController
 @end
 
-@interface Controller1 : BaseController <CustomNavigationAnimation> {
-    UIButton *button;
-}
+@interface Controller1 : BaseController <CustomNavigationAnimation>
 @property (nonatomic, strong) NSObject <NavigationAnimator> *animator;
 @end
 

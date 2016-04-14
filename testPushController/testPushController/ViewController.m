@@ -136,6 +136,14 @@
     }
 }
 
+#pragma mark -
 
+- (void)animateAppearing:(CGFloat)duration {
+    _table.alpha = 1;
+}
+
+- (void)animateDisappearing:(CGFloat)duration {
+    _table.alpha = 0;
+}
 
 @end
