@@ -139,10 +139,33 @@
 #pragma mark -
 
 - (void)animateAppearing:(CGFloat)duration {
+    NSArray *cells = [_table visibleCells];
+    for (int x = 0; x < cells.count; x++) {
+        UITableViewCell *cell = cells[x];
+        cell.transform = CGAffineTransformMakeTranslation(-320, 0);
+        cell.alpha = 0;
+
+        [UIView animateWithDuration:0.05 delay:0.1 * x options:0 animations:^{
+            cell.transform = CGAffineTransformIdentity;
+            cell.alpha = 1;            
+        } completion:^(BOOL finished) {
+        }];
+    }
     _table.alpha = 1;
 }
 
 - (void)animateDisappearing:(CGFloat)duration {
+    NSArray *cells = [_table visibleCells];
+    for (int x = 0; x < cells.count; x++) {
+        UITableViewCell *cell = cells[x];
+        [UIView animateWithDuration:0.05 delay:0.1 * x options:0 animations:^{
+            cell.transform = CGAffineTransformMakeTranslation(-320, 0);
+            cell.alpha = 0;
+        } completion:^(BOOL finished) {
+            cell.transform = CGAffineTransformIdentity;
+            cell.alpha = 1;
+        }];
+    }
     _table.alpha = 0;
 }
 
