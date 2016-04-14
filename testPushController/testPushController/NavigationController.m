@@ -9,7 +9,7 @@
 #import "NavigationController.h"
 #import "PushAnimator.h"
 
-@interface NavigationController () {
+@interface NavigationController ()  <UINavigationControllerDelegate> {
     
 }
 @property (nonatomic, weak) NSObject <NavigationAnimator> *animator;
