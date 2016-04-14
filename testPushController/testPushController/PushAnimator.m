@@ -7,8 +7,11 @@
 //
 
 #import "PushAnimator.h"
+#import "debug.h"
 
 @implementation PushAnimator
+
+#define SNAPSHOT_VIEW_TAG 43254
 
 + (instancetype)instance {
     static PushAnimator *instance = nil;
@@ -20,7 +23,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
-    return 1.5;
+    return .5;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -28,18 +31,20 @@
     UIViewController <ControllerAnimation> *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     UIView *fromView = fromViewController.view;
+    borderControlWithParams(fromView, 2, 0x00ff00);
     UIView *toView = (id)toViewController.view;
-   
+    borderControlWithParams(toView, 2, 0x00ffff);
+
+    [transitionContext.containerView addSubview:fromViewController.view];
+    [transitionContext.containerView addSubview:toViewController.view];
+    
     if (self.operation == UINavigationControllerOperationPush) {
+
         CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
         toView.frame = toFrame;
         toView.transform = CGAffineTransformMakeTranslation(toView.frame.size.width, 0);
         
-        [transitionContext.containerView addSubview:fromViewController.view];
-        [transitionContext.containerView addSubview:toViewController.view];
-        
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-//            fromView.transform = CGAffineTransformMakeTranslation(-fromView.frame.size.width, 0);
             toView.transform = CGAffineTransformIdentity;
             
             if ([toViewController respondsToSelector:@selector(animateAppearing:)]) {
@@ -48,32 +53,32 @@
             if ([fromViewController respondsToSelector:@selector(animateDisappearing:)]) {
                 [fromViewController animateDisappearing:[self transitionDuration:transitionContext]];
             }
-                    } completion:^(BOOL finished) {
-            fromView.transform = CGAffineTransformIdentity;
-            
+        } completion:^(BOOL finished) {
             UIView *snapshot = [fromView snapshotViewAfterScreenUpdates:NO];
+            snapshot.tag = SNAPSHOT_VIEW_TAG;
             [toView insertSubview:snapshot atIndex:0];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
         CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
         toView.frame = toFrame;
-//        toView.transform = CGAffineTransformMakeTranslation(-toView.frame.size.width, 0);
+        toView.alpha = 0;
         
-        [transitionContext.containerView addSubview:fromViewController.view];
-        [transitionContext.containerView addSubview:toViewController.view];
-        
+        UIView *snapshot = [fromView viewWithTag:SNAPSHOT_VIEW_TAG];
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            toView.transform = CGAffineTransformIdentity;
-            fromView.alpha = 0;
+            toView.alpha = 1;
+            
+            snapshot.transform = CGAffineTransformMakeTranslation(-snapshot.frame.size.width, 0);
+            fromView.transform = CGAffineTransformMakeTranslation(snapshot.frame.size.width, 0);
+            
             if ([toViewController respondsToSelector:@selector(animateAppearing:)]) {
                 [toViewController animateAppearing:[self transitionDuration:transitionContext]];
-            }            
+            }
             if ([fromViewController respondsToSelector:@selector(animateDisappearing:)]) {
                 [fromViewController animateDisappearing:[self transitionDuration:transitionContext]];
             }
         } completion:^(BOOL finished) {
-            fromView.alpha = 1;
+            [snapshot removeFromSuperview];
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }
