@@ -15,6 +15,9 @@
 		3B4991171CBE75850035BB53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4991151CBE75850035BB53 /* LaunchScreen.storyboard */; };
 		3B4991241CBE79060035BB53 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */; };
 		3B4991281CBE7E240035BB53 /* Controllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4991271CBE7E240035BB53 /* Controllers.m */; };
+		3BA0BD291CBE86B700241B1E /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0BD281CBE86B700241B1E /* PushAnimator.m */; };
+		3BA557571CBF7ACA0043DB70 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA557561CBF7ACA0043DB70 /* NavigationController.m */; };
+		3BA557601CBF7DB20043DB70 /* t0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA5575F1CBF7DB20043DB70 /* t0@2x.png */; };
 		3BD3C5BA1CBE840B00A830A2 /* t1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B71CBE840B00A830A2 /* t1@2x.png */; };
 		3BD3C5BB1CBE840B00A830A2 /* t2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B81CBE840B00A830A2 /* t2@2x.png */; };
 		3BD3C5BC1CBE840B00A830A2 /* t3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD3C5B91CBE840B00A830A2 /* t3@2x.png */; };
@@ -36,6 +39,11 @@
 		3B4991231CBE79060035BB53 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		3B4991261CBE7E240035BB53 /* Controllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controllers.h; sourceTree = "<group>"; };
 		3B4991271CBE7E240035BB53 /* Controllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controllers.m; sourceTree = "<group>"; };
+		3BA0BD271CBE86B700241B1E /* PushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushAnimator.h; sourceTree = "<group>"; };
+		3BA0BD281CBE86B700241B1E /* PushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushAnimator.m; sourceTree = "<group>"; };
+		3BA557551CBF7ACA0043DB70 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		3BA557561CBF7ACA0043DB70 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		3BA5575F1CBF7DB20043DB70 /* t0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t0@2x.png"; sourceTree = "<group>"; };
 		3BD3C5B71CBE840B00A830A2 /* t1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t1@2x.png"; sourceTree = "<group>"; };
 		3BD3C5B81CBE840B00A830A2 /* t2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t2@2x.png"; sourceTree = "<group>"; };
 		3BD3C5B91CBE840B00A830A2 /* t3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "t3@2x.png"; sourceTree = "<group>"; };
@@ -73,9 +81,13 @@
 			children = (
 				3BD3C5BD1CBE858600A830A2 /* utils */,
 				3B4991251CBE7E090035BB53 /* controllers */,
+				3BA557551CBF7ACA0043DB70 /* NavigationController.h */,
+				3BA557561CBF7ACA0043DB70 /* NavigationController.m */,
 				3B49910D1CBE75850035BB53 /* ViewController.h */,
 				3B49910E1CBE75850035BB53 /* ViewController.m */,
 				3B4991071CBE75850035BB53 /* Supporting Files */,
+				3BA0BD271CBE86B700241B1E /* PushAnimator.h */,
+				3BA0BD281CBE86B700241B1E /* PushAnimator.m */,
 			);
 			path = testPushController;
 			sourceTree = "<group>";
@@ -92,6 +104,7 @@
 				3BD3C5B71CBE840B00A830A2 /* t1@2x.png */,
 				3BD3C5B81CBE840B00A830A2 /* t2@2x.png */,
 				3BD3C5B91CBE840B00A830A2 /* t3@2x.png */,
+				3BA5575F1CBF7DB20043DB70 /* t0@2x.png */,
 				3B4991081CBE75850035BB53 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -178,6 +191,7 @@
 				3B4991171CBE75850035BB53 /* LaunchScreen.storyboard in Resources */,
 				3B4991141CBE75850035BB53 /* Assets.xcassets in Resources */,
 				3BD3C5BA1CBE840B00A830A2 /* t1@2x.png in Resources */,
+				3BA557601CBF7DB20043DB70 /* t0@2x.png in Resources */,
 				3B4991121CBE75850035BB53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +207,9 @@
 				3B4991281CBE7E240035BB53 /* Controllers.m in Sources */,
 				3B49910C1CBE75850035BB53 /* AppDelegate.m in Sources */,
 				3B4991091CBE75850035BB53 /* main.m in Sources */,
+				3BA0BD291CBE86B700241B1E /* PushAnimator.m in Sources */,
 				3B4991241CBE79060035BB53 /* UIColor+MUIColor.m in Sources */,
+				3BA557571CBF7ACA0043DB70 /* NavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
