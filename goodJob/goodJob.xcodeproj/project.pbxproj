@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BA1901C1CD3581500A3215A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1901B1CD3581500A3215A /* AppDelegate.m */; };
+		3BA1901F1CD3581500A3215A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1901E1CD3581500A3215A /* main.m */; };
+		3BA190211CD3581500A3215A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA190201CD3581500A3215A /* Assets.xcassets */; };
+		3BA190241CD3581500A3215A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BA190221CD3581500A3215A /* MainMenu.xib */; };
+		3BA1902E1CD359B200A3215A /* goodList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BA1902D1CD359B200A3215A /* goodList.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3BA190171CD3581500A3215A /* goodJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goodJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA1901A1CD3581500A3215A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3BA1901B1CD3581500A3215A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3BA1901E1CD3581500A3215A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BA190201CD3581500A3215A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BA190231CD3581500A3215A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3BA190251CD3581500A3215A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BA1902D1CD359B200A3215A /* goodList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = goodList.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BA190141CD3581500A3215A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BA1900E1CD3581500A3215A = {
+			isa = PBXGroup;
+			children = (
+				3BA190191CD3581500A3215A /* goodJob */,
+				3BA190181CD3581500A3215A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BA190181CD3581500A3215A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BA190171CD3581500A3215A /* goodJob.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BA190191CD3581500A3215A /* goodJob */ = {
+			isa = PBXGroup;
+			children = (
+				3BA1901A1CD3581500A3215A /* AppDelegate.h */,
+				3BA1901B1CD3581500A3215A /* AppDelegate.m */,
+				3BA190201CD3581500A3215A /* Assets.xcassets */,
+				3BA190221CD3581500A3215A /* MainMenu.xib */,
+				3BA190251CD3581500A3215A /* Info.plist */,
+				3BA1901D1CD3581500A3215A /* Supporting Files */,
+				3BA1902D1CD359B200A3215A /* goodList.plist */,
+			);
+			path = goodJob;
+			sourceTree = "<group>";
+		};
+		3BA1901D1CD3581500A3215A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BA1901E1CD3581500A3215A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BA190161CD3581500A3215A /* goodJob */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA190281CD3581500A3215A /* Build configuration list for PBXNativeTarget "goodJob" */;
+			buildPhases = (
+				3BA190131CD3581500A3215A /* Sources */,
+				3BA190141CD3581500A3215A /* Frameworks */,
+				3BA190151CD3581500A3215A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = goodJob;
+			productName = goodJob;
+			productReference = 3BA190171CD3581500A3215A /* goodJob.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BA1900F1CD3581500A3215A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Zinets Victor";
+				TargetAttributes = {
+					3BA190161CD3581500A3215A = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 3BA190121CD3581500A3215A /* Build configuration list for PBXProject "goodJob" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BA1900E1CD3581500A3215A;
+			productRefGroup = 3BA190181CD3581500A3215A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BA190161CD3581500A3215A /* goodJob */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BA190151CD3581500A3215A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BA190211CD3581500A3215A /* Assets.xcassets in Resources */,
+				3BA1902E1CD359B200A3215A /* goodList.plist in Resources */,
+				3BA190241CD3581500A3215A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BA190131CD3581500A3215A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BA1901F1CD3581500A3215A /* main.m in Sources */,
+				3BA1901C1CD3581500A3215A /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3BA190221CD3581500A3215A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BA190231CD3581500A3215A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BA190261CD3581500A3215A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3BA190271CD3581500A3215A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3BA190291CD3581500A3215A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = goodJob/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.goodJob;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3BA1902A1CD3581500A3215A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = goodJob/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.goodJob;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BA190121CD3581500A3215A /* Build configuration list for PBXProject "goodJob" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA190261CD3581500A3215A /* Debug */,
+				3BA190271CD3581500A3215A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BA190281CD3581500A3215A /* Build configuration list for PBXNativeTarget "goodJob" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BA190291CD3581500A3215A /* Debug */,
+				3BA1902A1CD3581500A3215A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BA1900F1CD3581500A3215A /* Project object */;
+}
