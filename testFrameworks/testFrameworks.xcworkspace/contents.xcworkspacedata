@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:StaticLib/StaticLib.xcodeproj">
+      location = "group:/Users/zinets/Documents/projects/mobile_ios/tests/testFrameworks/StaticLib/StaticLib.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:DynamicFramework/DynamicFramework.xcodeproj">
