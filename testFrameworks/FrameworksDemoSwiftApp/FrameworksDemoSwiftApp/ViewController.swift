@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +22,12 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func onTap1(sender: AnyObject) {
+        NSLog("func onTap1(sender: AnyObject)")
+    }
+
+    @IBAction func onTap2(sender: AnyObject) {
+        NSLog("func onTap2(sender: AnyObject)")        
+    }
 }
 
