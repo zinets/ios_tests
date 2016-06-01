@@ -1,0 +1,1 @@
+ const unsigned char DynamicFrameworkVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:DynamicFramework  PROJECT:DynamicFramework-1" "\n"; const double DynamicFrameworkVersionNumber __attribute__ ((used)) = (double)1.;

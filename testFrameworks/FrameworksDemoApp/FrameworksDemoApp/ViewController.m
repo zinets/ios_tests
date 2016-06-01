@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 @import StaticFramework;
+@import DynamicFramework;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *dLabel;
 
 @end
 
@@ -23,6 +25,17 @@
 - (IBAction)onTap2:(id)sender {
     StaticLib *instance = [StaticLib new];
     self.label.text = [instance instanceMethod:35];
+}
+
+#pragma mark - dynamic fw
+
+- (IBAction)onDTap1:(id)sender {
+    self.dLabel.text = [DynamicLib staticMethod];
+}
+
+- (IBAction)onDTap2:(id)sender {
+    DynamicLib *instance = [DynamicLib new];
+    self.dLabel.text = [instance instanceMethod:41];
 }
 
 

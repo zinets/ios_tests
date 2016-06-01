@@ -8,9 +8,11 @@
 
 import UIKit
 import StaticFramework
+import DynamicFramework
 
 class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,14 @@ class ViewController: UIViewController {
 
     @IBAction func onTap2(sender: AnyObject) {
         label.text = StaticLib().instanceMethod(28);
+    }
+    
+    @IBAction func onDTap1(sender: AnyObject) {
+        dLabel.text = DynamicLib.staticMethod();
+    }
+    
+    @IBAction func onDTap2(sender: AnyObject) {
+        dLabel.text = DynamicLib().instanceMethod(100);
     }
 }
 

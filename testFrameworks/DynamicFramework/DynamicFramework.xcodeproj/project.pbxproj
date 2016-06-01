@@ -6,14 +6,32 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3B5AF48F1CFED7930076A88A /* UniversalDynamicLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3B5AF4901CFED7930076A88A /* Build configuration list for PBXAggregateTarget "UniversalDynamicLib" */;
+			buildPhases = (
+				3B5AF4931CFED7B00076A88A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalDynamicLib;
+			productName = UniversalDynamicLib;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3B5AF44B1CFEB9D70076A88A /* DynamicFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5AF44A1CFEB9D70076A88A /* DynamicFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B5AF48D1CFED72B0076A88A /* DynamicLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5AF48B1CFED72B0076A88A /* DynamicLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B5AF48E1CFED72B0076A88A /* DynamicLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AF48C1CFED72B0076A88A /* DynamicLib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B5AF4471CFEB9D70076A88A /* DynamicFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5AF44A1CFEB9D70076A88A /* DynamicFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicFramework.h; sourceTree = "<group>"; };
 		3B5AF44C1CFEB9D70076A88A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B5AF48B1CFED72B0076A88A /* DynamicLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicLib.h; sourceTree = "<group>"; };
+		3B5AF48C1CFED72B0076A88A /* DynamicLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicLib.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +66,8 @@
 			children = (
 				3B5AF44A1CFEB9D70076A88A /* DynamicFramework.h */,
 				3B5AF44C1CFEB9D70076A88A /* Info.plist */,
+				3B5AF48B1CFED72B0076A88A /* DynamicLib.h */,
+				3B5AF48C1CFED72B0076A88A /* DynamicLib.m */,
 			);
 			path = DynamicFramework;
 			sourceTree = "<group>";
@@ -59,6 +79,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5AF48D1CFED72B0076A88A /* DynamicLib.h in Headers */,
 				3B5AF44B1CFEB9D70076A88A /* DynamicFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +117,9 @@
 					3B5AF4461CFEB9D70076A88A = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					3B5AF48F1CFED7930076A88A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 				};
 			};
 			buildConfigurationList = 3B5AF4411CFEB9D70076A88A /* Build configuration list for PBXProject "DynamicFramework" */;
@@ -111,6 +135,7 @@
 			projectRoot = "";
 			targets = (
 				3B5AF4461CFEB9D70076A88A /* DynamicFramework */,
+				3B5AF48F1CFED7930076A88A /* UniversalDynamicLib */,
 			);
 		};
 /* End PBXProject section */
@@ -125,11 +150,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3B5AF4931CFED7B00076A88A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "UNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Copy the framework structure to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Open the Universal output folder for convenience\nopen \"${UNIVERSAL_OUTPUTFOLDER}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B5AF4421CFEB9D70076A88A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B5AF48E1CFED72B0076A88A /* DynamicLib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +300,22 @@
 			};
 			name = Release;
 		};
+		3B5AF4911CFED7930076A88A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B5AF4921CFED7930076A88A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -275,6 +333,14 @@
 			buildConfigurations = (
 				3B5AF4501CFEB9D70076A88A /* Debug */,
 				3B5AF4511CFEB9D70076A88A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3B5AF4901CFED7930076A88A /* Build configuration list for PBXAggregateTarget "UniversalDynamicLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B5AF4911CFED7930076A88A /* Debug */,
+				3B5AF4921CFED7930076A88A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
