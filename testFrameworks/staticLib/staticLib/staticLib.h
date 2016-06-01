@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface StaticLib : NSObject
-
++ (NSString *)staticMethod;
+- (NSString *)instanceMethod:(NSInteger)arg;
 @end
