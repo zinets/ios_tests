@@ -1,0 +1,38 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/zinets/Library/Developer/Xcode/DerivedData/testFrameworks-avvnjhyelcauuxdtlwemjqcnlbke/Build/Products/Debug-iphonesimulator/DynamicFramework.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "DynamicFramework-Swift.h",
+          'external-contents': "/Users/zinets/Library/Developer/Xcode/DerivedData/testFrameworks-avvnjhyelcauuxdtlwemjqcnlbke/Build/Products/Debug-iphonesimulator/DynamicFramework.framework/Headers/DynamicFramework-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "DynamicFramework.h",
+          'external-contents': "/Users/zinets/Documents/projects/mobile_ios/tests/testFrameworks/DynamicFramework/DynamicFramework/DynamicFramework.h"
+        },
+        {
+          'type': 'file',
+          'name': "DynamicLib.h",
+          'external-contents': "/Users/zinets/Documents/projects/mobile_ios/tests/testFrameworks/DynamicFramework/DynamicFramework/DynamicLib.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/zinets/Library/Developer/Xcode/DerivedData/testFrameworks-avvnjhyelcauuxdtlwemjqcnlbke/Build/Products/Debug-iphonesimulator/DynamicFramework.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/zinets/Documents/projects/mobile_ios/tests/testFrameworks/DynamicFramework/build/DynamicFramework.build/Debug-iphonesimulator/DynamicFramework.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
