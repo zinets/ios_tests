@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+@import StaticFramework;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *label;
@@ -15,17 +16,13 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
-
 - (IBAction)onTap1:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    self.label.text = [StaticLib staticMethod];
 }
 
 - (IBAction)onTap2:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    StaticLib *instance = [StaticLib new];
+    self.label.text = [instance instanceMethod:35];
 }
 
 
