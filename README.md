@@ -17,9 +17,11 @@
 
 8) в obj-c можно писать
 
-@import StaticFramework;
+*@import StaticFramework;*
+
 или
-#import <StaticFramework/StaticFramework.h>
+
+*#import <StaticFramework/StaticFramework.h>*
 
 
 бильше не помню
