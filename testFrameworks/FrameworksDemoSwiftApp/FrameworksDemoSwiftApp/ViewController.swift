@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StaticFramework
 
 class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
@@ -23,11 +24,11 @@ class ViewController: UIViewController {
 
 
     @IBAction func onTap1(sender: AnyObject) {
-        NSLog("func onTap1(sender: AnyObject)")
+        label.text = StaticLib.staticMethod();
     }
 
     @IBAction func onTap2(sender: AnyObject) {
-        NSLog("func onTap2(sender: AnyObject)")        
+        label.text = StaticLib().instanceMethod(28);
     }
 }
 
