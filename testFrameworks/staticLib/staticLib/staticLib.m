@@ -11,11 +11,11 @@
 @implementation StaticLib
 
 + (NSString *)staticMethod {
-    return @"Result is always 42";
+    return @"(Static FW) Result is always 42";
 }
 
 - (NSString *)instanceMethod:(NSInteger)arg {
-    return [NSString stringWithFormat:@"Result is 42 or %@", @(arg)];
+    return [NSString stringWithFormat:@"(Static FW) Result is 42 or %@", @(arg)];
 }
 
 @end

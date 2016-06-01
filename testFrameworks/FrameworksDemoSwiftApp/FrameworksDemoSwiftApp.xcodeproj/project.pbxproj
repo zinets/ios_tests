@@ -12,8 +12,8 @@
 		3B5AF4641CFEB9FA0076A88A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AF4621CFEB9FA0076A88A /* Main.storyboard */; };
 		3B5AF4661CFEB9FA0076A88A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AF4651CFEB9FA0076A88A /* Assets.xcassets */; };
 		3B5AF4691CFEB9FA0076A88A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AF4671CFEB9FA0076A88A /* LaunchScreen.storyboard */; };
-		3B5AF48A1CFED6150076A88A /* StaticFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AF4891CFED6150076A88A /* StaticFramework.framework */; };
-		3B5AF4971CFED9580076A88A /* DynamicFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AF4961CFED9580076A88A /* DynamicFramework.framework */; };
+		3B5AF49B1CFEDAA80076A88A /* StaticFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AF49A1CFEDAA80076A88A /* StaticFramework.framework */; };
+		3B5AF4A31CFEDE130076A88A /* DynamicFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5AF4A21CFEDE130076A88A /* DynamicFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		3B5AF4651CFEB9FA0076A88A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B5AF4681CFEB9FA0076A88A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B5AF46A1CFEB9FA0076A88A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B5AF4891CFED6150076A88A /* StaticFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StaticFramework.framework; sourceTree = "<group>"; };
-		3B5AF4961CFED9580076A88A /* DynamicFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DynamicFramework.framework; sourceTree = "<group>"; };
+		3B5AF49A1CFEDAA80076A88A /* StaticFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StaticFramework.framework; sourceTree = "<group>"; };
+		3B5AF4A21CFEDE130076A88A /* DynamicFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DynamicFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,8 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B5AF48A1CFED6150076A88A /* StaticFramework.framework in Frameworks */,
-				3B5AF4971CFED9580076A88A /* DynamicFramework.framework in Frameworks */,
+				3B5AF49B1CFEDAA80076A88A /* StaticFramework.framework in Frameworks */,
+				3B5AF4A31CFEDE130076A88A /* DynamicFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +44,8 @@
 		3B5AF4521CFEB9F90076A88A = {
 			isa = PBXGroup;
 			children = (
-				3B5AF4891CFED6150076A88A /* StaticFramework.framework */,
-				3B5AF4961CFED9580076A88A /* DynamicFramework.framework */,
+				3B5AF49A1CFEDAA80076A88A /* StaticFramework.framework */,
+				3B5AF4A21CFEDE130076A88A /* DynamicFramework.framework */,
 				3B5AF45D1CFEB9FA0076A88A /* FrameworksDemoSwiftApp */,
 				3B5AF45C1CFEB9FA0076A88A /* Products */,
 			);

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B5AF4461CFEB9D70076A88A"
-               BuildableName = "DynamicFramework.framework"
-               BlueprintName = "DynamicFramework"
+               BlueprintIdentifier = "3B5AF48F1CFED7930076A88A"
+               BuildableName = "UniversalDynamicFramework"
+               BlueprintName = "UniversalDynamicFramework"
                ReferencedContainer = "container:DynamicFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B5AF4461CFEB9D70076A88A"
-            BuildableName = "DynamicFramework.framework"
-            BlueprintName = "DynamicFramework"
+            BlueprintIdentifier = "3B5AF48F1CFED7930076A88A"
+            BuildableName = "UniversalDynamicFramework"
+            BlueprintName = "UniversalDynamicFramework"
             ReferencedContainer = "container:DynamicFramework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B5AF4461CFEB9D70076A88A"
-            BuildableName = "DynamicFramework.framework"
-            BlueprintName = "DynamicFramework"
+            BlueprintIdentifier = "3B5AF48F1CFED7930076A88A"
+            BuildableName = "UniversalDynamicFramework"
+            BlueprintName = "UniversalDynamicFramework"
             ReferencedContainer = "container:DynamicFramework.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

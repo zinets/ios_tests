@@ -11,11 +11,11 @@
 @implementation DynamicLib
 
 + (NSString *)staticMethod {
-    return @"(D) Result is always 42";
+    return @"(Dynamic FW) Result is always 42";
 }
 
 - (NSString *)instanceMethod:(NSInteger)arg {
-    return [NSString stringWithFormat:@"(D) Result is 42 or %@", @(arg)];
+    return [NSString stringWithFormat:@"(Dynamic FW) Result is 42 or %@", @(arg)];
 }
 
 @end
