@@ -58,14 +58,9 @@
 		3B5AF4251CFEB9AE0076A88A /* FrameworksDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				3B5AF4291CFEB9AE0076A88A /* AppDelegate.h */,
-				3B5AF42A1CFEB9AE0076A88A /* AppDelegate.m */,
 				3B5AF42C1CFEB9AE0076A88A /* ViewController.h */,
 				3B5AF42D1CFEB9AE0076A88A /* ViewController.m */,
 				3B5AF42F1CFEB9AE0076A88A /* Main.storyboard */,
-				3B5AF4321CFEB9AE0076A88A /* Assets.xcassets */,
-				3B5AF4341CFEB9AE0076A88A /* LaunchScreen.storyboard */,
-				3B5AF4371CFEB9AE0076A88A /* Info.plist */,
 				3B5AF4261CFEB9AE0076A88A /* Supporting Files */,
 			);
 			path = FrameworksDemoApp;
@@ -74,6 +69,11 @@
 		3B5AF4261CFEB9AE0076A88A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B5AF4291CFEB9AE0076A88A /* AppDelegate.h */,
+				3B5AF42A1CFEB9AE0076A88A /* AppDelegate.m */,
+				3B5AF4321CFEB9AE0076A88A /* Assets.xcassets */,
+				3B5AF4341CFEB9AE0076A88A /* LaunchScreen.storyboard */,
+				3B5AF4371CFEB9AE0076A88A /* Info.plist */,
 				3B5AF4271CFEB9AE0076A88A /* main.m */,
 			);
 			name = "Supporting Files";

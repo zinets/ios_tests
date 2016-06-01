@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -16,12 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onTap1:(id)sender {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
+
+- (IBAction)onTap2:(id)sender {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
 
 @end
