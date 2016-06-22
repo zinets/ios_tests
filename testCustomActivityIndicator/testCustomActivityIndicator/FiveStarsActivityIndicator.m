@@ -13,7 +13,8 @@
 
 }
 @property (nonatomic, strong) CAReplicatorLayer *replicator;
-//@property (nonatomic)
+@property (nonatomic, strong) CALayer *dot;
+@property (nonatomic) CGFloat diameter;
 @end
 
 CGPoint center(CGRect rect) {
@@ -32,7 +33,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
 
 - (void)setup {
     self.backgroundColor = [UIColor lightGrayColor];
-    
+    self.diameter = 14;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -49,6 +50,8 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     return self;
 }
 
+#pragma mark - getters
+
 -(CAReplicatorLayer *)replicator {
     if (!_replicator) {
         _replicator = [CAReplicatorLayer layer];
@@ -56,8 +59,22 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     return _replicator;
 }
 
+-(CALayer *)dot {
+    if (!_dot) {
+        CGPoint pt = center(self.layer.bounds);
+        
+        _dot = [CALayer layer];
+        CGRect frame = (CGRect){{pt.x - self.diameter / 2, pt.y - self.diameter / 2}, {self.diameter, self.diameter}};
+        _dot.cornerRadius = self.diameter / 2.;
+        _dot.frame = frame;
+        _dot.backgroundColor = [UIColor whiteColor].CGColor;
+    }
+    return _dot;
+}
+
+#pragma mark - state
+
 - (void)setStage:(AnimationStage)stage {
-    const CGFloat diameter = 14;
     const CGFloat radius = 55/2;
     CGPoint pt = center(self.layer.bounds);
     
@@ -68,23 +85,15 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     
     switch (stage) {
         case AnimationStageStart: {
-            CALayer *dot = [CALayer layer];
-            
-            CGRect frame = (CGRect){{pt.x - diameter / 2, pt.y - diameter / 2}, {diameter, diameter}};
-            dot.cornerRadius = diameter / 2.;
-            dot.frame = frame;
-            dot.backgroundColor = [UIColor whiteColor].CGColor;
             
             CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
-            transform.toValue = @(pt.x - diameter / 2 - radius);
+            transform.toValue = @(pt.x - self.diameter / 2 - radius);
             transform.duration = 0.1;
             transform.repeatCount = 0;
             transform.autoreverses = NO;
             transform.removedOnCompletion = NO;
             transform.fillMode = kCAFillModeBoth;
-            [dot addAnimation:transform forKey:@"posX"];
-
-            
+            [self.dot addAnimation:transform forKey:@"posX"];
             
             self.replicator.frame = self.layer.bounds;
             self.replicator.instanceCount = 5;
@@ -94,7 +103,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             self.replicator.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0);
             
             [self.layer addSublayer:self.replicator];
-            [self.replicator addSublayer:dot];
+            [self.replicator addSublayer:self.dot];
             
             CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
             rotation.toValue = @(-2.0 * M_PI);
@@ -105,13 +114,6 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
 
         } break;
         case AnimationStage2: {
-            CALayer *dot = [CALayer layer];
-            
-            CGRect frame = (CGRect){{pt.x - radius, pt.y - diameter / 2}, {diameter, diameter}};
-            dot.cornerRadius = diameter / 2.;
-            dot.frame = frame;
-            dot.backgroundColor = [UIColor whiteColor].CGColor;
-            
             self.replicator.frame = self.layer.bounds;
             self.replicator.instanceCount = 5;
             self.replicator.instanceDelay = 0.2;
@@ -120,7 +122,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             self.replicator.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0);
             
             [self.layer addSublayer:self.replicator];
-            [self.replicator addSublayer:dot];
+            [self.replicator addSublayer:self.dot];
             
             CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
             rotation.toValue = @(-2.0 * M_PI);
@@ -131,24 +133,24 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
 
         } break;
         case AnimationStage3: {
-            CALayer *dot = [CALayer layer];
-            
-            CGRect frame = (CGRect){{0, 0}, {diameter, diameter}};
-            dot.cornerRadius = diameter / 2.;
-            dot.frame = frame;
-            dot.backgroundColor = [UIColor whiteColor].CGColor;
-            
-            [self.layer addSublayer:dot];
-            
-            CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
-            transform.toValue = @(100);
-            transform.duration = 0.2;
-            transform.repeatCount = 0;
-            transform.autoreverses = NO;
-            transform.removedOnCompletion = NO;
-            transform.fillMode = kCAFillModeForwards;
-
-            [dot addAnimation:transform forKey:@"posX"];
+//            CALayer *dot = [CALayer layer];
+//            
+//            CGRect frame = (CGRect){{0, 0}, {diameter, diameter}};
+//            dot.cornerRadius = diameter / 2.;
+//            dot.frame = frame;
+//            dot.backgroundColor = [UIColor whiteColor].CGColor;
+//            
+//            [self.layer addSublayer:dot];
+//            
+//            CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
+//            transform.toValue = @(100);
+//            transform.duration = 0.2;
+//            transform.repeatCount = 0;
+//            transform.autoreverses = NO;
+//            transform.removedOnCompletion = NO;
+//            transform.fillMode = kCAFillModeForwards;
+//
+//            [dot addAnimation:transform forKey:@"posX"];
         } break;
         default:
             break;
