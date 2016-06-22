@@ -14,6 +14,9 @@
 }
 @property (nonatomic, strong) CAReplicatorLayer *replicator;
 @property (nonatomic, strong) CALayer *dot;
+@property (nonatomic, strong) CAShapeLayer *leftMarkPart;
+@property (nonatomic, strong) CAShapeLayer *rightMarkPart;
+
 @property (nonatomic) CGFloat diameter;
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) NSInteger numOfDots;
@@ -80,12 +83,55 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     return _dot;
 }
 
+-(CAShapeLayer *)leftMarkPart {
+    if (!_leftMarkPart) {
+        CGPoint pt = center(self.layer.bounds);
+        
+        _leftMarkPart = [CAShapeLayer layer];
+        _leftMarkPart.frame = self.layer.bounds;
+        _leftMarkPart.lineCap = kCALineCapRound;
+        _leftMarkPart.strokeColor = [UIColor whiteColor].CGColor;
+        _leftMarkPart.lineWidth = self.diameter;
+        
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:pt];
+        pt = CGPointOffset(pt, -18, -18);
+        [path addLineToPoint:pt];
+        
+        _leftMarkPart.path = path.CGPath;
+    }
+    return _leftMarkPart;
+}
+
+-(CAShapeLayer *)rightMarkPart {
+    if (!_rightMarkPart) {
+        CGPoint pt = center(self.layer.bounds);
+        
+        _rightMarkPart = [CAShapeLayer layer];
+        _rightMarkPart.frame = self.layer.bounds;
+        _rightMarkPart.lineCap = kCALineCapRound;
+        _rightMarkPart.strokeColor = [UIColor whiteColor].CGColor;
+        _rightMarkPart.lineWidth = self.diameter;
+        
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:pt];
+        pt = CGPointOffset(pt, -36, -36);
+        [path addLineToPoint:pt];
+        
+        _rightMarkPart.path = path.CGPath;
+    }
+    return _rightMarkPart;
+}
+
 #pragma mark - state
 
 - (void)setStage:(AnimationStage)stage {
     CGPoint pt = center(self.layer.bounds);
     switch (stage) {
         case AnimationStageStart: {
+            [_leftMarkPart removeFromSuperlayer];
+            [_rightMarkPart removeFromSuperlayer];
+            
             CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
             transform.toValue = @(pt.x - self.diameter / 2 - self.radius);
             transform.duration = 0.1;
@@ -103,11 +149,10 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             
             [self.replicator removeAllAnimations];
             CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-            rotation.toValue = @(-2.0 * M_PI);
+            rotation.toValue = @(2.0 * M_PI);
             rotation.duration = 1.2;
-            rotation.repeatCount = 1000;
-            [_replicator addAnimation:rotation forKey:@"rotatingAnimation"];
-
+            rotation.repeatCount = HUGE_VALF;
+            [self.replicator addAnimation:rotation forKey:@"rotatingAnimation"];
         } break;
         case AnimationStageCollapsing: {
             CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
@@ -118,51 +163,51 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             transform.autoreverses = NO;
             transform.removedOnCompletion = NO;
             transform.fillMode = kCAFillModeBackwards;
-//            transform.delegate = self;
 
             [self.dot addAnimation:transform forKey:@"posX"];
         } break;
-        case AnimationStage2: {
-            CGFloat angle = (2.0 * M_PI) / self.replicator.instanceCount;
+        case AnimationStageFinishing: {
+            [self.layer addSublayer:self.leftMarkPart];
             
-            self.replicator.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0);
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            animation.fromValue = [NSNumber numberWithFloat:0.0];
+            animation.toValue = [NSNumber numberWithFloat:1.0];
+            animation.duration = 0.2;
+            animation.removedOnCompletion = NO;
+            animation.fillMode = kCAFillModeForwards;
+            [self.leftMarkPart addAnimation:animation forKey:@"leftPartAnimation"];
             
-            [self.layer addSublayer:self.replicator];
-            [self.replicator addSublayer:self.dot];
+            [self.layer addSublayer:self.rightMarkPart];
+            CAAnimationGroup *groupAnimation = [CAAnimationGroup animation];
+            groupAnimation.duration = 0.4; {
+                CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+                animation.fromValue = [NSNumber numberWithFloat:0.0];
+                animation.toValue = [NSNumber numberWithFloat:1.0];
+                animation.duration = 0.2;
+                animation.removedOnCompletion = NO;
+                animation.fillMode = kCAFillModeForwards;
+                
+                CABasicAnimation *rotating = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+                rotating.toValue = @(M_PI_2);
+                rotating.duration = .2;
+                rotating.beginTime = .2;
+                rotating.removedOnCompletion = NO;
+                rotating.fillMode = kCAFillModeForwards;
+                
+                groupAnimation.animations = @[animation, rotating];
+            }
+            groupAnimation.removedOnCompletion = NO;
+            groupAnimation.fillMode = kCAFillModeForwards;
             
-            CABasicAnimation *rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-            rotation.toValue = @(-2.0 * M_PI);
-            rotation.duration = 1.2;
-            rotation.repeatCount = 1000;
-            //    rotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            [_replicator addAnimation:rotation forKey:@"replicatedAnimation"];
-
+            [self.rightMarkPart addAnimation:groupAnimation forKey:@"rightPartAnimation"];
+            
+            [_replicator removeAllAnimations];
+            [_replicator removeFromSuperlayer];
+            _replicator = nil;
+            
+            
         } break;
-        case AnimationStage3: {
-//            CALayer *dot = [CALayer layer];
-//            
-//            CGRect frame = (CGRect){{0, 0}, {diameter, diameter}};
-//            dot.cornerRadius = diameter / 2.;
-//            dot.frame = frame;
-//            dot.backgroundColor = [UIColor whiteColor].CGColor;
-//            
-//            [self.layer addSublayer:dot];
-//            
-//            CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
-//            transform.toValue = @(100);
-//            transform.duration = 0.2;
-//            transform.repeatCount = 0;
-//            transform.autoreverses = NO;
-//            transform.removedOnCompletion = NO;
-//            transform.fillMode = kCAFillModeForwards;
-//
-//            [dot addAnimation:transform forKey:@"posX"];
-        } break;
-        default:
-            break;
     }
-    
-
 }
 
 @end
