@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSUInteger, AnimationStage) {
     AnimationStageStart = 1,
+    AnimationStageCollapsing,
     AnimationStage2,
     AnimationStage3,
     AnimationStage4
