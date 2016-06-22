@@ -13,6 +13,7 @@
 
 }
 @property (nonatomic, strong) CAReplicatorLayer *replicator;
+//@property (nonatomic)
 @end
 
 CGPoint center(CGRect rect) {
@@ -66,7 +67,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     }];
     
     switch (stage) {
-        case AnimationStage1: {
+        case AnimationStageStart: {
             CALayer *dot = [CALayer layer];
             
             CGRect frame = (CGRect){{pt.x - diameter / 2, pt.y - diameter / 2}, {diameter, diameter}};
@@ -76,18 +77,18 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             
             CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
             transform.toValue = @(pt.x - diameter / 2 - radius);
-            transform.duration = 0.2;
+            transform.duration = 0.1;
             transform.repeatCount = 0;
             transform.autoreverses = NO;
+            transform.removedOnCompletion = NO;
+            transform.fillMode = kCAFillModeBoth;
             [dot addAnimation:transform forKey:@"posX"];
 
-            frame.origin.x = pt.x - diameter / 2 - radius;
-            dot.frame = frame;
             
             
             self.replicator.frame = self.layer.bounds;
             self.replicator.instanceCount = 5;
-            self.replicator.instanceDelay = 0.2;
+            self.replicator.instanceDelay = 0.1;
             CGFloat angle = (2.0 * M_PI) / self.replicator.instanceCount;
 
             self.replicator.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0);
@@ -100,7 +101,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             rotation.duration = 1.2;
             rotation.repeatCount = 1000;
             //    rotation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-//            [_replicator addAnimation:rotation forKey:@"replicatedAnimation"];
+            [_replicator addAnimation:rotation forKey:@"replicatedAnimation"];
 
         } break;
         case AnimationStage2: {
@@ -144,12 +145,10 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             transform.duration = 0.2;
             transform.repeatCount = 0;
             transform.autoreverses = NO;
-            
+            transform.removedOnCompletion = NO;
+            transform.fillMode = kCAFillModeForwards;
 
             [dot addAnimation:transform forKey:@"posX"];
-            frame.origin.x = 100;
-            dot.frame = frame;
-            
         } break;
         default:
             break;

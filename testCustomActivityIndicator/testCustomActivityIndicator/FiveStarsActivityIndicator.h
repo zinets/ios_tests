@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, AnimationStage) {
-    AnimationStage1 = 1,
+    AnimationStageStart = 1,
     AnimationStage2,
     AnimationStage3,
     AnimationStage4
