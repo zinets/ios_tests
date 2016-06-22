@@ -125,6 +125,12 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
 
 #pragma mark - state
 
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (flag) {
+        [self setStage:(AnimationStageFinishing)];
+    }
+}
+
 - (void)setStage:(AnimationStage)stage {
     CGPoint pt = center(self.layer.bounds);
     switch (stage) {
@@ -163,6 +169,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             transform.autoreverses = NO;
             transform.removedOnCompletion = NO;
             transform.fillMode = kCAFillModeBackwards;
+            transform.delegate = self;
 
             [self.dot addAnimation:transform forKey:@"posX"];
         } break;
