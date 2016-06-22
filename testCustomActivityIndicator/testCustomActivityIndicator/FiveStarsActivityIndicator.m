@@ -75,7 +75,7 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
         CGPoint pt = center(self.layer.bounds);
         
         _dot = [CALayer layer];
-        CGRect frame = (CGRect){{pt.x - self.diameter / 2, pt.y - self.diameter / 2}, {self.diameter, self.diameter}};
+        CGRect frame = (CGRect){{pt.x - self.diameter / 2 - self.radius, pt.y - self.diameter / 2}, {self.diameter, self.diameter}};
         _dot.cornerRadius = self.diameter / 2.;
         _dot.frame = frame;
         _dot.backgroundColor = [UIColor whiteColor].CGColor;
@@ -135,19 +135,6 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
     CGPoint pt = center(self.layer.bounds);
     switch (stage) {
         case AnimationStageStart: {
-            [_leftMarkPart removeFromSuperlayer];
-            [_rightMarkPart removeFromSuperlayer];
-            
-            CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
-            transform.toValue = @(pt.x - self.diameter / 2 - self.radius);
-            transform.duration = 0.1;
-            transform.repeatCount = 0;
-            transform.autoreverses = NO;
-            transform.removedOnCompletion = NO;
-            transform.fillMode = kCAFillModeBoth;
-            [self.dot removeAnimationForKey:@"posX"];
-            [self.dot addAnimation:transform forKey:@"posX"];
-            
             CGFloat angle = (2.0 * M_PI) / self.replicator.instanceCount;
             self.replicator.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0);
             [self.layer addSublayer:self.replicator];
@@ -159,19 +146,6 @@ CGPoint CGPointOffset (CGPoint origin, int x, int y) {
             rotation.duration = 1.2;
             rotation.repeatCount = HUGE_VALF;
             [self.replicator addAnimation:rotation forKey:@"rotatingAnimation"];
-        } break;
-        case AnimationStageCollapsing: {
-            CABasicAnimation *transform = [CABasicAnimation animationWithKeyPath:@"position.x"];
-            transform.fromValue = @(pt.x - self.diameter / 2 - self.radius);
-            transform.toValue = @(pt.x - self.diameter / 2);
-            transform.duration = 0.1;
-            transform.repeatCount = 0;
-            transform.autoreverses = NO;
-            transform.removedOnCompletion = NO;
-            transform.fillMode = kCAFillModeBackwards;
-            transform.delegate = self;
-
-            [self.dot addAnimation:transform forKey:@"posX"];
         } break;
         case AnimationStageFinishing: {
             [self.layer addSublayer:self.leftMarkPart];
