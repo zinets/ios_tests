@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BDEE4621D1298AD00519E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4611D1298AD00519E27 /* main.m */; };
+		3BDEE4651D1298AD00519E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4641D1298AD00519E27 /* AppDelegate.m */; };
+		3BDEE4681D1298AD00519E27 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4671D1298AD00519E27 /* ViewController.m */; };
+		3BDEE46B1D1298AD00519E27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BDEE4691D1298AD00519E27 /* Main.storyboard */; };
+		3BDEE46D1D1298AD00519E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDEE46C1D1298AD00519E27 /* Assets.xcassets */; };
+		3BDEE4701D1298AD00519E27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BDEE46E1D1298AD00519E27 /* LaunchScreen.storyboard */; };
+		3BDEE47B1D129A7100519E27 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDEE47A1D129A7100519E27 /* FBAudienceNetwork.framework */; };
+		3BDEE47D1D129A9000519E27 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDEE47C1D129A9000519E27 /* AdSupport.framework */; };
+		3BDEE47F1D129A9A00519E27 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDEE47E1D129A9A00519E27 /* StoreKit.framework */; };
+		3BDEE4811D129AA500519E27 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BDEE4801D129AA500519E27 /* CoreMotion.framework */; };
+		3BDEE4851D129D8800519E27 /* FbAnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4841D129D8800519E27 /* FbAnCell.m */; };
+		3BDEE4A41D12A37000519E27 /* TNCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE49F1D12A37000519E27 /* TNCache.m */; };
+		3BDEE4A51D12A37000519E27 /* TNImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4A11D12A37000519E27 /* TNImageDownloader.m */; };
+		3BDEE4A61D12A37000519E27 /* TNSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4A31D12A37000519E27 /* TNSafeMutableDictionary.m */; };
+		3BDEE4A91D12A38E00519E27 /* UrlImageView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4A81D12A38E00519E27 /* UrlImageView2.m */; };
+		3BDEE4AC1D12A39700519E27 /* UIImage+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4AB1D12A39700519E27 /* UIImage+Cache.m */; };
+		3BDEE4AF1D12A39D00519E27 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4AE1D12A39D00519E27 /* UIColor+MUIColor.m */; };
+		3BDEE4B21D12A3B900519E27 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4B11D12A3B900519E27 /* Utils.m */; };
+		3BDEE4B51D12AB2E00519E27 /* FbAnCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEE4B41D12AB2E00519E27 /* FbAnCell2.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3BDEE45D1D1298AD00519E27 /* testFbAn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testFbAn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BDEE4611D1298AD00519E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BDEE4631D1298AD00519E27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3BDEE4641D1298AD00519E27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3BDEE4661D1298AD00519E27 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3BDEE4671D1298AD00519E27 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3BDEE46A1D1298AD00519E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BDEE46C1D1298AD00519E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BDEE46F1D1298AD00519E27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3BDEE4711D1298AD00519E27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BDEE47A1D129A7100519E27 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = testFbAn/FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		3BDEE47C1D129A9000519E27 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		3BDEE47E1D129A9A00519E27 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3BDEE4801D129AA500519E27 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3BDEE4831D129D8800519E27 /* FbAnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbAnCell.h; sourceTree = "<group>"; };
+		3BDEE4841D129D8800519E27 /* FbAnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbAnCell.m; sourceTree = "<group>"; };
+		3BDEE49E1D12A37000519E27 /* TNCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNCache.h; path = ../../../trunk/TNCache/TNCache/TNCache.h; sourceTree = "<group>"; };
+		3BDEE49F1D12A37000519E27 /* TNCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNCache.m; path = ../../../trunk/TNCache/TNCache/TNCache.m; sourceTree = "<group>"; };
+		3BDEE4A01D12A37000519E27 /* TNImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNImageDownloader.h; path = ../../../trunk/TNCache/TNCache/TNImageDownloader.h; sourceTree = "<group>"; };
+		3BDEE4A11D12A37000519E27 /* TNImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNImageDownloader.m; path = ../../../trunk/TNCache/TNCache/TNImageDownloader.m; sourceTree = "<group>"; };
+		3BDEE4A21D12A37000519E27 /* TNSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNSafeMutableDictionary.h; path = ../../../trunk/TNCache/TNCache/TNSafeMutableDictionary.h; sourceTree = "<group>"; };
+		3BDEE4A31D12A37000519E27 /* TNSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNSafeMutableDictionary.m; path = ../../../trunk/TNCache/TNCache/TNSafeMutableDictionary.m; sourceTree = "<group>"; };
+		3BDEE4A71D12A38E00519E27 /* UrlImageView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrlImageView2.h; path = ../../../trunk/MUIControls/MUIControls/Classes/UrlImageView2.h; sourceTree = "<group>"; };
+		3BDEE4A81D12A38E00519E27 /* UrlImageView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrlImageView2.m; path = ../../../trunk/MUIControls/MUIControls/Classes/UrlImageView2.m; sourceTree = "<group>"; };
+		3BDEE4AA1D12A39700519E27 /* UIImage+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Cache.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.h"; sourceTree = "<group>"; };
+		3BDEE4AB1D12A39700519E27 /* UIImage+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Cache.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIImage+Cache.m"; sourceTree = "<group>"; };
+		3BDEE4AD1D12A39D00519E27 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		3BDEE4AE1D12A39D00519E27 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		3BDEE4B01D12A3B900519E27 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../../../trunk/TNUtils/TNUtils/TNUtils/Utils.h; sourceTree = "<group>"; };
+		3BDEE4B11D12A3B900519E27 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../../../trunk/TNUtils/TNUtils/TNUtils/Utils.m; sourceTree = "<group>"; };
+		3BDEE4B31D12AB2E00519E27 /* FbAnCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbAnCell2.h; sourceTree = "<group>"; };
+		3BDEE4B41D12AB2E00519E27 /* FbAnCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbAnCell2.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BDEE45A1D1298AD00519E27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDEE4811D129AA500519E27 /* CoreMotion.framework in Frameworks */,
+				3BDEE47F1D129A9A00519E27 /* StoreKit.framework in Frameworks */,
+				3BDEE47D1D129A9000519E27 /* AdSupport.framework in Frameworks */,
+				3BDEE47B1D129A7100519E27 /* FBAudienceNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BDEE4541D1298AD00519E27 = {
+			isa = PBXGroup;
+			children = (
+				3BDEE45F1D1298AD00519E27 /* testFbAn */,
+				3BDEE45E1D1298AD00519E27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BDEE45E1D1298AD00519E27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BDEE45D1D1298AD00519E27 /* testFbAn.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BDEE45F1D1298AD00519E27 /* testFbAn */ = {
+			isa = PBXGroup;
+			children = (
+				3BDEE4831D129D8800519E27 /* FbAnCell.h */,
+				3BDEE4841D129D8800519E27 /* FbAnCell.m */,
+				3BDEE4B31D12AB2E00519E27 /* FbAnCell2.h */,
+				3BDEE4B41D12AB2E00519E27 /* FbAnCell2.m */,
+				3BDEE4661D1298AD00519E27 /* ViewController.h */,
+				3BDEE4671D1298AD00519E27 /* ViewController.m */,
+				3BDEE4601D1298AD00519E27 /* Supporting Files */,
+			);
+			path = testFbAn;
+			sourceTree = "<group>";
+		};
+		3BDEE4601D1298AD00519E27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BDEE4B01D12A3B900519E27 /* Utils.h */,
+				3BDEE4B11D12A3B900519E27 /* Utils.m */,
+				3BDEE4AD1D12A39D00519E27 /* UIColor+MUIColor.h */,
+				3BDEE4AE1D12A39D00519E27 /* UIColor+MUIColor.m */,
+				3BDEE4AA1D12A39700519E27 /* UIImage+Cache.h */,
+				3BDEE4AB1D12A39700519E27 /* UIImage+Cache.m */,
+				3BDEE4A71D12A38E00519E27 /* UrlImageView2.h */,
+				3BDEE4A81D12A38E00519E27 /* UrlImageView2.m */,
+				3BDEE49E1D12A37000519E27 /* TNCache.h */,
+				3BDEE49F1D12A37000519E27 /* TNCache.m */,
+				3BDEE4A01D12A37000519E27 /* TNImageDownloader.h */,
+				3BDEE4A11D12A37000519E27 /* TNImageDownloader.m */,
+				3BDEE4A21D12A37000519E27 /* TNSafeMutableDictionary.h */,
+				3BDEE4A31D12A37000519E27 /* TNSafeMutableDictionary.m */,
+				3BDEE4821D129AAB00519E27 /* frameworks */,
+				3BDEE4631D1298AD00519E27 /* AppDelegate.h */,
+				3BDEE4641D1298AD00519E27 /* AppDelegate.m */,
+				3BDEE4691D1298AD00519E27 /* Main.storyboard */,
+				3BDEE46C1D1298AD00519E27 /* Assets.xcassets */,
+				3BDEE46E1D1298AD00519E27 /* LaunchScreen.storyboard */,
+				3BDEE4711D1298AD00519E27 /* Info.plist */,
+				3BDEE4611D1298AD00519E27 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BDEE4821D129AAB00519E27 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BDEE47A1D129A7100519E27 /* FBAudienceNetwork.framework */,
+				3BDEE4801D129AA500519E27 /* CoreMotion.framework */,
+				3BDEE47E1D129A9A00519E27 /* StoreKit.framework */,
+				3BDEE47C1D129A9000519E27 /* AdSupport.framework */,
+			);
+			name = frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BDEE45C1D1298AD00519E27 /* testFbAn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BDEE4741D1298AD00519E27 /* Build configuration list for PBXNativeTarget "testFbAn" */;
+			buildPhases = (
+				3BDEE4591D1298AD00519E27 /* Sources */,
+				3BDEE45A1D1298AD00519E27 /* Frameworks */,
+				3BDEE45B1D1298AD00519E27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testFbAn;
+			productName = testFbAn;
+			productReference = 3BDEE45D1D1298AD00519E27 /* testFbAn.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BDEE4551D1298AD00519E27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Zinets Victor";
+				TargetAttributes = {
+					3BDEE45C1D1298AD00519E27 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3BDEE4581D1298AD00519E27 /* Build configuration list for PBXProject "testFbAn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BDEE4541D1298AD00519E27;
+			productRefGroup = 3BDEE45E1D1298AD00519E27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BDEE45C1D1298AD00519E27 /* testFbAn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BDEE45B1D1298AD00519E27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDEE4701D1298AD00519E27 /* LaunchScreen.storyboard in Resources */,
+				3BDEE46D1D1298AD00519E27 /* Assets.xcassets in Resources */,
+				3BDEE46B1D1298AD00519E27 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BDEE4591D1298AD00519E27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDEE4A41D12A37000519E27 /* TNCache.m in Sources */,
+				3BDEE4B21D12A3B900519E27 /* Utils.m in Sources */,
+				3BDEE4A61D12A37000519E27 /* TNSafeMutableDictionary.m in Sources */,
+				3BDEE4681D1298AD00519E27 /* ViewController.m in Sources */,
+				3BDEE4A51D12A37000519E27 /* TNImageDownloader.m in Sources */,
+				3BDEE4AC1D12A39700519E27 /* UIImage+Cache.m in Sources */,
+				3BDEE4651D1298AD00519E27 /* AppDelegate.m in Sources */,
+				3BDEE4A91D12A38E00519E27 /* UrlImageView2.m in Sources */,
+				3BDEE4621D1298AD00519E27 /* main.m in Sources */,
+				3BDEE4851D129D8800519E27 /* FbAnCell.m in Sources */,
+				3BDEE4AF1D12A39D00519E27 /* UIColor+MUIColor.m in Sources */,
+				3BDEE4B51D12AB2E00519E27 /* FbAnCell2.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3BDEE4691D1298AD00519E27 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BDEE46A1D1298AD00519E27 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BDEE46E1D1298AD00519E27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BDEE46F1D1298AD00519E27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BDEE4721D1298AD00519E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3BDEE4731D1298AD00519E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BDEE4751D1298AD00519E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testFbAn",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../trunk/MUIControls/MUIControls/Classes\"/**";
+				INFOPLIST_FILE = testFbAn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.testFbAn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3BDEE4761D1298AD00519E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testFbAn",
+				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../trunk/MUIControls/MUIControls/Classes\"/**";
+				INFOPLIST_FILE = testFbAn/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.testFbAn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BDEE4581D1298AD00519E27 /* Build configuration list for PBXProject "testFbAn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BDEE4721D1298AD00519E27 /* Debug */,
+				3BDEE4731D1298AD00519E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BDEE4741D1298AD00519E27 /* Build configuration list for PBXNativeTarget "testFbAn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BDEE4751D1298AD00519E27 /* Debug */,
+				3BDEE4761D1298AD00519E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BDEE4551D1298AD00519E27 /* Project object */;
+}
