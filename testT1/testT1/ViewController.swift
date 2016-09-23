@@ -9,13 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var gameModel: GameModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameModel = GameModel()
+    }
 
+    @IBAction func onTap() {
+        gameModel?.doStep()
+        field.updateField(model: gameModel!)
     }
 
 
-
+    @IBOutlet weak var field: GameField!
 }
 

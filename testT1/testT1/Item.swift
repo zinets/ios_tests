@@ -62,7 +62,8 @@ class Item: NSObject {
     }
     
     func isEmpty() -> Bool {
-        return _matrix!.count > 0
+        let count = _matrix!.count
+        return count == 0
     }
     
     func getSizeBlock() -> Int {
