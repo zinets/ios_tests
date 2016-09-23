@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUM-Bj-Rhy" customClass="GameField" customModule="testT1" customModuleProvider="target">
-                                <frame key="frameInset" minX="36" minY="79" width="306" height="335"/>
+                                <frame key="frameInset" minX="36" minY="79" width="306" height="520"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

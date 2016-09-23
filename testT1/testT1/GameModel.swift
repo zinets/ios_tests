@@ -23,19 +23,31 @@ class GameModel: NSObject {
     }
     
     func numberOfRows() -> Int {
-        return 4
+        return 10
     }
     func numberOfCols() -> Int {
         return 4
     }
+    
+    func getItem() -> Item {
+        return activeItem
+    }
 
     func resetGame() {
-        matrix = [
-            [.Empty, .Empty, .Empty, .Empty],
-            [.Empty, .Empty, .Empty, .Empty],
-            [.Empty, .Empty, .Empty, .Empty],
-            [.Empty, .Empty, .Empty, .Empty]
-        ]
+        var newMatrix = Matrix()
+        for y in 0..<numberOfRows() {
+            newMatrix.append(Array())
+            for _ in 0..<numberOfCols() {
+                newMatrix[y].append(.Empty)
+            }
+        }
+//        matrix = [
+//            [.Empty, .Empty, .Empty, .Empty],
+//            [.Empty, .Empty, .Empty, .Empty],
+//            [.Empty, .Empty, .Empty, .Empty],
+//            [.Empty, .Empty, .Empty, .Empty]
+//        ]
+        matrix = newMatrix
         activeItem = Item()
     }
     

@@ -21,8 +21,8 @@ class GameField: UIView {
         if let model = gameModel {
             let context = UIGraphicsGetCurrentContext()
             
-            let cols = model.numberOfCols()
-            let rows = model.numberOfRows()
+            var cols = model.numberOfCols()
+            var rows = model.numberOfRows()
             
             let cellW = Int(self.bounds.size.width) / cols
             let cellH = Int(self.bounds.size.height) / rows
@@ -41,6 +41,29 @@ class GameField: UIView {
                     context!.setStrokeColor(UIColor.red.cgColor)
                     context!.setLineWidth(4)
                     context!.stroke(frm)
+                }
+            }
+            
+            let item = model.getItem()
+            rows = item.getSizeBlock()
+            cols = rows
+            
+            for y in 0..<rows {
+                for x in 0..<cols {
+                    let frm = CGRect(x: item.getXPoints() + x * cellW,
+                                     y: item.getYPoints() + y * cellH,
+                                     width: cellW, height: cellH)
+                    
+                    if item.getBlockType(innerXBlocks: x, innerYBlocks: y) != .Empty {
+                        let fillColor = UIColor.red.cgColor
+
+                        context!.setFillColor(fillColor)
+                        context!.fill(frm)
+                        
+                        context!.setStrokeColor(UIColor.gray.cgColor)
+                        context!.setLineWidth(4)
+                        context!.stroke(frm)
+                    }
                 }
             }
         }
