@@ -10,7 +10,7 @@ import UIKit
 
 class GameField: UIView {
     var gameModel: GameModel?
-    let cellSize = 12.0
+    let cellSize = 12
     
     func updateField(model: GameModel) {
         gameModel = model
@@ -32,9 +32,16 @@ class GameField: UIView {
                     let frm = CGRect(x: x * cellW, y: y * cellH, width: cellW, height: cellH)
                     
                     var fillColor = UIColor.blue.cgColor
-                    if model.getBlockType(xBlocks: x, yBlocks: y) != .Empty {
+                    
+                    switch model.getBlockType(xBlocks: x, yBlocks: y) {
+                    case .Empty:
                         fillColor = UIColor.red.cgColor
+                    case .Border:
+                        fillColor = UIColor.black.cgColor
+                    default:
+                        break;
                     }
+                    
                     context!.setFillColor(fillColor)
                     context!.fill(frm)
                     
@@ -50,8 +57,8 @@ class GameField: UIView {
             
             for y in 0..<rows {
                 for x in 0..<cols {
-                    let frm = CGRect(x: item.getXPoints() + x * cellW,
-                                     y: item.getYPoints() + y * cellH,
+                    let frm = CGRect(x: item.getXPoints() / cellSize * cellW + x * cellW,
+                                     y: item.getYPoints() / cellSize * cellH + y * cellH,
                                      width: cellW, height: cellH)
                     
                     if item.getBlockType(innerXBlocks: x, innerYBlocks: y) != .Empty {

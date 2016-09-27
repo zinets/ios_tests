@@ -20,6 +20,8 @@ enum ItemType {
     case Empty
     case Square
     case Line
+    case L_line
+    case J_line
 }
 
 typealias Matrix = Array<Array<ItemType>>
@@ -40,6 +42,18 @@ class Item: NSObject {
                 [.Empty, .Line, .Empty, .Empty],
                 [.Empty, .Line, .Empty, .Empty],
                 [.Empty, .Line, .Empty, .Empty],
+                ],
+            [ // L
+                [.Empty, .L_line, .Empty, .Empty],
+                [.Empty, .L_line, .Empty, .Empty],
+                [.Empty, .L_line, .Empty, .Empty],
+                [.Empty, .L_line, .L_line, .Empty],
+                ],
+            [ // J
+                [.Empty, .Empty, .J_line, .Empty],
+                [.Empty, .Empty, .J_line, .Empty],
+                [.Empty, .Empty, .J_line, .Empty],
+                [.Empty, .J_line, .J_line, .Empty],
                 ]
         ]
         

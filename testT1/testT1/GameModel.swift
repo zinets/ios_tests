@@ -23,30 +23,30 @@ class GameModel: NSObject {
     }
     
     func numberOfRows() -> Int {
-        return 10
+        return 10 + 1
     }
     func numberOfCols() -> Int {
-        return 4
+        return 4 + 2
     }
     
     func getItem() -> Item {
         return activeItem
     }
-
+    
     func resetGame() {
         var newMatrix = Matrix()
         for y in 0..<numberOfRows() {
             newMatrix.append(Array())
-            for _ in 0..<numberOfCols() {
-                newMatrix[y].append(.Empty)
+            for x in 0..<numberOfCols() {
+                if y == numberOfRows() - 1 {
+                    newMatrix[y].append(.Border)
+                } else if x == 0 || x == numberOfCols() - 1 {
+                    newMatrix[y].append(.Border)
+                } else {
+                    newMatrix[y].append(.Empty)
+                }
             }
         }
-//        matrix = [
-//            [.Empty, .Empty, .Empty, .Empty],
-//            [.Empty, .Empty, .Empty, .Empty],
-//            [.Empty, .Empty, .Empty, .Empty],
-//            [.Empty, .Empty, .Empty, .Empty]
-//        ]
         matrix = newMatrix
         activeItem = Item()
     }
@@ -75,7 +75,7 @@ class GameModel: NSObject {
         
         return false;
     }
-
+    
     func hasCollision(item: Item) -> Bool {
         for xBlocks in 0 ..< item.getSizeBlock() {
             for yBlocks in 0..<item.getSizeBlock() {
@@ -90,6 +90,43 @@ class GameModel: NSObject {
     
     func isGameOver() -> Bool {
         return gameOver
+    }
+    
+    func rotateItem() {
+        let item = activeItem;
+        item.rotate();
+        if !hasCollision(item: item) {
+            activeItem = item;
+            return;
+        }
+        
+        item.setPosition(xPoints: item.getXPoints() + BLOCK_SIZE, yPoints: item.getYPoints())
+        if !hasCollision(item: item) {
+            activeItem = item;
+            return;
+        }
+        
+        item.setPosition(xPoints: item.getXPoints() - blocksToPoints(x: 2), yPoints: item.getYPoints())
+        if !hasCollision(item: item) {
+            activeItem = item;
+            return;
+        }
+    }
+    
+    func moveItemX(offsetX: Int) {
+        let item = activeItem
+        item.setPosition(xPoints: item.getXPoints() + offsetX, yPoints: item.getYPoints())
+        if !hasCollision(item: item) {
+            activeItem = item
+        }
+    }
+    
+    func moveItemLeft() {
+        moveItemX(offsetX: -BLOCK_SIZE)
+    }
+    
+    func moveItemRight() {
+        moveItemX(offsetX: BLOCK_SIZE)
     }
     
     func doStep() {
@@ -131,7 +168,7 @@ class GameModel: NSObject {
                         }
                     }
                 }
-//                clean(); - очистка полностью заполненых рядов
+                //                clean(); - очистка полностью заполненых рядов
             } else {
                 activeItem = item;
                 itemBottomTouchCounter += 1;

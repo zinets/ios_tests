@@ -20,7 +20,20 @@ class ViewController: UIViewController {
         field.updateField(model: gameModel!)
     }
 
+    @IBAction func onRotateTap(_ sender: AnyObject) {
+        gameModel?.rotateItem()
+        field.updateField(model: gameModel!)        
+    }
 
+    @IBAction func onMoveTap(_ sender: UIButton) {
+        if sender.currentTitle == "<<" {
+            gameModel?.moveItemLeft()
+        } else if sender.currentTitle == ">>" {
+            gameModel?.moveItemRight()
+        }
+        field.updateField(model: gameModel!) 
+    }
+    
     @IBOutlet weak var field: GameField!
 }
 
