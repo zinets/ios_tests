@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B00CF391D9A8DD100E3FCC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF381D9A8DD100E3FCC4 /* main.m */; };
+		3B00CF3C1D9A8DD100E3FCC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF3B1D9A8DD100E3FCC4 /* AppDelegate.m */; };
+		3B00CF3F1D9A8DD100E3FCC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF3E1D9A8DD100E3FCC4 /* ViewController.m */; };
+		3B00CF421D9A8DD100E3FCC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF401D9A8DD100E3FCC4 /* Main.storyboard */; };
+		3B00CF441D9A8DD100E3FCC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF431D9A8DD100E3FCC4 /* Assets.xcassets */; };
+		3B00CF471D9A8DD100E3FCC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF451D9A8DD100E3FCC4 /* LaunchScreen.storyboard */; };
+		3B00CF511D9A8DFF00E3FCC4 /* ImageSourceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF501D9A8DFF00E3FCC4 /* ImageSourceSelector.m */; };
+		3B00CF541D9A8E1700E3FCC4 /* PhotosGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */; };
+		3B00CF571D9A8E3600E3FCC4 /* PhotoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF561D9A8E3600E3FCC4 /* PhotoScrollerView.m */; };
+		3B00CF5A1D9A8E9C00E3FCC4 /* CaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */; };
+		3B00CF5D1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF5C1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m */; };
+		3B00CF601D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF5F1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m */; };
+		3B00CF631D9A909100E3FCC4 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF621D9A909100E3FCC4 /* UIView+Geometry.m */; };
+		3B00CF661D9A90C200E3FCC4 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF651D9A90C200E3FCC4 /* UIColor+MUIColor.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B00CF341D9A8DD100E3FCC4 /* testPhotoSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testPhotoSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00CF381D9A8DD100E3FCC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B00CF3A1D9A8DD100E3FCC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B00CF3B1D9A8DD100E3FCC4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3B00CF3D1D9A8DD100E3FCC4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3B00CF3E1D9A8DD100E3FCC4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3B00CF411D9A8DD100E3FCC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B00CF431D9A8DD100E3FCC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B00CF461D9A8DD100E3FCC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3B00CF481D9A8DD100E3FCC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B00CF4F1D9A8DFF00E3FCC4 /* ImageSourceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceSelector.h; sourceTree = "<group>"; };
+		3B00CF501D9A8DFF00E3FCC4 /* ImageSourceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSourceSelector.m; sourceTree = "<group>"; };
+		3B00CF521D9A8E1700E3FCC4 /* PhotosGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosGalleryView.h; sourceTree = "<group>"; };
+		3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosGalleryView.m; sourceTree = "<group>"; };
+		3B00CF551D9A8E3600E3FCC4 /* PhotoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoScrollerView.h; sourceTree = "<group>"; };
+		3B00CF561D9A8E3600E3FCC4 /* PhotoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoScrollerView.m; sourceTree = "<group>"; };
+		3B00CF581D9A8E9C00E3FCC4 /* CaptureSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureSessionManager.h; sourceTree = "<group>"; };
+		3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSessionManager.m; sourceTree = "<group>"; };
+		3B00CF5B1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGalleryAssetsManager.h; sourceTree = "<group>"; };
+		3B00CF5C1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGalleryAssetsManager.m; sourceTree = "<group>"; };
+		3B00CF5E1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSorceButtonCellTableViewCell.h; sourceTree = "<group>"; };
+		3B00CF5F1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSorceButtonCellTableViewCell.m; sourceTree = "<group>"; };
+		3B00CF611D9A909100E3FCC4 /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
+		3B00CF621D9A909100E3FCC4 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
+		3B00CF641D9A90C200E3FCC4 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		3B00CF651D9A90C200E3FCC4 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B00CF311D9A8DD100E3FCC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B00CF2B1D9A8DD100E3FCC4 = {
+			isa = PBXGroup;
+			children = (
+				3B00CF4E1D9A8DF400E3FCC4 /* migration */,
+				3B00CF361D9A8DD100E3FCC4 /* testPhotoSelector */,
+				3B00CF351D9A8DD100E3FCC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B00CF351D9A8DD100E3FCC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF341D9A8DD100E3FCC4 /* testPhotoSelector.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B00CF361D9A8DD100E3FCC4 /* testPhotoSelector */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF3A1D9A8DD100E3FCC4 /* AppDelegate.h */,
+				3B00CF3B1D9A8DD100E3FCC4 /* AppDelegate.m */,
+				3B00CF3D1D9A8DD100E3FCC4 /* ViewController.h */,
+				3B00CF3E1D9A8DD100E3FCC4 /* ViewController.m */,
+				3B00CF401D9A8DD100E3FCC4 /* Main.storyboard */,
+				3B00CF431D9A8DD100E3FCC4 /* Assets.xcassets */,
+				3B00CF451D9A8DD100E3FCC4 /* LaunchScreen.storyboard */,
+				3B00CF481D9A8DD100E3FCC4 /* Info.plist */,
+				3B00CF371D9A8DD100E3FCC4 /* Supporting Files */,
+			);
+			path = testPhotoSelector;
+			sourceTree = "<group>";
+		};
+		3B00CF371D9A8DD100E3FCC4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF381D9A8DD100E3FCC4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B00CF4E1D9A8DF400E3FCC4 /* migration */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF671D9A95C700E3FCC4 /* categories */,
+				3B00CF4F1D9A8DFF00E3FCC4 /* ImageSourceSelector.h */,
+				3B00CF501D9A8DFF00E3FCC4 /* ImageSourceSelector.m */,
+				3B00CF521D9A8E1700E3FCC4 /* PhotosGalleryView.h */,
+				3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */,
+				3B00CF551D9A8E3600E3FCC4 /* PhotoScrollerView.h */,
+				3B00CF561D9A8E3600E3FCC4 /* PhotoScrollerView.m */,
+				3B00CF581D9A8E9C00E3FCC4 /* CaptureSessionManager.h */,
+				3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */,
+				3B00CF5B1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.h */,
+				3B00CF5C1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m */,
+				3B00CF5E1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.h */,
+				3B00CF5F1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m */,
+			);
+			name = migration;
+			sourceTree = "<group>";
+		};
+		3B00CF671D9A95C700E3FCC4 /* categories */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF611D9A909100E3FCC4 /* UIView+Geometry.h */,
+				3B00CF621D9A909100E3FCC4 /* UIView+Geometry.m */,
+				3B00CF641D9A90C200E3FCC4 /* UIColor+MUIColor.h */,
+				3B00CF651D9A90C200E3FCC4 /* UIColor+MUIColor.m */,
+			);
+			name = categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B00CF331D9A8DD100E3FCC4 /* testPhotoSelector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00CF4B1D9A8DD100E3FCC4 /* Build configuration list for PBXNativeTarget "testPhotoSelector" */;
+			buildPhases = (
+				3B00CF301D9A8DD100E3FCC4 /* Sources */,
+				3B00CF311D9A8DD100E3FCC4 /* Frameworks */,
+				3B00CF321D9A8DD100E3FCC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testPhotoSelector;
+			productName = testPhotoSelector;
+			productReference = 3B00CF341D9A8DD100E3FCC4 /* testPhotoSelector.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B00CF2C1D9A8DD100E3FCC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Zinets Victor";
+				TargetAttributes = {
+					3B00CF331D9A8DD100E3FCC4 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = GA7JUF7GUE;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3B00CF2F1D9A8DD100E3FCC4 /* Build configuration list for PBXProject "testPhotoSelector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B00CF2B1D9A8DD100E3FCC4;
+			productRefGroup = 3B00CF351D9A8DD100E3FCC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B00CF331D9A8DD100E3FCC4 /* testPhotoSelector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B00CF321D9A8DD100E3FCC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00CF471D9A8DD100E3FCC4 /* LaunchScreen.storyboard in Resources */,
+				3B00CF441D9A8DD100E3FCC4 /* Assets.xcassets in Resources */,
+				3B00CF421D9A8DD100E3FCC4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B00CF301D9A8DD100E3FCC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00CF661D9A90C200E3FCC4 /* UIColor+MUIColor.m in Sources */,
+				3B00CF631D9A909100E3FCC4 /* UIView+Geometry.m in Sources */,
+				3B00CF3F1D9A8DD100E3FCC4 /* ViewController.m in Sources */,
+				3B00CF511D9A8DFF00E3FCC4 /* ImageSourceSelector.m in Sources */,
+				3B00CF3C1D9A8DD100E3FCC4 /* AppDelegate.m in Sources */,
+				3B00CF571D9A8E3600E3FCC4 /* PhotoScrollerView.m in Sources */,
+				3B00CF391D9A8DD100E3FCC4 /* main.m in Sources */,
+				3B00CF601D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m in Sources */,
+				3B00CF541D9A8E1700E3FCC4 /* PhotosGalleryView.m in Sources */,
+				3B00CF5D1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m in Sources */,
+				3B00CF5A1D9A8E9C00E3FCC4 /* CaptureSessionManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3B00CF401D9A8DD100E3FCC4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B00CF411D9A8DD100E3FCC4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3B00CF451D9A8DD100E3FCC4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B00CF461D9A8DD100E3FCC4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B00CF491D9A8DD100E3FCC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3B00CF4A1D9A8DD100E3FCC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B00CF4C1D9A8DD100E3FCC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
+				INFOPLIST_FILE = testPhotoSelector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.testPhotoSelector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B00CF4D1D9A8DD100E3FCC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
+				INFOPLIST_FILE = testPhotoSelector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.victor.testPhotoSelector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B00CF2F1D9A8DD100E3FCC4 /* Build configuration list for PBXProject "testPhotoSelector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00CF491D9A8DD100E3FCC4 /* Debug */,
+				3B00CF4A1D9A8DD100E3FCC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00CF4B1D9A8DD100E3FCC4 /* Build configuration list for PBXNativeTarget "testPhotoSelector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00CF4C1D9A8DD100E3FCC4 /* Debug */,
+				3B00CF4D1D9A8DD100E3FCC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B00CF2C1D9A8DD100E3FCC4 /* Project object */;
+}
