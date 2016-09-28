@@ -1,15 +1,15 @@
 //
-//  FlirtTakePhotoControllerViewController.m
+//  FlirtTakePhotoController.m
 //
 //  Created by Eugene Zhuk on 27.11.13.
 //  Copyright (c) 2013 Yarra. All rights reserved.
 //
 
-#import "TakePhotoControllerViewController.h"
+#import "TakePhotoController.h"
 #import "CameraFlashControl.h"
 #import "CaptureSessionManager.h"
 
-@interface TakePhotoControllerViewController ()
+@interface TakePhotoController ()
 {
     UIImageView *_gridView;
     CameraFlashControl *_flashControl;
@@ -17,7 +17,7 @@
 @property (nonatomic, strong) CaptureSessionManager *cameraManager;
 @end
 
-@implementation TakePhotoControllerViewController
+@implementation TakePhotoController
 
 #pragma mark -
 
@@ -70,7 +70,7 @@
     [backButton setTitle:@"Cancel" forState:(UIControlStateNormal)];
     [backButton sizeToFit];
     [backButton addTarget:self action:@selector(onBackAction) forControlEvents:(UIControlEventTouchUpInside)];
-    backButton.center = (CGPoint){15 + backButton.bounds.size.width / 2, backButton.bounds.size.height / 2};
+    backButton.center = (CGPoint){15 + backButton.bounds.size.width / 2, bottomToolbarBg.bounds.size.height / 2};
     [bottomToolbarBg addSubview:backButton];
     
     frame = (CGRect){{0, topView.bounds.size.height}, {self.view.bounds.size.width, self.view.bounds.size.height - topView.bounds.size.height - bottomToolbarBg.bounds.size.height}};
@@ -119,7 +119,7 @@
 #pragma mark - actions
 
 -(void)onDoneAction:(id)sender {
-    __weak TakePhotoControllerViewController *bSelf = self;
+    __weak TakePhotoController *bSelf = self;
     [_cameraManager takePhotoWithCompletionHandler:^(UIImage *image) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (image) {

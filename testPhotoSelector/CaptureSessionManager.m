@@ -117,7 +117,7 @@
     if(!_session)
     {
         _session = [[AVCaptureSession alloc] init];
-#warning CRASH HERE on Simulator iOS 10 https://forums.developer.apple.com/thread/62230
+//#warning CRASH HERE on Simulator iOS 10 https://forums.developer.apple.com/thread/62230
         _session.sessionPreset = AVCaptureSessionPresetMedium;
 
         _stillImageOutput = [[AVCaptureStillImageOutput alloc] init];

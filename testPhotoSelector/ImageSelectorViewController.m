@@ -6,10 +6,13 @@
 
 #import "ImageSelectorViewController.h"
 #import "PhotoGalleryAssetsManager.h"
-#import "TakePhotoControllerViewController.h"
+#import "TakePhotoController.h"
+#import "PhotoCropController.h"
 
 #import "ImageSelectorListCell.h"
 #import "ImageSelectorLiveCell.h"
+
+#import "UIImage+FixedOrientation.h"
 
 #define SELECTOR_LIVE_CELL_ID @"lvclid"
 #define SELECTOR_LIST_CELL_ID @"lstclid"
@@ -48,11 +51,11 @@
 
 #pragma mark - controller
 
-@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate>
+@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate, TakePhotoControllerDelegate>
 @property (nonatomic, strong) NSMutableArray <SelectorItem *> *items;
 
 @property (nonatomic, strong) UICollectionView *table;
-@property (nonatomic, strong) TakePhotoControllerViewController *takePhotoController;
+@property (nonatomic, strong) TakePhotoController *takePhotoController;
 @end
 
 @implementation ImageSelectorViewController
@@ -185,19 +188,39 @@
 
 #pragma mark - live cell, camera etc
 
+#define MAX_UPLOAD_PHOTO_SIZE 1024
+
+- (void)cropImageAndFinish:(UIImage *)image {
+    PhotoCropController *cropper = [PhotoCropController new];
+    cropper.imageToCrop = image;
+    __weak typeof(cropper) weak = cropper;
+    cropper.completionBlock = ^ (UIImage * imageToUpload ) {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    UIImage *res = [image scaleAndRotateImage:MAX_UPLOAD_PHOTO_SIZE];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (self.delegate) {
+                            [self.delegate imageSelector:self didFinishWithResult:res];
+                        }
+
+                        [weak dismissViewControllerAnimated:YES completion:nil];
+                    });
+                });
+    };
+    [self presentViewController:cropper animated:YES completion:nil];
+   
+}
+
 - (void)cell:(UICollectionViewCell *)sender didSelectImage:(UIImage *)image {
     if (image) {
-        if (self.delegate) {
-            [self.delegate imageSelector:self didFinishWithResult:image];
-        }
+        [self cropImageAndFinish:image];
     } else {
         [self showCameraInterface];
     }
 }
 
-- (TakePhotoControllerViewController *)takePhotoController {
+- (TakePhotoController *)takePhotoController {
     if(!_takePhotoController) {
-        _takePhotoController = [[TakePhotoControllerViewController alloc] init];
+        _takePhotoController = [[TakePhotoController alloc] init];
         _takePhotoController.delegate = self;
     }
     
@@ -215,6 +238,19 @@
             }
         }];
     }
+}
+
+- (void)takePhotoController:(TakePhotoController *)controller didFinishPickingImage:(UIImage *)image {
+    [self cropImageAndFinish:image];
+}
+
+- (void)takePhotoControllerDidCancel:(TakePhotoController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:^{
+        if (self.delegate) {
+            [self.delegate imageSelector:self didFinishWithResult:nil];
+        }
+    }];
+    self.takePhotoController = nil;
 }
 
 @end
