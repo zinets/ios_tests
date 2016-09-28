@@ -35,6 +35,9 @@
 		3BEFF0B31D9BE04B0001AF7E /* TakePhotoControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B21D9BE04B0001AF7E /* TakePhotoControllerViewController.m */; };
 		3BEFF0B61D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */; };
 		3BEFF0B81D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */; };
+		3BEFF0BA1D9BE5770001AF7E /* take-photo_transparent-button-icons_flip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B91D9BE5770001AF7E /* take-photo_transparent-button-icons_flip@2x.png */; };
+		3BEFF0BC1D9BE8BF0001AF7E /* take-photo_grid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0BB1D9BE8BF0001AF7E /* take-photo_grid@2x.png */; };
+		3BEFF0BE1D9BE9250001AF7E /* take-photo-camera-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0BD1D9BE9250001AF7E /* take-photo-camera-icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,9 @@
 		3BEFF0B21D9BE04B0001AF7E /* TakePhotoControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoControllerViewController.m; sourceTree = "<group>"; };
 		3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_transparent-button-icons_grid@2x.png"; sourceTree = "<group>"; };
 		3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_trans-button-bg@2x.png"; sourceTree = "<group>"; };
+		3BEFF0B91D9BE5770001AF7E /* take-photo_transparent-button-icons_flip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_transparent-button-icons_flip@2x.png"; sourceTree = "<group>"; };
+		3BEFF0BB1D9BE8BF0001AF7E /* take-photo_grid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_grid@2x.png"; sourceTree = "<group>"; };
+		3BEFF0BD1D9BE9250001AF7E /* take-photo-camera-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo-camera-icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +231,9 @@
 				3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */,
 				3BEFF0AF1D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png */,
 				3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */,
+				3BEFF0B91D9BE5770001AF7E /* take-photo_transparent-button-icons_flip@2x.png */,
+				3BEFF0BB1D9BE8BF0001AF7E /* take-photo_grid@2x.png */,
+				3BEFF0BD1D9BE9250001AF7E /* take-photo-camera-icon@2x.png */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -290,9 +299,12 @@
 			files = (
 				3B00CF471D9A8DD100E3FCC4 /* LaunchScreen.storyboard in Resources */,
 				3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */,
+				3BEFF0BE1D9BE9250001AF7E /* take-photo-camera-icon@2x.png in Resources */,
 				3B00CF771D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png in Resources */,
+				3BEFF0BC1D9BE8BF0001AF7E /* take-photo_grid@2x.png in Resources */,
 				3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */,
 				3BEFF0B81D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png in Resources */,
+				3BEFF0BA1D9BE5770001AF7E /* take-photo_transparent-button-icons_flip@2x.png in Resources */,
 				3BEFF0B61D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png in Resources */,
 				3B00CF761D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png in Resources */,
 				3B00CF751D9BA6F400E3FCC4 /* action-sheet-camera@2x.png in Resources */,
