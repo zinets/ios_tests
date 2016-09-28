@@ -5,6 +5,8 @@
 //
 
 #import "ImageSelectorViewController.h"
+#import <MobileCoreServices/UTCoreTypes.h>
+
 #import "PhotoGalleryAssetsManager.h"
 #import "TakePhotoController.h"
 #import "PhotoCropController.h"
@@ -51,11 +53,12 @@
 
 #pragma mark - controller
 
-@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate, TakePhotoControllerDelegate>
+@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate, TakePhotoControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) NSMutableArray <SelectorItem *> *items;
 
 @property (nonatomic, strong) UICollectionView *table;
 @property (nonatomic, strong) TakePhotoController *takePhotoController;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 @end
 
 @implementation ImageSelectorViewController
@@ -172,8 +175,14 @@
         case ImageSourceTypeCamera:
             [self showCameraInterface];
             break;
+        case ImageSourceTypeAlbums:
+            [self selectPhotoBySourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+            break;
+        case ImageSourceTypeLibrary:
+            [self selectPhotoBySourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            break;
         case ImageSourceTypeLive:
-             // сюда мы по-правильному не попадем никогда
+            // сюда мы по-правильному не попадем никогда
         default:
             if (self.delegate) {
                 [self.delegate imageSelector:self didFinishWithResult:nil];
@@ -190,6 +199,7 @@
 
 #define MAX_UPLOAD_PHOTO_SIZE 1024
 
+// получили откуда-то картинку, обрезали и вернули, заодно и сигнализировали, что закончили выбор
 - (void)cropImageAndFinish:(UIImage *)image {
     PhotoCropController *cropper = [PhotoCropController new];
     cropper.imageToCrop = image;
@@ -198,18 +208,18 @@
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     UIImage *res = [image scaleAndRotateImage:MAX_UPLOAD_PHOTO_SIZE];
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        [weak dismissViewControllerAnimated:YES completion:nil];
                         if (self.delegate) {
                             [self.delegate imageSelector:self didFinishWithResult:res];
                         }
-
-                        [weak dismissViewControllerAnimated:YES completion:nil];
                     });
                 });
     };
+//    UIViewController *presenter = self.presentedViewController ? self.presentedViewController : self;
     [self presentViewController:cropper animated:YES completion:nil];
-   
 }
 
+// в 1-й (live - если включена) ячейке выбрали или фото из последних, или превью камеры
 - (void)cell:(UICollectionViewCell *)sender didSelectImage:(UIImage *)image {
     if (image) {
         [self cropImageAndFinish:image];
@@ -218,6 +228,7 @@
     }
 }
 
+// интерфейс камеры
 - (TakePhotoController *)takePhotoController {
     if(!_takePhotoController) {
         _takePhotoController = [[TakePhotoController alloc] init];
@@ -240,10 +251,12 @@
     }
 }
 
+// камера сделала фото и вернула изображение
 - (void)takePhotoController:(TakePhotoController *)controller didFinishPickingImage:(UIImage *)image {
     [self cropImageAndFinish:image];
 }
 
+// юзер отменил фотографирование - просто говорим "ой все, закончили" (хотя можно возвращаться к списку может?)
 - (void)takePhotoControllerDidCancel:(TakePhotoController *)controller {
     [controller dismissViewControllerAnimated:YES completion:^{
         if (self.delegate) {
@@ -251,6 +264,48 @@
         }
     }];
     self.takePhotoController = nil;
+}
+
+// интерфейс выбора фото
+-(UIImagePickerController *)imagePicker {
+    if (!_imagePicker) {
+        _imagePicker = [[UIImagePickerController alloc] init];
+        _imagePicker.delegate = self;
+        _imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        _imagePicker.allowsEditing = NO;
+    }
+    return _imagePicker;
+}
+
+- (void)selectPhotoBySourceType:(UIImagePickerControllerSourceType)sourceType {
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        [PhotoGalleryAssetsManager checkAuthorizationStatusWithCompletion:^(BOOL granted) {
+            if (granted) {
+                self.imagePicker.sourceType = sourceType;
+                [self presentViewController:self.imagePicker animated:YES completion:nil];
+            } else {
+#warning вывести сообщение?
+            }
+        }];
+    }
+}
+
+// выбор изображения из альбома/библиотеки отменено
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    if (self.delegate) {
+        [self.delegate imageSelector:self didFinishWithResult:nil];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self cropImageAndFinish:image];
 }
 
 @end
