@@ -5,6 +5,7 @@
 
 #import "ImageSelectorLiveCell.h"
 #import "PhotosGalleryView.h"
+#import "PhotoGalleryAssetsManager.h"
 
 @interface ImageSelectorLiveCell() <PhotosGalleryViewDelegate>
 @end
@@ -27,6 +28,10 @@
         _liveView = [[PhotosGalleryView alloc] initWithFrame:(CGRect){{SIDE_INSET, SIDE_INSET}, {self.contentView.bounds.size.width - 2 * SIDE_INSET, LIVE_CELL_HEIGHT}}];
         _liveView.delegate = self;
         _liveView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        [PhotoGalleryAssetsManager checkCameraAuthorizationStatusWithCompletion:^(BOOL granted) {            
+            [_liveView setCameraSessionStarted:granted];
+        }];
         [self.contentView addSubview:_liveView];
     }
     return self;

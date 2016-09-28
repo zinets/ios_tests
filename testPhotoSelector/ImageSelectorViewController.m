@@ -145,7 +145,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.items[indexPath.row].itemType) {
         case ImageSourceTypeCamera:
-            
+#warning show camera
             break;
         case ImageSourceTypeLive:
              // сюда мы по-правильному не попадем никогда
@@ -168,6 +168,8 @@
         if (self.delegate) {
             [self.delegate imageSelector:self didFinishWithResult:image];
         }
+    } else {
+#warning show camera
     }
 }
 

@@ -68,15 +68,15 @@
             overlay.autoresizingMask = UIViewAutoresizingFlexibleSize;
             [_cameraView addSubview:overlay];
         }
-#ifndef TARGET_OS_SIMULATOR
+#if (!TARGET_OS_SIMULATOR)
         if (!_cameraManager) {
             _cameraManager = [[CaptureSessionManager alloc] init];
             _cameraManager.imageOutputView = _cameraView;
         }
 #else
         _cameraView.backgroundColor = [UIColor redColor];
-        return _cameraView;
 #endif
+        return _cameraView;
     } else {
         UIImageView *iv = (id)[scroller dequeueView];
         if (_cameraView && iv == _cameraView) {
