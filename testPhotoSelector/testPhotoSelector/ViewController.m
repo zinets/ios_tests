@@ -84,13 +84,17 @@
 #pragma mark - image selector as controller
 
 - (BOOL)imageSelector:(id)sender supportsSourcetype:(ImageSourceType)sourceType {
-    return sourceType == ImageSourceTypeCamera ||
+    return
+    sourceType == ImageSourceTypeLive ||
+    sourceType == ImageSourceTypeCamera ||
     sourceType == ImageSourceTypeLibrary ||
     sourceType == ImageSourceTypeAlbums;
 }
 
 - (NSString *)imageSelector:(id)sender titleForSourceType:(ImageSourceType)sourceType {
     switch (sourceType) {
+        case ImageSourceTypeLive:
+            return @"Live output"; // хотя смысла и нет
         case ImageSourceTypeCamera:
             return @"Camera";
         case ImageSourceTypeLibrary:
@@ -108,6 +112,9 @@
         case ImageSourceTypeCamera:
             fn = @"action-sheet-camera";
             break;
+        case ImageSourceTypeAlbums:
+            fn = @"action-sheet-gallery";
+            break;            
         default:
             break;
     }

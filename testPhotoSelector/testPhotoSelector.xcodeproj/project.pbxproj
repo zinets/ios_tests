@@ -28,6 +28,7 @@
 		3B00CF771D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF721D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png */; };
 		3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */; };
 		3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */; };
+		3B00CF7D1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF7C1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		3B00CF721D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-gallery@2x.png"; sourceTree = "<group>"; };
 		3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-instagram@2x.png"; sourceTree = "<group>"; };
 		3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-photo@2x.png"; sourceTree = "<group>"; };
+		3B00CF7B1D9BB62600E3FCC4 /* ImageSelectorLiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSelectorLiveCell.h; sourceTree = "<group>"; };
+		3B00CF7C1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSelectorLiveCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +136,6 @@
 				3B00CF671D9A95C700E3FCC4 /* categories */,
 				3B00CF4F1D9A8DFF00E3FCC4 /* ImageSourceSelector.h */,
 				3B00CF501D9A8DFF00E3FCC4 /* ImageSourceSelector.m */,
-				3B00CF521D9A8E1700E3FCC4 /* PhotosGalleryView.h */,
-				3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */,
 				3B00CF581D9A8E9C00E3FCC4 /* CaptureSessionManager.h */,
 				3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */,
 				3B00CF5B1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.h */,
@@ -170,10 +171,22 @@
 			children = (
 				3B00CF691D9AA59D00E3FCC4 /* ImageSelectorViewController.h */,
 				3B00CF6A1D9AA59D00E3FCC4 /* ImageSelectorViewController.m */,
-				3B00CF6D1D9B9CB900E3FCC4 /* ImageSelectorListCell.h */,
-				3B00CF6E1D9B9CB900E3FCC4 /* ImageSelectorListCell.m */,
+				3B00CF7A1D9BB60A00E3FCC4 /* cells */,
 			);
 			name = component;
+			sourceTree = "<group>";
+		};
+		3B00CF7A1D9BB60A00E3FCC4 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF6D1D9B9CB900E3FCC4 /* ImageSelectorListCell.h */,
+				3B00CF6E1D9B9CB900E3FCC4 /* ImageSelectorListCell.m */,
+				3B00CF7B1D9BB62600E3FCC4 /* ImageSelectorLiveCell.h */,
+				3B00CF7C1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m */,
+				3B00CF521D9A8E1700E3FCC4 /* PhotosGalleryView.h */,
+				3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +276,7 @@
 				3B00CF391D9A8DD100E3FCC4 /* main.m in Sources */,
 				3B00CF601D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m in Sources */,
 				3B00CF6F1D9B9CB900E3FCC4 /* ImageSelectorListCell.m in Sources */,
+				3B00CF7D1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m in Sources */,
 				3B00CF541D9A8E1700E3FCC4 /* PhotosGalleryView.m in Sources */,
 				3B00CF5D1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m in Sources */,
 				3B00CF5A1D9A8E9C00E3FCC4 /* CaptureSessionManager.m in Sources */,

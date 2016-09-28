@@ -5,10 +5,14 @@
 //
 
 #import "ImageSelectorViewController.h"
+
 #import "ImageSelectorListCell.h"
+#import "ImageSelectorLiveCell.h"
 
 #define SELECTOR_LIVE_CELL_ID @"lvclid"
 #define SELECTOR_LIST_CELL_ID @"lstclid"
+
+#define ImageSourceTypeCancel ImageSourceTypeCount
 
 @interface SelectorItem : NSObject {}
 @property (nonatomic) ImageSourceType itemType;
@@ -30,7 +34,7 @@
 
 @end
 
-@interface ImageSelectorViewController () <UICollectionViewDataSource>
+@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSMutableArray <SelectorItem *> *items;
 
 @property (nonatomic, strong) UICollectionView *table;
@@ -80,6 +84,15 @@
                 [self.items addObject:newItem];
             }
         }
+        
+        // отдельно пусть будет cancel
+        SelectorItem *cancelItem = [SelectorItem new];
+        // это не очень (очень не) правильно, зато просто? или надо дать возможность настроить кнопку cancel?
+        cancelItem.itemType = ImageSourceTypeCancel;
+#warning Localize me
+        cancelItem.itemTitle = @"Cancel";
+        [self.items addObject:cancelItem];
+        
         CGFloat const cellHeight = 60;
         CGFloat tableHeight = self.items.count * cellHeight;
         CGRect tableFrame = (CGRect){{0, self.view.bounds.size.height - tableHeight}, {self.view.bounds.size.width, tableHeight}};
@@ -95,6 +108,7 @@
         _table.backgroundColor = [UIColor whiteColor];
         
         [_table registerClass:[ImageSelectorListCell class] forCellWithReuseIdentifier:SELECTOR_LIST_CELL_ID];
+        [_table registerClass:[ImageSelectorLiveCell class] forCellWithReuseIdentifier:SELECTOR_LIVE_CELL_ID];
         
         _table.dataSource = self;
         [self.view addSubview:_table];
@@ -111,11 +125,30 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *reuseId = self.items[indexPath.row].itemCellReuseId;
-    ImageSelectorListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
-    cell.textLabel.text = self.items[indexPath.row].itemTitle;
-    cell.iconImage = self.items[indexPath.row].itemIco;
-    return cell;
+    switch (self.items[indexPath.row].itemType) {
+        case ImageSourceTypeLive: {
+            NSString *reuseId = self.items[indexPath.row].itemCellReuseId;
+            ImageSelectorLiveCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
+            return cell;  
+        } break;
+        default: {
+            NSString *reuseId = self.items[indexPath.row].itemCellReuseId;
+            ImageSelectorListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
+            cell.textLabel.text = self.items[indexPath.row].itemTitle;
+            cell.iconImage = self.items[indexPath.row].itemIco;
+            return cell;
+        } break;
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.items[indexPath.row].itemType == ImageSourceTypeCancel) {
+        if (self.delegate) {
+            [self.delegate imageSelector:self didFinishWithResult:nil];
+        }
+    } else {
+        
+    }
 }
 
 @end

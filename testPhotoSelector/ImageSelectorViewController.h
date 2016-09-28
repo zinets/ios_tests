@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, ImageSourceType) {
 - (BOOL)imageSelector:(id)sender supportsSourcetype:(ImageSourceType)sourceType;
 /// текст для пункта списка для указанного типа
 - (NSString *)imageSelector:(id)sender titleForSourceType:(ImageSourceType)sourceType;
+/// закончили с результатом (возможно нулевым, т.е. юзер выбрал cancel)
+- (void)imageSelector:(id)sender didFinishWithResult:(UIImage *)resultImage;
 @optional
 /// иконка для пункта списка для указанного типа
 - (UIImage *)imageSelector:(id)sender iconForSourceType:(ImageSourceType)sourceType;
