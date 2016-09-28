@@ -113,7 +113,24 @@
         _table.delegate = self;
         [self.view addSubview:_table];
         
+        // теперь штука для заполнения свободного пространства и реакции на тап в нем (свободном пространстве)
+        CGRect buttonFrame = tableFrame;
+        buttonFrame.size.height = tableFrame.origin.y;
+        buttonFrame.origin.y = 0;
+        UIButton *closeBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        closeBtn.frame = buttonFrame;
+        [closeBtn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
+        [self.view addSubview:closeBtn];
+        
         [self.table reloadData];
+    }
+}
+
+#pragma mark - actions
+
+- (void)onTap:(id)sender {
+    if (self.delegate) {
+        [self.delegate imageSelector:self didFinishWithResult:nil];
     }
 }
 
