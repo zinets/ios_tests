@@ -10,7 +10,7 @@
 #import "ImageSourceSelector.h"
 #import "ImageSelectorViewController.h"
 
-@interface ViewController () <ImageSourceSelectorDelegate>
+@interface ViewController () <ImageSourceSelectorDelegate, ImageSelectorDelegate>
 
 @end
 
@@ -18,7 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
 }
 
 - (IBAction)onUpload:(id)sender {
@@ -31,6 +34,8 @@
 //    ImageSelectorViewController *ctrl = [ImageSelectorViewController new];
 //    [self addChildViewController:ctrl];
 //    [self.view addSubview:ctrl.view];
+//    [ctrl didMoveToParentViewController:self];
+//    
 //    ctrl.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
 //    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
 //        ctrl.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.75f];
@@ -41,6 +46,23 @@
 
 }
 
+- (IBAction)onSelect2:(id)sender {
+    ImageSelectorViewController *ctrl = [ImageSelectorViewController new];
+    ctrl.delegate = self;
+    
+    [self addChildViewController:ctrl];
+    [self.view addSubview:ctrl.view];
+    [ctrl didMoveToParentViewController:self];
+
+
+    
+    ctrl.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
+    [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        ctrl.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.75f];
+    } completion:^(BOOL finished) {
+    }];
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -57,6 +79,39 @@
 
 - (void)imageSourceSelectorCameraClicked:(ImageSourceSelector *)imageSourceSelector {
     NSLog(@"camera clicked");
+}
+
+#pragma mark - image selector as controller
+
+- (BOOL)imageSelector:(id)sender supportsSourcetype:(ImageSourceType)sourceType {
+    return sourceType == ImageSourceTypeCamera ||
+    sourceType == ImageSourceTypeLibrary ||
+    sourceType == ImageSourceTypeAlbums;
+}
+
+- (NSString *)imageSelector:(id)sender titleForSourceType:(ImageSourceType)sourceType {
+    switch (sourceType) {
+        case ImageSourceTypeCamera:
+            return @"Camera";
+        case ImageSourceTypeLibrary:
+            return @"Library";
+        case ImageSourceTypeAlbums:
+            return @"Albums";
+        default:
+            return nil;
+    }
+}
+
+- (UIImage *)imageSelector:(id)sender iconForSourceType:(ImageSourceType)sourceType {
+    NSString *fn = nil;
+    switch (sourceType) {
+        case ImageSourceTypeCamera:
+            fn = @"action-sheet-camera";
+            break;
+        default:
+            break;
+    }
+    return fn ? [UIImage imageNamed:fn] : nil;
 }
 
 @end

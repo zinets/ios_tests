@@ -22,6 +22,12 @@
 		3B00CF631D9A909100E3FCC4 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF621D9A909100E3FCC4 /* UIView+Geometry.m */; };
 		3B00CF661D9A90C200E3FCC4 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF651D9A90C200E3FCC4 /* UIColor+MUIColor.m */; };
 		3B00CF6B1D9AA59D00E3FCC4 /* ImageSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF6A1D9AA59D00E3FCC4 /* ImageSelectorViewController.m */; };
+		3B00CF6F1D9B9CB900E3FCC4 /* ImageSelectorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF6E1D9B9CB900E3FCC4 /* ImageSelectorListCell.m */; };
+		3B00CF751D9BA6F400E3FCC4 /* action-sheet-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF701D9BA6F400E3FCC4 /* action-sheet-camera@2x.png */; };
+		3B00CF761D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF711D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png */; };
+		3B00CF771D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF721D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png */; };
+		3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */; };
+		3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +59,13 @@
 		3B00CF651D9A90C200E3FCC4 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		3B00CF691D9AA59D00E3FCC4 /* ImageSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSelectorViewController.h; sourceTree = "<group>"; };
 		3B00CF6A1D9AA59D00E3FCC4 /* ImageSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSelectorViewController.m; sourceTree = "<group>"; };
+		3B00CF6D1D9B9CB900E3FCC4 /* ImageSelectorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSelectorListCell.h; sourceTree = "<group>"; };
+		3B00CF6E1D9B9CB900E3FCC4 /* ImageSelectorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSelectorListCell.m; sourceTree = "<group>"; };
+		3B00CF701D9BA6F400E3FCC4 /* action-sheet-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-camera@2x.png"; sourceTree = "<group>"; };
+		3B00CF711D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-facebook@2x.png"; sourceTree = "<group>"; };
+		3B00CF721D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-gallery@2x.png"; sourceTree = "<group>"; };
+		3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-instagram@2x.png"; sourceTree = "<group>"; };
+		3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-photo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +82,7 @@
 		3B00CF2B1D9A8DD100E3FCC4 = {
 			isa = PBXGroup;
 			children = (
-				3B00CF691D9AA59D00E3FCC4 /* ImageSelectorViewController.h */,
-				3B00CF6A1D9AA59D00E3FCC4 /* ImageSelectorViewController.m */,
+				3B00CF6C1D9B9C7000E3FCC4 /* component */,
 				3B00CF4E1D9A8DF400E3FCC4 /* migration */,
 				3B00CF361D9A8DD100E3FCC4 /* testPhotoSelector */,
 				3B00CF351D9A8DD100E3FCC4 /* Products */,
@@ -88,14 +100,8 @@
 		3B00CF361D9A8DD100E3FCC4 /* testPhotoSelector */ = {
 			isa = PBXGroup;
 			children = (
-				3B00CF3A1D9A8DD100E3FCC4 /* AppDelegate.h */,
-				3B00CF3B1D9A8DD100E3FCC4 /* AppDelegate.m */,
 				3B00CF3D1D9A8DD100E3FCC4 /* ViewController.h */,
 				3B00CF3E1D9A8DD100E3FCC4 /* ViewController.m */,
-				3B00CF401D9A8DD100E3FCC4 /* Main.storyboard */,
-				3B00CF431D9A8DD100E3FCC4 /* Assets.xcassets */,
-				3B00CF451D9A8DD100E3FCC4 /* LaunchScreen.storyboard */,
-				3B00CF481D9A8DD100E3FCC4 /* Info.plist */,
 				3B00CF371D9A8DD100E3FCC4 /* Supporting Files */,
 			);
 			path = testPhotoSelector;
@@ -104,6 +110,17 @@
 		3B00CF371D9A8DD100E3FCC4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B00CF701D9BA6F400E3FCC4 /* action-sheet-camera@2x.png */,
+				3B00CF711D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png */,
+				3B00CF721D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png */,
+				3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */,
+				3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */,
+				3B00CF3A1D9A8DD100E3FCC4 /* AppDelegate.h */,
+				3B00CF3B1D9A8DD100E3FCC4 /* AppDelegate.m */,
+				3B00CF401D9A8DD100E3FCC4 /* Main.storyboard */,
+				3B00CF431D9A8DD100E3FCC4 /* Assets.xcassets */,
+				3B00CF451D9A8DD100E3FCC4 /* LaunchScreen.storyboard */,
+				3B00CF481D9A8DD100E3FCC4 /* Info.plist */,
 				3B00CF381D9A8DD100E3FCC4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -146,6 +163,17 @@
 				3B00CF561D9A8E3600E3FCC4 /* PhotoScrollerView.m */,
 			);
 			name = "from mui";
+			sourceTree = "<group>";
+		};
+		3B00CF6C1D9B9C7000E3FCC4 /* component */ = {
+			isa = PBXGroup;
+			children = (
+				3B00CF691D9AA59D00E3FCC4 /* ImageSelectorViewController.h */,
+				3B00CF6A1D9AA59D00E3FCC4 /* ImageSelectorViewController.m */,
+				3B00CF6D1D9B9CB900E3FCC4 /* ImageSelectorListCell.h */,
+				3B00CF6E1D9B9CB900E3FCC4 /* ImageSelectorListCell.m */,
+			);
+			name = component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B00CF471D9A8DD100E3FCC4 /* LaunchScreen.storyboard in Resources */,
+				3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */,
+				3B00CF771D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png in Resources */,
+				3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */,
+				3B00CF761D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png in Resources */,
+				3B00CF751D9BA6F400E3FCC4 /* action-sheet-camera@2x.png in Resources */,
 				3B00CF441D9A8DD100E3FCC4 /* Assets.xcassets in Resources */,
 				3B00CF421D9A8DD100E3FCC4 /* Main.storyboard in Resources */,
 			);
@@ -229,6 +262,7 @@
 				3B00CF571D9A8E3600E3FCC4 /* PhotoScrollerView.m in Sources */,
 				3B00CF391D9A8DD100E3FCC4 /* main.m in Sources */,
 				3B00CF601D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m in Sources */,
+				3B00CF6F1D9B9CB900E3FCC4 /* ImageSelectorListCell.m in Sources */,
 				3B00CF541D9A8E1700E3FCC4 /* PhotosGalleryView.m in Sources */,
 				3B00CF5D1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m in Sources */,
 				3B00CF5A1D9A8E9C00E3FCC4 /* CaptureSessionManager.m in Sources */,
