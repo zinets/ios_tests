@@ -29,6 +29,12 @@
 		3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF731D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png */; };
 		3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */; };
 		3B00CF7D1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00CF7C1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m */; };
+		3BEFF0AB1D9BDE850001AF7E /* CameraFlashButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFF0AA1D9BDE850001AF7E /* CameraFlashButton.m */; };
+		3BEFF0AE1D9BDEFC0001AF7E /* CameraFlashControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFF0AD1D9BDEFC0001AF7E /* CameraFlashControl.m */; };
+		3BEFF0B01D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0AF1D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png */; };
+		3BEFF0B31D9BE04B0001AF7E /* TakePhotoControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B21D9BE04B0001AF7E /* TakePhotoControllerViewController.m */; };
+		3BEFF0B61D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */; };
+		3BEFF0B81D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +75,15 @@
 		3B00CF741D9BA6F400E3FCC4 /* action-sheet-photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-sheet-photo@2x.png"; sourceTree = "<group>"; };
 		3B00CF7B1D9BB62600E3FCC4 /* ImageSelectorLiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSelectorLiveCell.h; sourceTree = "<group>"; };
 		3B00CF7C1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSelectorLiveCell.m; sourceTree = "<group>"; };
+		3BEFF0A91D9BDE850001AF7E /* CameraFlashButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlashButton.h; sourceTree = "<group>"; };
+		3BEFF0AA1D9BDE850001AF7E /* CameraFlashButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlashButton.m; sourceTree = "<group>"; };
+		3BEFF0AC1D9BDEFC0001AF7E /* CameraFlashControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFlashControl.h; sourceTree = "<group>"; };
+		3BEFF0AD1D9BDEFC0001AF7E /* CameraFlashControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFlashControl.m; sourceTree = "<group>"; };
+		3BEFF0AF1D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "take-photo_transparent-button-icons_flash@2x.png"; path = "testPhotoSelector/take-photo_transparent-button-icons_flash@2x.png"; sourceTree = "<group>"; };
+		3BEFF0B11D9BE04B0001AF7E /* TakePhotoControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoControllerViewController.h; sourceTree = "<group>"; };
+		3BEFF0B21D9BE04B0001AF7E /* TakePhotoControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoControllerViewController.m; sourceTree = "<group>"; };
+		3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_transparent-button-icons_grid@2x.png"; sourceTree = "<group>"; };
+		3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take-photo_trans-button-bg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3B00CF6C1D9B9C7000E3FCC4 /* component */,
+				3BEFF0A81D9BDE6F0001AF7E /* camera */,
 				3B00CF4E1D9A8DF400E3FCC4 /* migration */,
 				3B00CF361D9A8DD100E3FCC4 /* testPhotoSelector */,
 				3B00CF351D9A8DD100E3FCC4 /* Products */,
@@ -136,8 +152,6 @@
 				3B00CF671D9A95C700E3FCC4 /* categories */,
 				3B00CF4F1D9A8DFF00E3FCC4 /* ImageSourceSelector.h */,
 				3B00CF501D9A8DFF00E3FCC4 /* ImageSourceSelector.m */,
-				3B00CF581D9A8E9C00E3FCC4 /* CaptureSessionManager.h */,
-				3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */,
 				3B00CF5B1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.h */,
 				3B00CF5C1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m */,
 				3B00CF5E1D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.h */,
@@ -187,6 +201,32 @@
 				3B00CF531D9A8E1700E3FCC4 /* PhotosGalleryView.m */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		3BEFF0A81D9BDE6F0001AF7E /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				3BEFF0B41D9BE1910001AF7E /* resources */,
+				3BEFF0A91D9BDE850001AF7E /* CameraFlashButton.h */,
+				3BEFF0AA1D9BDE850001AF7E /* CameraFlashButton.m */,
+				3BEFF0AC1D9BDEFC0001AF7E /* CameraFlashControl.h */,
+				3BEFF0AD1D9BDEFC0001AF7E /* CameraFlashControl.m */,
+				3B00CF581D9A8E9C00E3FCC4 /* CaptureSessionManager.h */,
+				3B00CF591D9A8E9C00E3FCC4 /* CaptureSessionManager.m */,
+				3BEFF0B11D9BE04B0001AF7E /* TakePhotoControllerViewController.h */,
+				3BEFF0B21D9BE04B0001AF7E /* TakePhotoControllerViewController.m */,
+			);
+			name = camera;
+			sourceTree = "<group>";
+		};
+		3BEFF0B41D9BE1910001AF7E /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				3BEFF0B51D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png */,
+				3BEFF0AF1D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png */,
+				3BEFF0B71D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +292,12 @@
 				3B00CF791D9BA6F400E3FCC4 /* action-sheet-photo@2x.png in Resources */,
 				3B00CF771D9BA6F400E3FCC4 /* action-sheet-gallery@2x.png in Resources */,
 				3B00CF781D9BA6F400E3FCC4 /* action-sheet-instagram@2x.png in Resources */,
+				3BEFF0B81D9BE1DD0001AF7E /* take-photo_trans-button-bg@2x.png in Resources */,
+				3BEFF0B61D9BE1CF0001AF7E /* take-photo_transparent-button-icons_grid@2x.png in Resources */,
 				3B00CF761D9BA6F400E3FCC4 /* action-sheet-facebook@2x.png in Resources */,
 				3B00CF751D9BA6F400E3FCC4 /* action-sheet-camera@2x.png in Resources */,
 				3B00CF441D9A8DD100E3FCC4 /* Assets.xcassets in Resources */,
+				3BEFF0B01D9BDF8D0001AF7E /* take-photo_transparent-button-icons_flash@2x.png in Resources */,
 				3B00CF421D9A8DD100E3FCC4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,8 +320,11 @@
 				3B00CF601D9A8F9100E3FCC4 /* ImageSorceButtonCellTableViewCell.m in Sources */,
 				3B00CF6F1D9B9CB900E3FCC4 /* ImageSelectorListCell.m in Sources */,
 				3B00CF7D1D9BB62600E3FCC4 /* ImageSelectorLiveCell.m in Sources */,
+				3BEFF0B31D9BE04B0001AF7E /* TakePhotoControllerViewController.m in Sources */,
 				3B00CF541D9A8E1700E3FCC4 /* PhotosGalleryView.m in Sources */,
 				3B00CF5D1D9A8EC400E3FCC4 /* PhotoGalleryAssetsManager.m in Sources */,
+				3BEFF0AE1D9BDEFC0001AF7E /* CameraFlashControl.m in Sources */,
+				3BEFF0AB1D9BDE850001AF7E /* CameraFlashButton.m in Sources */,
 				3B00CF5A1D9A8E9C00E3FCC4 /* CaptureSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

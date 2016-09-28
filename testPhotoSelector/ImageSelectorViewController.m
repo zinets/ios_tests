@@ -5,6 +5,8 @@
 //
 
 #import "ImageSelectorViewController.h"
+#import "PhotoGalleryAssetsManager.h"
+#import "TakePhotoControllerViewController.h"
 
 #import "ImageSelectorListCell.h"
 #import "ImageSelectorLiveCell.h"
@@ -44,10 +46,13 @@
 
 @end
 
+#pragma mark - controller
+
 @interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate>
 @property (nonatomic, strong) NSMutableArray <SelectorItem *> *items;
 
 @property (nonatomic, strong) UICollectionView *table;
+@property (nonatomic, strong) TakePhotoControllerViewController *takePhotoController;
 @end
 
 @implementation ImageSelectorViewController
@@ -162,7 +167,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     switch (self.items[indexPath.row].itemType) {
         case ImageSourceTypeCamera:
-#warning show camera
+            [self showCameraInterface];
             break;
         case ImageSourceTypeLive:
              // сюда мы по-правильному не попадем никогда
@@ -178,7 +183,7 @@
     return (CGSize){self.view.bounds.size.width, self.items[indexPath.row].itemCellHeight};
 }
 
-#pragma mark - live cell
+#pragma mark - live cell, camera etc
 
 - (void)cell:(UICollectionViewCell *)sender didSelectImage:(UIImage *)image {
     if (image) {
@@ -186,7 +191,29 @@
             [self.delegate imageSelector:self didFinishWithResult:image];
         }
     } else {
-#warning show camera
+        [self showCameraInterface];
+    }
+}
+
+- (TakePhotoControllerViewController *)takePhotoController {
+    if(!_takePhotoController) {
+        _takePhotoController = [[TakePhotoControllerViewController alloc] init];
+        _takePhotoController.delegate = self;
+    }
+    
+    return _takePhotoController;
+}
+
+- (void)showCameraInterface {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [PhotoGalleryAssetsManager checkCameraAuthorizationStatusWithCompletion:^(BOOL granted) {
+            if (granted) {
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.takePhotoController];
+                [self presentViewController:nav animated:YES completion:nil];
+            } else {
+#warning вывести сообщение?
+            }
+        }];
     }
 }
 
