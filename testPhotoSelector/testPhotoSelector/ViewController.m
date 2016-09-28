@@ -64,6 +64,12 @@
 
 }
 
+- (void)onTapAction:(UIViewController *)sender {
+    [sender willMoveToParentViewController:nil];
+    [sender.view removeFromSuperview];
+    [sender removeFromParentViewController];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -119,6 +125,11 @@
             break;
     }
     return fn ? [UIImage imageNamed:fn] : nil;
+}
+
+- (void)imageSelector:(id)sender didFinishWithResult:(UIImage *)resultImage {
+    
+    [self onTapAction:sender];
 }
 
 @end

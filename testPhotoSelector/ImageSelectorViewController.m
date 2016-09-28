@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *itemTitle;
 @property (nonatomic, strong) UIImage *itemIco;
 @property (nonatomic, readonly) NSString *itemCellReuseId;
+@property (nonatomic, readonly) CGFloat itemCellHeight;
 @end
 
 @implementation SelectorItem
@@ -32,9 +33,18 @@
     }
 }
 
+-(CGFloat)itemCellHeight {
+    switch (_itemType) {
+        case ImageSourceTypeLive:
+            return [ImageSelectorLiveCell cellHeight];
+        default:
+            return [ImageSelectorListCell cellHeight];
+    }
+}
+
 @end
 
-@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ImageSelectorViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ImageSelectorLiveCellDelegate>
 @property (nonatomic, strong) NSMutableArray <SelectorItem *> *items;
 
 @property (nonatomic, strong) UICollectionView *table;
@@ -45,18 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor magentaColor];
-    
-    UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAction:)];
-    [self.view addGestureRecognizer:tapRecognizer];
-    
     [self initUI];
-}
-
-- (void)onTapAction:(id)sender {
-    [self willMoveToParentViewController:nil];
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
 }
 
 #pragma mark - internal
@@ -71,6 +70,7 @@
 - (void)initUI {
     if (self.delegate) {
         [self.items removeAllObjects];
+        CGFloat tableHeight = 0;
         for (ImageSourceType is = ImageSourceTypeLive; is < ImageSourceTypeCount; is++) {
             if ([self.delegate imageSelector:self supportsSourcetype:is]) {
                 SelectorItem *newItem = [SelectorItem new];
@@ -80,8 +80,9 @@
                 if ([self.delegate respondsToSelector:@selector(imageSelector:iconForSourceType:)]) {
                     newItem.itemIco = [self.delegate imageSelector:self iconForSourceType:is];
                 }
-                
                 [self.items addObject:newItem];
+                
+                tableHeight += newItem.itemCellHeight;
             }
         }
         
@@ -92,13 +93,11 @@
 #warning Localize me
         cancelItem.itemTitle = @"Cancel";
         [self.items addObject:cancelItem];
-        
-        CGFloat const cellHeight = 60;
-        CGFloat tableHeight = self.items.count * cellHeight;
+        tableHeight += cancelItem.itemCellHeight;
+
         CGRect tableFrame = (CGRect){{0, self.view.bounds.size.height - tableHeight}, {self.view.bounds.size.width, tableHeight}};
         
         UICollectionViewFlowLayout *tableLayout = [UICollectionViewFlowLayout new];
-        tableLayout.itemSize = (CGSize){self.view.bounds.size.width, cellHeight};
         tableLayout.minimumLineSpacing = 0;
         tableLayout.minimumInteritemSpacing = 0;
         tableLayout.sectionInset = UIEdgeInsetsZero;
@@ -111,6 +110,7 @@
         [_table registerClass:[ImageSelectorLiveCell class] forCellWithReuseIdentifier:SELECTOR_LIVE_CELL_ID];
         
         _table.dataSource = self;
+        _table.delegate = self;
         [self.view addSubview:_table];
         
         [self.table reloadData];
@@ -129,6 +129,7 @@
         case ImageSourceTypeLive: {
             NSString *reuseId = self.items[indexPath.row].itemCellReuseId;
             ImageSelectorLiveCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseId forIndexPath:indexPath];
+            cell.delegate = self;
             return cell;  
         } break;
         default: {
@@ -142,12 +143,31 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.items[indexPath.row].itemType == ImageSourceTypeCancel) {
+    switch (self.items[indexPath.row].itemType) {
+        case ImageSourceTypeCamera:
+            
+            break;
+        case ImageSourceTypeLive:
+             // сюда мы по-правильному не попадем никогда
+        default:
+            if (self.delegate) {
+                [self.delegate imageSelector:self didFinishWithResult:nil];
+            }            
+            break;
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return (CGSize){self.view.bounds.size.width, self.items[indexPath.row].itemCellHeight};
+}
+
+#pragma mark - live cell
+
+- (void)cell:(UICollectionViewCell *)sender didSelectImage:(UIImage *)image {
+    if (image) {
         if (self.delegate) {
-            [self.delegate imageSelector:self didFinishWithResult:nil];
+            [self.delegate imageSelector:self didFinishWithResult:image];
         }
-    } else {
-        
     }
 }
 

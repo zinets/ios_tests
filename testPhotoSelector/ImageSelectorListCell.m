@@ -1,8 +1,5 @@
 //
 //  ImageSelectorListCell.m
-//  testPhotoSelector
-//
-//  Created by Zinets Victor on 9/28/16.
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
@@ -15,6 +12,11 @@
     UIView *_separator;
     UIImageView *_imageView;
 }
+
++ (CGFloat)cellHeight {
+    return 60;
+}
+
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
