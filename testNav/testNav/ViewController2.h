@@ -6,8 +6,8 @@
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseController.h"
 
-@interface ViewController2 : UIViewController
+@interface ViewController2 : BaseController
 
 @end

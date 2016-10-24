@@ -16,7 +16,7 @@ typedef enum : NSUInteger {
 
 @protocol MenuControllerDelegate <NSObject>
 @required
-- (void)menu:(id)sender didSelectItem:(MenuItem)nemuItem;
+- (void)menu:(id)sender didSelectItem:(MenuItem)menuItem;
 @end
 
 @interface MenuController : UIViewController
