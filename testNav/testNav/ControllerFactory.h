@@ -13,6 +13,6 @@ typedef NS_ENUM(NSUInteger, ControllerKind) {
     ControllerKind2,
 };
 
-@interface ControllerFabric : NSObject
+@interface ControllerFactory : NSObject
 + (UIViewController *)controllerByKind:(ControllerKind)kind;
 @end

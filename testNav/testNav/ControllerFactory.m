@@ -6,14 +6,14 @@
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
-#import "ControllerFabric.h"
+#import "ControllerFactory.h"
 
 #import "ViewController1.h"
 #import "ViewController2.h"
 
 #import "AnimationManager.h"
 
-@implementation ControllerFabric
+@implementation ControllerFactory
 
 + (UIViewController *)controllerByKind:(ControllerKind)kind {
     UIViewController *res = nil;

@@ -19,7 +19,7 @@
 		3B48053B1DBE08ED00E741A7 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B48053A1DBE08ED00E741A7 /* ViewController2.m */; };
 		3B48053E1DBE1A4E00E741A7 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B48053D1DBE1A4E00E741A7 /* BaseController.m */; };
 		3B4805421DBE298200E741A7 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805411DBE298200E741A7 /* AnimationManager.m */; };
-		3B4805531DBE3BBA00E741A7 /* ControllerFabric.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805521DBE3BBA00E741A7 /* ControllerFabric.m */; };
+		3B4805531DBE3BBA00E741A7 /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +45,8 @@
 		3B48053D1DBE1A4E00E741A7 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		3B4805401DBE298200E741A7 /* AnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationManager.h; sourceTree = "<group>"; };
 		3B4805411DBE298200E741A7 /* AnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationManager.m; sourceTree = "<group>"; };
-		3B4805511DBE3BBA00E741A7 /* ControllerFabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFabric.h; sourceTree = "<group>"; };
-		3B4805521DBE3BBA00E741A7 /* ControllerFabric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFabric.m; sourceTree = "<group>"; };
+		3B4805511DBE3BBA00E741A7 /* ControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFactory.h; sourceTree = "<group>"; };
+		3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +125,8 @@
 		3B4805351DBA512700E741A7 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B4805511DBE3BBA00E741A7 /* ControllerFabric.h */,
-				3B4805521DBE3BBA00E741A7 /* ControllerFabric.m */,
+				3B4805511DBE3BBA00E741A7 /* ControllerFactory.h */,
+				3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */,
 				3B4805361DBA515000E741A7 /* ViewController1.h */,
 				3B4805371DBA515000E741A7 /* ViewController1.m */,
 				3B4805391DBE08ED00E741A7 /* ViewController2.h */,
@@ -222,7 +222,7 @@
 				3B4805421DBE298200E741A7 /* AnimationManager.m in Sources */,
 				3B4805141DBA122500E741A7 /* ViewController.m in Sources */,
 				3B48053E1DBE1A4E00E741A7 /* BaseController.m in Sources */,
-				3B4805531DBE3BBA00E741A7 /* ControllerFabric.m in Sources */,
+				3B4805531DBE3BBA00E741A7 /* ControllerFactory.m in Sources */,
 				3B4805111DBA122400E741A7 /* AppDelegate.m in Sources */,
 				3B4805381DBA515000E741A7 /* ViewController1.m in Sources */,
 				3B4805291DBA12B700E741A7 /* MenuController.m in Sources */,
