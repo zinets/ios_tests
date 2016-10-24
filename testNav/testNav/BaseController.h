@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ControllerFabric.h"
 
 @interface BaseController : UIViewController
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *viewTitle;
 @end

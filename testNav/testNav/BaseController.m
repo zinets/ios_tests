@@ -57,7 +57,7 @@
     return _backToTopButton;
 }
 
--(void)setTitle:(NSString *)title {
+-(void)setViewTitle:(NSString *)title {
     _titleLabel.text = title;
 }
 

@@ -8,8 +8,7 @@
 
 #import "NavViewController.h"
 
-#import "ViewController1.h"
-#import "ViewController2.h"
+#import "ControllerFabric.h"
 
 @interface NavViewController () <MenuControllerDelegate>
 @property (nonatomic, strong) MenuController *menuCtrl;
@@ -40,10 +39,10 @@
 - (void)menu:(id)sender didSelectItem:(MenuItem)menuItem {
     switch (menuItem) {
         case MenuItem1: {
-            [self pushViewController:[ViewController1 new] animated:YES];
+            [self pushViewController:[ControllerFabric controllerByKind:(ControllerKind1)] animated:YES];
         } break;
         case MenuItem2: {
-            [self pushViewController:[ViewController2 new] animated:YES];
+            [self pushViewController:[ControllerFabric controllerByKind:(ControllerKind2)] animated:YES];
         } break;
         default:
             NSLog(@"selected %@", @(menuItem));

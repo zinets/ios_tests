@@ -8,8 +8,6 @@
 
 #import "ViewController1.h"
 
-#import "ViewController2.h"
-
 @interface ViewController1 ()
 
 @end
@@ -20,7 +18,7 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor redColor];
-    self.title = @"Я вьюконтроллер 1!";
+    self.viewTitle = @"Я вьюконтроллер 1!";
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
     [btn setTitle:@"Create instance of view controller #2" forState:(UIControlStateNormal)];
@@ -30,7 +28,7 @@
 }
 
 - (void)onTap:(id)sender {
-    [self.navigationController pushViewController:[ViewController2 new] animated:YES];
+    [self.navigationController pushViewController:[ControllerFabric controllerByKind:(ControllerKind2)] animated:YES];
 }
 
 @end

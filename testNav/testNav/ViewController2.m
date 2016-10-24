@@ -8,8 +8,6 @@
 
 #import "ViewController2.h"
 
-#import "ViewController1.h"
-
 @interface ViewController2 ()
 
 @end
@@ -20,7 +18,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor yellowColor];
-    self.title = @"Я вьюконтроллер 2!";
+    self.viewTitle = @"Я вьюконтроллер 2!";
 
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
@@ -31,7 +29,7 @@
 }
 
 - (void)onTap:(id)sender {
-    [self.navigationController pushViewController:[ViewController1 new] animated:YES];
+    [self.navigationController pushViewController:[ControllerFabric controllerByKind:(ControllerKind1)] animated:YES];
 }
 
 
