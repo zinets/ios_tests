@@ -9,7 +9,7 @@
 #import "NavViewController.h"
 
 @interface NavViewController ()
-
+@property (nonatomic, strong) MenuController *menuCtrl;
 @end
 
 @implementation NavViewController
@@ -19,13 +19,16 @@
     self.navigationBar.hidden = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(instancetype)init {
+    MenuController *mc = [MenuController new];
+    if (self = [super initWithRootViewController:mc]) {
+        self.menuCtrl = mc;
+    }
+    return self;
 }
 
 + (instancetype)navigationController {
-    return [[NavViewController alloc] initWithRootViewController:[MenuController new]];
+    return [NavViewController new];
 }
 
 @end

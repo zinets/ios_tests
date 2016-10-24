@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuController : UIViewController
+typedef enum : NSUInteger {
+    MenuItem1,
+    MenuItem2,
+    MenuItem3,
+} MenuItem;
 
+@protocol MenuControllerDelegate <NSObject>
+@required
+- (void)menu:(id)sender didSelectItem:(MenuItem)nemuItem;
+@end
+
+@interface MenuController : UIViewController
+@property (nonatomic, weak) id <MenuControllerDelegate> delegate;
 @end
