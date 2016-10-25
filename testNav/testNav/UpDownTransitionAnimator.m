@@ -43,6 +43,8 @@
             toViewController.view.layer.cornerRadius = 0;
             toViewController.view.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
+#warning 
+            // это выглядит неправильно; я вью контроллера вставляю хз куда; по идее при обратном действии все выровняется, но все равно это выглядит неправильно
             UIView *containerHost = transitionContext.containerView.superview;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
             [containerHost addSubview:toViewController.view];

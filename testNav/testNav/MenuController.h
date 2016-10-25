@@ -12,6 +12,7 @@ typedef enum : NSUInteger {
     MenuItem1,
     MenuItem2,
     MenuItem3,
+    MenuItem4,
 } MenuItem;
 
 @protocol MenuControllerDelegate <NSObject>

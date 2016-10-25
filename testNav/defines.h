@@ -9,6 +9,6 @@
 #ifndef defines_h
 #define defines_h
 
-#undef USE_PUSH
+#define USE_PUSH
 
 #endif /* defines_h */

@@ -52,6 +52,9 @@
         case MenuItem3: {
             [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
         } break;
+        case MenuItem4: {
+            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
+        } break;
         default:
             NSLog(@"selected %@", @(menuItem));
             break;
