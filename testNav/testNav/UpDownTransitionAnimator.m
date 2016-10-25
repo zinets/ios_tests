@@ -1,13 +1,13 @@
 //
-//  PushTransitionAnimator.m
+//  UpDownTransitionAnimator.m
 //
-//  Created by Zinets Victor on 10/24/16.
+//  Created by Zinets Victor on 10/25/16.
 //  Copyright © 2016 Zinets Victor. All rights reserved.
 //
 
-#import "PushTransitionAnimator.h"
+#import "UpDownTransitionAnimator.h"
 
-@implementation PushTransitionAnimator
+@implementation UpDownTransitionAnimator
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -20,7 +20,7 @@
         [transitionContext.containerView addSubview:toViewController.view];
         
         CGRect startRect = endRect;
-        startRect.origin.x += startRect.size.width;
+        startRect.origin.y += startRect.size.height;
         toViewController.view.frame = startRect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
@@ -33,7 +33,7 @@
         [transitionContext.containerView addSubview:fromViewController.view];
         
         CGRect endRect = [transitionContext initialFrameForViewController:fromViewController];
-        endRect.origin.x += endRect.size.width;
+        endRect.origin.y += endRect.size.height;
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endRect;
         } completion:^(BOOL finished) {

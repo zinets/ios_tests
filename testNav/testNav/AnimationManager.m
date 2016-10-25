@@ -8,6 +8,7 @@
 #import "AnimationManager.h"
 
 #import "PushTransitionAnimator.h"
+#import "UpDownTransitionAnimator.h"
 
 @implementation AnimationManager
 
@@ -35,7 +36,14 @@
                                             animationControllerForOperation:(UINavigationControllerOperation)operation
                                                          fromViewController:(UIViewController *)fromVC
                                                            toViewController:(UIViewController *)toVC {
-    PushTransitionAnimator *animator = [PushTransitionAnimator new];
+    // как поределить тип анимации??? делегат??
+    TransitionAnimator *animator = nil;
+    if ((navigationController.viewControllers.count < 3 && operation == UINavigationControllerOperationPush) ||
+        (navigationController.viewControllers.count < 2 && operation == UINavigationControllerOperationPop)) {
+        animator = [UpDownTransitionAnimator new];
+    } else {
+        animator = [PushTransitionAnimator new];
+    }
     animator.presenting = operation == UINavigationControllerOperationPush;
     
     return animator;
