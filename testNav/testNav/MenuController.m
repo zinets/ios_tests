@@ -52,7 +52,10 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"menu item #%@", @(indexPath.row)];
+    cell.textLabel.text = [NSString stringWithFormat:@"menu item #%@", @(indexPath.row % 2)];
+    if (indexPath.row > 1) {
+        cell.textLabel.text = [cell.textLabel.text stringByAppendingString:@" (push)"];
+    }
     
     return cell;
 }

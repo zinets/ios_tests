@@ -8,7 +8,8 @@
 
 #import "NavViewController.h"
 
-#import "ControllerFabric.h"
+#import "ControllerFactory.h"
+#import "AnimationManager.h"
 
 @interface NavViewController () <MenuControllerDelegate>
 @property (nonatomic, strong) MenuController *menuCtrl;
@@ -24,6 +25,7 @@
 -(instancetype)init {
     MenuController *mc = [MenuController new];
     if (self = [super initWithRootViewController:mc]) {
+        self.delegate = [AnimationManager sharedInstance];
         self.menuCtrl = mc;
         self.menuCtrl.delegate = self;
     }
@@ -39,15 +41,22 @@
 - (void)menu:(id)sender didSelectItem:(MenuItem)menuItem {
     switch (menuItem) {
         case MenuItem1: {
-            [self pushViewController:[ControllerFabric controllerByKind:(ControllerKind1)] animated:YES];
+            [self presentViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES completion:^{
+                
+            }];
+//            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
         } break;
         case MenuItem2: {
-            [self pushViewController:[ControllerFabric controllerByKind:(ControllerKind2)] animated:YES];
+            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
+        } break;
+        case MenuItem3: {
+            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
         } break;
         default:
             NSLog(@"selected %@", @(menuItem));
             break;
     }
 }
+
 
 @end

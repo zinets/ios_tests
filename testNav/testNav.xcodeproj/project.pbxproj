@@ -20,6 +20,7 @@
 		3B48053E1DBE1A4E00E741A7 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B48053D1DBE1A4E00E741A7 /* BaseController.m */; };
 		3B4805421DBE298200E741A7 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805411DBE298200E741A7 /* AnimationManager.m */; };
 		3B4805531DBE3BBA00E741A7 /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */; };
+		3B4805561DBE478900E741A7 /* PushTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		3B4805411DBE298200E741A7 /* AnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationManager.m; sourceTree = "<group>"; };
 		3B4805511DBE3BBA00E741A7 /* ControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerFactory.h; sourceTree = "<group>"; };
 		3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFactory.m; sourceTree = "<group>"; };
+		3B4805541DBE478900E741A7 /* PushTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTransitionAnimator.h; sourceTree = "<group>"; };
+		3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 			children = (
 				3B4805401DBE298200E741A7 /* AnimationManager.h */,
 				3B4805411DBE298200E741A7 /* AnimationManager.m */,
+				3B4805541DBE478900E741A7 /* PushTransitionAnimator.h */,
+				3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */,
 			);
 			name = animators;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				3B4805381DBA515000E741A7 /* ViewController1.m in Sources */,
 				3B4805291DBA12B700E741A7 /* MenuController.m in Sources */,
 				3B4805261DBA126D00E741A7 /* NavViewController.m in Sources */,
+				3B4805561DBE478900E741A7 /* PushTransitionAnimator.m in Sources */,
 				3B48050E1DBA122400E741A7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

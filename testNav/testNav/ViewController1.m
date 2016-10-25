@@ -28,7 +28,7 @@
 }
 
 - (void)onTap:(id)sender {
-    [self.navigationController pushViewController:[ControllerFabric controllerByKind:(ControllerKind2)] animated:YES];
+    [self.navigationController pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
 }
 
 @end

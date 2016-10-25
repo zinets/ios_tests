@@ -8,6 +8,8 @@
 
 #import "AnimationManager.h"
 
+#import "PushTransitionAnimator.h"
+
 @implementation AnimationManager
 
 + (instancetype)sharedInstance {
@@ -22,7 +24,22 @@
 #pragma mark - <UIViewControllerTransitioningDelegate>
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    return nil;
+    PushTransitionAnimator *animator = [PushTransitionAnimator new];
+    animator.presenting = YES;
+    
+    return animator;
+}
+
+#pragma mark - <UINavigationControllerDelegate>
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC {
+    PushTransitionAnimator *animator = [PushTransitionAnimator new];
+    animator.presenting = YES;
+    
+    return animator;
 }
 
 @end

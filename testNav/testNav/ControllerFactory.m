@@ -27,6 +27,8 @@
             break;
     }
     res.transitioningDelegate = [AnimationManager sharedInstance];
+    res.modalPresentationStyle = UIModalPresentationCustom;
+
     return res;
 }
 
