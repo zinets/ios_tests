@@ -29,7 +29,7 @@
 }
 
 - (void)onTap:(id)sender {
-#ifdef USE_PUSH
+#if (USE_PUSH)
     [self.navigationController pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
 #else
     [self presentViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES completion:nil];

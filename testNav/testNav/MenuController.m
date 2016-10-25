@@ -52,11 +52,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cell"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"menu item #%@", @(indexPath.row % 2)];
-    if (indexPath.row > 1) {
-        cell.textLabel.text = [cell.textLabel.text stringByAppendingString:@" (push)"];
-    }
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"create controller #%@", @(indexPath.row % 2 + 1)];
     return cell;
 }
 

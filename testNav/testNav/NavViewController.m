@@ -7,6 +7,7 @@
 //
 
 #import "NavViewController.h"
+#import "defines.h"
 
 #import "ControllerFactory.h"
 #import "AnimationManager.h"
@@ -39,26 +40,26 @@
 #pragma mark - <MenuControllerDelegate>
 
 - (void)menu:(id)sender didSelectItem:(MenuItem)menuItem {
+    ControllerKind k;
     switch (menuItem) {
-        case MenuItem1: {
-            [self presentViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES completion:^{
-                
-            }];
-//            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
-        } break;
-        case MenuItem2: {
-            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
-        } break;
-        case MenuItem3: {
-            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
-        } break;
-        case MenuItem4: {
-            [self pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
-        } break;
+        case MenuItem1:
+        case MenuItem3:
+            k = ControllerKind1;
+            break;
+        case MenuItem2:
+        case MenuItem4:
+            k = ControllerKind2;
+            break;
         default:
             NSLog(@"selected %@", @(menuItem));
             break;
     }
+#if (USE_PUSH)
+    [self pushViewController:[ControllerFactory controllerByKind:k] animated:YES];
+#else
+    [self presentViewController:[ControllerFactory controllerByKind:k] animated:YES completion:nil];
+#endif
+
 }
 
 

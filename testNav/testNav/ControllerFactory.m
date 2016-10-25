@@ -27,7 +27,7 @@
             res = [ViewController2 new];
             break;
     }
-#ifndef USE_PUSH
+#if (!USE_PUSH)
     res.transitioningDelegate = [AnimationManager sharedInstance];
     res.modalPresentationStyle = UIModalPresentationCustom;
 #endif

@@ -66,7 +66,7 @@
 
 - (void)onBackButtonTap:(id)sender {
 
-#ifdef USE_PUSH
+#if (USE_PUSH)
     [self.navigationController popViewControllerAnimated:YES];
 #else
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -74,7 +74,7 @@
 }
 
 - (void)onBackToTopButtonTap:(id)sender {
-#ifdef USE_PUSH
+#if (USE_PUSH)
     [self.navigationController popToRootViewControllerAnimated:YES];
 #else
     // ???
