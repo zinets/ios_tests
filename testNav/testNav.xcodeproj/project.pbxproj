@@ -21,6 +21,7 @@
 		3B4805421DBE298200E741A7 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805411DBE298200E741A7 /* AnimationManager.m */; };
 		3B4805531DBE3BBA00E741A7 /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */; };
 		3B4805561DBE478900E741A7 /* PushTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */; };
+		3B4805601DBF38AA00E741A7 /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B48055F1DBF38AA00E741A7 /* TransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerFactory.m; sourceTree = "<group>"; };
 		3B4805541DBE478900E741A7 /* PushTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTransitionAnimator.h; sourceTree = "<group>"; };
 		3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTransitionAnimator.m; sourceTree = "<group>"; };
+		3B48055E1DBF38AA00E741A7 /* TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionAnimator.h; sourceTree = "<group>"; };
+		3B48055F1DBF38AA00E741A7 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			children = (
 				3B4805401DBE298200E741A7 /* AnimationManager.h */,
 				3B4805411DBE298200E741A7 /* AnimationManager.m */,
+				3B48055E1DBF38AA00E741A7 /* TransitionAnimator.h */,
+				3B48055F1DBF38AA00E741A7 /* TransitionAnimator.m */,
 				3B4805541DBE478900E741A7 /* PushTransitionAnimator.h */,
 				3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */,
 			);
@@ -224,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B48053B1DBE08ED00E741A7 /* ViewController2.m in Sources */,
+				3B4805601DBF38AA00E741A7 /* TransitionAnimator.m in Sources */,
 				3B4805421DBE298200E741A7 /* AnimationManager.m in Sources */,
 				3B4805141DBA122500E741A7 /* ViewController.m in Sources */,
 				3B48053E1DBE1A4E00E741A7 /* BaseController.m in Sources */,
