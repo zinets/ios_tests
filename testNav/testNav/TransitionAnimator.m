@@ -13,9 +13,8 @@
     return 0.5f;
 }
 
-// virtual method - u have to override it
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    
-}
+// virtual methods - u have to override it
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {}
+- (void)startInteractiveTransition:(id <UIViewControllerContextTransitioning>)transitionContext {}
 
 @end

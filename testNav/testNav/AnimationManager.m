@@ -37,6 +37,18 @@
     return animator;
 }
 
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+    TransitionAnimator *iAnimator = UpDownTransitionAnimator.new;
+    iAnimator.presenting = YES;
+    return iAnimator;
+}
+
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+    TransitionAnimator *iAnimator = UpDownTransitionAnimator.new;
+    iAnimator.presenting = NO;
+    return iAnimator;
+}
+
 #pragma mark - <UINavigationControllerDelegate>
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {

@@ -7,6 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+@interface TransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning, UIViewControllerInteractiveTransitioning>
 @property (nonatomic, assign, getter = isPresenting) BOOL presenting;
 @end
