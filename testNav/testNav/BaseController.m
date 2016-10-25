@@ -7,6 +7,7 @@
 //
 
 #import "BaseController.h"
+#import "defines.h"
 
 @interface BaseController ()
 @property (nonatomic, strong) UIButton *backButton;
@@ -64,11 +65,21 @@
 #pragma mark - actions
 
 - (void)onBackButtonTap:(id)sender {
+
+#ifdef USE_PUSH
     [self.navigationController popViewControllerAnimated:YES];
+#else
+    [self dismissViewControllerAnimated:YES completion:nil];
+#endif
 }
 
 - (void)onBackToTopButtonTap:(id)sender {
+#ifdef USE_PUSH
     [self.navigationController popToRootViewControllerAnimated:YES];
+#else
+    // ???
+    [self dismissViewControllerAnimated:YES completion:nil];
+#endif
 }
 
 @end

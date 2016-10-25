@@ -7,6 +7,7 @@
 //
 
 #import "ControllerFactory.h"
+#import "defines.h"
 
 #import "ViewController1.h"
 #import "ViewController2.h"
@@ -26,9 +27,11 @@
             res = [ViewController2 new];
             break;
     }
+#ifndef USE_PUSH
     res.transitioningDelegate = [AnimationManager sharedInstance];
     res.modalPresentationStyle = UIModalPresentationCustom;
-
+#endif
+    
     return res;
 }
 

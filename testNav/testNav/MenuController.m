@@ -22,7 +22,7 @@
     menu.delegate = self;
     menu.bounces = NO;
     
-    menu.backgroundColor = [UIColor whiteColor];
+    menu.backgroundColor = [UIColor magentaColor];
     UIEdgeInsets ei = (UIEdgeInsets){self.view.bounds.size.height - 20 * 2 /* 20 отступ снизу а еще 20? статусбар? */ - 4 * 40, 0, 0, 0};
     menu.contentInset = ei;
     [self.view addSubview:menu];

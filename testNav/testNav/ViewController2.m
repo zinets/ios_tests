@@ -7,6 +7,7 @@
 //
 
 #import "ViewController2.h"
+#import "defines.h"
 
 @interface ViewController2 ()
 
@@ -29,7 +30,12 @@
 }
 
 - (void)onTap:(id)sender {
+#ifdef USE_PUSH
     [self.navigationController pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
+#else
+    [self presentViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES completion:nil];
+#endif
+
 }
 
 

@@ -56,6 +56,7 @@
 		3B48055F1DBF38AA00E741A7 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimator.m; sourceTree = "<group>"; };
 		3B4805611DBF3B6D00E741A7 /* UpDownTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpDownTransitionAnimator.h; sourceTree = "<group>"; };
 		3B4805621DBF3B6D00E741A7 /* UpDownTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpDownTransitionAnimator.m; sourceTree = "<group>"; };
+		3B4805641DBF46FF00E741A7 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 		3B4805001DBA122400E741A7 = {
 			isa = PBXGroup;
 			children = (
+				3B4805641DBF46FF00E741A7 /* defines.h */,
 				3B48050B1DBA122400E741A7 /* testNav */,
 				3B48050A1DBA122400E741A7 /* Products */,
 			);
@@ -89,10 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				3B4805231DBA124C00E741A7 /* classes */,
-				3B48050F1DBA122400E741A7 /* AppDelegate.h */,
-				3B4805101DBA122400E741A7 /* AppDelegate.m */,
-				3B4805121DBA122400E741A7 /* ViewController.h */,
-				3B4805131DBA122400E741A7 /* ViewController.m */,
 				3B48050C1DBA122400E741A7 /* Supporting Files */,
 			);
 			path = testNav;
@@ -101,6 +99,10 @@
 		3B48050C1DBA122400E741A7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B4805121DBA122400E741A7 /* ViewController.h */,
+				3B4805131DBA122400E741A7 /* ViewController.m */,
+				3B48050F1DBA122400E741A7 /* AppDelegate.h */,
+				3B4805101DBA122400E741A7 /* AppDelegate.m */,
 				3B4805151DBA122500E741A7 /* Main.storyboard */,
 				3B4805181DBA122500E741A7 /* Assets.xcassets */,
 				3B48051A1DBA122500E741A7 /* LaunchScreen.storyboard */,

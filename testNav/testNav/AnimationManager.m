@@ -24,18 +24,23 @@
 #pragma mark - <UIViewControllerTransitioningDelegate>
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    PushTransitionAnimator *animator = [PushTransitionAnimator new];
+    TransitionAnimator *animator = [UpDownTransitionAnimator new];
     animator.presenting = YES;
+    
+    return animator;
+}
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    TransitionAnimator *animator = [UpDownTransitionAnimator new];
+    animator.presenting = NO;
     
     return animator;
 }
 
 #pragma mark - <UINavigationControllerDelegate>
 
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                            animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                         fromViewController:(UIViewController *)fromVC
-                                                           toViewController:(UIViewController *)toVC {
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+#warning 
     // как поределить тип анимации??? делегат??
     TransitionAnimator *animator = nil;
     if ((navigationController.viewControllers.count < 3 && operation == UINavigationControllerOperationPush) ||

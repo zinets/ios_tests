@@ -26,7 +26,7 @@
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toViewController.view.frame = endRect;
         } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
+            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
         [transitionContext.containerView addSubview:toViewController.view];
@@ -37,7 +37,9 @@
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endRect;
         } completion:^(BOOL finished) {
-            [transitionContext completeTransition:YES];
+            UIView *containerHost = transitionContext.containerView.superview;
+            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            [containerHost addSubview:toViewController.view];
         }];
     }
 }
