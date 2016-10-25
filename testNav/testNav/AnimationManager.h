@@ -7,10 +7,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol NavigationAnimator <UIViewControllerAnimatedTransitioning>
-@property (nonatomic, assign) UINavigationControllerOperation operation;
-@end
-
 @interface AnimationManager : NSObject <UIViewControllerTransitioningDelegate, UINavigationControllerDelegate>
 + (instancetype)sharedInstance;
 @end
