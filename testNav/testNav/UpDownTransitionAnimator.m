@@ -7,6 +7,11 @@
 
 #import "UpDownTransitionAnimator.h"
 
+@interface UpDownTransitionAnimator ()
+@property (nonatomic, weak) id<UIViewControllerContextTransitioning> context;
+@property (nonatomic, weak) UIView *view;
+@end
+
 @implementation UpDownTransitionAnimator
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -56,7 +61,11 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
+    self.context = transitionContext;
+    
     if (self.presenting) {
+        self.view = toViewController.view;
+        
         CGRect endRect = [UIScreen mainScreen].bounds;
         
         [transitionContext.containerView addSubview:fromViewController.view];
@@ -66,23 +75,33 @@
         startRect.origin.y += startRect.size.height;
         toViewController.view.frame = startRect;
         
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                              delay:0
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
             fromViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
             startRect.origin.y = 30;
             toViewController.view.frame = startRect;
             
             fromViewController.view.layer.cornerRadius = 5;
         } completion:^(BOOL finished) {
-            [transitionContext finishInteractiveTransition];
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            if (finished) {
+                [transitionContext finishInteractiveTransition];
+                [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            }
         }];
     } else {
+        self.view = fromViewController.view;
+        
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
         CGRect endRect = [transitionContext initialFrameForViewController:fromViewController];
         endRect.origin.y += endRect.size.height;
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                              delay:0
+                            options:UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
             fromViewController.view.frame = endRect;
             toViewController.view.layer.cornerRadius = 0;
             toViewController.view.transform = CGAffineTransformIdentity;
