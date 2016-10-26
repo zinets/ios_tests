@@ -24,21 +24,21 @@
 #pragma mark - <UIViewControllerTransitioningDelegate>
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    TransitionAnimator *animator = [UpDownTransitionAnimator new];
+    TransitionAnimator *animator = [PushTransitionAnimator new];
     animator.presenting = YES;
     
     return animator;
 }
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    TransitionAnimator *animator = [UpDownTransitionAnimator new];
+    TransitionAnimator *animator = [PushTransitionAnimator new];
     animator.presenting = NO;
     
     return animator;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
-    TransitionAnimator *iAnimator = UpDownTransitionAnimator.new;
+    TransitionAnimator *iAnimator = PushTransitionAnimator.new;
     iAnimator.presenting = YES;
     return iAnimator;
 }

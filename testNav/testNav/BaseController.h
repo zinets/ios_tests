@@ -10,6 +10,8 @@
     // это все равно как-то нелогично, надо какой-то "раутер"
 #import "NavViewController.h"
 
-@interface BaseController : UIViewController
+@interface BaseController : UIViewController {
+    UILabel *_titleLabel;
+}
 @property (nonatomic, strong) NSString *viewTitle;
 @end

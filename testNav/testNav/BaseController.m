@@ -21,14 +21,16 @@
 
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.backToTopButton];
+    [self.view addSubview:self.titleLabel];
 }
 
 #pragma mark - getters
 
 -(UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:(CGRect){{55, 20}, {self.view.bounds.size.width - 55 - 20, 40}}];
+        _titleLabel = [[UILabel alloc] initWithFrame:(CGRect){{55, 20}, {self.view.bounds.size.width - 55 - 20, 60}}];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
 }
@@ -64,7 +66,8 @@
 #pragma mark - actions
 
 - (void)onBackButtonTap:(id)sender {
-
+#warning 
+    // сместить метод в навконтроллер - а то херня же
 #if (USE_PUSH)
     [self.navigationController popViewControllerAnimated:YES];
 #else

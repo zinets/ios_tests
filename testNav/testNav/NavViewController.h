@@ -12,5 +12,5 @@
 @interface NavViewController : UINavigationController
 + (instancetype)navigationController;
 
-- (UIViewController *)addNewControllerByKind:(ControllerKind)kind;
+- (UIViewController *)sender:(UIViewController *)sender wantAddNewControllerByKind:(ControllerKind)kind;
 @end

@@ -52,17 +52,18 @@
             NSLog(@"selected %@", @(menuItem));
             break;
     }
-    [self addNewControllerByKind:k];
+    [self sender:self wantAddNewControllerByKind:k];
 }
 
-- (UIViewController *)addNewControllerByKind:(ControllerKind)kind {
+- (UIViewController *)sender:(UIViewController *)sender wantAddNewControllerByKind:(ControllerKind)kind {
     UIViewController *newController = [ControllerFactory controllerByKind:kind];
 #if (USE_PUSH)
     [self pushViewController:newController animated:YES];
 #else
     newController.transitioningDelegate = [AnimationManager sharedInstance];
     newController.modalPresentationStyle = UIModalPresentationCustom;
-    [self presentViewController:newController animated:YES completion:nil];
+
+    [sender presentViewController:newController animated:YES completion:nil];
 #endif
     return newController;
 }

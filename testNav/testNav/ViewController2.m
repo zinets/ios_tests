@@ -29,12 +29,7 @@
 }
 
 - (void)onTap:(id)sender {
-#if (USE_PUSH)
-    [self.navigationController pushViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES];
-#else
-    [self presentViewController:[ControllerFactory controllerByKind:(ControllerKind1)] animated:YES completion:nil];
-#endif
-
+    [((NavViewController *)self.view.window.rootViewController) sender:self wantAddNewControllerByKind:(ControllerKind1)];
 }
 
 
