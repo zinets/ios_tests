@@ -10,8 +10,10 @@
 
 #import "UpDownTransitionAnimator.h"
 
-@interface NavViewController () <UINavigationControllerDelegate>
-
+@interface NavViewController () <UINavigationControllerDelegate> {
+    UIPanGestureRecognizer* panRecognizer;
+}
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactionController;
 @end
 
 @implementation NavViewController
@@ -22,6 +24,8 @@
     self.navigationBarHidden = YES;
     
     self.delegate = self;
+    
+    panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
 }
 
 #pragma mark - menu delegation
@@ -42,10 +46,39 @@
     [self pushViewControllerOfKind:kind animated:YES];
 }
 
+#pragma mark - pan delegate
+
+- (void)onPan:(UIPanGestureRecognizer *)recognizer {
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateBegan:
+            self.interactionController = [UIPercentDrivenInteractiveTransition new];
+            [self popViewControllerAnimated:YES];
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint translation = [recognizer translationInView:self.view];
+            CGFloat percent = fabs(translation.y / self.view.bounds.size.height);
+            [self.interactionController updateInteractiveTransition:percent];
+        } break;
+        case UIGestureRecognizerStateEnded: {
+            if ([recognizer velocityInView:self.view].y > 0) {
+                [self.interactionController finishInteractiveTransition];
+            } else {
+                [self.interactionController cancelInteractiveTransition];
+            }
+            self.interactionController = nil;
+        } break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - public
 
 - (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated {
     UIViewController *ctrl = [ControllerFactory controllerByKind:kind];
+    { // сомнительно - вот так вот назначать рекогнайзер
+        [ctrl.view addGestureRecognizer:panRecognizer];
+    }
     [self pushViewController:ctrl animated:animated];
 }
 
@@ -57,6 +90,11 @@
     animator.presenting = operation == UINavigationControllerOperationPush;
     
     return animator;
+}
+
+// класс для интерактивного перехода
+-(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+    return self.interactionController;
 }
 
 @end
