@@ -8,7 +8,9 @@
 
 #import "NavViewController.h"
 
-@interface NavViewController ()
+#import "UpDownTransitionAnimator.h"
+
+@interface NavViewController () <UINavigationControllerDelegate>
 
 @end
 
@@ -18,7 +20,11 @@
     [super viewDidLoad];
 
     self.navigationBarHidden = YES;
+    
+    self.delegate = self;
 }
+
+#pragma mark - menu delegation
 
 - (void)menu:(id)sender didSelectItem:(MenuItem)menuItem {
     ControllerKind kind;
@@ -41,6 +47,16 @@
 - (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated {
     UIViewController *ctrl = [ControllerFactory controllerByKind:kind];
     [self pushViewController:ctrl animated:animated];
+}
+
+#pragma mark - self delegation
+
+// класс для "обычной" анимации пуша или попа
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    UpDownTransitionAnimator *animator = [UpDownTransitionAnimator new];
+    animator.presenting = operation == UINavigationControllerOperationPush;
+    
+    return animator;
 }
 
 @end
