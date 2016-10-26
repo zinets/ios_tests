@@ -6,7 +6,6 @@
 //
 
 #import "MenuController.h"
-#import "ViewController1.h"
 
 @interface MenuController () <UITableViewDataSource, UITableViewDelegate>
 @end
