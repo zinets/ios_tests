@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuController.h"
+#import "ControllerFactory.h"
 
 @interface NavViewController : UINavigationController <MenuControllerDelegate>
-
+- (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated;
 @end

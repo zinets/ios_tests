@@ -66,6 +66,7 @@
 #pragma mark - actions
 
 - (void)onBackButtonTap:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onBackToTopButtonTap:(id)sender {

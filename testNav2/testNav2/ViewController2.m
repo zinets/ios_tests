@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor yellowColor];
     self.viewTitle = @"Я вьюконтроллер 2!";
     
     UIButton *btn = [UIButton buttonWithType:(UIButtonTypeCustom)];
