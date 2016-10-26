@@ -12,8 +12,6 @@
 #import "ViewController1.h"
 #import "ViewController2.h"
 
-#import "AnimationManager.h"
-
 @implementation ControllerFactory
 
 + (UIViewController *)controllerByKind:(ControllerKind)kind {
@@ -27,10 +25,6 @@
             res = [ViewController2 new];
             break;
     }
-#if (!USE_PUSH)
-    res.transitioningDelegate = [AnimationManager sharedInstance];
-    res.modalPresentationStyle = UIModalPresentationCustom;
-#endif
     
     return res;
 }

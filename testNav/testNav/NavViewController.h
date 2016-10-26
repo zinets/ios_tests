@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuController.h"
+#import "ControllerFactory.h"
 
 @interface NavViewController : UINavigationController
 + (instancetype)navigationController;
+
+- (UIViewController *)addNewControllerByKind:(ControllerKind)kind;
 @end

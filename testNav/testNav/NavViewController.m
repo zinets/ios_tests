@@ -9,7 +9,6 @@
 #import "NavViewController.h"
 #import "defines.h"
 
-#import "ControllerFactory.h"
 #import "AnimationManager.h"
 
 @interface NavViewController () <MenuControllerDelegate>
@@ -54,13 +53,19 @@
             NSLog(@"selected %@", @(menuItem));
             break;
     }
-#if (USE_PUSH)
-    [self pushViewController:[ControllerFactory controllerByKind:k] animated:YES];
-#else
-    [self presentViewController:[ControllerFactory controllerByKind:k] animated:YES completion:nil];
-#endif
-
+    [self addNewControllerByKind:k];
 }
 
+- (UIViewController *)addNewControllerByKind:(ControllerKind)kind {
+    UIViewController *newController = [ControllerFactory controllerByKind:kind];
+#if (USE_PUSH)
+    [self pushViewController:newController animated:YES];
+#else
+    newController.transitioningDelegate = [AnimationManager sharedInstance];
+    newController.modalPresentationStyle = UIModalPresentationCustom;
+    [self presentViewController:newController animated:YES completion:nil];
+#endif
+    return newController;
+}
 
 @end
