@@ -8,6 +8,11 @@
 
 #import "UpDownTransitionAnimator.h"
 
+static int const MAGIC_TAG = 0x238929;
+
+@interface UpDownTransitionAnimator ()
+@end
+
 @implementation UpDownTransitionAnimator
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -25,15 +30,36 @@
         toViewController.view.frame = startRect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            fromViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            fromViewController.view.transform = CGAffineTransformMakeScale(0.95, 0.95);
             startRect.origin.y = 30;
             toViewController.view.frame = startRect;
             
             fromViewController.view.layer.cornerRadius = 5;
         } completion:^(BOOL finished) {
+            { // сука, я сам не верю, что нельзя проще, но не нашел способа пока
+                CGSize sz = [UIScreen mainScreen].bounds.size;
+                UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+                
+                [fromViewController.view.window drawViewHierarchyInRect:(CGRect){CGPointZero, sz}
+                                                     afterScreenUpdates:NO];
+                
+                UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                
+                UIView *fakeView = [[UIImageView alloc] initWithImage:img];
+                fakeView.tag = MAGIC_TAG;
+                fakeView.contentMode = UIViewContentModeTop;
+                fakeView.frame = (CGRect){{0, -30}, {320, 30}};
+                [toViewController.view addSubview:fakeView];
+            }
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
+        UIView *fakeHeader = [fromViewController.view viewWithTag:MAGIC_TAG];
+        if (fakeHeader) {
+            [fakeHeader removeFromSuperview];
+        }
+        
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
@@ -45,6 +71,9 @@
             toViewController.view.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            if ([transitionContext transitionWasCancelled]) {
+                [fromViewController.view addSubview:fakeHeader];
+            }
         }];
     }
 }
