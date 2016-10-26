@@ -13,6 +13,9 @@
 		3B4805BD1DC0C16200E741A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4805BB1DC0C16200E741A7 /* LaunchScreen.storyboard */; };
 		3B4805C61DC0C1DA00E741A7 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805C51DC0C1DA00E741A7 /* NavViewController.m */; };
 		3B4805C91DC0C22000E741A7 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805C81DC0C22000E741A7 /* MenuController.m */; };
+		3B4805CF1DC0C3F700E741A7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805CE1DC0C3F700E741A7 /* BaseViewController.m */; };
+		3B4805D31DC0C46800E741A7 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805D21DC0C46800E741A7 /* ViewController1.m */; };
+		3B4805D61DC0C49F00E741A7 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805D51DC0C49F00E741A7 /* ViewController2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,12 @@
 		3B4805C51DC0C1DA00E741A7 /* NavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavViewController.m; sourceTree = "<group>"; };
 		3B4805C71DC0C22000E741A7 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuController.h; path = ../../testNav/testNav/MenuController.h; sourceTree = "<group>"; };
 		3B4805C81DC0C22000E741A7 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuController.m; path = ../../testNav/testNav/MenuController.m; sourceTree = "<group>"; };
+		3B4805CD1DC0C3F700E741A7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		3B4805CE1DC0C3F700E741A7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		3B4805D11DC0C46800E741A7 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
+		3B4805D21DC0C46800E741A7 /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
+		3B4805D41DC0C49F00E741A7 /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		3B4805D51DC0C49F00E741A7 /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +68,9 @@
 		3B4805AC1DC0C16200E741A7 /* testNav2 */ = {
 			isa = PBXGroup;
 			children = (
-				3B4805C41DC0C1DA00E741A7 /* NavViewController.h */,
-				3B4805C51DC0C1DA00E741A7 /* NavViewController.m */,
-				3B4805C71DC0C22000E741A7 /* MenuController.h */,
-				3B4805C81DC0C22000E741A7 /* MenuController.m */,
+				3B4805CC1DC0C3BE00E741A7 /* controllers */,
+				3B4805CB1DC0C3B500E741A7 /* animation */,
+				3B4805CA1DC0C3AD00E741A7 /* navigation */,
 				3B4805AD1DC0C16200E741A7 /* Supporting Files */,
 			);
 			path = testNav2;
@@ -79,6 +87,45 @@
 				3B4805AE1DC0C16200E741A7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B4805CA1DC0C3AD00E741A7 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3B4805C41DC0C1DA00E741A7 /* NavViewController.h */,
+				3B4805C51DC0C1DA00E741A7 /* NavViewController.m */,
+			);
+			name = navigation;
+			sourceTree = "<group>";
+		};
+		3B4805CB1DC0C3B500E741A7 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = animation;
+			sourceTree = "<group>";
+		};
+		3B4805CC1DC0C3BE00E741A7 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B4805D01DC0C45300E741A7 /* menu */,
+				3B4805CD1DC0C3F700E741A7 /* BaseViewController.h */,
+				3B4805CE1DC0C3F700E741A7 /* BaseViewController.m */,
+				3B4805D11DC0C46800E741A7 /* ViewController1.h */,
+				3B4805D21DC0C46800E741A7 /* ViewController1.m */,
+				3B4805D41DC0C49F00E741A7 /* ViewController2.h */,
+				3B4805D51DC0C49F00E741A7 /* ViewController2.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		3B4805D01DC0C45300E741A7 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				3B4805C71DC0C22000E741A7 /* MenuController.h */,
+				3B4805C81DC0C22000E741A7 /* MenuController.m */,
+			);
+			name = menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4805D61DC0C49F00E741A7 /* ViewController2.m in Sources */,
 				3B4805C91DC0C22000E741A7 /* MenuController.m in Sources */,
+				3B4805CF1DC0C3F700E741A7 /* BaseViewController.m in Sources */,
+				3B4805D31DC0C46800E741A7 /* ViewController1.m in Sources */,
 				3B4805B21DC0C16200E741A7 /* AppDelegate.m in Sources */,
 				3B4805C61DC0C1DA00E741A7 /* NavViewController.m in Sources */,
 				3B4805AF1DC0C16200E741A7 /* main.m in Sources */,
