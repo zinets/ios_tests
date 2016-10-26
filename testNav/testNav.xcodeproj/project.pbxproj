@@ -138,12 +138,9 @@
 			children = (
 				3B4805511DBE3BBA00E741A7 /* ControllerFactory.h */,
 				3B4805521DBE3BBA00E741A7 /* ControllerFactory.m */,
-				3B4805361DBA515000E741A7 /* ViewController1.h */,
-				3B4805371DBA515000E741A7 /* ViewController1.m */,
-				3B4805391DBE08ED00E741A7 /* ViewController2.h */,
-				3B48053A1DBE08ED00E741A7 /* ViewController2.m */,
 				3B48053C1DBE1A4E00E741A7 /* BaseController.h */,
 				3B48053D1DBE1A4E00E741A7 /* BaseController.m */,
+				3B4805891DC0816D00E741A7 /* controllers */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -155,12 +152,31 @@
 				3B4805411DBE298200E741A7 /* AnimationManager.m */,
 				3B48055E1DBF38AA00E741A7 /* TransitionAnimator.h */,
 				3B48055F1DBF38AA00E741A7 /* TransitionAnimator.m */,
+				3B4805881DC0815700E741A7 /* custom animations */,
+			);
+			name = animators;
+			sourceTree = "<group>";
+		};
+		3B4805881DC0815700E741A7 /* custom animations */ = {
+			isa = PBXGroup;
+			children = (
 				3B4805541DBE478900E741A7 /* PushTransitionAnimator.h */,
 				3B4805551DBE478900E741A7 /* PushTransitionAnimator.m */,
 				3B4805611DBF3B6D00E741A7 /* UpDownTransitionAnimator.h */,
 				3B4805621DBF3B6D00E741A7 /* UpDownTransitionAnimator.m */,
 			);
-			name = animators;
+			name = "custom animations";
+			sourceTree = "<group>";
+		};
+		3B4805891DC0816D00E741A7 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B4805361DBA515000E741A7 /* ViewController1.h */,
+				3B4805371DBA515000E741A7 /* ViewController1.m */,
+				3B4805391DBE08ED00E741A7 /* ViewController2.h */,
+				3B48053A1DBE08ED00E741A7 /* ViewController2.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

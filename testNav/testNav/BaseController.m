@@ -76,8 +76,7 @@
 #if (USE_PUSH)
     [self.navigationController popToRootViewControllerAnimated:YES];
 #else
-    // ???
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"i'm here");
 #endif
 }
 

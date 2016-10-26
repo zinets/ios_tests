@@ -8,6 +8,6 @@
 #ifndef defines_h
 #define defines_h
 
-#define USE_PUSH    0
+#define USE_PUSH    1
 
 #endif /* defines_h */
