@@ -9,6 +9,7 @@
 #import "NavViewController.h"
 
 #import "UpDownTransitionAnimator.h"
+#import "PushTransitionAnimator.h"
 
 @interface NavViewController () <UINavigationControllerDelegate> {
     UIPanGestureRecognizer* panRecognizer;
@@ -56,7 +57,7 @@
             break;
         case UIGestureRecognizerStateChanged: {
             CGPoint translation = [recognizer translationInView:self.view];
-            CGFloat percent = fabs(translation.y / self.view.bounds.size.height);
+            CGFloat percent = fabs(MAX(0, translation.y) / self.view.bounds.size.height);
             [self.interactionController updateInteractiveTransition:percent];
         } break;
         case UIGestureRecognizerStateEnded: {
@@ -86,7 +87,7 @@
 
 // класс для "обычной" анимации пуша или попа
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    UpDownTransitionAnimator *animator = [UpDownTransitionAnimator new];
+    TransitionAnimator *animator = [UpDownTransitionAnimator new];
     animator.presenting = operation == UINavigationControllerOperationPush;
     
     return animator;
@@ -94,6 +95,9 @@
 
 // класс для интерактивного перехода
 -(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+    // тут я залип и до конца не понял; класс должен конформить/наследоваться от определенных класов/протоколов, тем не менее в начале пана создается "абсрактный" класс "процентногоПерехода" и вызывается pop (в теории пофиг что вызывается, может быть и пуш) и отсюда вернется тот класс (реализации которого нет!), попутно вызовется и метод чуть выше и вернется аниматор (который предоставляет анимацию "полную" и законченную)
+    // и как этот (interactionController == UIPercentDrivenInteractiveTransition) класс анимирует нужный момент времени - хз
+    // но работает же!
     return self.interactionController;
 }
 

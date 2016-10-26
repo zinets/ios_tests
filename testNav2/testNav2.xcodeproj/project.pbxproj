@@ -19,6 +19,7 @@
 		3B4805D91DC0C52F00E741A7 /* ControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805D81DC0C52F00E741A7 /* ControllerFactory.m */; };
 		3B4805DD1DC0C94B00E741A7 /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805DC1DC0C94B00E741A7 /* TransitionAnimator.m */; };
 		3B4805E01DC0CA2A00E741A7 /* UpDownTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805DF1DC0CA2A00E741A7 /* UpDownTransitionAnimator.m */; };
+		3B4805E31DC0D27700E741A7 /* PushTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4805E21DC0D27700E741A7 /* PushTransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		3B4805DC1DC0C94B00E741A7 /* TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionAnimator.m; sourceTree = "<group>"; };
 		3B4805DE1DC0CA2A00E741A7 /* UpDownTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpDownTransitionAnimator.h; sourceTree = "<group>"; };
 		3B4805DF1DC0CA2A00E741A7 /* UpDownTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpDownTransitionAnimator.m; sourceTree = "<group>"; };
+		3B4805E11DC0D27700E741A7 /* PushTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTransitionAnimator.h; sourceTree = "<group>"; };
+		3B4805E21DC0D27700E741A7 /* PushTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				3B4805DC1DC0C94B00E741A7 /* TransitionAnimator.m */,
 				3B4805DE1DC0CA2A00E741A7 /* UpDownTransitionAnimator.h */,
 				3B4805DF1DC0CA2A00E741A7 /* UpDownTransitionAnimator.m */,
+				3B4805E11DC0D27700E741A7 /* PushTransitionAnimator.h */,
+				3B4805E21DC0D27700E741A7 /* PushTransitionAnimator.m */,
 			);
 			name = animation;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				3B4805D31DC0C46800E741A7 /* ViewController1.m in Sources */,
 				3B4805B21DC0C16200E741A7 /* AppDelegate.m in Sources */,
 				3B4805C61DC0C1DA00E741A7 /* NavViewController.m in Sources */,
+				3B4805E31DC0D27700E741A7 /* PushTransitionAnimator.m in Sources */,
 				3B4805AF1DC0C16200E741A7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
