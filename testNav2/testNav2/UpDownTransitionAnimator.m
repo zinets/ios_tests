@@ -7,9 +7,16 @@
 //
 
 #import "UpDownTransitionAnimator.h"
+#warning 
+// аниматор будет знать о типе "контроллерМеню" - нехорошо, а как иначе?
+#import "MenuController.h"
 
-static int const MAGIC_TAG = 0x238929;
-
+static int const MAGIC_TAG  = 0x238929;
+#warning magic is here
+// это отступ сверху, на который не доезжает контроллер при пуше до верха экрана
+static CGFloat const topOffsetValue = 30.;
+// это отступ снизу, на который не доезжает до низа убираемый контроллер
+static CGFloat const bottomOffsetValue = 40.;
 @interface UpDownTransitionAnimator ()
 @end
 
@@ -31,7 +38,7 @@ static int const MAGIC_TAG = 0x238929;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.transform = CGAffineTransformMakeScale(0.95, 0.95);
-            startRect.origin.y = 30;
+            startRect.origin.y = topOffsetValue;
             toViewController.view.frame = startRect;
             
             fromViewController.view.layer.cornerRadius = 5;
@@ -49,7 +56,7 @@ static int const MAGIC_TAG = 0x238929;
                 UIView *fakeView = [[UIImageView alloc] initWithImage:img];
                 fakeView.tag = MAGIC_TAG;
                 fakeView.contentMode = UIViewContentModeTop;
-                fakeView.frame = (CGRect){{0, -30}, {320, 30}};
+                fakeView.frame = (CGRect){{0, -topOffsetValue}, {sz.width, topOffsetValue}};
                 [toViewController.view addSubview:fakeView];
             }
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
@@ -64,16 +71,32 @@ static int const MAGIC_TAG = 0x238929;
         [transitionContext.containerView addSubview:fromViewController.view];
         
         CGRect endRect = [transitionContext initialFrameForViewController:fromViewController];
-        endRect.origin.y += endRect.size.height;
+        endRect.origin.y += endRect.size.height - (topOffsetValue + bottomOffsetValue);
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endRect;
             toViewController.view.layer.cornerRadius = 0;
             toViewController.view.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-            if ([transitionContext transitionWasCancelled]) {
+            if ([transitionContext transitionWasCancelled]) { // отменили - вернем сверху фейковый кусочек
                 [fromViewController.view addSubview:fakeHeader];
+            } else { // еще лопата гамнокода
+                CGSize sz = [UIScreen mainScreen].bounds.size;
+                UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+                
+                [fromViewController.view.window drawViewHierarchyInRect:(CGRect){CGPointZero, sz}
+                                                     afterScreenUpdates:NO];
+                
+                UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                
+                UIView *fakeView = [[UIImageView alloc] initWithImage:img];
+                fakeView.tag = MAGIC_TAG;
+                fakeView.contentMode = UIViewContentModeBottom;
+                fakeView.frame = (CGRect){{0, sz.height - bottomOffsetValue}, {sz.width, bottomOffsetValue}};
+                [toViewController.view addSubview:fakeView];
             }
+            
+            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }
 }
