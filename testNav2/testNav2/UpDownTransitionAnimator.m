@@ -22,10 +22,12 @@ static CGFloat const bottomOffsetValue = 40.;
 @implementation UpDownTransitionAnimator
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
     if (self.presenting) {
+#warning 
+        // связанность, мать ее; для правильности и красоты можно придумать протокол контроллера, который используется в одной из фаз анимации (со свойством footerView)
+        MenuController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+        UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+
         CGRect endRect = [UIScreen mainScreen].bounds;
         
         [transitionContext.containerView addSubview:fromViewController.view];
@@ -61,6 +63,9 @@ static CGFloat const bottomOffsetValue = 40.;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
+        UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+        MenuController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+
         UIView *fakeHeader = [fromViewController.view viewWithTag:MAGIC_TAG_TOP_PIECE];
         if (fakeHeader) {
             [fakeHeader removeFromSuperview];
@@ -89,10 +94,9 @@ static CGFloat const bottomOffsetValue = 40.;
                 UIGraphicsEndImageContext();
                 
                 UIView *fakeView = [[UIImageView alloc] initWithImage:img];
-                fakeView.tag = MAGIC_TAG_TOP_PIECE;
                 fakeView.contentMode = UIViewContentModeBottom;
                 fakeView.frame = (CGRect){{0, sz.height - bottomOffsetValue}, {sz.width, bottomOffsetValue}};
-                [toViewController.view addSubview:fakeView];
+                toViewController.footerView = fakeView;
             }
             
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

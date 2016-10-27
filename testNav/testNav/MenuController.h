@@ -21,4 +21,6 @@ typedef enum : NSUInteger {
 
 @interface MenuController : UIViewController
 @property (nonatomic, weak) id <MenuControllerDelegate> delegate;
+// декоративный элемент, торчит снизу и создает видимость задвинутого вниз контроллера
+@property (nonatomic, strong) UIView *footerView;
 @end

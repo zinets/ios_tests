@@ -22,7 +22,7 @@
 - (instancetype)init {
     MenuController *menu = [MenuController new];
     if (self = [super initWithRootViewController:menu]) {
-        self.navigationBarHidden = YES;       
+        self.navigationBarHidden = YES;
         self.delegate = self;
 
         menu.delegate = self;

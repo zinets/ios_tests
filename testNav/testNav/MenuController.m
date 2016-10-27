@@ -26,6 +26,17 @@
     [self.view addSubview:menu];
 }
 
+#pragma mark - setters
+
+-(void)setFooterView:(UIView *)footerView {
+    if (_footerView) {
+        [_footerView removeFromSuperview];
+    }
+    // никакой анимации смены подвала не нужно; новый контроллер - выедет поверх этой заглушки и визуально все очень ок; если выезжает контроллер того же типа - то это надо предусмотреть в навконтроллере-аниматоре и задавать стартовый фрейм для появляющегося контроллера не грубо говоря 0, а уже высовывающимся - и будет опять очень норм
+    _footerView = footerView;
+    [self.view addSubview:_footerView];
+}
+
 #pragma mark - <UITableViewDelegate>
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
