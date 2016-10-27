@@ -34,6 +34,10 @@
     }
     // никакой анимации смены подвала не нужно; новый контроллер - выедет поверх этой заглушки и визуально все очень ок; если выезжает контроллер того же типа - то это надо предусмотреть в навконтроллере-аниматоре и задавать стартовый фрейм для появляющегося контроллера не грубо говоря 0, а уже высовывающимся - и будет опять очень норм
     _footerView = footerView;
+    if (self.gestureRecognizer) {
+        _footerView.userInteractionEnabled = YES;
+        [_footerView addGestureRecognizer:self.gestureRecognizer];
+    }
     [self.view addSubview:_footerView];
 }
 
