@@ -11,7 +11,6 @@
 // аниматор будет знать о типе "контроллерМеню" - нехорошо, а как иначе?
 #import "MenuController.h"
 
-static int const MAGIC_TAG  = 0x238929;
 #warning magic is here
 // это отступ сверху, на который не доезжает контроллер при пуше до верха экрана
 static CGFloat const topOffsetValue = 30.;
@@ -54,7 +53,7 @@ static CGFloat const bottomOffsetValue = 40.;
                 UIGraphicsEndImageContext();
                 
                 UIView *fakeView = [[UIImageView alloc] initWithImage:img];
-                fakeView.tag = MAGIC_TAG;
+                fakeView.tag = MAGIC_TAG_TOP_PIECE;
                 fakeView.contentMode = UIViewContentModeTop;
                 fakeView.frame = (CGRect){{0, -topOffsetValue}, {sz.width, topOffsetValue}};
                 [toViewController.view addSubview:fakeView];
@@ -62,7 +61,7 @@ static CGFloat const bottomOffsetValue = 40.;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
-        UIView *fakeHeader = [fromViewController.view viewWithTag:MAGIC_TAG];
+        UIView *fakeHeader = [fromViewController.view viewWithTag:MAGIC_TAG_TOP_PIECE];
         if (fakeHeader) {
             [fakeHeader removeFromSuperview];
         }
@@ -90,7 +89,7 @@ static CGFloat const bottomOffsetValue = 40.;
                 UIGraphicsEndImageContext();
                 
                 UIView *fakeView = [[UIImageView alloc] initWithImage:img];
-                fakeView.tag = MAGIC_TAG;
+                fakeView.tag = MAGIC_TAG_TOP_PIECE;
                 fakeView.contentMode = UIViewContentModeBottom;
                 fakeView.frame = (CGRect){{0, sz.height - bottomOffsetValue}, {sz.width, bottomOffsetValue}};
                 [toViewController.view addSubview:fakeView];

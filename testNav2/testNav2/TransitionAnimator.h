@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#warning 
+// magic
+static int const MAGIC_TAG_TOP_PIECE  = 0x238929;
+
 @interface TransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter = isPresenting) BOOL presenting;
 @end
