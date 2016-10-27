@@ -7,6 +7,9 @@
 //
 
 #import "ViewController1.h"
+#warning 
+// это для теста онли!
+#import "ControllerFactory.h"
 
 @interface ViewController1 ()
 
@@ -34,7 +37,8 @@
 }
 
 - (void)onTap:(id)sender {
-
+    [self.navigationController pushViewController:[ControllerFactory controllerByKind:(ControllerKind2)] animated:YES];
+    
 }
 
 @end
