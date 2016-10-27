@@ -23,6 +23,9 @@
 // текущий аниматор(ы)
 @property (nonatomic, strong) TransitionAnimator *appearingAnimator;
 @property (nonatomic, strong) TransitionAnimator *disappearingAnimator;
+// какая-никакая а оптимизация
+@property (nonatomic, strong) TransitionAnimator *upDownAnimator;
+@property (nonatomic, strong) TransitionAnimator *pushAnimator;
 @end
 
 @implementation NavViewController
@@ -43,6 +46,22 @@
     
     panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
     self.menu.gestureRecognizer = panRecognizer;
+}
+
+#pragma mark - getters
+
+-(TransitionAnimator *)upDownAnimator {
+    if (!_upDownAnimator) {
+        _upDownAnimator = [UpDownTransitionAnimator new];
+    }
+    return _upDownAnimator;
+}
+
+-(TransitionAnimator *)pushAnimator {
+    if (_pushAnimator) {
+        _pushAnimator = [PushTransitionAnimator new];
+    }
+    return _pushAnimator;
 }
 
 #pragma mark - menu delegation
@@ -160,17 +179,17 @@
 
 - (void)preparePush {
     if (self.viewControllers.count < 2) {
-        self.appearingAnimator = [UpDownTransitionAnimator new];
+        self.appearingAnimator = self.upDownAnimator;
     } else {
-        self.appearingAnimator = [PushTransitionAnimator new];
+        self.appearingAnimator = self.pushAnimator;
     }
 }
 
 - (void)preparePop {
     if (self.viewControllers.count < 3) {
-        self.disappearingAnimator = [UpDownTransitionAnimator new];
+        self.disappearingAnimator = self.upDownAnimator;
     } else {
-        self.disappearingAnimator = [PushTransitionAnimator new];
+        self.disappearingAnimator = self.pushAnimator;
     }
 }
 
