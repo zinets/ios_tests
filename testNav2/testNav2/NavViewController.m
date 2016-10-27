@@ -62,6 +62,8 @@
             [self popViewControllerAnimated:YES];
             break;
         case UIGestureRecognizerStateChanged: {
+#warning 
+            // надо помнить/знать, как выглядит текущий пуш/поп - вертик. или как обычный
             CGPoint translation = [recognizer translationInView:self.view];
             CGFloat percent = fabs(MAX(0, translation.y) / self.view.bounds.size.height);
             [self.interactionController updateInteractiveTransition:percent];

@@ -12,15 +12,20 @@
 
 @implementation ControllerFactory
 
-+ (UIViewController *)controllerByKind:(ControllerKind)kind {
-    UIViewController *res = nil;
++ (UIViewController *)controllerByKind:(ControllerKind)kind {   
+    return [[self controllerClassForKind:kind] new];
+}
+
++ (Class)controllerClassForKind:(ControllerKind)kind {
+    Class res = Nil;
     switch (kind) {
         case ControllerKind1:
-            res = [ViewController1 new];
+            res = [ViewController1 class];
             break;
-            
         case ControllerKind2:
-            res = [ViewController2 new];
+            res = [ViewController2 class];
+            break;
+        default:
             break;
     }
     return res;
