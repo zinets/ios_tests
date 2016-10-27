@@ -11,6 +11,12 @@
 #import "UpDownTransitionAnimator.h"
 #import "PushTransitionAnimator.h"
 
+typedef NS_ENUM(NSUInteger, InteractiveState) {
+    InteractiveStateNone,
+    InteractiveStatePushingUp, // "пушить" можно только вверх интерактивно - тот контроллер, который сдвинули вниз
+    InteractiveStatePoppingDown,
+    InteractiveStatePoppingRight,
+};
 
 @interface NavViewController () <UINavigationControllerDelegate> {
     UIPanGestureRecognizer* panRecognizer;
@@ -26,6 +32,8 @@
 // какая-никакая а оптимизация
 @property (nonatomic, strong) TransitionAnimator *upDownAnimator;
 @property (nonatomic, strong) TransitionAnimator *pushAnimator;
+// что сейчас происходит в смысле интерактивного перехода
+@property (nonatomic) InteractiveState interactiveState;
 @end
 
 @implementation NavViewController
@@ -85,29 +93,63 @@
 #pragma mark - pan delegate
 
 - (void)onPan:(UIPanGestureRecognizer *)recognizer {
+    CGPoint translation = [recognizer translationInView:self.view];
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             self.interactionController = [UIPercentDrivenInteractiveTransition new];
-            if (self.viewControllers.count == 1) {
-                [self pushViewController:self.lastVisibleController animated:YES];
-            } else {
-                [self popViewControllerAnimated:YES];
+            
+            switch (self.viewControllers.count) {
+                case 1: // только меню
+                    self.interactiveState = InteractiveStatePushingUp;
+                    [self pushViewController:self.lastVisibleController animated:YES];
+                    break;
+                case 2: // "главный" контроллер (один из); может сдвинуться только вниз
+                    if (translation.y > 0) {
+                        self.interactiveState = InteractiveStatePoppingDown;
+                        [self popViewControllerAnimated:YES];
+                    }
+                    break;
+                default:
+#warning
+                    // если у нас > 2 контроллера - это значит например
+                    // меню -> профиль -> переписки; и отсюда можно И вернутся влево на пред. контроллер, И перейти вниз к меню!! omfg!
+                    // если translkation.y > 0 - значит можно сделать popToRoot
+                    if (translation.x > 0) {
+                        self.interactiveState = InteractiveStatePoppingRight;
+                        [self popViewControllerAnimated:YES];
+                    }
+                    break;
             }
+            
             break;
         case UIGestureRecognizerStateChanged: {
-#warning 
-            // надо помнить/знать, как выглядит текущий пуш/поп - вертик. или как обычный
-            CGPoint translation = [recognizer translationInView:self.view];
-            CGFloat percent = fabs(translation.y / self.view.bounds.size.height);
-            [self.interactionController updateInteractiveTransition:percent];
+            switch (self.interactiveState) {
+                case InteractiveStatePoppingRight: {
+                    CGFloat percent = fabs(MAX(0, translation.x) / self.view.bounds.size.width);
+                    [self.interactionController updateInteractiveTransition:percent];
+                } break;
+                case InteractiveStatePushingUp: {
+                    CGFloat percent = fabs(MAX(0, -translation.y) / self.view.bounds.size.height);
+                    [self.interactionController updateInteractiveTransition:percent];
+                } break;
+                case InteractiveStatePoppingDown: {
+                    CGFloat percent = fabs(MAX(0, translation.y) / self.view.bounds.size.height);
+                    [self.interactionController updateInteractiveTransition:percent];
+                }
+                default:
+                    break;
+            }
         } break;
         case UIGestureRecognizerStateEnded: {
-            if ([recognizer velocityInView:self.view].y > 0) {
+            if ((self.interactiveState == InteractiveStatePoppingRight && [recognizer velocityInView:self.view].x > 0) ||
+                (self.interactiveState == InteractiveStatePoppingDown && [recognizer velocityInView:self.view].y > 0) ||
+                (self.interactiveState == InteractiveStatePushingUp && [recognizer velocityInView:self.view].y < 0)) {
                 [self.interactionController finishInteractiveTransition];
             } else {
                 [self.interactionController cancelInteractiveTransition];
             }
             self.interactionController = nil;
+            self.interactiveState = InteractiveStateNone;
         } break;
         default:
             break;
@@ -130,6 +172,10 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self preparePush];
     [super pushViewController:viewController animated:animated];
+    {
+        [viewController.view addGestureRecognizer:panRecognizer];
+    }
+
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
