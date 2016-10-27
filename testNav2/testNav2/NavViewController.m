@@ -11,30 +11,38 @@
 #import "UpDownTransitionAnimator.h"
 #import "PushTransitionAnimator.h"
 
+
 @interface NavViewController () <UINavigationControllerDelegate> {
     UIPanGestureRecognizer* panRecognizer;
 }
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactionController;
+// меню
+@property (nonatomic, strong) MenuController *menu;
 // последний видимый контроллер
 @property (nonatomic, strong) BaseViewController *lastVisibleController;
+// текущий аниматор(ы)
+@property (nonatomic, strong) TransitionAnimator *appearingAnimator;
+@property (nonatomic, strong) TransitionAnimator *disappearingAnimator;
 @end
 
 @implementation NavViewController
 
 - (instancetype)init {
-    MenuController *menu = [MenuController new];
-    if (self = [super initWithRootViewController:menu]) {
+    self.menu = [MenuController new];
+    if (self = [super initWithRootViewController:self.menu]) {
         self.navigationBarHidden = YES;
         self.delegate = self;
 
-        menu.delegate = self;
+        self.menu.delegate = self;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
+    self.menu.gestureRecognizer = panRecognizer;
 }
 
 #pragma mark - menu delegation
@@ -61,13 +69,17 @@
     switch (recognizer.state) {
         case UIGestureRecognizerStateBegan:
             self.interactionController = [UIPercentDrivenInteractiveTransition new];
-            [self popViewControllerAnimated:YES];
+            if (self.viewControllers.count == 1) {
+                [self pushViewController:self.lastVisibleController animated:YES];
+            } else {
+                [self popViewControllerAnimated:YES];
+            }
             break;
         case UIGestureRecognizerStateChanged: {
 #warning 
             // надо помнить/знать, как выглядит текущий пуш/поп - вертик. или как обычный
             CGPoint translation = [recognizer translationInView:self.view];
-            CGFloat percent = fabs(MAX(0, translation.y) / self.view.bounds.size.height);
+            CGFloat percent = fabs(translation.y / self.view.bounds.size.height);
             [self.interactionController updateInteractiveTransition:percent];
         } break;
         case UIGestureRecognizerStateEnded: {
@@ -96,18 +108,17 @@
     [self pushViewController:ctrl animated:animated];
 }
 
-// надо ли?
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [self preparePush];
     [super pushViewController:viewController animated:animated];
-    { // сомнительно - вот так вот назначать рекогнайзер
-        [viewController.view addGestureRecognizer:panRecognizer];
-    }
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    [self preparePop];
 #warning 
     // не вляпаюсь ли я в "не тот тип"?
     self.lastVisibleController = (id)[super popViewControllerAnimated:animated];
+    
     
     return self.lastVisibleController;
 }
@@ -124,12 +135,17 @@
 
 // класс для "обычной" анимации пуша или попа
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    TransitionAnimator *animator = [UpDownTransitionAnimator new];
-    animator.presenting = operation == UINavigationControllerOperationPush;
-    if (animator.presenting) {
-        animator.newControllerOnScreen = self.lastVisibleController == toVC;
+    switch (operation) {
+        case UINavigationControllerOperationPush:
+            self.appearingAnimator.newControllerOnScreen = self.lastVisibleController == toVC;
+            self.appearingAnimator.presenting = YES;
+            return self.appearingAnimator;
+        case UINavigationControllerOperationPop:
+            self.disappearingAnimator.presenting = NO;
+            return self.disappearingAnimator;
+        default:
+            return nil;
     }
-    return animator;
 }
 
 // класс для интерактивного перехода
@@ -139,5 +155,24 @@
     // но работает же!
     return self.interactionController;
 }
+
+#pragma mark - states
+
+- (void)preparePush {
+    if (self.viewControllers.count < 2) {
+        self.appearingAnimator = [UpDownTransitionAnimator new];
+    } else {
+        self.appearingAnimator = [PushTransitionAnimator new];
+    }
+}
+
+- (void)preparePop {
+    if (self.viewControllers.count < 3) {
+        self.disappearingAnimator = [UpDownTransitionAnimator new];
+    } else {
+        self.disappearingAnimator = [PushTransitionAnimator new];
+    }
+}
+
 
 @end
