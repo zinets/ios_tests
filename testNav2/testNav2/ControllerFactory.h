@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 typedef NS_ENUM(NSUInteger, ControllerKind) {
     ControllerKind1,
@@ -14,6 +15,6 @@ typedef NS_ENUM(NSUInteger, ControllerKind) {
 };
 
 @interface ControllerFactory : NSObject
-+ (UIViewController *)controllerByKind:(ControllerKind)kind;
++ (BaseViewController *)controllerByKind:(ControllerKind)kind;
 + (Class)controllerClassForKind:(ControllerKind)kind;
 @end

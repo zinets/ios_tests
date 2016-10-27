@@ -12,7 +12,7 @@
 
 @implementation ControllerFactory
 
-+ (UIViewController *)controllerByKind:(ControllerKind)kind {   
++ (BaseViewController *)controllerByKind:(ControllerKind)kind {
     return [[self controllerClassForKind:kind] new];
 }
 
