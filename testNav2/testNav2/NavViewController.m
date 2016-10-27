@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 }
 
 -(TransitionAnimator *)pushAnimator {
-    if (_pushAnimator) {
+    if (!_pushAnimator) {
         _pushAnimator = [PushTransitionAnimator new];
     }
     return _pushAnimator;

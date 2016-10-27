@@ -15,6 +15,6 @@ static int const MAGIC_TAG_TOP_PIECE  = 0x238929;
 @interface TransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 @property (nonatomic, assign, getter = isPresenting) BOOL presenting;
 #warning 
-// переименовать? мы говорим аниматору, что сейчас выдвинется контроллер, который как-бы сейчас внизу на экране (т.е. который перед этим типа задвинули вниз
+// переименовать? мы говорим аниматору, что сейчас выдвинется контроллер, который как-бы сейчас внизу на экране (т.е. который перед этим типа задвинули вниз)
 @property (nonatomic, assign) BOOL newControllerOnScreen;
 @end
