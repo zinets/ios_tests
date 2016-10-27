@@ -19,13 +19,19 @@
 
 @implementation NavViewController
 
+- (instancetype)init {
+    MenuController *menu = [MenuController new];
+    if (self = [super initWithRootViewController:menu]) {
+        self.navigationBarHidden = YES;       
+        self.delegate = self;
+
+        menu.delegate = self;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.navigationBarHidden = YES;
-    
-    self.delegate = self;
-    
     panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
 }
 
@@ -77,10 +83,21 @@
 
 - (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated {
     UIViewController *ctrl = [ControllerFactory controllerByKind:kind];
-    { // сомнительно - вот так вот назначать рекогнайзер
-        [ctrl.view addGestureRecognizer:panRecognizer];
-    }
     [self pushViewController:ctrl animated:animated];
+}
+
+// надо ли?
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [super pushViewController:viewController animated:animated];
+    { // сомнительно - вот так вот назначать рекогнайзер
+        [viewController.view addGestureRecognizer:panRecognizer];
+    }
+}
+
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    UIViewController *res = [super popViewControllerAnimated:animated];
+    
+    return res;
 }
 
 #pragma mark - self delegation

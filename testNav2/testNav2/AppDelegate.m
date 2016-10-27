@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 
 #import "NavViewController.h"
-#import "MenuController.h"
 
 @interface AppDelegate ()
 
@@ -19,14 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    MenuController *menu = [MenuController new];
-    NavViewController *navCtrl = [[NavViewController alloc] initWithRootViewController:menu];
-    menu.delegate = navCtrl;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor grayColor];
     
-    self.window.rootViewController = navCtrl;
+    self.window.rootViewController = [NavViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }
