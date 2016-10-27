@@ -34,7 +34,7 @@ static CGFloat const bottomOffsetValue = 40.;
         [transitionContext.containerView addSubview:toViewController.view];
         
         __block CGRect startRect = endRect;
-        startRect.origin.y += startRect.size.height;
+        startRect.origin.y += startRect.size.height + (self.newControllerOnScreen ? -bottomOffsetValue : 0);
         toViewController.view.frame = startRect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{

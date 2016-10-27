@@ -15,6 +15,8 @@
     UIPanGestureRecognizer* panRecognizer;
 }
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactionController;
+// последний видимый контроллер
+@property (nonatomic, strong) BaseViewController *lastVisibleController;
 @end
 
 @implementation NavViewController
@@ -84,7 +86,13 @@
 #pragma mark - public
 
 - (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated {
-    UIViewController *ctrl = [ControllerFactory controllerByKind:kind];
+    UIViewController *ctrl = nil;
+    if ([self.lastVisibleController isKindOfClass:[ControllerFactory controllerClassForKind:kind]]) {
+        ctrl = self.lastVisibleController;
+    } else {
+        ctrl = [ControllerFactory controllerByKind:kind];
+    }    
+
     [self pushViewController:ctrl animated:animated];
 }
 
@@ -97,9 +105,19 @@
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
-    UIViewController *res = [super popViewControllerAnimated:animated];
+#warning 
+    // не вляпаюсь ли я в "не тот тип"?
+    self.lastVisibleController = (id)[super popViewControllerAnimated:animated];
     
-    return res;
+    return self.lastVisibleController;
+}
+
+-(NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+    self.lastVisibleController = nil;
+#warning 
+    // абсрактное предупреждение - надо ли визуально для такого случая оставлять снизу кусочек вью? какого вью?? а может и не абсрактное - если мы открыли голосовалку -> открыли профиль -> перешли в переписку и нажимаем кнопку "V" - это же и есть  возврат к корню
+    // ох будет геморой..
+    return [super popToRootViewControllerAnimated:animated];
 }
 
 #pragma mark - self delegation
@@ -108,7 +126,9 @@
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     TransitionAnimator *animator = [UpDownTransitionAnimator new];
     animator.presenting = operation == UINavigationControllerOperationPush;
-    
+    if (animator.presenting) {
+        animator.newControllerOnScreen = self.lastVisibleController == toVC;
+    }
     return animator;
 }
 

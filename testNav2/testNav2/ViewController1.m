@@ -25,6 +25,12 @@
     btn.frame = (CGRect){{5, 100}, {310, 44}};
     [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
+    
+    UITextField *text = [[UITextField alloc] initWithFrame:(CGRect){{15, 150}, {290, 30}}];
+    text.backgroundColor = [UIColor whiteColor];
+    text.textColor = [UIColor blackColor];
+    // просто чтобы увидеть реюзание контроллера$ глючит но пофиг
+    [self.view addSubview:text];
 }
 
 - (void)onTap:(id)sender {
