@@ -120,7 +120,6 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                     }
                     break;
             }
-            
             break;
         case UIGestureRecognizerStateChanged: {
             switch (self.interactiveState) {
@@ -147,6 +146,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                 [self.interactionController finishInteractiveTransition];
             } else {
                 [self.interactionController cancelInteractiveTransition];
+                [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
             }
             self.interactionController = nil;
             self.interactiveState = InteractiveStateNone;
@@ -183,7 +183,9 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 #warning 
     // не вляпаюсь ли я в "не тот тип"?
     self.lastVisibleController = (id)[super popViewControllerAnimated:animated];
-    
+    if (self.topViewController != self.menu) {
+        [self.topViewController.view addGestureRecognizer:panRecognizer];
+    }
     
     return self.lastVisibleController;
 }
