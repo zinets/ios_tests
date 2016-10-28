@@ -102,8 +102,6 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                 case 1: // только меню
                     if (translation.y < 0) { // только поднимание вверх!
                         self.interactiveState = InteractiveStatePushingUp;
-#warning 
-                        // теперь здесь может восстановится как 1 контроллер, так и неск; соотв. надо другой метод?
                         [self pushViewControllers:self.lastVisibleControllers animated:YES];
                     }
                     break;
@@ -153,7 +151,9 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
                         [self.interactionController cancelInteractiveTransition];
-                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
+                        // если попали вниз - то весь стек до root убрался; и он не восстанавливается после cancelInteract.. - восстанавливается только последний контроллер
+//                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
+                        [self pushViewControllers:self.lastVisibleControllers animated:NO];
                     }
                     break;
                 case InteractiveStatePushingUp:
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
     // вернуть их назад можно методом setVControllers:animated: - но метод заменит весь стек, т.е. потеряем меню
     NSArray <UIViewController *> *resArray = [@[self.menu] arrayByAddingObjectsFromArray:self.lastVisibleControllers];
     [self preparePush]; // настройка аниматора
-    [self setViewControllers:resArray animated:YES];
+    [self setViewControllers:resArray animated:animated];
     
     [[resArray lastObject].view addGestureRecognizer:panRecognizer];
 }
