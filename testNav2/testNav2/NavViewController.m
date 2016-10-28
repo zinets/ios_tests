@@ -118,20 +118,15 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
             break;
         case UIGestureRecognizerStateChanged: {
             switch (self.interactiveState) {
-                case InteractiveStatePoppingRight: {
-#warning 
-                    // и следующие 3 кейса - надо убрать "хардкоды" и привязаться как-то к свойствам аниматора (направление сдвига - вверх или в сторону и знак)
-                    CGFloat percent = fabs(MAX(0, translation.x) / self.view.bounds.size.width);
-                    [self.interactionController updateInteractiveTransition:percent];
-                } break;
                 case InteractiveStatePushingUp: {
-                    CGFloat percent = fabs(MAX(0, -translation.y) / self.view.bounds.size.height);
+                    CGFloat percent = [self.appearingAnimator interactivePercent:translation inBounds:self.view.bounds];
                     [self.interactionController updateInteractiveTransition:percent];
                 } break;
+                case InteractiveStatePoppingRight:
                 case InteractiveStatePoppingDown: {
-                    CGFloat percent = fabs(MAX(0, translation.y) / self.view.bounds.size.height);
+                    CGFloat percent = [self.disappearingAnimator interactivePercent:translation inBounds:self.view.bounds];
                     [self.interactionController updateInteractiveTransition:percent];
-                }
+                } break;
                 default:
                     break;
             }

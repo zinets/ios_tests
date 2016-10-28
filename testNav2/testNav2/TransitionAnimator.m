@@ -18,4 +18,8 @@
     NSAssert(NO, @"override me!");
 }
 
+- (CGFloat)interactivePercent:(CGPoint)translation inBounds:(CGRect)bounds {
+    return 0;
+}
+
 @end

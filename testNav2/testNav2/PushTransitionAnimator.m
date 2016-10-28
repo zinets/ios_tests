@@ -43,4 +43,14 @@
     }
 }
 
+- (CGFloat)interactivePercent:(CGPoint)translation inBounds:(CGRect)bounds {
+    CGFloat percent = 0;
+    if (!self.presenting) { // интерактивно сделать пуш мы не можем
+        percent = fabs(MAX(0, translation.x) / bounds.size.width);
+    }
+    
+    return percent;
+}
+
+
 @end

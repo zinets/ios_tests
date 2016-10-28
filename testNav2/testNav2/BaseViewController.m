@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.layer.borderWidth = 2;
+    self.view.layer.borderColor = [UIColor blueColor].CGColor;
     
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.backToTopButton];

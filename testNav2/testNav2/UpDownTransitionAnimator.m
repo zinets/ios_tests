@@ -11,7 +11,6 @@
 // аниматор будет знать о типе "контроллерМеню" - нехорошо, а как иначе?
 #import "MenuController.h"
 
-#warning magic is here
 // это отступ сверху, на который не доезжает контроллер при пуше до верха экрана
 static CGFloat const topOffsetValue = 30.;
 // это отступ снизу, на который не доезжает до низа убираемый контроллер
@@ -28,19 +27,21 @@ static CGFloat const bottomOffsetValue = 40.;
         MenuController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
         UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
-        CGRect endRect = [UIScreen mainScreen].bounds;
-        
         [transitionContext.containerView addSubview:fromViewController.view];
         [transitionContext.containerView addSubview:toViewController.view];
         
-        __block CGRect startRect = endRect;
-        startRect.origin.y += startRect.size.height + (self.newControllerOnScreen ? -bottomOffsetValue : 0);
-        toViewController.view.frame = startRect;
+        CGRect rect = [UIScreen mainScreen].bounds;
+        CGFloat dy = rect.size.height + (self.newControllerOnScreen ? -bottomOffsetValue : 0);
+        rect.origin.y += dy;
+        rect.size.height -= topOffsetValue;
+        
+        toViewController.view.frame = rect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.transform = CGAffineTransformMakeScale(0.95, 0.95);
-            startRect.origin.y = topOffsetValue;
-            toViewController.view.frame = startRect;
+            CGRect rect = toViewController.view.frame;
+            rect.origin.y = topOffsetValue;
+            toViewController.view.frame = rect;
             
             fromViewController.view.layer.cornerRadius = 5;
         } completion:^(BOOL finished) {
@@ -74,10 +75,11 @@ static CGFloat const bottomOffsetValue = 40.;
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
-        CGRect endRect = [transitionContext initialFrameForViewController:fromViewController];
-        endRect.origin.y += endRect.size.height - (topOffsetValue + bottomOffsetValue);
+        CGRect rect = [transitionContext initialFrameForViewController:fromViewController];
+        rect.origin.y += rect.size.height - bottomOffsetValue;
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-            fromViewController.view.frame = endRect;
+            fromViewController.view.frame = rect;
             toViewController.view.layer.cornerRadius = 0;
             toViewController.view.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
@@ -102,6 +104,16 @@ static CGFloat const bottomOffsetValue = 40.;
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }
+}
+
+- (CGFloat)interactivePercent:(CGPoint)translation inBounds:(CGRect)bounds {
+    CGFloat percent = 0;
+    if (self.presenting) {
+        percent = fabs(MAX(0, -translation.y) / bounds.size.height);
+    } else {
+        percent = fabs(MAX(0, translation.y) / bounds.size.height);
+    }
+    return percent;
 }
 
 @end

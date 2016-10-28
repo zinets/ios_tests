@@ -17,4 +17,6 @@ static int const MAGIC_TAG_TOP_PIECE  = 0x238929;
 #warning 
 // переименовать? мы говорим аниматору, что сейчас выдвинется контроллер, который как-бы сейчас внизу на экране (т.е. который перед этим типа задвинули вниз)
 @property (nonatomic, assign) BOOL newControllerOnScreen;
+/// для определения процента завершенности я буду использовать метод аниматора - который знает а) свой тип, т.е. какую координату использовать б) направление движения
+- (CGFloat)interactivePercent:(CGPoint)translation inBounds:(CGRect)bounds;
 @end
