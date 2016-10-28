@@ -100,22 +100,24 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
             
             switch (self.viewControllers.count) {
                 case 1: // только меню
-                    self.interactiveState = InteractiveStatePushingUp;
-                    [self pushViewController:self.lastVisibleController animated:YES];
-                    break;
-                case 2: // "главный" контроллер (один из); может сдвинуться только вниз
-                    if (translation.y > 0) {
-                        self.interactiveState = InteractiveStatePoppingDown;
-                        [self popViewControllerAnimated:YES];
+                    if (translation.y < 0) { // только поднимание вверх!
+                        self.interactiveState = InteractiveStatePushingUp;
+                        [self pushViewController:self.lastVisibleController animated:YES];
                     }
                     break;
+//                case 2: // "главный" контроллер (один из); может сдвинуться только вниз
+//                    if (translation.y > 0) {
+//                        self.interactiveState = InteractiveStatePoppingDown;
+//                        // тут тоже можно равнозначно использовать popToRoot (?)
+//                        [self popViewControllerAnimated:YES];
+//                    }
+//                    break;
                 default:
-#warning
-                    // если у нас > 2 контроллера - это значит например
-                    // меню -> профиль -> переписки; и отсюда можно И вернутся влево на пред. контроллер, И перейти вниз к меню!! omfg!
-                    // если translkation.y > 0 - значит можно сделать popToRoot
                     if (translation.x > 0) {
                         self.interactiveState = InteractiveStatePoppingRight;
+                        [self popViewControllerAnimated:YES];
+                    } else if (translation.y > 0) {
+                        self.interactiveState = InteractiveStatePoppingDown;
                         [self popViewControllerAnimated:YES];
                     }
                     break;
@@ -142,17 +144,35 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
             }
         } break;
         case UIGestureRecognizerStateEnded: {
-            if ((self.interactiveState == InteractiveStatePoppingRight && [recognizer velocityInView:self.view].x > 0) ||
-                (self.interactiveState == InteractiveStatePoppingDown && [recognizer velocityInView:self.view].y > 0) ||
-                (self.interactiveState == InteractiveStatePushingUp && [recognizer velocityInView:self.view].y < 0)) {
-                [self.interactionController finishInteractiveTransition];
-            } else {
-                [self.interactionController cancelInteractiveTransition];
-                // когда я определил, что юзер намеревается сделать pop - навктрл попнул контроллер (но визуально он еще у нас перед глазами); и если юзер передумал попать - надо вернуть обработчик пана назад
-                [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+            switch (self.interactiveState) {
+                case InteractiveStatePoppingRight:
+                    if ([recognizer velocityInView:self.view].x > 0) {
+                        [self.interactionController finishInteractiveTransition];
+                    } else {
+                        [self.interactionController cancelInteractiveTransition];
+                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                    }
+                    break;
+                case InteractiveStatePoppingDown:
+                    if ([recognizer velocityInView:self.view].y > 0) {
+                        [self.interactionController finishInteractiveTransition];
+                    } else {
+                        [self.interactionController cancelInteractiveTransition];
+                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                    }
+                    break;
+                case InteractiveStatePushingUp:
+                    if ([recognizer velocityInView:self.view].y < 0) {
+                        [self.interactionController finishInteractiveTransition];
+                    } else {
+                        [self.interactionController cancelInteractiveTransition];
+                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                    }
+                default:
+                    break;
             }
             self.interactionController = nil;
-            self.interactiveState = InteractiveStateNone;
+            self.interactiveState = InteractiveStateNone;            
         } break;
         default:
             break;
