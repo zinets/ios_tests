@@ -124,6 +124,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
         case UIGestureRecognizerStateChanged: {
             switch (self.interactiveState) {
                 case InteractiveStatePoppingRight: {
+#warning 
+                    // и следующие 3 кейса - надо убрать "хардкоды" и привязаться как-то к свойствам аниматора (направление сдвига - вверх или в сторону и знак)
                     CGFloat percent = fabs(MAX(0, translation.x) / self.view.bounds.size.width);
                     [self.interactionController updateInteractiveTransition:percent];
                 } break;
@@ -146,6 +148,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                 [self.interactionController finishInteractiveTransition];
             } else {
                 [self.interactionController cancelInteractiveTransition];
+                // когда я определил, что юзер намеревается сделать pop - навктрл попнул контроллер (но визуально он еще у нас перед глазами); и если юзер передумал попать - надо вернуть обработчик пана назад
                 [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
             }
             self.interactionController = nil;
