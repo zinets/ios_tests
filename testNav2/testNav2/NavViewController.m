@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 // меню
 @property (nonatomic, strong) MenuController *menu;
 // последний видимый контроллер
-@property (nonatomic, strong) BaseViewController *lastVisibleController;
+@property (nonatomic, strong) NSArray <BaseViewController *> *lastVisibleControllers;
 // текущий аниматор(ы)
 @property (nonatomic, strong) TransitionAnimator *appearingAnimator;
 @property (nonatomic, strong) TransitionAnimator *disappearingAnimator;
@@ -102,23 +102,18 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                 case 1: // только меню
                     if (translation.y < 0) { // только поднимание вверх!
                         self.interactiveState = InteractiveStatePushingUp;
-                        [self pushViewController:self.lastVisibleController animated:YES];
+#warning 
+                        // теперь здесь может восстановится как 1 контроллер, так и неск; соотв. надо другой метод?
+                        [self pushViewControllers:self.lastVisibleControllers animated:YES];
                     }
                     break;
-//                case 2: // "главный" контроллер (один из); может сдвинуться только вниз
-//                    if (translation.y > 0) {
-//                        self.interactiveState = InteractiveStatePoppingDown;
-//                        // тут тоже можно равнозначно использовать popToRoot (?)
-//                        [self popViewControllerAnimated:YES];
-//                    }
-//                    break;
                 default:
-                    if (translation.x > 0) {
+                    if (translation.x > 0 && self.viewControllers.count > 2) {
                         self.interactiveState = InteractiveStatePoppingRight;
                         [self popViewControllerAnimated:YES];
                     } else if (translation.y > 0) {
                         self.interactiveState = InteractiveStatePoppingDown;
-                        [self popViewControllerAnimated:YES];
+                        [self popToRootViewControllerAnimated:YES];
                     }
                     break;
             }
@@ -150,7 +145,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
                         [self.interactionController cancelInteractiveTransition];
-                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
                     }
                     break;
                 case InteractiveStatePoppingDown:
@@ -158,7 +153,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
                         [self.interactionController cancelInteractiveTransition];
-                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
                     }
                     break;
                 case InteractiveStatePushingUp:
@@ -166,13 +161,13 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
                         [self.interactionController cancelInteractiveTransition];
-                        [self.lastVisibleController.view addGestureRecognizer:panRecognizer];
+                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
                     }
                 default:
                     break;
             }
             self.interactionController = nil;
-            self.interactiveState = InteractiveStateNone;            
+            self.interactiveState = InteractiveStateNone;
         } break;
         default:
             break;
@@ -183,8 +178,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 
 - (void)pushViewControllerOfKind:(ControllerKind)kind animated:(BOOL)animated {
     UIViewController *ctrl = nil;
-    if ([self.lastVisibleController isKindOfClass:[ControllerFactory controllerClassForKind:kind]]) {
-        ctrl = self.lastVisibleController;
+    if ([[self.lastVisibleControllers lastObject] isKindOfClass:[ControllerFactory controllerClassForKind:kind]]) {
+        ctrl = [self.lastVisibleControllers lastObject];
     } else {
         ctrl = [ControllerFactory controllerByKind:kind];
     }    
@@ -195,30 +190,35 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self preparePush];
     [super pushViewController:viewController animated:animated];
-    {
-        [viewController.view addGestureRecognizer:panRecognizer];
-    }
+    [viewController.view addGestureRecognizer:panRecognizer];
+}
 
+- (void)pushViewControllers:(NSArray <BaseViewController *> *)viewControllers animated:(BOOL)animated {
+    // после popToRoot остается массив контроллеров, которые уехали - кроме собств. root (в нашем случае это меню)
+    // вернуть их назад можно методом setVControllers:animated: - но метод заменит весь стек, т.е. потеряем меню
+    NSArray <UIViewController *> *resArray = [@[self.menu] arrayByAddingObjectsFromArray:self.lastVisibleControllers];
+    [self preparePush]; // настройка аниматора
+    [self setViewControllers:resArray animated:YES];
+    
+    [[resArray lastObject].view addGestureRecognizer:panRecognizer];
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated {
     [self preparePop];
-#warning 
-    // не вляпаюсь ли я в "не тот тип"?
-    self.lastVisibleController = (id)[super popViewControllerAnimated:animated];
+
+    self.lastVisibleControllers = @[[super popViewControllerAnimated:animated]];
     if (self.topViewController != self.menu) {
         [self.topViewController.view addGestureRecognizer:panRecognizer];
     }
     
-    return self.lastVisibleController;
+    return [self.lastVisibleControllers lastObject];
 }
 
 -(NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
-    self.lastVisibleController = nil;
-#warning 
-    // абсрактное предупреждение - надо ли визуально для такого случая оставлять снизу кусочек вью? какого вью?? а может и не абсрактное - если мы открыли голосовалку -> открыли профиль -> перешли в переписку и нажимаем кнопку "V" - это же и есть  возврат к корню
-    // ох будет геморой..
-    return [super popToRootViewControllerAnimated:animated];
+    [self preparePop];
+    self.lastVisibleControllers = [super popToRootViewControllerAnimated:animated];
+    
+    return self.lastVisibleControllers;
 }
 
 #pragma mark - self delegation
@@ -227,7 +227,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
     switch (operation) {
         case UINavigationControllerOperationPush:
-            self.appearingAnimator.newControllerOnScreen = self.lastVisibleController == toVC;
+            self.appearingAnimator.newControllerOnScreen = [self.lastVisibleControllers lastObject] == toVC;
             self.appearingAnimator.presenting = YES;
             return self.appearingAnimator;
         case UINavigationControllerOperationPop:
@@ -249,18 +249,35 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 #pragma mark - states
 
 - (void)preparePush {
-    if (self.viewControllers.count < 2) {
-        self.appearingAnimator = self.upDownAnimator;
-    } else {
-        self.appearingAnimator = self.pushAnimator;
+    switch (self.interactiveState) {
+        case InteractiveStatePushingUp:
+            self.appearingAnimator = self.upDownAnimator;
+            break;
+        default:
+            if (self.viewControllers.count < 2) {
+                self.appearingAnimator = self.upDownAnimator;
+            } else {
+                self.appearingAnimator = self.pushAnimator;
+            }            
+            break;
     }
 }
 
 - (void)preparePop {
-    if (self.viewControllers.count < 3) {
-        self.disappearingAnimator = self.upDownAnimator;
-    } else {
-        self.disappearingAnimator = self.pushAnimator;
+    switch (self.interactiveState) {
+        case InteractiveStatePoppingDown:
+            self.disappearingAnimator = self.upDownAnimator;
+            break;
+        case InteractiveStatePoppingRight:
+            self.disappearingAnimator = self.pushAnimator;
+            break;
+        default:
+            if (self.viewControllers.count < 3) {
+                self.disappearingAnimator = self.upDownAnimator;
+            } else {
+                self.disappearingAnimator = self.pushAnimator;
+            }
+            break;
     }
 }
 
