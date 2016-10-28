@@ -155,6 +155,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                     if ([recognizer velocityInView:self.view].y < 0) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
+#warning !!!!!!!!
+                        // если я отменю пушь торчащего снизу контроллера - то чтото идет не так, но что я пока не нашел
                         [self.interactionController cancelInteractiveTransition];
                         [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
                     }

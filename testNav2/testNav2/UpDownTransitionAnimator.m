@@ -40,8 +40,6 @@ static CGFloat const bottomOffsetValue = 40.;
             CGRect rect = toViewController.view.frame;
             rect.origin.y = TransitionAnimator.topOffsetValue;
             toViewController.view.frame = rect;
-            
-            fromViewController.view.layer.cornerRadius = 5;
         } completion:^(BOOL finished) {
             { // сука, я сам не верю, что нельзя проще, но не нашел способа пока
                 CGSize sz = [UIScreen mainScreen].bounds.size;
@@ -58,7 +56,7 @@ static CGFloat const bottomOffsetValue = 40.;
                 fakeView.contentMode = UIViewContentModeTop;
                 fakeView.frame = (CGRect){{0, -TransitionAnimator.topOffsetValue}, {sz.width, TransitionAnimator.topOffsetValue}};
                 [toViewController.view addSubview:fakeView];
-            }
+            } // это не совсем правильно - если транзиция отменилась (см ниже) то этот код не надо делать; но этот пушъ не может юыть интерактивным и отменится
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
@@ -78,7 +76,6 @@ static CGFloat const bottomOffsetValue = 40.;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = rect;
-            toViewController.view.layer.cornerRadius = 0;
             toViewController.view.transform = CGAffineTransformIdentity;
         } completion:^(BOOL finished) {
             if ([transitionContext transitionWasCancelled]) { // отменили - вернем сверху фейковый кусочек

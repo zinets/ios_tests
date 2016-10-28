@@ -31,17 +31,41 @@
             
             toViewController.view.frame = endRect;
         } completion:^(BOOL finished) {
+            { // та же фигня
+                CGSize sz = [UIScreen mainScreen].bounds.size;
+                UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+                
+                [fromViewController.view.window drawViewHierarchyInRect:(CGRect){CGPointZero, sz}
+                                                     afterScreenUpdates:NO];
+                
+                UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                
+                UIView *fakeView = [[UIImageView alloc] initWithImage:img];
+                fakeView.tag = MAGIC_TAG_TOP_PIECE;
+                fakeView.contentMode = UIViewContentModeTop;
+                fakeView.frame = (CGRect){{0, -TransitionAnimator.topOffsetValue}, {sz.width, TransitionAnimator.topOffsetValue}};
+                [toViewController.view addSubview:fakeView];
+            }
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else {
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
+        UIView *fakeHeader = [fromViewController.view viewWithTag:MAGIC_TAG_TOP_PIECE];
+        if (fakeHeader) {
+            [fakeHeader removeFromSuperview];
+        }
+        
         CGRect endRect = [transitionContext initialFrameForViewController:fromViewController];
         endRect.origin.x += endRect.size.width;
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endRect;
         } completion:^(BOOL finished) {
+            if ([transitionContext transitionWasCancelled]) { // отменили - вернем сверху фейковый кусочек
+                [fromViewController.view addSubview:fakeHeader];
+            }
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     }
