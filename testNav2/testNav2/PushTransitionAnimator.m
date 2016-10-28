@@ -15,16 +15,20 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     if (self.presenting) {
-        CGRect endRect = [UIScreen mainScreen].bounds;
-        
         [transitionContext.containerView addSubview:fromViewController.view];
         [transitionContext.containerView addSubview:toViewController.view];
         
-        CGRect startRect = endRect;
-        startRect.origin.x += startRect.size.width;
-        toViewController.view.frame = startRect;
+        CGRect rect = [UIScreen mainScreen].bounds;
+        // пушаные контроллеры всегда поверх других и значит сверху всегда нужна дырка
+        rect.origin.x += rect.size.width;
+        rect.origin.y = TransitionAnimator.topOffsetValue;
+        rect.size.height -= TransitionAnimator.topOffsetValue;
+        toViewController.view.frame = rect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+            CGRect endRect = rect;
+            endRect.origin.x = 0;
+            
             toViewController.view.frame = endRect;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

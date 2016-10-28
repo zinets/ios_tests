@@ -11,8 +11,6 @@
 // аниматор будет знать о типе "контроллерМеню" - нехорошо, а как иначе?
 #import "MenuController.h"
 
-// это отступ сверху, на который не доезжает контроллер при пуше до верха экрана
-static CGFloat const topOffsetValue = 30.;
 // это отступ снизу, на который не доезжает до низа убираемый контроллер
 static CGFloat const bottomOffsetValue = 40.;
 @interface UpDownTransitionAnimator ()
@@ -33,14 +31,14 @@ static CGFloat const bottomOffsetValue = 40.;
         CGRect rect = [UIScreen mainScreen].bounds;
         CGFloat dy = rect.size.height + (self.newControllerOnScreen ? -bottomOffsetValue : 0);
         rect.origin.y += dy;
-        rect.size.height -= topOffsetValue;
+        rect.size.height -= TransitionAnimator.topOffsetValue;
         
         toViewController.view.frame = rect;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.transform = CGAffineTransformMakeScale(0.95, 0.95);
             CGRect rect = toViewController.view.frame;
-            rect.origin.y = topOffsetValue;
+            rect.origin.y = TransitionAnimator.topOffsetValue;
             toViewController.view.frame = rect;
             
             fromViewController.view.layer.cornerRadius = 5;
@@ -58,7 +56,7 @@ static CGFloat const bottomOffsetValue = 40.;
                 UIView *fakeView = [[UIImageView alloc] initWithImage:img];
                 fakeView.tag = MAGIC_TAG_TOP_PIECE;
                 fakeView.contentMode = UIViewContentModeTop;
-                fakeView.frame = (CGRect){{0, -topOffsetValue}, {sz.width, topOffsetValue}};
+                fakeView.frame = (CGRect){{0, -TransitionAnimator.topOffsetValue}, {sz.width, TransitionAnimator.topOffsetValue}};
                 [toViewController.view addSubview:fakeView];
             }
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
