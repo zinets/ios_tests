@@ -34,6 +34,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 @property (nonatomic, strong) TransitionAnimator *pushAnimator;
 // что сейчас происходит в смысле интерактивного перехода
 @property (nonatomic) InteractiveState interactiveState;
+// если отменяется жест, то надо восстановить и принадлежность жеста вью (ну т.е. обработчик у footerView меню; когда начинаем движение вверх - сразу вызывается push и обработчик движения назначается на новое вью; но если жест отменился - обработчик надо вернуть footerView - а как? для этого это свойство
+@property (nonatomic, weak) UIView *previousGestureOwner;
 @end
 
 @implementation NavViewController
@@ -138,7 +140,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
                         [self.interactionController cancelInteractiveTransition];
-                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
+                        // кроме смахивания вниз полностью стопки - восстанавливаю принадлежность распознавателя панов
+                        [self.previousGestureOwner addGestureRecognizer:panRecognizer];
                     }
                     break;
                 case InteractiveStatePoppingDown:
@@ -147,7 +150,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                     } else {
                         [self.interactionController cancelInteractiveTransition];
                         // если попали вниз - то весь стек до root убрался; и он не восстанавливается после cancelInteract.. - восстанавливается только последний контроллер
-//                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
+                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
                         [self pushViewControllers:self.lastVisibleControllers animated:NO];
                     }
                     break;
@@ -158,13 +161,14 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 #warning !!!!!!!!
                         // если я отменю пушь торчащего снизу контроллера - то чтото идет не так, но что я пока не нашел
                         [self.interactionController cancelInteractiveTransition];
-                        [[self.lastVisibleControllers lastObject].view addGestureRecognizer:panRecognizer];
+                        [self.menu.footerView addGestureRecognizer:panRecognizer];
                     }
                 default:
                     break;
             }
             self.interactionController = nil;
             self.interactiveState = InteractiveStateNone;
+            self.previousGestureOwner = nil;
         } break;
         default:
             break;
@@ -187,6 +191,8 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self preparePush];
     [super pushViewController:viewController animated:animated];
+    
+    self.previousGestureOwner = panRecognizer.view;
     [viewController.view addGestureRecognizer:panRecognizer];
 }
 
@@ -197,6 +203,7 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
     [self preparePush]; // настройка аниматора
     [self setViewControllers:resArray animated:animated];
     
+    self.previousGestureOwner = panRecognizer.view;
     [[resArray lastObject].view addGestureRecognizer:panRecognizer];
 }
 
