@@ -158,9 +158,10 @@ typedef NS_ENUM(NSUInteger, InteractiveState) {
                     if ([recognizer velocityInView:self.view].y < 0) {
                         [self.interactionController finishInteractiveTransition];
                     } else {
-#warning !!!!!!!!
-                        // если я отменю пушь торчащего снизу контроллера - то чтото идет не так, но что я пока не нашел
                         [self.interactionController cancelInteractiveTransition];
+                        // ^^^^ этот код отменяет переход; но видимо (?) отменяется push, а фактич. там пушился целый стек
+                        [self setViewControllers:@[self.menu] animated:NO];
+                        // раз отменили пуш вверх - значит в навконтроллере а) должно быть только меню б) надо продолжать помнить старый стек (можно ничего не делать - он не удалился)
                         [self.menu.footerView addGestureRecognizer:panRecognizer];
                     }
                 default:

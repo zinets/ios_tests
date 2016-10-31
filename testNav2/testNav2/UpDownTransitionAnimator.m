@@ -41,23 +41,27 @@ static CGFloat const bottomOffsetValue = 40.;
             rect.origin.y = TransitionAnimator.topOffsetValue;
             toViewController.view.frame = rect;
         } completion:^(BOOL finished) {
-            { // сука, я сам не верю, что нельзя проще, но не нашел способа пока
-                CGSize sz = [UIScreen mainScreen].bounds.size;
-                UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
-                
-                [fromViewController.view.window drawViewHierarchyInRect:(CGRect){CGPointZero, sz}
-                                                     afterScreenUpdates:NO];
-                
-                UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                
-                UIView *fakeView = [[UIImageView alloc] initWithImage:img];
-                fakeView.tag = MAGIC_TAG_TOP_PIECE;
-                fakeView.contentMode = UIViewContentModeTop;
-                fakeView.frame = (CGRect){{0, -TransitionAnimator.topOffsetValue}, {sz.width, TransitionAnimator.topOffsetValue}};
-                [toViewController.view addSubview:fakeView];
-            } // это не совсем правильно - если транзиция отменилась (см ниже) то этот код не надо делать; но этот пушъ не может юыть интерактивным и отменится
-            [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+            if (![transitionContext transitionWasCancelled]) {
+                { // сука, я сам не верю, что нельзя проще, но не нашел способа пока
+                    CGSize sz = [UIScreen mainScreen].bounds.size;
+                    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+                    
+                    [fromViewController.view.window drawViewHierarchyInRect:(CGRect){CGPointZero, sz}
+                                                         afterScreenUpdates:NO];
+                    
+                    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+                    UIGraphicsEndImageContext();
+                    
+                    UIView *fakeView = [[UIImageView alloc] initWithImage:img];
+                    fakeView.tag = MAGIC_TAG_TOP_PIECE;
+                    fakeView.contentMode = UIViewContentModeTop;
+                    fakeView.frame = (CGRect){{0, -TransitionAnimator.topOffsetValue}, {sz.width, TransitionAnimator.topOffsetValue}};
+                    [toViewController.view addSubview:fakeView];
+                }
+                [transitionContext completeTransition:YES];
+            } else {
+                [transitionContext completeTransition:NO];
+            }
         }];
     } else {
         UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
