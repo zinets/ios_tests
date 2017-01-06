@@ -10,7 +10,7 @@
 
 @implementation ProgressBlock {
     CAShapeLayer *outlineLayer, *bgStrokeLayer;
-    CAGradientLayer *gradientLayer;
+    CAGradientLayer *gradientLayerLeft, *gradientLayerRight;
 }
 
 - (void)commonInit {
@@ -42,12 +42,26 @@
     bgStrokeLayer.lineWidth = lineWidth;
     [self.layer addSublayer:bgStrokeLayer];
     
-    gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = self.bounds;
+    CGRect frm = self.bounds;
+    CALayer *bgLayer = [CALayer layer];
+    bgLayer.frame = frm;
+    
+    frm.size.width /= 2;
+    gradientLayerLeft = [CAGradientLayer layer];
+    gradientLayerLeft.frame = frm;
+    gradientLayerLeft.locations = @[@0, @1];
+    [bgLayer addSublayer:gradientLayerLeft];
+    
+    frm.origin.x += frm.size.width;
+    gradientLayerRight = [CAGradientLayer layer];
+    gradientLayerRight.frame = frm;
+    gradientLayerRight.locations = @[@0, @1];
+    [bgLayer addSublayer:gradientLayerRight];
+    
+    bgLayer.mask = outlineLayer;
+    [self.layer addSublayer:bgLayer];
+    
     [self recreateGradient];
-    gradientLayer.locations = @[@0, @1];
-    gradientLayer.mask = outlineLayer;
-    [self.layer addSublayer:gradientLayer];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -71,7 +85,8 @@
 }
 
 - (void)recreateGradient {
-    gradientLayer.colors = @[(id)self.startColor.CGColor, (id)self.endColor.CGColor];
+    gradientLayerLeft.colors = @[(id)self.startColor.CGColor, (id)self.endColor.CGColor];
+    gradientLayerRight.colors = @[(id)self.startColor.CGColor, (id)self.startColor.CGColor];
 }
 
 -(void)setStartColor:(UIColor *)startColor {

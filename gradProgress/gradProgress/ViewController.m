@@ -27,8 +27,6 @@
     self.testProgressBlock.startColor = [UIColor colorWithHex:0x82ca00];
     self.testProgressBlock.endColor = [UIColor colorWithHex:0x0098e7];
     self.testProgressBlock.inactiveColor = [UIColor colorWithHex:0xeceff1];
-    
-
 }
 
 -(void)viewDidAppear:(BOOL)animated {
