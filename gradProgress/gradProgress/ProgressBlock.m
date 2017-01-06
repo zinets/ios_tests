@@ -13,6 +13,8 @@
     CAGradientLayer *gradientLayerLeft, *gradientLayerRight;
 }
 
+@synthesize valueLabel, descriptionLabel;
+
 - (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
     _startColor = [UIColor grayColor];
@@ -62,6 +64,14 @@
     [self.layer addSublayer:bgLayer];
     
     [self recreateGradient];
+    
+    valueLabel = [[UILabel alloc] initWithFrame:(CGRect){{0, 17}, {self.frame.size.width, 18}}];
+    valueLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:valueLabel];
+    
+    descriptionLabel = [[UILabel alloc] initWithFrame:(CGRect){{0, 30}, {self.frame.size.width, 21}}];
+    descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:descriptionLabel];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -80,7 +90,7 @@
 
 -(void)setProgress:(CGFloat)progress {
     _progress = MAX(0, MIN(progress, 1));
-    
+    valueLabel.text = [NSString stringWithFormat:@"%@%%", @(round(_progress * 100))];
     outlineLayer.strokeEnd = _progress;
 }
 
