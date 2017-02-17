@@ -18,6 +18,8 @@
 
 @end
 
+// не на иФоне7 нифига не влезет!
+
 @implementation ViewController {
     NSMutableArray *dataSource;
 }
