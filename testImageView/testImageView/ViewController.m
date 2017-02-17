@@ -10,7 +10,9 @@
 #import "ImageView.h"
 #import "CollectionViewCell.h"
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
+    BOOL fs;
+}
 @property (weak, nonatomic) IBOutlet ImageView *landscapeView;
 @property (weak, nonatomic) IBOutlet ImageView *portraitView;
 @property (weak, nonatomic) IBOutlet ImageView *squareView;
@@ -50,6 +52,23 @@
         [dataSource addObject:fn];
     }
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
+    
+    UITapGestureRecognizer *tapR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    [self.landscapeView addGestureRecognizer:tapR];
+    self.landscapeView.userInteractionEnabled = YES;
+}
+
+- (void)onTap:(id)sender {
+    CGRect frm;
+    if (fs) {
+        frm = (CGRect){{16, 38}, {343, 549}};
+    } else {
+        frm = (CGRect){{16, 38}, {343, 244}};
+    }
+    self.landscapeView.frame = frm;
+    [self.view bringSubviewToFront:self.landscapeView];
+    
+    fs = !fs;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
