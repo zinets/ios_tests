@@ -32,7 +32,6 @@
     self.clipsToBounds = YES;
     
     self.imageSite = [UIImageView new];
-//    self.imageSite.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:self.imageSite];
 }
 
@@ -44,19 +43,22 @@
     
     CGSize thisSize = self.frame.size;
     CGFloat thisAR = thisSize.width / thisSize.height;
-
+    CGRect rectToFit = self.bounds;
     if (thisAR > imageAR) {
         CGFloat k = thisSize.width / imageSize.width;
-        CGRect rectToFit = (CGRect){{0, 0}, {thisSize.width, imageSize.height * k}};
-        self.imageSite.frame = rectToFit;
+        rectToFit = (CGRect){{0, 0}, {thisSize.width, imageSize.height * k}};
     } else if (thisAR < imageAR) {
         CGFloat k = imageSize.height / thisSize.height;
         CGFloat w = imageSize.width / k;
-        CGRect rectToFit = (CGRect){{(thisSize.width - w) / 2, 0}, {w, thisSize.height}};
-        self.imageSite.frame = rectToFit;
+        rectToFit = (CGRect){{(thisSize.width - w) / 2, 0}, {w, thisSize.height}};
     } else {
-        self.imageSite.frame = self.bounds;
+
     }
+    self.contentOffset = (CGPoint){-rectToFit.origin.x, -rectToFit.origin.y};
+    self.contentSize = rectToFit.size;
+    
+    rectToFit.origin = CGPointZero;
+    self.imageSite.frame = rectToFit;
 
     /* избыточно?
     if (thisAR > 1) { // landscape view

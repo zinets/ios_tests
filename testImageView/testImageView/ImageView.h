@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageView : UIView
+@interface ImageView : UIScrollView
 @property (nonatomic, strong) UIImage *image;
 @end
