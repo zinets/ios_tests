@@ -189,7 +189,8 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y > 0 &&
+    if (self.zoomEnabled &&
+            scrollView.contentOffset.y > 0 &&
             scrollView.contentSize.height <= self.imageSite.bounds.size.height) {
         CGPoint pt = scrollView.contentOffset;
         pt.y = 0;
@@ -208,7 +209,7 @@
             CGRect frm = [self convertRect:self.imageSite.frame toView:self.superview];
             [self.superview addSubview:self.imageSite];
             self.imageSite.frame = frm;
-            [UIView animateWithDuration:.5 animations:^{
+            [UIView animateWithDuration:.45 animations:^{
                 self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
                 self.backgroundColor = [UIColor clearColor];
             } completion:^(BOOL finished) {
