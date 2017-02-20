@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,25 +26,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQc-wd-6nO">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvu-kC-XxV" customClass="ImageView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvu-kC-XxV" customClass="ImageView">
                                         <rect key="frame" x="20" y="20" width="288" height="205"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="205" id="QiX-6c-FMq"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tk7-7c-6uN" customClass="ImageView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tk7-7c-6uN" customClass="ImageView">
                                         <rect key="frame" x="20" y="233" width="177" height="263"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="177" id="GBq-yH-8i9"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-xS-Afg" customClass="ImageView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-xS-Afg" customClass="ImageView">
                                         <rect key="frame" x="205" y="233" width="103" height="103"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1o6-xS-Afg" secondAttribute="height" multiplier="1:1" id="SpC-SM-qrl"/>
+                                        </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-E0-Xep">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnf-E0-Xep">
                                         <rect key="frame" x="220" y="338" width="73" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="73" id="qQw-bu-ApQ"/>
+                                            <constraint firstAttribute="height" constant="24" id="tnC-O5-3hy"/>
+                                        </constraints>
                                         <state key="normal" title="load">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -51,10 +61,13 @@
                                             <action selector="landscapeImageLoad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qD1-62-57w"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="724-Zw-7Gw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="724-Zw-7Gw">
                                         <rect key="frame" x="229" y="365" width="54" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="724-Zw-7Gw" secondAttribute="height" multiplier="1:1" id="644-pe-5wm"/>
+                                            <constraint firstAttribute="width" constant="54" id="BjV-UG-BwP"/>
+                                        </constraints>
                                         <state key="normal" title="load">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -62,10 +75,13 @@
                                             <action selector="squareImageLoad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hg8-MD-dP1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-eL-K7C">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmW-eL-K7C">
                                         <rect key="frame" x="231" y="426" width="51" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="6lr-RV-rEC"/>
+                                            <constraint firstAttribute="width" constant="51" id="NZf-gU-YcR"/>
+                                        </constraints>
                                         <state key="normal" title="load">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -75,6 +91,23 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="724-Zw-7Gw" firstAttribute="top" secondItem="gnf-E0-Xep" secondAttribute="bottom" constant="3" id="0Iz-Zj-UYh"/>
+                                    <constraint firstItem="gnf-E0-Xep" firstAttribute="centerX" secondItem="1o6-xS-Afg" secondAttribute="centerX" id="3Z9-Ng-mBH"/>
+                                    <constraint firstItem="bvu-kC-XxV" firstAttribute="top" secondItem="iQc-wd-6nO" secondAttribute="top" constant="20" id="D55-kX-4nA"/>
+                                    <constraint firstItem="tk7-7c-6uN" firstAttribute="leading" secondItem="iQc-wd-6nO" secondAttribute="leading" constant="20" id="LgM-dB-6WT"/>
+                                    <constraint firstItem="gnf-E0-Xep" firstAttribute="top" secondItem="1o6-xS-Afg" secondAttribute="bottom" constant="2" id="MVu-Pi-eAb"/>
+                                    <constraint firstItem="1o6-xS-Afg" firstAttribute="leading" secondItem="tk7-7c-6uN" secondAttribute="trailing" constant="8" id="Orx-qu-Dh5"/>
+                                    <constraint firstItem="xmW-eL-K7C" firstAttribute="top" secondItem="724-Zw-7Gw" secondAttribute="bottom" constant="7" id="SQQ-MK-BOT"/>
+                                    <constraint firstItem="1o6-xS-Afg" firstAttribute="top" secondItem="bvu-kC-XxV" secondAttribute="bottom" constant="8" id="WGI-2z-JaY"/>
+                                    <constraint firstItem="xmW-eL-K7C" firstAttribute="centerX" secondItem="724-Zw-7Gw" secondAttribute="centerX" id="bax-DB-j2a"/>
+                                    <constraint firstItem="bvu-kC-XxV" firstAttribute="leading" secondItem="iQc-wd-6nO" secondAttribute="leading" constant="20" id="eTP-7G-U54"/>
+                                    <constraint firstAttribute="bottom" secondItem="tk7-7c-6uN" secondAttribute="bottom" constant="8" id="jf6-5A-527"/>
+                                    <constraint firstAttribute="trailing" secondItem="1o6-xS-Afg" secondAttribute="trailing" constant="12" id="lMj-dc-CnL"/>
+                                    <constraint firstItem="tk7-7c-6uN" firstAttribute="top" secondItem="bvu-kC-XxV" secondAttribute="bottom" constant="8" id="v2X-tz-ThF"/>
+                                    <constraint firstAttribute="trailing" secondItem="bvu-kC-XxV" secondAttribute="trailing" constant="12" id="vKM-vo-Hb1"/>
+                                    <constraint firstItem="724-Zw-7Gw" firstAttribute="centerX" secondItem="gnf-E0-Xep" secondAttribute="centerX" id="vQi-6I-yq6"/>
+                                </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="On3-wX-0vL">
                                 <rect key="frame" x="0.0" y="504" width="320" height="64"/>
