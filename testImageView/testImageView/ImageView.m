@@ -10,6 +10,7 @@
 
 @interface ImageView () <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
     UIColor *intBgColor;
+    BOOL pullDownReached;
 }
 @property (nonatomic, strong) UIImageView *imageSite;
 @property (nonatomic) CGFloat pullDownLimit;
@@ -40,6 +41,8 @@
     
     self.minimumZoomScale = 1;
     self.maximumZoomScale = 3;
+    self.bounces = NO;
+    self.bouncesZoom = NO;
 
     [self addSubview:self.imageSite];
     
@@ -135,7 +138,7 @@
 
 -(void)setZoomEnabled:(BOOL)zoomEnabled {
     _zoomEnabled = zoomEnabled;
-    self.alwaysBounceVertical = _zoomEnabled;
+    self.bounces = self.alwaysBounceVertical = _zoomEnabled;
 
     self.imageSite.transform = CGAffineTransformIdentity;
     [self relayImage];
@@ -186,19 +189,32 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y < 0 && self.zoomEnabled) {
     if (scrollView.contentOffset.y > 0 &&
             scrollView.contentSize.height <= self.imageSite.bounds.size.height) {
         CGPoint pt = scrollView.contentOffset;
         pt.y = 0;
         scrollView.contentOffset = pt;
-    } else
+    } else if (!pullDownReached && self.zoomEnabled &&
+            scrollView.contentOffset.y < 0 && self.zoomScale == 1) {
         CGFloat alpha = 1 - ABS(scrollView.contentOffset.y / self.pullDownLimit);
-        [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha]];
-
+        [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha + 0.2]];
+        // вот какая хрень: сейчас скролвью "оттянут" вниз; если не просто тянуть вниз пальцем, а "махнуть" - то а) вью поедет вниз б) скролвью потянет вью вверх и получится небольшое дергание
+        // а если я возьму и перекладу вью "наверх"? и пусть скроллер (без содержимого) едет себе назад, вью поедет вниз по другому вью :)
+        // но это пц как нехорошо, надо быть увереным, что этот контрол тут же разрушиться и не будет использоваться повторно
         if (self.pullDownDelegate &&
                 ABS(scrollView.contentOffset.y) >= self.pullDownLimit) {
-            [self.pullDownDelegate controlReachedPullDownLimit:self];
+            pullDownReached = YES;
+
+            CGRect frm = [self convertRect:self.imageSite.frame toView:self.superview];
+            [self.superview addSubview:self.imageSite];
+            self.imageSite.frame = frm;
+            [UIView animateWithDuration:.5 animations:^{
+                self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
+                self.backgroundColor = [UIColor clearColor];
+            } completion:^(BOOL finished) {
+                [self addSubview:self.imageSite];
+                [self.pullDownDelegate controlReachedPullDownLimit:self];
+            }];
         }
     }
 }
