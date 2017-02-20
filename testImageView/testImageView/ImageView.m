@@ -118,13 +118,9 @@
 }
 
 -(void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
     if (_image) {
-        [UIView animateWithDuration:0.3 animations:^{
-            [super setFrame:frame];
-            [self relayImage];
-        }];
-    } else {
-        [super setFrame:frame];
+        [self relayImage];
     }
 }
 
@@ -140,11 +136,9 @@
 -(void)setZoomEnabled:(BOOL)zoomEnabled {
     _zoomEnabled = zoomEnabled;
     self.alwaysBounceVertical = _zoomEnabled;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.imageSite.transform = CGAffineTransformIdentity;
-        [self relayImage];
-    } completion:^(BOOL finished) {
-    }];
+
+    self.imageSite.transform = CGAffineTransformIdentity;
+    [self relayImage];
 }
 
 - (void)setPullDownDelegate:(id <ControlPullDownProtocol>)pullDownDelegate {
