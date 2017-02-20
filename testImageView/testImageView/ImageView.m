@@ -32,57 +32,59 @@
     self.clipsToBounds = YES;
     self.delegate = self;
     
-//    self.minimumZoomScale = 1;
+    self.minimumZoomScale = 1;
     self.maximumZoomScale = 3;
+    self.bounces = YES;
     
     [self addSubview:self.imageSite];
 }
 
 - (void)relayImage {
-    CGSize imageSize = _image.size;
-    CGFloat imageAR = imageSize.width / imageSize.height;
-    
-    CGSize thisSize = self.frame.size;
-    CGFloat thisAR = thisSize.width / thisSize.height;
-    CGRect rectToFit = self.bounds;
-    
-    if (self.zoomEnabled) {
-        if (imageAR > thisAR) {
-            rectToFit.origin.x = 0;
-            rectToFit.size.width = thisSize.width;
-            CGFloat k = thisSize.width / imageSize.width;
-            CGFloat h = imageSize.height * k;
-            rectToFit.size.height = h;
-            rectToFit.origin.y = (thisSize.height - h) / 2;
-            
-//            self.contentOffset = CGPointZero;
-        } else {
-            rectToFit.size.height = thisSize.height;
-            rectToFit.origin.y = 0;
-            CGFloat k = thisSize.height / imageSize.height;
-            CGFloat w = imageSize.width * k;
-            rectToFit.size.width = w;
-            rectToFit.origin.x = (thisSize.width - w) / 2;
-        }
-        self.contentSize = rectToFit.size;
-    } else {
-        if (thisAR > imageAR) {
-            CGFloat k = thisSize.width / imageSize.width;
-            rectToFit = (CGRect){{0, 0}, {thisSize.width, imageSize.height * k}};
-        } else if (thisAR < imageAR) {
-            CGFloat k = imageSize.height / thisSize.height;
-            CGFloat w = imageSize.width / k;
-            rectToFit = (CGRect){{(thisSize.width - w) / 2, 0}, {w, thisSize.height}};
-        } else {
-            
-        }
-        self.contentOffset = (CGPoint){-rectToFit.origin.x, -rectToFit.origin.y};
-        self.contentSize = rectToFit.size;
+    if (_image) {
+        CGSize imageSize = _image.size;
+        CGFloat imageAR = imageSize.width / imageSize.height;
         
-        rectToFit.origin = CGPointZero;
+        CGSize thisSize = self.frame.size;
+        CGFloat thisAR = thisSize.width / thisSize.height;
+        CGRect rectToFit = self.bounds;
+        
+        if (self.zoomEnabled) {
+            if (imageAR > thisAR) {
+                rectToFit.origin.x = 0;
+                rectToFit.size.width = thisSize.width;
+                CGFloat k = thisSize.width / imageSize.width;
+                CGFloat h = imageSize.height * k;
+                rectToFit.size.height = h;
+                rectToFit.origin.y = (thisSize.height - h) / 2;
+            } else {
+                rectToFit.size.height = thisSize.height;
+                rectToFit.origin.y = 0;
+                CGFloat k = thisSize.height / imageSize.height;
+                CGFloat w = imageSize.width * k;
+                rectToFit.size.width = w;
+                rectToFit.origin.x = (thisSize.width - w) / 2;
+            }
+            self.contentOffset = CGPointZero;
+            self.contentSize = rectToFit.size;
+        } else {
+            if (thisAR > imageAR) {
+                CGFloat k = thisSize.width / imageSize.width;
+                rectToFit = (CGRect){{0, 0}, {thisSize.width, imageSize.height * k}};
+            } else if (thisAR < imageAR) {
+                CGFloat k = imageSize.height / thisSize.height;
+                CGFloat w = imageSize.width / k;
+                rectToFit = (CGRect){{(thisSize.width - w) / 2, 0}, {w, thisSize.height}};
+            } else {
+                
+            }
+            self.contentOffset = (CGPoint){-rectToFit.origin.x, -rectToFit.origin.y};
+            self.contentSize = rectToFit.size;
+            
+            rectToFit.origin = CGPointZero;
+        }
+        self.imageSite.frame = rectToFit;
+        self.imageSite.image = _image;
     }
-    self.imageSite.frame = rectToFit;
-    self.imageSite.image = _image;
 }
 
 #pragma mark - getters
@@ -125,6 +127,14 @@
 }
 
 #pragma mark - scroller
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    NSLog(@"%f", scrollView.zoomScale);
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
+    return NO;
+}
 
 - (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     if (self.zoomEnabled) {
