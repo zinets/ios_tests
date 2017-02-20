@@ -67,17 +67,22 @@
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender {
-    if (!fs) {
-        self.lastRect = sender.view.frame;
-        sender.view.frame = self.emberView.bounds;
-    } else {
-        sender.view.frame = self.lastRect;
-    }
+    [UIView animateWithDuration:0.3 animations:^{
 
-    [self.emberView bringSubviewToFront:sender.view];
-    
-    fs = !fs;
-    ((ImageView *)sender.view).zoomEnabled = fs;
+
+        if (!fs) {
+            self.lastRect = sender.view.frame;
+            sender.view.frame = self.emberView.bounds;
+        } else {
+            sender.view.frame = self.lastRect;
+        }
+
+        [self.emberView bringSubviewToFront:sender.view];
+
+        fs = !fs;
+        ((ImageView *)sender.view).zoomEnabled = fs;
+
+    }];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
