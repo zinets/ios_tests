@@ -33,7 +33,6 @@
     self.delegate = self;
     self.maximumZoomScale = 3;
     
-    self.imageSite = [UIImageView new];
     [self addSubview:self.imageSite];
 }
 
@@ -60,6 +59,15 @@
     rectToFit.origin = CGPointZero;
     self.imageSite.frame = rectToFit;
     self.imageSite.image = _image;
+}
+
+#pragma mark - getters
+
+-(UIImageView *)imageSite {
+    if (!_imageSite) {
+        _imageSite = [UIImageView new];
+    }
+    return _imageSite;
 }
 
 #pragma mark -
