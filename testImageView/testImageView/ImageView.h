@@ -10,4 +10,7 @@
 
 @interface ImageView : UIScrollView
 @property (nonatomic, strong) UIImage *image;
+// к "пропорциональному заполнению" добавдяется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
+//@property (nonatomic) BOOL topAligned;
+@property (nonatomic) BOOL zoomEnabled;
 @end

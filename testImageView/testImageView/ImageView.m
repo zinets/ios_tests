@@ -8,7 +8,7 @@
 
 #import "ImageView.h"
 
-@interface ImageView ()
+@interface ImageView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIImageView *imageSite;
 @end
 
@@ -30,15 +30,15 @@
 
 - (void)initComponents {
     self.clipsToBounds = YES;
+    self.delegate = self;
+    self.maximumZoomScale = 3;
     
     self.imageSite = [UIImageView new];
     [self addSubview:self.imageSite];
 }
 
--(void)setImage:(UIImage *)image {
-    _image = image;
-    
-    CGSize imageSize = image.size;
+- (void)relayImage {
+    CGSize imageSize = _image.size;
     CGFloat imageAR = imageSize.width / imageSize.height;
     
     CGSize thisSize = self.frame.size;
@@ -52,14 +52,47 @@
         CGFloat w = imageSize.width / k;
         rectToFit = (CGRect){{(thisSize.width - w) / 2, 0}, {w, thisSize.height}};
     } else {
-
+        
     }
     self.contentOffset = (CGPoint){-rectToFit.origin.x, -rectToFit.origin.y};
     self.contentSize = rectToFit.size;
     
     rectToFit.origin = CGPointZero;
-    self.imageSite.frame = rectToFit;   
+    self.imageSite.frame = rectToFit;
     self.imageSite.image = _image;
+}
+
+#pragma mark -
+
+-(void)setImage:(UIImage *)image {
+    _image = image;
+
+    CATransition *a = [CATransition animation];
+    a.type = kCATransitionFade;
+    [self.layer addAnimation:a forKey:@"imageLoading"];
+    
+    [self relayImage];
+}
+
+-(void)setFrame:(CGRect)frame {
+    if (_image) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [super setFrame:frame];
+            [self relayImage];
+        }];
+    } else {
+        [super setFrame:frame];
+    }
+}
+
+#pragma mark - scroller
+
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    if (self.zoomEnabled) {
+        return self.imageSite;
+    } else {
+        return nil;
+    }
 }
 
 @end

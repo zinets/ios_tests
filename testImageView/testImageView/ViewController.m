@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet ImageView *portraitView;
 @property (weak, nonatomic) IBOutlet ImageView *squareView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *emberView;
+
+@property (nonatomic) CGRect lastRect;
 
 @end
 
@@ -53,22 +56,28 @@
     }
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cellId"];
     
-    UITapGestureRecognizer *tapR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-    [self.landscapeView addGestureRecognizer:tapR];
-    self.landscapeView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapR1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    UITapGestureRecognizer *tapR2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    UITapGestureRecognizer *tapR3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+
+    [self.landscapeView addGestureRecognizer:tapR1];
+    [self.portraitView addGestureRecognizer:tapR2];
+    [self.squareView addGestureRecognizer:tapR3];
+
 }
 
-- (void)onTap:(id)sender {
-    CGRect frm;
-    if (fs) {
-        frm = (CGRect){{16, 38}, {343, 549}};
+- (void)onTap:(UITapGestureRecognizer *)sender {
+    if (!fs) {
+        self.lastRect = sender.view.frame;
+        sender.view.frame = self.emberView.bounds;
     } else {
-        frm = (CGRect){{16, 38}, {343, 244}};
+        sender.view.frame = self.lastRect;
     }
-    self.landscapeView.frame = frm;
-    [self.view bringSubviewToFront:self.landscapeView];
+
+    [self.emberView bringSubviewToFront:sender.view];
     
     fs = !fs;
+    ((ImageView *)sender.view).zoomEnabled = fs;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
