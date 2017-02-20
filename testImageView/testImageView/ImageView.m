@@ -37,6 +37,11 @@
     self.bounces = YES;
     
     [self addSubview:self.imageSite];
+    
+#ifdef DEBUG
+    self.layer.borderColor = [UIColor yellowColor].CGColor;
+    self.layer.borderWidth = 2;
+#endif
 }
 
 - (void)relayImage {
@@ -131,14 +136,24 @@
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     CGRect imageSiteFrame = self.imageSite.frame;
+    CGPoint pt = scrollView.contentOffset;
+    
     if (self.imageSite.bounds.size.height < self.bounds.size.height) {
         // пока размер меньше размера скроллера - при зуме орижин вью, которое зумим не меняется - меняю его вручную
-        imageSiteFrame.origin.y = (self.frame.size.height - imageSiteFrame.size.height) /2;
+        imageSiteFrame.origin.y = MAX(0, (self.frame.size.height - imageSiteFrame.size.height) / 2);
     } else {
         // если размер вью, которое зумим, больше - включается скрол за счет зума
         imageSiteFrame.origin.y = 0;
     }
+    
+    if (self.imageSite.bounds.size.width < self.bounds.size.width) {
+        imageSiteFrame.origin.x = MAX(0, (self.frame.size.width - imageSiteFrame.size.width) / 2);
+    } else {
+        imageSiteFrame.origin.x = 0;
+    }
+    
     self.imageSite.frame = imageSiteFrame;
+    self.contentOffset = pt;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
