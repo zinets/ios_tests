@@ -18,8 +18,18 @@
       <file leaf-file-name="ImageView.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testImageView/ImageView.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="200" column="67" lean-forward="false" selection-start-line="200" selection-start-column="67" selection-end-line="200" selection-end-column="67" />
+            <state relative-caret-position="273">
+              <caret line="120" column="27" lean-forward="true" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testImageView/ViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -52,6 +62,7 @@
       <list>
         <option value="$PROJECT_DIR$/testImageView/ImageView.h" />
         <option value="$PROJECT_DIR$/testImageView/ImageView.m" />
+        <option value="$PROJECT_DIR$/testImageView/ViewController.m" />
       </list>
     </option>
   </component>
@@ -164,7 +175,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/testImageView/ImageView.m</url>
-          <line>194</line>
+          <line>188</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
@@ -188,10 +199,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testImageView/ViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testImageView/ImageView.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="200" column="67" lean-forward="false" selection-start-line="200" selection-start-column="67" selection-end-line="200" selection-end-column="67" />
+        <state relative-caret-position="273">
+          <caret line="120" column="27" lean-forward="true" selection-start-line="120" selection-start-column="27" selection-end-line="120" selection-end-column="27" />
           <folding />
         </state>
       </provider>
