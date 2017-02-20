@@ -187,6 +187,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.y < 0 && self.zoomEnabled) {
+    if (scrollView.contentOffset.y > 0 &&
+            scrollView.contentSize.height <= self.imageSite.bounds.size.height) {
+        CGPoint pt = scrollView.contentOffset;
+        pt.y = 0;
+        scrollView.contentOffset = pt;
+    } else
         CGFloat alpha = 1 - ABS(scrollView.contentOffset.y / self.pullDownLimit);
         [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha]];
 
