@@ -64,7 +64,6 @@
                 rectToFit.size.width = w;
                 rectToFit.origin.x = (thisSize.width - w) / 2;
             }
-            self.contentOffset = CGPointZero;
             self.contentSize = rectToFit.size;
         } else {
             if (thisAR > imageAR) {
@@ -122,14 +121,24 @@
 -(void)setZoomEnabled:(BOOL)zoomEnabled {
     _zoomEnabled = zoomEnabled;
     [UIView animateWithDuration:0.3 animations:^{
+        self.imageSite.transform = CGAffineTransformIdentity;
         [self relayImage];
+    } completion:^(BOOL finished) {
     }];
 }
 
 #pragma mark - scroller
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    NSLog(@"%f", scrollView.zoomScale);
+    CGRect imageSiteFrame = self.imageSite.frame;
+    if (self.imageSite.bounds.size.height < self.bounds.size.height) {
+        // пока размер меньше размера скроллера - при зуме орижин вью, которое зумим не меняется - меняю его вручную
+        imageSiteFrame.origin.y = (self.frame.size.height - imageSiteFrame.size.height) /2;
+    } else {
+        // если размер вью, которое зумим, больше - включается скрол за счет зума
+        imageSiteFrame.origin.y = 0;
+    }
+    self.imageSite.frame = imageSiteFrame;
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
