@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ControlPullDownProtocol <NSObject>
+@required
+@property (nonatomic, assign) CGFloat pullDownLimit;
+- (void)controlReachedPullDownLimit:(id)sender;
+@end
+
 @interface ImageView : UIScrollView
 @property (nonatomic, strong) UIImage *image;
-// к "пропорциональному заполнению" добавдяется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
+// к "пропорциональному заполнению" добавляется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
 //@property (nonatomic) BOOL topAligned;
 @property (nonatomic) BOOL zoomEnabled;
+@property (nonatomic, weak) id <ControlPullDownProtocol> pullDownDelegate;
 @end

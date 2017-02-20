@@ -8,8 +8,11 @@
 
 #import "ImageView.h"
 
-@interface ImageView () <UIScrollViewDelegate>
+@interface ImageView () <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
+    UIColor *intBgColor;
+}
 @property (nonatomic, strong) UIImageView *imageSite;
+@property (nonatomic) CGFloat pullDownLimit;
 @end
 
 @implementation ImageView
@@ -30,12 +33,14 @@
 
 - (void)initComponents {
     self.clipsToBounds = YES;
+    self.backgroundColor = [UIColor blackColor];
+
     self.delegate = self;
+    self.pullDownLimit = 150;
     
     self.minimumZoomScale = 1;
     self.maximumZoomScale = 3;
-    self.bounces = YES;
-    
+
     [self addSubview:self.imageSite];
     
 #ifdef DEBUG
@@ -123,13 +128,30 @@
     }
 }
 
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    intBgColor = backgroundColor;
+    [super setBackgroundColor:intBgColor];
+}
+
+- (UIColor *)backgroundColor {
+    return intBgColor;
+}
+
 -(void)setZoomEnabled:(BOOL)zoomEnabled {
     _zoomEnabled = zoomEnabled;
+    self.alwaysBounceVertical = _zoomEnabled;
     [UIView animateWithDuration:0.3 animations:^{
         self.imageSite.transform = CGAffineTransformIdentity;
         [self relayImage];
     } completion:^(BOOL finished) {
     }];
+}
+
+- (void)setPullDownDelegate:(id <ControlPullDownProtocol>)pullDownDelegate {
+    _pullDownDelegate = pullDownDelegate;
+    if (_pullDownDelegate) {
+        self.pullDownLimit = _pullDownDelegate.pullDownLimit;
+    }
 }
 
 #pragma mark - scroller
@@ -154,6 +176,7 @@
     
     self.imageSite.frame = imageSiteFrame;
     self.contentOffset = pt;
+    self.alwaysBounceVertical = _zoomEnabled && (self.zoomScale == 1);
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView {
@@ -165,6 +188,18 @@
         return self.imageSite;
     } else {
         return nil;
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y < 0 && self.zoomEnabled) {
+        CGFloat alpha = 1 - ABS(scrollView.contentOffset.y / self.pullDownLimit);
+        [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha]];
+
+        if (self.pullDownDelegate &&
+                ABS(scrollView.contentOffset.y) >= self.pullDownLimit) {
+            [self.pullDownDelegate controlReachedPullDownLimit:self];
+        }
     }
 }
 
