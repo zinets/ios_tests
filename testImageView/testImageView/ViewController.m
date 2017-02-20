@@ -10,7 +10,7 @@
 #import "ImageView.h"
 #import "CollectionViewCell.h"
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, ControlPullDownProtocol> {
     BOOL fs;
 }
 @property (weak, nonatomic) IBOutlet ImageView *landscapeView;
@@ -64,12 +64,42 @@
     [self.portraitView addGestureRecognizer:tapR2];
     [self.squareView addGestureRecognizer:tapR3];
 
+    self.pullDownLimit = 120;
 }
 
+#pragma mark - delegates
+
 - (void)onTap:(UITapGestureRecognizer *)sender {
+
+    if (!fs) {
+        self.lastRect = sender.view.frame;
+
+        ImageView *fsView = [[ImageView alloc] initWithFrame:self.lastRect];
+        fsView.image = ((ImageView *)sender.view).image;
+        fsView.pullDownDelegate = self;
+        [self.emberView addSubview:fsView];
+
+        [UIView animateWithDuration:0.3 animations:^{
+            fsView.frame = self.emberView.bounds;
+            fsView.zoomEnabled = YES;
+        } completion:^(BOOL finished) {
+            UITapGestureRecognizer *fsExit = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+            [fsView addGestureRecognizer:fsExit];
+        }];
+    } else {
+        [UIView animateWithDuration:0.3 animations:^{
+            sender.view.frame = self.lastRect;
+            ((ImageView *)sender.view).zoomEnabled = NO;
+        } completion:^(BOOL finished) {
+            [sender.view removeFromSuperview];
+        }];
+    }
+    fs = !fs;
+
+    return;
+
+
     [UIView animateWithDuration:0.3 animations:^{
-
-
         if (!fs) {
             self.lastRect = sender.view.frame;
             sender.view.frame = self.emberView.bounds;
@@ -81,7 +111,6 @@
 
         fs = !fs;
         ((ImageView *)sender.view).zoomEnabled = fs;
-
     }];
 }
 
@@ -99,6 +128,11 @@
     self.landscapeView.image = [UIImage imageNamed:dataSource[indexPath.item]];
     self.portraitView.image = [UIImage imageNamed:dataSource[indexPath.item]];
     self.squareView.image = [UIImage imageNamed:dataSource[indexPath.item]];
+}
+
+- (void)controlReachedPullDownLimit:(ImageView *)sender {
+    fs = NO;
+    [sender removeFromSuperview];
 }
 
 @end
