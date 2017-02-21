@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "ImageViewControl.h"
 #import "CollectionViewCell.h"
+#import "ImageViewControl+Url.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, ControlPullDownProtocol> {
     BOOL fs;
@@ -48,6 +48,14 @@
     self.landscapeView.image = [UIImage imageNamed:@"ar_1.jpg"];
     self.portraitView.image = [UIImage imageNamed:@"ar_1.jpg"];
     self.squareView.image = [UIImage imageNamed:@"ar_1.jpg"];
+}
+
+- (IBAction)urlLoad:(id)sender {
+    NSString *url = @"https://s-media-cache-ak0.pinimg.com/736x/73/c6/34/73c6349cf11741783997a9e4db3a1e4d.jpg";
+
+    [self.landscapeView loadImageForUrl:url];
+    [self.portraitView loadImageForUrl:url];
+    [self.squareView loadImageForUrl:url];
 }
 
 - (void)viewDidLoad {
