@@ -75,7 +75,7 @@
 - (void)onTap:(UITapGestureRecognizer *)sender {
     ImageViewControl *senderView = nil;
     if ([sender.view isKindOfClass:[ImageViewControl class]]) {
-        senderView = sender.view;
+        senderView = (id)sender.view;
     } else{
         return;
     }
@@ -126,6 +126,10 @@
 - (void)controlReachedPullDownLimit:(ImageViewControl *)sender {
     fs = NO;
     [sender removeFromSuperview];
+}
+
+- (void)control:(id)sender pullDownProgress:(CGFloat)progress {
+    NSLog(@"%f", progress);
 }
 
 @end

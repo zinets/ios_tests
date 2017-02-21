@@ -228,7 +228,7 @@
                 [self.superview addSubview:self.imageSite];
                 self.imageSite.frame = frm;
 
-                [UIView animateWithDuration:0.3
+                [UIView animateWithDuration:0.2
                                       delay:0
                                     options:UIViewAnimationOptionCurveEaseIn
                                  animations:^{
