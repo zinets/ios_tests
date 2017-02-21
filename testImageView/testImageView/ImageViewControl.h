@@ -15,9 +15,17 @@
 - (void)control:(id)sender pullDownProgress:(CGFloat)progress;
 @end
 
+typedef NS_ENUM(NSInteger, ImageVerticalAlign) {
+    ImageVerticalAlignTop = 0,
+    ImageVerticalAlignCenter,
+    ImageVerticalAlignBottom,
+};
+
 @interface ImageViewControl : UIScrollView <NSCopying>
 @property (nonatomic, strong) UIImage *image;
 // к "пропорциональному заполнению" добавляется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
 @property (nonatomic) BOOL zoomEnabled;
 @property (nonatomic, weak) id <ControlPullDownProtocol> pullDownDelegate;
+/// настраивать вертикальное выравнивание может понадобится для показа например пласхолдера - его надо прижимать как правило к низу (иначе плечи висят в воздухе); а фото юзера _как правило_ должны показываться прижатыми вверх (чтобы сверху была голова)
+@property (nonatomic, assign) ImageVerticalAlign imageVerticalAlign;
 @end

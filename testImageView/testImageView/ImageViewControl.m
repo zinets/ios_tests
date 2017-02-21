@@ -52,8 +52,6 @@
     self.maximumZoomScale = 3;
     self.bounces = NO;
     self.bouncesZoom = NO;
-
-    [self addSubview:self.imageSite];
     
 #ifdef DEBUG
     self.layer.borderColor = [UIColor yellowColor].CGColor;
@@ -71,6 +69,7 @@
         CGRect rectToFit = self.bounds;
         
         if (self.zoomEnabled) {
+            // делается фактич. fit to size, т.е. vertAlign можно игнорировать
             if (imageAR > thisAR) {
                 rectToFit.origin.x = 0;
                 rectToFit.size.width = thisSize.width;
@@ -92,7 +91,20 @@
         } else {
             if (thisAR > imageAR) {
                 CGFloat k = thisSize.width / imageSize.width;
-                rectToFit = (CGRect){{0, 0}, {thisSize.width, imageSize.height * k}};
+                CGFloat h = imageSize.height * k;
+                CGFloat y = 0;
+                switch (self.imageVerticalAlign) {
+                    case ImageVerticalAlignBottom:
+                        y = (thisSize.height - h);
+                        break;
+                    case ImageVerticalAlignCenter:
+                        y = (thisSize.height - h) / 2;
+                        break;
+                    default:
+                        break;
+                }
+
+                rectToFit = (CGRect){{0, y}, {thisSize.width, h}};
             } else if (thisAR < imageAR) {
                 CGFloat k = imageSize.height / thisSize.height;
                 CGFloat w = imageSize.width / k;
@@ -106,7 +118,9 @@
             rectToFit.origin = CGPointZero;
         }
         self.imageSite.frame = rectToFit;
-        self.imageSite.image = _image;
+    } else {
+        self.contentSize = self.bounds.size;
+        self.contentOffset = CGPointZero;
     }
 }
 
@@ -115,6 +129,7 @@
 -(UIImageView *)imageSite {
     if (!_imageSite) {
         _imageSite = [UIImageView new];
+        [self addSubview:_imageSite];
     }
     return _imageSite;
 }
@@ -131,6 +146,7 @@
         [self.layer addAnimation:a forKey:@"imageLoading"];
     }
     [self relayImage];
+    self.imageSite.image = _image;
 }
 
 -(void)setFrame:(CGRect)frame {
