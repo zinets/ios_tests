@@ -83,6 +83,13 @@
     [self.squareView addGestureRecognizer:tapR3];
 
     self.pullDownLimit = 120;
+
+    UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    loadingView.frame = (CGRect){{0, 0}, {60, 60}};
+    loadingView.layer.cornerRadius = 10;
+    [loadingView startAnimating];
+    self.landscapeView.loadingView = loadingView;
 }
 
 #pragma mark - delegates
