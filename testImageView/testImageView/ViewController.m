@@ -51,7 +51,14 @@
 }
 
 - (IBAction)urlLoad:(id)sender {
-    NSString *url = @"https://s-media-cache-ak0.pinimg.com/736x/73/c6/34/73c6349cf11741783997a9e4db3a1e4d.jpg";
+    NSArray <NSString *> *urls = @[
+            @"https://s-media-cache-ak0.pinimg.com/736x/73/c6/34/73c6349cf11741783997a9e4db3a1e4d.jpg",
+            @"https://pbs.twimg.com/media/B6-xfsJIEAEzc5N.jpg",
+            @"https://i.ytimg.com/vi/MtI225unoHs/hqdefault.jpg",
+            @"https://scontent.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13183361_1624045631250467_2063482480_n.jpg?ig_cache_key=MTI1MDU0Mjg5ODY1NDMwMTU0MA%3D%3D.2.l",
+    ];
+    NSString *url = urls[arc4random() % urls.count];
+
 
     [self.landscapeView loadImageForUrl:url];
     [self.portraitView loadImageForUrl:url];
