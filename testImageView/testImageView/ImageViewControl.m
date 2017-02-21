@@ -78,13 +78,15 @@
                 CGFloat h = imageSize.height * k;
                 rectToFit.size.height = h;
                 rectToFit.origin.y = (thisSize.height - h) / 2;
-            } else {
+            } else if (imageAR < thisAR) {
                 rectToFit.size.height = thisSize.height;
                 rectToFit.origin.y = 0;
                 CGFloat k = thisSize.height / imageSize.height;
                 CGFloat w = imageSize.width * k;
                 rectToFit.size.width = w;
                 rectToFit.origin.x = (thisSize.width - w) / 2;
+            } else {
+
             }
             self.contentSize = rectToFit.size;
         } else {
@@ -208,31 +210,37 @@
         scrollView.contentOffset = pt;
     } else if (!pullDownReached && self.zoomEnabled &&
             scrollView.contentOffset.y < 0 && self.zoomScale == 1) {
-        CGFloat alpha = 1 - ABS(scrollView.contentOffset.y / self.pullDownLimit);
-        [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha + 0.2]];
+        CGFloat pullDownProgress = ABS(scrollView.contentOffset.y / self.pullDownLimit);
+        CGFloat alpha = 1 - pullDownProgress + 0.3; // чтобы оставался намек на затененность
+        [super setBackgroundColor:[intBgColor colorWithAlphaComponent:alpha]];
         // вот какая хрень: сейчас скролвью "оттянут" вниз; если не просто тянуть вниз пальцем, а "махнуть" - то а) вью поедет вниз б) скролвью потянет вью вверх и получится небольшое дергание
         // а если я возьму и перекладу вью "наверх"? и пусть скроллер (без содержимого) едет себе назад, вью поедет вниз по другому вью :)
         // но это пц как нехорошо, надо быть увереным, что этот контрол тут же разрушиться и не будет использоваться повторно
-        if (self.pullDownDelegate &&
-                ABS(scrollView.contentOffset.y) >= self.pullDownLimit) {
-            pullDownReached = YES;
+        if (self.pullDownDelegate) {
+            if ([self.pullDownDelegate respondsToSelector:@selector(control:pullDownProgress:)]) {
+                [self.pullDownDelegate control:self pullDownProgress:pullDownProgress];
+            }
 
-            CGRect frm = [self convertRect:self.imageSite.frame toView:self.superview];
-            [self.superview addSubview:self.imageSite];
-            self.imageSite.frame = frm;
+            if (pullDownProgress >= 1) {
+                pullDownReached = YES;
 
-            [UIView animateWithDuration:0.3
-                                  delay:0
-                                options:UIViewAnimationOptionCurveEaseIn
-                             animations:^{
-                                 self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
-                                 self.backgroundColor = [UIColor clearColor];
-                             } completion:^(BOOL finished) {
-                        [self addSubview:self.imageSite]; // ну или так все восстановить - но надо где-то восстановить и трансформ, а когда? после удаления видимо в методе делегата с вью; но если удаление - то и смысла в общем наверное нету ж?
-                        [self.pullDownDelegate controlReachedPullDownLimit:self];
-                        // и кроме того - а если в методе делегата будет анимация? тогда тут еще она не закончится
-                        self.imageSite.transform = CGAffineTransformIdentity;
-            }];
+                CGRect frm = [self convertRect:self.imageSite.frame toView:self.superview];
+                [self.superview addSubview:self.imageSite];
+                self.imageSite.frame = frm;
+
+                [UIView animateWithDuration:0.3
+                                      delay:0
+                                    options:UIViewAnimationOptionCurveEaseIn
+                                 animations:^{
+                                     self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
+                                     self.backgroundColor = [UIColor clearColor];
+                                 } completion:^(BOOL finished) {
+                            [self addSubview:self.imageSite]; // ну или так все восстановить - но надо где-то восстановить и трансформ, а когда? после удаления видимо в методе делегата с вью; но если удаление - то и смысла в общем наверное нету ж?
+                            [self.pullDownDelegate controlReachedPullDownLimit:self];
+                            // и кроме того - а если в методе делегата будет анимация? тогда тут еще она не закончится
+                            self.imageSite.transform = CGAffineTransformIdentity;
+                        }];
+            }
         }
     }
 }
