@@ -37,4 +37,6 @@ typedef NS_ENUM(NSInteger, ImageVerticalAlign) {
 @property (nonatomic, assign) ImageVerticalAlign imageVerticalAlign;
 /// т.к. методы протокола опциональные, то можно передать просто UIActivityView и запустить его бесконечную анимацию
 @property (nonatomic, strong) UIView <ControlProgressIndicator> *loadingView;
+/// моя любимка - пласехолдер
+@property (nonatomic, strong) UIView *placeholderView;
 @end

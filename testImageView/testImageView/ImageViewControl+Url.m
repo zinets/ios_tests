@@ -10,7 +10,6 @@
     if (self.loadingView) {
         self.userInteractionEnabled = NO;
         self.loadingView.center = (CGPoint){CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)};
-
         [self addSubview:self.loadingView];
     }
     [[TNImageDownloader sharedInstance] getImagesForUrls:@[imageUrl] observer:self];
@@ -21,7 +20,6 @@
 - (void)imageDownloader:(TNImageDownloader *)imageDownloader didDownloadImage:(UIImage *)image forUrl:(NSString *)imageUrl {
     [self.loadingView removeFromSuperview];
     self.userInteractionEnabled = YES;
-
     self.image = image;
 }
 
