@@ -1,9 +1,5 @@
 //
 //  ImageView.m
-//  testImageView
-//
-//  Created by Zinets Victor on 2/17/17.
-//  Copyright © 2017 Zinets Victor. All rights reserved.
 //
 
 #import "ImageView.h"
@@ -30,6 +26,19 @@
         [self initComponents];
     }
     return self;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    // делаю копию - фрейм как у источника
+    ImageView *res = [[ImageView alloc] initWithFrame:self.frame];
+    // затем картинка - в сеттере делаются расчеты
+    res.image = self.image;
+    // скорее всего у источника нет делегата, но
+    res.pullDownDelegate = self.pullDownDelegate;
+    // размер содержимого пересчитался, надо выровнять положение картинок на старте
+    res.contentOffset = self.contentOffset;
+
+    return res;
 }
 
 - (void)initComponents {
@@ -111,12 +120,14 @@
 #pragma mark -
 
 -(void)setImage:(UIImage *)image {
+    BOOL canBeAnimated = _image != nil;
     _image = image;
 
-    CATransition *a = [CATransition animation];
-    a.type = kCATransitionFade;
-    [self.layer addAnimation:a forKey:@"imageLoading"];
-    
+    if (canBeAnimated) {
+        CATransition *a = [CATransition animation];
+        a.type = kCATransitionFade;
+        [self.layer addAnimation:a forKey:@"imageLoading"];
+    }
     [self relayImage];
 }
 
@@ -209,12 +220,18 @@
             CGRect frm = [self convertRect:self.imageSite.frame toView:self.superview];
             [self.superview addSubview:self.imageSite];
             self.imageSite.frame = frm;
-            [UIView animateWithDuration:.45 animations:^{
-                self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
-                self.backgroundColor = [UIColor clearColor];
-            } completion:^(BOOL finished) {
-                [self addSubview:self.imageSite];
-                [self.pullDownDelegate controlReachedPullDownLimit:self];
+
+            [UIView animateWithDuration:0.3
+                                  delay:0
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 self.imageSite.transform = CGAffineTransformTranslate(self.imageSite.transform, 0, self.bounds.size.height - self.imageSite.frame.origin.y);
+                                 self.backgroundColor = [UIColor clearColor];
+                             } completion:^(BOOL finished) {
+                        [self addSubview:self.imageSite]; // ну или так все восстановить - но надо где-то восстановить и трансформ, а когда? после удаления видимо в методе делегата с вью; но если удаление - то и смысла в общем наверное нету ж?
+                        [self.pullDownDelegate controlReachedPullDownLimit:self];
+                        // и кроме того - а если в методе делегата будет анимация? тогда тут еще она не закончится
+                        self.imageSite.transform = CGAffineTransformIdentity;
             }];
         }
     }
