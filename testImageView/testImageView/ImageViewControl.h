@@ -21,6 +21,13 @@ typedef NS_ENUM(NSInteger, ImageVerticalAlign) {
     ImageVerticalAlignBottom,
 };
 
+// можно сделать вью для показа процесса загрузки и показывать его в ImageViewControl - в расширении, загружающем изображения по сети, иначе в нем нет смысла
+@protocol ControlProgressIndicator <NSObject>
+@optional
+@property (nonatomic) CGFloat progress;
+- (void)setProgress:(CGFloat)progress animated:(BOOL)animated;
+@end
+
 @interface ImageViewControl : UIScrollView <NSCopying>
 @property (nonatomic, strong) UIImage *image;
 // к "пропорциональному заполнению" добавляется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
@@ -28,4 +35,6 @@ typedef NS_ENUM(NSInteger, ImageVerticalAlign) {
 @property (nonatomic, weak) id <ControlPullDownProtocol> pullDownDelegate;
 /// настраивать вертикальное выравнивание может понадобится для показа например пласхолдера - его надо прижимать как правило к низу (иначе плечи висят в воздухе); а фото юзера _как правило_ должны показываться прижатыми вверх (чтобы сверху была голова)
 @property (nonatomic, assign) ImageVerticalAlign imageVerticalAlign;
+/// т.к. методы протокола опциональные, то можно передать просто UIActivityView и запустить его бесконечную анимацию
+@property (nonatomic, strong) UIView <ControlProgressIndicator> *loadingView;
 @end
