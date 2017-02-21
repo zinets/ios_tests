@@ -19,7 +19,10 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *emberView;
 
+// фрейм вью, которое переходит в фулцкрин
 @property (nonatomic) CGRect lastRect;
+// офсеты вью в момент перехода в фулцкрин
+@property (nonatomic) CGPoint lastOffset;
 
 @end
 
@@ -70,12 +73,18 @@
 #pragma mark - delegates
 
 - (void)onTap:(UITapGestureRecognizer *)sender {
+    ImageView *senderView = nil;
+    if ([sender.view isKindOfClass:[ImageView class]]) {
+        senderView = sender.view;
+    } else{
+        return;
+    }
 
     if (!fs) {
-        self.lastRect = sender.view.frame;
+        self.lastRect = senderView.frame;
+        self.lastOffset = senderView.contentOffset;
 
-        ImageView *fsView = [[ImageView alloc] initWithFrame:self.lastRect];
-        fsView.image = ((ImageView *)sender.view).image;
+        ImageView *fsView = [senderView copy]; // при создании копии скорипуются разные офсеты и прочее - для более гладкой анимации
         fsView.pullDownDelegate = self;
         [self.emberView addSubview:fsView];
 
@@ -88,10 +97,11 @@
         }];
     } else {
         [UIView animateWithDuration:0.3 animations:^{
-            sender.view.frame = self.lastRect;
-            ((ImageView *)sender.view).zoomEnabled = NO;
+            senderView.zoomEnabled = NO;
+            senderView.frame = self.lastRect;
+            senderView.contentOffset = self.lastOffset;
         } completion:^(BOOL finished) {
-            [sender.view removeFromSuperview];
+            [senderView removeFromSuperview];
         }];
     }
     fs = !fs;
