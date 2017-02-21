@@ -38,6 +38,10 @@
 		3BF5A4D71E5746BC00F91301 /* i18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5A4C41E5746BC00F91301 /* i18.jpg */; };
 		3BF5A4DB1E5747D400F91301 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF5A4D91E5747D400F91301 /* CollectionViewCell.m */; };
 		3BF5A4DC1E5747D400F91301 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF5A4DA1E5747D400F91301 /* CollectionViewCell.xib */; };
+		D62A63784503C105BFDC5CBC /* TNCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6B0267E75FD082ADB79A /* TNCache.m */; };
+		D62A6908D1FCA2BB2815B7AF /* TNImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A66047D825A626536576E /* TNImageDownloader.m */; };
+		D62A6F03DE13A8EAA670754A /* TNSafeMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A8503FA5ADD3D38388F /* TNSafeMutableDictionary.m */; };
+		D62A6F7BCF18441BBA050671 /* ImageViewControl+Url.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A38985076190D7E92E7 /* ImageViewControl+Url.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,15 @@
 		3BF5A4D81E5747D400F91301 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		3BF5A4D91E5747D400F91301 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		3BF5A4DA1E5747D400F91301 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		D62A6159B8B4074586E8F4F5 /* TNCache-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TNCache-Prefix.pch"; sourceTree = "<group>"; };
+		D62A6577100D739EA29D11DD /* TNSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSafeMutableDictionary.h; sourceTree = "<group>"; };
+		D62A66047D825A626536576E /* TNImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageDownloader.m; sourceTree = "<group>"; };
+		D62A66CBDD29E306452454A1 /* TNCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCache.h; sourceTree = "<group>"; };
+		D62A6A38985076190D7E92E7 /* ImageViewControl+Url.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ImageViewControl+Url.m"; sourceTree = "<group>"; };
+		D62A6A38E0CC4CBB5B98027E /* TNImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageDownloader.h; sourceTree = "<group>"; };
+		D62A6A8503FA5ADD3D38388F /* TNSafeMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNSafeMutableDictionary.m; sourceTree = "<group>"; };
+		D62A6B0267E75FD082ADB79A /* TNCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCache.m; sourceTree = "<group>"; };
+		D62A6C4C8F94F8699EF95A5E /* ImageViewControl+Url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ImageViewControl+Url.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +131,9 @@
 				3BF5A4821E57327C00F91301 /* Supporting Files */,
 				3BF5A49F1E5732E500F91301 /* ImageViewControl.h */,
 				3BF5A4A01E5732E500F91301 /* ImageViewControl.m */,
+				D62A6A38985076190D7E92E7 /* ImageViewControl+Url.m */,
+				D62A6C4C8F94F8699EF95A5E /* ImageViewControl+Url.h */,
+				D62A632F9D559F312CB2C336 /* TNCache */,
 			);
 			path = testImageView;
 			sourceTree = "<group>";
@@ -156,6 +172,21 @@
 				3BF5A4831E57327C00F91301 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62A632F9D559F312CB2C336 /* TNCache */ = {
+			isa = PBXGroup;
+			children = (
+				D62A66CBDD29E306452454A1 /* TNCache.h */,
+				D62A6B0267E75FD082ADB79A /* TNCache.m */,
+				D62A6159B8B4074586E8F4F5 /* TNCache-Prefix.pch */,
+				D62A6A38E0CC4CBB5B98027E /* TNImageDownloader.h */,
+				D62A66047D825A626536576E /* TNImageDownloader.m */,
+				D62A6577100D739EA29D11DD /* TNSafeMutableDictionary.h */,
+				D62A6A8503FA5ADD3D38388F /* TNSafeMutableDictionary.m */,
+			);
+			name = TNCache;
+			path = ../../../trunk/TNCache/TNCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +289,10 @@
 				3BF5A48A1E57327C00F91301 /* ViewController.m in Sources */,
 				3BF5A4871E57327C00F91301 /* AppDelegate.m in Sources */,
 				3BF5A4841E57327C00F91301 /* main.m in Sources */,
+				D62A6F7BCF18441BBA050671 /* ImageViewControl+Url.m in Sources */,
+				D62A63784503C105BFDC5CBC /* TNCache.m in Sources */,
+				D62A6908D1FCA2BB2815B7AF /* TNImageDownloader.m in Sources */,
+				D62A6F03DE13A8EAA670754A /* TNSafeMutableDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
