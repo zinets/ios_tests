@@ -1,5 +1,5 @@
 //
-//  ImageView.h
+//  ImageViewControl.h
 //
 
 #import <UIKit/UIKit.h>
@@ -10,7 +10,7 @@
 - (void)controlReachedPullDownLimit:(id)sender;
 @end
 
-@interface ImageView : UIScrollView <NSCopying>
+@interface ImageViewControl : UIScrollView <NSCopying>
 @property (nonatomic, strong) UIImage *image;
 // к "пропорциональному заполнению" добавляется сдвиг при необходимости картинки вниз т.о. чтобы "головы" оставались на виду
 @property (nonatomic) BOOL zoomEnabled;

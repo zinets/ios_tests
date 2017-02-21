@@ -1,10 +1,10 @@
 //
-//  ImageView.m
+//  ImageViewControl.m
 //
 
-#import "ImageView.h"
+#import "ImageViewControl.h"
 
-@interface ImageView () <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
+@interface ImageViewControl () <UIScrollViewDelegate, UIGestureRecognizerDelegate> {
     UIColor *intBgColor;
     BOOL pullDownReached;
 }
@@ -12,7 +12,7 @@
 @property (nonatomic) CGFloat pullDownLimit;
 @end
 
-@implementation ImageView
+@implementation ImageViewControl
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -30,7 +30,7 @@
 
 - (id)copyWithZone:(nullable NSZone *)zone {
     // делаю копию - фрейм как у источника
-    ImageView *res = [[ImageView alloc] initWithFrame:self.frame];
+    ImageViewControl *res = [[ImageViewControl alloc] initWithFrame:self.frame];
     // затем картинка - в сеттере делаются расчеты
     res.image = self.image;
     // скорее всего у источника нет делегата, но

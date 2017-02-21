@@ -7,15 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "ImageView.h"
+#import "ImageViewControl.h"
 #import "CollectionViewCell.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, ControlPullDownProtocol> {
     BOOL fs;
 }
-@property (weak, nonatomic) IBOutlet ImageView *landscapeView;
-@property (weak, nonatomic) IBOutlet ImageView *portraitView;
-@property (weak, nonatomic) IBOutlet ImageView *squareView;
+@property (weak, nonatomic) IBOutlet ImageViewControl *landscapeView;
+@property (weak, nonatomic) IBOutlet ImageViewControl *portraitView;
+@property (weak, nonatomic) IBOutlet ImageViewControl *squareView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *emberView;
 
@@ -73,8 +73,8 @@
 #pragma mark - delegates
 
 - (void)onTap:(UITapGestureRecognizer *)sender {
-    ImageView *senderView = nil;
-    if ([sender.view isKindOfClass:[ImageView class]]) {
+    ImageViewControl *senderView = nil;
+    if ([sender.view isKindOfClass:[ImageViewControl class]]) {
         senderView = sender.view;
     } else{
         return;
@@ -84,7 +84,7 @@
         self.lastRect = senderView.frame;
         self.lastOffset = senderView.contentOffset;
 
-        ImageView *fsView = [senderView copy]; // при создании копии скорипуются разные офсеты и прочее - для более гладкой анимации
+        ImageViewControl *fsView = [senderView copy]; // при создании копии скопируются разные офсеты и прочее - для более гладкой анимации
         fsView.pullDownDelegate = self;
         [self.emberView addSubview:fsView];
 
@@ -105,23 +105,6 @@
         }];
     }
     fs = !fs;
-
-    return;
-
-
-    [UIView animateWithDuration:0.3 animations:^{
-        if (!fs) {
-            self.lastRect = sender.view.frame;
-            sender.view.frame = self.emberView.bounds;
-        } else {
-            sender.view.frame = self.lastRect;
-        }
-
-        [self.emberView bringSubviewToFront:sender.view];
-
-        fs = !fs;
-        ((ImageView *)sender.view).zoomEnabled = fs;
-    }];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -140,7 +123,7 @@
     self.squareView.image = [UIImage imageNamed:dataSource[indexPath.item]];
 }
 
-- (void)controlReachedPullDownLimit:(ImageView *)sender {
+- (void)controlReachedPullDownLimit:(ImageViewControl *)sender {
     fs = NO;
     [sender removeFromSuperview];
 }
