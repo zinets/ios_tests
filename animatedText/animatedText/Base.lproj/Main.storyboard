@@ -24,9 +24,8 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lO2-yN-fXv" customClass="AnimatedTypiingLabel">
                                 <rect key="frame" x="65" y="76" width="269" height="20.5"/>
-                                <color key="backgroundColor" red="0.77043700000000004" green="0.78391299999999997" blue="0.77829899999999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN4-YT-Emr">
@@ -34,13 +33,15 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Af7-uw-CMP"/>
                                 </constraints>
-                                <state key="normal" title="set text"/>
+                                <state key="normal" title="set text">
+                                    <color key="titleColor" red="0.77043700000000004" green="0.78391299999999997" blue="0.77829899999999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uUz-v7-aMj"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jN4-YT-Emr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U28-s3-ay9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lO2-yN-fXv" secondAttribute="trailing" constant="25" id="g1M-Pb-Obx"/>

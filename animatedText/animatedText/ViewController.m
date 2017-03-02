@@ -22,9 +22,8 @@
 }
 
 - (IBAction)onTap:(id)sender {
-//    [self.label setText2:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" animated:YES];
+    [self.label setText2:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom\n\nЯ б ей вдул - ты б и в мелкодисперсную грязь вдул!\n\nAnswers 5 match questions to calculate better matches" animated:YES];
 
-    [self.label setText2:@"0123456789" animated:YES];
 }
 
 
