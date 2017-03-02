@@ -22,7 +22,7 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self.label animateTextAppearing:@"It’s really nice that your boobs are so big and tasty" charDelay:1 / 100.];
+    [self.label animateTextAppearing:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" charDelay:1 / 100.];
 }
 
 

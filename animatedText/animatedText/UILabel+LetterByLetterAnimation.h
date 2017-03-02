@@ -7,5 +7,4 @@
 
 @interface UILabel (LetterByLetterAnimation)
 - (void)animateTextAppearing:(NSString *)newText charDelay:(NSTimeInterval)interval;
-- (void)animateTextAppearing2:(NSString *)newText charDelay:(NSTimeInterval)interval;
 @end
