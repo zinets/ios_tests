@@ -22,7 +22,9 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self.label setText:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" animated:YES];
+//    [self.label setText2:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" animated:YES];
+
+    [self.label setText2:@"0123456789" animated:YES];
 }
 
 

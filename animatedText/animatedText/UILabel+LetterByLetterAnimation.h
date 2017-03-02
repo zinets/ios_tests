@@ -14,4 +14,6 @@
 }
 @property (nonatomic) NSTimeInterval delayBetweenChars;
 - (void)setText:(NSString *)newText animated:(BOOL)animated;
+
+- (void)setText2:(NSString *)newText animated:(BOOL)animated;
 @end
