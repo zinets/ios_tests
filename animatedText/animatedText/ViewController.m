@@ -10,7 +10,7 @@
 #import "UILabel+LetterByLetterAnimation.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet AnimatedTypiingLabel *label;
 
 @end
 
@@ -22,7 +22,7 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self.label animateTextAppearing:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" charDelay:1 / 100.];
+    [self.label setText:@"It’s really nice that your boobs are so big and tasty\nOm-nom-nom" animated:YES];
 }
 
 
