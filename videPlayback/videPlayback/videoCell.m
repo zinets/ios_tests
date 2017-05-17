@@ -17,6 +17,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 
 @implementation VideoCell
 
+// доступ к плееру - на самом деле доступ к экземпляру видео-проигрывающего слоя
 - (AVPlayer *)player {
     return [self.playerLayer player];
 }
@@ -25,6 +26,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     [self.playerLayer setPlayer:player];
 }
 
+// геттер для проигрывающего слоя для нормальной "выгрузки" видео (если предполагается использование в ячейках и реюзание
 - (AVPlayerLayer *)playerLayer {
     if (!_playerLayer) {
         _playerLayer = [AVPlayerLayer layer];
@@ -64,12 +66,14 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 }
 
 - (void)loadVideo:(NSString *)videoUrl preview:(NSString *)previewUrl {
+    // на случай последовательных загрузок видео
     if (self.loaded) {
         [self unloadVideo];
     }
-
+    // слой добавляется при каждой загрузке видео - и удаляется при выгрузке
     [self.layer insertSublayer:self.playerLayer atIndex:0];
-    
+
+    // идеальный флов - сразу есть картинка-заглушка, потом показываетс превью видео и уже потом показывается первый кадр видео (и оно стартует даже возможно, если настройка)
     self.playerPlaceholder.image = nil;
     [self.playerPlaceholder loadImageFromUrl:previewUrl];
 
@@ -78,6 +82,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
 
     [self.player addObserver:self forKeyPath:@"status" options:0 context:&PlayerStatusContext];
+    // для заколцовывания видео - слушаем об событии "доиграли до конца" и после перемотки стартуем плей.. топовато, а иначе никак
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endOfVideo:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     if (self.autostart) {
         [self.player play];
@@ -88,7 +93,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 
 - (void)unloadVideo {
     [self.player pause];
-
+    // так как я толком не придумал более красивый механизм (точнее есть простой механизм старт-стоп, но для нашего применения в чячейках и реюзания он не очень подходит визуально
     [self.player removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 
@@ -119,6 +124,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     return self.player.timeControlStatus == AVPlayerTimeControlStatusPaused;
 }
 
+// осталось без дела - нет метода "стоп", стоп - это остановка проигрывания и перемотка на начало..
 - (void)stop {
     [self.player pause];
     [self.player seekToTime:kCMTimeZero];
