@@ -23,7 +23,11 @@ NSString *preview2 = @"https://cdn.wdrimg.com/video/preview/id/675cb1d57f5d4c4fb
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.videoCell.autostart = YES;
+    UIImageView *bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"videoPlaceholder@2x.png"]];
+    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    bgView.contentMode = UIViewContentModeScaleAspectFill;
+    self.videoCell.backgroundView = bgView;
+    self.videoCell.autostart = NO;
 }
 
 - (IBAction)openVideo:(id)sender {
@@ -32,6 +36,10 @@ NSString *preview2 = @"https://cdn.wdrimg.com/video/preview/id/675cb1d57f5d4c4fb
 
 - (IBAction)playVideo:(UIButton *)sender {
     sender.selected = [self.videoCell pause];
+}
+
+- (IBAction)onClose:(id)sender {
+    [self.videoCell unloadVideo];
 }
 
 @end

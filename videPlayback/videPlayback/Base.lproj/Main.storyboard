@@ -49,17 +49,29 @@
                                     <action selector="playVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W4n-0e-qal"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiU-sL-N20">
+                                <rect key="frame" x="117.5" y="629" width="140" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="close"/>
+                                <connections>
+                                    <action selector="onClose:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIc-dy-Ock"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="021-IA-cyU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="129" id="5cE-Ua-apl"/>
+                            <constraint firstItem="fiU-sL-N20" firstAttribute="top" secondItem="PnY-es-8hB" secondAttribute="bottom" constant="3" id="BI8-3q-0OR"/>
                             <constraint firstItem="NIc-oV-CQy" firstAttribute="height" secondItem="PnY-es-8hB" secondAttribute="height" id="DST-im-kwu"/>
                             <constraint firstItem="021-IA-cyU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E2S-ip-Hpw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PnY-es-8hB" secondAttribute="bottom" constant="41" id="EQh-py-79b"/>
                             <constraint firstItem="NIc-oV-CQy" firstAttribute="leading" secondItem="PnY-es-8hB" secondAttribute="trailing" constant="8" id="K0r-MC-JBa"/>
                             <constraint firstItem="NIc-oV-CQy" firstAttribute="centerY" secondItem="PnY-es-8hB" secondAttribute="centerY" id="XTP-fq-oig"/>
+                            <constraint firstItem="fiU-sL-N20" firstAttribute="leading" secondItem="PnY-es-8hB" secondAttribute="leading" id="Xoi-ea-0hi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NIc-oV-CQy" secondAttribute="trailing" constant="8" id="dWZ-uG-QQ2"/>
+                            <constraint firstItem="fiU-sL-N20" firstAttribute="width" secondItem="PnY-es-8hB" secondAttribute="width" id="fcL-NV-HQD"/>
                             <constraint firstItem="PnY-es-8hB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="izP-AG-seM"/>
+                            <constraint firstItem="fiU-sL-N20" firstAttribute="height" secondItem="PnY-es-8hB" secondAttribute="height" id="wFK-fY-aqx"/>
                         </constraints>
                     </view>
                     <connections>

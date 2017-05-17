@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D62A6035145541B9EE6303E1 /* TNImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6ECFEB04681EBD68D9A8 /* TNImageDownloader.m */; };
+		D62A616600886F56789341DE /* videoPlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6AE567B19818C134F8D1 /* videoPlaceholder@2x.png */; };
 		D62A61BAF3F4BA32426633AB /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FCB5DC2FB2D464EDDE7 /* UIImage+Thumbnails.m */; };
 		D62A641751532AA969CC06FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A645B8DAFE4D8649B51D8 /* LaunchScreen.storyboard */; };
 		D62A6493C9A1837D72F56872 /* videoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A69103DA975CC66501256 /* videoCell.m */; };
@@ -42,6 +43,7 @@
 		D62A69FB66C3825BFBDD7E53 /* UrlImageView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlImageView2.m; sourceTree = "<group>"; };
 		D62A6A06AEBB385C9D66E550 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62A6A8A0E8F491DC3A5F4D4 /* videPlayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videPlayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62A6AE567B19818C134F8D1 /* videoPlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "videoPlaceholder@2x.png"; sourceTree = SOURCE_ROOT; };
 		D62A6C1F900F0887BE074B32 /* TNImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageDownloader.h; sourceTree = "<group>"; };
 		D62A6D0AF92B39D1E468DADD /* TNSafeMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNSafeMutableDictionary.h; sourceTree = "<group>"; };
 		D62A6D4B6FC56E50CDB3A5FD /* UIImage+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cache.h"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				D62A6A06AEBB385C9D66E550 /* AppDelegate.h */,
 				D62A6B02B1A3241B7D3FDC58 /* Main.storyboard */,
 				D62A645B8DAFE4D8649B51D8 /* LaunchScreen.storyboard */,
+				D62A6AE567B19818C134F8D1 /* videoPlaceholder@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				D62A66C91B4F48FDE47F2E8E /* Assets.xcassets in Resources */,
 				D62A665224B78EC3998B38F4 /* Main.storyboard in Resources */,
 				D62A641751532AA969CC06FF /* LaunchScreen.storyboard in Resources */,
+				D62A616600886F56789341DE /* videoPlaceholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

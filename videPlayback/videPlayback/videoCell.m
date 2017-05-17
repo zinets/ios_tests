@@ -10,25 +10,39 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 
 @interface VideoCell ()
 @property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerLayer *playerLayer;
 @property (nonatomic, strong) UrlImageView2 *playerPlaceholder;
+@property (nonatomic) BOOL loaded;
 @end
 
 @implementation VideoCell
 
-+ (Class)layerClass {
-    return [AVPlayerLayer class];
-}
-
 - (AVPlayer *)player {
-    return [(AVPlayerLayer *)[self layer] player];
+    return [self.playerLayer player];
 }
 
 - (void)setPlayer:(AVPlayer *)player {
-    [(AVPlayerLayer *)[self layer] setPlayer:player];
+    [self.playerLayer setPlayer:player];
+}
+
+- (AVPlayerLayer *)playerLayer {
+    if (!_playerLayer) {
+        _playerLayer = [AVPlayerLayer layer];
+        _playerLayer.frame = self.bounds;
+    }
+    return _playerLayer;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.playerPlaceholder];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
         [self addSubview:self.playerPlaceholder];
     }
     return self;
@@ -40,14 +54,23 @@ static void *PlayerStatusContext = &PlayerStatusContext;
         _playerPlaceholder.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         _playerPlaceholder.contentMode = UIViewContentModeScaleAspectFit;
 
-        _playerPlaceholder.hidden = YES;
+        _playerPlaceholder.hidden = NO;
     }
     return _playerPlaceholder;
 }
 
-- (void)loadVideo:(NSString *)videoUrl preview:(NSString *)previewUrl {
-    [self stopPlaying];
+- (void)setBackgroundView:(UIView *)backgroundView {
+    self.playerPlaceholder.placeholderView = backgroundView;
+}
 
+- (void)loadVideo:(NSString *)videoUrl preview:(NSString *)previewUrl {
+    if (self.loaded) {
+        [self unloadVideo];
+    }
+
+    [self.layer insertSublayer:self.playerLayer atIndex:0];
+    
+    self.playerPlaceholder.image = nil;
     [self.playerPlaceholder loadImageFromUrl:previewUrl];
 
     NSURL *url = [NSURL URLWithString:videoUrl];
@@ -59,7 +82,21 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     if (self.autostart) {
         [self.player play];
     }
+
+    self.loaded = YES;
+}
+
+- (void)unloadVideo {
+    [self.player pause];
+
+    [self.player removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+
+    self.player = nil;
     [self updateUI];
+
+    [self.playerLayer removeFromSuperlayer];
+    self.loaded = NO;
 }
 
 - (void)endOfVideo:(id)endOfVideo {
@@ -87,18 +124,12 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     [self.player seekToTime:kCMTimeZero];
 }
 
-- (void)stopPlaying {
-    [self.player removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-}
-
 - (void)updateUI {
     if (self.player.status == AVPlayerStatusReadyToPlay) {
-        [self layer].opacity = 1;
-        _playerPlaceholder.hidden = NO;
-    } else {
-        [self layer].opacity = 0;
         _playerPlaceholder.hidden = YES;
+    } else {
+        _playerPlaceholder.hidden = NO;
+        _playerPlaceholder.image = nil;
     }
 }
 
