@@ -12,10 +12,12 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     AnimationStopped, // тупо начальная фаза - "и не было ничего"
     AnimationPhase1, // появление 2х окружностей, анимация размера и прозрачности
     AnimationPhase2, // уменьшение диаметра круга до 162
+    AnimationPhase3, // увеличение диаметра круга; появление, увеличение размера и прозрачности "галочки"
 };
 
 @interface VideoPopupAnimator () <CAAnimationDelegate> {
     CAShapeLayer *circle2; // окружность меньшего диаметра, которая анимирует "галочку"
+    CALayer *checkMarkLayer;
 }
 @property (nonatomic) AnimationPhase animationPhase;
 @property (nonatomic, strong) UIView *animationContentView;
@@ -68,15 +70,13 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     
     UIView *fromView = fromViewController.view;
     UIView *toView = (id)toViewController.view;
-    
-    [transitionContext.containerView addSubview:fromViewController.view];
-    [transitionContext.containerView addSubview:toViewController.view];
-    
-    CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
+
     [self.animationContentView removeFromSuperview];
     _animationContentView = nil;
-    
-    [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+
+    [transitionContext.containerView addSubview:toView];
+
+    [transitionContext completeTransition:YES];
 }
 
 #pragma mark - animation
@@ -183,6 +183,63 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     }
 }
 
+-(void)startPhase3 {
+    _animationPhase = AnimationPhase3;
+
+    checkMarkLayer = [CALayer layer];
+    UIImage *checkMarkImg = [UIImage imageNamed:@"check@2x.png"];
+    CGSize sz = checkMarkImg.size;
+    CGRect frame = (CGRect){{(self.animationContentView.bounds.size.width - sz.width) / 2, (self.animationContentView.bounds.size.height - sz.height) / 2}, sz};
+    checkMarkLayer.contents = (id)checkMarkImg.CGImage;
+    checkMarkLayer.frame = frame;
+    [self.animationContentView.layer addSublayer:checkMarkLayer]; {
+        CGFloat phase3duration = 0.5;
+
+        CAAnimationGroup *ag = [CAAnimationGroup animation];
+        ag.duration = phase3duration;
+
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.duration = ag.duration;
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.3, 0.3, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+
+        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        opacityAnimation.duration = ag.duration;
+        opacityAnimation.fromValue = @0;
+        opacityAnimation.toValue = @1;
+
+        ag.animations = @[scaleAnimation, opacityAnimation];
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
+        [checkMarkLayer addAnimation:ag forKey:@"check_phase3"];
+    }
+
+    {
+        CGFloat phase3duration = 0.5;
+
+        CAAnimationGroup *ag = [CAAnimationGroup animation];
+        ag.duration = phase3duration;
+        ag.delegate = self;
+
+        CGFloat d2e = 177;
+
+        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        frameAnimation.duration = ag.duration;
+        CGPoint finalPos = (CGPoint){15, (self.animationContentView.bounds.size.height - d2e) / 2};
+        CGSize finalSize = (CGSize){d2e, d2e};
+        frameAnimation.toValue = [NSValue valueWithCGRect:(CGRect){finalPos, finalSize}];
+
+        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+        cornerRadiusAnimation.duration = ag.duration;
+        cornerRadiusAnimation.toValue = @(d2e / 2);
+
+        ag.animations = @[frameAnimation, cornerRadiusAnimation];
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
+        [circle2 addAnimation:ag forKey:@"circle2phase3"];
+    }
+}
+
 - (void)endAnimation {
     [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
 }
@@ -194,6 +251,9 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
         switch (self.animationPhase) {
             case AnimationPhase1:
                 [self startPhase2];
+                break;
+            case AnimationPhase2:
+                [self startPhase3];
                 break;
             default:
                 [self endAnimation];

@@ -17,6 +17,7 @@
 		D62A6464B5A7995211FC53BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B0EF137159133C32AAD /* Assets.xcassets */; };
 		D62A66C93F917393EAB52D43 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6F41A40BF01979868DA2 /* bg1.png */; };
 		D62A672E6BCBC8D464183C50 /* pl1.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6E67C44F74575D6D9148 /* pl1.png */; };
+		D62A68AAE0943757BF8B9C6D /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A66CA4F5021C639B934AB /* check@2x.png */; };
 		D62A696E70978890E005F4EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6B65739B9A0367ADB2A8 /* ViewController.m */; };
 		D62A69A08AC5D8B540726C94 /* PopupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62A6611CFB5A13F3AD168C6 /* PopupController.xib */; };
 		D62A6A4E6559CC619221CE1A /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D65CA7D03E5B75EFDE8 /* ColorButton.m */; };
@@ -36,6 +37,7 @@
 		D62A65F91B00E13A1EAC212F /* animatedPopup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animatedPopup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A6611CFB5A13F3AD168C6 /* PopupController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupController.xib; sourceTree = "<group>"; };
 		D62A66544EED5B5B9B7D6A0E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		D62A66CA4F5021C639B934AB /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		D62A67E161C1178EF09A7FAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D62A68516748A1EBC11BADB1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62A6A873D6AABD3AA2219A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				D62A66544EED5B5B9B7D6A0E /* Info.plist */,
 				D62A63FFCB81676BD9E1FA8A /* LaunchScreen.storyboard */,
 				D62A6F41A40BF01979868DA2 /* bg1.png */,
+				D62A66CA4F5021C639B934AB /* check@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				D62A6464B5A7995211FC53BA /* Assets.xcassets in Resources */,
 				D62A61325F5E956458E77CA8 /* LaunchScreen.storyboard in Resources */,
 				D62A66C93F917393EAB52D43 /* bg1.png in Resources */,
+				D62A68AAE0943757BF8B9C6D /* check@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
