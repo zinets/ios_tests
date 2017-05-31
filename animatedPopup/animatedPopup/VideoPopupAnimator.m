@@ -288,6 +288,35 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     // check
     [self.check removeFromSuperlayer];
 
+    // circle
+    self.circle.backgroundColor = self.shapeColor.CGColor;
+    {
+        CAAnimationGroup *ag = [CAAnimationGroup animation];
+        ag.duration = phase5duration;
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
+
+        CGFloat i = self.animationContentView.bounds.size.height;
+
+        CASpringAnimation *frameAnimation = [CASpringAnimation animationWithKeyPath:@"bounds"];
+        frameAnimation.duration = ag.duration;
+        CGRect frame = (CGRect){{(self.animationContentView.bounds.size.width - i) / 2, (self.animationContentView.bounds.size.height - i) / 2}, {i, i}};
+        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
+        frameAnimation.damping = 20;
+        frameAnimation.stiffness = 300;
+
+        CASpringAnimation *cornerRadiusAnimation = [CASpringAnimation animationWithKeyPath:@"cornerRadius"];
+        cornerRadiusAnimation.duration = ag.duration;
+        cornerRadiusAnimation.toValue = @(i / 2);
+        cornerRadiusAnimation.damping = 20;
+        cornerRadiusAnimation.stiffness = 300;
+
+        ag.animations = @[frameAnimation, cornerRadiusAnimation];
+        [self.circle addAnimation:ag forKey:@"circle_phase5"];
+    }
+
+    
+
     // content
     UIViewController <ControllerAnimation> *toViewController = [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *toView = (id)toViewController.view;
@@ -300,44 +329,25 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
         ag.fillMode = kCAFillModeForwards;
         ag.delegate = self;
 
-        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        CASpringAnimation *scaleAnimation = [CASpringAnimation animationWithKeyPath:@"transform"];
         scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.8, 0.8, 1)];
         scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
         scaleAnimation.duration = ag.duration;
-        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        scaleAnimation.damping = 20;
+        scaleAnimation.stiffness = 300;
+        //timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 
-        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        CASpringAnimation *opacityAnimation = [CASpringAnimation animationWithKeyPath:@"opacity"];
         opacityAnimation.fromValue = @0;
         opacityAnimation.toValue = @1;
         opacityAnimation.duration = ag.duration;
-        opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        opacityAnimation.damping = 20;
+        opacityAnimation.stiffness = 300;
+        //timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 
         ag.animations = @[scaleAnimation, opacityAnimation];
 
         [toView.layer addAnimation:ag forKey:@"toView_phase5"];
-    }
-
-    // circle
-    self.circle.backgroundColor = self.shapeColor.CGColor;
-    {
-        CAAnimationGroup *ag = [CAAnimationGroup animation];
-        ag.duration = phase5duration;
-        ag.removedOnCompletion = NO;
-        ag.fillMode = kCAFillModeForwards;
-
-        CGFloat i = self.animationContentView.bounds.size.height;
-
-        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        frameAnimation.duration = ag.duration;
-        CGRect frame = (CGRect){{0, 0}, {i, i}};
-        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
-
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @(i/2);
-
-        ag.animations = @[frameAnimation, cornerRadiusAnimation];
-        [self.circle addAnimation:ag forKey:@"circle_phase5"];
     }
 }
 
