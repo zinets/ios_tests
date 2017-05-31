@@ -13,6 +13,7 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     AnimationPhase1, // появление 2х окружностей, анимация размера и прозрачности
     AnimationPhase2, // уменьшение диаметра круга до 162
     AnimationPhase3, // увеличение диаметра круга; появление, увеличение размера и прозрачности "галочки"
+    AnimationPhase4, // увеличение круга и галочки в 1.1 за 64 кадра
 };
 
 @interface VideoPopupAnimator () <CAAnimationDelegate> {
@@ -87,6 +88,7 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
 
 -(void)startPhase1 {
     _animationPhase = AnimationPhase1;
+    CGFloat phase1duration = 0.4;
 
     // 2 круга из центра, увеличивают свой радиус и (2й) альфу до 0 за 0.4 сек
     CAShapeLayer *circle1 = [CAShapeLayer layer];
@@ -95,8 +97,6 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     circle1.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor;
     circle1.cornerRadius = d1 / 2;
     [self.animationContentView.layer addSublayer:circle1];
-
-    CGFloat phase1duration = 0.4;
 
     {
         CAAnimationGroup *ag = [CAAnimationGroup animation];
@@ -156,11 +156,9 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
 
 -(void)startPhase2 {
     _animationPhase = AnimationPhase2;
+    CGFloat phase2duration = 0.3;
 
-    {
-        CGFloat phase2duration = 0.3;
-
-        CAAnimationGroup *ag = [CAAnimationGroup animation];
+    {CAAnimationGroup *ag = [CAAnimationGroup animation];
         ag.duration = phase2duration;
         ag.delegate = self;
 
@@ -185,6 +183,7 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
 
 -(void)startPhase3 {
     _animationPhase = AnimationPhase3;
+    CGFloat phase3duration = 0.5;
 
     checkMarkLayer = [CALayer layer];
     UIImage *checkMarkImg = [UIImage imageNamed:@"check@2x.png"];
@@ -193,8 +192,6 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     checkMarkLayer.contents = (id)checkMarkImg.CGImage;
     checkMarkLayer.frame = frame;
     [self.animationContentView.layer addSublayer:checkMarkLayer]; {
-        CGFloat phase3duration = 0.5;
-
         CAAnimationGroup *ag = [CAAnimationGroup animation];
         ag.duration = phase3duration;
 
@@ -215,8 +212,6 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     }
 
     {
-        CGFloat phase3duration = 0.5;
-
         CAAnimationGroup *ag = [CAAnimationGroup animation];
         ag.duration = phase3duration;
         ag.delegate = self;
@@ -240,7 +235,26 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     }
 }
 
+-(void)startPhase4 {
+    _animationPhase = AnimationPhase4;
+    CGFloat phase4duration = 1.;
+    {
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.duration = phase4duration;
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        [checkMarkLayer addAnimation:scaleAnimation forKey:@"check_phase4"];
+    }
+    {
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.duration = phase4duration;
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        [circle2 addAnimation:scaleAnimation forKey:@"circle2phase4"];
+        scaleAnimation.delegate = self;
+    }
+}
+
 - (void)endAnimation {
+    [self.animationContentView removeFromSuperview];
     [self.transitionContext completeTransition:![self.transitionContext transitionWasCancelled]];
 }
 
@@ -254,6 +268,9 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
                 break;
             case AnimationPhase2:
                 [self startPhase3];
+                break;
+            case AnimationPhase3:
+                [self startPhase4];
                 break;
             default:
                 [self endAnimation];
