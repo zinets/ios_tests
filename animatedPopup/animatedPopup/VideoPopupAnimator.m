@@ -18,15 +18,30 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
 };
 
 @interface VideoPopupAnimator () <CAAnimationDelegate> {
-    CAShapeLayer *circle2; // окружность меньшего диаметра, которая анимирует "галочку"
-    CALayer *checkMarkLayer;
 }
 @property (nonatomic) AnimationPhase animationPhase;
 @property (nonatomic, strong) UIView *animationContentView;
 @property (nonatomic, weak) id <UIViewControllerContextTransitioning> transitionContext;
+
+@property (nonatomic, strong) CAShapeLayer *light; // названия слоев - из "принципла", для простоты
+@property (nonatomic, strong) CAShapeLayer *circle;
+@property (nonatomic, strong) CALayer *check;
+
 @end
 
 @implementation VideoPopupAnimator
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _circleDiameter = 160;
+        _lightCircleDiameter = 300;
+        _shapeColor = [UIColor colorWithRed:115./255. green:184./255. blue:56./255. alpha:1];
+    }
+
+    return self;
+}
+
 
 -(UIView *)animationContentView {
     if (!_animationContentView) {
@@ -35,6 +50,42 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     }
     return _animationContentView;
 }
+
+- (CAShapeLayer *)circle {
+    if (!_circle) {
+        CGFloat d = self.circleDiameter;
+        _circle = [CAShapeLayer layer];
+        _circle.frame = (CGRect){{(self.animationContentView.bounds.size.width - d) / 2, (self.animationContentView.bounds.size.height - d) / 2}, {d, d}};
+        _circle.backgroundColor = [UIColor whiteColor].CGColor;
+        _circle.cornerRadius = d / 2;
+    }
+    return _circle;
+}
+
+- (CAShapeLayer *)light {
+    if (!_light) {
+        CGFloat d = self.lightCircleDiameter;
+        _light = [CAShapeLayer layer];
+        _light.frame = (CGRect){{(self.animationContentView.bounds.size.width - d) / 2, (self.animationContentView.bounds.size.height - d) / 2}, {d, d}};
+        _light.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor ;
+        _light.cornerRadius = d / 2;
+    }
+    return _light;
+}
+
+- (CAShapeLayer *)check {
+    if (!_check) {
+        _check = [CALayer layer];
+        UIImage *checkMarkImg = [UIImage imageNamed:@"check@2x.png"];
+        CGSize sz = checkMarkImg.size;
+        CGRect frame = (CGRect){{(self.animationContentView.bounds.size.width - sz.width) / 2, (self.animationContentView.bounds.size.height - sz.height) / 2}, sz};
+        _check.contents = (id)checkMarkImg.CGImage;
+        _check.frame = frame;
+    }
+    return _check;
+}
+
+#pragma mark -
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
     return .5;
@@ -94,69 +145,47 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
 
 -(void)startPhase1 {
     _animationPhase = AnimationPhase1;
-    CGFloat phase1duration = 0.4;
+    CGFloat phase1duration = 0.44;
 
-    // 2 круга из центра, увеличивают свой радиус и (2й) альфу до 0 за 0.4 сек
-    CAShapeLayer *circle1 = [CAShapeLayer layer];
-    CGFloat d1 = 68;
-    circle1.frame = (CGRect){{(self.animationContentView.bounds.size.width - d1) / 2, (self.animationContentView.bounds.size.height - d1) / 2}, {d1, d1}};
-    circle1.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7].CGColor;
-    circle1.cornerRadius = d1 / 2;
-    [self.animationContentView.layer addSublayer:circle1];
-
+    // light
+    [self.animationContentView.layer addSublayer:self.light];
     {
         CAAnimationGroup *ag = [CAAnimationGroup animation];
         ag.duration = phase1duration;
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
         ag.delegate = self;
-        
+
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0, 0, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.15, 1.15, 1)];
+        scaleAnimation.duration = ag.duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
         CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        opacityAnimation.fromValue = @0.7;
         opacityAnimation.toValue = @0;
-        opacityAnimation.duration = ag.duration;
-     
-        CGFloat d1e = self.animationContentView.bounds.size.width - 2 * 15;
-        
-        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        frameAnimation.duration = ag.duration;
-        CGPoint finalPos = (CGPoint){15, (self.animationContentView.bounds.size.height - d1e) / 2};
-        CGSize finalSize = (CGSize){d1e, d1e};
-        frameAnimation.toValue = [NSValue valueWithCGRect:(CGRect){finalPos, finalSize}];
-        
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @(d1e / 2);
-        
-        ag.animations = @[opacityAnimation, frameAnimation, cornerRadiusAnimation];
-        ag.removedOnCompletion = NO;
-        ag.fillMode = kCAFillModeForwards;
-        [circle1 addAnimation:ag forKey:@"circle1phase1"];
+        opacityAnimation.beginTime = 0.16;
+        opacityAnimation.duration = ag.duration - 0.16;
+        opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+        ag.animations = @[opacityAnimation, scaleAnimation];
+
+        [self.light addAnimation:ag forKey:@"light_phase1"];
     }
-    
-    circle2 = [CAShapeLayer layer];
-    CGFloat d2 = 34;
-    circle2.frame = (CGRect){{(self.animationContentView.bounds.size.width - d2) / 2, (self.animationContentView.bounds.size.height - d2) / 2}, {d2, d2}};
-    circle2.backgroundColor = [UIColor whiteColor].CGColor;
-    circle2.cornerRadius = d2 / 2;
-    [self.animationContentView.layer addSublayer:circle2];
+
+    // circle
+    [self.animationContentView.layer addSublayer:self.circle];
     {
-        CAAnimationGroup *ag = [CAAnimationGroup animation];
-        ag.duration = phase1duration;
-        
-        CGFloat d2e = 177;
-        
-        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        frameAnimation.duration = ag.duration;
-        CGPoint finalPos = (CGPoint){15, (self.animationContentView.bounds.size.height - d2e) / 2};
-        CGSize finalSize = (CGSize){d2e, d2e};
-        frameAnimation.toValue = [NSValue valueWithCGRect:(CGRect){finalPos, finalSize}];
-        
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @(d2e / 2);
-        
-        ag.animations = @[frameAnimation, cornerRadiusAnimation];
-        ag.removedOnCompletion = NO;
-        ag.fillMode = kCAFillModeForwards;
-        [circle2 addAnimation:ag forKey:@"circle2phase1"];
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0, 0, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.duration = phase1duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        scaleAnimation.removedOnCompletion = NO;
+        scaleAnimation.fillMode = kCAFillModeForwards;
+
+        [self.circle addAnimation:scaleAnimation forKey:@"circle_phase1"];
     }
 }
 
@@ -164,133 +193,152 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     _animationPhase = AnimationPhase2;
     CGFloat phase2duration = 0.3;
 
-    {CAAnimationGroup *ag = [CAAnimationGroup animation];
-        ag.duration = phase2duration;
-        ag.delegate = self;
+    // circle
+    {
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        scaleAnimation.duration = phase2duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        scaleAnimation.removedOnCompletion = NO;
+        scaleAnimation.fillMode = kCAFillModeForwards;
+        scaleAnimation.delegate = self;
 
-        CGFloat d2e = 160;
-
-        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        frameAnimation.duration = ag.duration;
-        CGPoint finalPos = (CGPoint){15, (self.animationContentView.bounds.size.height - d2e) / 2};
-        CGSize finalSize = (CGSize){d2e, d2e};
-        frameAnimation.toValue = [NSValue valueWithCGRect:(CGRect){finalPos, finalSize}];
-
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @(d2e / 2);
-
-        ag.animations = @[frameAnimation, cornerRadiusAnimation];
-        ag.removedOnCompletion = NO;
-        ag.fillMode = kCAFillModeForwards;
-        [circle2 addAnimation:ag forKey:@"circle2phase2"];
+        [self.circle addAnimation:scaleAnimation forKey:@"circle_phase2"];
     }
 }
 
 -(void)startPhase3 {
     _animationPhase = AnimationPhase3;
-    CGFloat phase3duration = 0.5;
-
-    checkMarkLayer = [CALayer layer];
-    UIImage *checkMarkImg = [UIImage imageNamed:@"check@2x.png"];
-    CGSize sz = checkMarkImg.size;
-    CGRect frame = (CGRect){{(self.animationContentView.bounds.size.width - sz.width) / 2, (self.animationContentView.bounds.size.height - sz.height) / 2}, sz};
-    checkMarkLayer.contents = (id)checkMarkImg.CGImage;
-    checkMarkLayer.frame = frame;
-    [self.animationContentView.layer addSublayer:checkMarkLayer]; {
-        CAAnimationGroup *ag = [CAAnimationGroup animation];
-        ag.duration = phase3duration;
-
+    CGFloat phase3duration = 0.3;
+    // circle
+    {
         CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-        scaleAnimation.duration = ag.duration;
-        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.3, 0.3, 1)];
-        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.duration = phase3duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        scaleAnimation.removedOnCompletion = NO;
+        scaleAnimation.fillMode = kCAFillModeForwards;
 
-        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        opacityAnimation.duration = ag.duration;
-        opacityAnimation.fromValue = @0;
-        opacityAnimation.toValue = @1;
-
-        ag.animations = @[scaleAnimation, opacityAnimation];
-        ag.removedOnCompletion = NO;
-        ag.fillMode = kCAFillModeForwards;
-        [checkMarkLayer addAnimation:ag forKey:@"check_phase3"];
+        [self.circle addAnimation:scaleAnimation forKey:@"circle_phase3"];
     }
-
+    // check
+    [self.animationContentView.layer addSublayer:self.check];
     {
         CAAnimationGroup *ag = [CAAnimationGroup animation];
         ag.duration = phase3duration;
-        ag.delegate = self;
-
-        CGFloat d2e = 177;
-
-        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
-        frameAnimation.duration = ag.duration;
-        CGPoint finalPos = (CGPoint){15, (self.animationContentView.bounds.size.height - d2e) / 2};
-        CGSize finalSize = (CGSize){d2e, d2e};
-        frameAnimation.toValue = [NSValue valueWithCGRect:(CGRect){finalPos, finalSize}];
-
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @(d2e / 2);
-
-        ag.animations = @[frameAnimation, cornerRadiusAnimation];
         ag.removedOnCompletion = NO;
         ag.fillMode = kCAFillModeForwards;
-        [circle2 addAnimation:ag forKey:@"circle2phase3"];
+        ag.delegate = self;
+
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0, 0, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        scaleAnimation.duration = ag.duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        opacityAnimation.fromValue = @0;
+        opacityAnimation.toValue = @1;
+        opacityAnimation.duration = ag.duration;
+        opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+        ag.animations = @[scaleAnimation, opacityAnimation];
+        [self.check addAnimation:ag forKey:@"check_phase3"];
     }
 }
 
 -(void)startPhase4 {
     _animationPhase = AnimationPhase4;
     CGFloat phase4duration = 1.;
+
+    // check
     {
         CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-        scaleAnimation.duration = phase4duration;
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
         scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.duration = phase4duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         scaleAnimation.removedOnCompletion = NO;
         scaleAnimation.fillMode = kCAFillModeForwards;
-        [checkMarkLayer addAnimation:scaleAnimation forKey:@"check_phase4"];
-    }
-    {
-        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
         scaleAnimation.delegate = self;
+
+        [self.check addAnimation:scaleAnimation forKey:@"check_phase4"];
+    }
+
+    // circle
+    {
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1)];
         scaleAnimation.duration = phase4duration;
-        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         scaleAnimation.removedOnCompletion = NO;
         scaleAnimation.fillMode = kCAFillModeForwards;
-        [circle2 addAnimation:scaleAnimation forKey:@"circle2phase4"];
+
+        [self.circle addAnimation:scaleAnimation forKey:@"circle_phase4"];
     }
 }
 
 -(void)startPhase5 {
     _animationPhase = AnimationPhase5;
     CGFloat phase5duration = 0.3;
-    [checkMarkLayer removeFromSuperlayer];
-    checkMarkLayer = nil;
 
+    // check
+    [self.check removeFromSuperlayer];
 
-
-    circle2.backgroundColor = [UIColor colorWithRed:115./255. green:184./255. blue:56./255. alpha:1].CGColor;
-    CAAnimationGroup *ag = [CAAnimationGroup animation];
-    ag.duration = phase5duration;
-    ag.delegate = self;
-
+    // content
+    UIViewController <ControllerAnimation> *toViewController = [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView *toView = (id)toViewController.view;
+    toView.layer.mask = self.circle;
+    toView.layer.masksToBounds = YES;
     {
-        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-        cornerRadiusAnimation.duration = ag.duration;
-        cornerRadiusAnimation.toValue = @0;
+        CAAnimationGroup *ag = [CAAnimationGroup animation];
+        ag.duration = phase5duration;
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
+        ag.delegate = self;
+
+        CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.8, 0.8, 1)];
+        scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        scaleAnimation.duration = ag.duration;
+        scaleAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+        CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        opacityAnimation.fromValue = @0;
+        opacityAnimation.toValue = @1;
+        opacityAnimation.duration = ag.duration;
+        opacityAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
+        ag.animations = @[scaleAnimation, opacityAnimation];
+
+        [toView.layer addAnimation:ag forKey:@"toView_phase5"];
+    }
+
+    // circle
+    self.circle.backgroundColor = self.shapeColor.CGColor;
+    {
+        CAAnimationGroup *ag = [CAAnimationGroup animation];
+        ag.duration = phase5duration;
+        ag.removedOnCompletion = NO;
+        ag.fillMode = kCAFillModeForwards;
+
+        CGFloat i = self.animationContentView.bounds.size.height;
 
         CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
         frameAnimation.duration = ag.duration;
-        frameAnimation.toValue = [NSValue valueWithCGRect:self.animationContentView.bounds];
+        CGRect frame = (CGRect){{0, 0}, {i, i}};
+        frameAnimation.toValue = [NSValue valueWithCGRect:frame];
 
+        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+        cornerRadiusAnimation.duration = ag.duration;
+        cornerRadiusAnimation.toValue = @(i/2);
 
-        ag.animations = @[cornerRadiusAnimation, frameAnimation];
+        ag.animations = @[frameAnimation, cornerRadiusAnimation];
+        [self.circle addAnimation:ag forKey:@"circle_phase5"];
     }
-    ag.removedOnCompletion = NO;
-    ag.fillMode = kCAFillModeForwards;
-    [circle2 addAnimation:ag forKey:@"circle2phase5"];
 }
 
 - (void)endAnimation {
@@ -317,7 +365,6 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
                 break;
             default:
                 [self endAnimation];
-
                 break;
         }
     }
