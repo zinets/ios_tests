@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     AnimationPhase2, // уменьшение диаметра круга до 162
     AnimationPhase3, // увеличение диаметра круга; появление, увеличение размера и прозрачности "галочки"
     AnimationPhase4, // увеличение круга и галочки в 1.1 за 64 кадра
+    AnimationPhase5, // белый круг и галочка убираются; добавляется зеленый круг; размер и кривизна меняются дло максимального размера, прозрачность падает до 0; зеленый круг работает как маска для вью
 };
 
 @interface VideoPopupAnimator () <CAAnimationDelegate> {
@@ -48,6 +49,8 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     }
 }
 
+#pragma mark -
+
 - (void)animateAppearing:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIViewController <ControllerAnimation> *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController <ControllerAnimation> *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -55,13 +58,16 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
     UIView *fromView = fromViewController.view;
     UIView *toView = (id)toViewController.view;
 
+    // старое вью
     [transitionContext.containerView addSubview:fromView];
-    [transitionContext.containerView addSubview:self.animationContentView];
-    
+    // новое вью - до определенного момента его не должно быть видно
+    toView.layer.opacity = 0;
+    [transitionContext.containerView addSubview:toView];
+
+    // вью с анимацией
     self.animationContentView.frame = fromView.frame;
-    
-//    [transitionContext.containerView addSubview:toView];
-   
+    [transitionContext.containerView addSubview:self.animationContentView];
+
     [self startAnimation];
 }
 
@@ -242,15 +248,49 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
         CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
         scaleAnimation.duration = phase4duration;
         scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.removedOnCompletion = NO;
+        scaleAnimation.fillMode = kCAFillModeForwards;
         [checkMarkLayer addAnimation:scaleAnimation forKey:@"check_phase4"];
     }
     {
         CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        scaleAnimation.delegate = self;
         scaleAnimation.duration = phase4duration;
         scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1, 1.1, 1)];
+        scaleAnimation.removedOnCompletion = NO;
+        scaleAnimation.fillMode = kCAFillModeForwards;
         [circle2 addAnimation:scaleAnimation forKey:@"circle2phase4"];
-        scaleAnimation.delegate = self;
     }
+}
+
+-(void)startPhase5 {
+    _animationPhase = AnimationPhase5;
+    CGFloat phase5duration = 0.3;
+    [checkMarkLayer removeFromSuperlayer];
+    checkMarkLayer = nil;
+
+
+
+    circle2.backgroundColor = [UIColor colorWithRed:115./255. green:184./255. blue:56./255. alpha:1].CGColor;
+    CAAnimationGroup *ag = [CAAnimationGroup animation];
+    ag.duration = phase5duration;
+    ag.delegate = self;
+
+    {
+        CABasicAnimation *cornerRadiusAnimation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+        cornerRadiusAnimation.duration = ag.duration;
+        cornerRadiusAnimation.toValue = @0;
+
+        CABasicAnimation *frameAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        frameAnimation.duration = ag.duration;
+        frameAnimation.toValue = [NSValue valueWithCGRect:self.animationContentView.bounds];
+
+
+        ag.animations = @[cornerRadiusAnimation, frameAnimation];
+    }
+    ag.removedOnCompletion = NO;
+    ag.fillMode = kCAFillModeForwards;
+    [circle2 addAnimation:ag forKey:@"circle2phase5"];
 }
 
 - (void)endAnimation {
@@ -271,6 +311,9 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
                 break;
             case AnimationPhase3:
                 [self startPhase4];
+                break;
+            case AnimationPhase4:
+                [self startPhase5];
                 break;
             default:
                 [self endAnimation];
