@@ -315,8 +315,6 @@ typedef NS_ENUM(NSUInteger, AnimationPhase) {
         [self.circle addAnimation:ag forKey:@"circle_phase5"];
     }
 
-    
-
     // content
     UIViewController <ControllerAnimation> *toViewController = [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *toView = (id)toViewController.view;
