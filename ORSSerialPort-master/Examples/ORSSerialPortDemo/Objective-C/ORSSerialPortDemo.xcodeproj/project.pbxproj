@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2788B8001BA05EFC0018C0E7 /* ORSSerialBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788B7FF1BA05EFC0018C0E7 /* ORSSerialBuffer.m */; settings = {ASSET_TAGS = (); }; };
+		2788B8001BA05EFC0018C0E7 /* ORSSerialBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2788B7FF1BA05EFC0018C0E7 /* ORSSerialBuffer.m */; };
+		3BDF55191F0CCDBA00E57EAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BDF55181F0CCDBA00E57EAD /* Images.xcassets */; };
 		9D52392E1AC859DF00AEB75F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D52392D1AC859DF00AEB75F /* IOKit.framework */; };
 		9D5239301AC859E700AEB75F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D52392F1AC859E700AEB75F /* Cocoa.framework */; };
 		9D66D81D159BCAB800EE6D09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D66D81B159BCAB800EE6D09 /* InfoPlist.strings */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		2788B7FE1BA05EFC0018C0E7 /* ORSSerialBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialBuffer.h; sourceTree = "<group>"; };
 		2788B7FF1BA05EFC0018C0E7 /* ORSSerialBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialBuffer.m; sourceTree = "<group>"; };
+		3BDF55181F0CCDBA00E57EAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ORSSerialPortDemo/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		9D52392D1AC859DF00AEB75F /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		9D52392F1AC859E700AEB75F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9D66D80E159BCAB800EE6D09 /* ORSSerialPortDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ORSSerialPortDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 		9D6623AD159BD599004C9E42 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3BDF55181F0CCDBA00E57EAD /* Images.xcassets */,
 				9D66D827159BCAB900EE6D09 /* MainMenu.xib */,
 				9D66D81A159BCAB800EE6D09 /* ORSSerialPortDemo-Info.plist */,
 				9D66D81B159BCAB800EE6D09 /* InfoPlist.strings */,
@@ -144,9 +147,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D66D80D159BCAB800EE6D09 /* ORSSerialPortDemo */ = {
+		9D66D80D159BCAB800EE6D09 /* WorkTimer updater */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D66D82C159BCAB900EE6D09 /* Build configuration list for PBXNativeTarget "ORSSerialPortDemo" */;
+			buildConfigurationList = 9D66D82C159BCAB900EE6D09 /* Build configuration list for PBXNativeTarget "WorkTimer updater" */;
 			buildPhases = (
 				9D66D80A159BCAB800EE6D09 /* Sources */,
 				9D5239281AC8596600AEB75F /* Frameworks */,
@@ -157,7 +160,7 @@
 			);
 			dependencies = (
 			);
-			name = ORSSerialPortDemo;
+			name = "WorkTimer updater";
 			productName = ORSSerialPortDemo;
 			productReference = 9D66D80E159BCAB800EE6D09 /* ORSSerialPortDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -184,7 +187,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D66D80D159BCAB800EE6D09 /* ORSSerialPortDemo */,
+				9D66D80D159BCAB800EE6D09 /* WorkTimer updater */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D66D81D159BCAB800EE6D09 /* InfoPlist.strings in Resources */,
+				3BDF55191F0CCDBA00E57EAD /* Images.xcassets in Resources */,
 				9D66D823159BCAB900EE6D09 /* Credits.rtf in Resources */,
 				9D66D829159BCAB900EE6D09 /* MainMenu.xib in Resources */,
 			);
@@ -297,6 +301,7 @@
 		9D66D82D159BCAB900EE6D09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -310,6 +315,7 @@
 		9D66D82E159BCAB900EE6D09 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -332,7 +338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D66D82C159BCAB900EE6D09 /* Build configuration list for PBXNativeTarget "ORSSerialPortDemo" */ = {
+		9D66D82C159BCAB900EE6D09 /* Build configuration list for PBXNativeTarget "WorkTimer updater" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D66D82D159BCAB900EE6D09 /* Debug */,
