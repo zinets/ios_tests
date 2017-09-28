@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D62A6080A5D2DC923AAD9F38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6CB5BEBD5A2889EE7D20 /* AppDelegate.m */; };
+		D62A612EF6A18EE50694E994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A62EA3C82EAFAFAD5AF5E /* main.m */; };
+		D62A665C9F60B562C8090929 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62A6602967B85D1AF5D4F83 /* image.jpg */; };
+		D62A66751E45892162EE46A2 /* UIColor+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A61880E639EFBFD0D3A18 /* UIColor+Alpha.m */; };
+		D62A66771670C288BA0D60BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A6617706103AA1C57D564 /* LaunchScreen.storyboard */; };
+		D62A682543F7F64A4B7582DD /* Pixelator.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6526EDA0FA5D650C281B /* Pixelator.m */; };
+		D62A6922E287F8BE9BB2B852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A63B458190F43E89E33CA /* Assets.xcassets */; };
+		D62A6E56E6933B687038DDE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6AD53248F54C12165577 /* ViewController.m */; };
+		D62A6E977D8F603246011426 /* PixelateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A640C213268436807ABE0 /* PixelateLayer.m */; };
+		D62A6F01C8B1FC891136C1C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A6D46A5E07F4E0B692898 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D62A61880E639EFBFD0D3A18 /* UIColor+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Alpha.m"; sourceTree = "<group>"; };
+		D62A61FD519DBA537368D9D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D62A62EA3C82EAFAFAD5AF5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D62A63B458190F43E89E33CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D62A640C213268436807ABE0 /* PixelateLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelateLayer.m; sourceTree = "<group>"; };
+		D62A65084A03E03B274F2BCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D62A6526EDA0FA5D650C281B /* Pixelator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pixelator.m; sourceTree = "<group>"; };
+		D62A6602967B85D1AF5D4F83 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		D62A697447B7D96EF03B5034 /* Pixelator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixelator.h; sourceTree = "<group>"; };
+		D62A69FE082553C9EF0C9793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D62A6A0C8C3A4BD3DA5B37B2 /* UIColor+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Alpha.h"; sourceTree = "<group>"; };
+		D62A6AD53248F54C12165577 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D62A6BDBEE321A4FF017888A /* testPixelator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testPixelator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62A6CB5BEBD5A2889EE7D20 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D62A6D8ACC87BF2585DEEDA3 /* PixelateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelateLayer.h; sourceTree = "<group>"; };
+		D62A6F3C3C57695B3CB9E361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		D62A6FD7D85EC34C86118B79 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D62A6ABE418F60A66103EACE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D62A635B0320823CBBF63E0F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D62A62EA3C82EAFAFAD5AF5E /* main.m */,
+				D62A6602967B85D1AF5D4F83 /* image.jpg */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62A67EE08054796DFA27975 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				D62A61880E639EFBFD0D3A18 /* UIColor+Alpha.m */,
+				D62A6A0C8C3A4BD3DA5B37B2 /* UIColor+Alpha.h */,
+				D62A6526EDA0FA5D650C281B /* Pixelator.m */,
+				D62A697447B7D96EF03B5034 /* Pixelator.h */,
+				D62A640C213268436807ABE0 /* PixelateLayer.m */,
+				D62A6D8ACC87BF2585DEEDA3 /* PixelateLayer.h */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		D62A6A6B0F05C0D0482E6348 = {
+			isa = PBXGroup;
+			children = (
+				D62A6C84B9B0E8F7A60987CB /* Products */,
+				D62A6E9FCD68F760303567C5 /* testPixelator */,
+			);
+			sourceTree = "<group>";
+		};
+		D62A6C84B9B0E8F7A60987CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6BDBEE321A4FF017888A /* testPixelator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D62A6E9FCD68F760303567C5 /* testPixelator */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6F3C3C57695B3CB9E361 /* Info.plist */,
+				D62A63B458190F43E89E33CA /* Assets.xcassets */,
+				D62A6617706103AA1C57D564 /* LaunchScreen.storyboard */,
+				D62A635B0320823CBBF63E0F /* Supporting Files */,
+				D62A61FD519DBA537368D9D0 /* AppDelegate.h */,
+				D62A6CB5BEBD5A2889EE7D20 /* AppDelegate.m */,
+				D62A6D46A5E07F4E0B692898 /* Main.storyboard */,
+				D62A6FD7D85EC34C86118B79 /* ViewController.h */,
+				D62A6AD53248F54C12165577 /* ViewController.m */,
+				D62A67EE08054796DFA27975 /* classes */,
+			);
+			path = testPixelator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D62A6FDE2A85DB31DDD07621 /* testPixelator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D62A6EC5829356A343DAF30B /* Build configuration list for PBXNativeTarget "testPixelator" */;
+			buildPhases = (
+				D62A66AC9592492589094CEA /* Sources */,
+				D62A6ABE418F60A66103EACE /* Frameworks */,
+				D62A6D0B57495D254C90A089 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testPixelator;
+			productName = testPixelator;
+			productReference = D62A6BDBEE321A4FF017888A /* testPixelator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D62A694EFB20C05D15CC9D08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = TogetherN;
+			};
+			buildConfigurationList = D62A67070F57F0C4E2A0F7CA /* Build configuration list for PBXProject "testPixelator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D62A6A6B0F05C0D0482E6348;
+			productRefGroup = D62A6C84B9B0E8F7A60987CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D62A6FDE2A85DB31DDD07621 /* testPixelator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D62A6D0B57495D254C90A089 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62A6922E287F8BE9BB2B852 /* Assets.xcassets in Resources */,
+				D62A66771670C288BA0D60BF /* LaunchScreen.storyboard in Resources */,
+				D62A6F01C8B1FC891136C1C9 /* Main.storyboard in Resources */,
+				D62A665C9F60B562C8090929 /* image.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D62A66AC9592492589094CEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D62A612EF6A18EE50694E994 /* main.m in Sources */,
+				D62A6080A5D2DC923AAD9F38 /* AppDelegate.m in Sources */,
+				D62A6E56E6933B687038DDE6 /* ViewController.m in Sources */,
+				D62A66751E45892162EE46A2 /* UIColor+Alpha.m in Sources */,
+				D62A682543F7F64A4B7582DD /* Pixelator.m in Sources */,
+				D62A6E977D8F603246011426 /* PixelateLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D62A6617706103AA1C57D564 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D62A69FE082553C9EF0C9793 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D62A6D46A5E07F4E0B692898 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D62A65084A03E03B274F2BCE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D62A61FA31D5A2865B1C9E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = testPixelator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sorry.flirt.testPixelator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D62A624578EC95986105A966 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D62A6A8578D1485B9348AEE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D62A6ACEF778007160EF6D3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = testPixelator/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sorry.flirt.testPixelator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D62A67070F57F0C4E2A0F7CA /* Build configuration list for PBXProject "testPixelator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D62A6A8578D1485B9348AEE2 /* Debug */,
+				D62A624578EC95986105A966 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D62A6EC5829356A343DAF30B /* Build configuration list for PBXNativeTarget "testPixelator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D62A61FA31D5A2865B1C9E44 /* Debug */,
+				D62A6ACEF778007160EF6D3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D62A694EFB20C05D15CC9D08 /* Project object */;
+}
