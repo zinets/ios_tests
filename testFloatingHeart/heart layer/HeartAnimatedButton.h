@@ -9,6 +9,6 @@
 @interface HeartAnimatedButton : UIButton
 /// максимальная высота, на которую поднимется сердечко
 @property (nonatomic) CGFloat maxHeightOfRaising;
-/// добавить анимацию; может начинаться как по тапу, так и в произвольный момент
+/// добавить анимацию; может начинаться как по тапу, так и в произвольный момент; внешняя анимация использует только highl ресурс, а своя - selected  
 - (void)addAnimation;
 @end
