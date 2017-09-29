@@ -33,29 +33,34 @@
     switch (state) {
         case UIControlStateHighlighted:
             highlightedImage = image;
+            [super setImage:image forState:state];
+            [super setImage:image forState:UIControlStateSelected];
             break;
         case UIControlStateSelected:
             selectedImage = image;
             break;
         default:
+            [super setImage:image forState:state];
             break;
     }
-    [super setImage:image forState:state];
 }
 
 
 - (void)onTapCompleted:(UIControl *)sender {
     if (sender.selected) return;
 
-    [self addAnimation];
+    [self addAnimation:selectedImage];
 }
 
 - (void)addAnimation {
+    [self addAnimation:highlightedImage];
+}
+
+- (void)addAnimation:(UIImage *)activeImage {
     if (!layerHeart) {
         layerHeart = [CALayer layer];
-        UIImage *heartImage = highlightedImage;
         layerHeart.frame = self.bounds;
-        layerHeart.contents = (id)heartImage.CGImage;
+        layerHeart.contents = (id)highlightedImage.CGImage;
         layerHeart.opacity = 0;
         [self.layer addSublayer:layerHeart];
     }
@@ -67,9 +72,8 @@
     [layerHeart addAnimation:heartDisapearing forKey:@"1"];
 
     ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
-    UIImage *image = selectedImage;
     layerActiveHeart.frame = self.bounds;
-    layerActiveHeart.contents = (id)image.CGImage;
+    layerActiveHeart.contents = (id)activeImage.CGImage;
     layerActiveHeart.opacity = 0;
     [self.layer addSublayer:layerActiveHeart];
 

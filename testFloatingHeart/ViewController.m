@@ -43,7 +43,7 @@
             forState:UIControlStateNormal];
     [ownButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
             forState:UIControlStateHighlighted];
-    [ownButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
+    [ownButton setImage:[UIImage imageNamed:@"streamLikeIconHighlighted"]
                  forState:UIControlStateSelected];
 
     [ownButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
