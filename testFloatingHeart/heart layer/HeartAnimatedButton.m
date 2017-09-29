@@ -3,19 +3,19 @@
 // Copyright (c) 2017 TogetherN. All rights reserved.
 //
 
-#import "HeartButton.h"
+#import "HeartAnimatedButton.h"
 
 @interface ActiveHeartLayer : CALayer
 @end
 
-@interface HeartButton () {
+@interface HeartAnimatedButton () {
     CALayer *layerHeart;
     UIImage *highlightedImage;
     UIImage *selectedImage;
 }
 @end
 
-@implementation HeartButton
+@implementation HeartAnimatedButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -45,13 +45,19 @@
 
 
 - (void)onTapCompleted:(UIControl *)sender {
+    if (sender.selected) return;
+
+    [self addAnimation];
+}
+
+- (void)addAnimation {
     if (!layerHeart) {
         layerHeart = [CALayer layer];
         UIImage *heartImage = highlightedImage;
-        layerHeart.frame = sender.bounds;
+        layerHeart.frame = self.bounds;
         layerHeart.contents = (id)heartImage.CGImage;
         layerHeart.opacity = 0;
-        [sender.layer addSublayer:layerHeart];
+        [self.layer addSublayer:layerHeart];
     }
     CAKeyframeAnimation *heartDisapearing = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     heartDisapearing.values = @[@1, @1, @0];
@@ -62,10 +68,10 @@
 
     ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
     UIImage *image = selectedImage;
-    layerActiveHeart.frame = sender.bounds;
+    layerActiveHeart.frame = self.bounds;
     layerActiveHeart.contents = (id)image.CGImage;
     layerActiveHeart.opacity = 0;
-    [sender.layer addSublayer:layerActiveHeart];
+    [self.layer addSublayer:layerActiveHeart];
 
     // 8шаговая много ходов очка
     CAAnimationGroup *ga = [CAAnimationGroup animation];

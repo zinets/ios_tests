@@ -7,11 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "heart layer/HeartButton.h"
+#import "HeartAnimatedButton.h"
 
 @interface ViewController () {
-    CALayer *layerHeart;
-    CALayer *layerActiveHeart;
+    HeartAnimatedButton *ownButton;
 }
 
 @end
@@ -22,7 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
 
-    HeartButton *heartButton = [[HeartButton alloc] initWithFrame:(CGRect){20, 120, 38, 38}];
+    HeartAnimatedButton *heartButton = [[HeartAnimatedButton alloc] initWithFrame:(CGRect){20, 120, 38, 38}];
     [heartButton setBackgroundColor:[UIColor lightGrayColor]];
 
     [heartButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
@@ -36,75 +35,29 @@
 
     [self.view addSubview:heartButton];
 
-    heartButton = [[HeartButton alloc] initWithFrame:(CGRect){70, 120, 38, 38}];
-    [heartButton setBackgroundColor:[UIColor lightGrayColor]];
-    heartButton.maxHeightOfRaising = 150;
+    ownButton = [[HeartAnimatedButton alloc] initWithFrame:(CGRect){70, 120, 38, 38}];
+    [ownButton setBackgroundColor:[UIColor lightGrayColor]];
+    ownButton.maxHeightOfRaising = 150;
 
-    [heartButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
+    [ownButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
             forState:UIControlStateNormal];
-    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
+    [ownButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
             forState:UIControlStateHighlighted];
-    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
+    [ownButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
                  forState:UIControlStateSelected];
 
-    [heartButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.view addSubview:heartButton];
+    [ownButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
+    ownButton.tag = 1;
+    [self.view addSubview:ownButton];
 
 }
 
 - (void)onHeartTap:(UIButton *)sender {
-    NSLog(@"!!!");
-}
-
-- (void)onTap:(UIButton *)sender {
-    if (!layerHeart) {
-        layerHeart = [CALayer layer];
-        UIImage *heartImage = [UIImage imageNamed:@"streamLikeIconWhite"];
-        layerHeart.frame = sender.bounds;
-        layerHeart.contents = (id)heartImage.CGImage;
-        layerHeart.opacity = 0;
-        [sender.layer addSublayer:layerHeart];
+    if (sender.tag == 1) {
+        sender.selected = !sender.selected;
+    } else {
+        [ownButton addAnimation];
     }
-    CAKeyframeAnimation *heartDisapearing = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-    heartDisapearing.values = @[@1, @1, @0];
-    heartDisapearing.keyTimes = @[@0, @(0.9), @1];
-    heartDisapearing.duration = 1.;
-
-    [layerHeart addAnimation:heartDisapearing forKey:@"1"];
-
-    if (!layerActiveHeart) {
-        layerActiveHeart = [CALayer layer];
-        UIImage *image = [UIImage imageNamed:@"streamLikeIconHighlighted"];
-        layerActiveHeart.frame = sender.bounds;
-        layerActiveHeart.contents = (id)image.CGImage;
-        layerActiveHeart.opacity = 0;
-        [sender.layer addSublayer:layerActiveHeart];
-    }
-    // 8шаговая много ходов очка
-    CAAnimationGroup *ga = [CAAnimationGroup animation];
-    ga.duration = 5.; {
-        CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-        opacityAnimation.keyTimes = @[@0, @(0.05), @(.9), @1];
-        opacityAnimation.values =   @[@0, @1,      @1,    @0];
-
-        CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-        scaleAnimation.keyTimes = @[@0,      @(0.5), @(0.8), @1];
-        scaleAnimation.values =   @[@(0.25), @(0.5), @(0.9), @1];
-
-        CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-        positionAnimation.keyTimes = @[@0, @(0.1), @(0.25), @1];
-        positionAnimation.values =   @[@0, @0,     @(-20),  @(-100)];
-        positionAnimation.additive = YES;
-
-        ga.animations = @[
-                opacityAnimation,
-                scaleAnimation,
-                positionAnimation,
-        ];
-    }
-
-    [layerActiveHeart addAnimation:ga forKey:@"2"];
 }
 
 @end
