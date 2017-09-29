@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HeartButton.h"
+#import "heart layer/HeartButton.h"
 
 @interface ViewController () {
     CALayer *layerHeart;
@@ -48,7 +48,6 @@
             forState:UIControlStateHighlighted];
 
     [heartButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
-
 
     [self.view addSubview:heartButton];
 

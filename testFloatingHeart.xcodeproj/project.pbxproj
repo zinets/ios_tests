@@ -20,23 +20,22 @@
 		D62A68F35A6AD80350B7178C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A65FF88007206392FA169 /* Assets.xcassets */; };
 		D62A69A09B5EA38B5E2F1B70 /* streamLikeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A66ACB90E461AD5D898CA /* streamLikeIcon@2x.png */; };
 		D62A6AC33D964291706B7E8A /* streamLikeIconHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B0CDDCB182EAEB0E2C0 /* streamLikeIconHighlighted@2x.png */; };
-		D62A6B06DC08DCFA21D2BE72 /* HeartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A60554C57CDCEF4780613 /* HeartButton.m */; };
+		D62A6ACBA2DD4AB2497420DC /* HeartButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A66781CC4185927CA664F /* HeartButton.m */; };
 		D62A6CC1B96BEF396E99C802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6B698430BBBBFB1BA695 /* AppDelegate.m */; };
 		D62A6CDC7FB2C14D06973599 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A66663D153B1D31E52540 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D62A60554C57CDCEF4780613 /* HeartButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartButton.m; sourceTree = "<group>"; };
 		D62A6147619B84DA9F28F519 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D62A624A9ADAB5C4932534E2 /* streamLikeIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streamLikeIconHighlighted.png; sourceTree = "<group>"; };
 		D62A65FF88007206392FA169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D62A66663D153B1D31E52540 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D62A66781CC4185927CA664F /* HeartButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartButton.m; sourceTree = "<group>"; };
 		D62A66ACB90E461AD5D898CA /* streamLikeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "streamLikeIcon@2x.png"; sourceTree = "<group>"; };
 		D62A673847886F629E63C774 /* streamLikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = streamLikeIcon.png; sourceTree = "<group>"; };
 		D62A6810AF3524B6F64EF6E3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D62A694A968BDF44560D5FC8 /* streamLikeIconWhite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "streamLikeIconWhite@3x.png"; sourceTree = "<group>"; };
 		D62A6A424B7416FE27E7F433 /* testFloatingHeart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testFloatingHeart.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D62A6AB364B7C480F995422F /* HeartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartButton.h; sourceTree = "<group>"; };
 		D62A6B0CDDCB182EAEB0E2C0 /* streamLikeIconHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "streamLikeIconHighlighted@2x.png"; sourceTree = "<group>"; };
 		D62A6B698430BBBBFB1BA695 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62A6BD6D1C43938C56B5402 /* streamLikeIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "streamLikeIcon@3x.png"; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		D62A6E162CF479B19BD5E2CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D62A6E25369D3BC45C7E5B06 /* streamLikeIconHighlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "streamLikeIconHighlighted@3x.png"; sourceTree = "<group>"; };
 		D62A6EFEC4A720E7DE98540C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D62A6F75D735E94584CB3998 /* HeartButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartButton.h; sourceTree = "<group>"; };
 		D62A6F98C5570A5463B5942F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,8 +66,7 @@
 				D62A63939C3248681EDE2FD9 /* Supporting Files */,
 				D62A6147619B84DA9F28F519 /* ViewController.h */,
 				D62A66663D153B1D31E52540 /* ViewController.m */,
-				D62A60554C57CDCEF4780613 /* HeartButton.m */,
-				D62A6AB364B7C480F995422F /* HeartButton.h */,
+				D62A6632A369645167300279 /* heart layer */,
 			);
 			path = testFloatingHeart;
 			sourceTree = "<group>";
@@ -93,6 +92,15 @@
 				D62A6D4E723B6A5E751B4045 /* streamLikeIconWhite@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62A6632A369645167300279 /* heart layer */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6F75D735E94584CB3998 /* HeartButton.h */,
+				D62A66781CC4185927CA664F /* HeartButton.m */,
+			);
+			path = "heart layer";
 			sourceTree = "<group>";
 		};
 		D62A68BDED8B7ED2919404D1 = {
@@ -186,7 +194,7 @@
 				D62A60E260F492AB42AEFDF9 /* main.m in Sources */,
 				D62A6CDC7FB2C14D06973599 /* ViewController.m in Sources */,
 				D62A6CC1B96BEF396E99C802 /* AppDelegate.m in Sources */,
-				D62A6B06DC08DCFA21D2BE72 /* HeartButton.m in Sources */,
+				D62A6ACBA2DD4AB2497420DC /* HeartButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
