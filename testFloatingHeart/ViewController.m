@@ -22,30 +22,30 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = (CGRect){20, 120, 38, 38};
-    [button setBackgroundColor:[UIColor lightGrayColor]];
-
-    [button setImage:[UIImage imageNamed:@"streamLikeIcon"]
-            forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
-            forState:UIControlStateHighlighted];
-
-    [button addTarget:self action:@selector(onTap:) forControlEvents:UIControlEventTouchUpInside];
-
-
-    [self.view addSubview:button];
-
-
-
-
-    HeartButton *heartButton = [[HeartButton alloc] initWithFrame:(CGRect){70, 120, 38, 38}];
+    HeartButton *heartButton = [[HeartButton alloc] initWithFrame:(CGRect){20, 120, 38, 38}];
     [heartButton setBackgroundColor:[UIColor lightGrayColor]];
+
+    [heartButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
+                 forState:UIControlStateNormal];
+    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
+                 forState:UIControlStateHighlighted];
+    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconHighlighted"]
+                 forState:UIControlStateSelected];
+
+    [heartButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:heartButton];
+
+    heartButton = [[HeartButton alloc] initWithFrame:(CGRect){70, 120, 38, 38}];
+    [heartButton setBackgroundColor:[UIColor lightGrayColor]];
+    heartButton.maxHeightOfRaising = 150;
 
     [heartButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
             forState:UIControlStateNormal];
     [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
             forState:UIControlStateHighlighted];
+    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
+                 forState:UIControlStateSelected];
 
     [heartButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
 

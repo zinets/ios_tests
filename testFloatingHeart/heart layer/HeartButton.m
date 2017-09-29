@@ -10,7 +10,8 @@
 
 @interface HeartButton () {
     CALayer *layerHeart;
-    NSMutableDictionary <id, CALayer *> *movingLayersPool;
+    UIImage *highlightedImage;
+    UIImage *selectedImage;
 }
 @end
 
@@ -19,9 +20,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        _maxHeightOfRaising = 100;
         [self addTarget:self action:@selector(onTapCompleted:) forControlEvents:UIControlEventTouchUpInside];
-
-        movingLayersPool = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -29,10 +29,25 @@
 
 #pragma mark - actions
 
+- (void)setImage:(nullable UIImage *)image forState:(UIControlState)state {
+    switch (state) {
+        case UIControlStateHighlighted:
+            highlightedImage = image;
+            break;
+        case UIControlStateSelected:
+            selectedImage = image;
+            break;
+        default:
+            break;
+    }
+    [super setImage:image forState:state];
+}
+
+
 - (void)onTapCompleted:(UIControl *)sender {
     if (!layerHeart) {
         layerHeart = [CALayer layer];
-        UIImage *heartImage = [UIImage imageNamed:@"streamLikeIconWhite"];
+        UIImage *heartImage = highlightedImage;
         layerHeart.frame = sender.bounds;
         layerHeart.contents = (id)heartImage.CGImage;
         layerHeart.opacity = 0;
@@ -46,7 +61,7 @@
     [layerHeart addAnimation:heartDisapearing forKey:@"1"];
 
     ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
-    UIImage *image = [UIImage imageNamed:@"streamLikeIconHighlighted"];
+    UIImage *image = selectedImage;
     layerActiveHeart.frame = sender.bounds;
     layerActiveHeart.contents = (id)image.CGImage;
     layerActiveHeart.opacity = 0;
@@ -71,12 +86,11 @@
         CAKeyframeAnimation *positionAnimation2 = [CAKeyframeAnimation animationWithKeyPath:@"position"]; {
             UIBezierPath *path = [UIBezierPath bezierPath];
             CGPoint beginPoint = layerHeart.bounds.origin;
-            CGFloat const maxHeight = 100;
-            CGPoint endPoint = (CGPoint) {beginPoint.x, beginPoint.y - maxHeight};
+            CGPoint endPoint = (CGPoint) {beginPoint.x, beginPoint.y - _maxHeightOfRaising};
             CGFloat controlSpread = arc4random_uniform(50);
-            CGPoint control1 = (CGPoint) {beginPoint.x + (controlSpread - 25), beginPoint.y - maxHeight * .25};
+            CGPoint control1 = (CGPoint) {beginPoint.x + (controlSpread - 25), beginPoint.y - _maxHeightOfRaising * .25};
             controlSpread = arc4random_uniform(100);
-            CGPoint control2 = (CGPoint) {beginPoint.x + (controlSpread - 50), beginPoint.y - maxHeight * .75};
+            CGPoint control2 = (CGPoint) {beginPoint.x + (controlSpread - 50), beginPoint.y - _maxHeightOfRaising * .75};
             [path moveToPoint:beginPoint];
             [path addCurveToPoint:endPoint controlPoint1:control1 controlPoint2:control2];
 
@@ -94,7 +108,6 @@
 
     [layerActiveHeart addAnimation:ga forKey:@"2"];
 }
-
 
 @end
 

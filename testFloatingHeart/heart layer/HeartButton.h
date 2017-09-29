@@ -6,4 +6,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HeartButton : UIButton
+/// максимальная высота, на которую поднимется сердечко
+@property (nonatomic) CGFloat maxHeightOfRaising;
 @end
