@@ -1,64 +1,27 @@
 //
-//  ViewController.m
-//  testFloatingHeart
-//
-//  Created by Zinets Viktor on 9/28/17.
-//  Copyright © 2017 TogetherN. All rights reserved.
+// Created by Zinets Viktor on 9/29/17.
+// Copyright (c) 2017 TogetherN. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "HeartButton.h"
 
-@interface ViewController () {
+@implementation HeartButton {
     CALayer *layerHeart;
     CALayer *layerActiveHeart;
 }
 
-@end
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addTarget:self action:@selector(onTapCompleted:) forControlEvents:UIControlEventTouchUpInside];
+    }
 
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor grayColor];
-
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = (CGRect){20, 120, 38, 38};
-    [button setBackgroundColor:[UIColor lightGrayColor]];
-
-    [button setImage:[UIImage imageNamed:@"streamLikeIcon"]
-            forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
-            forState:UIControlStateHighlighted];
-
-    [button addTarget:self action:@selector(onTap:) forControlEvents:UIControlEventTouchUpInside];
-
-
-    [self.view addSubview:button];
-
-
-
-
-    HeartButton *heartButton = [[HeartButton alloc] initWithFrame:(CGRect){70, 120, 38, 38}];
-    [heartButton setBackgroundColor:[UIColor lightGrayColor]];
-
-    [heartButton setImage:[UIImage imageNamed:@"streamLikeIcon"]
-            forState:UIControlStateNormal];
-    [heartButton setImage:[UIImage imageNamed:@"streamLikeIconWhite"]
-            forState:UIControlStateHighlighted];
-
-    [heartButton addTarget:self action:@selector(onHeartTap:) forControlEvents:UIControlEventTouchUpInside];
-
-
-    [self.view addSubview:heartButton];
-
+    return self;
 }
 
-- (void)onHeartTap:(UIButton *)sender {
-    NSLog(@"!!!");
-}
+#pragma mark - actions
 
-- (void)onTap:(UIButton *)sender {
+- (void)onTapCompleted:(UIControl *)sender {
     if (!layerHeart) {
         layerHeart = [CALayer layer];
         UIImage *heartImage = [UIImage imageNamed:@"streamLikeIconWhite"];
