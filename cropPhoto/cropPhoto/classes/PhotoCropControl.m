@@ -17,12 +17,10 @@
 @property (nonatomic, strong) UIImageView *leftBottomCorner;
 @property (nonatomic, strong) UIImageView *rightBottomCorner;
 
-// shadowing
-
 @end
 
 @implementation PhotoCropControl {
-
+    CGPoint lastPoint;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -38,6 +36,8 @@
         [self addSubview:self.rightTopCorner];
         [self addSubview:self.leftBottomCorner];
         [self addSubview:self.rightBottomCorner];
+
+
     }
 
     return self;
@@ -51,6 +51,9 @@
 - (UIImageView *)leftTopCorner {
     if (!_leftTopCorner) {
         _leftTopCorner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cropAngle"]];
+        _leftTopCorner.userInteractionEnabled = YES;
+        UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onSizeRecognizer:)];
+        [_leftTopCorner addGestureRecognizer:panR];
     }
     return _leftTopCorner;
 }
@@ -58,7 +61,10 @@
 - (UIImageView *)rightTopCorner {
     if (!_rightTopCorner) {
         _rightTopCorner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cropAngle"]];
+        _rightTopCorner.userInteractionEnabled = YES;
         _rightTopCorner.transform = CGAffineTransformMakeRotation(M_PI_2);
+        UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onSizeRecognizer:)];
+        [_rightTopCorner addGestureRecognizer:panR];
     }
     return _rightTopCorner;
 }
@@ -66,7 +72,10 @@
 - (UIImageView *)leftBottomCorner {
     if (!_leftBottomCorner) {
         _leftBottomCorner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cropAngle"]];
+        _leftBottomCorner.userInteractionEnabled = YES;
         _leftBottomCorner.transform = CGAffineTransformMakeRotation(-M_PI_2);
+        UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onSizeRecognizer:)];
+        [_leftBottomCorner addGestureRecognizer:panR];
     }
     return _leftBottomCorner;
 }
@@ -74,7 +83,10 @@
 - (UIImageView *)rightBottomCorner {
     if (!_rightBottomCorner) {
         _rightBottomCorner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cropAngle"]];
+        _rightBottomCorner.userInteractionEnabled = YES;
         _rightBottomCorner.transform = CGAffineTransformMakeRotation(M_PI);
+        UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onSizeRecognizer:)];
+        [_rightBottomCorner addGestureRecognizer:panR];
     }
     return _rightBottomCorner;
 }
@@ -108,40 +120,78 @@
 
 - (void)setMaskFrame:(CGRect)maskFrame {
     CGRect frame = self.imageView.frame;
-    maskFrame.size.width = MAX(100, maskFrame.size.width);
-    maskFrame.size.height = MAX(100, maskFrame.size.height);
 
-    _maskFrame = maskFrame;
+    CGFloat x = MIN(MAX(0, maskFrame.origin.x), frame.size.width - 100);
+    CGFloat y = MIN(MAX(0, maskFrame.origin.y), frame.size.height - 100);
+    CGFloat w = MAX(100, MIN(frame.size.width - x, maskFrame.size.width));
+    CGFloat h = MAX(100, MIN(frame.size.height - y, maskFrame.size.height));
 
-    CGPoint cornerPt = (CGPoint){self.imageView.frame.origin.x + _maskFrame.origin.x - CORNER_WIDTH,
-            self.imageView.frame.origin.y + _maskFrame.origin.y - CORNER_WIDTH};
+    _maskFrame = (CGRect){{x, y}, {w, h}}; // новая маска, в координатах картиночного вью
+    CGRect frm = CGRectOffset(_maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
+
+    CGPoint cornerPt = (CGPoint){frm.origin.x - CORNER_WIDTH, frm.origin.y - CORNER_WIDTH};
     frame = self.leftTopCorner.frame;
     frame.origin = cornerPt;
     self.leftTopCorner.frame = frame;
 
-    cornerPt = (CGPoint){CGRectGetMaxX(self.imageView.frame) - CORNER_W2,
-            self.imageView.frame.origin.y + _maskFrame.origin.y - CORNER_WIDTH};
+    cornerPt = (CGPoint){CGRectGetMaxX(frm) - CORNER_W2, frm.origin.y - CORNER_WIDTH};
     frame = self.rightTopCorner.frame;
     frame.origin = cornerPt;
     self.rightTopCorner.frame = frame;
 
-    cornerPt = (CGPoint){self.imageView.frame.origin.x + _maskFrame.origin.x - CORNER_WIDTH,
-            CGRectGetMaxY(self.imageView.frame) - CORNER_W2};
+    cornerPt = (CGPoint){frm.origin.x - CORNER_WIDTH, CGRectGetMaxY(frm) - CORNER_W2};
     frame = self.leftBottomCorner.frame;
     frame.origin = cornerPt;
     self.leftBottomCorner.frame = frame;
 
-    cornerPt = (CGPoint){CGRectGetMaxX(self.imageView.frame) - CORNER_W2,
-            CGRectGetMaxY(self.imageView.frame) - CORNER_W2};
+    cornerPt = (CGPoint){CGRectGetMaxX(frm) - CORNER_W2, CGRectGetMaxY(frm) - CORNER_W2};
     frame = self.rightBottomCorner.frame;
     frame.origin = cornerPt;
     self.rightBottomCorner.frame = frame;
 
-    [self.shadowControl setFrameToUnmask:self.imageView.frame];
+    [self.shadowControl setFrameToUnmask:frm];
 }
 
 - (void)resetCrop {
     self.maskFrame = (CGRect){CGPointZero, self.imageView.bounds.size};
+}
+
+- (void)onSizeRecognizer:(UIPanGestureRecognizer *)sender {
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+            lastPoint = [sender locationInView:self];
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint pt = [sender locationInView:self];
+            CGFloat dx = pt.x - lastPoint.x;
+            CGFloat dy = pt.y - lastPoint.y;
+
+            CGRect newMaskFrame = self.maskFrame;
+
+            if (sender.view == self.leftTopCorner) {
+                newMaskFrame.origin.x += dx;
+                newMaskFrame.origin.y += dy;
+                newMaskFrame.size.width -= dx;
+                newMaskFrame.size.height -= dy;
+            } else if (sender.view == self.rightTopCorner) {
+                newMaskFrame.origin.y += dy;
+                newMaskFrame.size.width += dx;
+                newMaskFrame.size.height -= dy;
+            } else if (sender.view == self.leftBottomCorner) {
+                newMaskFrame.origin.x += dx;
+                newMaskFrame.size.width -= dx;
+                newMaskFrame.size.height += dy;
+            } else if (sender.view == self.rightBottomCorner) {
+                newMaskFrame.size.width += dx;
+                newMaskFrame.size.height += dy;
+            }
+
+            [self setMaskFrame:newMaskFrame];
+            lastPoint = pt;
+        } break;
+        default:
+            break;
+    }
 }
 
 @end
