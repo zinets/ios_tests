@@ -102,7 +102,7 @@
 }
 
 - (void)onResetTap:(id)sender {
-
+    [self.cropControl resetCrop];
 }
 
 - (void)onCropTap:(id)sender {
@@ -135,17 +135,19 @@
                 self.resetButton.alpha = 1;
                 self.doneButton.alpha = 1;
 
-                self.previewView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+                CGSize sz = [self.cropControl setImageToCrop:self.imageToCrop].size;
+                CGFloat scale = MAX(sz.width / self.view.bounds.size.width, sz.height / self.view.bounds.size.height);
+                self.previewView.transform = CGAffineTransformMakeScale(scale, scale);
             } completion:^(BOOL finished) {
-                self.cropControl.imageToCrop = self.imageToCrop;
-
-                self.cropControl.alpha = 1;
-                self.previewView.alpha = 0;
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.cropControl.alpha = 1;
+                    self.previewView.alpha = 0;
+                }];
             }];
         } break;
         case PhotoCropperModeCompleted: {
-            self.imageToCrop = self.cropControl.imageToCrop;
-            self.previewView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+//            self.imageToCrop = self.cropControl.imageToCrop;
+
             self.cropControl.alpha = 0;
             self.previewView.alpha = 1;
             [UIView animateWithDuration:0.4 animations:^{

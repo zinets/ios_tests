@@ -6,5 +6,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoCropControl : UIView
-@property (nonatomic, strong) UIImage *imageToCrop;
+// берем картинку, вписываем в интерфейс и вернем фрейм - для анимирования
+- (CGRect)setImageToCrop:(UIImage *)image;
+// todo
+@property (nonatomic, readonly) UIImage *croppedImage;
+// todo
+- (void)resetCrop;
 @end
