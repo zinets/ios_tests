@@ -8,6 +8,7 @@
 typedef enum {
     PhotoCropperModePreview,
     PhotoCropperModeCrop,
+    PhotoCropperModeCompleted,
 } PhotoCropperMode;
 
 @interface PhotoCropController : UIViewController

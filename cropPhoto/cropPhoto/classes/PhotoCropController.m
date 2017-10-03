@@ -4,6 +4,7 @@
 //
 
 #import "PhotoCropController.h"
+#import "PhotoCropControl.h"
 #import "UIColor+MUIColor.h"
 
 @interface PhotoCropController ()
@@ -12,12 +13,21 @@
 @property (nonatomic, strong) UIButton *cropButton;
 @property (nonatomic, strong) UIButton *doneButton;
 
-
 @property (nonatomic, strong) UIImageView *previewView;
+@property (nonatomic, strong) PhotoCropControl *cropControl;
+
 @end
 
 @implementation PhotoCropController {
 
+}
+
+- (PhotoCropControl *)cropControl {
+    if (!_cropControl) {
+        _cropControl = [[PhotoCropControl alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _cropControl.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    }
+    return _cropControl;
 }
 
 - (UIImageView *)previewView {
@@ -75,6 +85,7 @@
     self.navigationController.navigationBarHidden = YES;
 
     [self.view addSubview:self.previewView];
+    [self.view addSubview:self.cropControl];
 
     [self.view addSubview:self.backButton];
     [self.view addSubview:self.resetButton];
@@ -99,34 +110,52 @@
 }
 
 - (void)onDoneTap:(id)sender {
-    // todo
-    self.mode = PhotoCropperModePreview;
+    self.mode = PhotoCropperModeCompleted;
 }
 
 - (void)setMode:(PhotoCropperMode)mode {
     _mode = mode;
-    [UIView animateWithDuration:0.4 animations:^{
-        switch (_mode) {
-            case PhotoCropperModePreview:
+
+    switch (_mode) {
+        case PhotoCropperModePreview: {
+            [UIView animateWithDuration:0.4 animations:^{
                 self.backButton.alpha = 1;
                 self.cropButton.alpha = 1;
                 self.resetButton.alpha = 0;
                 self.doneButton.alpha = 0;
 
-                self.previewView.transform = CGAffineTransformIdentity;
-
-                break;
-            case PhotoCropperModeCrop:
+                self.cropControl.alpha = 0;
+                self.previewView.alpha = 1;
+            }];
+        } break;
+        case PhotoCropperModeCrop: {
+            [UIView animateWithDuration:0.4 animations:^{
                 self.backButton.alpha = 1;
                 self.cropButton.alpha = 0;
                 self.resetButton.alpha = 1;
                 self.doneButton.alpha = 1;
 
                 self.previewView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            } completion:^(BOOL finished) {
+                self.cropControl.imageToCrop = self.imageToCrop;
 
-                break;
-        }
-    }];
+                self.cropControl.alpha = 1;
+                self.previewView.alpha = 0;
+            }];
+        } break;
+        case PhotoCropperModeCompleted: {
+            self.imageToCrop = self.cropControl.imageToCrop;
+            self.previewView.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            self.cropControl.alpha = 0;
+            self.previewView.alpha = 1;
+            [UIView animateWithDuration:0.4 animations:^{
+                self.previewView.transform = CGAffineTransformIdentity;
+                self.mode = PhotoCropperModePreview;
+            } completion:^(BOOL finished) {
+
+            }];
+        } break;
+    }
 }
 
 - (void)setImageToCrop:(UIImage *)imageToCrop {
