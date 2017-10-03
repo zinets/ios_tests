@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C" : 9223372036854775807,
+    "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "373A7E97-29CB-49B5-A525-2C6C97FD2EF5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C" : "ios_tests\/",
+    "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A" : "mobile_ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "cropPhoto",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "cropPhoto\/cropPhoto.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zinets\/ios_tests.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A28ECF903C896B2A81B5D6DFF5CF341028BAE28C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/git-bitbucket.togethernetworks.com:2600\/ma\/mobile_ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC7A62B83C329C4826CF0C8EB4D94F926ADD662A"
+    }
+  ]
+}

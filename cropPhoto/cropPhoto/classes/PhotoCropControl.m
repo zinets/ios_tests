@@ -135,6 +135,8 @@
     frame = self.rightBottomCorner.frame;
     frame.origin = cornerPt;
     self.rightBottomCorner.frame = frame;
+
+    [self.shadowControl setFrameToUnmask:self.imageView.frame];
 }
 
 - (void)resetCrop {

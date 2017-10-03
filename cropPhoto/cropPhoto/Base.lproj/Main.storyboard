@@ -40,6 +40,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9te-v4-cYS">
                                 <rect key="frame" x="16" y="80" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="portrait"/>
                                 <connections>
                                     <action selector="loadPortrait:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LV3-DW-6qv"/>
@@ -48,9 +49,19 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMd-Ah-GCJ">
                                 <rect key="frame" x="16" y="118" width="169" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="landscape"/>
                                 <connections>
                                     <action selector="loadLandscape:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMV-od-pvq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btd-dG-YzI">
+                                <rect key="frame" x="16" y="156" width="169" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="small"/>
+                                <connections>
+                                    <action selector="loadSmall:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0H6-AV-tGK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="77"/>
+            <point key="canvasLocation" x="413.60000000000002" y="76.911544227886068"/>
         </scene>
     </scenes>
 </document>

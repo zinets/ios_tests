@@ -29,6 +29,10 @@
     [self loadWithPhoto:[UIImage imageNamed:@"photo_l.jpg"]];
 }
 
+- (IBAction)loadSmall:(id)sender {
+    [self loadWithPhoto:[UIImage imageNamed:@"photo_s.jpg"]];
+}
+
 - (void)loadWithPhoto:(UIImage *)photo {
     PhotoCropController *ctrl = [PhotoCropController new];
     ctrl.imageToCrop = photo;

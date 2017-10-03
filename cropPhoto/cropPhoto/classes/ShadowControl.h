@@ -6,4 +6,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ShadowControl : UIView
+@property (nonatomic) CGRect frameToUnmask;
 @end
