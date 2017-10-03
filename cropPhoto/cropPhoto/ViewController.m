@@ -31,6 +31,7 @@
 
 - (void)loadWithPhoto:(UIImage *)photo {
     PhotoCropController *ctrl = [PhotoCropController new];
+    ctrl.imageToCrop = photo;
     [self.navigationController pushViewController:ctrl animated:YES];
 
 

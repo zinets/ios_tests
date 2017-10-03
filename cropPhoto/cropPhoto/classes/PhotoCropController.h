@@ -5,5 +5,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    PhotoCropperModePreview,
+    PhotoCropperModeCrop,
+} PhotoCropperMode;
+
 @interface PhotoCropController : UIViewController
+@property (nonatomic, assign) PhotoCropperMode mode;
+@property (nonatomic, strong) UIImage *imageToCrop;
 @end
