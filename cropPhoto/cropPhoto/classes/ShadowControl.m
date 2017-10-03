@@ -23,6 +23,7 @@
 
         [self.layer addSublayer:shadowLayer];
 
+        self.userInteractionEnabled = YES;
     }
 
     return self;

@@ -23,6 +23,13 @@
     CGPoint lastPoint;
 }
 
+// толщина уголка 6 пк
+#define CORNER_WIDTH 6
+// остаток ширины уголка (чтоб не пересчитывать все время)
+#define CORNER_W2 18
+#define HORIZONTAL_OFFSET 48
+#define MINIMUM_CROP_SIZE 100
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -36,17 +43,10 @@
         [self addSubview:self.rightTopCorner];
         [self addSubview:self.leftBottomCorner];
         [self addSubview:self.rightBottomCorner];
-
-
     }
 
     return self;
 }
-
-// толщина уголка 6 пк
-#define CORNER_WIDTH 6
-#define CORNER_W2 18
-#define HORIZONTAL_OFFSET 48
 
 - (UIImageView *)leftTopCorner {
     if (!_leftTopCorner) {
@@ -95,6 +95,9 @@
     if (!_shadowControl) {
         _shadowControl = [[ShadowControl alloc] initWithFrame:self.bounds];
         _shadowControl.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
+
+        UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPosRecognizer:)];
+        [_shadowControl addGestureRecognizer:panR];
     }
     return _shadowControl;
 }
@@ -121,10 +124,10 @@
 - (void)setMaskFrame:(CGRect)maskFrame {
     CGRect frame = self.imageView.frame;
 
-    CGFloat x = MIN(MAX(0, maskFrame.origin.x), frame.size.width - 100);
-    CGFloat y = MIN(MAX(0, maskFrame.origin.y), frame.size.height - 100);
-    CGFloat w = MAX(100, MIN(frame.size.width - x, maskFrame.size.width));
-    CGFloat h = MAX(100, MIN(frame.size.height - y, maskFrame.size.height));
+    CGFloat x = MIN(MAX(0, maskFrame.origin.x), frame.size.width - MINIMUM_CROP_SIZE);
+    CGFloat y = MIN(MAX(0, maskFrame.origin.y), frame.size.height - MINIMUM_CROP_SIZE);
+    CGFloat w = MAX(MIN(frame.size.width - x, maskFrame.size.width), MINIMUM_CROP_SIZE);
+    CGFloat h = MAX(MIN(frame.size.height - y, maskFrame.size.height), MINIMUM_CROP_SIZE);
 
     _maskFrame = (CGRect){{x, y}, {w, h}}; // новая маска, в координатах картиночного вью
     CGRect frm = CGRectOffset(_maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
@@ -185,6 +188,28 @@
                 newMaskFrame.size.width += dx;
                 newMaskFrame.size.height += dy;
             }
+
+            [self setMaskFrame:newMaskFrame];
+            lastPoint = pt;
+        } break;
+        default:
+            break;
+    }
+}
+
+- (void)onPosRecognizer:(UIPanGestureRecognizer *)sender {
+    switch (sender.state) {
+        case UIGestureRecognizerStateBegan:
+            lastPoint = [sender locationInView:self];
+            break;
+        case UIGestureRecognizerStateChanged: {
+            CGPoint pt = [sender locationInView:self];
+            CGFloat dx = pt.x - lastPoint.x;
+            CGFloat dy = pt.y - lastPoint.y;
+
+            CGRect newMaskFrame = self.maskFrame;
+            newMaskFrame.origin.x += dx;
+            newMaskFrame.origin.y += dy;
 
             [self setMaskFrame:newMaskFrame];
             lastPoint = pt;
