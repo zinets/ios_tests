@@ -46,6 +46,7 @@
 // толщина уголка 6 пк
 #define CORNER_WIDTH 6
 #define CORNER_W2 18
+#define HORIZONTAL_OFFSET 48
 
 - (UIImageView *)leftTopCorner {
     if (!_leftTopCorner) {
@@ -90,8 +91,8 @@
     CGSize imageSize = image.size;
     CGSize controlSize = self.bounds.size;
 
-    CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * 20));
-    CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * 20));
+    CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * HORIZONTAL_OFFSET));
+    CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * HORIZONTAL_OFFSET)); // бо так проще
     CGFloat k = MAX(x, y);
 
     CGSize sz = {imageSize.width / k, imageSize.height / k};
