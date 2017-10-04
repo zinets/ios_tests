@@ -118,6 +118,8 @@
     CGFloat w = MAX(MIN(frame.size.width - x, maskFrame.size.width), MINIMUM_CROP_SIZE);
     CGFloat h = MAX(MIN(frame.size.height - y, maskFrame.size.height), MINIMUM_CROP_SIZE);
 
+    BOOL hasChanged = !(x == 0 && y == 0 && w == frame.size.width && h == frame.size.height);
+
     _maskFrame = (CGRect){{x, y}, {w, h}}; // новая маска, в координатах картиночного вью
     CGRect frm = CGRectOffset(_maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
     // ⎡
@@ -142,6 +144,10 @@
     self.rightBottomCorner.frame = frame;
 
     [self.shadowControl setFrameToUnmask:frm];
+
+    if (self.delegate) {
+        [self.delegate cropControl:self didChangeMaskFrame:hasChanged];
+    }
 }
 
 

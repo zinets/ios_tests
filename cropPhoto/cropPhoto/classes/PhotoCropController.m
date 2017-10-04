@@ -6,7 +6,7 @@
 #import "PhotoCropController.h"
 #import "PhotoCropControl.h"
 
-@interface PhotoCropController ()
+@interface PhotoCropController () <PhotoCropControlDelegate>
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UIButton *resetButton;
 @property (nonatomic, strong) UIButton *cropButton;
@@ -25,6 +25,7 @@
     if (!_cropControl) {
         _cropControl = [[PhotoCropControl alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _cropControl.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        _cropControl.delegate = self;
     }
     return _cropControl;
 }
@@ -164,6 +165,12 @@
 - (void)setImageToCrop:(UIImage *)imageToCrop {
     _imageToCrop = imageToCrop;
     self.previewView.image = _imageToCrop;
+}
+
+#pragma mark - delegation
+
+- (void)cropControl:(id)sender didChangeMaskFrame:(BOOL)changed {
+    self.doneButton.hidden = !changed;
 }
 
 @end
