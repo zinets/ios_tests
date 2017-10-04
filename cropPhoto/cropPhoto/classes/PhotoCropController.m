@@ -162,15 +162,20 @@
             }];
         } break;
         case PhotoCropperModeCompleted: {
+            CGRect cropMask = self.cropControl.cropFrame;
+            NSLog(@"%@", NSStringFromCGRect(cropMask));
             self.imageToCrop = self.cropControl.croppedImage;
+            self.previewView.transform = CGAffineTransformIdentity;
+            self.previewView.frame = cropMask;
 
-            self.cropControl.alpha = 0;
             self.previewView.alpha = 1;
-            [UIView animateWithDuration:0.4 animations:^{
-                self.previewView.transform = CGAffineTransformIdentity;
-                self.mode = PhotoCropperModePreview;
+            [UIView animateWithDuration:0.2 animations:^{
+                self.cropControl.alpha = 0;
             } completion:^(BOOL finished) {
-
+                [UIView animateWithDuration:0.4 animations:^{
+                    self.previewView.frame = self.view.bounds;
+                    self.mode = PhotoCropperModePreview;
+                }];
             }];
         } break;
     }

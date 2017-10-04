@@ -19,6 +19,8 @@
 @property (nonatomic, strong) UIImageView *leftBottomCorner;
 @property (nonatomic, strong) UIImageView *rightBottomCorner;
 
+@property (nonatomic) BOOL hasChanges;
+
 @end
 
 @implementation PhotoCropControl {
@@ -112,13 +114,13 @@
 - (void)setMaskFrame:(CGRect)maskFrame {
     CGRect frame = self.imageView.frame;
 
-    CGFloat x = MIN(MAX(0, maskFrame.origin.x), frame.size.width - MINIMUM_CROP_SIZE);
-    CGFloat y = MIN(MAX(0, maskFrame.origin.y), frame.size.height - MINIMUM_CROP_SIZE);
+    CGFloat x = floorf(MIN(MAX(0, maskFrame.origin.x), frame.size.width - MINIMUM_CROP_SIZE));
+    CGFloat y = floorf(MIN(MAX(0, maskFrame.origin.y), frame.size.height - MINIMUM_CROP_SIZE));
 
-    CGFloat w = MAX(MIN(frame.size.width - x, maskFrame.size.width), MINIMUM_CROP_SIZE);
-    CGFloat h = MAX(MIN(frame.size.height - y, maskFrame.size.height), MINIMUM_CROP_SIZE);
+    CGFloat w = ceilf(MAX(MIN(frame.size.width - x, maskFrame.size.width), MINIMUM_CROP_SIZE));
+    CGFloat h = ceilf(MAX(MIN(frame.size.height - y, maskFrame.size.height), MINIMUM_CROP_SIZE));
 
-    BOOL hasChanged = !(x == 0 && y == 0 && w == frame.size.width && h == frame.size.height);
+    self.hasChanges = !(x == 0 && y == 0 && w == frame.size.width && h == frame.size.height);
 
     _maskFrame = (CGRect){{x, y}, {w, h}}; // новая маска, в координатах картиночного вью
     CGRect frm = CGRectOffset(_maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
@@ -146,7 +148,7 @@
     [self.shadowControl setFrameToUnmask:frm];
 
     if (self.delegate) {
-        [self.delegate cropControl:self didChangeMaskFrame:hasChanged];
+        [self.delegate cropControl:self didChangeMaskFrame:self.hasChanges];
     }
 }
 
@@ -229,7 +231,7 @@
     CGSize sz = {imageSize.width / usedScaleValue, imageSize.height / usedScaleValue};
     CGPoint pt = {(controlSize.width - sz.width) / 2, (controlSize.height - sz.height) / 2};
 
-    self.imageView.frame = (CGRect){pt, sz};
+    self.imageView.frame = CGRectIntegral((CGRect){pt, sz});
     self.imageView.image = image;
 
     self.maskFrame = (CGRect){CGPointZero, sz};
@@ -245,18 +247,26 @@
 }
 
 - (UIImage *)croppedImage {
-    CGRect actualCroppedRect = CGRectIntegral((CGRect){
-            self.maskFrame.origin.x * usedScaleValue,
-            self.maskFrame.origin.y * usedScaleValue,
-            self.maskFrame.size.width * usedScaleValue,
-            self.maskFrame.size.height * usedScaleValue
-    });
+    if (self.hasChanges) {
+        CGRect actualCroppedRect = CGRectIntegral((CGRect) {
+                self.maskFrame.origin.x * usedScaleValue,
+                self.maskFrame.origin.y * usedScaleValue,
+                self.maskFrame.size.width * usedScaleValue,
+                self.maskFrame.size.height * usedScaleValue
+        });
 
-    CGImageRef imageRef = CGImageCreateWithImageInRect(_imageToCrop.CGImage, actualCroppedRect);
+        CGImageRef imageRef = CGImageCreateWithImageInRect(_imageToCrop.CGImage, actualCroppedRect);
 
-    UIImage * img = [UIImage imageWithCGImage:imageRef];
-    CGImageRelease(imageRef);
-    return img;
+        UIImage *img = [UIImage imageWithCGImage:imageRef];
+        CGImageRelease(imageRef);
+        return img;
+    } else {
+        return _imageToCrop;
+    }
+}
+
+- (CGRect)cropFrame {
+    return CGRectOffset(self.maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
 }
 
 @end

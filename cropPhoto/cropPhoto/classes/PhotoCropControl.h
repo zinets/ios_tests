@@ -16,5 +16,7 @@
 // вертаем маску в начальное состояние
 - (void)resetCrop;
 @property (nonatomic, readonly) UIImage *croppedImage;
+- (CGRect)cropFrame;
+
 @property (nonatomic, weak) id <PhotoCropControlDelegate> delegate;
 @end
