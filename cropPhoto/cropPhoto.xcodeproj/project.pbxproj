@@ -161,6 +161,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = TogetherN;
+				TargetAttributes = {
+					D62A66806317D3803982F004 = {
+						DevelopmentTeam = GA7JUF7GUE;
+					};
+				};
 			};
 			buildConfigurationList = D62A6005DDA3EE49472B349A /* Build configuration list for PBXProject "cropPhoto" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -242,6 +247,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
 				INFOPLIST_FILE = cropPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sorry.flirt.cropPhoto;
@@ -301,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
 				INFOPLIST_FILE = cropPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sorry.flirt.cropPhoto;
@@ -369,6 +376,7 @@
 				D62A61AC48219F3548EA5DF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
