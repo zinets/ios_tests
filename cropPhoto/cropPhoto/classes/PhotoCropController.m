@@ -56,6 +56,7 @@
     if (!_sendButton) {
         _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _sendButton.frame = (CGRect){[UIScreen mainScreen].bounds.size.width - 8 - 72, [UIScreen mainScreen].bounds.size.height - 8 - 72, 72, 72};
+        _sendButton.alpha = 0;
         [_sendButton setImage:[UIImage imageNamed:@"cameraSend"] forState:UIControlStateNormal];
         [_sendButton addTarget:self action:@selector(onSendTap:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -66,6 +67,7 @@
     if (!_backButton) {
         _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _backButton.frame = (CGRect){0, 20, 40, 40};
+        _backButton.alpha = 0;
         [_backButton setImage:[UIImage imageNamed:@"cameraBack48"] forState:UIControlStateNormal];
         [_backButton addTarget:self action:@selector(onBackTap:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -87,6 +89,7 @@
     if (!_cropButton) {
         _cropButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _cropButton.frame = (CGRect){self.view.bounds.size.width - 40, 20, 40, 40};
+        _cropButton.alpha = 0;
         [_cropButton setImage:[UIImage imageNamed:@"cameraCrop48"] forState:UIControlStateNormal];
         [_cropButton addTarget:self action:@selector(onCropTap:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -108,7 +111,10 @@
     [self.view addSubview:self.cropButton];
     [self.view addSubview:self.doneButton];
     [self.view addSubview:self.sendButton];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     self.mode = PhotoCropperModePreview;
 }
 
@@ -136,6 +142,8 @@
     switch (_mode) {
         case PhotoCropperModePreview: {
             [UIView animateWithDuration:0.4 animations:^{
+                self.backButton.alpha = 1;
+
                 self.resetButton.alpha = 0;
                 self.doneButton.alpha = 0;
 
