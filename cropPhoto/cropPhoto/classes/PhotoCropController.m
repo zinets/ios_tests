@@ -27,6 +27,7 @@
         _cropControl = [[PhotoCropControl alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _cropControl.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _cropControl.delegate = self;
+        _cropControl.alpha = 0;
     }
     return _cropControl;
 }
@@ -44,6 +45,7 @@
     if (!_doneButton) {
         _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _doneButton.frame = (CGRect){8, [UIScreen mainScreen].bounds.size.height - 8 - 72, 72, 72};
+        _doneButton.alpha = 0;
         [_doneButton setImage:[UIImage imageNamed:@"cameraDone"] forState:UIControlStateNormal];
         [_doneButton addTarget:self action:@selector(onDoneTap:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -74,6 +76,7 @@
     if (!_resetButton) {
         _resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _resetButton.frame = (CGRect){self.view.bounds.size.width - 40, 20, 40, 40};
+        _resetButton.alpha = 0;
         [_resetButton setImage:[UIImage imageNamed:@"cameraReset48"] forState:UIControlStateNormal];
         [_resetButton addTarget:self action:@selector(onResetTap:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -93,7 +96,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+
     self.navigationController.navigationBarHidden = YES;
 
     [self.view addSubview:self.previewView];
@@ -132,22 +136,21 @@
     switch (_mode) {
         case PhotoCropperModePreview: {
             [UIView animateWithDuration:0.4 animations:^{
-                self.backButton.alpha = 1;
-                self.cropButton.alpha = 1;
                 self.resetButton.alpha = 0;
                 self.doneButton.alpha = 0;
-                self.sendButton.alpha = 1;
 
                 self.cropControl.alpha = 0;
                 self.previewView.alpha = 1;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.cropButton.alpha = 1;
+                    self.sendButton.alpha = 1;
+                }];
             }];
         } break;
         case PhotoCropperModeCrop: {
             [UIView animateWithDuration:0.4 animations:^{
-                self.backButton.alpha = 1;
                 self.cropButton.alpha = 0;
-                self.resetButton.alpha = 1;
-                self.doneButton.alpha = 1;
                 self.sendButton.alpha = 0;
 
                 CGSize sz = [self.cropControl setImageToCrop:self.imageToCrop].size;
@@ -155,6 +158,8 @@
                 self.previewView.transform = CGAffineTransformMakeScale(scale, scale);
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.2 animations:^{
+                    self.resetButton.alpha = 1;
+                    self.doneButton.alpha = 1;
                     self.cropControl.alpha = 1;
                 } completion:^(BOOL finished) {
                     self.previewView.alpha = 0;
@@ -163,7 +168,6 @@
         } break;
         case PhotoCropperModeCompleted: {
             CGRect cropMask = self.cropControl.cropFrame;
-            NSLog(@"%@", NSStringFromCGRect(cropMask));
             self.imageToCrop = self.cropControl.croppedImage;
             self.previewView.transform = CGAffineTransformIdentity;
             self.previewView.frame = cropMask;
@@ -191,6 +195,12 @@
 - (void)cropControl:(id)sender didChangeMaskFrame:(BOOL)changed {
     // наверное все ж нахер не нужен этот метод..
 //    self.doneButton.hidden = !changed;
+}
+
+#pragma mark -
+
+- (UIView *)toView {
+    return self.previewView;
 }
 
 @end

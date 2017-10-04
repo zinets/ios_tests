@@ -14,4 +14,5 @@ typedef enum {
 @interface PhotoCropController : UIViewController
 @property (nonatomic, assign) PhotoCropperMode mode;
 @property (nonatomic, strong) UIImage *imageToCrop;
+@property (nonatomic, readonly) UIView *toView;
 @end

@@ -32,7 +32,6 @@
 #define CORNER_WIDTH 6
 // остаток ширины уголка (чтоб не пересчитывать все время)
 #define CORNER_W2 18
-#define HORIZONTAL_OFFSET 32
 #define MINIMUM_CROP_SIZE 100
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -167,11 +166,10 @@
 
             CGRect newMaskFrame = self.maskFrame;
             // тут (или в setMaskFrame надо добавить умных проверок, чтобы при двигании рамки не менялись ее размеры при упирании в край области
-
             if (sender.view == self.leftTopCorner) {
                 newMaskFrame.origin.x += dx;
-                newMaskFrame.origin.y += dy;
                 newMaskFrame.size.width -= dx;
+                newMaskFrame.origin.y += dy;
                 newMaskFrame.size.height -= dy;
             } else if (sender.view == self.rightTopCorner) {
                 newMaskFrame.origin.y += dy;
@@ -218,6 +216,12 @@
 
 #pragma mark -
 
+#define HORIZONTAL_OFFSET 32
+// идея в том, что сверху-снизу надо отступать по разному, чтобы кропалка не налезала на остальные контролы; посмотрим, что получица
+#define VERTICAL_TOP_OFFSET 60
+#define VERTICAL_BOTTOM_OFFSET 110
+#define VERTICAL_OFFSET (VERTICAL_TOP_OFFSET + VERTICAL_BOTTOM_OFFSET)
+
 - (CGRect)setImageToCrop:(UIImage *)image {
     _imageToCrop = image;
 
@@ -225,11 +229,14 @@
     CGSize controlSize = self.bounds.size;
 
     CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * HORIZONTAL_OFFSET));
-    CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * HORIZONTAL_OFFSET)); // бо так проще
+    CGFloat y = MAX(1, imageSize.height / (controlSize.height - VERTICAL_OFFSET));
     usedScaleValue = MAX(x, y);
 
     CGSize sz = {imageSize.width / usedScaleValue, imageSize.height / usedScaleValue};
-    CGPoint pt = {(controlSize.width - sz.width) / 2, (controlSize.height - sz.height) / 2};
+    CGPoint pt = {
+            (controlSize.width - sz.width) / 2,
+            (controlSize.height - sz.height) / 2
+    };
 
     self.imageView.frame = CGRectIntegral((CGRect){pt, sz});
     self.imageView.image = image;
