@@ -127,27 +127,28 @@
 
     CGFloat x = MIN(MAX(0, maskFrame.origin.x), frame.size.width - MINIMUM_CROP_SIZE);
     CGFloat y = MIN(MAX(0, maskFrame.origin.y), frame.size.height - MINIMUM_CROP_SIZE);
+
     CGFloat w = MAX(MIN(frame.size.width - x, maskFrame.size.width), MINIMUM_CROP_SIZE);
     CGFloat h = MAX(MIN(frame.size.height - y, maskFrame.size.height), MINIMUM_CROP_SIZE);
 
     _maskFrame = (CGRect){{x, y}, {w, h}}; // новая маска, в координатах картиночного вью
     CGRect frm = CGRectOffset(_maskFrame, self.imageView.frame.origin.x, self.imageView.frame.origin.y);
-
+    // ⎡
     CGPoint cornerPt = (CGPoint){frm.origin.x - CORNER_WIDTH, frm.origin.y - CORNER_WIDTH};
     frame = self.leftTopCorner.frame;
     frame.origin = cornerPt;
     self.leftTopCorner.frame = frame;
-
+    // ⎤
     cornerPt = (CGPoint){CGRectGetMaxX(frm) - CORNER_W2, frm.origin.y - CORNER_WIDTH};
     frame = self.rightTopCorner.frame;
     frame.origin = cornerPt;
     self.rightTopCorner.frame = frame;
-
+    // ⎣
     cornerPt = (CGPoint){frm.origin.x - CORNER_WIDTH, CGRectGetMaxY(frm) - CORNER_W2};
     frame = self.leftBottomCorner.frame;
     frame.origin = cornerPt;
     self.leftBottomCorner.frame = frame;
-
+    // ⎦
     cornerPt = (CGPoint){CGRectGetMaxX(frm) - CORNER_W2, CGRectGetMaxY(frm) - CORNER_W2};
     frame = self.rightBottomCorner.frame;
     frame.origin = cornerPt;
@@ -174,6 +175,7 @@
             CGFloat dy = pt.y - lastPoint.y;
 
             CGRect newMaskFrame = self.maskFrame;
+            // тут (или в setMaskFrame надо добавить умных проверок, чтобы при двигании рамки не менялись ее размеры при упирании в край области
 
             if (sender.view == self.leftTopCorner) {
                 newMaskFrame.origin.x += dx;
@@ -224,10 +226,18 @@
 }
 
 - (UIImage *)croppedImage {
-    CGRect actualCroppedRect;
+    CGRect actualCroppedRect = CGRectIntegral((CGRect){
+            self.maskFrame.origin.x * usedScaleValue,
+            self.maskFrame.origin.y * usedScaleValue,
+            self.maskFrame.size.width * usedScaleValue,
+            self.maskFrame.size.height * usedScaleValue
+    });
 
-    actualCroppedRect.origin.x = self.maskFrame.origin.x * usedScaleValue;
-    и так все значения
+    NSLog(@"cropped frame %@", NSStringFromCGRect(actualCroppedRect));
+
+
+
+    return nil;
 }
 
 @end

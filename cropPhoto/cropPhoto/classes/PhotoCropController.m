@@ -146,7 +146,7 @@
             }];
         } break;
         case PhotoCropperModeCompleted: {
-//            self.imageToCrop = self.cropControl.imageToCrop;
+            self.cropControl.croppedImage;
 
             self.cropControl.alpha = 0;
             self.previewView.alpha = 1;
