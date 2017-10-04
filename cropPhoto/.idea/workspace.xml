@@ -12,23 +12,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_A1F4C182-51E3-4E81-B19B-80342BF518AD" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PhotoCropController.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="146" column="46" lean-forward="false" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
-              <folding>
-                <element signature="e#101#132#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropPhoto/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            <state relative-caret-position="467">
+              <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
               <folding>
                 <element signature="e#139#165#0" expanded="true" />
               </folding>
@@ -36,33 +24,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhotoCropPushAnimator.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropPushAnimator.m">
+      <file leaf-file-name="UINavigationController.h" pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-              <folding>
-                <element signature="e#101#134#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhotoCropPushAnimator.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropPushAnimator.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="82" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="82" />
+            <state relative-caret-position="197">
+              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UIViewControllerTransitioning.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewControllerTransitioning.h">
+      <file leaf-file-name="PhotoCropAnimator.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="162" column="75" lean-forward="false" selection-start-line="162" selection-start-column="75" selection-end-line="162" selection-end-column="75" />
+            <state relative-caret-position="810">
+              <caret line="39" column="126" lean-forward="false" selection-start-line="39" selection-start-column="126" selection-end-line="39" selection-end-column="126" />
+              <folding>
+                <element signature="e#101#130#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhotoCropAnimator.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="106" lean-forward="false" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -80,31 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhotoCropControl.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropControl.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ViewController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cropPhoto/ViewController.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
               <caret line="12" column="49" lean-forward="false" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UINavigationController.h" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="31" column="59" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -140,8 +108,10 @@
         <option value="$PROJECT_DIR$/cropPhoto/ViewController.h" />
         <option value="$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.h" />
         <option value="$PROJECT_DIR$/cropPhoto/classes/PhotoCropPushAnimator.m" />
-        <option value="$PROJECT_DIR$/cropPhoto/ViewController.m" />
         <option value="$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.m" />
+        <option value="$PROJECT_DIR$/cropPhoto/ViewController.m" />
+        <option value="$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.h" />
+        <option value="$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.m" />
       </list>
     </option>
   </component>
@@ -185,12 +155,6 @@
               <item name="cropPhoto" type="1d218c8b:XcodeProjectNode" />
               <item name="cropPhoto" type="fcab9f18:XcodeViewNode" />
               <item name="classes" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="cropPhoto" type="1d218c8b:XcodeProjectNode" />
-              <item name="cropPhoto" type="fcab9f18:XcodeViewNode" />
-              <item name="Supporting Files" type="fcab9f18:XcodeViewNode" />
             </path>
           </expand>
           <select />
@@ -253,19 +217,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.m</url>
-          <line>169</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/cropPhoto/ViewController.m</url>
-          <line>71</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -474,44 +426,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropControl.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
-          <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
-          <folding>
-            <element signature="e#101#129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="31" column="59" lean-forward="false" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cropPhoto/main.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewControllerTransitioning.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="162" column="75" lean-forward="false" selection-start-line="162" selection-start-column="75" selection-end-line="162" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropPushAnimator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="82" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="82" />
           <folding />
         </state>
       </provider>
@@ -524,6 +442,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewControllerTransitioning.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropControl.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+          <folding>
+            <element signature="e#101#129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -532,32 +476,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropPushAnimator.m">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        <state relative-caret-position="197">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="178" column="61" lean-forward="true" selection-start-line="178" selection-start-column="61" selection-end-line="178" selection-end-column="61" />
           <folding>
-            <element signature="e#101#134#0" expanded="true" />
+            <element signature="e#101#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cropPhoto/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        <state relative-caret-position="467">
+          <caret line="73" column="20" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
           <folding>
             <element signature="e#139#165#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropController.m">
+    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="146" column="46" lean-forward="false" selection-start-line="146" selection-start-column="46" selection-end-line="146" selection-end-column="46" />
+        <state relative-caret-position="126">
+          <caret line="7" column="106" lean-forward="false" selection-start-line="7" selection-start-column="106" selection-end-line="7" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cropPhoto/classes/PhotoCropAnimator.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="39" column="126" lean-forward="false" selection-start-line="39" selection-start-column="126" selection-end-line="39" selection-end-column="126" />
           <folding>
-            <element signature="e#101#132#0" expanded="true" />
+            <element signature="e#101#130#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,7 @@
 		D62A616B4D411F8586677B83 /* photo_l.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62A6FB1C3E15E065098E0BF /* photo_l.jpg */; };
 		D62A61EB5B3815143CD9B9A6 /* cameraCrop48@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A63DA3B0735CA96F8776D /* cameraCrop48@3x.png */; };
 		D62A62CD01A752BB794AE4D1 /* cameraBack48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6CC8F98BB0D2A73B6DBC /* cameraBack48@2x.png */; };
-		D62A6336EC2C789D464B0173 /* PhotoCropPushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6223329F3C748E76BDB9 /* PhotoCropPushAnimator.m */; };
+		D62A6336EC2C789D464B0173 /* PhotoCropAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6223329F3C748E76BDB9 /* PhotoCropAnimator.m */; };
 		D62A64AFAC4D6F33B20E611A /* cameraReset48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A68D6C09E7E7DE1A90590 /* cameraReset48@2x.png */; };
 		D62A64C86BAC9F003CAC4AB1 /* PhotoCropControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A638621D5A472875E91AD /* PhotoCropControl.m */; };
 		D62A6539A81B53B8A9CCCEC6 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A668C14D311C6D1A12EBA /* UIColor+MUIColor.m */; };
@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		D62A61C17EE67C8CB004E53A /* PhotoCropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropControl.h; sourceTree = "<group>"; };
 		D62A6209144F95C0FF49775B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D62A6223329F3C748E76BDB9 /* PhotoCropPushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropPushAnimator.m; sourceTree = "<group>"; };
+		D62A6223329F3C748E76BDB9 /* PhotoCropAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropAnimator.m; sourceTree = "<group>"; };
 		D62A62A4885E62C5D5EA0FFD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62A638621D5A472875E91AD /* PhotoCropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropControl.m; sourceTree = "<group>"; };
 		D62A63DA3B0735CA96F8776D /* cameraCrop48@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraCrop48@3x.png"; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		D62A6CC8F98BB0D2A73B6DBC /* cameraBack48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraBack48@2x.png"; sourceTree = "<group>"; };
 		D62A6D133214E09AC57031D4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62A6D2D35AB90F2142AC409 /* cropAngle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cropAngle@2x.png"; sourceTree = "<group>"; };
-		D62A6D4E16A49AF78611D715 /* PhotoCropPushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropPushAnimator.h; sourceTree = "<group>"; };
+		D62A6D4E16A49AF78611D715 /* PhotoCropAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropAnimator.h; sourceTree = "<group>"; };
 		D62A6ECA751EB8539A3C1060 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D62A6EF4424B72B84C1D53AB /* PhotoCropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropController.h; sourceTree = "<group>"; };
 		D62A6EFCC7E7080794103068 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 				D62A61C17EE67C8CB004E53A /* PhotoCropControl.h */,
 				D62A6AA28A8006B975473098 /* ShadowControl.m */,
 				D62A6879703DF96678EE47E9 /* ShadowControl.h */,
-				D62A6223329F3C748E76BDB9 /* PhotoCropPushAnimator.m */,
-				D62A6D4E16A49AF78611D715 /* PhotoCropPushAnimator.h */,
+				D62A6223329F3C748E76BDB9 /* PhotoCropAnimator.m */,
+				D62A6D4E16A49AF78611D715 /* PhotoCropAnimator.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 				D62A6539A81B53B8A9CCCEC6 /* UIColor+MUIColor.m in Sources */,
 				D62A64C86BAC9F003CAC4AB1 /* PhotoCropControl.m in Sources */,
 				D62A6A845A77B812F9DF5656 /* ShadowControl.m in Sources */,
-				D62A6336EC2C789D464B0173 /* PhotoCropPushAnimator.m in Sources */,
+				D62A6336EC2C789D464B0173 /* PhotoCropAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

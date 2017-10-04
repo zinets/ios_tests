@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "PhotoCropController.h"
-#import "PhotoCropPushAnimator.h"
+#import "PhotoCropAnimator.h"
 
 
 @interface ViewController ()
@@ -69,11 +69,9 @@
 #pragma mark - navbar
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
-    if (operation == UINavigationControllerOperationPush) {
-        return [PhotoCropPushAnimator new];
-    } else {
-        return nil;
-    }
+    PhotoCropAnimator *animator = [PhotoCropAnimator new];
+    animator.operation = operation;
+    return animator;
 }
 
 @end
