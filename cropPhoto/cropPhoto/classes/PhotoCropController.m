@@ -11,6 +11,7 @@
 @property (nonatomic, strong) UIButton *resetButton;
 @property (nonatomic, strong) UIButton *cropButton;
 @property (nonatomic, strong) UIButton *doneButton;
+@property (nonatomic, strong) UIButton *sendButton;
 
 @property (nonatomic, strong) UIImageView *previewView;
 @property (nonatomic, strong) PhotoCropControl *cropControl;
@@ -47,6 +48,16 @@
         [_doneButton addTarget:self action:@selector(onDoneTap:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _doneButton;
+}
+
+- (UIButton *)sendButton {
+    if (!_sendButton) {
+        _sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _sendButton.frame = (CGRect){[UIScreen mainScreen].bounds.size.width - 8 - 72, [UIScreen mainScreen].bounds.size.height - 8 - 72, 72, 72};
+        [_sendButton setImage:[UIImage imageNamed:@"cameraSend"] forState:UIControlStateNormal];
+        [_sendButton addTarget:self action:@selector(onSendTap:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _sendButton;
 }
 
 - (UIButton *)backButton {
@@ -92,6 +103,7 @@
     [self.view addSubview:self.resetButton];
     [self.view addSubview:self.cropButton];
     [self.view addSubview:self.doneButton];
+    [self.view addSubview:self.sendButton];
 
     self.mode = PhotoCropperModePreview;
 }
@@ -124,6 +136,7 @@
                 self.cropButton.alpha = 1;
                 self.resetButton.alpha = 0;
                 self.doneButton.alpha = 0;
+                self.sendButton.alpha = 1;
 
                 self.cropControl.alpha = 0;
                 self.previewView.alpha = 1;
@@ -135,6 +148,7 @@
                 self.cropButton.alpha = 0;
                 self.resetButton.alpha = 1;
                 self.doneButton.alpha = 1;
+                self.sendButton.alpha = 0;
 
                 CGSize sz = [self.cropControl setImageToCrop:self.imageToCrop].size;
                 CGFloat scale = MAX(sz.width / self.view.bounds.size.width, sz.height / self.view.bounds.size.height);
@@ -170,7 +184,8 @@
 #pragma mark - delegation
 
 - (void)cropControl:(id)sender didChangeMaskFrame:(BOOL)changed {
-    self.doneButton.hidden = !changed;
+    // наверное все ж нахер не нужен этот метод..
+//    self.doneButton.hidden = !changed;
 }
 
 @end

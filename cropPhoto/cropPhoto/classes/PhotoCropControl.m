@@ -252,8 +252,6 @@
             self.maskFrame.size.height * usedScaleValue
     });
 
-    NSLog(@"cropped frame %@", NSStringFromCGRect(actualCroppedRect));
-
     CGImageRef imageRef = CGImageCreateWithImageInRect(_imageToCrop.CGImage, actualCroppedRect);
 
     UIImage * img = [UIImage imageWithCGImage:imageRef];

@@ -22,6 +22,7 @@
 		D62A6889735A66FD746249E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6B7DE594FBD33BB44DC2 /* main.m */; };
 		D62A69202DB596DAB4A48615 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6ECA751EB8539A3C1060 /* ViewController.m */; };
 		D62A6A845A77B812F9DF5656 /* ShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6AA28A8006B975473098 /* ShadowControl.m */; };
+		D62A6AD47E62E6161E43877D /* cameraSend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A652C0A31B45A20955589 /* cameraSend@2x.png */; };
 		D62A6C9A8D8B61B3D1F8150E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A625C4C686AD8FA17D38B /* LaunchScreen.storyboard */; };
 		D62A6D19DF70CE9E70B76898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A6EFCC7E7080794103068 /* Assets.xcassets */; };
 		D62A6DF1C1897E23FD1E71A5 /* cropAngle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6D2D35AB90F2142AC409 /* cropAngle@2x.png */; };
@@ -34,6 +35,7 @@
 		D62A638621D5A472875E91AD /* PhotoCropControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropControl.m; sourceTree = "<group>"; };
 		D62A63DA3B0735CA96F8776D /* cameraCrop48@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraCrop48@3x.png"; sourceTree = "<group>"; };
 		D62A652614EF8E23F8373AA3 /* cropPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cropPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D62A652C0A31B45A20955589 /* cameraSend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraSend@2x.png"; sourceTree = "<group>"; };
 		D62A656E8E54AB0325E7106B /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		D62A668C14D311C6D1A12EBA /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../mobile_ios/trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		D62A66E35FA4FBB41F8D12B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				D62A6FB1A9330F97E8D57496 /* cameraDone@2x.png */,
 				D62A6D2D35AB90F2142AC409 /* cropAngle@2x.png */,
 				D62A6989EB738E16692A73D9 /* photo_s.jpg */,
+				D62A652C0A31B45A20955589 /* cameraSend@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				D62A682BDF0E8C9EED729560 /* cameraDone@2x.png in Resources */,
 				D62A6DF1C1897E23FD1E71A5 /* cropAngle@2x.png in Resources */,
 				D62A6684CFEF12882DB9DDD4 /* photo_s.jpg in Resources */,
+				D62A6AD47E62E6161E43877D /* cameraSend@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
