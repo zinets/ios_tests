@@ -5,7 +5,6 @@
 
 #import "PhotoCropController.h"
 #import "PhotoCropControl.h"
-#import "UIColor+MUIColor.h"
 
 @interface PhotoCropController ()
 @property (nonatomic, strong) UIButton *backButton;
@@ -81,7 +80,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHex:0xc1c1c1];
+
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBarHidden = YES;
 
     [self.view addSubview:self.previewView];
@@ -141,12 +141,13 @@
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:0.2 animations:^{
                     self.cropControl.alpha = 1;
+                } completion:^(BOOL finished) {
                     self.previewView.alpha = 0;
                 }];
             }];
         } break;
         case PhotoCropperModeCompleted: {
-            self.cropControl.croppedImage;
+            self.imageToCrop = self.cropControl.croppedImage;
 
             self.cropControl.alpha = 0;
             self.previewView.alpha = 1;

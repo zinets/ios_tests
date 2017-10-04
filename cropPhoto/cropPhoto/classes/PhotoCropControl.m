@@ -6,7 +6,9 @@
 #import "PhotoCropControl.h"
 #import "ShadowControl.h"
 
-@interface PhotoCropControl ()
+@interface PhotoCropControl () {
+    UIImage *_imageToCrop;
+}
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) ShadowControl *shadowControl;
 // рамка для маскирования; "вычитаемая", внутри этого фрейма число, снаружи - заполнение; origin маска относительно начала картинки
@@ -48,6 +50,8 @@
 
     return self;
 }
+
+#pragma mark - getters
 
 - (UIImageView *)leftTopCorner {
     if (!_leftTopCorner) {
@@ -95,7 +99,7 @@
 - (ShadowControl *)shadowControl {
     if (!_shadowControl) {
         _shadowControl = [[ShadowControl alloc] initWithFrame:self.bounds];
-        _shadowControl.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.4];
+        _shadowControl.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.55];
 
         UIPanGestureRecognizer *panR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPosRecognizer:)];
         [_shadowControl addGestureRecognizer:panR];
@@ -103,24 +107,7 @@
     return _shadowControl;
 }
 
-- (CGRect)setImageToCrop:(UIImage *)image {
-    CGSize imageSize = image.size;
-    CGSize controlSize = self.bounds.size;
-
-    CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * HORIZONTAL_OFFSET));
-    CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * HORIZONTAL_OFFSET)); // бо так проще
-    usedScaleValue = MAX(x, y);
-
-    CGSize sz = {imageSize.width / usedScaleValue, imageSize.height / usedScaleValue};
-    CGPoint pt = {(controlSize.width - sz.width) / 2, (controlSize.height - sz.height) / 2};
-
-    self.imageView.frame = (CGRect){pt, sz};
-    self.imageView.image = image;
-
-    self.maskFrame = (CGRect){CGPointZero, sz};
-
-    return self.imageView.frame;
-}
+#pragma mark - computer computing
 
 - (void)setMaskFrame:(CGRect)maskFrame {
     CGRect frame = self.imageView.frame;
@@ -157,12 +144,8 @@
     [self.shadowControl setFrameToUnmask:frm];
 }
 
-- (void)resetCrop {
-    CATransition *a = [CATransition animation];
-    [self.layer addAnimation:a forKey:nil];
 
-    self.maskFrame = (CGRect){CGPointZero, self.imageView.bounds.size};
-}
+#pragma mark - gestures
 
 - (void)onSizeRecognizer:(UIPanGestureRecognizer *)sender {
     switch (sender.state) {
@@ -225,6 +208,36 @@
     }
 }
 
+#pragma mark -
+
+- (CGRect)setImageToCrop:(UIImage *)image {
+    _imageToCrop = image;
+
+    CGSize imageSize = image.size;
+    CGSize controlSize = self.bounds.size;
+
+    CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * HORIZONTAL_OFFSET));
+    CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * HORIZONTAL_OFFSET)); // бо так проще
+    usedScaleValue = MAX(x, y);
+
+    CGSize sz = {imageSize.width / usedScaleValue, imageSize.height / usedScaleValue};
+    CGPoint pt = {(controlSize.width - sz.width) / 2, (controlSize.height - sz.height) / 2};
+
+    self.imageView.frame = (CGRect){pt, sz};
+    self.imageView.image = image;
+
+    self.maskFrame = (CGRect){CGPointZero, sz};
+
+    return self.imageView.frame;
+}
+
+- (void)resetCrop {
+    CATransition *a = [CATransition animation];
+    [self.layer addAnimation:a forKey:nil];
+
+    self.maskFrame = (CGRect){CGPointZero, self.imageView.bounds.size};
+}
+
 - (UIImage *)croppedImage {
     CGRect actualCroppedRect = CGRectIntegral((CGRect){
             self.maskFrame.origin.x * usedScaleValue,
@@ -235,9 +248,11 @@
 
     NSLog(@"cropped frame %@", NSStringFromCGRect(actualCroppedRect));
 
+    CGImageRef imageRef = CGImageCreateWithImageInRect(_imageToCrop.CGImage, actualCroppedRect);
 
-
-    return nil;
+    UIImage * img = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return img;
 }
 
 @end
