@@ -21,13 +21,14 @@
 
 @implementation PhotoCropControl {
     CGPoint lastPoint;
+    CGFloat usedScaleValue;
 }
 
 // толщина уголка 6 пк
 #define CORNER_WIDTH 6
 // остаток ширины уголка (чтоб не пересчитывать все время)
 #define CORNER_W2 18
-#define HORIZONTAL_OFFSET 48
+#define HORIZONTAL_OFFSET 32
 #define MINIMUM_CROP_SIZE 100
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -108,9 +109,9 @@
 
     CGFloat x = MAX(1, imageSize.width / (controlSize.width - 2 * HORIZONTAL_OFFSET));
     CGFloat y = MAX(1, imageSize.height / (controlSize.height - 2 * HORIZONTAL_OFFSET)); // бо так проще
-    CGFloat k = MAX(x, y);
+    usedScaleValue = MAX(x, y);
 
-    CGSize sz = {imageSize.width / k, imageSize.height / k};
+    CGSize sz = {imageSize.width / usedScaleValue, imageSize.height / usedScaleValue};
     CGPoint pt = {(controlSize.width - sz.width) / 2, (controlSize.height - sz.height) / 2};
 
     self.imageView.frame = (CGRect){pt, sz};
@@ -156,6 +157,9 @@
 }
 
 - (void)resetCrop {
+    CATransition *a = [CATransition animation];
+    [self.layer addAnimation:a forKey:nil];
+
     self.maskFrame = (CGRect){CGPointZero, self.imageView.bounds.size};
 }
 
@@ -217,6 +221,13 @@
         default:
             break;
     }
+}
+
+- (UIImage *)croppedImage {
+    CGRect actualCroppedRect;
+
+    actualCroppedRect.origin.x = self.maskFrame.origin.x * usedScaleValue;
+    и так все значения
 }
 
 @end
