@@ -5,6 +5,7 @@
 
 #import "PhotoCropController.h"
 #import "PhotoCropControl.h"
+#import "CropImagePreview.h"
 
 @interface PhotoCropController () <PhotoCropControlDelegate>
 @property (nonatomic, strong) UIButton *backButton;
@@ -13,7 +14,7 @@
 @property (nonatomic, strong) UIButton *doneButton;
 @property (nonatomic, strong) UIButton *sendButton;
 
-@property (nonatomic, strong) UIImageView *previewView;
+@property (nonatomic, strong) CropImagePreview *previewView;
 @property (nonatomic, strong) PhotoCropControl *cropControl;
 
 @end
@@ -32,9 +33,9 @@
     return _cropControl;
 }
 
-- (UIImageView *)previewView {
+- (CropImagePreview *)previewView {
     if (!_previewView) {
-        _previewView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _previewView = [[CropImagePreview alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _previewView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _previewView.contentMode = UIViewContentModeScaleAspectFit;
     }
@@ -99,7 +100,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor clearColor];
 
     self.navigationController.navigationBarHidden = YES;
 

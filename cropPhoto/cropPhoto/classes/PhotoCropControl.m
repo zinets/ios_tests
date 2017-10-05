@@ -151,7 +151,6 @@
     }
 }
 
-
 #pragma mark - gestures
 
 - (void)onSizeRecognizer:(UIPanGestureRecognizer *)sender {

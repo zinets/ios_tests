@@ -20,16 +20,21 @@
     if (self.operation == UINavigationControllerOperationPush) {
         PhotoCropController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         ViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+
         [[transitionContext containerView] addSubview:toViewController.view];
 
         CGRect toFrame = toViewController.toView.frame;
         CGRect fromFrame = fromViewController.fromView.frame;
 
         toViewController.toView.frame = fromFrame;
+        toViewController.toView.backgroundColor = [UIColor clearColor];
+        toViewController.toView.contentMode = UIViewContentModeScaleAspectFill;
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toViewController.toView.frame = toFrame;
-        }                completion:^(BOOL finished) {
+            toViewController.toView.backgroundColor = [UIColor lightGrayColor];
+            toViewController.toView.contentMode = UIViewContentModeScaleAspectFit;
+        } completion:^(BOOL finished) {
             [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
         }];
     } else { // ну типа остается поп и нон, но что за фигня придираться к мелочам

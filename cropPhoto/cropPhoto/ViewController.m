@@ -9,12 +9,13 @@
 #import "ViewController.h"
 #import "PhotoCropController.h"
 #import "PhotoCropAnimator.h"
-
+#import "CropImagePreview.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iv1;
 @property (weak, nonatomic) IBOutlet UIImageView *iv2;
 @property (weak, nonatomic) IBOutlet UIImageView *iv3;
+@property (weak, nonatomic) IBOutlet CropImagePreview *imageView;
 
 @end
 
@@ -33,6 +34,11 @@
     tapr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
     self.iv3.userInteractionEnabled = YES;
     [self.iv3 addGestureRecognizer:tapr];
+
+    tapr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap2:)];
+    self.imageView.userInteractionEnabled = YES;
+    self.imageView.image = [UIImage imageNamed:@"photo_p.jpg"];
+    [self.imageView addGestureRecognizer:tapr];
 }
 
 - (IBAction)loadPortrait:(id)sender {
@@ -48,6 +54,20 @@
 - (IBAction)loadSmall:(id)sender {
     _fromView = sender;
     [self loadWithPhoto:[UIImage imageNamed:@"photo_s.jpg"]];
+}
+
+- (void)onTap2:(UITapGestureRecognizer *)sender {
+    static BOOL b = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        if (!b) {
+            self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+
+        } else {
+            self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+
+        }
+    }];
+    b = !b;
 }
 
 - (void)onTap:(UITapGestureRecognizer *)sender {

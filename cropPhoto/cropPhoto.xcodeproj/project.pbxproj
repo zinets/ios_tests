@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BF471701F862A4B00943365 /* CropImagePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4716F1F862A4B00943365 /* CropImagePreview.m */; };
 		D62A60FF01F1DE4DC36D9CF1 /* photo_p.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62A69AC09E121137F47B4B3 /* photo_p.jpg */; };
 		D62A616B4D411F8586677B83 /* photo_l.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62A6FB1C3E15E065098E0BF /* photo_l.jpg */; };
 		D62A61EB5B3815143CD9B9A6 /* cameraCrop48@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A63DA3B0735CA96F8776D /* cameraCrop48@3x.png */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BF4716E1F862A4B00943365 /* CropImagePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImagePreview.h; sourceTree = "<group>"; };
+		3BF4716F1F862A4B00943365 /* CropImagePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropImagePreview.m; sourceTree = "<group>"; };
 		D62A61C17EE67C8CB004E53A /* PhotoCropControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropControl.h; sourceTree = "<group>"; };
 		D62A6209144F95C0FF49775B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D62A6223329F3C748E76BDB9 /* PhotoCropAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropAnimator.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				D62A6879703DF96678EE47E9 /* ShadowControl.h */,
 				D62A6223329F3C748E76BDB9 /* PhotoCropAnimator.m */,
 				D62A6D4E16A49AF78611D715 /* PhotoCropAnimator.h */,
+				3BF4716E1F862A4B00943365 /* CropImagePreview.h */,
+				3BF4716F1F862A4B00943365 /* CropImagePreview.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				D62A6539A81B53B8A9CCCEC6 /* UIColor+MUIColor.m in Sources */,
 				D62A64C86BAC9F003CAC4AB1 /* PhotoCropControl.m in Sources */,
 				D62A6A845A77B812F9DF5656 /* ShadowControl.m in Sources */,
+				3BF471701F862A4B00943365 /* CropImagePreview.m in Sources */,
 				D62A6336EC2C789D464B0173 /* PhotoCropAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
