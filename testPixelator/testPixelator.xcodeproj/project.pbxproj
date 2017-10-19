@@ -12,6 +12,7 @@
 		D62A665C9F60B562C8090929 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62A6602967B85D1AF5D4F83 /* image.jpg */; };
 		D62A66751E45892162EE46A2 /* UIColor+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A61880E639EFBFD0D3A18 /* UIColor+Alpha.m */; };
 		D62A66771670C288BA0D60BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A6617706103AA1C57D564 /* LaunchScreen.storyboard */; };
+		D62A6731103811CFFEBE86D4 /* UIImage+Pixelated.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6B5D5F01DB74FCDC1FEE /* UIImage+Pixelated.m */; };
 		D62A682543F7F64A4B7582DD /* Pixelator.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6526EDA0FA5D650C281B /* Pixelator.m */; };
 		D62A6922E287F8BE9BB2B852 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A63B458190F43E89E33CA /* Assets.xcassets */; };
 		D62A6E56E6933B687038DDE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6AD53248F54C12165577 /* ViewController.m */; };
@@ -23,6 +24,7 @@
 		D62A61880E639EFBFD0D3A18 /* UIColor+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Alpha.m"; sourceTree = "<group>"; };
 		D62A61FD519DBA537368D9D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62A62EA3C82EAFAFAD5AF5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D62A62FC86DECF3CEF437CCA /* UIImage+Pixelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Pixelated.h"; sourceTree = "<group>"; };
 		D62A63B458190F43E89E33CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D62A640C213268436807ABE0 /* PixelateLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixelateLayer.m; sourceTree = "<group>"; };
 		D62A65084A03E03B274F2BCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +34,7 @@
 		D62A69FE082553C9EF0C9793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D62A6A0C8C3A4BD3DA5B37B2 /* UIColor+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Alpha.h"; sourceTree = "<group>"; };
 		D62A6AD53248F54C12165577 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D62A6B5D5F01DB74FCDC1FEE /* UIImage+Pixelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Pixelated.m"; sourceTree = "<group>"; };
 		D62A6BDBEE321A4FF017888A /* testPixelator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testPixelator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A6CB5BEBD5A2889EE7D20 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62A6D8ACC87BF2585DEEDA3 /* PixelateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixelateLayer.h; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				D62A697447B7D96EF03B5034 /* Pixelator.h */,
 				D62A640C213268436807ABE0 /* PixelateLayer.m */,
 				D62A6D8ACC87BF2585DEEDA3 /* PixelateLayer.h */,
+				D62A6B5D5F01DB74FCDC1FEE /* UIImage+Pixelated.m */,
+				D62A62FC86DECF3CEF437CCA /* UIImage+Pixelated.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				D62A66751E45892162EE46A2 /* UIColor+Alpha.m in Sources */,
 				D62A682543F7F64A4B7582DD /* Pixelator.m in Sources */,
 				D62A6E977D8F603246011426 /* PixelateLayer.m in Sources */,
+				D62A6731103811CFFEBE86D4 /* UIImage+Pixelated.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

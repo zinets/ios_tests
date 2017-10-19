@@ -44,7 +44,6 @@
     CGFloat scaleY = outBounds.size.height / inHeight;
 
     CGContextSaveGState(canvas);
-//    CGContextClip(canvas);
     CGContextTranslateCTM(canvas, outBounds.origin.x, outBounds.origin.y);
     CGContextScaleCTM(canvas, scaleX, scaleY);
 
@@ -67,21 +66,16 @@
                 CGContextSetFillColorWithColor(canvas, [color multiply:layer.alpha].CGColor);
 
                 switch (layer.shape) {
-//                    case .circle:
-//                        canvas.addArc(center: CGPoint(x: x, y: y),
-//                    radius: halfSize,
-//                                startAngle: 0,
-//                        endAngle: 2 * CGFloat.pi,
-//                        clockwise: false)
-//                    case .diamond:
-//                        canvas.saveGState()
-//                        canvas.translateBy(x: x, y: y)
-//                        canvas.rotate(by: CGFloat.pi / 4)
-//                        canvas.addRect(CGRect(x: -halfDiamondSize,
-//                        y: -halfDiamondSize,
-//                        width: 2 * halfDiamondSize,
-//                        height: 2 * halfDiamondSize))
-//                        canvas.restoreGState()
+                    case ShapeCircle:
+                        CGContextAddArc(canvas, x, y, halfSize, 0, 2 * M_PI, NO);
+                        break;
+                    case ShapeDiamond:
+                        CGContextSaveGState(canvas);
+                        CGContextTranslateCTM(canvas, x, y);
+                        CGContextRotateCTM(canvas, M_PI_4);
+                        CGContextAddRect(canvas, (CGRect){-halfDiamondSize, -halfDiamondSize, 2 * halfDiamondSize, 2 * halfDiamondSize});
+                        CGContextRestoreGState(canvas);
+                        break;
                     case ShapeSquare: {
                         CGRect rect = (CGRect){x - halfSize, y - halfSize, 2 * halfSize, 2 * halfSize};
                         CGContextAddRect(canvas, rect);
