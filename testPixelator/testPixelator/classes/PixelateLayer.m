@@ -20,4 +20,12 @@
     return self;
 }
 
++ (instancetype)layerWithShape:(ShapeType)shape resolution:(CGFloat)resolution size:(CGFloat)size offset:(CGFloat)offset alpha:(CGFloat)alpha {
+    return [[self alloc] init:shape resolution:resolution size:size offset:offset alpha:alpha];
+}
+
++ (instancetype)layerWithShape:(ShapeType)shape size:(CGFloat)size {
+    return [[self alloc] init:shape resolution:size size:size offset:0 alpha:1];
+}
+
 @end

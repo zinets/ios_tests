@@ -16,8 +16,11 @@
 */
 
 - (UIImage *)pixelated {
-    PixelateLayer *layer = [[PixelateLayer alloc] init:ShapeSquare resolution:10 size:10 offset:0 alpha:1];
-    UIImage *resImg = [Pixelator create:self layers:@[layer]];
+    CGFloat f = MIN(self.size.width, self.size.height);
+    f /= 6;
+    UIImage *resImg = [Pixelator create:self layers:@[
+            [PixelateLayer layerWithShape:ShapeSquare size:f],
+    ]];
     return resImg;
 }
 

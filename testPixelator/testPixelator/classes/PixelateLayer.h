@@ -18,4 +18,7 @@ typedef enum {
 @property (nonatomic, readonly) CGFloat alpha;
 @property (nonatomic, readonly) CGFloat offset;
 - (instancetype)init:(ShapeType)shape resolution:(CGFloat)resolution size:(CGFloat)size offset:(CGFloat)offset alpha:(CGFloat)alpha;
+
++ (instancetype)layerWithShape:(ShapeType)shape resolution:(CGFloat)resolution size:(CGFloat)size offset:(CGFloat)offset alpha:(CGFloat)alpha;
++ (instancetype)layerWithShape:(ShapeType)shape size:(CGFloat)size;
 @end

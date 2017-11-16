@@ -46,6 +46,18 @@
                                      blue:data[index + 2] / 255.
                                     alpha:data[index + 3] / 255.];
             break;
+        case kCGImageAlphaPremultipliedLast:
+            color = [UIColor colorWithRed:data[index] / 255.
+                                    green:data[index + 1] / 255.
+                                     blue:data[index + 2] / 255.
+                                    alpha:1];
+            break;
+        case kCGImageAlphaPremultipliedFirst:
+            color = [UIColor colorWithRed:data[index + 1] / 255.
+                                    green:data[index + 2] / 255.
+                                     blue:data[index + 3] / 255.
+                                    alpha:1];
+            break;
         default:
             color = [UIColor clearColor];
             break;
