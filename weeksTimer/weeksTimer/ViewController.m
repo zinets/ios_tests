@@ -40,11 +40,47 @@
 
 - (void)onTimer:(id)timer {
     self.nowDate.text = [df stringFromDate:[NSDate date]];
+    self.restLabel.text = [self restText];
 }
 
 - (NSString *)restText {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDate *nowDate = [NSDate date];
+    {
+//        components.year = 2017;
+//        components.month = 11;
+//        components.day = 20;
+//        nowDate = [calendar dateFromComponents:components];
+    }
+    components.year = [calendar component:NSCalendarUnitYear fromDate:nowDate];
+    components.month = 12;
+    components.day = 25;
+    NSDate *cDate = [calendar dateFromComponents:components];
 
+//    components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:nowDate toDate:cDate options:0];
+    NSLog(@"now %@", nowDate);
+    NSLog(@"target %@", cDate);
+    components = [calendar components:(NSCalendarUnitDay) fromDate:nowDate toDate:cDate options:0];
+    NSLog(@"<> %@", components);
+    NSInteger remainDays = components.day;
+    
+    switch ([nowDate compare:cDate]) {
+        case NSOrderedAscending: {
+            NSInteger w = remainDays / 7;
+            NSInteger d = remainDays % 7;
+            if (d) {
+                return [NSString stringWithFormat:@"%@ недель и %@ дня(ей)", @(w), @(d)];
+            } else {
+                return [NSString stringWithFormat:@"%@ недель", @(w)];
+            }
+        }
+        case NSOrderedSame:
+            return @"Ровно 5 недель";
+        case NSOrderedDescending:
+            return @"Очень долго";
+    }
     return nil;
 }
 
