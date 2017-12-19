@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D62A66545715800F95A8CEE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A67C3684C54895249C24D /* LaunchScreen.storyboard */; };
 		D62A68008E8CA29CD933B8D4 /* DiamondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6142CEF3DE4761A38F94 /* DiamondCell.m */; };
+		D62A699DE75244D819841EF2 /* ViewShape.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6772D06C930C2FADAB3D /* ViewShape.m */; };
 		D62A6A13ECD9C637700EAF0B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6EC50E37984E9598DEB7 /* AppDelegate.m */; };
 		D62A6B04DCB0E369429F3326 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FCB7BB4350DE4DAB7E6 /* ViewController.m */; };
 		D62A6C7CEDC9C548550C66DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A619E793D125AD27BF7E5 /* Assets.xcassets */; };
@@ -26,9 +27,11 @@
 		D62A63DB068981269C394194 /* diamondLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diamondLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D62A64C919DE1CF4BF8C77C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		D62A66BE4FFCE095A999665D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D62A6772D06C930C2FADAB3D /* ViewShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewShape.m; sourceTree = "<group>"; };
 		D62A67A327379BC9526FB014 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62A67A712AF876F6233FA1B /* DiamondLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiamondLayout.m; sourceTree = "<group>"; };
 		D62A6A2572B695613623E8AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D62A6A2E58E68F51CEE75DED /* ViewShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewShape.h; sourceTree = "<group>"; };
 		D62A6EC50E37984E9598DEB7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62A6F50F4C9C7E846476B42 /* DiamondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiamondCell.h; sourceTree = "<group>"; };
 		D62A6FCB7BB4350DE4DAB7E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				D62A61EDFD0001729A1E89AC /* DiamondLayout.h */,
 				D62A6142CEF3DE4761A38F94 /* DiamondCell.m */,
 				D62A6F50F4C9C7E846476B42 /* DiamondCell.h */,
+				D62A6772D06C930C2FADAB3D /* ViewShape.m */,
+				D62A6A2E58E68F51CEE75DED /* ViewShape.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				D62A6B04DCB0E369429F3326 /* ViewController.m in Sources */,
 				D62A6F81946A7D2B4B8DAFBC /* DiamondLayout.m in Sources */,
 				D62A68008E8CA29CD933B8D4 /* DiamondCell.m in Sources */,
+				D62A699DE75244D819841EF2 /* ViewShape.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,4 +6,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DiamondLayout : UICollectionViewLayout
+- (void)reset;
 @end

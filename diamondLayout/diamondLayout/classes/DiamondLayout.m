@@ -8,24 +8,16 @@
 
 @implementation DiamondLayout {
     NSMutableArray *attributes;
+    NSNumber *bigCell;
     CGSize contentSize;
 }
 
+- (void)reset {
+    bigCell = nil;
+    [self invalidateLayout];
+}
+
 - (void)prepareLayout {
-    if (!attributes) {
-        attributes = [NSMutableArray arrayWithCapacity:9];
-    } else {
-        [attributes removeAllObjects];
-    }
-
-    contentSize = (CGSize){self.collectionView.bounds.size.width, 0};
-
-    CGFloat cellWidth = 110;
-    CGFloat bigCellWidth = 254;
-    CGFloat spacing = 34;
-    CGFloat const inset = 24;
-    CGFloat overlap = 72;
-
     // если по дизу может быть макс. 12 элементов мин. размера, то есть всего 4 варианта раскладки с большими элементами
     NSDictionary *m = @{
             @0 : @[@0, @1, @5, @6, @7, @8, @9, @10, @11],
@@ -34,7 +26,24 @@
             @7 : @[@0, @1, @2, @3, @4, @5, @6, @7, @10],
     };
 
-    NSNumber *bigCell = m.allKeys[arc4random_uniform(m.count)];
+    if (!attributes) {
+        attributes = [NSMutableArray arrayWithCapacity:9];
+    } else {
+        [attributes removeAllObjects];
+    }
+    if (!bigCell) {
+        bigCell = m.allKeys[arc4random_uniform(m.count)];
+    }
+
+    contentSize = (CGSize){self.collectionView.bounds.size.width, 0};
+
+    // 🧙 magic happens
+    CGFloat cellWidth = 110;
+    CGFloat bigCellWidth = 254;
+    CGFloat spacing = 34;
+    CGFloat const inset = 24;
+    CGFloat overlap = 72;
+
     NSArray <NSNumber *> *indexes = m[bigCell];
     NSInteger numOfCells = [self.collectionView numberOfItemsInSection:0];
 
