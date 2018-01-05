@@ -9,6 +9,7 @@
 @implementation RoundedView {
     CAShapeLayer *maskLayer;
     CAShapeLayer *borderLayer;
+    UIColor *bgColor;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -48,8 +49,12 @@
     if (_isBorderVisible) {
         [super setBackgroundColor:[UIColor clearColor]];
     } else {
-        [super setBackgroundColor:[UIColor grayColor]];
+        [super setBackgroundColor:bgColor];
     }
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    bgColor = backgroundColor;
 }
 
 - (void)updateMask {
@@ -67,7 +72,7 @@
         borderLayer.fillColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:borderLayer];
     }
-    borderLayer.strokeColor = self.isBorderVisible ? [UIColor grayColor].CGColor : [UIColor clearColor].CGColor;
+    borderLayer.strokeColor = self.isBorderVisible ? bgColor.CGColor : [UIColor clearColor].CGColor;
     borderLayer.path = path.CGPath;
 }
 
