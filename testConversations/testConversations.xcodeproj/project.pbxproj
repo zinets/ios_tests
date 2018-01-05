@@ -15,6 +15,9 @@
 		3B25EEEB1FFFA286001447B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEEA1FFFA286001447B5 /* main.m */; };
 		3B25EEF41FFFA325001447B5 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF31FFFA325001447B5 /* MessageModel.m */; };
 		3B25EEF71FFFA3AA001447B5 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF61FFFA3AA001447B5 /* DataSource.m */; };
+		3B25EEFB1FFFA7DF001447B5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF91FFFA7DF001447B5 /* TableViewController.m */; };
+		3B25EEFF1FFFA98F001447B5 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */; };
+		D62A67E05E270408159160D2 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A63E26B5E14ED16C3741E /* RoundedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		3B25EEF31FFFA325001447B5 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		3B25EEF51FFFA3AA001447B5 /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3B25EEF61FFFA3AA001447B5 /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3B25EEF81FFFA7DF001447B5 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		3B25EEF91FFFA7DF001447B5 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		3B25EEFD1FFFA98F001447B5 /* ConversationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		D62A63E26B5E14ED16C3741E /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
+		D62A649FC197EE6EE31E7B77 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,12 @@
 				3B25EEF31FFFA325001447B5 /* MessageModel.m */,
 				3B25EEF51FFFA3AA001447B5 /* DataSource.h */,
 				3B25EEF61FFFA3AA001447B5 /* DataSource.m */,
+				3B25EEF81FFFA7DF001447B5 /* TableViewController.h */,
+				3B25EEF91FFFA7DF001447B5 /* TableViewController.m */,
+				3B25EEFD1FFFA98F001447B5 /* ConversationCell.h */,
+				3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */,
+				D62A63E26B5E14ED16C3741E /* RoundedView.m */,
+				D62A649FC197EE6EE31E7B77 /* RoundedView.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -161,10 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */,
+				3B25EEFF1FFFA98F001447B5 /* ConversationCell.m in Sources */,
+				3B25EEFB1FFFA7DF001447B5 /* TableViewController.m in Sources */,
 				3B25EEF71FFFA3AA001447B5 /* DataSource.m in Sources */,
 				3B25EEEB1FFFA286001447B5 /* main.m in Sources */,
 				3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */,
 				3B25EEF41FFFA325001447B5 /* MessageModel.m in Sources */,
+				D62A67E05E270408159160D2 /* RoundedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
