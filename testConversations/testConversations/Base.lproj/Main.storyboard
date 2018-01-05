@@ -94,9 +94,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="leftBalloonOffset" destination="drk-la-pqn" id="uMy-oy-Pul"/>
                                             <outlet property="messageBalloon" destination="hsH-KU-weD" id="ogA-CB-LpN"/>
                                             <outlet property="messageDateLabel" destination="PEv-3j-blX" id="ny4-Md-jiC"/>
                                             <outlet property="messageLabel" destination="NPI-YD-kns" id="0TZ-35-UXL"/>
+                                            <outlet property="rightBalloonOffset" destination="VVP-JS-27a" id="zp9-l4-CCM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

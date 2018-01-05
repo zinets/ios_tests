@@ -15,6 +15,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UILabel *messageDateLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBalloonOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBalloonOffset;
+
 @end
 
 @implementation ConversationCell
@@ -79,6 +82,14 @@
 
     // цвет
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
+
+    // положение
+    if (self.isOwnMessage) {
+
+    } else {
+        self.leftBalloonOffset.constant = 16;
+        self.leftBalloonOffset.relation = NSLayoutRelationEqual;
+    }
 }
 
 @end
