@@ -21,4 +21,5 @@ typedef enum {
 
 @property (nonatomic) BOOL isOwnMessage;
 @property (nonatomic) ConversationCellType cellType;
+@property (nonatomic, strong) UIColor *balloonBackgroundColor;
 @end

@@ -8,6 +8,7 @@
 
 @implementation RoundedView {
     CAShapeLayer *maskLayer;
+    CAShapeLayer *borderLayer;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -42,6 +43,15 @@
     [self updateMask];
 }
 
+- (void)setIsBorderVisible:(BOOL)isBorderVisible {
+    _isBorderVisible = isBorderVisible;
+    if (_isBorderVisible) {
+        [super setBackgroundColor:[UIColor clearColor]];
+    } else {
+        [super setBackgroundColor:[UIColor grayColor]];
+    }
+}
+
 - (void)updateMask {
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                byRoundingCorners:self.corners
@@ -50,8 +60,15 @@
         maskLayer = [CAShapeLayer layer];
         self.layer.mask = maskLayer;
     }
-
     maskLayer.path = path.CGPath;
+
+    if (!borderLayer) {
+        borderLayer = [CAShapeLayer layer];
+        borderLayer.fillColor = [UIColor clearColor].CGColor;
+        [self.layer addSublayer:borderLayer];
+    }
+    borderLayer.strokeColor = self.isBorderVisible ? [UIColor grayColor].CGColor : [UIColor clearColor].CGColor;
+    borderLayer.path = path.CGPath;
 }
 
 - (void)layoutSubviews {

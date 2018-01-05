@@ -8,4 +8,6 @@
 @interface RoundedView : UIView
 @property (nonatomic) UIRectCorner corners;
 @property (nonatomic) CGFloat cornerRadius;
+// цветом фона закрашивается или сам балун, или бордер вокруг него (сам балун тогда белый)
+@property (nonatomic) BOOL isBorderVisible;
 @end

@@ -9,7 +9,9 @@
 #import "ConversationCell.h"
 #import "RoundedView.h"
 
-@interface ConversationCell()
+@interface ConversationCell() {
+
+}
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UILabel *messageDateLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
@@ -19,6 +21,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.balloonBackgroundColor = [UIColor grayColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -26,6 +29,12 @@
 }
 
 #pragma mark setters
+
+- (void)setBalloonBackgroundColor:(UIColor *)balloonBackgroundColor {
+    _balloonBackgroundColor = balloonBackgroundColor;
+    self.messageBalloon.backgroundColor = _balloonBackgroundColor;
+    [self setupCell];
+}
 
 -(void)setMessage:(NSString *)message {
     _message = message;
@@ -49,6 +58,7 @@
 }
 
 - (void)setupCell {
+    // форма
     UIRectCorner t;
     switch (self.cellType) {
         case ConversationCellTypeFirst:
@@ -66,6 +76,9 @@
             break;
     }
     self.messageBalloon.corners = t;
+
+    // цвет
+    self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 }
 
 @end
