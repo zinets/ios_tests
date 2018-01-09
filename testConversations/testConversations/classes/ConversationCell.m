@@ -57,6 +57,11 @@
     _screennameLabel.text = _screenname;
 }
 
+- (void)setAvatarUrl:(NSString *)avatarUrl {
+    _avatarUrl = avatarUrl;
+    self.avatarView.image = [UIImage imageNamed:_avatarUrl];
+}
+
 - (void)setIsOwnMessage:(BOOL)isOwnMessage {
     _isOwnMessage = isOwnMessage;
     [self setupCell];

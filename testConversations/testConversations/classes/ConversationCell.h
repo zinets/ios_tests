@@ -19,6 +19,7 @@ typedef enum {
 // todo remove date
 @property (nonatomic, strong) NSString *messageDate;
 @property (nonatomic, strong) NSString *screenname;
+@property (nonatomic, strong) NSString *avatarUrl;
 
 @property (nonatomic) ConversationCellType cellType;
 @property (nonatomic, strong) UIColor *balloonBackgroundColor;

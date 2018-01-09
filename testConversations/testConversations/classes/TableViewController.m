@@ -44,6 +44,7 @@
 
             cell.isScreennameVisible = YES;
             cell.screenname = m.screenName;
+            cell.avatarUrl = m.avatarUrl;
             return cell;
         }
         case MessageTypePhoto: {
@@ -55,6 +56,7 @@
 
             cell.isScreennameVisible = YES;
             cell.screenname = m.screenName;
+            cell.avatarUrl = m.avatarUrl;
             return cell;
         }
         default:

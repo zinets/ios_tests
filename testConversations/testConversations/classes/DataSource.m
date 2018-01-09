@@ -40,7 +40,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-170000];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
     }
     [data addObject:m];
     
@@ -49,7 +50,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-16000];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
     }
     [data addObject:m];
     
@@ -58,7 +60,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-15000];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
     }
 
     [data addObject:m];
@@ -67,7 +70,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-14000];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
         m.photoUrl = @"img2.jpg";
     }
     [data addObject:m];
@@ -77,7 +81,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-13000];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
     }
     [data addObject:m];
     
@@ -86,7 +91,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-12000];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
         m.photoUrl = @"img1.jpg";
     }
     [data addObject:m];
@@ -96,7 +102,8 @@
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-11000];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
+        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
     }
     [data addObject:m];
 }
