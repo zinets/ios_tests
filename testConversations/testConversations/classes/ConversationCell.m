@@ -139,4 +139,9 @@
     self.photoView.image = [UIImage imageNamed:photoUrl];
 }
 
+- (void)setupCell {
+    [super setupCell];
+    self.messageBalloon.isBorderVisible = NO;
+}
+
 @end
