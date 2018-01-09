@@ -15,8 +15,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UILabel *messageDateLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBalloonOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBalloonOffset;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBalloonOffset2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBalloonOffset2;
 
 @end
 
@@ -83,13 +87,22 @@
     // цвет
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 
-    // положение
-    if (self.isOwnMessage) {
-
-    } else {
-        self.leftBalloonOffset.constant = 16;
-        self.leftBalloonOffset.relation = NSLayoutRelationEqual;
-    }
+//    // положение
+//    if (self.isOwnMessage) {
+//        self.leftBalloonOffset.active = NO;
+//        self.rightBalloonOffset.active = NO;
+//
+//        self.leftBalloonOffset2.active = YES;
+//        self.leftBalloonOffset2.priority = UILayoutPriorityRequired;
+//        self.rightBalloonOffset2.active = YES;
+//        self.rightBalloonOffset2.priority = UILayoutPriorityRequired;
+//    } else {
+//        self.leftBalloonOffset2.active = NO;
+//        self.rightBalloonOffset2.active = NO;
+//
+//        self.leftBalloonOffset.active = YES;
+//        self.rightBalloonOffset.active = YES;
+//    }
 }
 
 @end

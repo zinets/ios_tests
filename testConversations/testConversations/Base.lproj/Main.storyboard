@@ -58,13 +58,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEv-3j-blX">
-                                                    <rect key="frame" x="325" y="0.0" width="42" height="21"/>
-                                                    <color key="backgroundColor" red="1" green="0.062642594760000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsH-KU-weD" customClass="RoundedView">
                                                     <rect key="frame" x="16" y="0.0" width="74" height="39.5"/>
                                                     <subviews>
@@ -85,20 +78,21 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PEv-3j-blX" firstAttribute="top" secondItem="Wqc-15-T4p" secondAttribute="top" id="0uw-Ng-ExJ"/>
                                                 <constraint firstItem="hsH-KU-weD" firstAttribute="top" secondItem="Wqc-15-T4p" secondAttribute="top" id="2HE-Pv-93F"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hsH-KU-weD" secondAttribute="trailing" constant="100" id="VVP-JS-27a"/>
                                                 <constraint firstItem="hsH-KU-weD" firstAttribute="leading" secondItem="Wqc-15-T4p" secondAttribute="leading" constant="16" id="drk-la-pqn"/>
                                                 <constraint firstAttribute="bottom" secondItem="hsH-KU-weD" secondAttribute="bottom" constant="4" id="fTV-DC-0Rk"/>
-                                                <constraint firstAttribute="trailing" secondItem="PEv-3j-blX" secondAttribute="trailing" constant="8" id="yYu-sO-pJd"/>
+                                                <constraint firstAttribute="trailing" secondItem="hsH-KU-weD" secondAttribute="trailing" priority="200" constant="16" id="oWA-ke-dRW"/>
+                                                <constraint firstItem="hsH-KU-weD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wqc-15-T4p" secondAttribute="leading" priority="200" constant="100" id="qai-29-P37"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="leftBalloonOffset" destination="drk-la-pqn" id="uMy-oy-Pul"/>
+                                            <outlet property="leftBalloonOffset2" destination="qai-29-P37" id="MJl-sw-h9K"/>
                                             <outlet property="messageBalloon" destination="hsH-KU-weD" id="ogA-CB-LpN"/>
-                                            <outlet property="messageDateLabel" destination="PEv-3j-blX" id="ny4-Md-jiC"/>
                                             <outlet property="messageLabel" destination="NPI-YD-kns" id="0TZ-35-UXL"/>
                                             <outlet property="rightBalloonOffset" destination="VVP-JS-27a" id="zp9-l4-CCM"/>
+                                            <outlet property="rightBalloonOffset2" destination="oWA-ke-dRW" id="Rej-MH-0Lf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
