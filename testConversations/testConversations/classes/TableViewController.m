@@ -31,23 +31,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessageModel *m = [self.dataSource messageAtIndex:indexPath.row];
-    if (m.photoUrl) {
-        ConversationPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationPhotoCellId"];
-        
-        cell.isOwnMessage = m.ownMessage;
-        cell.cellType = ConversationCellTypeLast;
-        cell.photoUrl = m.photoUrl;
-        return cell;
-    } else {
-        ConversationMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationMessageCellId"];
-        cell.message = m.message;
-        NSDateFormatter *frm = [NSDateFormatter new];
-        frm.dateStyle = NSDateFormatterShortStyle;
-        cell.messageDate = [frm stringFromDate:m.messageDate];
-        cell.isOwnMessage = m.ownMessage;
-        cell.cellType = ConversationCellTypeLast;
-        
-        return cell;
+
+    switch (m.messageType) {
+        case MessageTypeText: {
+            ConversationMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationMessageCellId"];
+            cell.message = m.message;
+            NSDateFormatter *frm = [NSDateFormatter new];
+            frm.dateStyle = NSDateFormatterShortStyle;
+            cell.messageDate = [frm stringFromDate:m.messageDate];
+            cell.isOwnMessage = m.ownMessage;
+            cell.cellType = ConversationCellTypeLast;
+
+            return cell;
+        }
+        case MessageTypePhoto: {
+            ConversationPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationPhotoCellId"];
+
+            cell.isOwnMessage = m.ownMessage;
+            cell.cellType = ConversationCellTypeLast;
+            cell.photoUrl = m.photoUrl;
+            return cell;
+        }
+        default:
+            return nil;
     }
 }
 

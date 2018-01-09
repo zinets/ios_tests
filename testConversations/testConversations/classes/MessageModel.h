@@ -8,12 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    MessageTypeText,
+    MessageTypePhoto,
+    MessageTypeVideo,
+} MessageType;
+
 @interface MessageModel : NSObject
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *avatarUrl;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSDate *messageDate;
 @property (nonatomic, strong) NSString *photoUrl;
+@property (nonatomic, strong) NSString *videoUrl;
 
 @property (nonatomic) BOOL ownMessage;
+@property (nonatomic, readonly) MessageType messageType;
 @end

@@ -96,14 +96,14 @@
     // положение
     // балун выравнивается так: 16 пк к одной стороне и 100 или больше к другой; но свои/чужие сообщения - к правой/левой границам
     if (self.isOwnMessage) {
-        self.fixedRightOffset.priority = UILayoutPriorityRequired;
-        self.floatLeftOffset.priority = UILayoutPriorityRequired;
+        self.fixedRightOffset.priority = 999;
+        self.floatLeftOffset.priority = 999;
 
         self.fixedLeftOffset.priority = 1;
         self.floatRightOffset.priority = 1;
     } else {
-        self.fixedLeftOffset.priority = UILayoutPriorityRequired;
-        self.floatRightOffset.priority = UILayoutPriorityRequired;
+        self.fixedLeftOffset.priority = 999;
+        self.floatRightOffset.priority = 999;
 
         self.fixedRightOffset.priority = 1;
         self.floatLeftOffset.priority = 1;

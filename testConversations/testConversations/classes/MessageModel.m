@@ -10,4 +10,14 @@
 
 @implementation MessageModel
 
+- (MessageType)messageType {
+    MessageType res = MessageTypeText;
+    if (self.videoUrl) {
+        res = MessageTypeVideo;
+    } else if (self.photoUrl) {
+        res = MessageTypePhoto;
+    }
+    return res;
+}
+
 @end
