@@ -36,7 +36,7 @@
         
         cell.isOwnMessage = m.ownMessage;
         cell.cellType = ConversationCellTypeLast;
-        cell.photoUrl = @"img2.jpg";
+        cell.photoUrl = m.photoUrl;
         return cell;
     } else {
         ConversationMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationMessageCellId"];
