@@ -12,7 +12,6 @@
 @interface ConversationCell() {
 
 }
-@property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedLeftOffset;
@@ -34,18 +33,16 @@
     [super setSelected:NO animated:NO];
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:NO];
+}
+
 #pragma mark setters
 
 - (void)setBalloonBackgroundColor:(UIColor *)balloonBackgroundColor {
     _balloonBackgroundColor = balloonBackgroundColor;
     self.messageBalloon.backgroundColor = _balloonBackgroundColor;
     [self setupCell];
-}
-
--(void)setMessage:(NSString *)message {
-    _message = message;
-    
-    self.messageLabel.text = _message;
 }
 
 -(void)setMessageDate:(NSString *)messageDate {
@@ -113,6 +110,33 @@
     }
     // у балуна всегда 4 пк отступ снизу и 4 пк сверху - но если там балун от другой "группы" (т.е. другой юзер или другая дата)
     self.fixedTopOffset.constant = (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle) ? 0 : 4;
+}
+
+@end
+
+@interface ConversationMessageCell()
+@property (nonatomic, weak) IBOutlet UILabel *messageLabel;
+@end
+
+@implementation ConversationMessageCell
+
+-(void)setMessage:(NSString *)message {
+    _message = message;
+
+    self.messageLabel.text = _message;
+}
+
+@end
+
+@interface ConversationPhotoCell()
+@property (nonatomic, weak) IBOutlet UIImageView *photoView;
+@end
+
+@implementation ConversationPhotoCell
+
+- (void)setPhotoUrl:(NSString *)photoUrl {
+    _photoUrl = photoUrl;
+    self.photoView.image = [UIImage imageNamed:photoUrl];
 }
 
 @end

@@ -69,6 +69,16 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
+        m.screenName = @"anime girl";
+        m.message = @"";
+        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-30000+200];
+        m.ownMessage = YES;
+        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        m.photoUrl = @"img1.jpg";
+    }
+    [data addObject:m];
+    
+    m = [MessageModel new]; {
         m.screenName = @"Sierra";
         m.message = @"Kidney function, liver function.";
         m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-30000+250];

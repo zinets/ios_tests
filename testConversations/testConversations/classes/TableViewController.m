@@ -30,16 +30,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ConversationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationCellId"];
     MessageModel *m = [self.dataSource messageAtIndex:indexPath.row];
-    cell.message = m.message;
-    NSDateFormatter *frm = [NSDateFormatter new];
-    frm.dateStyle = NSDateFormatterShortStyle;
-    cell.messageDate = [frm stringFromDate:m.messageDate];
-    cell.isOwnMessage = m.ownMessage;
-    cell.cellType = ConversationCellTypeLast;
-
-    return cell;
+    if (m.photoUrl) {
+        ConversationPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationPhotoCellId"];
+        
+        cell.isOwnMessage = m.ownMessage;
+        cell.cellType = ConversationCellTypeLast;
+        cell.photoUrl = @"img2.jpg";
+        return cell;
+    } else {
+        ConversationMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConversationMessageCellId"];
+        cell.message = m.message;
+        NSDateFormatter *frm = [NSDateFormatter new];
+        frm.dateStyle = NSDateFormatterShortStyle;
+        cell.messageDate = [frm stringFromDate:m.messageDate];
+        cell.isOwnMessage = m.ownMessage;
+        cell.cellType = ConversationCellTypeLast;
+        
+        return cell;
+    }
 }
 
 @end

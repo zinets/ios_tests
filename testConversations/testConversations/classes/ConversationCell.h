@@ -16,10 +16,17 @@ typedef enum {
 } ConversationCellType;
 
 @interface ConversationCell : UITableViewCell
-@property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSString *messageDate;
 
 @property (nonatomic) BOOL isOwnMessage;
 @property (nonatomic) ConversationCellType cellType;
 @property (nonatomic, strong) UIColor *balloonBackgroundColor;
+@end
+
+@interface ConversationMessageCell : ConversationCell
+@property (nonatomic, strong) NSString *message;
+@end
+
+@interface ConversationPhotoCell : ConversationCell
+@property (nonatomic, strong) NSString *photoUrl;
 @end

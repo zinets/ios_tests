@@ -13,5 +13,7 @@
 @property (nonatomic, strong) NSString *avatarUrl;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSDate *messageDate;
+@property (nonatomic, strong) NSString *photoUrl;
+
 @property (nonatomic) BOOL ownMessage;
 @end

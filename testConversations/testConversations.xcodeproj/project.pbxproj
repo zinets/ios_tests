@@ -17,6 +17,8 @@
 		3B25EEF71FFFA3AA001447B5 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF61FFFA3AA001447B5 /* DataSource.m */; };
 		3B25EEFB1FFFA7DF001447B5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF91FFFA7DF001447B5 /* TableViewController.m */; };
 		3B25EEFF1FFFA98F001447B5 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */; };
+		3B25EF022004A679001447B5 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF002004A678001447B5 /* img1.jpg */; };
+		3B25EF032004A679001447B5 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF012004A678001447B5 /* img2.jpg */; };
 		D62A67E05E270408159160D2 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A63E26B5E14ED16C3741E /* RoundedView.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		3B25EEF91FFFA7DF001447B5 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		3B25EEFD1FFFA98F001447B5 /* ConversationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
 		3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		3B25EF002004A678001447B5 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
+		3B25EF012004A678001447B5 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
 		D62A63E26B5E14ED16C3741E /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		D62A649FC197EE6EE31E7B77 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +77,8 @@
 		3B25EEDA1FFFA286001447B5 /* testConversations */ = {
 			isa = PBXGroup;
 			children = (
+				3B25EF002004A678001447B5 /* img1.jpg */,
+				3B25EF012004A678001447B5 /* img2.jpg */,
 				3B25EEF11FFFA2F9001447B5 /* classes */,
 				3B25EEDB1FFFA286001447B5 /* AppDelegate.h */,
 				3B25EEDC1FFFA286001447B5 /* AppDelegate.m */,
@@ -163,6 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */,
+				3B25EF032004A679001447B5 /* img2.jpg in Resources */,
+				3B25EF022004A679001447B5 /* img1.jpg in Resources */,
 				3B25EEE51FFFA286001447B5 /* Assets.xcassets in Resources */,
 				3B25EEE31FFFA286001447B5 /* Main.storyboard in Resources */,
 			);

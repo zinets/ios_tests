@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +52,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationCellId" id="lAx-cs-0Ma" customClass="ConversationCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationMessageCellId" id="lAx-cs-0Ma" customClass="ConversationMessageCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lAx-cs-0Ma" id="Wqc-15-T4p">
@@ -96,6 +97,51 @@
                                             <outlet property="messageLabel" destination="NPI-YD-kns" id="0TZ-35-UXL"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConversationPhotoCellId" id="jt1-nH-18b" customClass="ConversationPhotoCell">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jt1-nH-18b" id="Las-gC-uFj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="leS-DN-YOH" customClass="RoundedView">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="400"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="img1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-NP-ZyH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="JZB-NP-ZyH" secondAttribute="height" id="6JN-p6-dG7"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="JZB-NP-ZyH" secondAttribute="bottom" id="6cr-th-3Yp"/>
+                                                        <constraint firstItem="JZB-NP-ZyH" firstAttribute="leading" secondItem="leS-DN-YOH" secondAttribute="leading" id="875-JU-vAI"/>
+                                                        <constraint firstItem="JZB-NP-ZyH" firstAttribute="top" secondItem="leS-DN-YOH" secondAttribute="top" id="hQA-6B-Zrx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JZB-NP-ZyH" secondAttribute="trailing" id="oCa-qo-0Ad"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="leS-DN-YOH" secondAttribute="trailing" constant="16" id="ASl-UP-5MP"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="leS-DN-YOH" secondAttribute="trailing" priority="1" constant="104" id="EAs-k1-pdK"/>
+                                                <constraint firstItem="leS-DN-YOH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Las-gC-uFj" secondAttribute="leading" priority="1" constant="104" id="awk-eh-b6L"/>
+                                                <constraint firstItem="leS-DN-YOH" firstAttribute="leading" secondItem="Las-gC-uFj" secondAttribute="leading" constant="16" id="eAt-P6-nUB"/>
+                                                <constraint firstItem="leS-DN-YOH" firstAttribute="top" secondItem="Las-gC-uFj" secondAttribute="top" id="ibb-JM-LDi"/>
+                                                <constraint firstAttribute="bottom" secondItem="leS-DN-YOH" secondAttribute="bottom" constant="4" id="oe3-QL-9Nr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fixedLeftOffset" destination="eAt-P6-nUB" id="O1Z-Aw-8kR"/>
+                                            <outlet property="fixedRightOffset" destination="ASl-UP-5MP" id="doH-Hn-BWa"/>
+                                            <outlet property="fixedTopOffset" destination="ibb-JM-LDi" id="Tso-BA-gNp"/>
+                                            <outlet property="floatLeftOffset" destination="awk-eh-b6L" id="unb-QB-240"/>
+                                            <outlet property="floatRightOffset" destination="EAs-k1-pdK" id="ujz-Xx-DhM"/>
+                                            <outlet property="messageBalloon" destination="leS-DN-YOH" id="NQD-Gs-xD7"/>
+                                            <outlet property="photoView" destination="JZB-NP-ZyH" id="2K8-rv-x8v"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RCd-22-na5" id="zae-RT-wcs"/>
@@ -110,6 +156,7 @@
                             <constraint firstItem="wPi-AF-sUN" firstAttribute="top" secondItem="nw1-ZQ-0Mm" secondAttribute="top" id="ROL-TR-Mps"/>
                             <constraint firstAttribute="trailing" secondItem="wPi-AF-sUN" secondAttribute="trailing" id="bWI-3m-Ff4"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="GT2-S7-l3r"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="wPi-AF-sUN" id="gVZ-5V-J6w"/>
@@ -120,4 +167,7 @@
             <point key="canvasLocation" x="853.60000000000002" y="170.91454272863569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img1.jpg" width="600" height="400"/>
+    </resources>
 </document>
