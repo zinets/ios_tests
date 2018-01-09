@@ -89,6 +89,7 @@
                                         <connections>
                                             <outlet property="fixedLeftOffset" destination="zrV-1Y-CAR" id="ezJ-xQ-BXC"/>
                                             <outlet property="fixedRightOffset" destination="VVP-JS-27a" id="mE1-xf-rxq"/>
+                                            <outlet property="fixedTopOffset" destination="2HE-Pv-93F" id="5K3-CQ-Jaz"/>
                                             <outlet property="floatLeftOffset" destination="drk-la-pqn" id="vsO-pd-PbW"/>
                                             <outlet property="floatRightOffset" destination="R8S-nQ-Zq6" id="YYG-tt-XRA"/>
                                             <outlet property="messageBalloon" destination="hsH-KU-weD" id="ogA-CB-LpN"/>

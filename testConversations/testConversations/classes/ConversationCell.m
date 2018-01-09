@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedRightOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *floatLeftOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *floatRightOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedTopOffset;
 
 @end
 
@@ -90,6 +91,7 @@
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 
     // положение
+    // балун выравнивается так: 16 пк к одной стороне и 100 или больше к другой; но свои/чужие сообщения - к правой/левой границам
     if (self.isOwnMessage) {
         self.fixedRightOffset.priority = UILayoutPriorityRequired;
         self.floatLeftOffset.priority = UILayoutPriorityRequired;
@@ -103,6 +105,8 @@
         self.fixedRightOffset.priority = 1;
         self.floatLeftOffset.priority = 1;
     }
+    // у балуна всегда 4 пк отступ снизу и 4 пк сверху - но если там балун от другой "группы" (т.е. другой юзер или другая дата)
+    self.fixedTopOffset.constant = (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle) ? 0 : 4;
 }
 
 @end
