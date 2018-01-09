@@ -16,11 +16,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *messageDateLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBalloonOffset;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBalloonOffset;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBalloonOffset2;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBalloonOffset2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedLeftOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedRightOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *floatLeftOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *floatRightOffset;
 
 @end
 
@@ -66,10 +65,13 @@
 
 - (void)setupCell {
     // форма
+    static UIRectCorner ownFirstCellCorners = UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerTopRight;
+    static UIRectCorner userFirstCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft);
+
     UIRectCorner t;
     switch (self.cellType) {
         case ConversationCellTypeFirst:
-            t = self.isOwnMessage ? (UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerTopRight) : (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft);
+            t = self.isOwnMessage ? ownFirstCellCorners : userFirstCellCorners;
             break;
         case ConversationCellTypeMiddle:
             t = self.isOwnMessage ? (UIRectCornerBottomLeft | UIRectCornerTopLeft) : (UIRectCornerTopRight | UIRectCornerBottomRight);
@@ -87,22 +89,20 @@
     // цвет
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 
-//    // положение
-//    if (self.isOwnMessage) {
-//        self.leftBalloonOffset.active = NO;
-//        self.rightBalloonOffset.active = NO;
-//
-//        self.leftBalloonOffset2.active = YES;
-//        self.leftBalloonOffset2.priority = UILayoutPriorityRequired;
-//        self.rightBalloonOffset2.active = YES;
-//        self.rightBalloonOffset2.priority = UILayoutPriorityRequired;
-//    } else {
-//        self.leftBalloonOffset2.active = NO;
-//        self.rightBalloonOffset2.active = NO;
-//
-//        self.leftBalloonOffset.active = YES;
-//        self.rightBalloonOffset.active = YES;
-//    }
+    // положение
+    if (self.isOwnMessage) {
+        self.fixedRightOffset.priority = UILayoutPriorityRequired;
+        self.floatLeftOffset.priority = UILayoutPriorityRequired;
+
+        self.fixedLeftOffset.priority = 1;
+        self.floatRightOffset.priority = 1;
+    } else {
+        self.fixedLeftOffset.priority = UILayoutPriorityRequired;
+        self.floatRightOffset.priority = UILayoutPriorityRequired;
+
+        self.fixedRightOffset.priority = 1;
+        self.floatLeftOffset.priority = 1;
+    }
 }
 
 @end
