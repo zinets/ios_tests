@@ -13,6 +13,7 @@
 
 }
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedLeftOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedRightOffset;
@@ -55,6 +56,11 @@
     [self setupCell];
 }
 
+- (void)setIsScreennameVisible:(BOOL)isScreennameVisible {
+    _isScreennameVisible = isScreennameVisible;
+    [self setupCell];
+}
+
 - (void)setCellType:(ConversationCellType)cellType {
     _cellType = cellType;
     [self setupCell];
@@ -93,8 +99,13 @@
     // цвет
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 
+    // avatar/screenname
+    self.avatarView.hidden = !_isScreennameVisible || self.isOwnMessage;
+
     // положение
     // балун выравнивается так: 16 пк к одной стороне и 100 или больше к другой; но свои/чужие сообщения - к правой/левой границам
+    CGFloat const leftOffset = 16;
+    CGFloat const avatarSize = 36;
     if (self.isOwnMessage) {
         self.fixedRightOffset.priority = 999;
         self.floatLeftOffset.priority = 999;
@@ -103,6 +114,7 @@
         self.floatRightOffset.priority = 1;
     } else {
         self.fixedLeftOffset.priority = 999;
+        self.fixedLeftOffset.constant = leftOffset + (!self.isScreennameVisible ? 0 : (leftOffset + avatarSize));
         self.floatRightOffset.priority = 999;
 
         self.fixedRightOffset.priority = 1;

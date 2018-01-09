@@ -60,10 +60,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsH-KU-weD" customClass="RoundedView">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="39.5"/>
+                                                    <rect key="frame" x="68" y="0.0" width="291" height="39.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPI-YD-kns">
-                                                            <rect key="frame" x="16" y="12" width="311" height="15.5"/>
+                                                            <rect key="frame" x="16" y="12" width="259" height="15.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -77,17 +77,28 @@
                                                         <constraint firstItem="NPI-YD-kns" firstAttribute="top" secondItem="hsH-KU-weD" secondAttribute="top" constant="12" id="sNk-Oj-YBw"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v3e-eK-HRU">
+                                                    <rect key="frame" x="16" y="0.0" width="36" height="36"/>
+                                                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="EcF-08-v4p"/>
+                                                        <constraint firstAttribute="width" constant="36" id="efb-N7-kBy"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hsH-KU-weD" firstAttribute="top" secondItem="Wqc-15-T4p" secondAttribute="top" id="2HE-Pv-93F"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hsH-KU-weD" secondAttribute="trailing" priority="1" constant="100" id="R8S-nQ-Zq6"/>
                                                 <constraint firstAttribute="trailing" secondItem="hsH-KU-weD" secondAttribute="trailing" constant="16" id="VVP-JS-27a"/>
+                                                <constraint firstItem="hsH-KU-weD" firstAttribute="top" secondItem="v3e-eK-HRU" secondAttribute="top" id="aUQ-Ic-I2K"/>
+                                                <constraint firstItem="v3e-eK-HRU" firstAttribute="leading" secondItem="Wqc-15-T4p" secondAttribute="leading" constant="16" id="cBW-2L-Def"/>
                                                 <constraint firstItem="hsH-KU-weD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wqc-15-T4p" secondAttribute="leading" priority="1" constant="100" id="drk-la-pqn"/>
                                                 <constraint firstAttribute="bottom" secondItem="hsH-KU-weD" secondAttribute="bottom" constant="4" id="fTV-DC-0Rk"/>
-                                                <constraint firstItem="hsH-KU-weD" firstAttribute="leading" secondItem="Wqc-15-T4p" secondAttribute="leading" constant="16" id="zrV-1Y-CAR"/>
+                                                <constraint firstItem="hsH-KU-weD" firstAttribute="leading" secondItem="Wqc-15-T4p" secondAttribute="leading" constant="68" id="zrV-1Y-CAR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarView" destination="v3e-eK-HRU" id="rl2-we-KPL"/>
                                             <outlet property="fixedLeftOffset" destination="zrV-1Y-CAR" id="ezJ-xQ-BXC"/>
                                             <outlet property="fixedRightOffset" destination="VVP-JS-27a" id="mE1-xf-rxq"/>
                                             <outlet property="fixedTopOffset" destination="2HE-Pv-93F" id="5K3-CQ-Jaz"/>
@@ -105,7 +116,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="leS-DN-YOH" customClass="RoundedView">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="400"/>
+                                                    <rect key="frame" x="68" y="0.0" width="291" height="400"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="img1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-NP-ZyH">
                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
@@ -122,17 +133,28 @@
                                                         <constraint firstAttribute="trailing" secondItem="JZB-NP-ZyH" secondAttribute="trailing" id="oCa-qo-0Ad"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-na-Vhh">
+                                                    <rect key="frame" x="16" y="0.0" width="36" height="36"/>
+                                                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="0oG-Xd-8wI"/>
+                                                        <constraint firstAttribute="height" constant="36" id="Qif-sQ-Z83"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="gh3-na-Vhh" firstAttribute="leading" secondItem="Las-gC-uFj" secondAttribute="leading" constant="16" id="4ew-X2-eyY"/>
                                                 <constraint firstAttribute="trailing" secondItem="leS-DN-YOH" secondAttribute="trailing" constant="16" id="ASl-UP-5MP"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="leS-DN-YOH" secondAttribute="trailing" priority="1" constant="104" id="EAs-k1-pdK"/>
                                                 <constraint firstItem="leS-DN-YOH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Las-gC-uFj" secondAttribute="leading" priority="1" constant="104" id="awk-eh-b6L"/>
-                                                <constraint firstItem="leS-DN-YOH" firstAttribute="leading" secondItem="Las-gC-uFj" secondAttribute="leading" constant="16" id="eAt-P6-nUB"/>
+                                                <constraint firstItem="leS-DN-YOH" firstAttribute="leading" secondItem="Las-gC-uFj" secondAttribute="leading" constant="68" id="eAt-P6-nUB"/>
                                                 <constraint firstItem="leS-DN-YOH" firstAttribute="top" secondItem="Las-gC-uFj" secondAttribute="top" id="ibb-JM-LDi"/>
                                                 <constraint firstAttribute="bottom" secondItem="leS-DN-YOH" secondAttribute="bottom" constant="4" id="oe3-QL-9Nr"/>
+                                                <constraint firstItem="leS-DN-YOH" firstAttribute="top" secondItem="gh3-na-Vhh" secondAttribute="top" id="yqA-KO-s8E"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarView" destination="gh3-na-Vhh" id="1P8-At-0Sw"/>
                                             <outlet property="fixedLeftOffset" destination="eAt-P6-nUB" id="O1Z-Aw-8kR"/>
                                             <outlet property="fixedRightOffset" destination="ASl-UP-5MP" id="doH-Hn-BWa"/>
                                             <outlet property="fixedTopOffset" destination="ibb-JM-LDi" id="Tso-BA-gNp"/>

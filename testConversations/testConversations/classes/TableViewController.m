@@ -42,6 +42,7 @@
             cell.isOwnMessage = m.ownMessage;
             cell.cellType = ConversationCellTypeLast;
 
+            cell.isScreennameVisible = YES;
             return cell;
         }
         case MessageTypePhoto: {
@@ -50,6 +51,8 @@
             cell.isOwnMessage = m.ownMessage;
             cell.cellType = ConversationCellTypeLast;
             cell.photoUrl = m.photoUrl;
+
+            cell.isScreennameVisible = YES;
             return cell;
         }
         default:
