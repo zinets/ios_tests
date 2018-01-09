@@ -21,7 +21,7 @@ typedef enum {
 @interface ConversationCellConfig : NSObject
 @property (nonatomic, strong) NSString *screenname;
 @property (nonatomic, strong) NSString *avatarUrl;
-@property (nonatomic) ConversationCellType *cellType;
+@property (nonatomic) ConversationCellType cellType;
 @property (nonatomic) BOOL isOwnMessage;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSString *photoUrl;
