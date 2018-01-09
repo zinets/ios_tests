@@ -13,7 +13,6 @@
 
 }
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
-@property (nonatomic, weak) IBOutlet UILabel *messageDateLabel;
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedLeftOffset;
@@ -51,7 +50,7 @@
 
 -(void)setMessageDate:(NSString *)messageDate {
     _messageDate = messageDate;
-    self.messageDateLabel.text = _messageDate;
+//    self.messageDateLabel.text = _messageDate;
 }
 
 - (void)setIsOwnMessage:(BOOL)isOwnMessage {
@@ -67,7 +66,14 @@
 - (void)setupCell {
     // форма
     static UIRectCorner ownFirstCellCorners = UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerTopRight;
+    static UIRectCorner ownMiddleCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft);
+    static UIRectCorner ownLastCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerBottomRight);
+    static UIRectCorner ownSingleCellCorners = UIRectCornerAllCorners;
+
     static UIRectCorner userFirstCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft);
+    static UIRectCorner userMiddleCellCorners = (UIRectCornerTopRight | UIRectCornerBottomRight);
+    static UIRectCorner userLastCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerBottomLeft);
+    static UIRectCorner userSingleCellCorners = UIRectCornerAllCorners;
 
     UIRectCorner t;
     switch (self.cellType) {
@@ -75,14 +81,14 @@
             t = self.isOwnMessage ? ownFirstCellCorners : userFirstCellCorners;
             break;
         case ConversationCellTypeMiddle:
-            t = self.isOwnMessage ? (UIRectCornerBottomLeft | UIRectCornerTopLeft) : (UIRectCornerTopRight | UIRectCornerBottomRight);
+            t = self.isOwnMessage ? ownMiddleCellCorners : userMiddleCellCorners;
             break;
         case ConversationCellTypeLast:
-            t = self.isOwnMessage ? (UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerBottomRight) : (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerBottomLeft);
+            t = self.isOwnMessage ? ownLastCellCorners : userLastCellCorners;
             break;
         case ConversationCellTypeSingle:
         default:
-            t = UIRectCornerAllCorners;
+            t = self.isOwnMessage ? ownSingleCellCorners : userSingleCellCorners;
             break;
     }
     self.messageBalloon.corners = t;
