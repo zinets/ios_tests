@@ -10,10 +10,11 @@
 #import "RoundedView.h"
 
 @interface ConversationCell() {
-
+    BOOL _isScreennameVisible;
 }
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
+@property (weak, nonatomic) IBOutlet UILabel *screennameLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedLeftOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *fixedRightOffset;
@@ -51,6 +52,11 @@
 //    self.messageDateLabel.text = _messageDate;
 }
 
+- (void)setScreenname:(NSString *)screenname {
+    _screenname = screenname;
+    _screennameLabel.text = _screenname;
+}
+
 - (void)setIsOwnMessage:(BOOL)isOwnMessage {
     _isOwnMessage = isOwnMessage;
     [self setupCell];
@@ -59,6 +65,10 @@
 - (void)setIsScreennameVisible:(BOOL)isScreennameVisible {
     _isScreennameVisible = isScreennameVisible;
     [self setupCell];
+}
+
+- (BOOL)isScreennameVisible {
+    return _isScreennameVisible && !self.isOwnMessage;
 }
 
 - (void)setCellType:(ConversationCellType)cellType {
@@ -100,7 +110,8 @@
     self.messageBalloon.isBorderVisible = !self.isOwnMessage;
 
     // avatar/screenname
-    self.avatarView.hidden = !_isScreennameVisible || self.isOwnMessage;
+    self.avatarView.hidden = !self.isScreennameVisible;
+    self.screennameLabel.hidden = !self.isScreennameVisible;
 
     // положение
     // балун выравнивается так: 16 пк к одной стороне и 100 или больше к другой; но свои/чужие сообщения - к правой/левой границам
@@ -121,7 +132,12 @@
         self.floatLeftOffset.priority = 1;
     }
     // у балуна всегда 4 пк отступ снизу и 4 пк сверху - но если там балун от другой "группы" (т.е. другой юзер или другая дата)
-    self.fixedTopOffset.constant = (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle) ? 0 : 4;
+    CGFloat topOffset = (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle) ? 0 : 4;
+    // и надо еще втулить скриннейм - но не для своих сообщений
+    if (self.isScreennameVisible && !self.isOwnMessage) {
+        topOffset += 18 + 4; // место скриннейма
+    }
+    self.fixedTopOffset.constant = topOffset;
 }
 
 @end

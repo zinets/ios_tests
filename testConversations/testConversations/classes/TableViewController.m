@@ -43,6 +43,7 @@
             cell.cellType = ConversationCellTypeLast;
 
             cell.isScreennameVisible = YES;
+            cell.screenname = m.screenName;
             return cell;
         }
         case MessageTypePhoto: {
@@ -53,6 +54,7 @@
             cell.photoUrl = m.photoUrl;
 
             cell.isScreennameVisible = YES;
+            cell.screenname = m.screenName;
             return cell;
         }
         default:

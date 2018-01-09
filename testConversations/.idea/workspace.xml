@@ -13,11 +13,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_A1F4C182-51E3-4E81-B19B-80342BF518AD" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TableViewController.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TableViewController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testConversations/classes/TableViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+            <state relative-caret-position="622">
+              <caret line="56" column="43" lean-forward="false" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConversationCell.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConversationCell.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testConversations/classes/ConversationCell.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
+            <state relative-caret-position="446">
+              <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
               <folding>
                 <element signature="e#152#180#0" expanded="true" />
               </folding>
@@ -88,8 +88,8 @@
       <file leaf-file-name="ConversationCell.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testConversations/classes/ConversationCell.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="360">
+              <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -124,8 +124,8 @@
         <option value="$PROJECT_DIR$/testConversations/classes/MessageModel.m" />
         <option value="$PROJECT_DIR$/testConversations/classes/DataSource.m" />
         <option value="$PROJECT_DIR$/testConversations/classes/ConversationCell.h" />
-        <option value="$PROJECT_DIR$/testConversations/classes/TableViewController.m" />
         <option value="$PROJECT_DIR$/testConversations/classes/ConversationCell.m" />
+        <option value="$PROJECT_DIR$/testConversations/classes/TableViewController.m" />
       </list>
     </option>
   </component>
@@ -298,14 +298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testConversations/classes/TableViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testConversations/classes/RoundedView.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -338,29 +330,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testConversations/classes/TableViewController.m">
+    <entry file="file://$PROJECT_DIR$/testConversations/classes/TableViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="44" column="27" lean-forward="false" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testConversations/classes/ConversationCell.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="180">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testConversations/classes/ConversationCell.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="102" column="71" lean-forward="false" selection-start-line="102" selection-start-column="71" selection-end-line="102" selection-end-column="71" />
+        <state relative-caret-position="446">
+          <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
           <folding>
             <element signature="e#152#180#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testConversations/classes/ConversationCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testConversations/classes/TableViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="56" column="43" lean-forward="false" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

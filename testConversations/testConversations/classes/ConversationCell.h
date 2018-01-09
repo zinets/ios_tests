@@ -18,6 +18,7 @@ typedef enum {
 @interface ConversationCell : UITableViewCell
 // todo remove date
 @property (nonatomic, strong) NSString *messageDate;
+@property (nonatomic, strong) NSString *screenname;
 
 @property (nonatomic) ConversationCellType cellType;
 @property (nonatomic, strong) UIColor *balloonBackgroundColor;
