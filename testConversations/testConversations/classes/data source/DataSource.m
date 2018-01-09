@@ -10,7 +10,7 @@
 #import "DailyMessages.h"
 
 @implementation DataSource {
-    NSMutableDictionary <NSDate *, id> *sortedData;
+    NSMutableArray <DailyMessages *> *messagesGroupedByDay;
 }
 
 -(instancetype)init {
@@ -160,35 +160,36 @@
     }
     [data addObject:m];
 
+    NSDate *truncatedDate, *currentDate = nil;
+    NSMutableArray *messages;
 
-    sortedData = [NSMutableDictionary dictionaryWithCapacity:100];
-
-    __block NSDate *key;
-    __block NSMutableArray *messages;
-    __block NSDate *truncatedDate;
-    [data enumerateObjectsUsingBlock:^(MessageModel *obj, NSUInteger idx, BOOL *stop) {
-        truncatedDate = [self truncateDateTime:obj.messageDate];
-        if (![[sortedData allKeys] containsObject:truncatedDate]) {
-            key = truncatedDate;
+    NSMutableArray *tempArrayOfMessages = [NSMutableArray array];
+    for (MessageModel *messageModel in
+            [data sortedArrayUsingComparator:^NSComparisonResult(MessageModel *obj1, MessageModel *obj2) {
+                return [obj1.messageDate compare:obj2.messageDate];
+            }]) {
+        truncatedDate = [self truncateDateTime:messageModel.messageDate];
+        if (![truncatedDate isEqualToDate:currentDate]) {
+            currentDate = truncatedDate;
             messages = [NSMutableArray array];
-            sortedData[key] = messages;
+            [tempArrayOfMessages addObject:messages];
         }
 
-        if ([truncatedDate isEqualToDate:key]) {
-            [messages addObject:obj];
-        }
+        [messages addObject:messageModel];
+    }
 
-    }];
-
-
+    messagesGroupedByDay = [NSMutableArray arrayWithCapacity:tempArrayOfMessages.count];
+    for (NSArray *arr in tempArrayOfMessages) {
+        [messagesGroupedByDay addObject:[[DailyMessages alloc] initWithMessages:arr]];
+    }
 }
 
 - (NSInteger)numberOfSections {
-    return [sortedData count];
+    return [messagesGroupedByDay count];
 }
 
 - (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section {
-    return sortedData.allValues[section];
+    return messagesGroupedByDay[section];
 }
 
 #pragma mark - dates
