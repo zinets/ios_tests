@@ -12,6 +12,18 @@
 @interface ConversationCell() {
     BOOL _isScreennameVisible;
 }
+
+@property (nonatomic, strong) NSString *screenname;
+@property (nonatomic, strong) NSString *avatarUrl;
+
+@property (nonatomic) ConversationCellType cellType;
+@property (nonatomic, strong) UIColor *balloonBackgroundColor;
+
+@property (nonatomic) BOOL isOwnMessage;
+// влияет на дизайн (чужого сообщения): балун сдвигается; появляется аватарка и скриннейм в 1й ячейке группы
+@property (nonatomic) BOOL isScreennameVisible;
+
+// IBuilder
 @property (nonatomic, weak) IBOutlet RoundedView *messageBalloon;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
 @property (weak, nonatomic) IBOutlet UILabel *screennameLabel;
@@ -25,6 +37,17 @@
 @end
 
 @implementation ConversationCell
+
+- (void)applyConfig:(ConversationCellConfig *)config {
+    self.isOwnMessage = config.isOwnMessage;
+    self.cellType = config.cellType;
+
+    self.isScreennameVisible = config.isConversationPublic;
+    self.screenname = config.screenname;
+    self.avatarUrl = config.avatarUrl;
+}
+
+#pragma mark - overrides
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -45,11 +68,6 @@
     _balloonBackgroundColor = balloonBackgroundColor;
     self.messageBalloon.backgroundColor = _balloonBackgroundColor;
     [self setupCell];
-}
-
--(void)setMessageDate:(NSString *)messageDate {
-    _messageDate = messageDate;
-//    self.messageDateLabel.text = _messageDate;
 }
 
 - (void)setScreenname:(NSString *)screenname {
@@ -148,10 +166,16 @@
 @end
 
 @interface ConversationMessageCell()
+@property (nonatomic, strong) NSString *message;
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @end
 
 @implementation ConversationMessageCell
+
+- (void)applyConfig:(ConversationCellConfig *)config {
+    [super applyConfig:config];
+    self.message = config.message;
+}
 
 -(void)setMessage:(NSString *)message {
     _message = message;
@@ -162,10 +186,16 @@
 @end
 
 @interface ConversationPhotoCell()
+@property (nonatomic, strong) NSString *photoUrl;
 @property (nonatomic, weak) IBOutlet UIImageView *photoView;
 @end
 
 @implementation ConversationPhotoCell
+
+- (void)applyConfig:(ConversationCellConfig *)config {
+    [super applyConfig:config];
+    self.photoUrl = config.photoUrl;
+}
 
 - (void)setPhotoUrl:(NSString *)photoUrl {
     _photoUrl = photoUrl;

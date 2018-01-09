@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "MessageModel.h"
 
+@class DailyMessages;
+
 @interface DataSource : NSObject
--(NSInteger)numberOfMessages;
--(MessageModel *)messageAtIndex:(NSInteger)index;
+- (NSInteger)numberOfSections;
+- (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section;
 @end

@@ -13,15 +13,17 @@
 		3B25EEE51FFFA286001447B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE41FFFA286001447B5 /* Assets.xcassets */; };
 		3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE61FFFA286001447B5 /* LaunchScreen.storyboard */; };
 		3B25EEEB1FFFA286001447B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEEA1FFFA286001447B5 /* main.m */; };
-		3B25EEF41FFFA325001447B5 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF31FFFA325001447B5 /* MessageModel.m */; };
-		3B25EEF71FFFA3AA001447B5 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF61FFFA3AA001447B5 /* DataSource.m */; };
 		3B25EEFB1FFFA7DF001447B5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF91FFFA7DF001447B5 /* TableViewController.m */; };
-		3B25EEFF1FFFA98F001447B5 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */; };
 		3B25EF022004A679001447B5 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF002004A678001447B5 /* img1.jpg */; };
 		3B25EF032004A679001447B5 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF012004A678001447B5 /* img2.jpg */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
+		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
+		D62A63B1BFE56E4D3DC60B46 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* DataSource.m */; };
 		D62A64967D04E7DB800A42CD /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B4B8A1942B01D81E2EF /* avatar1.png */; };
-		D62A67E05E270408159160D2 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A63E26B5E14ED16C3741E /* RoundedView.m */; };
+		D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A665567B5070FB4B9D515 /* DailyMessages.m */; };
+		D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FAB74A587CA716A6174 /* ConversationCellConfig.m */; };
+		D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */; };
+		D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A8447151F7AEF86EC17 /* RoundedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,20 +37,24 @@
 		3B25EEE71FFFA286001447B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B25EEE91FFFA286001447B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B25EEEA1FFFA286001447B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3B25EEF21FFFA325001447B5 /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
-		3B25EEF31FFFA325001447B5 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
-		3B25EEF51FFFA3AA001447B5 /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
-		3B25EEF61FFFA3AA001447B5 /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		3B25EEF81FFFA7DF001447B5 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		3B25EEF91FFFA7DF001447B5 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		3B25EEFD1FFFA98F001447B5 /* ConversationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
-		3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
 		3B25EF002004A678001447B5 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
 		3B25EF012004A678001447B5 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
 		D62A639CB245DCC3A0CF5CFA /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
-		D62A63E26B5E14ED16C3741E /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
-		D62A649FC197EE6EE31E7B77 /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
+		D62A665567B5070FB4B9D515 /* DailyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyMessages.m; sourceTree = "<group>"; };
+		D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
+		D62A684C532980817D693B88 /* ConversationCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationCellConfig.h; sourceTree = "<group>"; };
+		D62A688F0569BE82DBF784BF /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		D62A6A2D9A044F1394D46033 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		D62A6A73C3D108B49AA83324 /* ConversationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationCell.h; sourceTree = "<group>"; };
+		D62A6A8447151F7AEF86EC17 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		D62A6B4B8A1942B01D81E2EF /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
+		D62A6CC6BAEE0599F9829B6E /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
+		D62A6D0D0685DAEA496D321F /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		D62A6DAD93CEB43FC256CCC6 /* DailyMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyMessages.h; sourceTree = "<group>"; };
+		D62A6E5B7EE97E67D30B76A7 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		D62A6FAB74A587CA716A6174 /* ConversationCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,18 +108,46 @@
 		3B25EEF11FFFA2F9001447B5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				3B25EEF21FFFA325001447B5 /* MessageModel.h */,
-				3B25EEF31FFFA325001447B5 /* MessageModel.m */,
-				3B25EEF51FFFA3AA001447B5 /* DataSource.h */,
-				3B25EEF61FFFA3AA001447B5 /* DataSource.m */,
 				3B25EEF81FFFA7DF001447B5 /* TableViewController.h */,
 				3B25EEF91FFFA7DF001447B5 /* TableViewController.m */,
-				3B25EEFD1FFFA98F001447B5 /* ConversationCell.h */,
-				3B25EEFE1FFFA98F001447B5 /* ConversationCell.m */,
-				D62A63E26B5E14ED16C3741E /* RoundedView.m */,
-				D62A649FC197EE6EE31E7B77 /* RoundedView.h */,
+				D62A6CC415EA8907B0519F58 /* cells */,
+				D62A6B7C6922B307C587E468 /* data source */,
+				D62A6B6FFC6A55B28BC0CB9A /* controls */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		D62A6B6FFC6A55B28BC0CB9A /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6CC6BAEE0599F9829B6E /* RoundedView.h */,
+				D62A6A8447151F7AEF86EC17 /* RoundedView.m */,
+			);
+			path = controls;
+			sourceTree = "<group>";
+		};
+		D62A6B7C6922B307C587E468 /* data source */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6DAD93CEB43FC256CCC6 /* DailyMessages.h */,
+				D62A665567B5070FB4B9D515 /* DailyMessages.m */,
+				D62A6E5B7EE97E67D30B76A7 /* DataSource.h */,
+				D62A6D0D0685DAEA496D321F /* DataSource.m */,
+				D62A688F0569BE82DBF784BF /* MessageModel.m */,
+				D62A6A2D9A044F1394D46033 /* MessageModel.h */,
+			);
+			path = "data source";
+			sourceTree = "<group>";
+		};
+		D62A6CC415EA8907B0519F58 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6A73C3D108B49AA83324 /* ConversationCell.h */,
+				D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */,
+				D62A6FAB74A587CA716A6174 /* ConversationCellConfig.m */,
+				D62A684C532980817D693B88 /* ConversationCellConfig.h */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,13 +226,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */,
-				3B25EEFF1FFFA98F001447B5 /* ConversationCell.m in Sources */,
 				3B25EEFB1FFFA7DF001447B5 /* TableViewController.m in Sources */,
-				3B25EEF71FFFA3AA001447B5 /* DataSource.m in Sources */,
 				3B25EEEB1FFFA286001447B5 /* main.m in Sources */,
 				3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */,
-				3B25EEF41FFFA325001447B5 /* MessageModel.m in Sources */,
-				D62A67E05E270408159160D2 /* RoundedView.m in Sources */,
+				D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */,
+				D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */,
+				D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */,
+				D62A63B1BFE56E4D3DC60B46 /* DataSource.m in Sources */,
+				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
+				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

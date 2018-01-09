@@ -7,31 +7,23 @@
 //
 
 #import "DataSource.h"
+#import "DailyMessages.h"
 
 @implementation DataSource {
-    NSMutableArray <MessageModel *> *data;
     NSMutableDictionary <NSDate *, id> *sortedData;
 }
 
 -(instancetype)init {
     if (self = [super init]) {
-        data = [NSMutableArray array];
         [self initDatasource];
     }
     return self;
 }
 
--(NSInteger)numberOfMessages {
-    return data.count;
-}
-
--(MessageModel *)messageAtIndex:(NSInteger)index {
-    return data[index];
-}
-
 - (void)initDatasource {
     NSString *ownScreenname = @"Sierra";
     NSString *userScreenname = @"anime girl";
+    NSMutableArray <MessageModel *> *data = [NSMutableArray array];
 
     MessageModel *m = [MessageModel new]; {
         m.message = @"1 Wow.";
@@ -188,11 +180,18 @@
 
     }];
 
-    NSLog(@"%@", sortedData);
+
+}
+
+- (NSInteger)numberOfSections {
+    return [sortedData count];
+}
+
+- (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section {
+    return sortedData.allValues[section];
 }
 
 #pragma mark - dates
-
 
 - (NSDate *)dateFromString:(NSString *)strDate {
     NSDateFormatter *dateFormat = [NSDateFormatter new];
