@@ -123,18 +123,18 @@
     CGFloat const leftOffset = 16;
     CGFloat const avatarSize = 36;
     if (self.isOwnMessage) {
-        self.fixedRightOffset.priority = 999;
-        self.floatLeftOffset.priority = 999;
-
         self.fixedLeftOffset.priority = 1;
         self.floatRightOffset.priority = 1;
+
+        self.fixedRightOffset.priority = 999;
+        self.floatLeftOffset.priority = 999;
     } else {
+        self.fixedRightOffset.priority = 1;
+        self.floatLeftOffset.priority = 1;
+
         self.fixedLeftOffset.priority = 999;
         self.fixedLeftOffset.constant = leftOffset + (!self.isScreennameVisible ? 0 : (leftOffset + avatarSize));
         self.floatRightOffset.priority = 999;
-
-        self.fixedRightOffset.priority = 1;
-        self.floatLeftOffset.priority = 1;
     }
     // у балуна всегда 4 пк отступ снизу и 4 пк сверху - но если там балун от другой "группы" (т.е. другой юзер или другая дата)
     CGFloat topOffset = (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle) ? 0 : 4;

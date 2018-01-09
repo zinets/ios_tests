@@ -20,4 +20,18 @@
     return res;
 }
 
+- (NSString *)description {
+    switch ([self messageType]) {
+        case MessageTypePhoto:
+            return [NSString stringWithFormat:@"%@: (photo)", self.messageDate];
+        case MessageTypeVideo:
+            return [NSString stringWithFormat:@"%@: (video)", self.messageDate];
+        case MessageTypeText:
+            return [NSString stringWithFormat:@"%@: %@", self.messageDate, self.message];
+        default:
+            return [super description];
+    }
+}
+
+
 @end
