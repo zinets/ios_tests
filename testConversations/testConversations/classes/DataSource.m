@@ -171,22 +171,21 @@
 
     sortedData = [NSMutableDictionary dictionaryWithCapacity:100];
 
-    __block NSDate *key = [self truncateDateTime:data[0].messageDate];
-    __block NSMutableArray *messages = [NSMutableArray new];
+    __block NSDate *key;
+    __block NSMutableArray *messages;
+    __block NSDate *truncatedDate;
     [data enumerateObjectsUsingBlock:^(MessageModel *obj, NSUInteger idx, BOOL *stop) {
+        truncatedDate = [self truncateDateTime:obj.messageDate];
+        if (![[sortedData allKeys] containsObject:truncatedDate]) {
+            key = truncatedDate;
+            messages = [NSMutableArray array];
+            sortedData[key] = messages;
+        }
 
-        NSDate *truncatedDate = [self truncateDateTime:obj.messageDate];
         if ([truncatedDate isEqualToDate:key]) {
             [messages addObject:obj];
-
-
-        } else {
-            sortedData[key] = [messages copy];
-            [messages removeAllObjects];
-
-            key = truncatedDate;
-            [messages addObject:obj];
         }
+
     }];
 
     NSLog(@"%@", sortedData);
