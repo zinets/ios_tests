@@ -28,16 +28,20 @@
     return data[index];
 }
 
+- (NSDate *)dateFromString:(NSString *)strDate {
+    NSDateFormatter *dateFormat = [NSDateFormatter new];
+    [dateFormat setDateFormat:@"dd.MM.yyyy HH:mm"];
 
-
+    return [dateFormat dateFromString:strDate];
+}
 
 - (void)initDatasource {
     NSString *ownScreenname = @"Sierra";
     NSString *userScreenname = @"anime girl";
 
     MessageModel *m = [MessageModel new]; {
-        m.message = @"Wow.";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-170000];
+        m.message = @"1 Wow.";
+        m.messageDate = [self dateFromString:@"25.12.2017 13:34"];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -46,8 +50,8 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
-        m.message = @"So what is going on?";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-16000];
+        m.message = @"2 So what is going on?";
+        m.messageDate = [self dateFromString:@"31.12.2017 13:34"];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -56,8 +60,8 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
-        m.message = @"We had a meth addict in here this morning who @Max was biologically younger.";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-15000];
+        m.message = @"3 We had a meth addict in here this morning who @Max was biologically younger.";
+        m.messageDate = [self dateFromString:@"31.12.2017 19:34"];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -66,8 +70,8 @@
 
     [data addObject:m];
     m = [MessageModel new]; {
-        m.message = @"";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-14000];
+        m.message = @"4";
+        m.messageDate = [self dateFromString:@"07.01.2018 13:34"];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -77,8 +81,8 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
-        m.message = @"We had a meth addict in here this morning who was biologically younger.";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-13000];
+        m.message = @"5 We had a meth addict in here this morning who was biologically younger.";
+        m.messageDate = [self dateFromString:@"08.01.2018 13:34"];
         m.ownMessage = YES;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -87,8 +91,8 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
-        m.message = @"";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-12000];
+        m.message = @"6";
+        m.messageDate = [self dateFromString:@"08.01.2018 17:34"];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
@@ -98,8 +102,8 @@
     [data addObject:m];
     
     m = [MessageModel new]; {
-        m.message = @"Kidney function, liver function.";
-        m.messageDate = [NSDate dateWithTimeIntervalSinceNow:-11000];
+        m.message = @"7 Kidney function, liver function.";
+        m.messageDate = [self dateFromString:@"09.01.2018 13:34"];
         m.ownMessage = NO;
         m.screenName = m.ownMessage ? ownScreenname : userScreenname;
         m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
