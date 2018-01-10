@@ -16,13 +16,191 @@
 @property (nonatomic, strong) DataSource *dataSource;
 @end
 
-@implementation TableViewController
+@implementation TableViewController {
+    NSArray *tempData;
+    NSInteger tempIndex;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.dataSource = [DataSource new];
     [self.tableView registerClass:[ConversationHeader class] forHeaderFooterViewReuseIdentifier:@"ConversationHeaderId"];
+}
+
+#pragma mark temp
+
+- (NSDate *)dateFromString:(NSString *)strDate {
+    NSDateFormatter *dateFormat = [NSDateFormatter new];
+    [dateFormat setDateFormat:@"dd.MM.yyyy HH:mm"];
+    
+    return [dateFormat dateFromString:strDate];
+}
+
+- (NSArray *)tempDataSet {
+    if (!tempData) {
+        NSString *ownScreenname = @"Sierra";
+        NSString *userScreenname = @"anime girl";
+        NSMutableArray <MessageModel *> *data = [NSMutableArray array];
+        
+        MessageModel *m = [MessageModel new]; {
+            m.message = @"1 Wow.";
+            m.messageDate = [self dateFromString:@"25.12.2017 13:34"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"2 So what is going on?";
+            m.messageDate = [self dateFromString:@"31.12.2017 13:34"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            //        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"3 We had a meth addict in here this morning who @Max was biologically younger.";
+            m.messageDate = [self dateFromString:@"31.12.2017 19:34"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            //        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+        }
+        
+        [data addObject:m];
+        m = [MessageModel new]; {
+            m.message = @"4";
+            m.messageDate = [self dateFromString:@"07.01.2018 13:34"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            //        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
+            m.photoUrl = @"img2.jpg";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"own message 1";
+            m.messageDate = [self dateFromString:@"08.01.2018 10:00"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"own message 2";
+            m.messageDate = [self dateFromString:@"08.01.2018 12:10"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"own message 3";
+            m.messageDate = [self dateFromString:@"08.01.2018 14:00"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"user message 1";
+            m.messageDate = [self dateFromString:@"08.01.2018 14:14"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.messageDate = [self dateFromString:@"08.01.2018 14:14"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            m.photoUrl = @"img1.jpg";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"user message 2";
+            m.messageDate = [self dateFromString:@"08.01.2018 14:25"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"own message 4";
+            m.messageDate = [self dateFromString:@"08.01.2018 15:00"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"own message 5 (last)";
+            m.messageDate = [self dateFromString:@"08.01.2018 15:05"];
+            m.ownMessage = YES;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"user message 3 (last)";
+            m.messageDate = [self dateFromString:@"08.01.2018 19:25"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
+            m.message = @"7 Kidney function, liver function.";
+            m.messageDate = [self dateFromString:@"09.01.2018 13:34"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            //        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
+        }
+        [data addObject:m];
+        
+        //        NSDate *truncatedDate, *currentDate = nil;
+        //        NSMutableArray *messages;
+        //
+        //        NSMutableArray *tempArrayOfMessages = [NSMutableArray array];
+        //        for (MessageModel *messageModel in
+        //             [data sortedArrayUsingComparator:^NSComparisonResult(MessageModel *obj1, MessageModel *obj2) {
+        //            return [obj1.messageDate compare:obj2.messageDate];
+        //        }]) {
+        //            truncatedDate = [self truncateDateTime:messageModel.messageDate];
+        //            if (![truncatedDate isEqualToDate:currentDate]) {
+        //                currentDate = truncatedDate;
+        //                messages = [NSMutableArray array];
+        //                [tempArrayOfMessages addObject:messages];
+        //            }
+        //
+        //            [messages addObject:messageModel];
+        //        }
+        
+        tempData = [data copy];
+    }
+    return tempData;
+}
+
+- (IBAction)onTap:(id)sender {
+    [self.dataSource addMessages:@[[self tempDataSet][tempIndex]]];
+    tempIndex++;
+    [self.tableView reloadData];
 }
 
 #pragma mark table
@@ -60,6 +238,13 @@
     header.headerText = [NSString stringWithFormat:@"%@", [self truncateDateTime:[self.dataSource messagesOfSectionAtIndex:section].date]];
 
     return header;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ConversationCellConfig *config = [[self.dataSource messagesOfSectionAtIndex:indexPath.section] configOfCellAtIndex:indexPath.row];
+    config.cellType = ConversationCellTypeMiddle;
+    ConversationCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell applyConfig:config];
 }
 
 #pragma mark dates

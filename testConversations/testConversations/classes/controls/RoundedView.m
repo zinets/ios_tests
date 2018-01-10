@@ -15,23 +15,23 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _cornerRadius = 17;
-        _corners = UIRectCornerAllCorners;
-        [self updateMask];
+        [self commonInit];
     }
-
     return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-        _cornerRadius = 17;
-        _corners = UIRectCornerAllCorners;
-        [self updateMask];
+        [self commonInit];
     }
-
     return self;
+}
+
+- (void)commonInit {
+    _cornerRadius = 17;
+    _corners = UIRectCornerAllCorners;
+    [self updateMask];
 }
 
 - (void)setCornerRadius:(CGFloat)cornerRadius {

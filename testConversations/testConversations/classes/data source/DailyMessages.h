@@ -10,6 +10,7 @@
 // это массив сообщений за 1 день; в таблице с перепиской это одна секция
 @interface DailyMessages : NSObject
 - (instancetype)initWithMessages:(NSArray <MessageModel *> *)messages;
+- (NSInteger)addObject:(MessageModel *)message;
 
 - (NSInteger)numberOfMessages;
 - (ConversationCellConfig *)configOfCellAtIndex:(NSInteger)index;

@@ -21,167 +21,10 @@
 }
 
 - (void)initDatasource {
-    NSString *ownScreenname = @"Sierra";
-    NSString *userScreenname = @"anime girl";
-    NSMutableArray <MessageModel *> *data = [NSMutableArray array];
-
-    MessageModel *m = [MessageModel new]; {
-        m.message = @"1 Wow.";
-        m.messageDate = [self dateFromString:@"25.12.2017 13:34"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
-    }
-    [data addObject:m];
-    
-    m = [MessageModel new]; {
-        m.message = @"2 So what is going on?";
-        m.messageDate = [self dateFromString:@"31.12.2017 13:34"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
-    }
-    [data addObject:m];
-    
-    m = [MessageModel new]; {
-        m.message = @"3 We had a meth addict in here this morning who @Max was biologically younger.";
-        m.messageDate = [self dateFromString:@"31.12.2017 19:34"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
-    }
-
-    [data addObject:m];
-    m = [MessageModel new]; {
-        m.message = @"4";
-        m.messageDate = [self dateFromString:@"07.01.2018 13:34"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-//        m.avatarUrl = @"http://icons.iconarchive.com/icons/iloveicons.ru/browser-girl/256/browser-girl-chrome-icon.png";
-        m.photoUrl = @"img2.jpg";
-    }
-    [data addObject:m];
-
-
-
-    
-    m = [MessageModel new]; {
-        m.message = @"own message 1";
-        m.messageDate = [self dateFromString:@"08.01.2018 10:00"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"own message 2";
-        m.messageDate = [self dateFromString:@"08.01.2018 12:10"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"own message 3";
-        m.messageDate = [self dateFromString:@"08.01.2018 14:00"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"user message 1";
-        m.messageDate = [self dateFromString:@"08.01.2018 14:14"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.messageDate = [self dateFromString:@"08.01.2018 14:14"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-        m.photoUrl = @"img1.jpg";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"user message 2";
-        m.messageDate = [self dateFromString:@"08.01.2018 14:25"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"own message 4";
-        m.messageDate = [self dateFromString:@"08.01.2018 15:00"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"own message 5 (last)";
-        m.messageDate = [self dateFromString:@"08.01.2018 15:05"];
-        m.ownMessage = YES;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-
-    m = [MessageModel new]; {
-        m.message = @"user message 3 (last)";
-        m.messageDate = [self dateFromString:@"08.01.2018 19:25"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-    }
-    [data addObject:m];
-    
-    m = [MessageModel new]; {
-        m.message = @"7 Kidney function, liver function.";
-        m.messageDate = [self dateFromString:@"09.01.2018 13:34"];
-        m.ownMessage = NO;
-        m.screenName = m.ownMessage ? ownScreenname : userScreenname;
-        m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
-//        m.avatarUrl = @"https://0.gravatar.com/avatar/057053cdc01651a9e7f038b3e9b2c60c?s=256&d=identicon&r=G";
-    }
-    [data addObject:m];
-
-    NSDate *truncatedDate, *currentDate = nil;
-    NSMutableArray *messages;
-
-    NSMutableArray *tempArrayOfMessages = [NSMutableArray array];
-    for (MessageModel *messageModel in
-            [data sortedArrayUsingComparator:^NSComparisonResult(MessageModel *obj1, MessageModel *obj2) {
-                return [obj1.messageDate compare:obj2.messageDate];
-            }]) {
-        truncatedDate = [self truncateDateTime:messageModel.messageDate];
-        if (![truncatedDate isEqualToDate:currentDate]) {
-            currentDate = truncatedDate;
-            messages = [NSMutableArray array];
-            [tempArrayOfMessages addObject:messages];
-        }
-
-        [messages addObject:messageModel];
-    }
-
-    messagesGroupedByDay = [NSMutableArray arrayWithCapacity:tempArrayOfMessages.count];
-    for (NSArray *arr in tempArrayOfMessages) {
-        [messagesGroupedByDay addObject:[[DailyMessages alloc] initWithMessages:arr]];
-    }
+    messagesGroupedByDay = [NSMutableArray array]; //[NSMutableArray arrayWithCapacity:tempArrayOfMessages.count];
+//    for (NSArray *arr in tempArrayOfMessages) {
+//        [messagesGroupedByDay addObject:[[DailyMessages alloc] initWithMessages:arr]];
+//    }
 }
 
 - (NSInteger)numberOfSections {
@@ -190,6 +33,35 @@
 
 - (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section {
     return messagesGroupedByDay[section];
+}
+
+#pragma mark -
+
+- (NSArray *)addMessages:(NSArray <MessageModel *> *)newMessages {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:newMessages.count];
+    
+    [newMessages enumerateObjectsUsingBlock:^(MessageModel * _Nonnull newMessage, NSUInteger idx, BOOL * _Nonnull stop) {
+        // 1) определить "день", в который надо добавить новые сообщения
+        __block NSInteger section = NSNotFound;
+        [messagesGroupedByDay enumerateObjectsUsingBlock:^(DailyMessages * _Nonnull dailyMessages, NSUInteger index, BOOL * _Nonnull stop) {
+            NSDate *truncatedGroupDate = [self truncateDateTime:dailyMessages.date];
+            NSDate *truncatedMessageDate = [self truncateDateTime:newMessage.messageDate];
+            if ([truncatedGroupDate isEqualToDate:truncatedMessageDate]) {
+                section = index;
+                *stop = YES;
+            }
+        }];
+        
+        if (section == NSNotFound) { // новый день
+            [result addObject:[NSIndexPath indexPathForRow:0 inSection:messagesGroupedByDay.count]];
+            [messagesGroupedByDay addObject:[[DailyMessages alloc] initWithMessages:@[newMessage]]];
+        } else {
+            NSInteger newIndex = [messagesGroupedByDay[section] addObject:newMessage];
+            [result addObject:[NSIndexPath indexPathForRow:newIndex inSection:section]];
+        }
+    }];
+    
+    return result;
 }
 
 #pragma mark - dates
