@@ -35,6 +35,7 @@ typedef enum {
             config.screenname = obj.screenName;
             config.avatarUrl = obj.avatarUrl;
 
+            // визуальное группирование
             if (sortedArray.count == 1) {
                 config.cellType = ConversationCellTypeSingle;
             } else {
@@ -62,8 +63,6 @@ typedef enum {
             prevState = curState;
             nextState = CellStateUndef;
 
-
-            // todo: не надо ли убрать из MessageModel ownMessage?
             config.isOwnMessage = obj.ownMessage;
             config.message = obj.message;
             config.photoUrl = obj.photoUrl;
@@ -78,6 +77,8 @@ typedef enum {
                 res = MessageTypePhoto;
             }
             config.messageType = res;
+
+            config.isConversationPublic = YES;
 
             [array addObject:config];
         }
