@@ -10,6 +10,12 @@
     NSDate *messagesDate;
 }
 
+typedef enum {
+    CellStateUndef,
+    CellStateOwn,
+    CellStateUser,
+} CellState;
+
 - (instancetype)initWithMessages:(NSArray <MessageModel *> *)messages {
     if (self = [super init]) {
         array = [NSMutableArray arrayWithCapacity:messages.count];
@@ -18,13 +24,45 @@
             return [obj1.messageDate compare:obj2.messageDate];
         }];
 
-        [sortedArray enumerateObjectsUsingBlock:^(MessageModel *obj, NSUInteger idx, BOOL *stop) {
+        CellState prevState, curState, nextState;
+        prevState = curState = nextState = CellStateUndef;
+
+        for (int x = 0; x < sortedArray.count; x++) {
+            MessageModel *obj = sortedArray[x];
+
             ConversationCellConfig *config = [ConversationCellConfig new];
 
             config.screenname = obj.screenName;
             config.avatarUrl = obj.avatarUrl;
-            // todo
-            config.cellType = ConversationCellTypeSingle;
+
+            if (sortedArray.count == 1) {
+                config.cellType = ConversationCellTypeSingle;
+            } else {
+                if (x + 1 < sortedArray.count) {
+                    MessageModel *obj_next = sortedArray[x + 1];
+                    nextState = obj_next.ownMessage ? CellStateOwn : CellStateUser;
+                }
+                curState = obj.ownMessage ? CellStateOwn : CellStateUser;
+                if (x == 0 || prevState != curState) {
+                    // possible first
+                    if (nextState == curState) {
+                        config.cellType = ConversationCellTypeFirst;
+                    } else {
+                        config.cellType = ConversationCellTypeSingle;
+                    }
+                } else {
+                    // possible middle
+                    if (nextState == curState) {
+                        config.cellType = ConversationCellTypeMiddle;
+                    } else {
+                        config.cellType = ConversationCellTypeLast;
+                    }
+                }
+            }
+            prevState = curState;
+            nextState = CellStateUndef;
+
+
             // todo: не надо ли убрать из MessageModel ownMessage?
             config.isOwnMessage = obj.ownMessage;
             config.message = obj.message;
@@ -42,7 +80,7 @@
             config.messageType = res;
 
             [array addObject:config];
-        }];
+        }
     }
     return self;
 }

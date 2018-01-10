@@ -101,15 +101,15 @@
 
 - (void)setupCell {
     // форма
-    static UIRectCorner ownFirstCellCorners = UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerTopRight;
-    static UIRectCorner ownMiddleCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft);
-    static UIRectCorner ownLastCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerBottomRight);
-    static UIRectCorner ownSingleCellCorners = UIRectCornerAllCorners;
+    static UIRectCorner const ownFirstCellCorners = UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerTopRight;
+    static UIRectCorner const ownMiddleCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft);
+    static UIRectCorner const ownLastCellCorners = (UIRectCornerBottomLeft | UIRectCornerTopLeft | UIRectCornerBottomRight);
+    static UIRectCorner const ownSingleCellCorners = UIRectCornerAllCorners;
 
-    static UIRectCorner userFirstCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft);
-    static UIRectCorner userMiddleCellCorners = (UIRectCornerTopRight | UIRectCornerBottomRight);
-    static UIRectCorner userLastCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerBottomLeft);
-    static UIRectCorner userSingleCellCorners = UIRectCornerAllCorners;
+    static UIRectCorner const userFirstCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft);
+    static UIRectCorner const userMiddleCellCorners = (UIRectCornerTopRight | UIRectCornerBottomRight);
+    static UIRectCorner const userLastCellCorners = (UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerBottomLeft);
+    static UIRectCorner const userSingleCellCorners = UIRectCornerAllCorners;
 
     UIRectCorner t;
     switch (self.cellType) {
