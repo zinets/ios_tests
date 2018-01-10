@@ -18,3 +18,6 @@
 
 @interface ConversationPhotoCell : ConversationCell
 @end
+
+@interface ConversationVideoCell : ConversationCell
+@end

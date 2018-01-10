@@ -208,3 +208,28 @@
 }
 
 @end
+
+@interface ConversationVideoCell()
+@property (nonatomic, strong) NSString *videoUrl;
+@property (nonatomic, weak) IBOutlet UIImageView *videoView;
+@end
+
+@implementation ConversationVideoCell
+
+- (void)applyConfig:(ConversationCellConfig *)config {
+    [super applyConfig:config];
+    self.videoUrl = config.videoUrl;
+}
+
+- (void)setVideoUrl:(NSString *)videoUrl {
+    _videoUrl = videoUrl;
+    // todo
+    self.videoView.image = [UIImage imageNamed:videoUrl];
+}
+
+- (void)setupCell {
+    [super setupCell];
+    self.messageBalloon.isBorderVisible = NO;
+}
+
+@end
