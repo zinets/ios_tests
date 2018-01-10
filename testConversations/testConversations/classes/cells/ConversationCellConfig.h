@@ -27,6 +27,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *photoUrl;
 @property (nonatomic, strong) NSString *videoUrl;
 @property (nonatomic) MessageType messageType;
+@property (nonatomic, strong) NSDate *messageDate; // с одной стороны она не нужна; но для сортировки/вставки в массив нужна :(
 // предполагает немного другой диз с показом скриннейма/аватарки
 @property (nonatomic) BOOL isConversationPublic;
 @end

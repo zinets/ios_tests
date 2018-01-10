@@ -198,7 +198,8 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self.dataSource addMessages:@[[self tempDataSet][tempIndex]]];
+//    [self.dataSource addMessages:@[[self tempDataSet][tempIndex]]];
+    [self.dataSource addMessages:[self tempDataSet]];
     tempIndex++;
     [self.tableView reloadData];
 }

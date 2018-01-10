@@ -5,7 +5,7 @@
 
 #import "DailyMessages.h"
 
-@implementation DailyMessages {
+@implementation DailyMessages {    
     NSMutableArray <ConversationCellConfig *> *array;
     NSDate *messagesDate;
 }
@@ -19,12 +19,13 @@ typedef enum {
 - (instancetype)initWithMessages:(NSArray <MessageModel *> *)messages {
     if (self = [super init]) {
         array = [NSMutableArray arrayWithCapacity:messages.count];
-        [self addMessagesFromArray:messages];
+        
+        [self updateConfigsForMessages:messages];
     }
     return self;
 }
 
-- (void)addMessagesFromArray:(NSArray <MessageModel *> *)messages {
+- (void)updateConfigsForMessages:(NSArray <MessageModel *> *)messages {
     NSArray *sortedArray = [messages sortedArrayUsingComparator:^NSComparisonResult(MessageModel *obj1, MessageModel *obj2) {
         return [obj1.messageDate compare:obj2.messageDate];
     }];
@@ -34,7 +35,6 @@ typedef enum {
     
     for (int x = 0; x < sortedArray.count; x++) {
         MessageModel *obj = sortedArray[x];
-        
         ConversationCellConfig *config = [ConversationCellConfig new];
         
         config.screenname = obj.screenName;
@@ -75,6 +75,8 @@ typedef enum {
         if (!messagesDate) {
             messagesDate = obj.messageDate;
         }
+        config.messageDate = obj.messageDate;
+        
         MessageType res = MessageTypeText;
         if (obj.videoUrl) {
             res = MessageTypeVideo;
@@ -82,7 +84,6 @@ typedef enum {
             res = MessageTypePhoto;
         }
         config.messageType = res;
-        
         config.isConversationPublic = YES;
         
         [array addObject:config];
