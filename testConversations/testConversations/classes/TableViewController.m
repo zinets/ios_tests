@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
     self.dataSource = [DataSource new];
+    [self.tableView registerClass:[ConversationHeader class] forHeaderFooterViewReuseIdentifier:@"ConversationHeaderId"];
 }
 
 #pragma mark table
@@ -51,6 +52,24 @@
     [cell applyConfig:config];
 
     return cell;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    ConversationHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"ConversationHeaderId"];
+    
+    header.headerText = [NSString stringWithFormat:@"%@", [self truncateDateTime:[self.dataSource messagesOfSectionAtIndex:section].date]];
+
+    return header;
+}
+
+#pragma mark dates
+
+- (NSDate *)truncateDateTime:(NSDate *)dateTime {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSCalendarUnit flags = NSCalendarUnitYear | NSCalendarUnitDay | NSCalendarUnitMonth;
+    NSDateComponents *components = [cal components:flags fromDate:dateTime];
+    
+    return [cal dateFromComponents:components];
 }
 
 @end

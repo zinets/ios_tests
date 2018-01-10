@@ -91,7 +91,8 @@
 }
 
 - (BOOL)isScreennameVisible {
-    return _isScreennameVisible && !self.isOwnMessage;
+    return _isScreennameVisible && !self.isOwnMessage &&
+    (self.cellType == ConversationCellTypeFirst || self.cellType == ConversationCellTypeSingle);
 }
 
 - (void)setCellType:(ConversationCellType)cellType {
@@ -151,7 +152,7 @@
         self.floatLeftOffset.priority = 1;
 
         self.fixedLeftOffset.priority = 999;
-        self.fixedLeftOffset.constant = leftOffset + (!self.isScreennameVisible ? 0 : (leftOffset + avatarSize));
+        self.fixedLeftOffset.constant = leftOffset + (!_isScreennameVisible ? 0 : (leftOffset + avatarSize));
         self.floatRightOffset.priority = 999;
     }
     // у балуна всегда 4 пк отступ снизу и 4 пк сверху - но если там балун от другой "группы" (т.е. другой юзер или другая дата)
@@ -230,6 +231,47 @@
 - (void)setupCell {
     [super setupCell];
     self.messageBalloon.isBorderVisible = NO;
+}
+
+@end
+
+@implementation ConversationHeader {
+    UILabel *headerLabel;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self setup];
+    }
+    return self;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self setup];
+    }
+    return self;
+}
+
+- (instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier {
+    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    headerLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    headerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    headerLabel.textAlignment = NSTextAlignmentCenter;
+    [self.contentView addSubview:headerLabel];
+    
+    self.contentView.backgroundColor = [UIColor whiteColor];
+}
+
+-(void)setHeaderText:(NSString *)headerText {
+    _headerText = headerText;
+    headerLabel.text = _headerText;
 }
 
 @end

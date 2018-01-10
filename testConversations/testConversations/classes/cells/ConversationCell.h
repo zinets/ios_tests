@@ -21,3 +21,7 @@
 
 @interface ConversationVideoCell : ConversationCell
 @end
+
+@interface ConversationHeader : UITableViewHeaderFooterView
+@property (nonatomic, strong) NSString *headerText;
+@end
