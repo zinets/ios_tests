@@ -121,6 +121,9 @@ typedef enum {
         
         [array addObject:config];
     }];
+    array = [[array sortedArrayUsingComparator:^NSComparisonResult(ConversationCellConfig *obj1, ConversationCellConfig *obj2) {
+        return [obj1.messageDate compare:obj2.messageDate];
+    }] mutableCopy];
     
     [self updateGrouping];
 }

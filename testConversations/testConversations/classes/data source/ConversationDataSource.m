@@ -40,6 +40,10 @@
 
 #pragma mark -
 
+- (void)removeAllMessages {
+    [messagesGroupedByDay removeAllObjects];
+}
+
 - (void)addMessages:(NSArray <MessageModel *> *)newMessages {
     [newMessages enumerateObjectsUsingBlock:^(MessageModel * _Nonnull newMessage, NSUInteger idx, BOOL * _Nonnull stop) {
         // 1) определить "день", в который надо добавить новые сообщения

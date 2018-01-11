@@ -55,6 +55,15 @@
         [data addObject:m];
         
         m = [MessageModel new]; {
+            m.message = @"xmas is here!!!";
+            m.messageDate = [self dateFromString:@"25.12.2017 23:54"];
+            m.ownMessage = NO;
+            m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+            m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+        }
+        [data addObject:m];
+        
+        m = [MessageModel new]; {
             m.message = @"2 So what is going on?";
             m.messageDate = [self dateFromString:@"31.12.2017 13:34"];
             m.ownMessage = NO;
@@ -218,6 +227,13 @@
 //    [self.tableView reloadData];
 }
 
+- (IBAction)onClear:(id)sender {
+    [self.dataSource removeAllMessages];
+    [self.tableView reloadData];
+    
+    tempIndex = 0;
+}
+
 #pragma mark table
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -292,7 +308,12 @@
 }
 
 - (void)sender:(id)sender didUpdateItems:(NSArray <NSIndexPath *> *)indexes {
-    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:(UITableViewRowAnimationFade)];
+    [indexes enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
+        ConversationCellConfig *config = [[self.dataSource messagesOfSectionAtIndex:indexPath.section] configOfCellAtIndex:indexPath.row];
+        ConversationCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell applyConfig:config];
+    }];
+//    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 @end

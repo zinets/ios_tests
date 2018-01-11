@@ -24,6 +24,7 @@
 - (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section;
 
 - (void)addMessages:(NSArray <MessageModel *> *)newMessages;
+- (void)removeAllMessages;
 
 @property (nonatomic, weak) id <ConversationDataSourceDelegate> delegate;
 @end
