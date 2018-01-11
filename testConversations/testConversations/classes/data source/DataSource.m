@@ -9,6 +9,9 @@
 #import "DataSource.h"
 #import "DailyMessages.h"
 
+@interface DataSource() <DailyMessagesDelegate>
+@end
+
 @implementation DataSource {
     NSMutableArray <DailyMessages *> *messagesGroupedByDay;
 }
@@ -37,9 +40,7 @@
 
 #pragma mark -
 
-- (NSArray *)addMessages:(NSArray <MessageModel *> *)newMessages {
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:newMessages.count];
-    
+- (void)addMessages:(NSArray <MessageModel *> *)newMessages {
     [newMessages enumerateObjectsUsingBlock:^(MessageModel * _Nonnull newMessage, NSUInteger idx, BOOL * _Nonnull stop) {
         // 1) определить "день", в который надо добавить новые сообщения
         __block NSInteger section = NSNotFound;
@@ -52,16 +53,16 @@
             }
         }];
         
+        DailyMessages *obj;
         if (section == NSNotFound) { // новый день
-            [result addObject:[NSIndexPath indexPathForRow:0 inSection:messagesGroupedByDay.count]];
-            [messagesGroupedByDay addObject:[[DailyMessages alloc] initWithMessages:@[newMessage]]];
+            obj = [DailyMessages new];
+            obj.delegate = self;
+            [messagesGroupedByDay addObject:obj];
         } else {
-            NSInteger newIndex = [messagesGroupedByDay[section] addObject:newMessage];
-            [result addObject:[NSIndexPath indexPathForRow:newIndex inSection:section]];
+            obj = messagesGroupedByDay[section];
         }
+        [obj addObjects:@[newMessage]];
     }];
-    
-    return result;
 }
 
 #pragma mark - dates
@@ -80,5 +81,16 @@
 
     return [cal dateFromComponents:components];
 }
+
+#pragma mark delegation
+
+- (void)sender:(id)sender didAddItems:(NSIndexSet *)indexes {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, indexes);
+}
+
+- (void)sender:(id)sender didUpdateItems:(NSIndexSet *)indexes {
+    NSLog(@"%s %@", __PRETTY_FUNCTION__, indexes);
+}
+
 
 @end

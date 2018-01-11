@@ -11,9 +11,9 @@
 
 @class DailyMessages;
 
-@interface DataSource : NSObject
+@interface DataSource : NSObject 
 - (NSInteger)numberOfSections;
 - (DailyMessages *)messagesOfSectionAtIndex:(NSInteger)section;
 
-- (NSArray *)addMessages:(NSArray <MessageModel *> *)newMessages;
+- (void)addMessages:(NSArray <MessageModel *> *)newMessages;
 @end
