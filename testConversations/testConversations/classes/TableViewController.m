@@ -64,6 +64,18 @@
         }
         [data addObject:m];
         
+        // lost message from last xmas
+        {
+            m = [MessageModel new]; {
+                m.message = @"lost message from earlier date";
+                m.messageDate = [self dateFromString:@"25.12.2017 23:34"];
+                m.ownMessage = NO;
+                m.screenName = m.ownMessage ? ownScreenname : userScreenname;
+                m.avatarUrl = m.ownMessage ? @"avatar1" : @"avatar2";
+            }
+            [data addObject:m];
+        }
+        
         m = [MessageModel new]; {
             m.message = @"3 We had a meth addict in here this morning who @Max was biologically younger.";
             m.messageDate = [self dateFromString:@"31.12.2017 19:34"];
@@ -260,14 +272,19 @@
     return [cal dateFromComponents:components];
 }
 
-#pragma mark delegation
+#pragma mark datasource delegation
 
 - (void)sender:(id)sender didAddSections:(NSIndexSet *)sections {
-    [self.tableView insertSections:sections withRowAnimation:(UITableViewRowAnimationAutomatic)];
+    [self.tableView insertSections:sections withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 -(void)sender:(id)sender didUpdateSections:(NSIndexSet *)sections {
-    [self.tableView reloadSections:sections withRowAnimation:(UITableViewRowAnimationFade)];
+    [sections enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+        ConversationHeader *hdr = (ConversationHeader *)[self.tableView headerViewForSection:idx];
+        hdr.headerText = [NSString stringWithFormat:@"%@", [self truncateDateTime:[self.dataSource messagesOfSectionAtIndex:idx].date]];
+    }];
+    
+//    [self.tableView reloadSections:sections withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 - (void)sender:(id)sender didAddItems:(NSArray <NSIndexPath *> *)indexes {    
