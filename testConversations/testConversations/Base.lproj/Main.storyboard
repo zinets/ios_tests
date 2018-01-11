@@ -129,10 +129,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="leS-DN-YOH" customClass="RoundedView">
-                                                    <rect key="frame" x="68" y="22" width="291" height="236"/>
+                                                    <rect key="frame" x="68" y="22" width="237" height="236"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="img1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-NP-ZyH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="291" height="236"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="237" height="236"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,7 +165,7 @@
                                             <constraints>
                                                 <constraint firstItem="BlD-01-lFF" firstAttribute="top" secondItem="Las-gC-uFj" secondAttribute="top" constant="4" id="15D-de-aev"/>
                                                 <constraint firstItem="gh3-na-Vhh" firstAttribute="leading" secondItem="Las-gC-uFj" secondAttribute="leading" constant="16" id="4ew-X2-eyY"/>
-                                                <constraint firstAttribute="trailing" secondItem="leS-DN-YOH" secondAttribute="trailing" constant="16" id="ASl-UP-5MP"/>
+                                                <constraint firstAttribute="trailing" secondItem="leS-DN-YOH" secondAttribute="trailing" priority="250" constant="16" id="ASl-UP-5MP"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="leS-DN-YOH" secondAttribute="trailing" priority="1" constant="104" id="EAs-k1-pdK"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BlD-01-lFF" secondAttribute="trailing" constant="20" id="Xw0-wV-FaS"/>
                                                 <constraint firstItem="leS-DN-YOH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Las-gC-uFj" secondAttribute="leading" priority="1" constant="104" id="awk-eh-b6L"/>
