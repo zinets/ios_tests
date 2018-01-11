@@ -18,7 +18,7 @@
 		3B25EF032004A679001447B5 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF012004A678001447B5 /* img2.jpg */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
 		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
-		D62A63B1BFE56E4D3DC60B46 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* DataSource.m */; };
+		D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */; };
 		D62A64967D04E7DB800A42CD /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B4B8A1942B01D81E2EF /* avatar1.png */; };
 		D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A665567B5070FB4B9D515 /* DailyMessages.m */; };
 		D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FAB74A587CA716A6174 /* ConversationCellConfig.m */; };
@@ -51,9 +51,9 @@
 		D62A6A8447151F7AEF86EC17 /* RoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedView.m; sourceTree = "<group>"; };
 		D62A6B4B8A1942B01D81E2EF /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
 		D62A6CC6BAEE0599F9829B6E /* RoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedView.h; sourceTree = "<group>"; };
-		D62A6D0D0685DAEA496D321F /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationDataSource.m; sourceTree = "<group>"; };
 		D62A6DAD93CEB43FC256CCC6 /* DailyMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyMessages.h; sourceTree = "<group>"; };
-		D62A6E5B7EE97E67D30B76A7 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		D62A6E5B7EE97E67D30B76A7 /* ConversationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationDataSource.h; sourceTree = "<group>"; };
 		D62A6FAB74A587CA716A6174 /* ConversationCellConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCellConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +131,8 @@
 			children = (
 				D62A6DAD93CEB43FC256CCC6 /* DailyMessages.h */,
 				D62A665567B5070FB4B9D515 /* DailyMessages.m */,
-				D62A6E5B7EE97E67D30B76A7 /* DataSource.h */,
-				D62A6D0D0685DAEA496D321F /* DataSource.m */,
+				D62A6E5B7EE97E67D30B76A7 /* ConversationDataSource.h */,
+				D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */,
 				D62A688F0569BE82DBF784BF /* MessageModel.m */,
 				D62A6A2D9A044F1394D46033 /* MessageModel.h */,
 			);
@@ -232,7 +232,7 @@
 				D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */,
 				D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */,
 				D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */,
-				D62A63B1BFE56E4D3DC60B46 /* DataSource.m in Sources */,
+				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 			);

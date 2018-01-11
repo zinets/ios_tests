@@ -7,13 +7,13 @@
 //
 
 #import "TableViewController.h"
-#import "DataSource.h"
+#import "ConversationDataSource.h"
 #import "ConversationCell.h"
 #import "DailyMessages.h"
 
-@interface TableViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TableViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) DataSource *dataSource;
+@property (nonatomic, strong) ConversationDataSource *dataSource;
 @end
 
 @implementation TableViewController {
@@ -24,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataSource = [DataSource new];
+    self.dataSource = [ConversationDataSource new];
+    self.dataSource.delegate = self;
+    
     [self.tableView registerClass:[ConversationHeader class] forHeaderFooterViewReuseIdentifier:@"ConversationHeaderId"];
 }
 
@@ -201,8 +203,7 @@
     [self.dataSource addMessages:@[[self tempDataSet][tempIndex]]];
 //    [self.dataSource addMessages:[self tempDataSet]];
     tempIndex++;
-    [self.tableView reloadData];
-
+//    [self.tableView reloadData];
 }
 
 #pragma mark table
@@ -257,6 +258,24 @@
     NSDateComponents *components = [cal components:flags fromDate:dateTime];
     
     return [cal dateFromComponents:components];
+}
+
+#pragma mark delegation
+
+- (void)sender:(id)sender didAddSections:(NSIndexSet *)sections {
+    [self.tableView insertSections:sections withRowAnimation:(UITableViewRowAnimationAutomatic)];
+}
+
+-(void)sender:(id)sender didUpdateSections:(NSIndexSet *)sections {
+    [self.tableView reloadSections:sections withRowAnimation:(UITableViewRowAnimationFade)];
+}
+
+- (void)sender:(id)sender didAddItems:(NSArray <NSIndexPath *> *)indexes {    
+    [self.tableView insertRowsAtIndexPaths:indexes withRowAnimation:(UITableViewRowAnimationAutomatic)];
+}
+
+- (void)sender:(id)sender didUpdateItems:(NSArray <NSIndexPath *> *)indexes {
+    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 @end

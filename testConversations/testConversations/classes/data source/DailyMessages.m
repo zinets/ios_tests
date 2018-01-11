@@ -126,7 +126,7 @@ typedef enum {
 }
 
 - (NSDate *)date {
-    return messagesDate;
+    return messagesDate ? : [NSDate date]; // потому что сообщений может не быть, даты еще нет, будут ошибки-ворнинги при добавлении секций
 }
 
 - (NSInteger)numberOfMessages {

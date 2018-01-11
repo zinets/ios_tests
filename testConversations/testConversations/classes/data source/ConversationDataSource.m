@@ -6,13 +6,13 @@
 //  Copyright © 2018 Zinets Viktor. All rights reserved.
 //
 
-#import "DataSource.h"
+#import "ConversationDataSource.h"
 #import "DailyMessages.h"
 
-@interface DataSource() <DailyMessagesDelegate>
+@interface ConversationDataSource() <DailyMessagesDelegate>
 @end
 
-@implementation DataSource {
+@implementation ConversationDataSource {
     NSMutableArray <DailyMessages *> *messagesGroupedByDay;
 }
 
@@ -54,14 +54,23 @@
         }];
         
         DailyMessages *obj;
+        BOOL newSection = NO;
         if (section == NSNotFound) { // новый день
             obj = [DailyMessages new];
             obj.delegate = self;
             [messagesGroupedByDay addObject:obj];
+            newSection = YES;
+            
+            if ([self.delegate respondsToSelector:@selector(sender:didAddSections:)]) {
+                [self.delegate sender:self didAddSections:[NSIndexSet indexSetWithIndex:messagesGroupedByDay.count - 1]];
+            }
         } else {
             obj = messagesGroupedByDay[section];
         }
         [obj addObjects:@[newMessage]];
+        if (newSection && [self.delegate respondsToSelector:@selector(sender:didUpdateSections:)]) {
+            [self.delegate sender:self didUpdateSections:[NSIndexSet indexSetWithIndex:messagesGroupedByDay.count - 1]];
+        }
     }];
 }
 
@@ -84,12 +93,32 @@
 
 #pragma mark delegation
 
-- (void)sender:(id)sender didAddItems:(NSIndexSet *)indexes {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, indexes);
+- (void)sender:(DailyMessages *)sender didAddItems:(NSIndexSet *)indexes {
+    if ([self.delegate respondsToSelector:@selector(sender:didAddItems:)] && indexes.count) {
+        NSInteger section = [messagesGroupedByDay indexOfObject:sender];
+        if (section != NSNotFound) {
+            NSMutableArray *arr = [NSMutableArray arrayWithCapacity:indexes.count];
+            [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+                [arr addObject:[NSIndexPath indexPathForRow:idx inSection:section]];
+            }];
+            
+            [self.delegate sender:self didAddItems:arr];
+        }
+    }
 }
 
-- (void)sender:(id)sender didUpdateItems:(NSIndexSet *)indexes {
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, indexes);
+- (void)sender:(DailyMessages *)sender didUpdateItems:(NSIndexSet *)indexes {
+    if ([self.delegate respondsToSelector:@selector(sender:didUpdateItems:)] && indexes.count) {
+        NSInteger section = [messagesGroupedByDay indexOfObject:sender];
+        if (section != NSNotFound) {
+            NSMutableArray *arr = [NSMutableArray arrayWithCapacity:indexes.count];
+            [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
+                [arr addObject:[NSIndexPath indexPathForRow:idx inSection:section]];
+            }];
+            
+            [self.delegate sender:self didUpdateItems:arr];
+        }
+    }
 }
 
 
