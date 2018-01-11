@@ -129,19 +129,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="leS-DN-YOH" customClass="RoundedView">
-                                                    <rect key="frame" x="68" y="0.0" width="291" height="400"/>
+                                                    <rect key="frame" x="68" y="0.0" width="291" height="258"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" image="img1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-NP-ZyH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="JZB-NP-ZyH" secondAttribute="height" id="6JN-p6-dG7"/>
-                                                            </constraints>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="img1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JZB-NP-ZyH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="291" height="258"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="JZB-NP-ZyH" secondAttribute="bottom" id="6cr-th-3Yp"/>
                                                         <constraint firstItem="JZB-NP-ZyH" firstAttribute="leading" secondItem="leS-DN-YOH" secondAttribute="leading" id="875-JU-vAI"/>
+                                                        <constraint firstAttribute="width" secondItem="leS-DN-YOH" secondAttribute="height" priority="750" constant="1" id="KXm-bx-qHB"/>
                                                         <constraint firstItem="JZB-NP-ZyH" firstAttribute="top" secondItem="leS-DN-YOH" secondAttribute="top" id="hQA-6B-Zrx"/>
                                                         <constraint firstAttribute="trailing" secondItem="JZB-NP-ZyH" secondAttribute="trailing" id="oCa-qo-0Ad"/>
                                                     </constraints>
