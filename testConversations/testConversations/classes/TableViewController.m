@@ -26,6 +26,7 @@
     
     self.dataSource = [ConversationDataSource new];
     self.dataSource.delegate = self;
+    self.dataSource.isConversationPublic = YES;
     
     [self.tableView registerClass:[ConversationHeader class] forHeaderFooterViewReuseIdentifier:@"ConversationHeaderId"];
 }

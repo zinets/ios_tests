@@ -117,8 +117,7 @@ typedef enum {
             res = MessageTypePhoto;
         }
         config.messageType = res;
-#warning HARDCODED PUBLIC DESIGN
-        config.isConversationPublic = NO;
+        config.isConversationPublic = self.isConversationPublic;
         
         [array addObject:config];
     }];

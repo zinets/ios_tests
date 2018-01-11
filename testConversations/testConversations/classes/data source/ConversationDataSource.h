@@ -27,4 +27,5 @@
 - (void)removeAllMessages;
 
 @property (nonatomic, weak) id <ConversationDataSourceDelegate> delegate;
+@property (nonatomic) BOOL isConversationPublic;
 @end

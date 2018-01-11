@@ -62,6 +62,8 @@
         if (section == NSNotFound) { // новый день
             obj = [DailyMessages new];
             obj.delegate = self;
+            obj.isConversationPublic = self.isConversationPublic;
+            
             [messagesGroupedByDay addObject:obj];
             newSection = YES;
             

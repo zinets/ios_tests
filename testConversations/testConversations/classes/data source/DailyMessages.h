@@ -17,6 +17,7 @@
 @interface DailyMessages : NSObject
 //- (instancetype)initWithMessages:(NSArray <MessageModel *> *)messages;
 @property (nonatomic, weak) id <DailyMessagesDelegate> delegate;
+@property (nonatomic) BOOL isConversationPublic;
 
 - (void)addObjects:(NSArray <MessageModel *> *)messages;
 
