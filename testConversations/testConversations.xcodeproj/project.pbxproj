@@ -11,6 +11,7 @@
 		3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */; };
 		3B16FF9D200C9F95007B5D68 /* Test23.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FF9C200C9F95007B5D68 /* Test23.storyboard */; };
 		3B16FFA0200CA072007B5D68 /* ViewController23.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FF9F200CA072007B5D68 /* ViewController23.m */; };
+		3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */; };
 		3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDC1FFFA286001447B5 /* AppDelegate.m */; };
 		3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDF1FFFA286001447B5 /* ViewController.m */; };
 		3B25EEE31FFFA286001447B5 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE11FFFA286001447B5 /* Conversation.storyboard */; };
@@ -38,6 +39,8 @@
 		3B16FF9C200C9F95007B5D68 /* Test23.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test23.storyboard; sourceTree = "<group>"; };
 		3B16FF9E200CA072007B5D68 /* ViewController23.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController23.h; sourceTree = "<group>"; };
 		3B16FF9F200CA072007B5D68 /* ViewController23.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController23.m; sourceTree = "<group>"; };
+		3B16FFAB200CCF58007B5D68 /* GrowingTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrowingTextView.h; sourceTree = "<group>"; };
+		3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingTextView.m; sourceTree = "<group>"; };
 		3B25EED81FFFA286001447B5 /* testConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B25EEDB1FFFA286001447B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B25EEDC1FFFA286001447B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,8 +109,20 @@
 			children = (
 				3B16FF942008FC93007B5D68 /* UIViewController+Keyboard.h */,
 				3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */,
+				3B16FFAB200CCF58007B5D68 /* GrowingTextView.h */,
+				3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */,
 			);
 			path = "keyboard support";
+			sourceTree = "<group>";
+		};
+		3B16FFA2200CA814007B5D68 /* dummy test classes */ = {
+			isa = PBXGroup;
+			children = (
+				3B16FF9C200C9F95007B5D68 /* Test23.storyboard */,
+				3B16FF9E200CA072007B5D68 /* ViewController23.h */,
+				3B16FF9F200CA072007B5D68 /* ViewController23.m */,
+			);
+			path = "dummy test classes";
 			sourceTree = "<group>";
 		};
 		3B25EECF1FFFA286001447B5 = {
@@ -132,9 +147,6 @@
 				3B25EF002004A678001447B5 /* img1.jpg */,
 				3B25EF012004A678001447B5 /* img2.jpg */,
 				3B25EEF11FFFA2F9001447B5 /* classes */,
-				3B16FF9C200C9F95007B5D68 /* Test23.storyboard */,
-				3B16FF9E200CA072007B5D68 /* ViewController23.h */,
-				3B16FF9F200CA072007B5D68 /* ViewController23.m */,
 				3B25EEDB1FFFA286001447B5 /* AppDelegate.h */,
 				3B25EEDC1FFFA286001447B5 /* AppDelegate.m */,
 				3B25EEDE1FFFA286001447B5 /* ViewController.h */,
@@ -152,6 +164,7 @@
 		3B25EEF11FFFA2F9001447B5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B16FFA2200CA814007B5D68 /* dummy test classes */,
 				3B16FFA1200CA775007B5D68 /* keyboard support */,
 				3B16FF722008A392007B5D68 /* input view */,
 				3B16FF712008A138007B5D68 /* conversation */,
@@ -279,6 +292,7 @@
 				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
+				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
 				3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */,
 				3B16FFA0200CA072007B5D68 /* ViewController23.m in Sources */,
 			);

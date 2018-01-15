@@ -40,19 +40,49 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-IC-aF3">
-                                <rect key="frame" x="300" y="81" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRf-IC-aF3">
+                                <rect key="frame" x="21" y="10" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fJI-Lz-GHT"/>
+                                </constraints>
+                                <state key="normal" title="close"/>
                                 <connections>
                                     <action selector="onClose:" destination="A31-lu-n0N" eventType="touchUpInside" id="aJF-yC-mxW"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNf-8Y-9W4">
+                                <rect key="frame" x="16" y="48" width="343" height="40"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " translatesAutoresizingMaskIntoConstraints="NO" id="NN1-lh-acu" customClass="GrowingTextView">
+                                        <rect key="frame" x="10" y="10" width="323" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="UQT-IH-Ghi"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="qbK-2U-fBs"/>
+                                            <constraint firstAttribute="height" priority="750" constant="20" id="vJJ-4c-Ong"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NN1-lh-acu" secondAttribute="trailing" constant="10" id="Bpu-6v-9kw"/>
+                                    <constraint firstAttribute="bottom" secondItem="NN1-lh-acu" secondAttribute="bottom" constant="10" id="UC4-Mz-tXX"/>
+                                    <constraint firstItem="NN1-lh-acu" firstAttribute="leading" secondItem="FNf-8Y-9W4" secondAttribute="leading" constant="10" id="aMN-YX-a68"/>
+                                    <constraint firstItem="NN1-lh-acu" firstAttribute="top" secondItem="FNf-8Y-9W4" secondAttribute="top" constant="10" id="cHH-mE-zSg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FNf-8Y-9W4" firstAttribute="top" secondItem="lRf-IC-aF3" secondAttribute="bottom" constant="8" id="Dhs-6O-POO"/>
                             <constraint firstAttribute="trailing" secondItem="HVv-fZ-Saa" secondAttribute="trailing" constant="16" id="Ngi-X4-dIs"/>
+                            <constraint firstItem="lRf-IC-aF3" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="21" id="Ppc-uu-NCu"/>
+                            <constraint firstItem="FNf-8Y-9W4" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="16" id="X8k-0M-sBk"/>
                             <constraint firstItem="xLj-iq-PvI" firstAttribute="top" secondItem="HVv-fZ-Saa" secondAttribute="bottom" constant="8" symbolic="YES" id="YAg-5T-B8k"/>
+                            <constraint firstAttribute="trailing" secondItem="FNf-8Y-9W4" secondAttribute="trailing" constant="16" id="esb-TN-T2h"/>
+                            <constraint firstItem="lRf-IC-aF3" firstAttribute="top" secondItem="Pmh-db-Fh6" secondAttribute="top" constant="10" id="ey1-GQ-WL3"/>
                             <constraint firstItem="HVv-fZ-Saa" firstAttribute="top" secondItem="waz-bb-2AW" secondAttribute="bottom" constant="8" id="fyv-nu-I8B"/>
                             <constraint firstItem="HVv-fZ-Saa" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="16" id="htS-C6-NQx"/>
                             <constraint firstItem="waz-bb-2AW" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="16" id="mTc-yK-wFg"/>
@@ -61,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43X-Gd-peQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="-65.217391304347828"/>
+            <point key="canvasLocation" x="-100.5" y="-65.5"/>
         </scene>
     </scenes>
 </document>

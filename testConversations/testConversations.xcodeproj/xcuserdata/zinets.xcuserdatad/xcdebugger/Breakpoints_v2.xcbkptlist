@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testConversations/classes/input view/InputViewController.m"
-            timestampString = "537700182.2555439"
+            timestampString = "537712069.909359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -161,6 +161,54 @@
             endingLineNumber = "80"
             landmarkName = "-keyboardWillShow:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testConversations/classes/keyboard support/GrowingTextView.m"
+            timestampString = "537712069.9095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-initWithCoder:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GrowingTextView initWithCoder:]"
+                  moduleName = "testConversations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zinets/Documents/projects/ios_tests/testConversations/testConversations/classes/keyboard%20support/GrowingTextView.m"
+                  timestampString = "537711853.866237"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "204">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GrowingTextView initWithCoder:]"
+                  moduleName = "testConversations"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zinets/Documents/projects/ios_tests/testConversations/testConversations/classes/keyboard%20support/GrowingTextView.m"
+                  timestampString = "537711853.870931"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "212">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
