@@ -101,6 +101,15 @@
 			path = "input view";
 			sourceTree = "<group>";
 		};
+		3B16FFA1200CA775007B5D68 /* keyboard support */ = {
+			isa = PBXGroup;
+			children = (
+				3B16FF942008FC93007B5D68 /* UIViewController+Keyboard.h */,
+				3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */,
+			);
+			path = "keyboard support";
+			sourceTree = "<group>";
+		};
 		3B25EECF1FFFA286001447B5 = {
 			isa = PBXGroup;
 			children = (
@@ -143,10 +152,9 @@
 		3B25EEF11FFFA2F9001447B5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B16FFA1200CA775007B5D68 /* keyboard support */,
 				3B16FF722008A392007B5D68 /* input view */,
 				3B16FF712008A138007B5D68 /* conversation */,
-				3B16FF942008FC93007B5D68 /* UIViewController+Keyboard.h */,
-				3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";

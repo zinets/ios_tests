@@ -8,15 +8,6 @@
 
 #import "UIViewController+Keyboard.h"
 
-typedef enum {
-    KeyboardStatusWillShow,
-    KeyboardStatusWillHide,
-    KeyboardStatusDidShow,
-    KeyboardStatusDidHide,
-    KeyboardStatusWillChangeFrame,
-    KeyboardStatusDidChangeFrame,
-} KeyboardStatus;
-
 @implementation UIViewController (Keyboard)
 
 - (NSMutableDictionary *)storedConstants {
@@ -29,6 +20,7 @@ typedef enum {
     return dictionary;
 }
 
+// эта мазафака работает только если мы в сториборде; по крайней мере тогда появляются top- и bottom- layoutGuide, к нижнему из которых привязывается пересчет констрантов
 - (NSArray <NSLayoutConstraint *> *)bottomConstraints {
     NSMutableArray *arr = [NSMutableArray array];
     for (NSLayoutConstraint *constraint in self.view.constraints) {
@@ -44,8 +36,7 @@ typedef enum {
     return [arr copy];
 }
 
-- (void)registerKeyboard {
-    
+- (void)registerKeyboard {    
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     for (NSLayoutConstraint *c in self.bottomConstraints) {
         dict[@(c.hash)] = @(c.constant);
