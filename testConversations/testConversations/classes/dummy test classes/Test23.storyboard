@@ -50,38 +50,25 @@
                                     <action selector="onClose:" destination="A31-lu-n0N" eventType="touchUpInside" id="aJF-yC-mxW"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNf-8Y-9W4">
-                                <rect key="frame" x="16" y="48" width="343" height="40"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium " translatesAutoresizingMaskIntoConstraints="NO" id="NN1-lh-acu" customClass="GrowingTextView">
-                                        <rect key="frame" x="10" y="10" width="323" height="20"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="UQT-IH-Ghi"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="qbK-2U-fBs"/>
-                                            <constraint firstAttribute="height" priority="750" constant="20" id="vJJ-4c-Ong"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tsx-zg-SMe">
+                                <rect key="frame" x="5" y="57" width="349" height="131"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NN1-lh-acu" secondAttribute="trailing" constant="10" id="Bpu-6v-9kw"/>
-                                    <constraint firstAttribute="bottom" secondItem="NN1-lh-acu" secondAttribute="bottom" constant="10" id="UC4-Mz-tXX"/>
-                                    <constraint firstItem="NN1-lh-acu" firstAttribute="leading" secondItem="FNf-8Y-9W4" secondAttribute="leading" constant="10" id="aMN-YX-a68"/>
-                                    <constraint firstItem="NN1-lh-acu" firstAttribute="top" secondItem="FNf-8Y-9W4" secondAttribute="top" constant="10" id="cHH-mE-zSg"/>
+                                    <constraint firstAttribute="height" constant="131" id="ObZ-27-qTZ"/>
                                 </constraints>
-                            </view>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FNf-8Y-9W4" firstAttribute="top" secondItem="lRf-IC-aF3" secondAttribute="bottom" constant="8" id="Dhs-6O-POO"/>
+                            <constraint firstItem="Tsx-zg-SMe" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="5" id="CaP-cB-qXE"/>
                             <constraint firstAttribute="trailing" secondItem="HVv-fZ-Saa" secondAttribute="trailing" constant="16" id="Ngi-X4-dIs"/>
                             <constraint firstItem="lRf-IC-aF3" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="21" id="Ppc-uu-NCu"/>
-                            <constraint firstItem="FNf-8Y-9W4" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="16" id="X8k-0M-sBk"/>
                             <constraint firstItem="xLj-iq-PvI" firstAttribute="top" secondItem="HVv-fZ-Saa" secondAttribute="bottom" constant="8" symbolic="YES" id="YAg-5T-B8k"/>
-                            <constraint firstAttribute="trailing" secondItem="FNf-8Y-9W4" secondAttribute="trailing" constant="16" id="esb-TN-T2h"/>
+                            <constraint firstAttribute="trailing" secondItem="Tsx-zg-SMe" secondAttribute="trailing" constant="21" id="bhD-DR-Y0g"/>
+                            <constraint firstItem="Tsx-zg-SMe" firstAttribute="top" secondItem="lRf-IC-aF3" secondAttribute="bottom" constant="17" id="eCa-os-6Z0"/>
                             <constraint firstItem="lRf-IC-aF3" firstAttribute="top" secondItem="Pmh-db-Fh6" secondAttribute="top" constant="10" id="ey1-GQ-WL3"/>
                             <constraint firstItem="HVv-fZ-Saa" firstAttribute="top" secondItem="waz-bb-2AW" secondAttribute="bottom" constant="8" id="fyv-nu-I8B"/>
                             <constraint firstItem="HVv-fZ-Saa" firstAttribute="leading" secondItem="Pmh-db-Fh6" secondAttribute="leading" constant="16" id="htS-C6-NQx"/>
@@ -91,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43X-Gd-peQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100.5" y="-65.5"/>
+            <point key="canvasLocation" x="-101.59999999999999" y="-66.11694152923539"/>
         </scene>
     </scenes>
 </document>

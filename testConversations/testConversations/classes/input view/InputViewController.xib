@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputViewController">
+            <connections>
+                <outlet property="contentView" destination="3rk-dD-gDq" id="IaN-Vr-Brn"/>
+                <outlet property="textInputView" destination="BYk-DS-a2D" id="rLH-IZ-Sx8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rk-dD-gDq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Lorem ipsum d" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-DS-a2D" customClass="GrowingTextView">
+                            <rect key="frame" x="16" y="10" width="295" height="22"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Use-l9-Hzq"/>
+                                <constraint firstAttribute="height" constant="22" id="WMG-lC-Vdb"/>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="88" id="YPk-70-V7c"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="a6V-Gs-ykh"/>
+                            </connections>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="BYk-DS-a2D" secondAttribute="bottom" constant="12" id="15x-td-K3P"/>
+                        <constraint firstAttribute="trailing" secondItem="BYk-DS-a2D" secondAttribute="trailing" constant="64" id="3Pu-Wq-xlm"/>
+                        <constraint firstItem="BYk-DS-a2D" firstAttribute="leading" secondItem="3rk-dD-gDq" secondAttribute="leading" constant="16" id="Tcz-az-VI9"/>
+                        <constraint firstItem="BYk-DS-a2D" firstAttribute="top" secondItem="3rk-dD-gDq" secondAttribute="top" constant="10" id="t2C-Hz-Rsy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="3rk-dD-gDq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7tc-uQ-XG6"/>
+                <constraint firstAttribute="trailing" secondItem="3rk-dD-gDq" secondAttribute="trailing" id="EcN-7k-LhP"/>
+                <constraint firstItem="3rk-dD-gDq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IEi-vx-iv9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="146.5" y="-104.5"/>
+        </view>
+    </objects>
+</document>

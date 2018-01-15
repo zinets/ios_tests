@@ -16,6 +16,7 @@
 @interface ConversationViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ConversationDataSource *dataSource;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewHeight;
 @end
 
 @implementation ConversationViewController {
@@ -46,6 +47,11 @@
 }
 
 #pragma mark temp
+
+-(void)preferredContentSizeDidChangeForChildContentContainer:(id<UIContentContainer>)container {
+    CGSize sz = ((UIViewController *)container).preferredContentSize;
+    self.inputViewHeight.constant = sz.height;
+}
 
 - (IBAction)onButtonTap:(id)sender {
 

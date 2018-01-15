@@ -1,6 +1,5 @@
 //
 //  GrowingTextView.m
-//  testConversations
 //
 //  Created by Zinets Viktor on 1/15/18.
 //  Copyright © 2018 Zinets Viktor. All rights reserved.
@@ -20,6 +19,7 @@
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
                 if ( constraint.relation == NSLayoutRelationEqual) {
                     self.heightConstraint = constraint;
+                    self.heightConstraint.priority = 750; // она должна быть меньше, чем ограничители сверху-снизу
                 }
             }
         }        

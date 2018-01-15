@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B16FF8D2008B0B2007B5D68 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FF8B2008B0B2007B5D68 /* InputViewController.m */; };
 		3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */; };
 		3B16FF9D200C9F95007B5D68 /* Test23.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FF9C200C9F95007B5D68 /* Test23.storyboard */; };
 		3B16FFA0200CA072007B5D68 /* ViewController23.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FF9F200CA072007B5D68 /* ViewController23.m */; };
 		3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */; };
+		3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFB3200CE57C007B5D68 /* InputViewController.m */; };
+		3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB4200CE57C007B5D68 /* InputViewController.xib */; };
 		3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDC1FFFA286001447B5 /* AppDelegate.m */; };
 		3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDF1FFFA286001447B5 /* ViewController.m */; };
 		3B25EEE31FFFA286001447B5 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE11FFFA286001447B5 /* Conversation.storyboard */; };
@@ -32,8 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B16FF8A2008B0B2007B5D68 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
-		3B16FF8B2008B0B2007B5D68 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		3B16FF942008FC93007B5D68 /* UIViewController+Keyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Keyboard.h"; sourceTree = "<group>"; };
 		3B16FF952008FC93007B5D68 /* UIViewController+Keyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Keyboard.m"; sourceTree = "<group>"; };
 		3B16FF9C200C9F95007B5D68 /* Test23.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test23.storyboard; sourceTree = "<group>"; };
@@ -41,6 +40,9 @@
 		3B16FF9F200CA072007B5D68 /* ViewController23.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController23.m; sourceTree = "<group>"; };
 		3B16FFAB200CCF58007B5D68 /* GrowingTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrowingTextView.h; sourceTree = "<group>"; };
 		3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrowingTextView.m; sourceTree = "<group>"; };
+		3B16FFB2200CE57C007B5D68 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		3B16FFB3200CE57C007B5D68 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		3B16FFB4200CE57C007B5D68 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		3B25EED81FFFA286001447B5 /* testConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B25EEDB1FFFA286001447B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B25EEDC1FFFA286001447B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,8 +100,9 @@
 		3B16FF722008A392007B5D68 /* input view */ = {
 			isa = PBXGroup;
 			children = (
-				3B16FF8A2008B0B2007B5D68 /* InputViewController.h */,
-				3B16FF8B2008B0B2007B5D68 /* InputViewController.m */,
+				3B16FFB2200CE57C007B5D68 /* InputViewController.h */,
+				3B16FFB3200CE57C007B5D68 /* InputViewController.m */,
+				3B16FFB4200CE57C007B5D68 /* InputViewController.xib */,
 			);
 			path = "input view";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */,
 				3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */,
 				3B25EF032004A679001447B5 /* img2.jpg in Resources */,
 				3B25EF022004A679001447B5 /* img1.jpg in Resources */,
@@ -288,7 +292,7 @@
 				D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */,
 				D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */,
 				D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */,
-				3B16FF8D2008B0B2007B5D68 /* InputViewController.m in Sources */,
+				3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */,
 				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
