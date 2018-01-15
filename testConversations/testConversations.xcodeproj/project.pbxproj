@@ -13,6 +13,7 @@
 		3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFAC200CCF58007B5D68 /* GrowingTextView.m */; };
 		3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFB3200CE57C007B5D68 /* InputViewController.m */; };
 		3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB4200CE57C007B5D68 /* InputViewController.xib */; };
+		3B16FFB8200CFBEC007B5D68 /* inputViewResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB7200CFBEC007B5D68 /* inputViewResources.xcassets */; };
 		3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDC1FFFA286001447B5 /* AppDelegate.m */; };
 		3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDF1FFFA286001447B5 /* ViewController.m */; };
 		3B25EEE31FFFA286001447B5 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE11FFFA286001447B5 /* Conversation.storyboard */; };
@@ -43,6 +44,7 @@
 		3B16FFB2200CE57C007B5D68 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		3B16FFB3200CE57C007B5D68 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		3B16FFB4200CE57C007B5D68 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
+		3B16FFB7200CFBEC007B5D68 /* inputViewResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = inputViewResources.xcassets; sourceTree = "<group>"; };
 		3B25EED81FFFA286001447B5 /* testConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B25EEDB1FFFA286001447B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B25EEDC1FFFA286001447B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				3B16FFB2200CE57C007B5D68 /* InputViewController.h */,
 				3B16FFB3200CE57C007B5D68 /* InputViewController.m */,
 				3B16FFB4200CE57C007B5D68 /* InputViewController.xib */,
+				3B16FFB7200CFBEC007B5D68 /* inputViewResources.xcassets */,
 			);
 			path = "input view";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */,
+				3B16FFB8200CFBEC007B5D68 /* inputViewResources.xcassets in Resources */,
 				3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */,
 				3B25EF032004A679001447B5 /* img2.jpg in Resources */,
 				3B25EF022004A679001447B5 /* img1.jpg in Resources */,

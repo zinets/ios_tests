@@ -17,7 +17,7 @@
     if (self = [super initWithCoder:aDecoder]) {
         for (NSLayoutConstraint *constraint in self.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
-                if ( constraint.relation == NSLayoutRelationEqual) {
+                if (constraint.relation == NSLayoutRelationEqual) {
                     self.heightConstraint = constraint;
                     self.heightConstraint.priority = 750; // она должна быть меньше, чем ограничители сверху-снизу
                 }

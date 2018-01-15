@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Lorem ipsum d" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-DS-a2D" customClass="GrowingTextView">
-                            <rect key="frame" x="16" y="10" width="295" height="22"/>
+                            <rect key="frame" x="112" y="10" width="199" height="22"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Use-l9-Hzq"/>
@@ -38,13 +38,43 @@
                                 <outlet property="delegate" destination="-1" id="a6V-Gs-ykh"/>
                             </connections>
                         </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL9-Ps-uxc">
+                            <rect key="frame" x="16" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="HXQ-VJ-jGT"/>
+                                <constraint firstAttribute="width" constant="32" id="N5I-dQ-RVv"/>
+                            </constraints>
+                            <state key="normal" image="makePhoto"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWj-3d-R5p">
+                            <rect key="frame" x="64" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="31G-jF-3gb"/>
+                                <constraint firstAttribute="width" constant="32" id="Wqt-Xh-Gp9"/>
+                            </constraints>
+                            <state key="normal" image="selectFromGallery"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ0-PR-WOq">
+                            <rect key="frame" x="327" y="6" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="K90-Vu-WSu"/>
+                                <constraint firstAttribute="height" constant="32" id="xUi-NT-ENF"/>
+                            </constraints>
+                            <state key="normal" image="send"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="BYk-DS-a2D" secondAttribute="bottom" constant="12" id="15x-td-K3P"/>
                         <constraint firstAttribute="trailing" secondItem="BYk-DS-a2D" secondAttribute="trailing" constant="64" id="3Pu-Wq-xlm"/>
-                        <constraint firstItem="BYk-DS-a2D" firstAttribute="leading" secondItem="3rk-dD-gDq" secondAttribute="leading" constant="16" id="Tcz-az-VI9"/>
+                        <constraint firstAttribute="bottom" secondItem="hWj-3d-R5p" secondAttribute="bottom" constant="6" id="GSZ-JU-Bx7"/>
+                        <constraint firstAttribute="bottom" secondItem="oQ0-PR-WOq" secondAttribute="bottom" constant="6" id="SXK-eh-BqP"/>
+                        <constraint firstItem="OL9-Ps-uxc" firstAttribute="leading" secondItem="3rk-dD-gDq" secondAttribute="leading" constant="16" id="T7P-YJ-fdc"/>
+                        <constraint firstItem="BYk-DS-a2D" firstAttribute="leading" secondItem="hWj-3d-R5p" secondAttribute="trailing" constant="16" id="XO4-Uz-nCV"/>
+                        <constraint firstAttribute="bottom" secondItem="OL9-Ps-uxc" secondAttribute="bottom" constant="6" id="f1r-3V-OXP"/>
+                        <constraint firstItem="hWj-3d-R5p" firstAttribute="leading" secondItem="OL9-Ps-uxc" secondAttribute="trailing" constant="16" id="i74-j0-1Rx"/>
                         <constraint firstItem="BYk-DS-a2D" firstAttribute="top" secondItem="3rk-dD-gDq" secondAttribute="top" constant="10" id="t2C-Hz-Rsy"/>
+                        <constraint firstAttribute="trailing" secondItem="oQ0-PR-WOq" secondAttribute="trailing" constant="16" id="y2t-Wb-fHW"/>
                     </constraints>
                 </view>
             </subviews>
@@ -58,4 +88,9 @@
             <point key="canvasLocation" x="146.5" y="-104.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="makePhoto" width="32" height="32"/>
+        <image name="selectFromGallery" width="32" height="32"/>
+        <image name="send" width="32" height="32"/>
+    </resources>
 </document>
