@@ -6,17 +6,19 @@
 //  Copyright © 2018 Zinets Viktor. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "ConversationViewController.h"
 #import "ConversationDataSource.h"
 #import "ConversationCell.h"
 #import "DailyMessages.h"
 
-@interface TableViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate>
+#import "UIViewController+Keyboard.h"
+
+@interface ConversationViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ConversationDataSource *dataSource;
 @end
 
-@implementation TableViewController {
+@implementation ConversationViewController {
     NSArray *tempData;
     NSInteger tempIndex;
 }
@@ -31,7 +33,26 @@
     [self.tableView registerClass:[ConversationHeader class] forHeaderFooterViewReuseIdentifier:@"ConversationHeaderId"];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self registerKeyboard];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self unregisterKeyboard];
+}
+
 #pragma mark temp
+
+- (IBAction)onButtonTap:(id)sender {
+
+}
+
+- (IBAction)onResign:(id)sender {
+}
 
 - (NSDate *)dateFromString:(NSString *)strDate {
     NSDateFormatter *dateFormat = [NSDateFormatter new];
@@ -273,10 +294,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ConversationCellConfig *config = [[self.dataSource messagesOfSectionAtIndex:indexPath.section] configOfCellAtIndex:indexPath.row];
-    config.cellType = ConversationCellTypeMiddle;
-    ConversationCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [cell applyConfig:config];
+    
 }
 
 #pragma mark dates
