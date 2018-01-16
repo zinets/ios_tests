@@ -25,7 +25,7 @@
 
 -(UIView *)inputView {
     if (!_inputView) {
-        _inputView = [[MiniMediaPicker alloc] initWithFrame:(CGRect){0, 0, 0, 258}];
+        _inputView = [[MiniMediaPicker alloc] initWithFrame:(CGRect){0, 0, 320, 258}];
         
         
         
