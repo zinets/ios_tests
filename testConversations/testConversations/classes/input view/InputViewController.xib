@@ -36,7 +36,7 @@
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Cool" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BYk-DS-a2D" customClass="GrowingTextView">
                             <rect key="frame" x="112" y="6" width="199" height="32"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Use-l9-Hzq"/>
                                 <constraint firstAttribute="height" constant="32" id="WMG-lC-Vdb"/>
@@ -76,7 +76,8 @@
                                 <constraint firstAttribute="width" constant="32" id="K90-Vu-WSu"/>
                                 <constraint firstAttribute="height" constant="32" id="xUi-NT-ENF"/>
                             </constraints>
-                            <state key="normal" image="send"/>
+                            <state key="normal" image="sendSelected"/>
+                            <state key="disabled" image="send"/>
                             <state key="selected" image="sendSelected"/>
                             <state key="highlighted" image="sendSelected"/>
                             <connections>
@@ -108,7 +109,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="BYk-DS-a2D" secondAttribute="bottom" constant="6" id="15x-td-K3P"/>
                         <constraint firstAttribute="trailing" secondItem="BYk-DS-a2D" secondAttribute="trailing" constant="64" id="3Pu-Wq-xlm"/>

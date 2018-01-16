@@ -31,6 +31,12 @@
     self.text = @"";
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self recalculatedHeight];
+}
+
 #pragma mark setters
 
 -(void)setCameraButtonVisible:(BOOL)cameraButtonVisible {
