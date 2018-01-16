@@ -50,7 +50,7 @@
 -(void)setText:(NSString *)text {
     self.textInputView.text = text;
     
-    self.postButton.enabled = /* todo проверка валидности текста */ text.lenght > 0;
+    self.postButton.enabled = /* todo проверка валидности текста */ text.length > 0;
 }
 
 -(NSString *)text {
@@ -61,20 +61,25 @@
 
 - (IBAction)onCameraButtonTap:(id)sender {
     if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        self.delegate inputView:self didSelectButton:(InputViewButtonCamera);
+        [self.delegate inputView:self didSelectButton:(InputViewButtonCamera)];
     }
+    // тут имо без вариантов надо убрать клавиатуру - щас перейдем в фотопарат
+    [self.textInputView resignFirstResponder];
 }
 
 - (IBAction)onGalleryButtonTap:(id)sender {
     if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        self.delegate inputView:self didSelectButton:(InputViewButtonGallery);
+        [self.delegate inputView:self didSelectButton:(InputViewButtonGallery)];
     }
+    // тапы по кнопкам должны убирать клавиатуру? может не нужно и она "сама" как-то там уберется?.. заменится на экран выбора фото к примеру
 }
 
 - (IBAction)onPostButtonTap:(id)sender {
     if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        self.delegate inputView:self didSelectButton:(InputViewButtonPostMessage);
+        [self.delegate inputView:self didSelectButton:(InputViewButtonPostMessage)];
     }
+    [self.textInputView resignFirstResponder];
+    // а кто и где/когда обнулит текст? наверное кто-то "там" - вдруг текст сразу не отошлется? платежка там и прочее.. а когда отошлется - тогда и обнулит
 }
 
 #pragma mark text delegate
@@ -90,6 +95,8 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
     self.preferredContentSize = [self recalculatedHeight];
+    
+    self.postButton.enabled = textView.text.length > 0;
 }
 
 @end
