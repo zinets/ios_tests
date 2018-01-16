@@ -7,20 +7,32 @@
 //
 
 #import "MiniMediaPicker.h"
-#import "MediaPickerCell.h"
 
-@interface MiniMediaPicker() <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+#import "MediaPickerCell.h"
+#import "MiniMediaPickerRestrictedView.h"
+
+@interface MiniMediaPicker() <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
+    PHFetchResult <PHAsset *> *fetchedAlbumItems;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *moreButton;
+@property (nonatomic, strong) UIView *restrictPlaceholder;
+
+@property (nonatomic) PHAuthorizationStatus authStatus;
 @end
 
 @implementation MiniMediaPicker
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        // todo запрос пермишнов
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            self.authStatus = status;
+        }];
+        
         [self addSubview:self.collectionView];
         [self addSubview:self.moreButton];
+        
+        [self updateDatasource];
     }
     return self;
 }
@@ -59,10 +71,18 @@
     }
 }
 
+-(UIView *)restrictPlaceholder {
+    if (!_restrictPlaceholder) {
+        _restrictPlaceholder = [[MiniMediaPickerRestrictedView alloc] initWithFrame:self.bounds];
+        _restrictPlaceholder.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    }
+    return _restrictPlaceholder;
+}
+
 #pragma mark collection
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSInteger count = 7;
+    NSInteger count = fetchedAlbumItems.count;
     
     self.moreButton.hidden = count == 0;
     return count;
@@ -85,6 +105,28 @@
     if ([self.delegate respondsToSelector:@selector(miniMediaPicker:didSelectImage:)]) {
         [self.delegate miniMediaPicker:self didSelectImage:[UIImage imageNamed:@"tolka.jpg"]];
     }
+}
+
+#pragma mark datasorce
+
+- (void)updateDatasource {
+        switch (self.authStatus) {
+            case PHAuthorizationStatusAuthorized: {
+                PHFetchResult *res = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
+                                                                              subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary
+                                                                              options:nil];
+                [res enumerateObjectsUsingBlock:^(PHAssetCollection *collection, NSUInteger idx, BOOL * _Nonnull stop) {
+                    PHFetchOptions *options = [PHFetchOptions new];
+                    options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
+                    fetchedAlbumItems = [PHAsset fetchAssetsInAssetCollection:collection options:options];
+                }];
+
+            } break;
+            default: {
+                [self addSubview:self.restrictPlaceholder];
+            } break;
+        }
+    
 }
 
 @end

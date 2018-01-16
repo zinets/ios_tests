@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testConversations/classes/input view/InputViewController.m"
-            timestampString = "537790242.1628571"
+            timestampString = "537796470.773813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testConversations/classes/controls/media picker/MiniMediaPicker.m"
-            timestampString = "537790242.162969"
+            timestampString = "537796470.773911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-collectionView"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testConversations/classes/input view/InputViewController.m"
-            timestampString = "537790242.163447"
+            timestampString = "537796470.774008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -198,16 +198,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "testConversations/classes/input view/InputViewController.m"
-            timestampString = "537790383.16707"
+            filePath = "testConversations/classes/controls/media picker/MiniMediaPicker.m"
+            timestampString = "537796470.774074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-galleryButtonWantsShowFullLibrary:"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-initWithFrame:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

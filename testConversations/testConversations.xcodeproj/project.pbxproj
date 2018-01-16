@@ -27,6 +27,13 @@
 		3B4B8272200DF2BB00DABEC9 /* MiniMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */; };
 		3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */; };
 		3B4B8278200DFE3500DABEC9 /* tolka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B8277200DFE3500DABEC9 /* tolka.jpg */; };
+		3B4B827C200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B827B200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib */; };
+		3B4B827F200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B827E200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m */; };
+		3B4B8282200E19A100DABEC9 /* GradientPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8280200E19A100DABEC9 /* GradientPanel.m */; };
+		3B4B8284200E1A9400DABEC9 /* MediaPickerResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B8283200E1A9400DABEC9 /* MediaPickerResources.xcassets */; };
+		3B4B828C200E1E0800DABEC9 /* RMNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8287200E1DAB00DABEC9 /* RMNibLoader.m */; };
+		3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8289200E1DAB00DABEC9 /* RMNibLoadedView.m */; };
+		3B4B828E200E1E0D00DABEC9 /* RMCachingNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
 		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
 		D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */; };
@@ -76,6 +83,18 @@
 		3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaPickerCell.h; sourceTree = "<group>"; };
 		3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaPickerCell.m; sourceTree = "<group>"; };
 		3B4B8277200DFE3500DABEC9 /* tolka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tolka.jpg; sourceTree = "<group>"; };
+		3B4B827B200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniMediaPickerRestrictedView.xib; sourceTree = "<group>"; };
+		3B4B827D200E194D00DABEC9 /* MiniMediaPickerRestrictedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniMediaPickerRestrictedView.h; sourceTree = "<group>"; };
+		3B4B827E200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniMediaPickerRestrictedView.m; sourceTree = "<group>"; };
+		3B4B8280200E19A100DABEC9 /* GradientPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientPanel.m; path = ../../mobile_ios/trunk/MUIControls/MUIControls/Classes/GradientPanel.m; sourceTree = "<group>"; };
+		3B4B8281200E19A100DABEC9 /* GradientPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientPanel.h; path = ../../mobile_ios/trunk/MUIControls/MUIControls/Classes/GradientPanel.h; sourceTree = "<group>"; };
+		3B4B8283200E1A9400DABEC9 /* MediaPickerResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MediaPickerResources.xcassets; sourceTree = "<group>"; };
+		3B4B8286200E1DAB00DABEC9 /* RMNibLoadedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNibLoadedView.h; sourceTree = "<group>"; };
+		3B4B8287200E1DAB00DABEC9 /* RMNibLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMNibLoader.m; sourceTree = "<group>"; };
+		3B4B8288200E1DAB00DABEC9 /* RMCachingNibLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMCachingNibLoader.h; sourceTree = "<group>"; };
+		3B4B8289200E1DAB00DABEC9 /* RMNibLoadedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMNibLoadedView.m; sourceTree = "<group>"; };
+		3B4B828A200E1DAB00DABEC9 /* RMNibLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNibLoader.h; sourceTree = "<group>"; };
+		3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMCachingNibLoader.m; sourceTree = "<group>"; };
 		D62A639CB245DCC3A0CF5CFA /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
 		D62A665567B5070FB4B9D515 /* DailyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyMessages.m; sourceTree = "<group>"; };
 		D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
@@ -150,6 +169,8 @@
 		3B25EECF1FFFA286001447B5 = {
 			isa = PBXGroup;
 			children = (
+				3B4B8281200E19A100DABEC9 /* GradientPanel.h */,
+				3B4B8280200E19A100DABEC9 /* GradientPanel.m */,
 				3B25EEDA1FFFA286001447B5 /* testConversations */,
 				3B25EED91FFFA286001447B5 /* Products */,
 			);
@@ -166,6 +187,7 @@
 		3B25EEDA1FFFA286001447B5 /* testConversations */ = {
 			isa = PBXGroup;
 			children = (
+				3B4B8285200E1DAB00DABEC9 /* NibLoadedView */,
 				3B25EF002004A678001447B5 /* img1.jpg */,
 				3B25EF012004A678001447B5 /* img2.jpg */,
 				3B25EEF11FFFA2F9001447B5 /* classes */,
@@ -209,8 +231,25 @@
 				3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */,
 				3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */,
 				3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */,
+				3B4B827B200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib */,
+				3B4B827D200E194D00DABEC9 /* MiniMediaPickerRestrictedView.h */,
+				3B4B827E200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m */,
+				3B4B8283200E1A9400DABEC9 /* MediaPickerResources.xcassets */,
 			);
 			path = "media picker";
+			sourceTree = "<group>";
+		};
+		3B4B8285200E1DAB00DABEC9 /* NibLoadedView */ = {
+			isa = PBXGroup;
+			children = (
+				3B4B8286200E1DAB00DABEC9 /* RMNibLoadedView.h */,
+				3B4B8287200E1DAB00DABEC9 /* RMNibLoader.m */,
+				3B4B8288200E1DAB00DABEC9 /* RMCachingNibLoader.h */,
+				3B4B8289200E1DAB00DABEC9 /* RMNibLoadedView.m */,
+				3B4B828A200E1DAB00DABEC9 /* RMNibLoader.h */,
+				3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */,
+			);
+			path = NibLoadedView;
 			sourceTree = "<group>";
 		};
 		D62A6B6FFC6A55B28BC0CB9A /* controls */ = {
@@ -315,9 +354,11 @@
 				3B25EEE51FFFA286001447B5 /* Assets.xcassets in Resources */,
 				3B25EEE31FFFA286001447B5 /* Conversation.storyboard in Resources */,
 				D62A64967D04E7DB800A42CD /* avatar1.png in Resources */,
+				3B4B8284200E1A9400DABEC9 /* MediaPickerResources.xcassets in Resources */,
 				3B16FF9D200C9F95007B5D68 /* Test23.storyboard in Resources */,
 				D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */,
 				3B4B8278200DFE3500DABEC9 /* tolka.jpg in Resources */,
+				3B4B827C200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,17 +372,22 @@
 				3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */,
 				3B25EEFB1FFFA7DF001447B5 /* ConversationViewController.m in Sources */,
 				3B25EEEB1FFFA286001447B5 /* main.m in Sources */,
+				3B4B828E200E1E0D00DABEC9 /* RMCachingNibLoader.m in Sources */,
 				3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */,
 				D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */,
 				D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */,
 				D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */,
 				3B4B8272200DF2BB00DABEC9 /* MiniMediaPicker.m in Sources */,
 				3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */,
+				3B4B827F200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m in Sources */,
 				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
+				3B4B828C200E1E0800DABEC9 /* RMNibLoader.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
+				3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */,
 				3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
+				3B4B8282200E19A100DABEC9 /* GradientPanel.m in Sources */,
 				3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */,
 				3B16FFC1200DEF17007B5D68 /* GalleryButton.m in Sources */,
 				3B16FFA0200CA072007B5D68 /* ViewController23.m in Sources */,

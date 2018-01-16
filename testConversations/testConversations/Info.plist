@@ -48,5 +48,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Тупо хотим позырить твои видосы голые</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Тупо хотим позырить твои фотки голые</string>
 </dict>
 </plist>
