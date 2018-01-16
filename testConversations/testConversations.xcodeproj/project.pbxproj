@@ -14,6 +14,7 @@
 		3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFB3200CE57C007B5D68 /* InputViewController.m */; };
 		3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB4200CE57C007B5D68 /* InputViewController.xib */; };
 		3B16FFB8200CFBEC007B5D68 /* inputViewResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB7200CFBEC007B5D68 /* inputViewResources.xcassets */; };
+		3B16FFC1200DEF17007B5D68 /* GalleryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B16FFC0200DEF17007B5D68 /* GalleryButton.m */; };
 		3B25EEDD1FFFA286001447B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDC1FFFA286001447B5 /* AppDelegate.m */; };
 		3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEDF1FFFA286001447B5 /* ViewController.m */; };
 		3B25EEE31FFFA286001447B5 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EEE11FFFA286001447B5 /* Conversation.storyboard */; };
@@ -51,6 +52,8 @@
 		3B16FFBC200DD262007B5D68 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
 		3B16FFBD200DD262007B5D68 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		3B16FFBE200DD263007B5D68 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		3B16FFBF200DEF17007B5D68 /* GalleryButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryButton.h; sourceTree = "<group>"; };
+		3B16FFC0200DEF17007B5D68 /* GalleryButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryButton.m; sourceTree = "<group>"; };
 		3B25EED81FFFA286001447B5 /* testConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B25EEDB1FFFA286001447B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B25EEDC1FFFA286001447B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -100,7 +103,6 @@
 				3B25EEF91FFFA7DF001447B5 /* ConversationViewController.m */,
 				D62A6CC415EA8907B0519F58 /* cells */,
 				D62A6B7C6922B307C587E468 /* data source */,
-				D62A6B6FFC6A55B28BC0CB9A /* controls */,
 			);
 			path = conversation;
 			sourceTree = "<group>";
@@ -182,6 +184,7 @@
 		3B25EEF11FFFA2F9001447B5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D62A6B6FFC6A55B28BC0CB9A /* controls */,
 				3B16FFA2200CA814007B5D68 /* dummy test classes */,
 				3B16FFA1200CA775007B5D68 /* keyboard support */,
 				3B16FF722008A392007B5D68 /* input view */,
@@ -195,6 +198,8 @@
 			children = (
 				D62A6CC6BAEE0599F9829B6E /* RoundedView.h */,
 				D62A6A8447151F7AEF86EC17 /* RoundedView.m */,
+				3B16FFBF200DEF17007B5D68 /* GalleryButton.h */,
+				3B16FFC0200DEF17007B5D68 /* GalleryButton.m */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
 				3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */,
+				3B16FFC1200DEF17007B5D68 /* GalleryButton.m in Sources */,
 				3B16FFA0200CA072007B5D68 /* ViewController23.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
