@@ -11,6 +11,7 @@
 
 @interface MiniMediaPicker() <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIButton *moreButton;
 @end
 
 @implementation MiniMediaPicker
@@ -19,6 +20,7 @@
     if (self = [super initWithFrame:frame]) {
         // todo запрос пермишнов
         [self addSubview:self.collectionView];
+        [self addSubview:self.moreButton];
     }
     return self;
 }
@@ -38,10 +40,32 @@
     return _collectionView;
 }
 
+-(UIButton *)moreButton {
+    if (!_moreButton) {
+        _moreButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        _moreButton.frame = (CGRect){16, self.bounds.size.height - 16 - 40, 40, 40};
+        _moreButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin;
+        _moreButton.layer.cornerRadius = 20;
+        _moreButton.backgroundColor = [UIColor purpleColor];
+        // todo design
+        [_moreButton addTarget:self action:@selector(onMoreButtonTap:) forControlEvents:(UIControlEventTouchUpInside)];
+    }
+    return _moreButton;
+}
+
+- (void)onMoreButtonTap:(id)sender{
+    if ([self.delegate respondsToSelector:@selector(miniMediaPickerWantsShowFullLibrary:)]) {
+        [self.delegate miniMediaPickerWantsShowFullLibrary:self];
+    }
+}
+
 #pragma mark collection
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    NSInteger count = 7;
+    
+    self.moreButton.hidden = count == 0;
+    return count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
