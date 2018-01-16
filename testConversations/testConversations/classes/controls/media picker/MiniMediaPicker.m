@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIView *emptyPlaceholder;
 
 @property (nonatomic) PHAuthorizationStatus authStatus;
+@property (nonatomic, strong) PHImageManager *imageManager;
 @end
 
 @implementation MiniMediaPicker
@@ -46,6 +47,8 @@
                 }
             }];
         }
+        
+        self.imageManager = [PHImageManager defaultManager];
     }
     return self;
 }
@@ -110,21 +113,66 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    MediaPickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    if (cell.tag) {
+        [self.imageManager cancelImageRequest:(PHImageRequestID)cell.tag];
+    }
     
+    cell.tag = [self.imageManager requestImageForAsset:fetchedAlbumItems[indexPath.item]
+                                            targetSize:[self itemSize]
+                                           contentMode:PHImageContentModeAspectFill
+                                               options:nil
+                                         resultHandler:^(UIImage *result, NSDictionary *info) {
+                                             if (![info[PHImageResultIsDegradedKey] boolValue]) {
+                                                 MediaPickerCell *c = (MediaPickerCell *)[collectionView cellForItemAtIndexPath:indexPath];
+                                                 if (c) {
+                                                     [c setImage:result];
+                                                 } else {
+                                                     [cell setImage:result];
+                                                 }
+                                             }
+    }];
     
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat w = floor((collectionView.bounds.size.width - 2) / 2);
+- (CGSize)itemSize {
+    CGFloat w = floor((self.collectionView.bounds.size.width - 2) / 2);
     CGFloat h = w * 1.25; // я так вижу.. из диза
     return (CGSize){w, h};
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self itemSize];
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.delegate respondsToSelector:@selector(miniMediaPicker:didSelectImage:)]) {
-        [self.delegate miniMediaPicker:self didSelectImage:[UIImage imageNamed:@"tolka.jpg"]];
+        PHAsset *asset = fetchedAlbumItems[indexPath.item];
+        
+        PHImageRequestOptions *options = [PHImageRequestOptions new];
+        options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        options.resizeMode = PHImageRequestOptionsResizeModeExact;
+        
+        CGFloat w = asset.pixelWidth;
+        CGFloat h = asset.pixelHeight;
+        CGFloat const maxVal = 1000; // какой макс. размер картинки для педерачи?
+        //  вообще как показывает тестирование - почти до лампочки; возвращается полный размер; ну или если очень сильно отличается заказаный ([0; 0] к примеру) - возвращается картинка крохотного размера
+        // короче код для подстраховки
+        CGFloat ar = w > h ? (w / maxVal) : (h / maxVal);
+        if (ar > 1) {
+            w /= ar;
+            h /= ar;
+        }
+        [self.imageManager requestImageForAsset:asset
+                                     targetSize:(CGSize){w, h}
+                                    contentMode:PHImageContentModeAspectFill
+                                        options:nil
+                                  resultHandler:^(UIImage *result, NSDictionary *info) {
+                                      if (![info[PHImageResultIsDegradedKey] boolValue]) {
+                                          [self.delegate miniMediaPicker:self didSelectImage:result];
+                                      }
+                                  }];
     }
 }
 

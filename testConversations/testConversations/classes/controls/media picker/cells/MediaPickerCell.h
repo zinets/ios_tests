@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MediaPickerCell : UICollectionViewCell
-
+- (void)setImage:(UIImage *)image;
 @end
