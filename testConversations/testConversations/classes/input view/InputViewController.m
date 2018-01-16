@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.text = @"";
 }
 
 #pragma mark setters
@@ -47,18 +47,34 @@
     self.preferredContentSize = [self recalculatedHeight];
 }
 
+-(void)setText:(NSString *)text {
+    self.textInputView.text = text;
+    
+    self.postButton.enabled = /* todo проверка валидности текста */ text.lenght > 0;
+}
+
+-(NSString *)text {
+    return self.textInputView.text;
+}
+
 #pragma mark actions
 
 - (IBAction)onCameraButtonTap:(id)sender {
-    self.cameraButtonVisible = NO;
+    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
+        self.delegate inputView:self didSelectButton:(InputViewButtonCamera);
+    }
 }
 
 - (IBAction)onGalleryButtonTap:(id)sender {
-    self.galleryButtonVisible = NO;
+    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
+        self.delegate inputView:self didSelectButton:(InputViewButtonGallery);
+    }
 }
 
 - (IBAction)onPostButtonTap:(id)sender {
-    self.galleryButtonVisible = !self.cameraButtonVisible;
+    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
+        self.delegate inputView:self didSelectButton:(InputViewButtonPostMessage);
+    }
 }
 
 #pragma mark text delegate
