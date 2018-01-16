@@ -90,10 +90,10 @@
     if ([self.delegate respondsToSelector:@selector(inputView:enteredTextToSend:)]) {
         [self.delegate inputView:self enteredTextToSend:self.textInputView.text];
     }
-    [self.textInputView resignFirstResponder];
+    [self.view endEditing:YES];
     // а кто и где/когда обнулит текст? наверное кто-то "там" - вдруг текст сразу не отошлется? платежка там и прочее.. а когда отошлется - тогда и обнулит
     // или нет; можно/может сделать inputView:enteredTextToSend: с результатов отправки?
-    self.textInputView.text = @"";
+    self.text = @"";
 }
 
 - (void)galleryButtonWantsShowFullLibrary:(id)sender {
