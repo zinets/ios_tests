@@ -13,6 +13,7 @@
 @interface InputViewController () <UITextViewDelegate, GalleryButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet GrowingTextView *textInputView;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 @property (nonatomic, strong) NSString *text;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cameraButtonWidth;
@@ -37,7 +38,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self recalculatedHeight];
+    self.preferredContentSize = [self recalculatedHeight];
 }
 
 #pragma mark setters
@@ -122,6 +123,7 @@
 - (void)textViewDidChange:(UITextView *)textView {
     self.preferredContentSize = [self recalculatedHeight];
     
+    self.placeholderLabel.hidden =
     self.postButton.enabled = textView.text.length > 0;
 }
 
