@@ -30,8 +30,10 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     
-    CGSize sizeThatFits = [self sizeThatFits:self.frame.size];
-    self.heightConstraint.constant = sizeThatFits.height;
+    CGSize sz = [self sizeThatFits:self.frame.size];
+//    CGFloat h = ((int)sizeThatFits.height / 22) * 22; // так можно сделать высоту контрола "кратной" значению 22 - как в дизе
+    CGFloat h = sz.height
+    self.heightConstraint.constant = h;
 }
 
 @end
