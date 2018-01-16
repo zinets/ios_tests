@@ -147,32 +147,72 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.delegate respondsToSelector:@selector(miniMediaPicker:didSelectImage:)]) {
+    if ([self.delegate respondsToSelector:@selector(miniMediaPicker:didSelectAsset:)]) {
         PHAsset *asset = fetchedAlbumItems[indexPath.item];
-        
-        PHImageRequestOptions *options = [PHImageRequestOptions new];
-        options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-        options.resizeMode = PHImageRequestOptionsResizeModeExact;
-        
-        CGFloat w = asset.pixelWidth;
-        CGFloat h = asset.pixelHeight;
-        CGFloat const maxVal = 1000; // какой макс. размер картинки для педерачи?
-        //  вообще как показывает тестирование - почти до лампочки; возвращается полный размер; ну или если очень сильно отличается заказаный ([0; 0] к примеру) - возвращается картинка крохотного размера
-        // короче код для подстраховки
-        CGFloat ar = w > h ? (w / maxVal) : (h / maxVal);
-        if (ar > 1) {
-            w /= ar;
-            h /= ar;
-        }
-        [self.imageManager requestImageForAsset:asset
-                                     targetSize:(CGSize){w, h}
-                                    contentMode:PHImageContentModeAspectFill
-                                        options:nil
-                                  resultHandler:^(UIImage *result, NSDictionary *info) {
-                                      if (![info[PHImageResultIsDegradedKey] boolValue]) {
-                                          [self.delegate miniMediaPicker:self didSelectImage:result];
-                                      }
-                                  }];
+        [self.delegate miniMediaPicker:self didSelectAsset:asset];
+//        switch (asset.mediaType) {
+//            case PHAssetMediaTypeImage: {
+//                PHImageRequestOptions *options = [PHImageRequestOptions new];
+//                options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+//                options.resizeMode = PHImageRequestOptionsResizeModeExact;
+//
+//                CGFloat w = asset.pixelWidth;
+//                CGFloat h = asset.pixelHeight;
+//                CGFloat const maxVal = 1000; // какой макс. размер картинки для педерачи?
+//                //  вообще как показывает тестирование - почти до лампочки; возвращается полный размер; ну или если очень сильно отличается заказаный ([0; 0] к примеру) - возвращается картинка крохотного размера
+//                // короче код для подстраховки
+//                CGFloat ar = w > h ? (w / maxVal) : (h / maxVal);
+//                if (ar > 1) {
+//                    w /= ar;
+//                    h /= ar;
+//                }
+//                [self.imageManager requestImageForAsset:asset
+//                                             targetSize:(CGSize){w, h}
+//                                            contentMode:PHImageContentModeAspectFill
+//                                                options:nil
+//                                          resultHandler:^(UIImage *result, NSDictionary *info) {
+//                                              if (![info[PHImageResultIsDegradedKey] boolValue]) {
+//                                                  [self.delegate miniMediaPicker:self didSelectImage:result];
+//                                              }
+//                                          }];
+//            } break;
+//            case PHAssetMediaTypeVideo: {
+//                PHVideoRequestOptions *options = [PHVideoRequestOptions new];
+//                options.deliveryMode = PHVideoRequestOptionsDeliveryModeFastFormat;
+//                // todo не надо ли включить тут какой-то индикатор занятости?
+//                [self.imageManager requestExportSessionForVideo:asset
+//                                                        options:options
+//                                                   exportPreset:AVAssetExportPresetAppleM4VCellular
+//                                                  resultHandler:^(AVAssetExportSession * _Nullable exportSession, NSDictionary * _Nullable info)
+//                 {
+//                     // temp file for storing
+//                     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//                     NSString *documentsDirectory = [paths objectAtIndex:0];
+//                     NSString *videoPath = [documentsDirectory stringByAppendingPathComponent:@"temp.mp4"];
+//
+//                     NSFileManager *manager = [NSFileManager defaultManager];
+//                     NSError *error = nil;
+//                     if ([manager fileExistsAtPath:videoPath]) {
+//                         BOOL success = [manager removeItemAtPath:videoPath error:&error];
+//                         if (success) {
+//                             NSLog(@"Removed existing temp video!");
+//                         } else {
+//                             NSLog(@"Error %@", error);
+//                         }
+//                     }
+//
+//                     exportSession.outputURL = [NSURL fileURLWithPath:videoPath];
+//                     exportSession.outputFileType = AVFileTypeAppleM4V;
+//                     exportSession.shouldOptimizeForNetworkUse = YES;
+//
+//                     [exportSession exportAsynchronouslyWithCompletionHandler:^{
+//
+//                     }];
+//                 }];
+//            } break;
+//            default:
+//                break;
+//        }
     }
 }
 
@@ -186,7 +226,7 @@
                                                                               options:nil];
                 [res enumerateObjectsUsingBlock:^(PHAssetCollection *collection, NSUInteger idx, BOOL * _Nonnull stop) {
                     PHFetchOptions *options = [PHFetchOptions new];
-                    options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d", PHAssetMediaTypeImage];
+                    options.predicate = [NSPredicate predicateWithFormat:@"mediaType == %d || mediaType == %d", PHAssetMediaTypeImage, PHAssetMediaTypeVideo];
                     fetchedAlbumItems = [PHAsset fetchAssetsInAssetCollection:collection options:options];
                 }];
 

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
 
 @protocol InputViewControllerDelegate <NSObject>
-- (void)inputView:(id)sender selectedImageToSend:(UIImage *)image;
+- (void)inputView:(id)sender selectedMediaToSend:(PHAsset *)asset;
 - (void)inputView:(id)sender enteredTextToSend:(NSString *)text;
 
 - (void)inputViewWantsToOpenCamera:(id)sender;

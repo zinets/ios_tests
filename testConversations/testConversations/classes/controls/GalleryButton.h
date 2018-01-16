@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
 
 @protocol GalleryButtonDelegate <NSObject>
 - (void)galleryButtonWantsShowFullLibrary:(id)sender;
-- (void)galleryButton:(id)sender didSelectImage:(UIImage *)image;
-// todo а видос
+- (void)galleryButton:(id)sender didSelectMedia:(PHAsset *)asset;
 @end
 
 // кнопочка, которая в выделеном состоянии показывает селектор фото из "камера рола" в кастомной "клавиатуре"

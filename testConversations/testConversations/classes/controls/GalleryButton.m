@@ -39,12 +39,12 @@
     }
 }
 
-- (void)miniMediaPicker:(id)sender didSelectImage:(UIImage *)image {
+- (void)miniMediaPicker:(id)sender didSelectAsset:(PHAsset *)asset {
     [self resignFirstResponder];
     _inputView = nil;
     
-    if ([self.delegate respondsToSelector:@selector(galleryButton:didSelectImage:)]) {
-        [self.delegate galleryButton:self didSelectImage:image];
+    if ([self.delegate respondsToSelector:@selector(galleryButton:didSelectMedia:)]) {
+        [self.delegate galleryButton:self didSelectMedia:asset];
     }
 }
 

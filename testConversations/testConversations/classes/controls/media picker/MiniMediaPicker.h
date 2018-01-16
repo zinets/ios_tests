@@ -15,9 +15,8 @@
 @protocol MiniMediaPickerDelegate <NSObject>
 /// мини пикер хочет показать взрослый выбор медиа (с альбомами и прочим)
 - (void)miniMediaPickerWantsShowFullLibrary:(id)sender;
-/// выбрали картинку
-- (void)miniMediaPicker:(id)sender didSelectImage:(UIImage *)image;
-/// выбрали видосик
+/// выбрали картинку или видосик; выбрали и вернули asset, дальше кто-то извлечет картинку или экспортирует видео и отправит на сервер
+- (void)miniMediaPicker:(id)sender didSelectAsset:(PHAsset *)asset;
 @end
 
 @interface MiniMediaPicker : UIView

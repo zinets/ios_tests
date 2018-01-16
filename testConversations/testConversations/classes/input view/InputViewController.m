@@ -102,9 +102,9 @@
     }
 }
 
-- (void)galleryButton:(id)sender didSelectImage:(UIImage *)image {
-    if ([self.delegate respondsToSelector:@selector(inputView:selectedImageToSend:)]) {
-        [self.delegate inputView:self selectedImageToSend:image];
+- (void)galleryButton:(id)sender didSelectMedia:(PHAsset *)asset {
+    if ([self.delegate respondsToSelector:@selector(inputView:selectedMediaToSend:)]) {
+        [self.delegate inputView:self selectedMediaToSend:asset];
     }
 }
 
