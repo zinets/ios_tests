@@ -10,6 +10,7 @@
 
 #import "MediaPickerCell.h"
 #import "MiniMediaPickerRestrictedView.h"
+#import "MiniMediaPickerEmptyView.h"
 
 @interface MiniMediaPicker() <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource> {
     PHFetchResult <PHAsset *> *fetchedAlbumItems;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *moreButton;
 @property (nonatomic, strong) UIView *restrictPlaceholder;
+@property (nonatomic, strong) UIView *emptyPlaceholder;
 
 @property (nonatomic) PHAuthorizationStatus authStatus;
 @end
@@ -25,14 +27,25 @@
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-            self.authStatus = status;
-        }];
-        
         [self addSubview:self.collectionView];
         [self addSubview:self.moreButton];
         
-        [self updateDatasource];
+        self.authStatus = [PHPhotoLibrary authorizationStatus];
+        if (self.authStatus == PHAuthorizationStatusAuthorized) {
+            [self updateDatasource];
+        } else {
+            [self addSubview:self.restrictPlaceholder];
+            
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    [self.restrictPlaceholder removeFromSuperview];
+                    self.authStatus = status;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self updateDatasource];
+                    });
+                }
+            }];
+        }
     }
     return self;
 }
@@ -79,6 +92,14 @@
     return _restrictPlaceholder;
 }
 
+-(UIView *)emptyPlaceholder {
+    if (!_emptyPlaceholder) {
+        _emptyPlaceholder = [[MiniMediaPickerEmptyView alloc] initWithFrame:self.bounds];
+        _emptyPlaceholder.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    }
+    return _emptyPlaceholder;
+}
+
 #pragma mark collection
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -121,10 +142,10 @@
                     fetchedAlbumItems = [PHAsset fetchAssetsInAssetCollection:collection options:options];
                 }];
 
+                [self.collectionView reloadData];
             } break;
-            default: {
-                [self addSubview:self.restrictPlaceholder];
-            } break;
+            default: // если было запрещено - то так и осталось; а значит и делать ничего не буду
+                break;
         }
     
 }

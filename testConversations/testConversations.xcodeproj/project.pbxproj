@@ -34,6 +34,8 @@
 		3B4B828C200E1E0800DABEC9 /* RMNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8287200E1DAB00DABEC9 /* RMNibLoader.m */; };
 		3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8289200E1DAB00DABEC9 /* RMNibLoadedView.m */; };
 		3B4B828E200E1E0D00DABEC9 /* RMCachingNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */; };
+		3B4B8291200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8290200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m */; };
+		3B4B8293200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B8292200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
 		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
 		D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */; };
@@ -95,6 +97,9 @@
 		3B4B8289200E1DAB00DABEC9 /* RMNibLoadedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMNibLoadedView.m; sourceTree = "<group>"; };
 		3B4B828A200E1DAB00DABEC9 /* RMNibLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNibLoader.h; sourceTree = "<group>"; };
 		3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMCachingNibLoader.m; sourceTree = "<group>"; };
+		3B4B828F200E1FB800DABEC9 /* MiniMediaPickerEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniMediaPickerEmptyView.h; sourceTree = "<group>"; };
+		3B4B8290200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniMediaPickerEmptyView.m; sourceTree = "<group>"; };
+		3B4B8292200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniMediaPickerEmptyView.xib; sourceTree = "<group>"; };
 		D62A639CB245DCC3A0CF5CFA /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
 		D62A665567B5070FB4B9D515 /* DailyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyMessages.m; sourceTree = "<group>"; };
 		D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
@@ -229,11 +234,7 @@
 			children = (
 				3B4B8270200DF2BB00DABEC9 /* MiniMediaPicker.h */,
 				3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */,
-				3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */,
-				3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */,
-				3B4B827B200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib */,
-				3B4B827D200E194D00DABEC9 /* MiniMediaPickerRestrictedView.h */,
-				3B4B827E200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m */,
+				3B4B8294200E208800DABEC9 /* cells */,
 				3B4B8283200E1A9400DABEC9 /* MediaPickerResources.xcassets */,
 			);
 			path = "media picker";
@@ -250,6 +251,21 @@
 				3B4B828B200E1DAB00DABEC9 /* RMCachingNibLoader.m */,
 			);
 			path = NibLoadedView;
+			sourceTree = "<group>";
+		};
+		3B4B8294200E208800DABEC9 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */,
+				3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */,
+				3B4B827B200E191D00DABEC9 /* MiniMediaPickerRestrictedView.xib */,
+				3B4B827D200E194D00DABEC9 /* MiniMediaPickerRestrictedView.h */,
+				3B4B827E200E194D00DABEC9 /* MiniMediaPickerRestrictedView.m */,
+				3B4B828F200E1FB800DABEC9 /* MiniMediaPickerEmptyView.h */,
+				3B4B8290200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m */,
+				3B4B8292200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		D62A6B6FFC6A55B28BC0CB9A /* controls */ = {
@@ -346,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4B8293200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib in Resources */,
 				3B16FFB6200CE57C007B5D68 /* InputViewController.xib in Resources */,
 				3B16FFB8200CFBEC007B5D68 /* inputViewResources.xcassets in Resources */,
 				3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */,
@@ -383,6 +400,7 @@
 				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
 				3B4B828C200E1E0800DABEC9 /* RMNibLoader.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
+				3B4B8291200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m in Sources */,
 				3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */,
 				3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
