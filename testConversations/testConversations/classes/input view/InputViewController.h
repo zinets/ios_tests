@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InputViewController : UIViewController
-
+@property (nonatomic) BOOL cameraButtonVisible;
+@property (nonatomic) BOOL galleryButtonVisible;
 @end

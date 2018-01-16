@@ -45,6 +45,12 @@
 		3B16FFB3200CE57C007B5D68 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		3B16FFB4200CE57C007B5D68 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		3B16FFB7200CFBEC007B5D68 /* inputViewResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = inputViewResources.xcassets; sourceTree = "<group>"; };
+		3B16FFB9200DD261007B5D68 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
+		3B16FFBA200DD261007B5D68 /* SourceSansPro-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		3B16FFBB200DD262007B5D68 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		3B16FFBC200DD262007B5D68 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
+		3B16FFBD200DD262007B5D68 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
+		3B16FFBE200DD263007B5D68 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		3B25EED81FFFA286001447B5 /* testConversations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testConversations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B25EEDB1FFFA286001447B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B25EEDC1FFFA286001447B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -163,6 +169,12 @@
 				3B25EEEA1FFFA286001447B5 /* main.m */,
 				D62A6B4B8A1942B01D81E2EF /* avatar1.png */,
 				D62A639CB245DCC3A0CF5CFA /* avatar2.png */,
+				3B16FFBC200DD262007B5D68 /* SourceSansPro-Italic.ttf */,
+				3B16FFBB200DD262007B5D68 /* SourceSansPro-Light.ttf */,
+				3B16FFBD200DD262007B5D68 /* SourceSansPro-LightItalic.ttf */,
+				3B16FFBE200DD263007B5D68 /* SourceSansPro-Regular.ttf */,
+				3B16FFB9200DD261007B5D68 /* SourceSansPro-SemiBold.ttf */,
+				3B16FFBA200DD261007B5D68 /* SourceSansPro-SemiBoldItalic.ttf */,
 			);
 			path = testConversations;
 			sourceTree = "<group>";
