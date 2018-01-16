@@ -57,4 +57,10 @@
     return (CGSize){w, h};
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(miniMediaPicker:didSelectImage:)]) {
+        [self.delegate miniMediaPicker:self didSelectImage:[UIImage imageNamed:@"tolka.jpg"]];
+    }
+}
+
 @end

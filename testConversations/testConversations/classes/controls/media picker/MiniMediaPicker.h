@@ -10,6 +10,15 @@
 
 // показывает гридом фоточки из "камера рол"; или заглушку "нет фото"; или заглушку "нет доступа"
 // и может повести в "большой" выбор из библиотеки
-@interface MiniMediaPicker : UIView
 
+@protocol MiniMediaPickerDelegate <NSObject>
+/// мини пикер хочет показать взрослый выбор медиа (с альбомами и прочим)
+- (void)miniMediaPickerWantsShowFullLibrary:(id)sender;
+/// выбрали картинку
+- (void)miniMediaPicker:(id)sender didSelectImage:(UIImage *)image;
+/// выбрали видосик
+@end
+
+@interface MiniMediaPicker : UIView
+@property (nonatomic, weak) id <MiniMediaPickerDelegate> delegate;
 @end

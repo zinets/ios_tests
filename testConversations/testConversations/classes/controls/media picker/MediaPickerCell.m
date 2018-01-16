@@ -12,7 +12,13 @@
 
 -(instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor redColor];
+        UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tolka.jpg"]];
+        iv.frame = self.bounds;
+        iv.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        iv.contentMode = UIViewContentModeScaleToFill;
+        iv.clipsToBounds = YES;
+        
+        [self.contentView addSubview:iv];
     }
     return self;
 }

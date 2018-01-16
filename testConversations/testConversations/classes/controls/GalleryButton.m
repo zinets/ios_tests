@@ -8,8 +8,8 @@
 #import "GalleryButton.h"
 #import "MiniMediaPicker.h"
 
-@interface GalleryButton ()
-@property (nonatomic, strong) UIView *inputView;
+@interface GalleryButton () <MiniMediaPickerDelegate>
+@property (nonatomic, strong) MiniMediaPicker *inputView;
 @end
 
 @implementation GalleryButton
@@ -23,15 +23,29 @@
     return [super resignFirstResponder];    
 }
 
--(UIView *)inputView {
+-(MiniMediaPicker *)inputView {
     if (!_inputView) {
-        _inputView = [[MiniMediaPicker alloc] initWithFrame:(CGRect){0, 0, 320, 258}];
-        
-        
+        _inputView = [[MiniMediaPicker alloc] initWithFrame:(CGRect){0, 0, 320, 258}];       
+        _inputView.delegate = self;
         
         
     }
     return _inputView;
+}
+
+- (void)miniMediaPickerWantsShowFullLibrary:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(galleryButtonWantsShowFullLibrary:)]) {
+        [self.delegate galleryButtonWantsShowFullLibrary:self];
+    }
+}
+
+- (void)miniMediaPicker:(id)sender didSelectImage:(UIImage *)image {
+    [self resignFirstResponder];
+    _inputView = nil;
+    
+    if ([self.delegate respondsToSelector:@selector(galleryButton:didSelectImage:)]) {
+        [self.delegate galleryButton:self didSelectImage:image];
+    }
 }
 
 @end

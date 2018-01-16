@@ -8,20 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    InputViewButtonCamera,
-    InputViewButtonGallery,
-    InputViewButtonPostMessage,
-} InputViewButton;
-
 @protocol InputViewControllerDelegate <NSObject>
-- (void)inputView:(id)sender didSelectButton:(InputViewButton)buttonType;
+- (void)inputView:(id)sender selectedImageToSend:(UIImage *)image;
+- (void)inputView:(id)sender enteredTextToSend:(NSString *)text;
+
+- (void)inputViewWantsToOpenCamera:(id)sender;
+- (void)inputViewWantsToOpenGallery:(id)sender;
 @end
 
 @interface InputViewController : UIViewController
 @property (nonatomic) BOOL cameraButtonVisible;
 @property (nonatomic) BOOL galleryButtonVisible;
 
-@property (nonatomic, strong) NSString *text;
 @property (nonatomic, weak) id <InputViewControllerDelegate> delegate;
 @end

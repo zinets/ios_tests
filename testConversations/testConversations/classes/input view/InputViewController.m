@@ -8,19 +8,20 @@
 
 #import "InputViewController.h"
 #import "GrowingTextView.h"
+#import "GalleryButton.h"
 
-@interface InputViewController () <UITextViewDelegate>
+@interface InputViewController () <UITextViewDelegate, GalleryButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet GrowingTextView *textInputView;
+@property (nonatomic, strong) NSString *text;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cameraButtonWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *galleryButtonWidth;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *cameraButton;
-@property (weak, nonatomic) IBOutlet UIButton *galleryButton;
+@property (weak, nonatomic) IBOutlet GalleryButton *galleryButton;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
-
 
 @end
 
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.text = @"";
+    
+    self.galleryButton.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -66,17 +69,14 @@
 #pragma mark actions
 
 - (IBAction)onCameraButtonTap:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        [self.delegate inputView:self didSelectButton:(InputViewButtonCamera)];
+    if ([self.delegate respondsToSelector:@selector(inputViewWantsToOpenCamera:)]) {
+        [self.delegate inputViewWantsToOpenCamera:self];
     }
     // тут имо без вариантов надо убрать клавиатуру - щас перейдем в фотопарат
     [self.view endEditing:YES];
 }
 
 - (IBAction)onGalleryButtonTap:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        [self.delegate inputView:self didSelectButton:(InputViewButtonGallery)];
-    }
     if (self.galleryButton.selected) {
         [self.galleryButton resignFirstResponder];
     } else {
@@ -87,11 +87,25 @@
 }
 
 - (IBAction)onPostButtonTap:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
-        [self.delegate inputView:self didSelectButton:(InputViewButtonPostMessage)];
+    if ([self.delegate respondsToSelector:@selector(inputView:enteredTextToSend:)]) {
+        [self.delegate inputView:self enteredTextToSend:self.textInputView.text];
     }
     [self.textInputView resignFirstResponder];
     // а кто и где/когда обнулит текст? наверное кто-то "там" - вдруг текст сразу не отошлется? платежка там и прочее.. а когда отошлется - тогда и обнулит
+    // или нет; можно/может сделать inputView:enteredTextToSend: с результатов отправки?
+    self.textInputView.text = @"";
+}
+
+- (void)galleryButtonWantsShowFullLibrary:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(inputViewWantsToOpenGallery:)]) {
+        [self.delegate inputViewWantsToOpenGallery:self];
+    }
+}
+
+- (void)galleryButton:(id)sender didSelectImage:(UIImage *)image {
+    if ([self.delegate respondsToSelector:@selector(inputView:selectedImageToSend:)]) {
+        [self.delegate inputView:self selectedImageToSend:image];
+    }
 }
 
 #pragma mark text delegate
