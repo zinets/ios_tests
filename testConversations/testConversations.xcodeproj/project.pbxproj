@@ -24,6 +24,8 @@
 		3B25EEFB1FFFA7DF001447B5 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B25EEF91FFFA7DF001447B5 /* ConversationViewController.m */; };
 		3B25EF022004A679001447B5 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF002004A678001447B5 /* img1.jpg */; };
 		3B25EF032004A679001447B5 /* img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B25EF012004A678001447B5 /* img2.jpg */; };
+		3B4B8272200DF2BB00DABEC9 /* MiniMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */; };
+		3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
 		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
 		D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */; };
@@ -68,6 +70,10 @@
 		3B25EEF91FFFA7DF001447B5 /* ConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		3B25EF002004A678001447B5 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
 		3B25EF012004A678001447B5 /* img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpg; sourceTree = "<group>"; };
+		3B4B8270200DF2BB00DABEC9 /* MiniMediaPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniMediaPicker.h; sourceTree = "<group>"; };
+		3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniMediaPicker.m; sourceTree = "<group>"; };
+		3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaPickerCell.h; sourceTree = "<group>"; };
+		3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaPickerCell.m; sourceTree = "<group>"; };
 		D62A639CB245DCC3A0CF5CFA /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
 		D62A665567B5070FB4B9D515 /* DailyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyMessages.m; sourceTree = "<group>"; };
 		D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
@@ -193,6 +199,17 @@
 			path = classes;
 			sourceTree = "<group>";
 		};
+		3B4B8273200DF2C200DABEC9 /* media picker */ = {
+			isa = PBXGroup;
+			children = (
+				3B4B8270200DF2BB00DABEC9 /* MiniMediaPicker.h */,
+				3B4B8271200DF2BB00DABEC9 /* MiniMediaPicker.m */,
+				3B4B8274200DF82800DABEC9 /* MediaPickerCell.h */,
+				3B4B8275200DF82800DABEC9 /* MediaPickerCell.m */,
+			);
+			path = "media picker";
+			sourceTree = "<group>";
+		};
 		D62A6B6FFC6A55B28BC0CB9A /* controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +217,7 @@
 				D62A6A8447151F7AEF86EC17 /* RoundedView.m */,
 				3B16FFBF200DEF17007B5D68 /* GalleryButton.h */,
 				3B16FFC0200DEF17007B5D68 /* GalleryButton.m */,
+				3B4B8273200DF2C200DABEC9 /* media picker */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -313,9 +331,11 @@
 				D62A6B7EDEC7B701F32F34F5 /* ConversationCell.m in Sources */,
 				D62A6B3FCCD200088607583D /* ConversationCellConfig.m in Sources */,
 				D62A68BC220D474C191E24F9 /* DailyMessages.m in Sources */,
+				3B4B8272200DF2BB00DABEC9 /* MiniMediaPicker.m in Sources */,
 				3B16FFB5200CE57C007B5D68 /* InputViewController.m in Sources */,
 				D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
+				3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
 				3B16FF962008FC93007B5D68 /* UIViewController+Keyboard.m in Sources */,

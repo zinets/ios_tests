@@ -6,6 +6,7 @@
 //
 
 #import "GalleryButton.h"
+#import "MiniMediaPicker.h"
 
 @interface GalleryButton ()
 @property (nonatomic, strong) UIView *inputView;
@@ -24,8 +25,11 @@
 
 -(UIView *)inputView {
     if (!_inputView) {
-        _inputView = [[UIView alloc] initWithFrame:(CGRect){0, 0, 0, 258}];
-        _inputView.backgroundColor = [UIColor redColor];
+        _inputView = [[MiniMediaPicker alloc] initWithFrame:(CGRect){0, 0, 0, 258}];
+        
+        
+        
+        
     }
     return _inputView;
 }

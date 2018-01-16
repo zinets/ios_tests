@@ -77,8 +77,12 @@
     if ([self.delegate respondsToSelector:@selector(inputView:didSelectButton:)]) {
         [self.delegate inputView:self didSelectButton:(InputViewButtonGallery)];
     }
-    [self.galleryButton becomeFirstResponder];
-    self.galleryButton.selected = YES;
+    if (self.galleryButton.selected) {
+        [self.galleryButton resignFirstResponder];
+    } else {
+        [self.galleryButton becomeFirstResponder];
+        self.galleryButton.selected = YES;
+    }
     // тапы по кнопкам должны убирать клавиатуру? может не нужно и она "сама" как-то там уберется?.. заменится на экран выбора фото к примеру
 }
 
