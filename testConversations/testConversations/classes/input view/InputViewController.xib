@@ -77,6 +77,8 @@
                                 <constraint firstAttribute="height" constant="32" id="xUi-NT-ENF"/>
                             </constraints>
                             <state key="normal" image="send"/>
+                            <state key="selected" image="sendSelected"/>
+                            <state key="highlighted" image="sendSelected"/>
                             <connections>
                                 <action selector="onPostButtonTap:" destination="-1" eventType="touchUpInside" id="RWL-Ks-Joi"/>
                             </connections>
@@ -91,6 +93,8 @@
                                         <constraint firstAttribute="width" constant="32" id="hmh-GX-q5g"/>
                                     </constraints>
                                     <state key="normal" image="selectFromGallery"/>
+                                    <state key="selected" image="selectFromGallerySelected"/>
+                                    <state key="highlighted" image="selectFromGallerySelected"/>
                                     <connections>
                                         <action selector="onGalleryButtonTap:" destination="-1" eventType="touchUpInside" id="zuO-aH-IDR"/>
                                     </connections>
@@ -134,6 +138,8 @@
     <resources>
         <image name="makePhoto" width="32" height="32"/>
         <image name="selectFromGallery" width="32" height="32"/>
+        <image name="selectFromGallerySelected" width="32" height="32"/>
         <image name="send" width="32" height="32"/>
+        <image name="sendSelected" width="32" height="32"/>
     </resources>
 </document>
