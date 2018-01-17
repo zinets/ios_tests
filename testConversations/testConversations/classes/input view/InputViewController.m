@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.text = @"";
+    self.textPlaceholder = @"Type a message...";
     
     self.galleryButton.delegate = self;
 }
@@ -67,6 +68,11 @@
     return self.textInputView.text;
 }
 
+-(void)setTextPlaceholder:(NSString *)textPlaceholder {
+    _textPlaceholder = textPlaceholder;
+    self.placeholderLabel.text = _textPlaceholder;
+}
+
 #pragma mark actions
 
 - (IBAction)onCameraButtonTap:(id)sender {
@@ -93,7 +99,7 @@
     }
     [self.view endEditing:YES];
     // а кто и где/когда обнулит текст? наверное кто-то "там" - вдруг текст сразу не отошлется? платежка там и прочее.. а когда отошлется - тогда и обнулит
-    // или нет; можно/может сделать inputView:enteredTextToSend: с результатов отправки?
+    // или нет; можно/может сделать inputView:enteredTextToSend: с результатом отправки?
     self.text = @"";
 }
 

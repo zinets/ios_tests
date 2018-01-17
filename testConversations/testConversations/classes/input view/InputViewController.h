@@ -21,5 +21,7 @@
 @property (nonatomic) BOOL cameraButtonVisible;
 @property (nonatomic) BOOL galleryButtonVisible;
 
+@property (nonatomic, strong) NSString *textPlaceholder;
+
 @property (nonatomic, weak) id <InputViewControllerDelegate> delegate;
 @end
