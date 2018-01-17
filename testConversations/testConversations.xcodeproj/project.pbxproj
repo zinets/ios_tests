@@ -41,6 +41,10 @@
 		3B4B8298200E465500DABEC9 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFBE200DD263007B5D68 /* SourceSansPro-Regular.ttf */; };
 		3B4B8299200E465500DABEC9 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB9200DD261007B5D68 /* SourceSansPro-SemiBold.ttf */; };
 		3B4B829A200E465500DABEC9 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFBA200DD261007B5D68 /* SourceSansPro-SemiBoldItalic.ttf */; };
+		3B4B82FC200F7EFE00DABEC9 /* UsersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */; };
+		3B4B82FE200F7F0F00DABEC9 /* UsersListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */; };
+		3B4B8302200F83AE00DABEC9 /* UserListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8301200F83AE00DABEC9 /* UserListCell.m */; };
+		3B4B8305200F84B400DABEC9 /* UserListCounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8304200F84B400DABEC9 /* UserListCounterCell.m */; };
 		D62A62D0C9CBA4F3DB87568D /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D62A639CB245DCC3A0CF5CFA /* avatar2.png */; };
 		D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A688F0569BE82DBF784BF /* MessageModel.m */; };
 		D62A63B1BFE56E4D3DC60B46 /* ConversationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6D0D0685DAEA496D321F /* ConversationDataSource.m */; };
@@ -104,6 +108,13 @@
 		3B4B828F200E1FB800DABEC9 /* MiniMediaPickerEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniMediaPickerEmptyView.h; sourceTree = "<group>"; };
 		3B4B8290200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniMediaPickerEmptyView.m; sourceTree = "<group>"; };
 		3B4B8292200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniMediaPickerEmptyView.xib; sourceTree = "<group>"; };
+		3B4B82FA200F7EFE00DABEC9 /* UsersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsersListViewController.h; sourceTree = "<group>"; };
+		3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersListViewController.m; sourceTree = "<group>"; };
+		3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersListViewController.storyboard; sourceTree = "<group>"; };
+		3B4B8300200F83AE00DABEC9 /* UserListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListCell.h; sourceTree = "<group>"; };
+		3B4B8301200F83AE00DABEC9 /* UserListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListCell.m; sourceTree = "<group>"; };
+		3B4B8303200F84B400DABEC9 /* UserListCounterCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListCounterCell.h; sourceTree = "<group>"; };
+		3B4B8304200F84B400DABEC9 /* UserListCounterCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListCounterCell.m; sourceTree = "<group>"; };
 		D62A639CB245DCC3A0CF5CFA /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
 		D62A665567B5070FB4B9D515 /* DailyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyMessages.m; sourceTree = "<group>"; };
 		D62A6829EC7A2FEB55E8F1BE /* ConversationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationCell.m; sourceTree = "<group>"; };
@@ -212,6 +223,7 @@
 		3B25EEF11FFFA2F9001447B5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B4B82F9200F7E8C00DABEC9 /* users list */,
 				D62A6B6FFC6A55B28BC0CB9A /* controls */,
 				3B16FFA2200CA814007B5D68 /* dummy test classes */,
 				3B16FFA1200CA775007B5D68 /* keyboard support */,
@@ -275,6 +287,28 @@
 				3B16FFBA200DD261007B5D68 /* SourceSansPro-SemiBoldItalic.ttf */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		3B4B82F9200F7E8C00DABEC9 /* users list */ = {
+			isa = PBXGroup;
+			children = (
+				3B4B82FF200F837E00DABEC9 /* cells */,
+				3B4B82FA200F7EFE00DABEC9 /* UsersListViewController.h */,
+				3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */,
+				3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */,
+			);
+			path = "users list";
+			sourceTree = "<group>";
+		};
+		3B4B82FF200F837E00DABEC9 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				3B4B8300200F83AE00DABEC9 /* UserListCell.h */,
+				3B4B8301200F83AE00DABEC9 /* UserListCell.m */,
+				3B4B8303200F84B400DABEC9 /* UserListCounterCell.h */,
+				3B4B8304200F84B400DABEC9 /* UserListCounterCell.m */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		D62A6B6FFC6A55B28BC0CB9A /* controls */ = {
@@ -379,6 +413,7 @@
 				3B25EEE81FFFA286001447B5 /* LaunchScreen.storyboard in Resources */,
 				3B4B8295200E465500DABEC9 /* SourceSansPro-Italic.ttf in Resources */,
 				3B25EF032004A679001447B5 /* img2.jpg in Resources */,
+				3B4B82FE200F7F0F00DABEC9 /* UsersListViewController.storyboard in Resources */,
 				3B4B829A200E465500DABEC9 /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 				3B25EF022004A679001447B5 /* img1.jpg in Resources */,
 				3B25EEE51FFFA286001447B5 /* Assets.xcassets in Resources */,
@@ -403,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B25EEE01FFFA286001447B5 /* ViewController.m in Sources */,
+				3B4B8305200F84B400DABEC9 /* UserListCounterCell.m in Sources */,
 				3B25EEFB1FFFA7DF001447B5 /* ConversationViewController.m in Sources */,
 				3B25EEEB1FFFA286001447B5 /* main.m in Sources */,
 				3B4B828E200E1E0D00DABEC9 /* RMCachingNibLoader.m in Sources */,
@@ -417,8 +453,10 @@
 				3B4B828C200E1E0800DABEC9 /* RMNibLoader.m in Sources */,
 				D62A62F496F11EDE81D098DA /* MessageModel.m in Sources */,
 				3B4B8291200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m in Sources */,
+				3B4B8302200F83AE00DABEC9 /* UserListCell.m in Sources */,
 				3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */,
 				3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */,
+				3B4B82FC200F7EFE00DABEC9 /* UsersListViewController.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
 				3B4B8282200E19A100DABEC9 /* GradientPanel.m in Sources */,

@@ -61,7 +61,10 @@
 -(void)setText:(NSString *)text {
     self.textInputView.text = text;
     
+    self.placeholderLabel.hidden =
     self.postButton.enabled = /* todo проверка валидности текста */ text.length > 0;
+    
+    self.preferredContentSize = [self recalculatedHeight];
 }
 
 -(NSString *)text {
