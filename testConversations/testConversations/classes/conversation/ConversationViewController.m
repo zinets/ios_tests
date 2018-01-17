@@ -10,13 +10,15 @@
 #import "ConversationDataSource.h"
 #import "ConversationCell.h"
 #import "DailyMessages.h"
+#import "ConversationUsersListViewController.h"
 
 #import "UIViewController+Keyboard.h"
 
-@interface ConversationViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate>
+@interface ConversationViewController () <UITableViewDataSource, UITableViewDelegate, ConversationDataSourceDelegate, ConversationUsersListDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ConversationDataSource *dataSource;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewHeight;
+@property (nonatomic, weak) ConversationUsersListViewController *usersList;
 @end
 
 @implementation ConversationViewController {
@@ -44,6 +46,14 @@
     [super viewWillDisappear:animated];
     
     [self unregisterKeyboard];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIViewController *destController = segue.destinationViewController;
+    if ([destController isKindOfClass:[ConversationUsersListViewController class]]) {
+        self.usersList = destController;
+        self.usersList.delegate = self;
+    }
 }
 
 #pragma mark temp
@@ -339,6 +349,14 @@
         [cell applyConfig:config];
     }];
 //    [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:(UITableViewRowAnimationFade)];
+}
+
+- (void)listWantsShowAllUsersList:(id)sender {
+    
+}
+
+- (void)list:(id)sender wantsShowUser:(id)user {
+    
 }
 
 @end

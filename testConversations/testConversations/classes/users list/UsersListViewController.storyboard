@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Users List View Controller-->
+        <!--Conversation Users List View Controller-->
         <scene sceneID="Dg6-4m-H6x">
             <objects>
-                <viewController id="iPf-zM-Ngn" customClass="UsersListViewController" sceneMemberID="viewController">
+                <viewController id="iPf-zM-Ngn" customClass="ConversationUsersListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NdP-UX-Bsq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +95,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="64"/>
+                    <connections>
+                        <outlet property="collectionView" destination="CmH-t2-ZJB" id="h1c-z9-zUL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdI-A2-8Qe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

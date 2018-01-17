@@ -41,7 +41,7 @@
 		3B4B8298200E465500DABEC9 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFBE200DD263007B5D68 /* SourceSansPro-Regular.ttf */; };
 		3B4B8299200E465500DABEC9 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFB9200DD261007B5D68 /* SourceSansPro-SemiBold.ttf */; };
 		3B4B829A200E465500DABEC9 /* SourceSansPro-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B16FFBA200DD261007B5D68 /* SourceSansPro-SemiBoldItalic.ttf */; };
-		3B4B82FC200F7EFE00DABEC9 /* UsersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */; };
+		3B4B82FC200F7EFE00DABEC9 /* ConversationUsersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B82FB200F7EFE00DABEC9 /* ConversationUsersListViewController.m */; };
 		3B4B82FE200F7F0F00DABEC9 /* UsersListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */; };
 		3B4B8302200F83AE00DABEC9 /* UserListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8301200F83AE00DABEC9 /* UserListCell.m */; };
 		3B4B8305200F84B400DABEC9 /* UserListCounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B8304200F84B400DABEC9 /* UserListCounterCell.m */; };
@@ -108,8 +108,8 @@
 		3B4B828F200E1FB800DABEC9 /* MiniMediaPickerEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiniMediaPickerEmptyView.h; sourceTree = "<group>"; };
 		3B4B8290200E1FB800DABEC9 /* MiniMediaPickerEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiniMediaPickerEmptyView.m; sourceTree = "<group>"; };
 		3B4B8292200E1FCA00DABEC9 /* MiniMediaPickerEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniMediaPickerEmptyView.xib; sourceTree = "<group>"; };
-		3B4B82FA200F7EFE00DABEC9 /* UsersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsersListViewController.h; sourceTree = "<group>"; };
-		3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersListViewController.m; sourceTree = "<group>"; };
+		3B4B82FA200F7EFE00DABEC9 /* ConversationUsersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationUsersListViewController.h; sourceTree = "<group>"; };
+		3B4B82FB200F7EFE00DABEC9 /* ConversationUsersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationUsersListViewController.m; sourceTree = "<group>"; };
 		3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersListViewController.storyboard; sourceTree = "<group>"; };
 		3B4B8300200F83AE00DABEC9 /* UserListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListCell.h; sourceTree = "<group>"; };
 		3B4B8301200F83AE00DABEC9 /* UserListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListCell.m; sourceTree = "<group>"; };
@@ -293,8 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				3B4B82FF200F837E00DABEC9 /* cells */,
-				3B4B82FA200F7EFE00DABEC9 /* UsersListViewController.h */,
-				3B4B82FB200F7EFE00DABEC9 /* UsersListViewController.m */,
+				3B4B82FA200F7EFE00DABEC9 /* ConversationUsersListViewController.h */,
+				3B4B82FB200F7EFE00DABEC9 /* ConversationUsersListViewController.m */,
 				3B4B82FD200F7F0F00DABEC9 /* UsersListViewController.storyboard */,
 			);
 			path = "users list";
@@ -456,7 +456,7 @@
 				3B4B8302200F83AE00DABEC9 /* UserListCell.m in Sources */,
 				3B4B828D200E1E0B00DABEC9 /* RMNibLoadedView.m in Sources */,
 				3B4B8276200DF82800DABEC9 /* MediaPickerCell.m in Sources */,
-				3B4B82FC200F7EFE00DABEC9 /* UsersListViewController.m in Sources */,
+				3B4B82FC200F7EFE00DABEC9 /* ConversationUsersListViewController.m in Sources */,
 				D62A6FC64DF1534908A51232 /* RoundedView.m in Sources */,
 				3B16FFAD200CCF58007B5D68 /* GrowingTextView.m in Sources */,
 				3B4B8282200E19A100DABEC9 /* GradientPanel.m in Sources */,
