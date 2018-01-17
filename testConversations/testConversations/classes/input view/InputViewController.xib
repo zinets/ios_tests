@@ -110,11 +110,11 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9X-cM-poe">
-                            <rect key="frame" x="116" y="15" width="90.5" height="21"/>
+                            <rect key="frame" x="117" y="6" width="85" height="32"/>
                             <accessibility key="accessibilityConfiguration">
                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                             </accessibility>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -125,12 +125,13 @@
                         <constraint firstItem="oQ0-PR-WOq" firstAttribute="leading" secondItem="BYk-DS-a2D" secondAttribute="trailing" constant="8" id="3Pu-Wq-xlm"/>
                         <constraint firstItem="BYk-DS-a2D" firstAttribute="leading" secondItem="Lyh-HV-KM8" secondAttribute="trailing" constant="16" id="8cA-fm-EwS"/>
                         <constraint firstAttribute="bottom" secondItem="Lyh-HV-KM8" secondAttribute="bottom" id="C3W-Uk-4t8"/>
+                        <constraint firstItem="K9X-cM-poe" firstAttribute="leading" secondItem="BYk-DS-a2D" secondAttribute="leading" constant="5" id="MfL-Lw-8Z4"/>
                         <constraint firstItem="Lyh-HV-KM8" firstAttribute="leading" secondItem="sqb-6F-mXP" secondAttribute="trailing" id="NFX-dZ-X42"/>
-                        <constraint firstAttribute="bottom" secondItem="K9X-cM-poe" secondAttribute="bottom" constant="8" id="SBB-52-T6h"/>
                         <constraint firstAttribute="bottom" secondItem="oQ0-PR-WOq" secondAttribute="bottom" constant="6" id="SXK-eh-BqP"/>
                         <constraint firstItem="sqb-6F-mXP" firstAttribute="top" secondItem="3rk-dD-gDq" secondAttribute="top" id="T0L-JD-Zlg"/>
-                        <constraint firstItem="K9X-cM-poe" firstAttribute="leading" secondItem="BYk-DS-a2D" secondAttribute="leading" constant="4" id="ZyA-v3-oWA"/>
+                        <constraint firstAttribute="bottom" secondItem="K9X-cM-poe" secondAttribute="bottom" constant="6" id="beF-EZ-cIr"/>
                         <constraint firstItem="Lyh-HV-KM8" firstAttribute="top" secondItem="3rk-dD-gDq" secondAttribute="top" id="bt7-LJ-S1C"/>
+                        <constraint firstItem="K9X-cM-poe" firstAttribute="height" secondItem="BYk-DS-a2D" secondAttribute="height" id="dpi-EU-22F"/>
                         <constraint firstItem="sqb-6F-mXP" firstAttribute="leading" secondItem="3rk-dD-gDq" secondAttribute="leading" id="gXU-6C-Gjj"/>
                         <constraint firstItem="BYk-DS-a2D" firstAttribute="top" secondItem="3rk-dD-gDq" secondAttribute="top" constant="6" id="t2C-Hz-Rsy"/>
                         <constraint firstAttribute="bottom" secondItem="sqb-6F-mXP" secondAttribute="bottom" id="vZz-Ur-fEy"/>
