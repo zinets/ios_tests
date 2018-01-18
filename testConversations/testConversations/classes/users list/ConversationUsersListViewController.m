@@ -28,30 +28,9 @@ NSInteger itemsCount = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     internalItems = [NSMutableArray arrayWithCapacity:100];
-//    [internalItems addObject:@"0"];
 }
 
 #pragma mark setters
-
-- (IBAction)remove:(id)sender {
-    NSInteger removed = arc4random_uniform(internalItems.count);
-    NSMutableArray *newArray = [NSMutableArray arrayWithArray:internalItems];
-    [newArray removeObjectAtIndex:removed];
-    
-    self.items = newArray;
-}
-
-- (IBAction)add:(id)sender {
-    NSString *newItem = [NSString stringWithFormat:@"%@", @(itemsCount++)];
-    
-    NSArray *newArray = [internalItems arrayByAddingObject:newItem];
-    self.items = newArray;
-}
-
-- (IBAction)combo:(id)sender {
-    NSArray *newArray = @[@"1",@"3",@"5",@"6"];
-    self.items = newArray;
-}
 
 -(void)setItems:(NSArray *)items {
     // я сразу выкину юзеров, которые не могут быть показаны, чтоб не усложнять "логеку"
@@ -151,9 +130,6 @@ NSInteger itemsCount = 0;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [internalItems addObject:@(internalItems.count)];
-    [collectionView reloadData];
-    
     switch (indexPath.section) {
         case 0:
             if ([self.delegate respondsToSelector:@selector(list:wantsShowUser:)]) {
