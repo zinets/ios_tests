@@ -28,7 +28,7 @@ NSInteger itemsCount = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     internalItems = [NSMutableArray arrayWithCapacity:100];
-    [internalItems addObject:@"0"];
+//    [internalItems addObject:@"0"];
 }
 
 #pragma mark setters
