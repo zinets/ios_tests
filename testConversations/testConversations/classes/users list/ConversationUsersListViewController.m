@@ -12,12 +12,14 @@
 #import "UserListCounterCell.h"
 
 // в дизе в списке юзеров макс. 10 шт, потом - кнопка show all
-#define MAX_USERS_COUNT 10
+#define MAX_USERS_COUNT 5
+NSInteger itemsCount = 0;
 
 @interface ConversationUsersListViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
-    NSMutableArray *internalItems;
+    NSMutableArray <NSString *> *internalItems;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic) BOOL showAllVisible;
 
 @end
 
@@ -26,10 +28,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     internalItems = [NSMutableArray arrayWithCapacity:100];
-    [internalItems addObject:@1];
+    [internalItems addObject:@"0"];
 }
 
 #pragma mark setters
+
+- (IBAction)remove:(id)sender {
+    NSInteger removed = arc4random_uniform(internalItems.count);
+    NSMutableArray *newArray = [NSMutableArray arrayWithArray:internalItems];
+    [newArray removeObjectAtIndex:removed];
+    
+    self.items = newArray;
+}
+
+- (IBAction)add:(id)sender {
+    NSString *newItem = [NSString stringWithFormat:@"%@", @(itemsCount++)];
+    
+    NSArray *newArray = [internalItems arrayByAddingObject:newItem];
+    self.items = newArray;
+}
+
+- (IBAction)combo:(id)sender {
+    NSArray *newArray = @[@"1",@"3",@"5",@"6"];
+    self.items = newArray;
+}
 
 -(void)setItems:(NSArray *)items {
     // я сразу выкину юзеров, которые не могут быть показаны, чтоб не усложнять "логеку"
@@ -70,6 +92,12 @@
         if (indexPathesToInsert.count) {
             [self.collectionView insertItemsAtIndexPaths:indexPathesToInsert];
         }
+        if (self.showAllVisible && items.count <= MAX_USERS_COUNT) { // удалить show all
+            [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:1]];
+        } else if (!self.showAllVisible && items.count > MAX_USERS_COUNT) { // добавить show all
+            [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:1]];
+        }
+        self.showAllVisible = items.count > MAX_USERS_COUNT;
     } completion:^(BOOL finished) {
         
     }];
@@ -80,7 +108,7 @@
 // мне так удобно - в первой секции показываем не большее 10 юзеров, в 2й - 1 ячейку с see all
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return internalItems.count > MAX_USERS_COUNT ? 2 : 1;
+    return self.showAllVisible ? 2 : 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -102,7 +130,7 @@
     switch (indexPath.section) {
         case 0: {
             UserListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UserListCell" forIndexPath:indexPath];
-            // бла-бла
+            cell.label.text = internalItems[indexPath.item];
             return cell;
         }
         case 1: {
