@@ -11,7 +11,24 @@
 
 @implementation MentionLabel
 
-@synthesize mentionColor = _mentionColor;
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    _mentionColor = [UIColor whiteColor];
+    _mentionCornerRadius = 3;
+}
 
 - (void)drawRect:(CGRect)rect {
     [self draw3:rect];
@@ -62,7 +79,8 @@
     // пиу-пиу - получили орижины строк; фреймсеттер разбил текст на lines, исходя из текущего шрифта и ограничивающего path
     // каждая строка состоит из runs (бл я хз как по кацапски) - наборов глифов, "..бегущих в одну сторону" :)
     
-    NSString *obisyana = @"@\\w.*?\\b";
+//    NSString *obisyana = @"@\\w.*?\\b";
+    NSString *obisyana = @"\\B\\@([\\w\\-]+)";
     NSRange r = [self.text rangeOfString:obisyana options:NSRegularExpressionSearch];
     // подход "ищем слово с обизянкой, пока слова находятся - ищем их в строках"
     // можжет надо "перебрать строки, в каждой искать обизянок", но пусть сначала заработает
@@ -96,7 +114,7 @@
                     // ну и наконец вроде все ж готиво; но ascent + descent вроде и высота текста, а визуально х зна что получается, ровно от базовой линии и вверх
                     CGRect frm = CGRectMake(xMin - 2, yMin - 2, w + 4, ascent + descent + 4);
 
-                    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:4];
+                    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:self.mentionCornerRadius];
                     CGContextAddPath(context, path.CGPath);
                     CGContextFillPath(context);
                     // тадам! нарисовал балунчик чотко под словом-обизянкой (ну пока не чотко, но по сравнению с первыми попытками "это космос")
@@ -126,13 +144,6 @@
 -(void)setMentionColor:(UIColor *)mentionColor {
     _mentionColor = mentionColor;
     [self setNeedsDisplay];
-}
-
--(UIColor *)mentionColor {
-    if (!_mentionColor) {
-        _mentionColor = [UIColor whiteColor];
-    }
-    return _mentionColor;
 }
 
 @end
