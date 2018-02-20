@@ -74,7 +74,7 @@
             CTLineRef line = CFArrayGetValueAtIndex(lines, lineIndex);
             CFRange lineRange = CTLineGetStringRange(line);
             // взяли строку, ну не строку, но в общем строку; и получили область этой строки в исходном тексте - и смотрим, не в ней ли находится очередное найденное слово-обизянка
-            if (r.location > lineRange.location && r.location < lineRange.location + lineRange.length) {
+            if (r.location >= lineRange.location && r.location < lineRange.location + lineRange.length) {
                 // чото ссыкотно, правильно ли я условие написал?..
                 
                 // тупо, хотя по идее сойдет, зачем усложнять что работает: это позиция слова-обизянки в строке (одной из, а не вообще в тексте)
@@ -92,9 +92,9 @@
                     CGFloat w = CTRunGetTypographicBounds(run, CFRangeMake(index, r.length), &ascent, &descent, &leading);
                     // ширина допустим есть; с x работает каким то чудом: я спрашиваю отступ для символов в промежутке; но к примеру в 3й строке отступ для слова, которое начинается с 8й позиции - надо спрашивать не с stringIndex = 8 - а позицию 3й строки + 8 - чука ну вообще не очевидно было
                     CGFloat xMin = CTLineGetOffsetForStringIndex(line, lineRange.location + index, NULL);
-                    CGFloat yMin = lineOrigin.y;
+                    CGFloat yMin = lineOrigin.y - descent;
                     // ну и наконец вроде все ж готиво; но ascent + descent вроде и высота текста, а визуально х зна что получается, ровно от базовой линии и вверх
-                    CGRect frm = CGRectMake(xMin - 2, yMin, w + 4, ascent + descent);
+                    CGRect frm = CGRectMake(xMin - 2, yMin - 2, w + 4, ascent + descent + 4);
 
                     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:4];
                     CGContextAddPath(context, path.CGPath);
@@ -120,7 +120,7 @@
     // но выглядит результат совсем не так, как если бы вызвать drawRect суперовский и ничего больше не делать
     
     
-    // 1) странная херь если добавить @ к первому же слову - не детектится..
+    
 }
 
 -(void)setMentionColor:(UIColor *)mentionColor {
