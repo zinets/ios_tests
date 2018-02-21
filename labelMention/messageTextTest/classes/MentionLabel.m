@@ -27,7 +27,9 @@
 
 - (void)commonInit {
     _mentionColor = [UIColor whiteColor];
-    _mentionCornerRadius = 3;
+    _mentionCornerRadius = 5;
+    _mentionPadding = 2;
+    _mentionTextColor = [self.textColor copy];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -39,8 +41,9 @@
 - (void)draw3:(CGRect)rect {
     // как меня задрал этот код!! я ненавижу тексты
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
     CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
-    CGContextFillRect(context, rect);
+//    CGContextFillRect(context, rect);
     // просто для наглядности залью все жОлтым
     
     CGContextSetFillColorWithColor(context, self.mentionColor.CGColor);
@@ -79,7 +82,6 @@
     // пиу-пиу - получили орижины строк; фреймсеттер разбил текст на lines, исходя из текущего шрифта и ограничивающего path
     // каждая строка состоит из runs (бл я хз как по кацапски) - наборов глифов, "..бегущих в одну сторону" :)
     
-//    NSString *obisyana = @"@\\w.*?\\b";
     NSString *obisyana = @"\\B\\@([\\w\\-]+)";
     NSRange r = [self.text rangeOfString:obisyana options:NSRegularExpressionSearch];
     // подход "ищем слово с обизянкой, пока слова находятся - ищем их в строках"
@@ -110,14 +112,17 @@
                     CGFloat w = CTRunGetTypographicBounds(run, CFRangeMake(index, r.length), &ascent, &descent, &leading);
                     // ширина допустим есть; с x работает каким то чудом: я спрашиваю отступ для символов в промежутке; но к примеру в 3й строке отступ для слова, которое начинается с 8й позиции - надо спрашивать не с stringIndex = 8 - а позицию 3й строки + 8 - чука ну вообще не очевидно было
                     CGFloat xMin = CTLineGetOffsetForStringIndex(line, lineRange.location + index, NULL);
+                    // так чтоб прям уперется справа в край контрола это вряд ли, а слева может обрезаться край
+                    CGFloat dx = xMin > 0 ? self.mentionPadding : 0;
                     CGFloat yMin = lineOrigin.y - descent;
+                    CGFloat dy = yMin > 0 ? self.mentionPadding : 0;
                     // ну и наконец вроде все ж готиво; но ascent + descent вроде и высота текста, а визуально х зна что получается, ровно от базовой линии и вверх
-                    CGRect frm = CGRectMake(xMin - 2, yMin - 2, w + 4, ascent + descent + 4);
+                    CGRect frm = (CGRect){xMin - dx, yMin - dy, dx + w + self.mentionPadding, dy + (ascent + descent) + self.mentionPadding};
 
                     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:self.mentionCornerRadius];
                     CGContextAddPath(context, path.CGPath);
                     CGContextFillPath(context);
-                    // тадам! нарисовал балунчик чотко под словом-обизянкой (ну пока не чотко, но по сравнению с первыми попытками "это космос")
+                    // тадам! нарисовал балунчик чотко под словом-обизянкой
                 }
             }
         }
@@ -136,7 +141,6 @@
     
     // хз, может что потерял - найдется в фабрике когда падать начнет
     // но выглядит результат совсем не так, как если бы вызвать drawRect суперовский и ничего больше не делать
-    
     
     
 }

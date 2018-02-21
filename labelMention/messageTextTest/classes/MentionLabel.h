@@ -10,5 +10,7 @@
 
 @interface MentionLabel : UILabel
 @property (nonatomic, strong) IBInspectable UIColor *mentionColor;
+@property (nonatomic, strong) IBInspectable UIColor *mentionTextColor;
 @property (nonatomic) IBInspectable CGFloat mentionCornerRadius;
+@property (nonatomic) IBInspectable CGFloat mentionPadding;
 @end
