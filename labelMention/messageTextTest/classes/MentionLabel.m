@@ -29,6 +29,7 @@
     _mentionColor = [UIColor whiteColor];
     _mentionCornerRadius = 5;
     _mentionPadding = 2;
+    _lineHeight = self.font.pointSize;
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -58,9 +59,20 @@
     // теперь ятакдумаю для того, чтобы мой вариант рендерился точно как оригинал надо настроить шрифт
     CTFontRef font = (__bridge CTFontRef)self.font;
     CGColorRef textColor = (__bridge CGColorRef)self.textColor;
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.minimumLineHeight = self.lineHeight;
+    CTParagraphStyleRef paraStyle = (__bridge CTParagraphStyleRef)paragraphStyle;
     
-    CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
-    CFTypeRef values[] = { font, textColor };
+    CFStringRef keys[] = {
+        kCTFontAttributeName,
+        kCTForegroundColorAttributeName,
+        kCTParagraphStyleAttributeName,
+    };
+    CFTypeRef values[] = {
+        font,
+        textColor,
+        paraStyle,
+    };
     CFDictionaryRef attributes = CFDictionaryCreate(kCFAllocatorDefault, (const void**)&keys, (const void**)&values, sizeof(keys) / sizeof(keys[0]), &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
     
     CFMutableAttributedStringRef attrString = CFAttributedStringCreateMutableCopy(kCFAllocatorDefault, 0, CFAttributedStringCreate(kCFAllocatorDefault, (__bridge CFStringRef)self.text, attributes));
@@ -138,7 +150,8 @@
                     CGFloat dy = yMin > 0 ? self.mentionPadding : 0;
                     // ну и наконец вроде все ж готиво; но ascent + descent вроде и высота текста, а визуально х зна что получается, ровно от базовой линии и вверх
                     // короче с высотой строки мне не очень понятно, но вот так визуально норм
-                    CGRect frm = (CGRect){xMin - dx, yMin - dy, dx + w + self.mentionPadding, dy + ascent + self.mentionPadding};
+                    // вариант номер очередной: высота балуна-упоминания == высоте строки по дизу
+                    CGRect frm = (CGRect){xMin - dx, yMin - dy, dx + w + self.mentionPadding, /*dy + ascent + self.mentionPadding*/self.lineHeight};
 
                     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:self.mentionCornerRadius];
                     CGContextAddPath(context, path.CGPath);
@@ -168,6 +181,21 @@
 
 -(void)setMentionColor:(UIColor *)mentionColor {
     _mentionColor = mentionColor;
+    [self setNeedsDisplay];
+}
+
+-(void)setMentionPadding:(CGFloat)mentionPadding {
+    _mentionPadding = mentionPadding;
+    [self setNeedsDisplay];
+}
+
+-(void)setMentionCornerRadius:(CGFloat)mentionCornerRadius {
+    _mentionCornerRadius = mentionCornerRadius;
+    [self setNeedsDisplay];
+}
+
+-(void)setLineHeight:(CGFloat)lineHeight {
+    _lineHeight = lineHeight;
     [self setNeedsDisplay];
 }
 
