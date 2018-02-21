@@ -29,7 +29,6 @@
     _mentionColor = [UIColor whiteColor];
     _mentionCornerRadius = 5;
     _mentionPadding = 2;
-    _mentionTextColor = [self.textColor copy];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -42,10 +41,7 @@
     // как меня задрал этот код!! я ненавижу тексты
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
-//    CGContextFillRect(context, rect);
-    // просто для наглядности залью все жОлтым
-    
+    CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor);
     CGContextSetFillColorWithColor(context, self.mentionColor.CGColor);
     // а сноски будут фиолетовыми в крапинку
     
@@ -59,16 +55,31 @@
     // rect нам пришел готовый, label расперта констрантами и содержимым занимает идеально вот столько места - rect
     // и фреймсеттер будет ограничивать вывод текста этим path (чернопрохдцы могут тут даже ограничить текст кружальцем.. или цветным флагом)
     
-    CFMutableAttributedStringRef attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0);
-    CFAttributedStringReplaceString (attrString, CFRangeMake(0, 0), (__bridge CFStringRef)self.text);
-    // тут для меня магия; целый день нихера не получалось, потому что передавал текст вот так (__bridge CFAttributedStringRef)self.attributedText - каким-то образом он воспринималься фреймсеттером в одну строку и я трахал моск не понимая, почему только первый @aaa подсвечивается; потом выяснилось, что не первый, а только в первой строке..
+    // теперь ятакдумаю для того, чтобы мой вариант рендерился точно как оригинал надо настроить шрифт
+    CTFontRef font = (__bridge CTFontRef)self.font;
+    CGColorRef textColor = (__bridge CGColorRef)self.textColor;
+    
+    CFStringRef keys[] = { kCTFontAttributeName, kCTForegroundColorAttributeName };
+    CFTypeRef values[] = { font, textColor };
+    CFDictionaryRef attributes = CFDictionaryCreate(kCFAllocatorDefault, (const void**)&keys, (const void**)&values, sizeof(keys) / sizeof(keys[0]), &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    
+    CFMutableAttributedStringRef attrString = CFAttributedStringCreateMutableCopy(kCFAllocatorDefault, 0, CFAttributedStringCreate(kCFAllocatorDefault, (__bridge CFStringRef)self.text, attributes));
+    CFRelease(attributes);
+    
+//    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGFloat components[] = { 1.0, 0.0, 0.0, 0.8 };
+//    CGColorRef red = CGColorCreate(rgbColorSpace, components);
+//    CGColorSpaceRelease(rgbColorSpace);
+//
+//        CFAttributedStringSetAttribute(attrString, CFRangeMake(10, 12), kCTForegroundColorAttributeName, red);
+
     
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(attrString);
     // а если так - то она обрезается.. странно
     //    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self.attributedText); вот если оставить этот код, то получим одну строку, обрезанную "..."
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, [self.attributedText length]), path, NULL);
 
-    // забавное: если рисовать фрейм здесь - то потом балунчики рисуются черного цвета, если в конце метожа - то правильного пурпленого.. никуа не понимаю :)
+    // забавное: если рисовать фрейм здесь - то потом балунчики рисуются черного цвета, если в конце метода - то правильного пурпленого.. никуа не понимаю :)
 //    CTFrameDraw(frame, context);
     
     CFArrayRef lines = CTFrameGetLines(frame);
@@ -88,6 +99,15 @@
     // можжет надо "перебрать строки, в каждой искать обизянок", но пусть сначала заработает
     while (r.location != NSNotFound) {
         NSLog(@"%@", NSStringFromRange(r));
+        
+//        CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+//        CGFloat components[] = { 1.0, 0.0, 0.0, 0.8 };
+//        CGColorRef red = CGColorCreate(rgbColorSpace, components);
+//        CGColorSpaceRelease(rgbColorSpace);
+//        
+//        // Set the color of the first 12 chars to red.
+//        CFAttributedStringSetAttribute(attrString, CFRangeMake(10, 12),
+//                                       kCTForegroundColorAttributeName, red);
         
         for (CFIndex lineIndex = 0; lineIndex < numberOfLines; lineIndex++) {
             CGPoint lineOrigin = lineOrigins[lineIndex];
@@ -117,7 +137,8 @@
                     CGFloat yMin = lineOrigin.y - descent;
                     CGFloat dy = yMin > 0 ? self.mentionPadding : 0;
                     // ну и наконец вроде все ж готиво; но ascent + descent вроде и высота текста, а визуально х зна что получается, ровно от базовой линии и вверх
-                    CGRect frm = (CGRect){xMin - dx, yMin - dy, dx + w + self.mentionPadding, dy + (ascent + descent) + self.mentionPadding};
+                    // короче с высотой строки мне не очень понятно, но вот так визуально норм
+                    CGRect frm = (CGRect){xMin - dx, yMin - dy, dx + w + self.mentionPadding, dy + ascent + self.mentionPadding};
 
                     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frm cornerRadius:self.mentionCornerRadius];
                     CGContextAddPath(context, path.CGPath);
@@ -132,7 +153,7 @@
         r = [self.text rangeOfString:obisyana options:NSRegularExpressionSearch range:(NSRange){nextLocation, remainingLength}];
     }
     
-    // finnaly - кончились слова, надо освободить память и наросовать текст
+    // finnaly - кончились слова, надо освободить память и нарисовать текст
     CFRelease(framesetter);
     CFRelease(path);
     
