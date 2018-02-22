@@ -10,11 +10,52 @@
 #import "TableViewCell.h"
 #import "InputViewAccessoryView.h"
 
+@interface MessageStorage : NSTextStorage {
+    NSMutableAttributedString *storage;
+}
+
+@end
+
+@implementation MessageStorage
+
+- (id)init {
+    if (self = [super init]) {
+        storage = [NSMutableAttributedString new];
+    }
+    return self;
+}
+
+- (NSString *)string {
+    return storage.string;
+}
+
+- (NSDictionary *)attributesAtIndex:(NSUInteger)location effectiveRange:(NSRangePointer)range {
+    return [storage attributesAtIndex:location effectiveRange:range];
+}
+
+- (void)replaceCharactersInRange:(NSRange)range withString:(NSString *)str {
+    [storage replaceCharactersInRange:range withString:str];
+    [self edited:NSTextStorageEditedCharacters range:range changeInLength:(NSInteger)str.length - (NSInteger)range.length];
+}
+
+- (void)setAttributes:(NSDictionary *)attrs range:(NSRange)range {
+    [storage setAttributes:attrs range:range];
+    [self edited:NSTextStorageEditedAttributes range:range changeInLength:0];
+}
+
+- (void)processEditing {
+    [super processEditing];
+}
+
+@end
+
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, InputViewAccessoryViewDelegate> {
     NSArray *array;
+    MessageStorage *storage;
 }
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 @property (strong, nonatomic) IBOutlet InputViewAccessoryView *accessoryView;
 
 @end
@@ -35,9 +76,14 @@
     
     self.label.text = @"Lorem ipsum @dolor sit er elit lamet, consectetaur cillium @adipisicing pecu, sed @do eiusmod tempor incididunt ut labore et dolore magna.";
     
+//    storage = [MessageStorage new];
+//    [storage addLayoutManager:self.textView.layoutManager];
+    
     self.accessoryView.dataSource = array;
     self.accessoryView.delegate = self;
-    self.textField.inputAccessoryView = self.accessoryView;
+    self.textView.inputAccessoryView = self.accessoryView;
+    
+    
 }
 
 

@@ -25,6 +25,10 @@
     [super setSelected:NO animated:NO];
 }
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:NO];
+}
+
 -(void)setScreenName:(NSString *)screenName {
     _screenName = screenName;
     self.screennameLabel.text = _screenName;
