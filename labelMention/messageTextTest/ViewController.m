@@ -11,6 +11,8 @@
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UIView *accessoryView;
 
 @end
 
@@ -20,6 +22,7 @@
     [super viewDidLoad];
    
     self.label.text = @"Lorem ipsum @dolor sit er elit lamet, consectetaur cillium @adipisicing pecu, sed @do eiusmod tempor incididunt ut labore et dolore magna.";
+    self.textField.inputAccessoryView = self.accessoryView;
 }
 
 
@@ -53,5 +56,8 @@
     }
     return cell;
 }
+
+#pragma mark text
+
 
 @end
