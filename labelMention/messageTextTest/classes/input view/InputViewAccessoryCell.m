@@ -22,9 +22,18 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    [super setSelected:NO animated:NO];
+}
 
-    // Configure the view for the selected state
+-(void)setScreenName:(NSString *)screenName {
+    _screenName = screenName;
+    self.screennameLabel.text = _screenName;
+}
+
+-(void)setAvatarUrl:(NSString *)avatarUrl {
+    _avatarUrl = avatarUrl;
+    // todo load url
+    self.avatarView.image = [UIImage imageNamed:_avatarUrl];
 }
 
 @end

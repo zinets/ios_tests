@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InputViewAccessoryCell : UITableViewCell
-
+@property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSString *avatarUrl;
 @end

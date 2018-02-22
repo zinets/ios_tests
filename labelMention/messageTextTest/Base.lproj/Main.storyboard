@@ -97,14 +97,15 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nzv-E7-vgH">
-                            <rect key="frame" x="0.0" y="0.0" width="314" height="198"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="198"/>
                             <color key="backgroundColor" red="0.19215686269999999" green="0.20000000000000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputViewAccessoryCell" id="JTs-Ya-APQ" customClass="InputViewAccessoryCell">
-                                    <rect key="frame" x="0.0" y="28" width="314" height="66"/>
+                                    <rect key="frame" x="0.0" y="28" width="300" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JTs-Ya-APQ" id="kVb-9V-yBe">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMz-kg-Ygj">
@@ -138,13 +139,15 @@
                             </prototypes>
                             <connections>
                                 <outlet property="dataSource" destination="uqC-RV-3S4" id="LTd-Rw-hdx"/>
+                                <outlet property="delegate" destination="uqC-RV-3S4" id="EO2-ct-b6J"/>
                             </connections>
                         </tableView>
                     </subviews>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.20000000000000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="nzv-E7-vgH" firstAttribute="top" secondItem="XZc-iZ-W40" secondAttribute="top" id="Rkx-hS-hXX"/>
                         <constraint firstItem="nzv-E7-vgH" firstAttribute="leading" secondItem="XZc-iZ-W40" secondAttribute="leading" id="W52-Hd-sCQ"/>
-                        <constraint firstItem="nzv-E7-vgH" firstAttribute="trailing" secondItem="XZc-iZ-W40" secondAttribute="trailing" id="bqP-hJ-h3O"/>
+                        <constraint firstItem="nzv-E7-vgH" firstAttribute="trailing" secondItem="XZc-iZ-W40" secondAttribute="trailing" constant="-14" id="bqP-hJ-h3O"/>
                         <constraint firstAttribute="bottom" secondItem="nzv-E7-vgH" secondAttribute="bottom" id="bv6-q5-ojK"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="XZc-iZ-W40"/>

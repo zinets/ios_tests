@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import "TableViewCell.h"
+#import "InputViewAccessoryView.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, InputViewAccessoryViewDelegate> {
+    NSArray *array;
+}
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UIView *accessoryView;
+@property (strong, nonatomic) IBOutlet InputViewAccessoryView *accessoryView;
 
 @end
 
@@ -21,7 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    array = @[
+              [MentionedUser userWithName:@"Anna" avatar:@"i0.jpg"],
+              [MentionedUser userWithName:@"Amanda" avatar:@"i1.jpg"],
+              [MentionedUser userWithName:@"Boris" avatar:@"i2.jpg"],
+              [MentionedUser userWithName:@"Cat" avatar:@"i3.jpg"],
+              [MentionedUser userWithName:@"Jose" avatar:@"i4.jpg"],
+              [MentionedUser userWithName:@"Zaharia" avatar:@"i5.jpg"],
+              ];
+    
     self.label.text = @"Lorem ipsum @dolor sit er elit lamet, consectetaur cillium @adipisicing pecu, sed @do eiusmod tempor incididunt ut labore et dolore magna.";
+    
+    self.accessoryView.dataSource = array;
+    self.accessoryView.delegate = self;
     self.textField.inputAccessoryView = self.accessoryView;
 }
 
@@ -59,5 +74,8 @@
 
 #pragma mark text
 
+- (void)accessoryView:(id)sender didSelectItemAtIndex:(NSInteger)index {
+    NSLog(@"!");
+}
 
 @end
