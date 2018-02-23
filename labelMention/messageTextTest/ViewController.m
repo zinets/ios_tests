@@ -87,7 +87,7 @@
     if (index == 0) {
         [self.view endEditing:YES];
     } else {
-        array = [array subarrayWithRange:(NSRange){0, 3}];
+        array = [array subarrayWithRange:(NSRange){0, array.count - 1}];
         self.accessoryView.dataSource = array;
         
         [self.textView reloadInputViews];

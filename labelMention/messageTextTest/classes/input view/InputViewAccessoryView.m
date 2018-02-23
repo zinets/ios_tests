@@ -34,24 +34,8 @@
 
 #define CELL_HEIGHT 66.
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        NSLog(@"%s",__PRETTY_FUNCTION__);
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
-    if (self) {
-        NSLog(@"%s",__PRETTY_FUNCTION__);
-        self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    }
-    return self;
-}
-
+// я считаю, что это все равно очень кривое решение - изменение высоты accessotyView таким способом; но ничего лучше не получилось
+// собственно использование vvv
 -(CGSize)intrinsicContentSize {
     CGSize sz = self.bounds.size;
     CGFloat const cellHeight = CELL_HEIGHT;
@@ -60,6 +44,7 @@
     
     return sz;
 }
+// ^^^ как раз очень правильно; где-то "там" мы говорим [... reloadInputViews] и тадам! система пересчитывает размер контента, НО - хз что с этим делать дальше.. если бы это было "обычное" вью, обставленное со всех сторон контсрантами, то после изменения intrinsicContentSize все вокруг пересчиталось бы; но для случая с accessoryInputView это не работает (или я тупой чтобы понять как должно); разные "хаки" типа "взять у списка констрантов этого вью первый и менять его значение, надеясь, что это будет "скрытый" констрант изменения высоты, который использует аппле" больше похоже на теорию заговора, чем на код
 
 -(void)layoutSubviews {
     CGRect frm = self.frame;
@@ -71,6 +56,8 @@
     
     [super layoutSubviews];
 }
+
+// так что такой вариант: я не сомневаюсь, что рано или поздно что-то пойдет по пи3де и этот контрол зависнет или сьедет куда-то хз куда не надо :(
 
 #pragma mark - table
 
