@@ -26,8 +26,8 @@
     // Configure the view for the selected state
 }
 
--(void)setText:(NSString *)text {
-    self.label.text = text;
+-(void)setText:(NSString *)text {    
+    self.label.attributedText = [[NSAttributedString alloc] initWithString:text];
 }
 
 @end
