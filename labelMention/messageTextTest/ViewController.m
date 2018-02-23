@@ -11,11 +11,10 @@
 #import "InputViewAccessoryView.h"
 
 #import "MessageTextStorage.h"
-#import "TKDHighlightingTextStorage.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, InputViewAccessoryViewDelegate> {
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, InputViewAccessoryViewDelegate, MessageTextStorageDelegate> {
     NSArray *array;
-    TKDHighlightingTextStorage *storage;
+    MessageTextStorage *storage;
 }
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -40,10 +39,11 @@
     
     self.label.text = @"Lorem ipsum @dolor sit er elit lamet, consectetaur cillium @adipisicing pecu, sed @do eiusmod tempor incididunt ut labore et dolore magna.";
     
-    storage = [TKDHighlightingTextStorage new];
+    storage = [MessageTextStorage new];
     [storage addLayoutManager:self.textView.layoutManager];
+    storage.mentionDelegate = self;
     
-    self.accessoryView.dataSource = array;
+    self.accessoryView.dataSource = nil; //array;
     self.accessoryView.delegate = self;
     self.textView.inputAccessoryView = self.accessoryView;   
     
@@ -84,16 +84,27 @@
 #pragma mark text
 
 - (void)accessoryView:(id)sender didSelectItemAtIndex:(NSInteger)index {
-    if (index == 0) {
-        [self.view endEditing:YES];
-    } else {
-        array = [array subarrayWithRange:(NSRange){0, array.count - 1}];
+//    if (index == 0) {
+//        [self.view endEditing:YES];
+//    } else {
+//        array = [array subarrayWithRange:(NSRange){0, array.count - 1}];
+//        self.accessoryView.dataSource = array;
+//
+//        [self.textView reloadInputViews];
+//
+//
+//    }
+}
+
+- (void)textStorage:(id)sender didFindMention:(NSString *)mention {
+    if (mention.length == 0) { // показываем все что есть
         self.accessoryView.dataSource = array;
-        
-        [self.textView reloadInputViews];
-        
-        
+    } else { // фильтруем
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[c] %@", @"screenname", mention];
+        NSArray *a = [array filteredArrayUsingPredicate:predicate];
+        self.accessoryView.dataSource = a;
     }
+    [self.textView reloadInputViews];
 }
 
 @end

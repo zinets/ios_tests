@@ -7,8 +7,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MessageTextStorageDelegate <NSObject>
+- (void)textStorage:(id)sender didFindMention:(NSString *)mention;
+@end
+
 @interface MessageTextStorage : NSTextStorage {
     NSMutableAttributedString *storage;
 }
-
+@property (nonatomic, weak) id <MessageTextStorageDelegate> mentionDelegate;
 @end
