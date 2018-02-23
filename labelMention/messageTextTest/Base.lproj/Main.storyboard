@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-fZ-LHL">
-                                <rect key="frame" x="0.0" y="84" width="320" height="484"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="100" id="f3V-Pb-XCA" customClass="TableViewCell">
@@ -67,12 +67,11 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="myb-ZH-Nd0">
-                                <rect key="frame" x="12" y="11" width="297" height="53"/>
+                                <rect key="frame" x="12" y="22" width="297" height="39"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="ppe-49-aXr"/>
+                                    <constraint firstAttribute="height" constant="39" id="ppe-49-aXr"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -80,12 +79,12 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="myb-ZH-Nd0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="6ea-YJ-Oyh"/>
-                            <constraint firstItem="myb-ZH-Nd0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="11" id="BlY-3d-7CQ"/>
+                            <constraint firstItem="myb-ZH-Nd0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="22" id="BlY-3d-7CQ"/>
                             <constraint firstItem="GQ5-fZ-LHL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Cmh-zi-IVt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="myb-ZH-Nd0" secondAttribute="trailing" constant="11" id="PDe-nN-40E"/>
                             <constraint firstItem="GQ5-fZ-LHL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PFL-es-YkS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GQ5-fZ-LHL" secondAttribute="trailing" id="g4O-sr-HuP"/>
-                            <constraint firstItem="GQ5-fZ-LHL" firstAttribute="top" secondItem="myb-ZH-Nd0" secondAttribute="bottom" constant="20" id="xdQ-h3-esm"/>
+                            <constraint firstItem="GQ5-fZ-LHL" firstAttribute="top" secondItem="myb-ZH-Nd0" secondAttribute="bottom" constant="34" id="xdQ-h3-esm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -95,13 +94,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="uqC-RV-3S4" customClass="InputViewAccessoryView">
-                    <rect key="frame" x="0.0" y="0.0" width="314" height="198"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="uqC-RV-3S4" customClass="InputViewAccessoryView">
+                    <rect key="frame" x="0.0" y="0.0" width="314" height="264"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nzv-E7-vgH">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="198"/>
-                            <color key="backgroundColor" red="0.19215686269999999" green="0.20000000000000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="264"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                             <prototypes>
                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputViewAccessoryCell" id="JTs-Ya-APQ" customClass="InputViewAccessoryCell">
@@ -146,7 +145,7 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" red="0.19215686269999999" green="0.20000000000000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.69803921570000005" green="0.60392156860000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="nzv-E7-vgH" firstAttribute="top" secondItem="XZc-iZ-W40" secondAttribute="top" id="Rkx-hS-hXX"/>
                         <constraint firstItem="nzv-E7-vgH" firstAttribute="leading" secondItem="XZc-iZ-W40" secondAttribute="leading" id="W52-Hd-sCQ"/>

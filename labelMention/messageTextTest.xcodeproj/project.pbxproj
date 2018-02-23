@@ -17,6 +17,8 @@
 		3BB9B613203D972400BA855C /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9B612203D972400BA855C /* TableViewCell.m */; };
 		3BBC7A50203EE8370065146C /* InputViewAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7A4F203EE8370065146C /* InputViewAccessoryView.m */; };
 		3BBC7A53203EE98C0065146C /* InputViewAccessoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7A52203EE98C0065146C /* InputViewAccessoryCell.m */; };
+		3BBC7A63203F26BB0065146C /* MessageTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7A62203F26BB0065146C /* MessageTextStorage.m */; };
+		3BBC7A66203F2F860065146C /* TKDHighlightingTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBC7A64203F2F860065146C /* TKDHighlightingTextStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,10 @@
 		3BBC7A4F203EE8370065146C /* InputViewAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewAccessoryView.m; sourceTree = "<group>"; };
 		3BBC7A51203EE98C0065146C /* InputViewAccessoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewAccessoryCell.h; sourceTree = "<group>"; };
 		3BBC7A52203EE98C0065146C /* InputViewAccessoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewAccessoryCell.m; sourceTree = "<group>"; };
+		3BBC7A61203F26BB0065146C /* MessageTextStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTextStorage.h; sourceTree = "<group>"; };
+		3BBC7A62203F26BB0065146C /* MessageTextStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTextStorage.m; sourceTree = "<group>"; };
+		3BBC7A64203F2F860065146C /* TKDHighlightingTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDHighlightingTextStorage.m; sourceTree = "<group>"; };
+		3BBC7A65203F2F860065146C /* TKDHighlightingTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDHighlightingTextStorage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,10 @@
 				3BBC7A52203EE98C0065146C /* InputViewAccessoryCell.m */,
 				3BBC7A4E203EE8370065146C /* InputViewAccessoryView.h */,
 				3BBC7A4F203EE8370065146C /* InputViewAccessoryView.m */,
+				3BBC7A61203F26BB0065146C /* MessageTextStorage.h */,
+				3BBC7A62203F26BB0065146C /* MessageTextStorage.m */,
+				3BBC7A65203F2F860065146C /* TKDHighlightingTextStorage.h */,
+				3BBC7A64203F2F860065146C /* TKDHighlightingTextStorage.m */,
 			);
 			path = "input view";
 			sourceTree = "<group>";
@@ -178,12 +188,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBC7A66203F2F860065146C /* TKDHighlightingTextStorage.m in Sources */,
 				3B3EC943203ADE54000F6DC9 /* ViewController.m in Sources */,
 				3BBC7A50203EE8370065146C /* InputViewAccessoryView.m in Sources */,
 				3B3EC94E203ADE54000F6DC9 /* main.m in Sources */,
 				3BBC7A53203EE98C0065146C /* InputViewAccessoryCell.m in Sources */,
 				3B3EC940203ADE54000F6DC9 /* AppDelegate.m in Sources */,
 				3BB9B613203D972400BA855C /* TableViewCell.m in Sources */,
+				3BBC7A63203F26BB0065146C /* MessageTextStorage.m in Sources */,
 				3BB9B610203D8FD800BA855C /* MentionLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

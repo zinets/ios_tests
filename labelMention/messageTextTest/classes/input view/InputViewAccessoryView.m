@@ -32,6 +32,8 @@
 
 @implementation InputViewAccessoryView
 
+#define CELL_HEIGHT 66.
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -45,8 +47,29 @@
     self = [super initWithCoder:coder];
     if (self) {
         NSLog(@"%s",__PRETTY_FUNCTION__);
+        self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     }
     return self;
+}
+
+-(CGSize)intrinsicContentSize {
+    CGSize sz = self.bounds.size;
+    CGFloat const cellHeight = CELL_HEIGHT;
+    NSInteger rowsCount = MIN(4, _dataSource.count);
+    sz.height = rowsCount * cellHeight;
+    
+    return sz;
+}
+
+-(void)layoutSubviews {
+    CGRect frm = self.frame;
+    frm.size = self.intrinsicContentSize;
+    CGFloat dy = self.frame.size.height - frm.size.height;
+    frm.origin.y += dy;
+    
+    self.frame = frm;
+    
+    [super layoutSubviews];
 }
 
 #pragma mark - table
