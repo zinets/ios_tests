@@ -85,28 +85,24 @@
 #pragma mark text
 
 - (void)accessoryView:(id)sender didSelectItemAtIndex:(NSInteger)index {
-//    if (index == 0) {
-//        [self.view endEditing:YES];
-//    } else {
-//        array = [array subarrayWithRange:(NSRange){0, array.count - 1}];
-//        self.accessoryView.dataSource = array;
-//
-//        [self.textView reloadInputViews];
-//
-//
-//    }
+    MentionedUser *user = self.accessoryView.dataSource[index];
+    [storage replaceLastMentionWith:user.screenname];
 }
 
 - (void)textStorage:(id)sender didFindMention:(NSString *)mention {
     if (mention.length == 0) { // показываем все что есть
         self.accessoryView.dataSource = array;
-    } else { // фильтруем
+    } else { // фильтруем; очевидно, что в массиве у обьектов должно быть поле screenname
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K BEGINSWITH[c] %@", @"screenname", mention];
         NSArray *a = [array filteredArrayUsingPredicate:predicate];
         self.accessoryView.dataSource = a;
     }
-//    [self.textView reloadInputViews];
-//    self.accessoryView
+}
+
+-(void)textStorageHasntMention:(id)sender {
+    if (self.accessoryView.dataSource) {
+        self.accessoryView.dataSource = nil;
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
