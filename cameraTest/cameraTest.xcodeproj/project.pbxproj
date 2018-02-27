@@ -15,6 +15,7 @@
 		49AEE88B2045608A00AF4DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE88A2045608A00AF4DBD /* main.m */; };
 		49AEE8952045674100AF4DBD /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE8932045674100AF4DBD /* CameraController.m */; };
 		49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8972045677300AF4DBD /* CameraController.storyboard */; };
+		49AEE89B20457E2200AF4DBD /* UIColor+InputMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		49AEE8922045674100AF4DBD /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		49AEE8932045674100AF4DBD /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		49AEE8972045677300AF4DBD /* CameraController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CameraController.storyboard; sourceTree = "<group>"; };
+		49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+InputMethods.m"; path = "../../../ios_tn/trunk/Devents/Devents/Libraries/UI/UIColor+InputMethods/UIColor+InputMethods.m"; sourceTree = "<group>"; };
+		49AEE89A20457E2200AF4DBD /* UIColor+InputMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+InputMethods.h"; path = "../../../ios_tn/trunk/Devents/Devents/Libraries/UI/UIColor+InputMethods/UIColor+InputMethods.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 		49AEE87A2045608A00AF4DBD /* cameraTest */ = {
 			isa = PBXGroup;
 			children = (
+				49AEE89A20457E2200AF4DBD /* UIColor+InputMethods.h */,
+				49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */,
 				49AEE8912045610000AF4DBD /* classes */,
 				49AEE87B2045608A00AF4DBD /* AppDelegate.h */,
 				49AEE87C2045608A00AF4DBD /* AppDelegate.m */,
@@ -159,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AEE89B20457E2200AF4DBD /* UIColor+InputMethods.m in Sources */,
 				49AEE8802045608A00AF4DBD /* ViewController.m in Sources */,
 				49AEE88B2045608A00AF4DBD /* main.m in Sources */,
 				49AEE8952045674100AF4DBD /* CameraController.m in Sources */,
@@ -299,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = cameraTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.v.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -313,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = cameraTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.v.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
