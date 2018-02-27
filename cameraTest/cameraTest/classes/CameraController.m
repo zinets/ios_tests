@@ -38,22 +38,22 @@
 @property (nonatomic, strong) AVCaptureDevice *mainCamera;
 @property (nonatomic, strong) AVCaptureDevice *activeCamera;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
+@property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;
 @end
 
 @implementation CameraController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // gradient
-    [self addGradient];
-    self.flashMode = AVCaptureFlashModeAuto;
+    [self tuneUI];
     
     [self prepareCamera];
     [self createCameraInput];
+    
+    self.flashMode = AVCaptureFlashModeAuto;
 }
 
-- (void)addGradient {
+- (void)tuneUI {
     CAGradientLayer *layer = [CAGradientLayer new];
     layer.colors = @[
                      (id)[[UIColor colorWithHex:0x363636] colorWithAlphaComponent:0].CGColor,
@@ -63,6 +63,8 @@
     layer.endPoint = (CGPoint){0, 1};
     layer.frame = (CGRect){0, self.view.bounds.size.height - 153, self.view.bounds.size.width, 153};
     [self.view.layer insertSublayer:layer atIndex:0];
+    
+    self.closeButton.layer.cornerRadius = 56/2;
 }
 
 #pragma mark - camera
@@ -120,6 +122,16 @@
     });
 }
 
+-(AVCaptureStillImageOutput *)imageOutput {
+    if (!_imageOutput) {
+        _imageOutput = [AVCaptureStillImageOutput new];
+        if ([captureSession canAddOutput:_imageOutput]) {
+            [captureSession addOutput:_imageOutput];
+        }
+    }
+    return _imageOutput;
+}
+
 #pragma mark - setters
 
 - (void)openFlashModeSelector {
@@ -137,26 +149,41 @@
 }
 
 -(void)setFlashMode:(AVCaptureFlashMode)flashMode {
-    _flashMode = flashMode;
     [UIView animateWithDuration:0.4 animations:^{
-        switch (_flashMode) {
-            case AVCaptureFlashModeOn:
-                self.flashOffButton.alpha =
-                self.flashAutoButton.alpha = 0;
-                self.bottomFlashControllOffset.constant = 24 - 2 * (8 + 45);
-                break;
-            case AVCaptureFlashModeOff:
-                self.flashOnButton.alpha =
-                self.flashAutoButton.alpha = 0;
-                self.bottomFlashControllOffset.constant = 24 - 1 * (8 + 45);
-                break;
-            case AVCaptureFlashModeAuto:
-                self.flashOnButton.alpha =
-                self.flashOffButton.alpha = 0;
-                self.bottomFlashControllOffset.constant = 24;
-                break;
+        if ([self.activeCamera isFlashModeSupported:flashMode]) {
+            _flashMode = flashMode;
+            
+            switch (_flashMode) {
+                case AVCaptureFlashModeOn:
+                    self.flashOffButton.alpha =
+                    self.flashAutoButton.alpha = 0;
+                    self.bottomFlashControllOffset.constant = 24 - 2 * (8 + 45);
+                    break;
+                case AVCaptureFlashModeOff:
+                    self.flashOnButton.alpha =
+                    self.flashAutoButton.alpha = 0;
+                    self.bottomFlashControllOffset.constant = 24 - 1 * (8 + 45);
+                    break;
+                case AVCaptureFlashModeAuto:
+                    self.flashOnButton.alpha =
+                    self.flashOffButton.alpha = 0;
+                    self.bottomFlashControllOffset.constant = 24;
+                    break;
+            }
+            [self.view layoutIfNeeded];
+            
+            dispatch_async(captureSessionQueue, ^{
+                NSError *err = nil;
+                [self.activeCamera lockForConfiguration:&err];
+                if (!err) {
+                    self.activeCamera.flashMode = _flashMode;
+                    
+                    [self.activeCamera unlockForConfiguration];
+                }
+            });
+        } else {
+            
         }
-        [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.flashModeSelectorOpened = NO;
     }];
@@ -172,7 +199,7 @@
 - (IBAction)onPreviewTap:(UITapGestureRecognizer *)sender {
     if (self.flashModeSelectorOpened) {
         [self closeFlashModeSelector];
-    } else if (self.activeCamera) {
+    } else if ([self.activeCamera isFocusPointOfInterestSupported]) {
         CGPoint pt = [sender locationInView:sender.view];
         CGPoint cameraPoint = [self.previewLayer captureDevicePointOfInterestForPoint:pt];
         
@@ -207,11 +234,40 @@
     } else {
         self.activeCamera = self.mainCamera;
     }
+    
+    self.flashOffButton.enabled =
+    self.flashOnButton.enabled =
+    self.flashAutoButton.enabled = [self.activeCamera hasFlash];    
+    
     [self createCameraInput];
 }
 
 - (IBAction)onShutterTap:(id)sender {
     [self closeFlashModeSelector];
+    if (self.isVideoMode) {
+        
+    } else {
+        [self getImage];
+    }
+}
+
+- (void)getImage {
+    dispatch_async(captureSessionQueue, ^{
+        AVCaptureConnection *connection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
+        if (connection.isVideoOrientationSupported) {
+            connection.videoOrientation = (AVCaptureVideoOrientation)[UIDevice currentDevice].orientation;
+        }
+
+        [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
+            if (!error) {
+                NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                UIImage *image = [UIImage imageWithData:jpegData];
+                NSLog(@"%@", image);
+            } else {
+                NSLog(@"%s, %@", __PRETTY_FUNCTION__, error);
+            }
+        }];
+    });
 }
 
 // все переделать; появляется после того, как сделали фото/видео
