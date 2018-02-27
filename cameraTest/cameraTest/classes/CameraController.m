@@ -30,15 +30,16 @@
 @property (nonatomic) AVCaptureFlashMode flashMode;
 @property (nonatomic) BOOL flashModeSelectorOpened;
 
-// photo/video mode
-@property (nonatomic) BOOL isVideoMode; // инача photo
-
 // camera hardware
 @property (nonatomic, strong) AVCaptureDevice *selfieCamera;
 @property (nonatomic, strong) AVCaptureDevice *mainCamera;
 @property (nonatomic, strong) AVCaptureDevice *activeCamera;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;
+
+// postprocess
+@property (weak, nonatomic) IBOutlet UIImageView *photoPreview;
+
 @end
 
 @implementation CameraController
@@ -49,6 +50,11 @@
     
     [self prepareCamera];
     [self createCameraInput];
+    if (self.isVideoMode) {
+        
+    } else {
+        [self createPhotoOutput];
+    }
     
     self.flashMode = AVCaptureFlashModeAuto;
 }
@@ -72,7 +78,7 @@
 - (void)prepareCamera {
     captureSessionQueue = dispatch_queue_create("capture_session", DISPATCH_QUEUE_SERIAL);
     captureSession = [AVCaptureSession new];
-    captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
+    captureSession.sessionPreset = self.isVideoMode ? AVCaptureSessionPreset1280x720 : AVCaptureSessionPresetPhoto;
     
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
     _previewLayer.frame = self.view.bounds;
@@ -122,14 +128,13 @@
     });
 }
 
--(AVCaptureStillImageOutput *)imageOutput {
-    if (!_imageOutput) {
+- (void)createPhotoOutput {
+    dispatch_async(captureSessionQueue, ^{
         _imageOutput = [AVCaptureStillImageOutput new];
         if ([captureSession canAddOutput:_imageOutput]) {
             [captureSession addOutput:_imageOutput];
         }
-    }
-    return _imageOutput;
+    });
 }
 
 #pragma mark - setters
@@ -251,18 +256,39 @@
     }
 }
 
+// все переделать; появляется после того, как сделали фото/видео
+- (IBAction)retake:(id)sender {
+    self.photoPreview.image = nil;
+    self.photoPreview.alpha = 0;
+    
+//    self.videoPreview = ...
+    
+    self.retakeButton.hidden = YES;
+    self.continueButton.hidden = YES;
+}
+
+- (IBAction)onContinueTap:(id)sender {
+}
+
+#pragma mark -
+
 - (void)getImage {
     dispatch_async(captureSessionQueue, ^{
         AVCaptureConnection *connection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
         if (connection.isVideoOrientationSupported) {
             connection.videoOrientation = (AVCaptureVideoOrientation)[UIDevice currentDevice].orientation;
         }
-
+        
         [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
             if (!error) {
                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:jpegData];
-                NSLog(@"%@", image);
+                if (self.activeCamera == self.selfieCamera) {
+                    image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:(UIImageOrientationLeftMirrored)];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self showPhotoPreview:image];
+                });
             } else {
                 NSLog(@"%s, %@", __PRETTY_FUNCTION__, error);
             }
@@ -270,11 +296,12 @@
     });
 }
 
-// все переделать; появляется после того, как сделали фото/видео
-- (IBAction)retake:(id)sender {
-}
+- (void)showPhotoPreview:(UIImage *)image {
+    self.photoPreview.image = image;
+    self.photoPreview.alpha = 1;
 
-- (IBAction)onContinueTap:(id)sender {
+    self.retakeButton.hidden = NO;
+    self.continueButton.hidden = NO;
 }
 
 @end

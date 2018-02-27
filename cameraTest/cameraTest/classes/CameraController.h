@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraController : UIViewController
-
+// photo/video mode
+@property (nonatomic) BOOL isVideoMode; // инача photo
 @end
