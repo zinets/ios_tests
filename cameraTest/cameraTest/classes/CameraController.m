@@ -10,7 +10,7 @@
 #import "UIColor+InputMethods.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface CameraController () {
+@interface CameraController () <AVCaptureFileOutputRecordingDelegate> {
     AVCaptureSession *captureSession;
     dispatch_queue_t captureSessionQueue;
 }
@@ -36,6 +36,7 @@
 @property (nonatomic, strong) AVCaptureDevice *activeCamera;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;
+@property (nonatomic, strong) AVCaptureMovieFileOutput *videoOutput;
 
 // postprocess
 @property (weak, nonatomic) IBOutlet UIImageView *photoPreview;
@@ -46,12 +47,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+#warning hardcoded mode
+    self.isVideoMode = YES;
+    
     [self tuneUI];
     
     [self prepareCamera];
     [self createCameraInput];
     if (self.isVideoMode) {
-        
+        [self createVideoOutput];
     } else {
         [self createPhotoOutput];
     }
@@ -133,6 +138,15 @@
         _imageOutput = [AVCaptureStillImageOutput new];
         if ([captureSession canAddOutput:_imageOutput]) {
             [captureSession addOutput:_imageOutput];
+        }
+    });
+}
+
+- (void)createVideoOutput {
+    dispatch_async(captureSessionQueue, ^{
+        _videoOutput = [AVCaptureMovieFileOutput new];
+        if ([captureSession canAddOutput:_videoOutput]){
+            [captureSession addOutput:_videoOutput];
         }
     });
 }
@@ -250,7 +264,7 @@
 - (IBAction)onShutterTap:(id)sender {
     [self closeFlashModeSelector];
     if (self.isVideoMode) {
-        
+        [self getVideo];
     } else {
         [self getImage];
     }
@@ -296,12 +310,37 @@
     });
 }
 
+- (void)getVideo {
+    if (self.shutterButton.selected) {
+        dispatch_async(captureSessionQueue, ^{
+            [self.videoOutput stopRecording];
+        });
+    } else {
+        dispatch_async(captureSessionQueue, ^{
+            NSString *temp = [NSTemporaryDirectory() stringByAppendingPathComponent:@"video.tmp"];
+            NSURL *outputUrl = [[NSURL alloc] initFileURLWithPath:temp isDirectory:NO];
+            [self.videoOutput startRecordingToOutputFileURL:outputUrl recordingDelegate:self];
+        });
+    }
+    self.shutterButton.selected = !self.shutterButton.selected;
+}
+
 - (void)showPhotoPreview:(UIImage *)image {
     self.photoPreview.image = image;
     self.photoPreview.alpha = 1;
 
     self.retakeButton.hidden = NO;
     self.continueButton.hidden = NO;
+}
+
+#pragma mark - capture delegation
+
+- (void)captureOutput:(AVCaptureFileOutput *)output didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections error:(nullable NSError *)error {
+    NSLog(@"%s %@ %@", __PRETTY_FUNCTION__, outputFileURL, error);
+}
+
+- (void)captureOutput:(AVCaptureFileOutput *)output didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections {
+    
 }
 
 @end
