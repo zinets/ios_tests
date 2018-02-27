@@ -13,6 +13,8 @@
 		49AEE8852045608A00AF4DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8842045608A00AF4DBD /* Assets.xcassets */; };
 		49AEE8882045608A00AF4DBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8862045608A00AF4DBD /* LaunchScreen.storyboard */; };
 		49AEE88B2045608A00AF4DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE88A2045608A00AF4DBD /* main.m */; };
+		49AEE8952045674100AF4DBD /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE8932045674100AF4DBD /* CameraController.m */; };
+		49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8972045677300AF4DBD /* CameraController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		49AEE8872045608A00AF4DBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49AEE8892045608A00AF4DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49AEE88A2045608A00AF4DBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49AEE8922045674100AF4DBD /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		49AEE8932045674100AF4DBD /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
+		49AEE8972045677300AF4DBD /* CameraController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CameraController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 		49AEE87A2045608A00AF4DBD /* cameraTest */ = {
 			isa = PBXGroup;
 			children = (
+				49AEE8912045610000AF4DBD /* classes */,
 				49AEE87B2045608A00AF4DBD /* AppDelegate.h */,
 				49AEE87C2045608A00AF4DBD /* AppDelegate.m */,
 				49AEE87E2045608A00AF4DBD /* ViewController.h */,
@@ -69,6 +75,16 @@
 				49AEE88A2045608A00AF4DBD /* main.m */,
 			);
 			path = cameraTest;
+			sourceTree = "<group>";
+		};
+		49AEE8912045610000AF4DBD /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				49AEE8922045674100AF4DBD /* CameraController.h */,
+				49AEE8932045674100AF4DBD /* CameraController.m */,
+				49AEE8972045677300AF4DBD /* CameraController.storyboard */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +148,7 @@
 				49AEE8882045608A00AF4DBD /* LaunchScreen.storyboard in Resources */,
 				49AEE8852045608A00AF4DBD /* Assets.xcassets in Resources */,
 				49AEE8832045608A00AF4DBD /* Main.storyboard in Resources */,
+				49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +161,7 @@
 			files = (
 				49AEE8802045608A00AF4DBD /* ViewController.m in Sources */,
 				49AEE88B2045608A00AF4DBD /* main.m in Sources */,
+				49AEE8952045674100AF4DBD /* CameraController.m in Sources */,
 				49AEE87D2045608A00AF4DBD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,11 +297,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = cameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zinets.cameraTest;
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.v.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -292,11 +311,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = cameraTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zinets.cameraTest;
+				PRODUCT_BUNDLE_IDENTIFIER = zinets.v.cameraTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
