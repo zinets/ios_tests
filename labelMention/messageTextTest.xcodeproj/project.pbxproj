@@ -15,9 +15,9 @@
 		3B3EC94E203ADE54000F6DC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EC94D203ADE54000F6DC9 /* main.m */; };
 		3BB9B610203D8FD800BA855C /* MentionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9B60F203D8FD800BA855C /* MentionLabel.m */; };
 		3BB9B613203D972400BA855C /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9B612203D972400BA855C /* TableViewCell.m */; };
-		3BEBD7752041BCDB00788DD6 /* InputViewAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBD7712041BCDB00788DD6 /* InputViewAccessoryView.m */; };
-		3BEBD7762041BCDB00788DD6 /* InputViewAccessoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBD7722041BCDB00788DD6 /* InputViewAccessoryCell.m */; };
-		3BEBD7772041BCDB00788DD6 /* MessageTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEBD7732041BCDB00788DD6 /* MessageTextStorage.m */; };
+		498D92BF2043E26500C8F819 /* InputViewAccessoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 498D92BB2043E26500C8F819 /* InputViewAccessoryCell.m */; };
+		498D92C02043E26500C8F819 /* InputViewAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498D92BD2043E26500C8F819 /* InputViewAccessoryView.m */; };
+		498D92CE2043EE9200C8F819 /* TextViewWithMentionDetecting.m in Sources */ = {isa = PBXBuildFile; fileRef = 498D92CD2043EE9200C8F819 /* TextViewWithMentionDetecting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,16 +31,16 @@
 		3B3EC94A203ADE54000F6DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B3EC94C203ADE54000F6DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3EC94D203ADE54000F6DC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3BB9B60E203D8FD700BA855C /* MentionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MentionLabel.h; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/Chats/controls/MentionLabel.h; sourceTree = "<group>"; };
-		3BB9B60F203D8FD800BA855C /* MentionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MentionLabel.m; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/Chats/controls/MentionLabel.m; sourceTree = "<group>"; };
+		3BB9B60E203D8FD700BA855C /* MentionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MentionLabel.h; path = ../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/Chats/controls/MentionLabel.h; sourceTree = "<group>"; };
+		3BB9B60F203D8FD800BA855C /* MentionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MentionLabel.m; path = ../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/Chats/controls/MentionLabel.m; sourceTree = "<group>"; };
 		3BB9B611203D972400BA855C /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		3BB9B612203D972400BA855C /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
-		3BEBD76F2041BCDB00788DD6 /* InputViewAccessoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputViewAccessoryCell.h; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryCell.h"; sourceTree = "<group>"; };
-		3BEBD7702041BCDB00788DD6 /* InputViewAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputViewAccessoryView.h; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryView.h"; sourceTree = "<group>"; };
-		3BEBD7712041BCDB00788DD6 /* InputViewAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputViewAccessoryView.m; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryView.m"; sourceTree = "<group>"; };
-		3BEBD7722041BCDB00788DD6 /* InputViewAccessoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputViewAccessoryCell.m; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryCell.m"; sourceTree = "<group>"; };
-		3BEBD7732041BCDB00788DD6 /* MessageTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageTextStorage.m; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/MessageTextStorage.m"; sourceTree = "<group>"; };
-		3BEBD7742041BCDB00788DD6 /* MessageTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTextStorage.h; path = "../../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/MessageTextStorage.h"; sourceTree = "<group>"; };
+		498D92B92043E26500C8F819 /* InputViewAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputViewAccessoryView.h; path = "../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryView.h"; sourceTree = "<group>"; };
+		498D92BB2043E26500C8F819 /* InputViewAccessoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputViewAccessoryCell.m; path = "../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryCell.m"; sourceTree = "<group>"; };
+		498D92BC2043E26500C8F819 /* InputViewAccessoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputViewAccessoryCell.h; path = "../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryCell.h"; sourceTree = "<group>"; };
+		498D92BD2043E26500C8F819 /* InputViewAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputViewAccessoryView.m; path = "../../../../ios_tn/trunk/Devents/Devents/ViewControllers/Stories/Main/pz deprecated Messages/Conversations/input view/mentioned users/InputViewAccessoryView.m"; sourceTree = "<group>"; };
+		498D92CC2043EE9200C8F819 /* TextViewWithMentionDetecting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextViewWithMentionDetecting.h; path = messageTextTest/classes/TextViewWithMentionDetecting.h; sourceTree = SOURCE_ROOT; };
+		498D92CD2043EE9200C8F819 /* TextViewWithMentionDetecting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextViewWithMentionDetecting.m; path = messageTextTest/classes/TextViewWithMentionDetecting.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +73,7 @@
 		3B3EC93D203ADE54000F6DC9 /* messageTextTest */ = {
 			isa = PBXGroup;
 			children = (
+				491E956C2043E12800A9EB49 /* input view */,
 				3BE07146203B5FE300CA7AB9 /* classes */,
 				3B3EC93E203ADE54000F6DC9 /* AppDelegate.h */,
 				3B3EC93F203ADE54000F6DC9 /* AppDelegate.m */,
@@ -87,19 +88,6 @@
 			path = messageTextTest;
 			sourceTree = "<group>";
 		};
-		3BBC7A54203F10B20065146C /* input view */ = {
-			isa = PBXGroup;
-			children = (
-				3BEBD76F2041BCDB00788DD6 /* InputViewAccessoryCell.h */,
-				3BEBD7722041BCDB00788DD6 /* InputViewAccessoryCell.m */,
-				3BEBD7702041BCDB00788DD6 /* InputViewAccessoryView.h */,
-				3BEBD7712041BCDB00788DD6 /* InputViewAccessoryView.m */,
-				3BEBD7742041BCDB00788DD6 /* MessageTextStorage.h */,
-				3BEBD7732041BCDB00788DD6 /* MessageTextStorage.m */,
-			);
-			path = "input view";
-			sourceTree = "<group>";
-		};
 		3BE07146203B5FE300CA7AB9 /* classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +95,21 @@
 				3BB9B60F203D8FD800BA855C /* MentionLabel.m */,
 				3BB9B611203D972400BA855C /* TableViewCell.h */,
 				3BB9B612203D972400BA855C /* TableViewCell.m */,
-				3BBC7A54203F10B20065146C /* input view */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		491E956C2043E12800A9EB49 /* input view */ = {
+			isa = PBXGroup;
+			children = (
+				498D92BC2043E26500C8F819 /* InputViewAccessoryCell.h */,
+				498D92BB2043E26500C8F819 /* InputViewAccessoryCell.m */,
+				498D92B92043E26500C8F819 /* InputViewAccessoryView.h */,
+				498D92BD2043E26500C8F819 /* InputViewAccessoryView.m */,
+				498D92CC2043EE9200C8F819 /* TextViewWithMentionDetecting.h */,
+				498D92CD2043EE9200C8F819 /* TextViewWithMentionDetecting.m */,
+			);
+			path = "input view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,12 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B3EC943203ADE54000F6DC9 /* ViewController.m in Sources */,
-				3BEBD7752041BCDB00788DD6 /* InputViewAccessoryView.m in Sources */,
 				3B3EC94E203ADE54000F6DC9 /* main.m in Sources */,
-				3BEBD7762041BCDB00788DD6 /* InputViewAccessoryCell.m in Sources */,
 				3B3EC940203ADE54000F6DC9 /* AppDelegate.m in Sources */,
+				498D92BF2043E26500C8F819 /* InputViewAccessoryCell.m in Sources */,
 				3BB9B613203D972400BA855C /* TableViewCell.m in Sources */,
-				3BEBD7772041BCDB00788DD6 /* MessageTextStorage.m in Sources */,
+				498D92C02043E26500C8F819 /* InputViewAccessoryView.m in Sources */,
+				498D92CE2043EE9200C8F819 /* TextViewWithMentionDetecting.m in Sources */,
 				3BB9B610203D8FD800BA855C /* MentionLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

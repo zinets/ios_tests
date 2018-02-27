@@ -10,14 +10,14 @@
 #import "TableViewCell.h"
 #import "InputViewAccessoryView.h"
 
-#import "MessageTextStorage.h"
+#import "TextViewWithMentionDetecting.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, InputViewAccessoryViewDelegate, MessageTextStorageDelegate> {
     NSArray *array;
-    MessageTextStorage *storage;
+//    MessageTextStorage *storage;
 }
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet TextViewWithMentionDetecting *textView;
 
 @property (strong, nonatomic) IBOutlet InputViewAccessoryView *accessoryView;
 
@@ -39,11 +39,13 @@
     
     self.label.text = @"Lorem ipsum @dolor sit er elit lamet, consectetaur cillium @adipisicing pecu, sed @do eiusmod tempor incididunt ut labore et dolore magna.";
     
-    storage = [MessageTextStorage new];
-    [storage addLayoutManager:self.textView.layoutManager];
-    storage.mentionDelegate = self;
-    [storage replaceCharactersInRange:NSMakeRange(0, 0) withString:self.textView.text];
-        
+//    storage = [MessageTextStorage new];
+//    [storage addLayoutManager:self.textView.layoutManager];
+//    storage.mentionDelegate = self;
+//    [storage replaceCharactersInRange:NSMakeRange(0, 0) withString:self.textView.text];
+    
+    self.textView.mentionDelegate = self;
+    
     self.accessoryView.dataSource = nil; //array;
     self.accessoryView.delegate = self;
 //    self.textView.inputAccessoryView = self.accessoryView;
@@ -86,7 +88,7 @@
 
 - (void)accessoryView:(id)sender didSelectItemAtIndex:(NSInteger)index {
     MentionedUser *user = self.accessoryView.dataSource[index];
-    [storage replaceLastMentionWith:user.screenname];
+    [self.textView replaceLastMentionWith:user.screenname];
 }
 
 - (void)textStorage:(id)sender didFindMention:(NSString *)mention {
