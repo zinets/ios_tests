@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */; };
 		49AEE87D2045608A00AF4DBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87C2045608A00AF4DBD /* AppDelegate.m */; };
 		49AEE8802045608A00AF4DBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87F2045608A00AF4DBD /* ViewController.m */; };
 		49AEE8832045608A00AF4DBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8812045608A00AF4DBD /* Main.storyboard */; };
@@ -15,10 +16,11 @@
 		49AEE88B2045608A00AF4DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE88A2045608A00AF4DBD /* main.m */; };
 		49AEE8952045674100AF4DBD /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE8932045674100AF4DBD /* CameraController.m */; };
 		49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8972045677300AF4DBD /* CameraController.storyboard */; };
-		49AEE89B20457E2200AF4DBD /* UIColor+InputMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B2C600C2045B4B4001ADF7E /* UIColor+InputMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+InputMethods.h"; sourceTree = "<group>"; };
+		3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+InputMethods.m"; sourceTree = "<group>"; };
 		49AEE8782045608A00AF4DBD /* cameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AEE87B2045608A00AF4DBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49AEE87C2045608A00AF4DBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -32,8 +34,6 @@
 		49AEE8922045674100AF4DBD /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		49AEE8932045674100AF4DBD /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		49AEE8972045677300AF4DBD /* CameraController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CameraController.storyboard; sourceTree = "<group>"; };
-		49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+InputMethods.m"; path = "../../../ios_tn/trunk/Devents/Devents/Libraries/UI/UIColor+InputMethods/UIColor+InputMethods.m"; sourceTree = "<group>"; };
-		49AEE89A20457E2200AF4DBD /* UIColor+InputMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+InputMethods.h"; path = "../../../ios_tn/trunk/Devents/Devents/Libraries/UI/UIColor+InputMethods/UIColor+InputMethods.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 		49AEE87A2045608A00AF4DBD /* cameraTest */ = {
 			isa = PBXGroup;
 			children = (
-				49AEE89A20457E2200AF4DBD /* UIColor+InputMethods.h */,
-				49AEE89920457E2200AF4DBD /* UIColor+InputMethods.m */,
+				3B2C600C2045B4B4001ADF7E /* UIColor+InputMethods.h */,
+				3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */,
 				49AEE8912045610000AF4DBD /* classes */,
 				49AEE87B2045608A00AF4DBD /* AppDelegate.h */,
 				49AEE87C2045608A00AF4DBD /* AppDelegate.m */,
@@ -164,7 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AEE89B20457E2200AF4DBD /* UIColor+InputMethods.m in Sources */,
+				3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */,
 				49AEE8802045608A00AF4DBD /* ViewController.m in Sources */,
 				49AEE88B2045608A00AF4DBD /* main.m in Sources */,
 				49AEE8952045674100AF4DBD /* CameraController.m in Sources */,

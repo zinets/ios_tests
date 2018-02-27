@@ -50,7 +50,7 @@
     self.flashMode = AVCaptureFlashModeAuto;
     
     [self prepareCamera];
-    [self prepareCameraInput];
+    [self createCameraInput];
 }
 
 - (void)addGradient {
@@ -91,7 +91,7 @@
     }
 }
 
-- (void)prepareCameraInput {
+- (void)createCameraInput {
     if (captureSession.isRunning) {
         dispatch_async(captureSessionQueue, ^{
             [captureSession stopRunning];
@@ -133,7 +133,6 @@
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.flashModeSelectorOpened = YES;
-        self.tapRecognizer.enabled = YES;
     }];
 }
 
@@ -160,7 +159,6 @@
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.flashModeSelectorOpened = NO;
-        self.tapRecognizer.enabled = NO;
     }];
 }
 
@@ -171,8 +169,23 @@
 
 #pragma mark - actions
 
-- (IBAction)onTap:(id)sender {
-    [self closeFlashModeSelector];
+- (IBAction)onPreviewTap:(UITapGestureRecognizer *)sender {
+    if (self.flashModeSelectorOpened) {
+        [self closeFlashModeSelector];
+    } else if (self.activeCamera) {
+        CGPoint pt = [sender locationInView:sender.view];
+        CGPoint cameraPoint = [self.previewLayer captureDevicePointOfInterestForPoint:pt];
+        
+        NSError *err = nil;
+        if ([self.activeCamera lockForConfiguration:&err]) {
+
+            self.activeCamera.focusPointOfInterest = cameraPoint;
+            self.activeCamera.focusMode = AVCaptureFocusModeAutoFocus;
+            
+            [self.activeCamera unlockForConfiguration];
+        }
+        
+    }
 }
 
 - (IBAction)closeCamera:(id)sender {
@@ -194,7 +207,7 @@
     } else {
         self.activeCamera = self.mainCamera;
     }
-    [self prepareCameraInput];
+    [self createCameraInput];
 }
 
 - (IBAction)onShutterTap:(id)sender {
