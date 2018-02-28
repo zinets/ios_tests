@@ -406,7 +406,18 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     
     self.switchCameraButton.hidden = NO;
     
-    [self showVideoPreview:outputFileURL];
+    BOOL recordedSuccessfully = YES;
+    if ([error code] != noErr) {
+        id value = [[error userInfo] objectForKey:AVErrorRecordingSuccessfullyFinishedKey];
+        if (value) {
+            recordedSuccessfully = [value boolValue];
+        }
+    }
+    if (recordedSuccessfully) {
+        [self showVideoPreview:outputFileURL];
+    } else {
+        NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
+    }
 }
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections {
@@ -441,10 +452,6 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 }
 
 //todo:
-//- таймер записи видео
-// после начала записи задизаблить кнопку останова на 6 сек;
-// остановить запись после 30 сек (29?)
-
-//- preview видео
+// preview видео
 
 @end
