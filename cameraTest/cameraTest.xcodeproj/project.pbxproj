@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */; };
-		3B8F4F112046B05F00E724E2 /* CapturedVideoPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F4F102046B05F00E724E2 /* CapturedVideoPreview.m */; };
+		3B8F4F242046D31A00E724E2 /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F4F1F2046D31900E724E2 /* CameraController.m */; };
+		3B8F4F252046D31A00E724E2 /* CapturedVideoPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F4F222046D31A00E724E2 /* CapturedVideoPreview.m */; };
+		3B8F4F262046D31A00E724E2 /* CameraController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8F4F232046D31A00E724E2 /* CameraController.storyboard */; };
 		3B9F4F182046A1A200D084B8 /* ShowVideoSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */; };
 		49AEE87D2045608A00AF4DBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87C2045608A00AF4DBD /* AppDelegate.m */; };
 		49AEE8802045608A00AF4DBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87F2045608A00AF4DBD /* ViewController.m */; };
@@ -16,15 +18,16 @@
 		49AEE8852045608A00AF4DBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8842045608A00AF4DBD /* Assets.xcassets */; };
 		49AEE8882045608A00AF4DBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8862045608A00AF4DBD /* LaunchScreen.storyboard */; };
 		49AEE88B2045608A00AF4DBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE88A2045608A00AF4DBD /* main.m */; };
-		49AEE8952045674100AF4DBD /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE8932045674100AF4DBD /* CameraController.m */; };
-		49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8972045677300AF4DBD /* CameraController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B2C600C2045B4B4001ADF7E /* UIColor+InputMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+InputMethods.h"; sourceTree = "<group>"; };
 		3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+InputMethods.m"; sourceTree = "<group>"; };
-		3B8F4F0F2046B05F00E724E2 /* CapturedVideoPreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CapturedVideoPreview.h; sourceTree = "<group>"; };
-		3B8F4F102046B05F00E724E2 /* CapturedVideoPreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CapturedVideoPreview.m; sourceTree = "<group>"; };
+		3B8F4F1F2046D31900E724E2 /* CameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraController.m; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/camera/CameraController.m; sourceTree = "<group>"; };
+		3B8F4F202046D31900E724E2 /* CapturedVideoPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CapturedVideoPreview.h; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/camera/CapturedVideoPreview.h; sourceTree = "<group>"; };
+		3B8F4F212046D31A00E724E2 /* CameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraController.h; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/camera/CameraController.h; sourceTree = "<group>"; };
+		3B8F4F222046D31A00E724E2 /* CapturedVideoPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CapturedVideoPreview.m; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/camera/CapturedVideoPreview.m; sourceTree = "<group>"; };
+		3B8F4F232046D31A00E724E2 /* CameraController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CameraController.storyboard; path = ../../../../ios/trunk/Devents/Devents/ViewControllers/Stories/camera/CameraController.storyboard; sourceTree = "<group>"; };
 		3B9F4F162046A1A200D084B8 /* ShowVideoSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowVideoSegue.h; sourceTree = "<group>"; };
 		3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowVideoSegue.m; sourceTree = "<group>"; };
 		49AEE8782045608A00AF4DBD /* cameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,9 +40,6 @@
 		49AEE8872045608A00AF4DBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49AEE8892045608A00AF4DBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49AEE88A2045608A00AF4DBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49AEE8922045674100AF4DBD /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
-		49AEE8932045674100AF4DBD /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
-		49AEE8972045677300AF4DBD /* CameraController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CameraController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +93,11 @@
 			children = (
 				3B9F4F162046A1A200D084B8 /* ShowVideoSegue.h */,
 				3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */,
-				49AEE8922045674100AF4DBD /* CameraController.h */,
-				49AEE8932045674100AF4DBD /* CameraController.m */,
-				49AEE8972045677300AF4DBD /* CameraController.storyboard */,
-				3B8F4F0F2046B05F00E724E2 /* CapturedVideoPreview.h */,
-				3B8F4F102046B05F00E724E2 /* CapturedVideoPreview.m */,
+				3B8F4F212046D31A00E724E2 /* CameraController.h */,
+				3B8F4F1F2046D31900E724E2 /* CameraController.m */,
+				3B8F4F232046D31A00E724E2 /* CameraController.storyboard */,
+				3B8F4F202046D31900E724E2 /* CapturedVideoPreview.h */,
+				3B8F4F222046D31A00E724E2 /* CapturedVideoPreview.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 				49AEE8882045608A00AF4DBD /* LaunchScreen.storyboard in Resources */,
 				49AEE8852045608A00AF4DBD /* Assets.xcassets in Resources */,
 				49AEE8832045608A00AF4DBD /* Main.storyboard in Resources */,
-				49AEE8982045677300AF4DBD /* CameraController.storyboard in Resources */,
+				3B8F4F262046D31A00E724E2 /* CameraController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,8 +178,8 @@
 				3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */,
 				49AEE8802045608A00AF4DBD /* ViewController.m in Sources */,
 				49AEE88B2045608A00AF4DBD /* main.m in Sources */,
-				3B8F4F112046B05F00E724E2 /* CapturedVideoPreview.m in Sources */,
-				49AEE8952045674100AF4DBD /* CameraController.m in Sources */,
+				3B8F4F252046D31A00E724E2 /* CapturedVideoPreview.m in Sources */,
+				3B8F4F242046D31A00E724E2 /* CameraController.m in Sources */,
 				49AEE87D2045608A00AF4DBD /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
