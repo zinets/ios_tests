@@ -19,11 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFL-Rs-9g0">
-                                <rect key="frame" x="120" y="533" width="134" height="30"/>
+                                <rect key="frame" x="62" y="533" width="134" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="make photo"/>
                                 <connections>
                                     <segue destination="DpG-Dg-ma8" kind="show" id="mqr-ja-ll3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udn-7V-cP2">
+                                <rect key="frame" x="212" y="533" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="make video"/>
+                                <connections>
+                                    <segue destination="DpG-Dg-ma8" kind="presentation" customClass="ShowVideoSegue" modalPresentationStyle="fullScreen" id="IJl-qw-7d2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,4 +52,7 @@
             <point key="canvasLocation" x="344" y="-39"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IJl-qw-7d2"/>
+    </inferredMetricsTieBreakers>
 </document>

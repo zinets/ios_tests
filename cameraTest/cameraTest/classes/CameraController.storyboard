@@ -127,6 +127,9 @@
                                     <constraint firstAttribute="height" constant="64" id="Ln6-WW-0p7"/>
                                 </constraints>
                                 <state key="normal" image="playButton"/>
+                                <connections>
+                                    <action selector="playVideo:" destination="YC8-GG-kjo" eventType="touchUpInside" id="5HX-6g-v1U"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1058823529" green="0.10980392160000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

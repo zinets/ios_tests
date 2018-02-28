@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */; };
+		3B9F4F182046A1A200D084B8 /* ShowVideoSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */; };
 		49AEE87D2045608A00AF4DBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87C2045608A00AF4DBD /* AppDelegate.m */; };
 		49AEE8802045608A00AF4DBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AEE87F2045608A00AF4DBD /* ViewController.m */; };
 		49AEE8832045608A00AF4DBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AEE8812045608A00AF4DBD /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* Begin PBXFileReference section */
 		3B2C600C2045B4B4001ADF7E /* UIColor+InputMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+InputMethods.h"; sourceTree = "<group>"; };
 		3B2C600D2045B4B4001ADF7E /* UIColor+InputMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+InputMethods.m"; sourceTree = "<group>"; };
+		3B9F4F162046A1A200D084B8 /* ShowVideoSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowVideoSegue.h; sourceTree = "<group>"; };
+		3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowVideoSegue.m; sourceTree = "<group>"; };
 		49AEE8782045608A00AF4DBD /* cameraTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cameraTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AEE87B2045608A00AF4DBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49AEE87C2045608A00AF4DBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 		49AEE8912045610000AF4DBD /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				3B9F4F162046A1A200D084B8 /* ShowVideoSegue.h */,
+				3B9F4F172046A1A200D084B8 /* ShowVideoSegue.m */,
 				49AEE8922045674100AF4DBD /* CameraController.h */,
 				49AEE8932045674100AF4DBD /* CameraController.m */,
 				49AEE8972045677300AF4DBD /* CameraController.storyboard */,
@@ -164,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B9F4F182046A1A200D084B8 /* ShowVideoSegue.m in Sources */,
 				3B2C600E2045B4B4001ADF7E /* UIColor+InputMethods.m in Sources */,
 				49AEE8802045608A00AF4DBD /* ViewController.m in Sources */,
 				49AEE88B2045608A00AF4DBD /* main.m in Sources */,

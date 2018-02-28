@@ -40,8 +40,11 @@
 @property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;
 @property (nonatomic, strong) AVCaptureMovieFileOutput *videoOutput;
 
-// postprocess
+// preview
 @property (weak, nonatomic) IBOutlet UIImageView *photoPreview;
+@property (nonatomic, strong) AVPlayer *videoPlayer;
+@property (nonatomic, strong) AVPlayerLayer *videoPlayerLayer;
+
 
 // video rec
 @property (nonatomic, strong) NSTimer *recordingTimer;
@@ -57,7 +60,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     [super viewDidLoad];
     
 #warning hardcoded mode
-    self.isVideoMode = YES;
+//    self.isVideoMode = YES;
     
     [self tuneUI];
     
@@ -303,9 +306,24 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     
     self.retakeButton.hidden = YES;
     self.continueButton.hidden = YES;
+    self.playButton.hidden = YES;
+    
+    if (!captureSession.isRunning) {
+        dispatch_async(captureSessionQueue, ^{
+            [captureSession startRunning];
+        });
+    }
 }
 
 - (IBAction)onContinueTap:(id)sender {
+}
+
+- (IBAction)playVideo:(UIButton *)sender {
+    if (sender.selected) {
+        [self.videoPlayer pause];
+    } else {
+        [self.videoPlayer play];
+    }
 }
 
 #pragma mark - image result
@@ -353,6 +371,13 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     
     self.retakeButton.hidden = NO;
     self.continueButton.hidden = NO;
+    self.playButton.hidden = YES;
+    
+    if (captureSession.isRunning) {
+        dispatch_async(captureSessionQueue, ^{
+            [captureSession stopRunning];
+        });
+    }
 }
 
 #pragma mark -video result
@@ -390,8 +415,27 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     });
 }
 
-- (void)showVideoPreview:(id)param {
+- (void)showVideoPreview:(NSURL *)videoFile {
+    self.photoPreview.image = nil;
+    self.photoPreview.alpha = 1;
     
+    self.retakeButton.hidden = NO;
+    self.continueButton.hidden = NO;
+    self.playButton.hidden = NO;
+    
+    if (captureSession.isRunning) {
+        dispatch_async(captureSessionQueue, ^{
+            [captureSession stopRunning];
+        });
+    }
+    
+    if (self.videoPlayerLayer) {
+        [self.videoPlayerLayer removeFromSuperlayer];
+    }
+    
+    self.videoPlayer = [AVPlayer playerWithURL:videoFile];
+    self.videoPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.videoPlayer];
+    [self.photoPreview.layer addSublayer:self.videoPlayerLayer];
 }
 
 #pragma mark - capture delegation
