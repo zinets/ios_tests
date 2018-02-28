@@ -310,7 +310,8 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     }
 }
 
-- (IBAction)closeCamera:(id)sender {
+- (IBAction)closeCameraController:(id)sender {
+#warning или сделать метод делегата?..
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -358,6 +359,11 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 }
 
 - (IBAction)onContinueTap:(id)sender {
+    if (self.isVideoMode && [self.delegate respondsToSelector:@selector(cameraController:tookVideo:)]) {
+        [self.delegate cameraController:self tookVideo:self.videoPreview.videoUrl];
+    } else if ([self.delegate respondsToSelector:@selector(cameraController:tookPhoto:)]) {
+        [self.delegate cameraController:self tookPhoto:self.photoPreview.image];
+    }
 }
 
 - (IBAction)playVideo:(UIButton *)sender {

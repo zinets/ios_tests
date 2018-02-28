@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CameraControllerDelegate <NSObject>
+- (void)cameraController:(id)sender tookPhoto:(UIImage *)image;
+- (void)cameraController:(id)sender tookVideo:(NSURL *)fileUrl;
+@end
+
 @interface CameraController : UIViewController
 // photo/video mode
 @property (nonatomic) BOOL isVideoMode; // инача photo
+@property (nonatomic, weak) id <CameraControllerDelegate> delegate;
 @end

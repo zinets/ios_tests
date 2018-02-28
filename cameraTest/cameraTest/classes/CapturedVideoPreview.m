@@ -25,6 +25,7 @@ static const NSString *PlayerStatusContext;
 - (instancetype)initWithUrl:(NSURL *)url {
     if (self = [super init]) {
         self.videoPlayer = [AVPlayer playerWithURL:url];
+        _videoUrl = url;
         
         [self.videoPlayer addObserver:self forKeyPath:@"status"
                               options:NSKeyValueObservingOptionInitial
