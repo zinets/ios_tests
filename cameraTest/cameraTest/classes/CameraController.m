@@ -163,7 +163,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     dispatch_async(captureSessionQueue, ^{
         _videoOutput = [AVCaptureMovieFileOutput new];
 #warning 30 от фонаря; как получить fps используемый??
-        CMTime maxDuration = CMTimeMakeWithSeconds(maxVideoLenght, 30);
+        CMTime maxDuration = CMTimeMakeWithSeconds(maxVideoLenght * 30, 30);
         _videoOutput.maxRecordedDuration = maxDuration;
         _videoOutput.maxRecordedFileSize = maxVideoFileSize;
         
@@ -324,6 +324,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     } else {
         [self.videoPlayer play];
     }
+    sender.selected = !sender.selected;
 }
 
 #pragma mark - image result
@@ -380,7 +381,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     }
 }
 
-#pragma mark -video result
+#pragma mark - video result
 
 - (void)getVideo {
     if (self.shutterButton.selected) {
@@ -400,7 +401,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     self.switchCameraButton.hidden = YES;
     
     dispatch_async(captureSessionQueue, ^{
-        NSString *temp = [NSTemporaryDirectory() stringByAppendingPathComponent:@"video.tmp"];
+        NSString *temp = [NSTemporaryDirectory() stringByAppendingPathComponent:@"video.mov"];
         NSURL *outputUrl = [NSURL fileURLWithPath:temp isDirectory:NO];
         [self.videoOutput startRecordingToOutputFileURL:outputUrl recordingDelegate:self];
     });
@@ -418,6 +419,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 - (void)showVideoPreview:(NSURL *)videoFile {
     self.photoPreview.image = nil;
     self.photoPreview.alpha = 1;
+    self.photoPreview.backgroundColor = [UIColor brownColor];
     
     self.retakeButton.hidden = NO;
     self.continueButton.hidden = NO;
@@ -435,6 +437,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     
     self.videoPlayer = [AVPlayer playerWithURL:videoFile];
     self.videoPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.videoPlayer];
+    self.videoPlayerLayer.frame = self.photoPreview.bounds;
     [self.photoPreview.layer addSublayer:self.videoPlayerLayer];
 }
 
