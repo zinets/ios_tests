@@ -175,6 +175,7 @@
                         <outlet property="shutterButton" destination="8aH-lY-1R8" id="qGb-2T-mo9"/>
                         <outlet property="switchCameraButton" destination="NiU-qq-3Hk" id="I59-Wo-A4d"/>
                         <outlet property="tapRecognizer" destination="hZQ-Z9-0es" id="YxL-Cy-du5"/>
+                        <outlet property="timerLabel" destination="n0s-sX-Y2O" id="qCs-Ep-SAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pbl-DS-1HU" userLabel="First Responder" sceneMemberID="firstResponder"/>

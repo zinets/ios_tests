@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (weak, nonatomic) IBOutlet UIButton *switchCameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 // flash control
 @property (weak, nonatomic) IBOutlet UIButton *flashOnButton;
@@ -42,7 +43,13 @@
 // postprocess
 @property (weak, nonatomic) IBOutlet UIImageView *photoPreview;
 
+// video rec
+@property (nonatomic, strong) NSTimer *recordingTimer;
 @end
+
+static CGFloat const minVideoLength = 6;
+static CGFloat const maxVideoLenght = 10; //30
+static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 
 @implementation CameraController
 
@@ -50,7 +57,7 @@
     [super viewDidLoad];
     
 #warning hardcoded mode
-    self.isVideoMode = NO;
+    self.isVideoMode = YES;
     
     [self tuneUI];
     
@@ -78,6 +85,7 @@
     
     self.closeButton.layer.cornerRadius = 56/2;
     self.playButton.layer.cornerRadius = 64/2;
+    self.timerLabel.hidden = !self.isVideoMode;
 }
 
 #pragma mark - camera
@@ -88,7 +96,8 @@
     // AVCaptureSessionPresetLow - .. for sharing over 3G
     // AVCaptureSessionPresetMedium - .. for sharing over WiFi
     // AVCaptureSessionPreset1280x720 - облезут они снимать пиписки с таким качеством
-    captureSession.sessionPreset = self.isVideoMode ? AVCaptureSessionPresetLow : AVCaptureSessionPresetPhoto;
+    AVCaptureSessionPreset preset = self.isVideoMode ? AVCaptureSessionPresetLow : AVCaptureSessionPresetPhoto;
+    captureSession.sessionPreset = preset;
     
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
     _previewLayer.frame = self.view.bounds;
@@ -150,6 +159,11 @@
 - (void)createVideoOutput {
     dispatch_async(captureSessionQueue, ^{
         _videoOutput = [AVCaptureMovieFileOutput new];
+#warning 30 от фонаря; как получить fps используемый??
+        CMTime maxDuration = CMTimeMakeWithSeconds(maxVideoLenght, 30);
+        _videoOutput.maxRecordedDuration = maxDuration;
+        _videoOutput.maxRecordedFileSize = maxVideoFileSize;
+        
         if ([captureSession canAddOutput:_videoOutput]){
             [captureSession addOutput:_videoOutput];
         }
@@ -174,7 +188,8 @@
 
 -(void)setFlashMode:(AVCaptureFlashMode)flashMode {
     [UIView animateWithDuration:0.4 animations:^{
-        if ([self.activeCamera isFlashModeSupported:flashMode]) {
+        if ([self.activeCamera isFlashModeSupported:flashMode] ||
+            [self.activeCamera isTorchModeSupported:(AVCaptureTorchMode)flashMode]) {
             _flashMode = flashMode;
             
             switch (_flashMode) {
@@ -200,7 +215,11 @@
                 NSError *err = nil;
                 [self.activeCamera lockForConfiguration:&err];
                 if (!err) {
-                    self.activeCamera.flashMode = _flashMode;
+                    if (self.isVideoMode) {
+                        self.activeCamera.torchMode = (AVCaptureTorchMode)_flashMode;
+                    } else {
+                        self.activeCamera.flashMode = _flashMode;
+                    }
                     
                     [self.activeCamera unlockForConfiguration];
                 }
@@ -289,7 +308,7 @@
 - (IBAction)onContinueTap:(id)sender {
 }
 
-#pragma mark -
+#pragma mark - image result
 
 - (void)getImage {
     dispatch_async(captureSessionQueue, ^{
@@ -328,27 +347,47 @@
     });
 }
 
-- (void)getVideo {
-    if (self.shutterButton.selected) {
-        dispatch_async(captureSessionQueue, ^{
-            [self.videoOutput stopRecording];
-        });
-    } else {
-        dispatch_async(captureSessionQueue, ^{
-            NSString *temp = [NSTemporaryDirectory() stringByAppendingPathComponent:@"video.tmp"];
-            NSURL *outputUrl = [[NSURL alloc] initFileURLWithPath:temp isDirectory:NO];
-            [self.videoOutput startRecordingToOutputFileURL:outputUrl recordingDelegate:self];
-        });
-    }
-    self.shutterButton.selected = !self.shutterButton.selected;
-}
-
 - (void)showPhotoPreview:(UIImage *)image {
     self.photoPreview.image = image;
     self.photoPreview.alpha = 1;
-
+    
     self.retakeButton.hidden = NO;
     self.continueButton.hidden = NO;
+}
+
+#pragma mark -video result
+
+- (void)getVideo {
+    if (self.shutterButton.selected) {
+        [self stopVideoRecording];
+    } else {
+        [self startVideoRecording];
+    }
+}
+
+- (void)startVideoRecording {
+    self.shutterButton.selected = YES;
+    
+    self.flashOnButton.hidden =
+    self.flashOffButton.hidden =
+    self.flashAutoButton.hidden = YES;
+    
+    self.switchCameraButton.hidden = YES;
+    
+    dispatch_async(captureSessionQueue, ^{
+        NSString *temp = [NSTemporaryDirectory() stringByAppendingPathComponent:@"video.tmp"];
+        NSURL *outputUrl = [NSURL fileURLWithPath:temp isDirectory:NO];
+        [self.videoOutput startRecordingToOutputFileURL:outputUrl recordingDelegate:self];
+    });
+}
+
+- (void)stopVideoRecording {
+    self.shutterButton.selected = NO;
+    self.shutterButton.enabled = NO;
+    [self stopTimer];
+    dispatch_async(captureSessionQueue, ^{
+        [self.videoOutput stopRecording];
+    });
 }
 
 - (void)showVideoPreview:(id)param {
@@ -359,17 +398,53 @@
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections error:(nullable NSError *)error {
     NSLog(@"%s %@ %@", __PRETTY_FUNCTION__, outputFileURL, error);
-    [self showVideoPreview:outputFileURL];
+    self.shutterButton.enabled = YES;
     
+    self.flashOnButton.hidden =
+    self.flashOffButton.hidden =
+    self.flashAutoButton.hidden = NO;
+    
+    self.switchCameraButton.hidden = NO;
+    
+    [self showVideoPreview:outputFileURL];
 }
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections {
+    [self startTimer];
+    self.shutterButton.enabled = NO;
+}
+
+#pragma mark - rec timer
+
+- (void)startTimer {
+    if (self.recordingTimer) {
+        [self.recordingTimer invalidate];
+    }
+    self.recordingTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerTick:) userInfo:[NSDate date] repeats:YES];
+}
+
+- (void)stopTimer {
+    [self.recordingTimer invalidate];
+    self.recordingTimer = nil;
+}
+
+- (void)timerTick:(NSTimer *)sender {
+    NSTimeInterval secs = ABS([(NSDate *)sender.userInfo timeIntervalSinceNow]);
+    self.timerLabel.text = [NSString stringWithFormat:@"00:00:%2.2f", secs];
     
+    self.shutterButton.enabled = secs >= minVideoLength;
+    if (secs >= maxVideoLenght - 0.5) { // импирическая магическая цифра; может ее и недостаточно
+        [self stopVideoRecording];
+        // для красоты
+        self.timerLabel.text = [NSString stringWithFormat:@"00:00:%2.2f", maxVideoLenght];
+    }
 }
 
 //todo:
 //- таймер записи видео
-//- ресайз фото для отправки
-//- проверить видео
+// после начала записи задизаблить кнопку останова на 6 сек;
+// остановить запись после 30 сек (29?)
+
+//- preview видео
 
 @end
