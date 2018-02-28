@@ -29,6 +29,10 @@ static const NSString *PlayerStatusContext;
         [self.videoPlayer addObserver:self forKeyPath:@"status"
                               options:NSKeyValueObservingOptionInitial
                               context:&PlayerStatusContext];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(playerItemDidReachEnd:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:nil];
 
         self.videoPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.videoPlayer];
         self.videoPlayerLayer.frame = self.bounds;
@@ -38,13 +42,20 @@ static const NSString *PlayerStatusContext;
 }
 
 -(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.videoPlayer removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
-    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.videoPlayerLayer.frame = self.bounds;
+}
+
+#pragma mark - observing
+
+- (void)playerItemDidReachEnd:(id)n {
+     [self.videoPlayer seekToTime:kCMTimeZero];
+    self.playControl.selected = NO;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
@@ -74,17 +85,5 @@ static const NSString *PlayerStatusContext;
 - (void)pause {
     [self.videoPlayer pause];
 }
-
-
-//if (!self.isObservingActive) {
-//    [self.videoPlayer addObserver:self forKeyPath:@"status"
-//                          options:NSKeyValueObservingOptionInitial
-//                          context:&ItemStatusContext];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(playerItemDidReachEnd:)
-//                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-//                                               object:self.videoPlayer];
-//    
-//};
 
 @end

@@ -383,12 +383,11 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:jpegData];
                 
-                // flip selfie camera output; сначала отразить если надо..
-                if (self.activeCamera == self.selfieCamera) {
-                    image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:(UIImageOrientationLeftMirrored)];
-                }
+                // flip selfie camera output; сначала отразить если надо.. тогда выглядит все норм, но результат остается "отзеркаленым" - текст на футболке к примеру не читаемый
+//                if (self.activeCamera == self.selfieCamera) {
+//                    image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:(UIImageOrientationLeftMirrored)];
+//                }
                 
-                // .. а потом уменьшить; иначе (уменьшить, а потом отраать, что казалось бы лучше с точки зрения использования памяти) получается магия с поворотами картинки; а так все работает "само собой"
                 CGFloat const serverMaxSize = 1024;
                 CGFloat ar = serverMaxSize / MAX(image.size.width, image.size.height);
                 CGSize newSize = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(ar, ar));
@@ -477,9 +476,6 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 #pragma mark - capture delegation
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections error:(nullable NSError *)error {
-    NSLog(@"%s %@ %@", __PRETTY_FUNCTION__, outputFileURL, error);
-    self.shutterButton.enabled = YES;
-    
     self.flashOnButton.hidden =
     self.flashOffButton.hidden =
     self.flashAutoButton.hidden = NO;
