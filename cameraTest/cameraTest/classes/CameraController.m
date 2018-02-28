@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *retakeButton;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (weak, nonatomic) IBOutlet UIButton *switchCameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 // flash control
 @property (weak, nonatomic) IBOutlet UIButton *flashOnButton;
@@ -49,7 +50,7 @@
     [super viewDidLoad];
     
 #warning hardcoded mode
-    self.isVideoMode = YES;
+    self.isVideoMode = NO;
     
     [self tuneUI];
     
@@ -76,6 +77,7 @@
     [self.view.layer insertSublayer:layer atIndex:0];
     
     self.closeButton.layer.cornerRadius = 56/2;
+    self.playButton.layer.cornerRadius = 64/2;
 }
 
 #pragma mark - camera
@@ -83,7 +85,10 @@
 - (void)prepareCamera {
     captureSessionQueue = dispatch_queue_create("capture_session", DISPATCH_QUEUE_SERIAL);
     captureSession = [AVCaptureSession new];
-    captureSession.sessionPreset = self.isVideoMode ? AVCaptureSessionPreset1280x720 : AVCaptureSessionPresetPhoto;
+    // AVCaptureSessionPresetLow - .. for sharing over 3G
+    // AVCaptureSessionPresetMedium - .. for sharing over WiFi
+    // AVCaptureSessionPreset1280x720 - облезут они снимать пиписки с таким качеством
+    captureSession.sessionPreset = self.isVideoMode ? AVCaptureSessionPresetLow : AVCaptureSessionPresetPhoto;
     
     _previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
     _previewLayer.frame = self.view.bounds;
@@ -297,9 +302,22 @@
             if (!error) {
                 NSData *jpegData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                 UIImage *image = [UIImage imageWithData:jpegData];
+                
+                // flip selfie camera output; сначала отразить если надо..
                 if (self.activeCamera == self.selfieCamera) {
                     image = [UIImage imageWithCGImage:image.CGImage scale:1 orientation:(UIImageOrientationLeftMirrored)];
                 }
+                
+                // .. а потом уменьшить; иначе (уменьшить, а потом отраать, что казалось бы лучше с точки зрения использования памяти) получается магия с поворотами картинки; а так все работает "само собой"
+                CGFloat const serverMaxSize = 1024;
+                CGFloat ar = serverMaxSize / MAX(image.size.width, image.size.height);
+                CGSize newSize = CGSizeApplyAffineTransform(image.size, CGAffineTransformMakeScale(ar, ar));
+                
+                UIGraphicsBeginImageContextWithOptions(newSize, NO, 1);
+                [image drawInRect:(CGRect){CGPointZero, newSize}];
+                image = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self showPhotoPreview:image];
                 });
@@ -333,18 +351,25 @@
     self.continueButton.hidden = NO;
 }
 
+- (void)showVideoPreview:(id)param {
+    
+}
+
 #pragma mark - capture delegation
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections error:(nullable NSError *)error {
     NSLog(@"%s %@ %@", __PRETTY_FUNCTION__, outputFileURL, error);
+    [self showVideoPreview:outputFileURL];
+    
 }
 
 - (void)captureOutput:(AVCaptureFileOutput *)output didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections {
     
 }
 
-todo:
-- ресайз фото для отправки
-- проверить видео
+//todo:
+//- таймер записи видео
+//- ресайз фото для отправки
+//- проверить видео
 
 @end
