@@ -9,6 +9,14 @@
 #import "CameraController.h"
 #import "UIColor+InputMethods.h"
 #import <AVFoundation/AVFoundation.h>
+#import "CapturedVideoPreview.h"
+
+typedef enum {
+    UIModeCapturePhoto,
+    UIModeCaptureVideo,
+    UIModePreviewPhoto,
+    UIModePreviewVideo,
+} UIMode;
 
 @interface CameraController () <AVCaptureFileOutputRecordingDelegate> {
     AVCaptureSession *captureSession;
@@ -42,15 +50,13 @@
 
 // preview
 @property (weak, nonatomic) IBOutlet UIImageView *photoPreview;
-@property (nonatomic, strong) AVPlayer *videoPlayer;
-@property (nonatomic, strong) AVPlayerLayer *videoPlayerLayer;
-
+@property (nonatomic, strong) CapturedVideoPreview *videoPreview;
 
 // video rec
 @property (nonatomic, strong) NSTimer *recordingTimer;
 @end
 
-static CGFloat const minVideoLength = 6;
+static CGFloat const minVideoLength = 3; //6;
 static CGFloat const maxVideoLenght = 10; //30
 static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 
@@ -59,23 +65,6 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-#warning hardcoded mode
-//    self.isVideoMode = YES;
-    
-    [self tuneUI];
-    
-    [self prepareCamera];
-    [self createCameraInput];
-    if (self.isVideoMode) {
-        [self createVideoOutput];
-    } else {
-        [self createPhotoOutput];
-    }
-    
-    self.flashMode = AVCaptureFlashModeAuto;
-}
-
-- (void)tuneUI {
     CAGradientLayer *layer = [CAGradientLayer new];
     layer.colors = @[
                      (id)[[UIColor colorWithHex:0x363636] colorWithAlphaComponent:0].CGColor,
@@ -88,7 +77,67 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
     
     self.closeButton.layer.cornerRadius = 56/2;
     self.playButton.layer.cornerRadius = 64/2;
-    self.timerLabel.hidden = !self.isVideoMode;
+    
+    [self tuneUI:self.isVideoMode ? UIModeCaptureVideo : UIModeCapturePhoto];
+    
+    [self prepareCamera];
+    [self createCameraInput];
+    if (self.isVideoMode) {
+        [self createVideoOutput];
+    } else {
+        [self createPhotoOutput];
+    }
+    
+    self.flashMode = AVCaptureFlashModeAuto;
+}
+
+- (void)tuneUI:(UIMode)uiMode {
+    switch (uiMode) {
+        case UIModeCapturePhoto: {
+            self.playButton.hidden = YES;
+            self.timerLabel.hidden = YES;
+            
+            self.photoPreview.image = nil;
+            self.photoPreview.alpha = 0;
+            
+            self.retakeButton.hidden = YES;
+            self.continueButton.hidden = YES;
+        } break;
+        case UIModeCaptureVideo: {
+            [self.videoPreview removeFromSuperview];
+            self.videoPreview = nil;
+            
+            self.playButton.hidden = YES;
+            self.timerLabel.hidden = NO;
+            
+            self.photoPreview.image = nil;
+            self.photoPreview.alpha = 0;
+            
+            self.retakeButton.hidden = YES;
+            self.continueButton.hidden = YES;
+            
+            self.timerLabel.text = @"00:00:00";
+        } break;
+        case UIModePreviewVideo: {
+            self.photoPreview.image = nil;
+            self.photoPreview.alpha = 1;
+            
+            self.retakeButton.hidden = NO;
+            self.continueButton.hidden = NO;
+            self.playButton.hidden = NO;
+            
+            self.timerLabel.hidden = YES;
+        } break;
+        case UIModePreviewPhoto: {
+            self.photoPreview.alpha = 1;
+            
+            self.retakeButton.hidden = NO;
+            self.continueButton.hidden = NO;
+            self.playButton.hidden = YES;
+            
+            self.timerLabel.hidden = YES;
+        } break;
+    }
 }
 
 #pragma mark - camera
@@ -299,14 +348,7 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 
 // все переделать; появляется после того, как сделали фото/видео
 - (IBAction)retake:(id)sender {
-    self.photoPreview.image = nil;
-    self.photoPreview.alpha = 0;
-    
-//    self.videoPreview = ...
-    
-    self.retakeButton.hidden = YES;
-    self.continueButton.hidden = YES;
-    self.playButton.hidden = YES;
+    [self tuneUI:self.isVideoMode ? UIModeCaptureVideo : UIModeCapturePhoto];
     
     if (!captureSession.isRunning) {
         dispatch_async(captureSessionQueue, ^{
@@ -320,9 +362,9 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 
 - (IBAction)playVideo:(UIButton *)sender {
     if (sender.selected) {
-        [self.videoPlayer pause];
+        [self.videoPreview pause];
     } else {
-        [self.videoPlayer play];
+        [self.videoPreview play];
     }
     sender.selected = !sender.selected;
 }
@@ -367,12 +409,8 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 }
 
 - (void)showPhotoPreview:(UIImage *)image {
+    [self tuneUI:UIModePreviewPhoto];
     self.photoPreview.image = image;
-    self.photoPreview.alpha = 1;
-    
-    self.retakeButton.hidden = NO;
-    self.continueButton.hidden = NO;
-    self.playButton.hidden = YES;
     
     if (captureSession.isRunning) {
         dispatch_async(captureSessionQueue, ^{
@@ -417,28 +455,23 @@ static int64_t const maxVideoFileSize = 8 * 1024 * 1024;
 }
 
 - (void)showVideoPreview:(NSURL *)videoFile {
-    self.photoPreview.image = nil;
-    self.photoPreview.alpha = 1;
-    self.photoPreview.backgroundColor = [UIColor brownColor];
-    
-    self.retakeButton.hidden = NO;
-    self.continueButton.hidden = NO;
-    self.playButton.hidden = NO;
+    [self tuneUI:UIModePreviewVideo];
     
     if (captureSession.isRunning) {
         dispatch_async(captureSessionQueue, ^{
             [captureSession stopRunning];
         });
     }
+    self.playButton.enabled = NO;
     
-    if (self.videoPlayerLayer) {
-        [self.videoPlayerLayer removeFromSuperlayer];
-    }
+    self.videoPreview = [CapturedVideoPreview videoPreviewWithUrl:videoFile];
+    self.videoPreview.frame = self.photoPreview.frame;
+    self.videoPreview.playControl = self.playButton;
+    [self.view insertSubview:self.videoPreview aboveSubview:self.photoPreview];
+}
+
+- (void)playerItemDidReachEnd:(NSNotification *)n {
     
-    self.videoPlayer = [AVPlayer playerWithURL:videoFile];
-    self.videoPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.videoPlayer];
-    self.videoPlayerLayer.frame = self.photoPreview.bounds;
-    [self.photoPreview.layer addSublayer:self.videoPlayerLayer];
 }
 
 #pragma mark - capture delegation
