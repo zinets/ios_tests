@@ -1,6 +1,5 @@
 //
 //  SPager.m
-//  somethingPager
 //
 //  Created by Victor Zinets on 4/16/18.
 //  Copyright © 2018 Victor Zinets. All rights reserved.
@@ -24,7 +23,9 @@
 
 @end
 
-@interface SPager () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface SPager () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
+    NSTimer *slideTimer;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) HorizontalPageIndicator *pageIndicator;
 @end
@@ -33,6 +34,7 @@
 
 CGFloat const sideOffset = 40; // это ж идея, когда слайд шире окна для красоты листания
 CGFloat const pageIndicatorHeight = 10;
+CGFloat const timerInterval = 5.;
 
 - (void)commonInit {
     [self addSubview:self.collectionView];
@@ -61,7 +63,7 @@ CGFloat const pageIndicatorHeight = 10;
     } else if (currentPage >= self.dataSource.count) {
         currentPage = 0;
     }
-//    currentPage = MIN(MAX(0, currentPage), self.dataSource.count - 1);
+//    currentPage = MIN(MAX(0, currentPage), self.dataSource.count - 1); или можно просто органичивать прокрутку
     if (currentPage != _currentPage) {
         _currentPage = currentPage;
         
@@ -71,6 +73,7 @@ CGFloat const pageIndicatorHeight = 10;
     }
     
     self.pageIndicator.currentPage = currentPage;
+    [self startAnimating];
 }
 
 #pragma mark page indicator -
@@ -170,5 +173,22 @@ CGFloat const pageIndicatorHeight = 10;
     NSInteger page = scrollView.contentOffset.x / scrollView.bounds.size.width;
     self.currentPage = page;
 }
+
+#pragma mark animation -
+
+- (void)startAnimating {
+    [self stopAnimating];
+    
+    slideTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(onTimer:) userInfo:nil repeats:NO];
+}
+
+- (void)stopAnimating {
+    [slideTimer invalidate];
+}
+
+- (void)onTimer:(id)timer {
+    self.currentPage++;
+}
+
 
 @end

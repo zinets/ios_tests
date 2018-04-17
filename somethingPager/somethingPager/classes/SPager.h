@@ -1,6 +1,5 @@
 //
 //  SPager.h
-//  somethingPager
 //
 //  Created by Victor Zinets on 4/16/18.
 //  Copyright © 2018 Victor Zinets. All rights reserved.
@@ -17,6 +16,7 @@
 
 @interface SPager : UIView
 @property (nonatomic, strong) NSArray <PagerItem *> *dataSource;
-
 @property (nonatomic) NSInteger currentPage;
+- (void)startAnimating;
+- (void)stopAnimating;
 @end
