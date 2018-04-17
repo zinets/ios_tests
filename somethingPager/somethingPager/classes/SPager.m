@@ -72,7 +72,7 @@ CGFloat const timerInterval = 5.;
         [self.collectionView setContentOffset:pt animated:YES];
     }
     
-    self.pageIndicator.currentPage = currentPage;
+    self.pageIndicator.currentPage = _currentPage;
     [self startAnimating];
 }
 
@@ -126,6 +126,8 @@ CGFloat const timerInterval = 5.;
         _collectionView = [[UICollectionView alloc] initWithFrame:frm collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
         
         [_collectionView registerNib:[UINib nibWithNibName:@"SPagerCell" bundle:nil] forCellWithReuseIdentifier:@"SPagerCell"];
         
@@ -145,7 +147,7 @@ CGFloat const timerInterval = 5.;
     cell.itemTitle = item.itemTitle;
     cell.itemDescription = item.itemDescription;
     cell.itemImageUrl = item.itemImageUrl;
-    
+
     return cell;
 }
 
@@ -157,20 +159,24 @@ CGFloat const timerInterval = 5.;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGFloat x = targetContentOffset->x;    
-    NSInteger page = x / scrollView.bounds.size.width;
-    NSInteger d = page - self.currentPage;
-    if (ABS(d) > 1) {
-        page = self.currentPage + (d > 0 ? 1 : -1); // чойта коряво как-то :)
-    }
+    // это работает; формально правильно, фактически при небольших сдвигах имеем дерганый возврат к начальному положению - фу-фу-фу
+//    CGFloat x = targetContentOffset->x;
+//    NSInteger page = x / scrollView.bounds.size.width;
+//    NSInteger d = page - self.currentPage;
+//    if (ABS(d) > 1) {
+//        page = self.currentPage + (d > 0 ? 1 : -1); // чойта коряво как-то :)
+//    }
+//
+//    x = page * (scrollView.bounds.size.width + 2 * sideOffset);
     
-    x = page * (scrollView.bounds.size.width + 2 * sideOffset);
+    
+    // формально неправильно - заканчиваем скрол, даже если инерции недостаточно; но пох, потому что выглядит лучшее
+    NSInteger page = self.currentPage + (velocity.x > 0 ? 1 : -1);
+    page = MIN(self.dataSource.count - 1, MAX(0, page));
+    CGFloat x = page * (scrollView.bounds.size.width + 2 * sideOffset);
     
     targetContentOffset->x = x;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger page = scrollView.contentOffset.x / scrollView.bounds.size.width;
+    
     self.currentPage = page;
 }
 
