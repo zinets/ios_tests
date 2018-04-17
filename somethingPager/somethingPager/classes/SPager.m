@@ -158,6 +158,10 @@ CGFloat const timerInterval = 5.;
     return sz;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self stopAnimating];
+}
+
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     // это работает; формально правильно, фактически при небольших сдвигах имеем дерганый возврат к начальному положению - фу-фу-фу
 //    CGFloat x = targetContentOffset->x;
