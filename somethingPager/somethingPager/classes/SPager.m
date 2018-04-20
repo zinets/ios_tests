@@ -143,12 +143,15 @@ CGFloat const timerInterval = 5.;
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SPagerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SPagerCell" forIndexPath:indexPath];
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)c forItemAtIndexPath:(NSIndexPath *)indexPath {
+    SPagerCell *cell = (id)c;
     PagerItem *item = self.dataSource[indexPath.item];
     cell.itemTitle = item.itemTitle;
     cell.itemDescription = item.itemDescription;
-    cell.itemImageUrl = item.itemImageUrl;
-
-    return cell;
+    cell.itemImageUrl = item.itemImageUrl;   
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,7 +183,6 @@ CGFloat const timerInterval = 5.;
     CGFloat x = page * (scrollView.bounds.size.width + 2 * sideOffset);
     
     targetContentOffset->x = x;
-    
     self.currentPage = page;
 }
 

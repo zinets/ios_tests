@@ -17,9 +17,8 @@
 
 @implementation SPagerCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)prepareForReuse {
+    self.itemImageView.image = nil;
 }
 
 #pragma mark setters -
