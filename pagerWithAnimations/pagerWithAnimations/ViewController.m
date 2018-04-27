@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "SPager.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
+@property (weak, nonatomic) IBOutlet SPager *pager;
 
 @end
 
@@ -16,14 +19,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self removeBoxes];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onTap:(id)sender {
+    [self addBoxes];
+}
+- (IBAction)ontap2:(id)sender {
+    [self removeBoxes];
 }
 
+-(void)addBoxes {
+    [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
+        box.transform = CGAffineTransformMakeTranslation(200, -15);
+        box.alpha = 0;
+        [UIView animateWithDuration:0.4 delay:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            box.transform = CGAffineTransformIdentity;
+            box.alpha = 1;
+        } completion:^(BOOL finished) {
+
+        }];
+    }];
+}
+
+-(void)removeBoxes {
+    [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
+        box.transform = CGAffineTransformIdentity;
+        box.alpha = 1;
+
+        [UIView animateWithDuration:0.4 delay:0.05 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            box.transform = CGAffineTransformMakeTranslation(-200, -15);
+            box.alpha = 0;
+        } completion:^(BOOL finished) {
+
+        }];
+    }];
+}
 
 @end

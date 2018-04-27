@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */; };
+		4175639C6724E9EFE803AB52 /* SPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DD1594FBF5012021768 /* SPager.m */; };
+		41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */; };
 		49C81B542093435F00865FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B532093435F00865FC5 /* AppDelegate.m */; };
 		49C81B572093435F00865FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B562093435F00865FC5 /* ViewController.m */; };
 		49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C81B582093435F00865FC5 /* Main.storyboard */; };
@@ -16,10 +19,15 @@
 		49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6B209345B800865FC5 /* RMCachingNibLoader.m */; };
 		49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6D209345B800865FC5 /* RMNibLoadedView.m */; };
 		49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6F209345B800865FC5 /* RMNibLoader.m */; };
-		49C81B75209345C700865FC5 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B73209345C700865FC5 /* UIColor+MUIColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalPageIndicator.h; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.h; sourceTree = "<group>"; };
+		4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		41756B1F086F86AE69F3E221 /* SPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPager.h; path = ../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/PP/SPager.h; sourceTree = "<group>"; };
+		41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPageIndicator.m; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.m; sourceTree = "<group>"; };
+		41756DD1594FBF5012021768 /* SPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPager.m; path = ../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/PP/SPager.m; sourceTree = "<group>"; };
 		49C81B4F2093435F00865FC5 /* pagerWithAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pagerWithAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C81B522093435F00865FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C81B532093435F00865FC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,8 +44,6 @@
 		49C81B6D209345B800865FC5 /* RMNibLoadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNibLoadedView.m; sourceTree = "<group>"; };
 		49C81B6E209345B800865FC5 /* RMNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNibLoader.h; sourceTree = "<group>"; };
 		49C81B6F209345B800865FC5 /* RMNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNibLoader.m; sourceTree = "<group>"; };
-		49C81B73209345C700865FC5 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
-		49C81B74209345C700865FC5 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +76,6 @@
 		49C81B512093435F00865FC5 /* pagerWithAnimations */ = {
 			isa = PBXGroup;
 			children = (
-				49C81B74209345C700865FC5 /* UIColor+MUIColor.h */,
-				49C81B73209345C700865FC5 /* UIColor+MUIColor.m */,
 				49C81B69209345B800865FC5 /* NibLoadedView */,
 				49C81B682093436B00865FC5 /* classes */,
 				49C81B522093435F00865FC5 /* AppDelegate.h */,
@@ -90,6 +94,12 @@
 		49C81B682093436B00865FC5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				41756B1F086F86AE69F3E221 /* SPager.h */,
+				41756DD1594FBF5012021768 /* SPager.m */,
+				41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */,
+				417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */,
+				4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */,
+				417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -181,9 +191,11 @@
 				49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */,
 				49C81B622093436000865FC5 /* main.m in Sources */,
 				49C81B542093435F00865FC5 /* AppDelegate.m in Sources */,
-				49C81B75209345C700865FC5 /* UIColor+MUIColor.m in Sources */,
 				49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */,
 				49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */,
+				4175639C6724E9EFE803AB52 /* SPager.m in Sources */,
+				41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */,
+				417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
