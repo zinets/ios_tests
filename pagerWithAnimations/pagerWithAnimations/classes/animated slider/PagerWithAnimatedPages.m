@@ -26,11 +26,18 @@
     return sz;
 }
 
-- (void)applyData:(id)itemData toCell:(UICollectionViewCell *)c {
-//    SPagerCell *cell = (id)c;
-//    cell.itemTitle = itemData.itemTitle;
-//    cell.itemDescription = itemData.itemDescription;
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
+    
+    
+}
+
+- (void)applyData:(PagerItem *)itemData toCell:(UICollectionViewCell *)c {
+    PagerAnimatedCell *cell = (id)c;
+    cell.titleText = itemData.itemTitle;
+    cell.descriptionText = itemData.itemDescription;
 //    cell.itemImageUrl = itemData.itemImageUrl;
+    
 }
 
 @end
