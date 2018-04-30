@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
 
 @end
@@ -19,18 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self removeBoxes];
+
 
 }
 
-- (IBAction)onTap:(id)sender {
-    [self addBoxes];
-}
-- (IBAction)ontap2:(id)sender {
-    [self removeBoxes];
-}
-
-- (CGAffineTransform)rightTransform {
+- (CGAffineTransform)boxRightTransform {
     CGAffineTransform transform = CGAffineTransformIdentity;
     transform = CGAffineTransformTranslate(transform, 160, 0);
     transform = CGAffineTransformRotate(transform, -M_PI * 1.09);
@@ -39,7 +33,7 @@
     return transform;
 }
 
-- (CGAffineTransform)leftTransform {
+- (CGAffineTransform)boxLeftTransform {
     CGAffineTransform transform = CGAffineTransformIdentity;
     transform = CGAffineTransformTranslate(transform, -160, 0);
     transform = CGAffineTransformScale(transform, 0.5, 0.5);
@@ -48,60 +42,21 @@
     return transform;
 }
 
--(void)addBoxes {
-    [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
-        box.transform = [self rightTransform];
-        box.alpha = 0;
-        [UIView animateWithDuration:0.6
-                              delay:0.05 * idx
-             usingSpringWithDamping:0.95
-              initialSpringVelocity:20
-                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState
-                         animations:^{
-            box.transform = CGAffineTransformIdentity;
-            box.alpha = 1;
-        } completion:^(BOOL finished) {
-
-        }];
-        
-    }];
+- (CGAffineTransform)labelLeftTransform {
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, -160, 0);
+    
+    return transform;
 }
 
--(void)removeBoxes {
-    [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
-        box.transform = CGAffineTransformIdentity;
-        box.alpha = 1;
-
-        [UIView animateWithDuration:.6
-                              delay:0.05 * idx
-             usingSpringWithDamping:0.95
-              initialSpringVelocity:20
-                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState
-                         animations:^{
-                             box.transform = [self leftTransform];
-            box.alpha = 0;
-        } completion:^(BOOL finished) {
-
-        }];
-    }];
+- (CGAffineTransform)labelRightTransform {
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, 160, 0);
+    
+    return transform;
 }
 
-- (IBAction)addFromLeft {
-    [self changeTransformFrom:[self leftTransform] to:(CGAffineTransformIdentity)];
-}
-
-- (IBAction)addFromRight {
-    [self changeTransformFrom:[self rightTransform] to:(CGAffineTransformIdentity)];
-}
-- (IBAction)removeToRight:(id)sender {
-    [self changeTransformFrom:(CGAffineTransformIdentity) to:[self rightTransform]];
-}
-
-- (IBAction)removeToLeft:(id)sender {
-    [self changeTransformFrom:(CGAffineTransformIdentity) to:[self leftTransform]];
-}
-
-- (void)changeTransformFrom:(CGAffineTransform)fromTransform to:(CGAffineTransform)toTransform {
+- (void)changeBoxesTransformFrom:(CGAffineTransform)fromTransform to:(CGAffineTransform)toTransform {
     CGFloat fromAlpha = CGAffineTransformIsIdentity(fromTransform) ? 1 : 0;
     CGFloat toAlpha = fromAlpha ? 0 : 1;
     [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
@@ -118,5 +73,46 @@
                          } completion:nil];
     }];
 }
+
+- (void)changeLabelsTransformFrom:(CGAffineTransform)fromTransform to:(CGAffineTransform)toTransform {
+    CGFloat fromAlpha = CGAffineTransformIsIdentity(fromTransform) ? 1 : 0;
+    CGFloat toAlpha = fromAlpha ? 0 : 1;
+    [self.labels enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
+        box.transform = fromTransform;
+        box.alpha =  fromAlpha;
+        [UIView animateWithDuration:0.6
+                              delay:0.05
+             usingSpringWithDamping:0.95
+              initialSpringVelocity:20
+                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             box.transform = toTransform;
+                             box.alpha = toAlpha;
+                         } completion:nil];
+    }];
+}
+
+#pragma mark testing -
+
+- (IBAction)addFromLeft {
+    [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity)];
+    [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity)];
+    
+}
+
+- (IBAction)addFromRight {
+    [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity)];
+    [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity)];
+}
+- (IBAction)removeToRight:(id)sender {
+    [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxRightTransform]];
+    [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelRightTransform]];
+}
+
+- (IBAction)removeToLeft:(id)sender {
+    [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxLeftTransform]];
+    [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelLeftTransform]];
+}
+
 
 @end
