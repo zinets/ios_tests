@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PagerAnimatedCell : UICollectionViewCell
+@interface PagerAnimatedCell : UICollectionViewCell 
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *descriptionText;
 
+@property (nonatomic) BOOL contentIsHidden;
 - (void)addFromLeft;
 - (void)addFromRight;
 - (void)removeToRight;

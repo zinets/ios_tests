@@ -8,7 +8,9 @@
 
 #import "PagerAnimatedCell.h"
 
-@interface PagerAnimatedCell()
+@interface PagerAnimatedCell() {
+    
+}
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
@@ -22,6 +24,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+-(void)prepareForReuse {
+    _contentIsHidden = YES;
+    [UIView setAnimationsEnabled:NO];
+    [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
+        box.transform = CGAffineTransformIdentity;
+    }];
+    [self.labels enumerateObjectsUsingBlock:^(UIView *label, NSUInteger idx, BOOL *stop) {
+        label.transform = CGAffineTransformIdentity;
+    }];
+    [UIView setAnimationsEnabled:YES];
 }
 
 -(void)setTitleText:(NSString *)titleText {
@@ -72,11 +86,11 @@
     [self.boxes enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
         box.transform = fromTransform;
         box.alpha =  fromAlpha;
-        [UIView animateWithDuration:0.6
+        [UIView animateWithDuration:.6
                               delay:0.05 * idx
              usingSpringWithDamping:0.95
               initialSpringVelocity:20
-                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState
+                            options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              box.transform = toTransform;
                              box.alpha = toAlpha;
@@ -90,11 +104,11 @@
     [self.labels enumerateObjectsUsingBlock:^(UIView *box, NSUInteger idx, BOOL *stop) {
         box.transform = fromTransform;
         box.alpha =  fromAlpha;
-        [UIView animateWithDuration:0.6
+        [UIView animateWithDuration:.6
                               delay:0.05
              usingSpringWithDamping:0.95
               initialSpringVelocity:20
-                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState
+                            options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              box.transform = toTransform;
                              box.alpha = toAlpha;
@@ -103,23 +117,41 @@
 }
 
 - (void)addFromLeft {
-    [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity)];
-    [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity)];
+    if (_contentIsHidden) {
+        _contentIsHidden = NO;
+        [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity)];
+        [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity)];
+    }
 }
 
 - (void)addFromRight {
-    [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity)];
-    [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity)];
+    if (_contentIsHidden) {
+        _contentIsHidden = NO;
+        [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity)];
+        [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity)];
+    }
 }
 
 - (void)removeToRight {
-    [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxRightTransform]];
-    [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelRightTransform]];
+    if (!_contentIsHidden) {
+        _contentIsHidden = YES;
+        [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxRightTransform]];
+        [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelRightTransform]];
+    }
 }
 
 - (void)removeToLeft {
-    [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxLeftTransform]];
-    [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelLeftTransform]];
+    if (!_contentIsHidden) {
+        _contentIsHidden = YES;
+        [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxLeftTransform]];
+        [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelLeftTransform]];
+    }
+}
+- (IBAction)tapp:(id)sender {
+    [self addFromLeft];
 }
 
+- (IBAction)tap:(id)sender {
+    [self removeToRight];
+}
 @end

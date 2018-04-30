@@ -11,6 +11,7 @@
 @interface BasePager : UIView <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     NSArray *_dataSource;
 }
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic, strong) NSArray *dataSource;
 - (void)startAnimating;

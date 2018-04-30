@@ -13,7 +13,6 @@
 @interface BasePager() {
     NSTimer *slideTimer;
 }
-@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) HorizontalPageIndicator *pageIndicator;
 @end
 
@@ -173,11 +172,16 @@ CGFloat const timerInterval = 10;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    // формально неправильно - заканчиваем скрол, даже если инерции недостаточно; но пох, потому что выглядит лучшее
-    NSInteger page = self.currentPage + (velocity.x > 0 ? 1 : -1);
-    page = MIN(self.dataSource.count - 1, MAX(0, page));
-    CGFloat x = page * (scrollView.bounds.size.width + 2 * self.sideOffset);
-    
+    CGFloat x;
+    NSInteger page;
+    if (velocity.x == 0) {
+        x = targetContentOffset->x + scrollView.bounds.size.width / 2;
+        page = x / scrollView.bounds.size.width;
+    } else {
+        page = self.currentPage + (velocity.x > 0 ? 1 : -1);
+        page = MIN(self.dataSource.count - 1, MAX(0, page));
+    }
+    x = page * (scrollView.bounds.size.width + 2 * self.sideOffset);
     targetContentOffset->x = x;
     self.currentPage = page;
 }
