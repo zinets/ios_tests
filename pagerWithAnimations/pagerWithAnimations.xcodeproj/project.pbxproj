@@ -10,6 +10,14 @@
 		417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */; };
 		41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */; };
 		496155D02096DA2200223281 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496155CF2096DA2200223281 /* Media.xcassets */; };
+		496155D32096F3AF00223281 /* SPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D12096F3AF00223281 /* SPager.m */; };
+		496155D62096F44900223281 /* PagerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D52096F44900223281 /* PagerItem.m */; };
+		496155D92097088D00223281 /* BasePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D82097088D00223281 /* BasePager.m */; };
+		496155DD2097094900223281 /* SPagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155DB2097094900223281 /* SPagerCell.m */; };
+		496155DE2097094900223281 /* SPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496155DC2097094900223281 /* SPagerCell.xib */; };
+		496155E420970A9400223281 /* PagerAnimatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155E220970A9400223281 /* PagerAnimatedCell.m */; };
+		496155E520970A9400223281 /* PagerAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496155E320970A9400223281 /* PagerAnimatedCell.xib */; };
+		496155E820970AB700223281 /* PagerWithAnimatedPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155E720970AB700223281 /* PagerWithAnimatedPages.m */; };
 		49C81B542093435F00865FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B532093435F00865FC5 /* AppDelegate.m */; };
 		49C81B572093435F00865FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B562093435F00865FC5 /* ViewController.m */; };
 		49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C81B582093435F00865FC5 /* Main.storyboard */; };
@@ -27,6 +35,20 @@
 		417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPageIndicator.m; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.m; sourceTree = "<group>"; };
 		496155CF2096DA2200223281 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		496155D12096F3AF00223281 /* SPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPager.m; sourceTree = "<group>"; };
+		496155D22096F3AF00223281 /* SPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPager.h; sourceTree = "<group>"; };
+		496155D42096F44900223281 /* PagerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerItem.h; sourceTree = "<group>"; };
+		496155D52096F44900223281 /* PagerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerItem.m; sourceTree = "<group>"; };
+		496155D72097088D00223281 /* BasePager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePager.h; sourceTree = "<group>"; };
+		496155D82097088D00223281 /* BasePager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePager.m; sourceTree = "<group>"; };
+		496155DA2097094900223281 /* SPagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPagerCell.h; sourceTree = "<group>"; };
+		496155DB2097094900223281 /* SPagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPagerCell.m; sourceTree = "<group>"; };
+		496155DC2097094900223281 /* SPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPagerCell.xib; sourceTree = "<group>"; };
+		496155E120970A9400223281 /* PagerAnimatedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerAnimatedCell.h; sourceTree = "<group>"; };
+		496155E220970A9400223281 /* PagerAnimatedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerAnimatedCell.m; sourceTree = "<group>"; };
+		496155E320970A9400223281 /* PagerAnimatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerAnimatedCell.xib; sourceTree = "<group>"; };
+		496155E620970AB700223281 /* PagerWithAnimatedPages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerWithAnimatedPages.h; sourceTree = "<group>"; };
+		496155E720970AB700223281 /* PagerWithAnimatedPages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerWithAnimatedPages.m; sourceTree = "<group>"; };
 		49C81B4F2093435F00865FC5 /* pagerWithAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pagerWithAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C81B522093435F00865FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C81B532093435F00865FC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,6 +78,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		496155DF2097095000223281 /* flirt classes */ = {
+			isa = PBXGroup;
+			children = (
+				496155D42096F44900223281 /* PagerItem.h */,
+				496155D52096F44900223281 /* PagerItem.m */,
+				496155D22096F3AF00223281 /* SPager.h */,
+				496155D12096F3AF00223281 /* SPager.m */,
+				496155DA2097094900223281 /* SPagerCell.h */,
+				496155DB2097094900223281 /* SPagerCell.m */,
+				496155DC2097094900223281 /* SPagerCell.xib */,
+			);
+			path = "flirt classes";
+			sourceTree = "<group>";
+		};
+		496155E020970A6800223281 /* animated slider */ = {
+			isa = PBXGroup;
+			children = (
+				496155E120970A9400223281 /* PagerAnimatedCell.h */,
+				496155E220970A9400223281 /* PagerAnimatedCell.m */,
+				496155E320970A9400223281 /* PagerAnimatedCell.xib */,
+				496155E620970AB700223281 /* PagerWithAnimatedPages.h */,
+				496155E720970AB700223281 /* PagerWithAnimatedPages.m */,
+			);
+			path = "animated slider";
+			sourceTree = "<group>";
+		};
 		49C81B462093435F00865FC5 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +141,10 @@
 		49C81B682093436B00865FC5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				496155E020970A6800223281 /* animated slider */,
+				496155DF2097095000223281 /* flirt classes */,
+				496155D72097088D00223281 /* BasePager.h */,
+				496155D82097088D00223281 /* BasePager.m */,
 				41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */,
 				417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */,
 				4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */,
@@ -176,6 +228,8 @@
 				49C81B5C2093436000865FC5 /* Assets.xcassets in Resources */,
 				496155D02096DA2200223281 /* Media.xcassets in Resources */,
 				49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */,
+				496155E520970A9400223281 /* PagerAnimatedCell.xib in Resources */,
+				496155DE2097094900223281 /* SPagerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,9 +244,15 @@
 				49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */,
 				49C81B622093436000865FC5 /* main.m in Sources */,
 				49C81B542093435F00865FC5 /* AppDelegate.m in Sources */,
+				496155D92097088D00223281 /* BasePager.m in Sources */,
+				496155DD2097094900223281 /* SPagerCell.m in Sources */,
+				496155E420970A9400223281 /* PagerAnimatedCell.m in Sources */,
+				496155E820970AB700223281 /* PagerWithAnimatedPages.m in Sources */,
 				49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */,
 				49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */,
 				41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */,
+				496155D32096F3AF00223281 /* SPager.m in Sources */,
+				496155D62096F44900223281 /* PagerItem.m in Sources */,
 				417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

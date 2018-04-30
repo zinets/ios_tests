@@ -84,29 +84,36 @@ the Like Power</string>
                                     <constraint firstAttribute="trailing" secondItem="e1C-LM-198" secondAttribute="trailing" constant="87" id="xeq-zs-5if"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvM-b7-0L7" customClass="PagerWithAnimatedPages">
+                                <rect key="frame" x="0.0" y="374" width="375" height="292"/>
+                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="292" id="ZHS-bQ-HnR"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYK-G4-szZ">
-                                <rect key="frame" x="60" y="340" width="51" height="30"/>
+                                <rect key="frame" x="59" y="299" width="51" height="30"/>
                                 <state key="normal" title="- &gt; add"/>
                                 <connections>
                                     <action selector="addFromLeft" destination="BYZ-38-t0r" eventType="touchUpInside" id="wOY-CU-ML4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOO-VB-VwG">
-                                <rect key="frame" x="129" y="340" width="72" height="30"/>
+                                <rect key="frame" x="128" y="299" width="72" height="30"/>
                                 <state key="normal" title="remove -&gt;"/>
                                 <connections>
                                     <action selector="removeToRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UOT-0w-ePi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uov-wz-we0">
-                                <rect key="frame" x="99" y="378" width="47" height="30"/>
+                                <rect key="frame" x="98" y="337" width="47" height="30"/>
                                 <state key="normal" title="add &lt;-"/>
                                 <connections>
                                     <action selector="addFromRight" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RU-bf-2sV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVr-Z4-nZE">
-                                <rect key="frame" x="203" y="377" width="72" height="30"/>
+                                <rect key="frame" x="202" y="336" width="72" height="30"/>
                                 <state key="normal" title="&lt;- remove"/>
                                 <connections>
                                     <action selector="removeToLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zC1-St-gnO"/>
@@ -116,19 +123,23 @@ the Like Power</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2cy-SN-MeP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0sQ-OU-XLz"/>
-                            <constraint firstItem="KOO-VB-VwG" firstAttribute="top" secondItem="2cy-SN-MeP" secondAttribute="bottom" constant="60" id="5To-jE-5e3"/>
+                            <constraint firstItem="KOO-VB-VwG" firstAttribute="top" secondItem="2cy-SN-MeP" secondAttribute="bottom" constant="19" id="5To-jE-5e3"/>
+                            <constraint firstItem="yvM-b7-0L7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GbB-Kj-gnq"/>
                             <constraint firstItem="KOO-VB-VwG" firstAttribute="leading" secondItem="nYK-G4-szZ" secondAttribute="trailing" constant="18" id="I1d-dc-PoI"/>
                             <constraint firstItem="2cy-SN-MeP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KaG-Py-CkI"/>
-                            <constraint firstItem="nYK-G4-szZ" firstAttribute="top" secondItem="2cy-SN-MeP" secondAttribute="bottom" constant="60" id="b4L-wI-xcX"/>
-                            <constraint firstItem="nYK-G4-szZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="b7b-Ev-XuB"/>
+                            <constraint firstItem="yvM-b7-0L7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SXK-yW-Cru"/>
+                            <constraint firstItem="nYK-G4-szZ" firstAttribute="top" secondItem="2cy-SN-MeP" secondAttribute="bottom" constant="19" id="b4L-wI-xcX"/>
+                            <constraint firstItem="nYK-G4-szZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="b7b-Ev-XuB"/>
                             <constraint firstItem="uov-wz-we0" firstAttribute="top" secondItem="nYK-G4-szZ" secondAttribute="bottom" constant="8" id="cYO-we-K0T"/>
-                            <constraint firstItem="uov-wz-we0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="dWI-Yv-Yek"/>
+                            <constraint firstItem="uov-wz-we0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="dWI-Yv-Yek"/>
                             <constraint firstItem="CVr-Z4-nZE" firstAttribute="top" secondItem="KOO-VB-VwG" secondAttribute="bottom" constant="7" id="hPw-rW-N0x"/>
                             <constraint firstItem="CVr-Z4-nZE" firstAttribute="leading" secondItem="uov-wz-we0" secondAttribute="trailing" constant="57" id="lMw-zF-hia"/>
+                            <constraint firstItem="yvM-b7-0L7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zaA-4e-YIg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="pagerWithAnimatedPages" destination="yvM-b7-0L7" id="7sj-6w-6Tk"/>
                         <outletCollection property="boxes" destination="6gm-Qw-VVl" id="YSS-Cf-UHt"/>
                         <outletCollection property="boxes" destination="Kr5-p1-gfH" id="dqH-GI-Fqs"/>
                         <outletCollection property="boxes" destination="VQb-VJ-PU8" id="oqA-7M-S9M"/>

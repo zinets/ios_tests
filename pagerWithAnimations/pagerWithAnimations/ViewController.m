@@ -16,11 +16,22 @@
 
 @end
 
+CGFloat dp(CGFloat x) {
+    static CGFloat w = 0;
+    w = [UIScreen mainScreen].bounds.size.width;
+    
+    return x * w / 375.;    
+}
+
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.pagerWithAnimatedPages.dataSource = @[
+                                               [PagerItem newPagerItemWithType:0 title:@"Activate the Likje Power" descr:@"See who liked you, get unlimited likes and send mega likes"],
+                                               [PagerItem newPagerItemWithType:1 title:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
+                                               ];
 
 }
 
