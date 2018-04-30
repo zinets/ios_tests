@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */; };
-		4175639C6724E9EFE803AB52 /* SPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DD1594FBF5012021768 /* SPager.m */; };
 		41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */; };
+		496155D02096DA2200223281 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496155CF2096DA2200223281 /* Media.xcassets */; };
 		49C81B542093435F00865FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B532093435F00865FC5 /* AppDelegate.m */; };
 		49C81B572093435F00865FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B562093435F00865FC5 /* ViewController.m */; };
 		49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C81B582093435F00865FC5 /* Main.storyboard */; };
@@ -25,9 +25,8 @@
 		417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalPageIndicator.h; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.h; sourceTree = "<group>"; };
 		4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
-		41756B1F086F86AE69F3E221 /* SPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SPager.h; path = ../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/PP/SPager.h; sourceTree = "<group>"; };
 		41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPageIndicator.m; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.m; sourceTree = "<group>"; };
-		41756DD1594FBF5012021768 /* SPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SPager.m; path = ../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/PP/SPager.m; sourceTree = "<group>"; };
+		496155CF2096DA2200223281 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		49C81B4F2093435F00865FC5 /* pagerWithAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pagerWithAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C81B522093435F00865FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C81B532093435F00865FC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,12 +93,11 @@
 		49C81B682093436B00865FC5 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				41756B1F086F86AE69F3E221 /* SPager.h */,
-				41756DD1594FBF5012021768 /* SPager.m */,
 				41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */,
 				417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */,
 				4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */,
 				417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */,
+				496155CF2096DA2200223281 /* Media.xcassets */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -176,6 +174,7 @@
 			files = (
 				49C81B5F2093436000865FC5 /* LaunchScreen.storyboard in Resources */,
 				49C81B5C2093436000865FC5 /* Assets.xcassets in Resources */,
+				496155D02096DA2200223281 /* Media.xcassets in Resources */,
 				49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +192,6 @@
 				49C81B542093435F00865FC5 /* AppDelegate.m in Sources */,
 				49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */,
 				49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */,
-				4175639C6724E9EFE803AB52 /* SPager.m in Sources */,
 				41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */,
 				417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */,
 			);
