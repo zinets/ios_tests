@@ -6,8 +6,13 @@
 #import <UIKit/UIKit.h>
 #import "RMNibLoadedView.h"
 
-@interface PagerAnimatedCell2 : RMNibLoadedView
+@interface PagerAnimatedPage : RMNibLoadedView
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic) BOOL contentIsHidden;
+
+- (void)addFromLeft;
+- (void)addFromRight;
+- (void)removeToRight;
+- (void)removeToLeft;
 @end

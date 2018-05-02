@@ -5,17 +5,18 @@
 
 #import "PagerWithAnimatedPages2.h"
 #import "PagerItem.h"
-#import "PagerAnimatedCell2.h"
+#import "PagerAnimatedPage.h"
 
 
 @implementation PagerWithAnimatedPages2 {
-    NSMutableArray <UIView *> *views;
+    NSMutableArray <PagerAnimatedPage *> *views;
 }
 
 CGFloat const pageIndicatorHeight2 = 10;
 CGFloat const timerInterval2 = 10;
 
 - (void)commonInit {
+    views = [NSMutableArray new];
     [self addSubview:self.pageIndicator];
 
     UISwipeGestureRecognizer *swipeLeftRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
@@ -81,13 +82,37 @@ CGFloat const timerInterval2 = 10;
     }];
     [views removeAllObjects];
 
-    for (PagerItem *item in dataSource) {
-        PagerAnimatedCell2 *view = [[PagerAnimatedCell2 alloc] initWithFrame:self.bounds];
+    for (int x = 0; x < dataSource.count; x++) {
+        PagerItem *item = dataSource[x];
+
+        PagerAnimatedPage *view = [[PagerAnimatedPage alloc] initWithFrame:self.bounds];
         view.titleText = item.itemTitle;
         view.descriptionText = item.itemDescription;
 
+        if (x > 0) {
+            [view removeToLeft];
+        }
+
         [views addObject:view];
         [self insertSubview:view atIndex:0];
+    }
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage {
+    if (currentPage < 0 || currentPage >= views.count)
+        return;
+
+    if (_currentPage != currentPage) {
+        if (_currentPage < currentPage) {
+            [views[_currentPage] removeToLeft];
+            _currentPage = currentPage;
+            [views[_currentPage] addFromRight];
+        } else {
+            [views[_currentPage] removeToRight];
+            _currentPage = currentPage;
+            [views[_currentPage] addFromLeft];
+        }
+
     }
 }
 

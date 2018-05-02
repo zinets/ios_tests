@@ -30,9 +30,9 @@ CGFloat dp(CGFloat x) {
     
     self.pager2.dataSource = @[
                                [PagerItem newPagerItemWithType:0 title:@"0 Activate the 0" descr:@"See who liked you, get unlimited likes and send mega likes"],
-//                               [PagerItem newPagerItemWithType:1 title:@"1 Ensure safe 1" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
-//                               [PagerItem newPagerItemWithType:2 title:@"2 Grebaniy Slide 2" descr:@"Записувайся в космопихоту и получи улучшеннный шлем!"],
-//                               [PagerItem newPagerItemWithType:3 title:@"3 Slide slide 3" descr:@"444!"],
+                               [PagerItem newPagerItemWithType:1 title:@"1 Ensure safe 1" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
+                               [PagerItem newPagerItemWithType:2 title:@"2 Grebaniy Slide 2" descr:@"Записувайся в космопихоту и получи улучшеннный шлем!"],
+                               [PagerItem newPagerItemWithType:3 title:@"3 Slide slide 3" descr:@"444!"],
                                ];
 }
 

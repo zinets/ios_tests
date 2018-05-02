@@ -3,9 +3,9 @@
 // Copyright (c) 2018 Victor Zinets. All rights reserved.
 //
 
-#import "PagerAnimatedCell2.h"
+#import "PagerAnimatedPage.h"
 
-@interface PagerAnimatedCell2()
+@interface PagerAnimatedPage()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @end
 
-@implementation PagerAnimatedCell2 {
+@implementation PagerAnimatedPage {
 
 }
 
@@ -114,16 +114,16 @@
 - (void)addFromLeft {
     if (_contentIsHidden) {
         _contentIsHidden = NO;
-        [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity)];
-        [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity)];
+        [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity) delay:0.1];
+        [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity) delay:0.15];
     }
 }
 
 - (void)addFromRight {
     if (_contentIsHidden) {
         _contentIsHidden = NO;
-        [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity)];
-        [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity)];
+        [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity) delay:0.1];
+        [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity) delay:0.15];
     }
 }
 
@@ -138,7 +138,7 @@
 - (void)removeToLeft {
     if (!_contentIsHidden) {
         _contentIsHidden = YES;
-        [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxLeftTransform] delay:0.1];
+        [self changeBoxesTransformFrom:(CGAffineTransformIdentity) to:[self boxLeftTransform]];
         [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelLeftTransform]];
     }
 }
