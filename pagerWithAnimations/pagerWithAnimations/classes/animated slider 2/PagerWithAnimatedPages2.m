@@ -10,10 +10,11 @@
 
 @implementation PagerWithAnimatedPages2 {
     NSMutableArray <PagerAnimatedPage *> *views;
+    NSTimer *slideTimer;
 }
 
 CGFloat const pageIndicatorHeight2 = 10;
-CGFloat const timerInterval2 = 10;
+CGFloat const timerInterval2 = 3;
 
 - (void)commonInit {
     views = [NSMutableArray new];
@@ -25,6 +26,8 @@ CGFloat const timerInterval2 = 10;
     UISwipeGestureRecognizer *swipeRightRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe:)];
     swipeRightRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self addGestureRecognizer:swipeRightRecognizer];
+
+    [self startAnimating];
 }
 
 - (void)onSwipe:(UISwipeGestureRecognizer *)sender {
@@ -99,11 +102,16 @@ CGFloat const timerInterval2 = 10;
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage {
-    if (currentPage < 0 || currentPage >= views.count)
-        return;
-
     if (_currentPage != currentPage) {
-        if (_currentPage < currentPage) {
+        if (currentPage < 0) {
+            [views[_currentPage] removeToRight];
+            _currentPage = views.count - 1;
+            [views[_currentPage] addFromLeft];
+        } else if (currentPage >= views.count) {
+            [views[_currentPage] removeToLeft];
+            _currentPage = 0;
+            [views[_currentPage] addFromRight];
+        } else if (_currentPage < currentPage) {
             [views[_currentPage] removeToLeft];
             _currentPage = currentPage;
             [views[_currentPage] addFromRight];
@@ -113,7 +121,24 @@ CGFloat const timerInterval2 = 10;
             [views[_currentPage] addFromLeft];
         }
 
+        self.pageIndicator.currentPage = _currentPage;
+        [self startAnimating];
     }
 }
 
+#pragma mark animation -
+
+- (void)startAnimating {
+    [self stopAnimating];
+
+    slideTimer = [NSTimer scheduledTimerWithTimeInterval:timerInterval2 target:self selector:@selector(onTimer:) userInfo:nil repeats:NO];
+}
+
+- (void)stopAnimating {
+    [slideTimer invalidate];
+}
+
+- (void)onTimer:(id)timer {
+    self.currentPage++;
+}
 @end
