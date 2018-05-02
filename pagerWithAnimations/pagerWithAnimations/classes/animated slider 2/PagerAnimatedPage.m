@@ -5,12 +5,15 @@
 
 #import "PagerAnimatedPage.h"
 
+
 @interface PagerAnimatedPage()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
+@property (nonatomic) BOOL contentIsHidden;
 @end
 
 @implementation PagerAnimatedPage {

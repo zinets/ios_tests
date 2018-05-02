@@ -28,35 +28,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likepower3" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-fn-pVI">
-                    <rect key="frame" x="129" y="3" width="126" height="129"/>
+                    <rect key="frame" x="115" y="9" width="126" height="129"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="129" id="Jdl-W3-rFb"/>
-                        <constraint firstAttribute="width" constant="126" id="onG-WP-Alq"/>
+                        <constraint firstAttribute="width" constant="126" id="kgc-Vy-Zky"/>
+                        <constraint firstAttribute="height" constant="129" id="npv-Iq-INJ"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likepower1" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-Ub-u5c">
-                    <rect key="frame" x="26" y="-1" width="138" height="142"/>
+                    <rect key="frame" x="26" y="5" width="138" height="142"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="138" id="a3H-ml-X0V"/>
-                        <constraint firstAttribute="height" constant="142" id="miF-gg-CAL"/>
+                        <constraint firstAttribute="width" constant="138" id="F8M-wR-Qwh"/>
+                        <constraint firstAttribute="height" constant="142" id="hPE-cp-be8"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likepower2" translatesAutoresizingMaskIntoConstraints="NO" id="0o3-5j-ul1">
-                    <rect key="frame" x="98" y="53" width="89" height="89"/>
+                    <rect key="frame" x="98" y="59" width="89" height="89"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="89" id="D75-3W-AKt"/>
-                        <constraint firstAttribute="width" constant="89" id="Y4A-Wd-xfk"/>
+                        <constraint firstAttribute="width" constant="89" id="DYF-q3-o2o"/>
+                        <constraint firstAttribute="height" constant="89" id="sLk-gY-hj3"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="likepower4" translatesAutoresizingMaskIntoConstraints="NO" id="bSs-9F-l9Z">
-                    <rect key="frame" x="226" y="48" width="73" height="71"/>
+                    <rect key="frame" x="226" y="54" width="71" height="73"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="71" id="lSa-Zc-7Vv"/>
-                        <constraint firstAttribute="width" constant="73" id="vc0-rK-XeT"/>
+                        <constraint firstAttribute="width" constant="71" id="VHf-6t-W4w"/>
+                        <constraint firstAttribute="height" constant="73" id="cEc-Ht-cxa"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aML-MM-9wH">
-                    <rect key="frame" x="37" y="149" width="157" height="53"/>
+                    <rect key="frame" x="40" y="153.5" width="275" height="52.5"/>
                     <string key="text">Activate 
 the Like Power</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
@@ -64,44 +64,28 @@ the Like Power</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who liked you, get unlimited likes and send mega likes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTh-ie-3mI">
-                    <rect key="frame" x="37" y="209" width="281" height="41"/>
+                    <rect key="frame" x="40" y="213" width="275" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-iE-x1L">
-                    <rect key="frame" x="307" y="137" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="&lt;&lt;&lt;"/>
-                    <connections>
-                        <action selector="removeToLeftAction:" destination="-1" eventType="touchUpInside" id="Sps-lG-rqP"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABc-01-U11">
-                    <rect key="frame" x="315" y="171" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="&gt;&gt;&gt;"/>
-                    <connections>
-                        <action selector="addFromLeft:" destination="-1" eventType="touchUpInside" id="Azk-SR-90l"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="bSs-9F-l9Z" firstAttribute="leading" secondItem="0o3-5j-ul1" secondAttribute="trailing" constant="39" id="3HJ-ik-arB"/>
-                <constraint firstAttribute="bottom" secondItem="DTh-ie-3mI" secondAttribute="bottom" constant="20" symbolic="YES" id="6ai-pc-D2r"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="top" secondItem="cmH-Ub-u5c" secondAttribute="bottom" constant="8" symbolic="YES" id="8Gy-u4-XRb"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="top" secondItem="bSs-9F-l9Z" secondAttribute="bottom" constant="30" id="AiM-AK-boX"/>
-                <constraint firstItem="DTh-ie-3mI" firstAttribute="top" secondItem="bSs-9F-l9Z" secondAttribute="bottom" constant="90" id="Jcq-IT-gDb"/>
-                <constraint firstItem="bSs-9F-l9Z" firstAttribute="leading" secondItem="cmH-Ub-u5c" secondAttribute="trailing" constant="62" id="XgF-dy-b4J"/>
+                <constraint firstItem="5Wl-fn-pVI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="115" id="1Fg-qW-Ee6"/>
+                <constraint firstItem="5Wl-fn-pVI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="9" id="4oB-j9-dh7"/>
+                <constraint firstAttribute="bottom" secondItem="DTh-ie-3mI" secondAttribute="bottom" constant="16" id="6ai-pc-D2r"/>
+                <constraint firstItem="0o3-5j-ul1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="98" id="Ehu-Vq-tLt"/>
+                <constraint firstItem="bSs-9F-l9Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="226" id="GFO-Vs-kby"/>
+                <constraint firstItem="DTh-ie-3mI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="GtG-xy-6Gd"/>
+                <constraint firstItem="aML-MM-9wH" firstAttribute="trailing" secondItem="DTh-ie-3mI" secondAttribute="trailing" id="IJR-ZS-PxN"/>
+                <constraint firstItem="cmH-Ub-u5c" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="26" id="VmR-RG-db3"/>
+                <constraint firstItem="aML-MM-9wH" firstAttribute="leading" secondItem="DTh-ie-3mI" secondAttribute="leading" id="aD4-g1-bp0"/>
                 <constraint firstItem="DTh-ie-3mI" firstAttribute="top" secondItem="aML-MM-9wH" secondAttribute="bottom" constant="7.5" id="cPv-jh-06Y"/>
-                <constraint firstItem="5Wl-fn-pVI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="129" id="ciq-Cg-JgR"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="top" secondItem="0o3-5j-ul1" secondAttribute="bottom" constant="7" id="dzl-gh-b4l"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="37" id="jJa-bp-vPe"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTh-ie-3mI" secondAttribute="trailing" constant="57" id="nKU-yJ-An2"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="top" secondItem="5Wl-fn-pVI" secondAttribute="bottom" constant="17" id="o9s-HB-ILe"/>
-                <constraint firstItem="aML-MM-9wH" firstAttribute="leading" secondItem="DTh-ie-3mI" secondAttribute="leading" id="vuQ-x8-zl8"/>
-                <constraint firstItem="cmH-Ub-u5c" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="26" id="z0v-20-hw1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTh-ie-3mI" secondAttribute="trailing" constant="60" id="nKU-yJ-An2"/>
+                <constraint firstItem="0o3-5j-ul1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="59" id="rbp-sh-eLQ"/>
+                <constraint firstItem="cmH-Ub-u5c" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="sUA-mQ-an9"/>
+                <constraint firstItem="bSs-9F-l9Z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="54" id="xvq-Yo-3Ja"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

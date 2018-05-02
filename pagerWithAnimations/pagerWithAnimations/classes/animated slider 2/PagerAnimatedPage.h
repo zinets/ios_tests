@@ -9,7 +9,6 @@
 @interface PagerAnimatedPage : RMNibLoadedView
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *descriptionText;
-@property (nonatomic) BOOL contentIsHidden;
 
 - (void)addFromLeft;
 - (void)addFromRight;
