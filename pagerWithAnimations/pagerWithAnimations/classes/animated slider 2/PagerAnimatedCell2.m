@@ -1,33 +1,28 @@
 //
-//  PagerAnimatedCell.m
-//  pagerWithAnimations
-//
-//  Created by Victor Zinets on 4/30/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
+// Created by Victor Zinets on 5/2/18.
+// Copyright (c) 2018 Victor Zinets. All rights reserved.
 //
 
-#import "PagerAnimatedCell.h"
+#import "PagerAnimatedCell2.h"
 
-@interface PagerAnimatedCell() {
-    
-}
+@interface PagerAnimatedCell2()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-
 @end
 
-@implementation PagerAnimatedCell
+@implementation PagerAnimatedCell2 {
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
 }
 
--(void)prepareForReuse {
-    _contentIsHidden = YES;
+- (IBAction)removeToLeftAction:(id)sender {
+    [self removeToLeft];
+}
+
+- (IBAction)addFromLeft:(id)sender {
+    [self addFromRight];
 }
 
 -(void)setTitleText:(NSString *)titleText {
@@ -45,7 +40,7 @@
     transform = CGAffineTransformTranslate(transform, 160, 0);
     transform = CGAffineTransformRotate(transform, -M_PI * 1.09);
     transform = CGAffineTransformScale(transform, 0.5, 0.5);
-    
+
     return transform;
 }
 
@@ -54,21 +49,21 @@
     transform = CGAffineTransformTranslate(transform, -160, 0);
     transform = CGAffineTransformScale(transform, 0.5, 0.5);
     transform = CGAffineTransformRotate(transform, -M_PI * .99);
-    
+
     return transform;
 }
 
 - (CGAffineTransform)labelLeftTransform {
     CGAffineTransform transform = CGAffineTransformIdentity;
     transform = CGAffineTransformTranslate(transform, -160, 0);
-    
+
     return transform;
 }
 
 - (CGAffineTransform)labelRightTransform {
     CGAffineTransform transform = CGAffineTransformIdentity;
     transform = CGAffineTransformTranslate(transform, 160, 0);
-    
+
     return transform;
 }
 
@@ -147,11 +142,5 @@
         [self changeLabelsTransformFrom:(CGAffineTransformIdentity) to:[self labelLeftTransform]];
     }
 }
-- (IBAction)tapp:(id)sender {
-    [self addFromLeft];
-}
 
-- (IBAction)tap:(id)sender {
-    [self removeToRight];
-}
 @end

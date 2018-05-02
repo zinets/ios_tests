@@ -12,3 +12,4 @@
 @interface PagerWithAnimatedPages : BasePager
 
 @end
+
