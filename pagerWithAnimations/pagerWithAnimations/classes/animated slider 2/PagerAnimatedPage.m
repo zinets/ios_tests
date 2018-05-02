@@ -114,7 +114,7 @@
 - (void)addFromLeft {
     if (_contentIsHidden) {
         _contentIsHidden = NO;
-        [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity) delay:0.1];
+        [self changeBoxesTransformFrom:[self boxLeftTransform] to:(CGAffineTransformIdentity) delay:0.2];
         [self changeLabelsTransformFrom:[self labelLeftTransform] to:(CGAffineTransformIdentity) delay:0.15];
     }
 }
@@ -122,7 +122,7 @@
 - (void)addFromRight {
     if (_contentIsHidden) {
         _contentIsHidden = NO;
-        [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity) delay:0.1];
+        [self changeBoxesTransformFrom:[self boxRightTransform] to:(CGAffineTransformIdentity) delay:0.2];
         [self changeLabelsTransformFrom:[self labelRightTransform] to:(CGAffineTransformIdentity) delay:0.15];
     }
 }

@@ -63,16 +63,19 @@ CGFloat const timerInterval2 = 3;
         _pageIndicator = [[HorizontalPageIndicator alloc] initWithFrame:frm];
         _pageIndicator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
         _pageIndicator.backgroundColor = [UIColor clearColor];
-        _pageIndicator.spacing = 8; {
+        _pageIndicator.spacing = 8;
+        _pageIndicator.edgeAlignment = YES; {
             UIView *mark = [[UIView alloc] initWithFrame:(CGRect){0, 0, 6, 6}];
             mark.layer.cornerRadius = 3;
 #warning // todo colors of hor.scroll indicator
             //            mark.backgroundColor = [UIColor colorWithHex:Aprnc.kPPPageMarkSelected];
+            mark.backgroundColor = [UIColor whiteColor];
             _pageIndicator.selectedMarkView = mark;
 
             mark = [[UIView alloc] initWithFrame:(CGRect){0, 0, 6, 6}];
             mark.layer.cornerRadius = 3;
             //            mark.backgroundColor = [UIColor colorWithHex:Aprnc.kPPPageMark];
+            mark.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.25];
             _pageIndicator.inactiveMarkView = mark;
         }
     }
@@ -85,10 +88,11 @@ CGFloat const timerInterval2 = 3;
     }];
     [views removeAllObjects];
 
+    CGRect frm = self.bounds;
+    frm.size.height -= pageIndicatorHeight2;
     for (int x = 0; x < dataSource.count; x++) {
         PagerItem *item = dataSource[x];
-
-        PagerAnimatedPage *view = [[PagerAnimatedPage alloc] initWithFrame:self.bounds];
+        PagerAnimatedPage *view = [[PagerAnimatedPage alloc] initWithFrame:frm];
         view.titleText = item.itemTitle;
         view.descriptionText = item.itemDescription;
 
@@ -99,6 +103,7 @@ CGFloat const timerInterval2 = 3;
         [views addObject:view];
         [self insertSubview:view atIndex:0];
     }
+    self.pageIndicator.numberOfPages = views.count;
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage {

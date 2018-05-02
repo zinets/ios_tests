@@ -14,12 +14,12 @@
             <connections>
                 <outlet property="descriptionLabel" destination="DTh-ie-3mI" id="0a2-1C-Zjw"/>
                 <outlet property="titleLabel" destination="aML-MM-9wH" id="PqP-Jd-l4r"/>
-                <outletCollection property="boxes" destination="0o3-5j-ul1" id="ooC-Ab-9m4"/>
-                <outletCollection property="boxes" destination="cmH-Ub-u5c" id="rmn-dl-Xus"/>
-                <outletCollection property="boxes" destination="5Wl-fn-pVI" id="rLW-Yd-Rmc"/>
-                <outletCollection property="boxes" destination="bSs-9F-l9Z" id="JI6-HQ-nU3"/>
                 <outletCollection property="labels" destination="aML-MM-9wH" id="yDW-DH-lOJ"/>
                 <outletCollection property="labels" destination="DTh-ie-3mI" id="W16-cc-4IL"/>
+                <outletCollection property="boxes" destination="cmH-Ub-u5c" id="YA5-N3-qH4"/>
+                <outletCollection property="boxes" destination="0o3-5j-ul1" id="5an-Gw-fa6"/>
+                <outletCollection property="boxes" destination="5Wl-fn-pVI" id="dIl-p5-jOn"/>
+                <outletCollection property="boxes" destination="bSs-9F-l9Z" id="BRJ-ja-mC8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
