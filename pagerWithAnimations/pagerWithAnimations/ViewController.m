@@ -29,9 +29,10 @@ CGFloat dp(CGFloat x) {
     [super viewDidLoad];
     
     self.pagerWithAnimatedPages.dataSource = @[
-                                               [PagerItem newPagerItemWithType:0 title:@"Activate the Likje Power" descr:@"See who liked you, get unlimited likes and send mega likes"],
-                                               [PagerItem newPagerItemWithType:1 title:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
-                                               [PagerItem newPagerItemWithType:2 title:@"Grebaniy Slide" descr:@"Записывайся в космопихоту и получи улучшеннный шлем!"],
+                                               [PagerItem newPagerItemWithType:0 title:@"0 Activate the 0" descr:@"See who liked you, get unlimited likes and send mega likes"],
+                                               [PagerItem newPagerItemWithType:1 title:@"1 Ensure safe 1" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
+                                               [PagerItem newPagerItemWithType:2 title:@"2 Grebaniy Slide 2" descr:@"Записывайся в космопихоту и получи улучшеннный шлем!"],
+                                               [PagerItem newPagerItemWithType:3 title:@"3 Slide slide 3" descr:@"444!"],
                                                ];
 
 }

@@ -9,6 +9,12 @@
 #import "PagerWithAnimatedPages.h"
 #import "PagerAnimatedCell.h"
 
+typedef enum PanDirection {
+    PanDirectionNone,
+    PanDirectionLeft,
+    PanDirectionRight,
+} PanDirection;
+
 @implementation PagerWithAnimatedPages
 
 - (NSString *)cellClassName {
@@ -19,9 +25,9 @@
     return 0;
 }
 
-- (void)startAnimating {
-#warning !! temp timer removed
-}
+//- (void)startAnimating {
+//#warning !! temp timer removed
+//}
 
 #pragma mark datasource -
 
@@ -32,7 +38,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
-    
+    ((PagerAnimatedCell *)cell).contentIsHidden = !CGRectContainsRect(collectionView.bounds, cell.frame);
 }
 
 - (void)applyData:(PagerItem *)itemData toCell:(UICollectionViewCell *)c {
@@ -49,35 +55,47 @@
     NSArray <PagerAnimatedCell *> *cells = [self.collectionView visibleCells];
     if (cells.count < 2) return;
     
-    CGFloat const d = 80;
-    CGFloat w = self.collectionView.bounds.size.width;
+    CGFloat const w = self.collectionView.bounds.size.width;
+    CGFloat const d = w / 2;
+    PanDirection dir = PanDirectionNone;
+    if ([scrollView.panGestureRecognizer velocityInView:scrollView].x > 0) {
+        dir = PanDirectionRight;
+    } else if ([scrollView.panGestureRecognizer velocityInView:scrollView].x < 0) {
+        dir = PanDirectionLeft;
+    }
+    [scrollView.panGestureRecognizer velocityInView:scrollView].x > 0 ? PanDirectionRight : PanDirectionLeft;
+    
     [cells enumerateObjectsUsingBlock:^(PagerAnimatedCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSIndexPath *cellIndexPath = [self.collectionView indexPathForCell:obj];
-        CGFloat offset = scrollView.contentOffset.x - obj.frame.size.width * cellIndexPath.item;
-//
-//        if (offset > d) { // remove to left
-//            [obj removeToLeft];
-//        } else if (offset < d - obj.frame.size.width) { // show from right
-//            [obj addFromRight];
-//        } else if (offset < obj.frame.size.width - d) { // show from left
-//            [obj addFromLeft];
-//        } else if (offset > obj.frame.size.width - d) { // remove to right
-//            [obj removeToRight];
-//        }
-
-        if (offset > -295 && obj.contentIsHidden) {
-            [obj addFromRight];
-        } else if (offset < -295 && !obj.contentIsHidden) {
-            [obj removeToRight];
-        } else if (offset < -80 && !obj.contentIsHidden) {
-            [obj removeToRight];
-        }
-//        else if (offset > -80) {
-//            [obj removeToRight];
-//        } else if (offset > 80) {
-//            [obj removeToLeft];
-//        }
+//        if (cellIndexPath.item != 1) return ;
         
+        // сдвиг каждой ячейки относительно вьюфрейма скроллера
+        CGFloat x = (scrollView.contentOffset.x - obj.frame.size.width * cellIndexPath.item) / w;
+        if (x > -.75 && x <= -.5) {
+            if (dir == PanDirectionLeft && obj.contentIsHidden) {
+                [obj addFromRight];
+            } else if (dir == PanDirectionRight && !obj.contentIsHidden) {
+                [obj removeToRight];
+            }
+        } else if (x > -.5 && x <= -.25) {
+            if (dir == PanDirectionLeft && !obj.contentIsHidden) {
+//                [obj removeToLeft];
+            } else if (dir == PanDirectionRight && !obj.contentIsHidden) {
+                [obj addFromLeft];
+            }
+        } else if (x >= .25 && x < .5) {
+            if (dir == PanDirectionLeft && !obj.contentIsHidden) {
+                [obj removeToLeft];
+            } else if (dir == PanDirectionRight && obj.contentIsHidden) {
+                [obj addFromLeft];
+            }
+        } else if (x >= 0.5 && x < .75) {
+            if (dir == PanDirectionLeft && !obj.contentIsHidden) {
+                [obj removeToLeft];
+            } else if (dir == PanDirectionRight && obj.contentIsHidden) {
+                [obj addFromLeft];
+            }
+        }
     }];
 }
 
