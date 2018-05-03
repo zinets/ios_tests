@@ -3,15 +3,17 @@
 // Copyright (c) 2018 Victor Zinets. All rights reserved.
 //
 
-#import "PagerWithAnimatedPages2.h"
-#import "PagerItem.h"
+#import "PagerWithAnimatedPages.h"
 #import "PagerAnimatedPage.h"
 
-
-@implementation PagerWithAnimatedPages2 {
+@interface PagerWithAnimatedPages() {
     NSMutableArray <PagerAnimatedPage *> *views;
     NSTimer *slideTimer;
 }
+@property (nonatomic, strong) HorizontalPageIndicator *pageIndicator;
+@end
+
+@implementation PagerWithAnimatedPages
 
 CGFloat const pageIndicatorHeight2 = 10;
 CGFloat const timerInterval2 = 3;

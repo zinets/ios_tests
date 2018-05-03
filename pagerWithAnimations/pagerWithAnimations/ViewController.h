@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PagerWithAnimatedPages.h"
-#import "PagerWithAnimatedPages2.h"
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet PagerWithAnimatedPages2 *pager2;
+@property (weak, nonatomic) IBOutlet PagerWithAnimatedPages *pager2;
 
 
 @end

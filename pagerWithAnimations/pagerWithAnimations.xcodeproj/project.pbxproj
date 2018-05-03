@@ -8,18 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */; };
+		417566008D5CF8638BD5C550 /* PagerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4175659708695251156C11A8 /* PagerItem.m */; };
 		41756A09BF9083DC5BE42A15 /* PagerAnimatedPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756679E476B01B1F4CB984 /* PagerAnimatedPage.m */; };
 		41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */; };
-		41756E5A5DF38E77C9188344 /* PagerWithAnimatedPages2.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages2.m */; };
+		41756E5A5DF38E77C9188344 /* PagerWithAnimatedPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages.m */; };
 		496155D02096DA2200223281 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496155CF2096DA2200223281 /* Media.xcassets */; };
-		496155D32096F3AF00223281 /* SPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D12096F3AF00223281 /* SPager.m */; };
-		496155D62096F44900223281 /* PagerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D52096F44900223281 /* PagerItem.m */; };
-		496155D92097088D00223281 /* BasePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155D82097088D00223281 /* BasePager.m */; };
-		496155DD2097094900223281 /* SPagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155DB2097094900223281 /* SPagerCell.m */; };
-		496155DE2097094900223281 /* SPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496155DC2097094900223281 /* SPagerCell.xib */; };
-		496155E820970AB700223281 /* PagerWithAnimatedPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155E720970AB700223281 /* PagerWithAnimatedPages.m */; };
-		496155EE20970E7900223281 /* PagerAnimatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155EC20970E7900223281 /* PagerAnimatedCell.m */; };
-		496155EF20970E7900223281 /* PagerAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496155ED20970E7900223281 /* PagerAnimatedCell.xib */; };
 		49A09E112099E59000B69A9B /* PagerPageLikePower.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A09E102099E59000B69A9B /* PagerPageLikePower.xib */; };
 		49C81B542093435F00865FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B532093435F00865FC5 /* AppDelegate.m */; };
 		49C81B572093435F00865FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B562093435F00865FC5 /* ViewController.m */; };
@@ -36,29 +29,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		41756156ACC2DD1860BB22C0 /* PagerWithAnimatedPages2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerWithAnimatedPages2.h; sourceTree = "<group>"; };
+		41756156ACC2DD1860BB22C0 /* PagerWithAnimatedPages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerWithAnimatedPages.h; sourceTree = "<group>"; };
 		417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalPageIndicator.h; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.h; sourceTree = "<group>"; };
+		41756237B9E9E5A7C3F2080A /* PagerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PagerItem.h; path = "pagerWithAnimations/classes/flirt classes/PagerItem.h"; sourceTree = SOURCE_ROOT; };
+		4175659708695251156C11A8 /* PagerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PagerItem.m; path = "pagerWithAnimations/classes/flirt classes/PagerItem.m"; sourceTree = SOURCE_ROOT; };
 		41756679E476B01B1F4CB984 /* PagerAnimatedPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerAnimatedPage.m; sourceTree = "<group>"; };
 		4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		417568ED6B687C7EA7DA88D2 /* PagerAnimatedPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerAnimatedPage.h; sourceTree = "<group>"; };
 		417569EB2FF46A7295BC695F /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPageIndicator.m; path = ../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.m; sourceTree = "<group>"; };
-		41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerWithAnimatedPages2.m; sourceTree = "<group>"; };
+		41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerWithAnimatedPages.m; sourceTree = "<group>"; };
 		496155CF2096DA2200223281 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		496155D12096F3AF00223281 /* SPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPager.m; sourceTree = "<group>"; };
-		496155D22096F3AF00223281 /* SPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPager.h; sourceTree = "<group>"; };
-		496155D42096F44900223281 /* PagerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerItem.h; sourceTree = "<group>"; };
-		496155D52096F44900223281 /* PagerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerItem.m; sourceTree = "<group>"; };
-		496155D72097088D00223281 /* BasePager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePager.h; sourceTree = "<group>"; };
-		496155D82097088D00223281 /* BasePager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePager.m; sourceTree = "<group>"; };
-		496155DA2097094900223281 /* SPagerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPagerCell.h; sourceTree = "<group>"; };
-		496155DB2097094900223281 /* SPagerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPagerCell.m; sourceTree = "<group>"; };
-		496155DC2097094900223281 /* SPagerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPagerCell.xib; sourceTree = "<group>"; };
-		496155E620970AB700223281 /* PagerWithAnimatedPages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerWithAnimatedPages.h; sourceTree = "<group>"; };
-		496155E720970AB700223281 /* PagerWithAnimatedPages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerWithAnimatedPages.m; sourceTree = "<group>"; };
-		496155EB20970E7900223281 /* PagerAnimatedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerAnimatedCell.h; sourceTree = "<group>"; };
-		496155EC20970E7900223281 /* PagerAnimatedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerAnimatedCell.m; sourceTree = "<group>"; };
-		496155ED20970E7900223281 /* PagerAnimatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerAnimatedCell.xib; sourceTree = "<group>"; };
 		49A09E102099E59000B69A9B /* PagerPageLikePower.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerPageLikePower.xib; sourceTree = "<group>"; };
 		49C81B4F2093435F00865FC5 /* pagerWithAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pagerWithAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C81B522093435F00865FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -95,39 +76,15 @@
 		41756B7117AEE4E7F7FCC8A2 /* animated slider 2 */ = {
 			isa = PBXGroup;
 			children = (
-				41756156ACC2DD1860BB22C0 /* PagerWithAnimatedPages2.h */,
-				41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages2.m */,
+				41756156ACC2DD1860BB22C0 /* PagerWithAnimatedPages.h */,
+				41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages.m */,
 				417568ED6B687C7EA7DA88D2 /* PagerAnimatedPage.h */,
 				41756679E476B01B1F4CB984 /* PagerAnimatedPage.m */,
 				49DB143E209A13EA00FAC940 /* slides design */,
+				4175659708695251156C11A8 /* PagerItem.m */,
+				41756237B9E9E5A7C3F2080A /* PagerItem.h */,
 			);
 			path = "animated slider 2";
-			sourceTree = "<group>";
-		};
-		496155DF2097095000223281 /* flirt classes */ = {
-			isa = PBXGroup;
-			children = (
-				496155D42096F44900223281 /* PagerItem.h */,
-				496155D52096F44900223281 /* PagerItem.m */,
-				496155D22096F3AF00223281 /* SPager.h */,
-				496155D12096F3AF00223281 /* SPager.m */,
-				496155DA2097094900223281 /* SPagerCell.h */,
-				496155DB2097094900223281 /* SPagerCell.m */,
-				496155DC2097094900223281 /* SPagerCell.xib */,
-			);
-			path = "flirt classes";
-			sourceTree = "<group>";
-		};
-		496155E020970A6800223281 /* animated slider */ = {
-			isa = PBXGroup;
-			children = (
-				496155E620970AB700223281 /* PagerWithAnimatedPages.h */,
-				496155E720970AB700223281 /* PagerWithAnimatedPages.m */,
-				496155EB20970E7900223281 /* PagerAnimatedCell.h */,
-				496155EC20970E7900223281 /* PagerAnimatedCell.m */,
-				496155ED20970E7900223281 /* PagerAnimatedCell.xib */,
-			);
-			path = "animated slider";
 			sourceTree = "<group>";
 		};
 		49C81B462093435F00865FC5 = {
@@ -168,10 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				41756B7117AEE4E7F7FCC8A2 /* animated slider 2 */,
-				496155E020970A6800223281 /* animated slider */,
-				496155DF2097095000223281 /* flirt classes */,
-				496155D72097088D00223281 /* BasePager.h */,
-				496155D82097088D00223281 /* BasePager.m */,
 				41756D5AB13BFFB4FF2AC8B7 /* HorizontalPageIndicator.m */,
 				417561FED606A7D6AAD0BDF5 /* HorizontalPageIndicator.h */,
 				4175668106A63EFE2BD438CE /* UIColor+MUIColor.h */,
@@ -268,8 +221,6 @@
 				496155D02096DA2200223281 /* Media.xcassets in Resources */,
 				49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */,
 				49DB143B209A12D400FAC940 /* PagerAnimatedPage3.xib in Resources */,
-				496155EF20970E7900223281 /* PagerAnimatedCell.xib in Resources */,
-				496155DE2097094900223281 /* SPagerCell.xib in Resources */,
 				49DB143D209A13D800FAC940 /* PagerPageLikes.xib in Resources */,
 				49A09E112099E59000B69A9B /* PagerPageLikePower.xib in Resources */,
 			);
@@ -286,18 +237,13 @@
 				49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */,
 				49C81B622093436000865FC5 /* main.m in Sources */,
 				49C81B542093435F00865FC5 /* AppDelegate.m in Sources */,
-				496155D92097088D00223281 /* BasePager.m in Sources */,
-				496155DD2097094900223281 /* SPagerCell.m in Sources */,
-				496155E820970AB700223281 /* PagerWithAnimatedPages.m in Sources */,
 				49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */,
 				49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */,
 				41756D78FBBDC7D946BD67FA /* HorizontalPageIndicator.m in Sources */,
-				496155EE20970E7900223281 /* PagerAnimatedCell.m in Sources */,
-				496155D32096F3AF00223281 /* SPager.m in Sources */,
-				496155D62096F44900223281 /* PagerItem.m in Sources */,
 				417562B1111CCE6798019741 /* UIColor+MUIColor.m in Sources */,
-				41756E5A5DF38E77C9188344 /* PagerWithAnimatedPages2.m in Sources */,
+				41756E5A5DF38E77C9188344 /* PagerWithAnimatedPages.m in Sources */,
 				41756A09BF9083DC5BE42A15 /* PagerAnimatedPage.m in Sources */,
+				417566008D5CF8638BD5C550 /* PagerItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

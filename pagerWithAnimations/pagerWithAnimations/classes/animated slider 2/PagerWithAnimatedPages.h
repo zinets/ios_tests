@@ -7,15 +7,11 @@
 #import "HorizontalPageIndicator.h"
 #import "UIColor+MUIColor.h"
 
-@class PagerItem;
+#import "PagerItem.h"
 
-@interface PagerWithAnimatedPages2 : UIView {
-    NSArray *_dataSource;
-}
-
+@interface PagerWithAnimatedPages : UIView
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic, strong) NSArray <PagerItem *> *dataSource;
-@property (nonatomic, strong) HorizontalPageIndicator *pageIndicator;
 - (void)startAnimating;
 - (void)stopAnimating;
 
