@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-
+#import "PackagesContainer.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
+@property (weak, nonatomic) IBOutlet PackagesContainer *packagesContainer;
 
 
 @end
@@ -35,6 +36,7 @@ CGFloat dp(CGFloat x) {
             [PagerItem newPagerItemWithTitle:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!" xibName:@"PagerPageSafety"],
             [PagerItem newPagerItemWithTitle:@"Activate the Like Power" descr:@"See who liked you, get unlimited likes and send mega likes" xibName:@"PagerPageLikePower"],
     ];
+    [self.pager2 stopAnimating];
 }
 
 - (CGAffineTransform)boxRightTransform {
