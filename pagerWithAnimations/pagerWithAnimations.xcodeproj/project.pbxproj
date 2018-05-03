@@ -24,8 +24,9 @@
 		49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6D209345B800865FC5 /* RMNibLoadedView.m */; };
 		49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6F209345B800865FC5 /* RMNibLoader.m */; };
 		49DB1439209A0DA800FAC940 /* PagerPageProfiles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */; };
-		49DB143B209A12D400FAC940 /* PagerAnimatedPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */; };
+		49DB143B209A12D400FAC940 /* PagerPageMessages.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB143A209A12D400FAC940 /* PagerPageMessages.xib */; };
 		49DB143D209A13D800FAC940 /* PagerPageLikes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB143C209A13D800FAC940 /* PagerPageLikes.xib */; };
+		49F94E8D209AF2C400571679 /* PagerPageSafety.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F94E8C209AF2C400571679 /* PagerPageSafety.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,8 +59,9 @@
 		49C81B6E209345B800865FC5 /* RMNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNibLoader.h; sourceTree = "<group>"; };
 		49C81B6F209345B800865FC5 /* RMNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNibLoader.m; sourceTree = "<group>"; };
 		49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageProfiles.xib; sourceTree = "<group>"; };
-		49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerAnimatedPage3.xib; sourceTree = "<group>"; };
+		49DB143A209A12D400FAC940 /* PagerPageMessages.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageMessages.xib; sourceTree = "<group>"; };
 		49DB143C209A13D800FAC940 /* PagerPageLikes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageLikes.xib; sourceTree = "<group>"; };
+		49F94E8C209AF2C400571679 /* PagerPageSafety.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageSafety.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +154,8 @@
 			children = (
 				49A09E102099E59000B69A9B /* PagerPageLikePower.xib */,
 				49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */,
-				49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */,
+				49DB143A209A12D400FAC940 /* PagerPageMessages.xib */,
+				49F94E8C209AF2C400571679 /* PagerPageSafety.xib */,
 				49DB143C209A13D800FAC940 /* PagerPageLikes.xib */,
 			);
 			path = "slides design";
@@ -220,7 +223,8 @@
 				49C81B5C2093436000865FC5 /* Assets.xcassets in Resources */,
 				496155D02096DA2200223281 /* Media.xcassets in Resources */,
 				49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */,
-				49DB143B209A12D400FAC940 /* PagerAnimatedPage3.xib in Resources */,
+				49DB143B209A12D400FAC940 /* PagerPageMessages.xib in Resources */,
+				49F94E8D209AF2C400571679 /* PagerPageSafety.xib in Resources */,
 				49DB143D209A13D800FAC940 /* PagerPageLikes.xib in Resources */,
 				49A09E112099E59000B69A9B /* PagerPageLikePower.xib in Resources */,
 			);

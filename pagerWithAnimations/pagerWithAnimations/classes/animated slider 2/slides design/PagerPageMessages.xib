@@ -27,32 +27,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="likes4" translatesAutoresizingMaskIntoConstraints="NO" id="bSs-9F-l9Z">
-                    <rect key="frame" x="228" y="34" width="70" height="70"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield4" translatesAutoresizingMaskIntoConstraints="NO" id="bSs-9F-l9Z">
+                    <rect key="frame" x="225" y="64" width="62" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="likes3" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-fn-pVI">
-                    <rect key="frame" x="147" y="31" width="98" height="99"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield3" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-fn-pVI">
+                    <rect key="frame" x="155" y="35" width="85" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="likes2" translatesAutoresizingMaskIntoConstraints="NO" id="0o3-5j-ul1">
-                    <rect key="frame" x="90" y="8" width="105" height="106"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield1" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-Ub-u5c">
+                    <rect key="frame" x="22" y="47" width="95" height="99"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="likes1" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-Ub-u5c">
-                    <rect key="frame" x="24" y="20" width="124" height="124"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield2" translatesAutoresizingMaskIntoConstraints="NO" id="0o3-5j-ul1">
+                    <rect key="frame" x="66" y="2" width="132" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aML-MM-9wH">
-                    <rect key="frame" x="40" y="153.5" width="275" height="52.5"/>
-                    <string key="text">Activate 
-the Like Power</string>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title of screen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aML-MM-9wH">
+                    <rect key="frame" x="40" y="200" width="275" height="26.5"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See who liked you, get unlimited likes and send mega likes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTh-ie-3mI">
-                    <rect key="frame" x="40" y="213" width="275" height="41"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description of feature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTh-ie-3mI">
+                    <rect key="frame" x="40" y="233.5" width="275" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -73,9 +71,9 @@ the Like Power</string>
         </view>
     </objects>
     <resources>
-        <image name="likes1" width="124" height="124"/>
-        <image name="likes2" width="105" height="106"/>
-        <image name="likes3" width="98" height="99"/>
-        <image name="likes4" width="70" height="70"/>
+        <image name="shield1" width="95" height="99"/>
+        <image name="shield2" width="132" height="142"/>
+        <image name="shield3" width="85" height="92"/>
+        <image name="shield4" width="62" height="61"/>
     </resources>
 </document>

@@ -31,10 +31,8 @@ CGFloat dp(CGFloat x) {
     self.pager2.dataSource = @[
             [PagerItem newPagerItemWithTitle:@"Check out any profiles with video you want" descr:@"Upgrade now and choose from loads of potential dates!" xibName:@"PagerPageProfiles"],
             [PagerItem newPagerItemWithTitle:@"Discover who liked you and like them back" descr:@"See anytime the complete list of people who like you" xibName:@"PagerPageLikes"],
-
-            [PagerItem newPagerItemWithTitle:@"Send and view videos without limits" descr:@"Contact members, send and view photos and videos without limits" xibName:@"PagerAnimatedPage3"],
-            [PagerItem newPagerItemWithTitle:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!" xibName:@"PagerAnimatedPage3"],
-
+            [PagerItem newPagerItemWithTitle:@"Send and view videos without limits" descr:@"Contact members, send and view photos and videos without limits" xibName:@"PagerPageMessages"],
+            [PagerItem newPagerItemWithTitle:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!" xibName:@"PagerPageSafety"],
             [PagerItem newPagerItemWithTitle:@"Activate the Like Power" descr:@"See who liked you, get unlimited likes and send mega likes" xibName:@"PagerPageLikePower"],
     ];
 }
