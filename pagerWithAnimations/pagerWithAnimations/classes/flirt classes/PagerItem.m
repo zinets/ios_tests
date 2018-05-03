@@ -14,6 +14,10 @@
     return [self newPagerItemWithType:type title:title descr:descr image:nil];
 }
 
++(instancetype)newPagerItemWithTitle:(NSString *)title descr:(NSString *)descr xibName:(NSString *)name {
+    return [self newPagerItemWithType:0 title:title descr:descr image:name];
+}
+
 +(instancetype)newPagerItemWithType:(NSInteger)type title:(NSString *)title descr:(NSString *)descr image:(NSString *)imageUrl {
     PagerItem *item = [PagerItem new];
     item.itemTitle = title;

@@ -6,7 +6,9 @@
 #import "PagerAnimatedPage.h"
 
 
-@interface PagerAnimatedPage()
+@interface PagerAnimatedPage() {
+    NSString *xibName;
+}
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boxes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
@@ -18,14 +20,6 @@
 
 @implementation PagerAnimatedPage {
 
-}
-
-- (IBAction)removeToLeftAction:(id)sender {
-    [self removeToLeft];
-}
-
-- (IBAction)addFromLeft:(id)sender {
-    [self addFromRight];
 }
 
 -(void)setTitleText:(NSString *)titleText {

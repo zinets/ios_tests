@@ -10,6 +10,7 @@
 @property (nonatomic, strong) NSString *titleText;
 @property (nonatomic, strong) NSString *descriptionText;
 
+
 - (void)addFromLeft;
 - (void)addFromRight;
 - (void)removeToRight;

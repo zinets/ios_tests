@@ -27,13 +27,14 @@ CGFloat dp(CGFloat x) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.pager2.dataSource = @[
-                               [PagerItem newPagerItemWithType:0 title:@"0 Activate the 0" descr:@"See who liked you, get unlimited likes and send mega likes"],
-                               [PagerItem newPagerItemWithType:1 title:@"1 Ensure safe 1" descr:@"Select FULL Safe Mode and contact only Trusted Members!"],
-                               [PagerItem newPagerItemWithType:2 title:@"2 Grebaniy Slide 2" descr:@"Записувайся в космопихоту и получи улучшеннный шлем!"],
-                               [PagerItem newPagerItemWithType:3 title:@"3 Slide slide 3" descr:@"444!"],
-                               ];
+            [PagerItem newPagerItemWithTitle:@"Check out any profiles with video you want" descr:@"Upgrade now and choose from loads of potential dates!" xibName:@"PagerPageProfiles"],
+            [PagerItem newPagerItemWithTitle:@"Discover who liked you and like them back" descr:@"See anytime the complete list of people who like you" xibName:@"PagerPageLikes"],
+            [PagerItem newPagerItemWithTitle:@"Send and view videos without limits" descr:@"Contact members, send and view photos and videos without limits" xibName:@"PagerPageLikePower"],
+            [PagerItem newPagerItemWithTitle:@"Ensure safe communication" descr:@"Select FULL Safe Mode and contact only Trusted Members!" xibName:@"PagerPageLikePower"],
+            [PagerItem newPagerItemWithTitle:@"Activate the Like Power" descr:@"See who liked you, get unlimited likes and send mega likes" xibName:@"PagerPageLikePower"],
+    ];
 }
 
 - (CGAffineTransform)boxRightTransform {

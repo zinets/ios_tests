@@ -20,7 +20,7 @@
 		496155E820970AB700223281 /* PagerWithAnimatedPages.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155E720970AB700223281 /* PagerWithAnimatedPages.m */; };
 		496155EE20970E7900223281 /* PagerAnimatedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496155EC20970E7900223281 /* PagerAnimatedCell.m */; };
 		496155EF20970E7900223281 /* PagerAnimatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496155ED20970E7900223281 /* PagerAnimatedCell.xib */; };
-		49A09E112099E59000B69A9B /* PagerAnimatedPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A09E102099E59000B69A9B /* PagerAnimatedPage.xib */; };
+		49A09E112099E59000B69A9B /* PagerPageLikePower.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A09E102099E59000B69A9B /* PagerPageLikePower.xib */; };
 		49C81B542093435F00865FC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B532093435F00865FC5 /* AppDelegate.m */; };
 		49C81B572093435F00865FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B562093435F00865FC5 /* ViewController.m */; };
 		49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C81B582093435F00865FC5 /* Main.storyboard */; };
@@ -30,6 +30,9 @@
 		49C81B70209345B800865FC5 /* RMCachingNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6B209345B800865FC5 /* RMCachingNibLoader.m */; };
 		49C81B71209345B800865FC5 /* RMNibLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6D209345B800865FC5 /* RMNibLoadedView.m */; };
 		49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C81B6F209345B800865FC5 /* RMNibLoader.m */; };
+		49DB1439209A0DA800FAC940 /* PagerPageProfiles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */; };
+		49DB143B209A12D400FAC940 /* PagerAnimatedPage3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */; };
+		49DB143D209A13D800FAC940 /* PagerPageLikes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DB143C209A13D800FAC940 /* PagerPageLikes.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +59,7 @@
 		496155EB20970E7900223281 /* PagerAnimatedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PagerAnimatedCell.h; sourceTree = "<group>"; };
 		496155EC20970E7900223281 /* PagerAnimatedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PagerAnimatedCell.m; sourceTree = "<group>"; };
 		496155ED20970E7900223281 /* PagerAnimatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerAnimatedCell.xib; sourceTree = "<group>"; };
-		49A09E102099E59000B69A9B /* PagerAnimatedPage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerAnimatedPage.xib; sourceTree = "<group>"; };
+		49A09E102099E59000B69A9B /* PagerPageLikePower.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagerPageLikePower.xib; sourceTree = "<group>"; };
 		49C81B4F2093435F00865FC5 /* pagerWithAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pagerWithAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C81B522093435F00865FC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C81B532093435F00865FC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +76,9 @@
 		49C81B6D209345B800865FC5 /* RMNibLoadedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNibLoadedView.m; sourceTree = "<group>"; };
 		49C81B6E209345B800865FC5 /* RMNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNibLoader.h; sourceTree = "<group>"; };
 		49C81B6F209345B800865FC5 /* RMNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNibLoader.m; sourceTree = "<group>"; };
+		49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageProfiles.xib; sourceTree = "<group>"; };
+		49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerAnimatedPage3.xib; sourceTree = "<group>"; };
+		49DB143C209A13D800FAC940 /* PagerPageLikes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PagerPageLikes.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +99,7 @@
 				41756EA9DF2340CD3DF2257D /* PagerWithAnimatedPages2.m */,
 				417568ED6B687C7EA7DA88D2 /* PagerAnimatedPage.h */,
 				41756679E476B01B1F4CB984 /* PagerAnimatedPage.m */,
-				49A09E102099E59000B69A9B /* PagerAnimatedPage.xib */,
+				49DB143E209A13EA00FAC940 /* slides design */,
 			);
 			path = "animated slider 2";
 			sourceTree = "<group>";
@@ -188,6 +194,17 @@
 			path = NibLoadedView;
 			sourceTree = "<group>";
 		};
+		49DB143E209A13EA00FAC940 /* slides design */ = {
+			isa = PBXGroup;
+			children = (
+				49A09E102099E59000B69A9B /* PagerPageLikePower.xib */,
+				49DB1438209A0DA800FAC940 /* PagerPageProfiles.xib */,
+				49DB143A209A12D400FAC940 /* PagerAnimatedPage3.xib */,
+				49DB143C209A13D800FAC940 /* PagerPageLikes.xib */,
+			);
+			path = "slides design";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,13 +262,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DB1439209A0DA800FAC940 /* PagerPageProfiles.xib in Resources */,
 				49C81B5F2093436000865FC5 /* LaunchScreen.storyboard in Resources */,
 				49C81B5C2093436000865FC5 /* Assets.xcassets in Resources */,
 				496155D02096DA2200223281 /* Media.xcassets in Resources */,
 				49C81B5A2093435F00865FC5 /* Main.storyboard in Resources */,
+				49DB143B209A12D400FAC940 /* PagerAnimatedPage3.xib in Resources */,
 				496155EF20970E7900223281 /* PagerAnimatedCell.xib in Resources */,
 				496155DE2097094900223281 /* SPagerCell.xib in Resources */,
-				49A09E112099E59000B69A9B /* PagerAnimatedPage.xib in Resources */,
+				49DB143D209A13D800FAC940 /* PagerPageLikes.xib in Resources */,
+				49A09E112099E59000B69A9B /* PagerPageLikePower.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

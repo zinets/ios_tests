@@ -92,10 +92,10 @@ CGFloat const timerInterval2 = 3;
     frm.size.height -= pageIndicatorHeight2;
     for (int x = 0; x < dataSource.count; x++) {
         PagerItem *item = dataSource[x];
-        PagerAnimatedPage *view = [[PagerAnimatedPage alloc] initWithFrame:frm];
+
+        PagerAnimatedPage *view = [[PagerAnimatedPage alloc] initWithFrame:frm nibName:item.itemImageUrl nibViewIndex:0 inBundle:nil options:nil];
         view.titleText = item.itemTitle;
         view.descriptionText = item.itemDescription;
-
         if (x > 0) {
             [view removeToLeft];
         }

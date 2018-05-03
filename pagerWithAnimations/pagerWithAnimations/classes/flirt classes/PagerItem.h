@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSString *itemImageUrl;
 +(instancetype)newPagerItemWithType:(NSInteger)type title:(NSString *)title descr:(NSString *)descr image:(NSString *)imageUrl;
 +(instancetype)newPagerItemWithType:(NSInteger)type title:(NSString *)title descr:(NSString *)descr;
++(instancetype)newPagerItemWithTitle:(NSString *)title descr:(NSString *)descr xibName:(NSString *)name;
 @end
