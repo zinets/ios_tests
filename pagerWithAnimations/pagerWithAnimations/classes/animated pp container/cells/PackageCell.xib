@@ -47,7 +47,7 @@
                         <rect key="frame" x="20" y="180" width="204" height="48"/>
                         <color key="backgroundColor" red="0.09912109375" green="0.91509331597222221" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="250" constant="48" id="hsD-vK-5As"/>
+                            <constraint firstAttribute="height" constant="48" id="hsD-vK-5As"/>
                         </constraints>
                         <state key="normal" title="Button">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,7 +64,6 @@
             <constraints>
                 <constraint firstItem="TNX-6o-pAL" firstAttribute="top" secondItem="uar-xr-JJn" secondAttribute="bottom" constant="4" id="C9W-wc-y5d"/>
                 <constraint firstItem="TNX-6o-pAL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="DGf-nM-NfH"/>
-                <constraint firstItem="rQw-p5-36C" firstAttribute="top" secondItem="EKJ-Rg-4EB" secondAttribute="bottom" constant="25" id="ECf-MU-oRa"/>
                 <constraint firstItem="uar-xr-JJn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="GoT-ZT-Gd3"/>
                 <constraint firstItem="uar-xr-JJn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="IeO-0b-bd9"/>
                 <constraint firstItem="LQC-r5-Jm1" firstAttribute="top" secondItem="EKJ-Rg-4EB" secondAttribute="top" constant="6" id="PCo-xk-XU5"/>
@@ -81,6 +80,9 @@
                     <integer key="value" value="20"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="button" destination="rQw-p5-36C" id="VeY-o8-6N9"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

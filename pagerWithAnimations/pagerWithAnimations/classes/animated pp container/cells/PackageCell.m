@@ -8,6 +8,11 @@
 
 #import "PackageCell.h"
 
+@interface PackageCell()
+@property (weak, nonatomic) IBOutlet UIButton *button;
+
+@end
+
 @implementation PackageCell
 
 - (void)awakeFromNib {
@@ -22,6 +27,10 @@
     CGFloat a = 1 - 0.57 * ((244 - self.bounds.size.width) / 244);
 //    NSLog(@">>>> %f", a);
     self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:a];
+    
+    a = self.bounds.size.width / 244.;
+    
+    self.button.transform = CGAffineTransformMakeScale(a, a);
 }
 
 @end
