@@ -72,8 +72,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     
-    PackagesContainerLayout *layout = (id)collectionView.collectionViewLayout;
-    
+    PackagesContainerLayout *layout = (id)collectionView.collectionViewLayout;    
     CGFloat xOffset = indexPath.item * (layout.itemSize.width + layout.minimumInterItemSpacing) - layout.leftPadding;
     [collectionView setContentOffset:(CGPoint){xOffset, 0} animated:YES];
 }
