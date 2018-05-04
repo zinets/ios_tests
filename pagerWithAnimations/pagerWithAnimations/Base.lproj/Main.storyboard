@@ -40,15 +40,17 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quy-8x-Pfx" customClass="PackagesContainer">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quy-8x-Pfx" customClass="PackagesContainer">
                                         <rect key="frame" x="0.0" y="8" width="375" height="295"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="311" id="8c3-8K-j2C"/>
+                                    <constraint firstAttribute="bottom" secondItem="quy-8x-Pfx" secondAttribute="bottom" constant="8" id="Uj2-nJ-5jb"/>
+                                    <constraint firstAttribute="trailing" secondItem="quy-8x-Pfx" secondAttribute="trailing" id="VYK-n6-vk1"/>
+                                    <constraint firstItem="quy-8x-Pfx" firstAttribute="top" secondItem="6UK-U7-70f" secondAttribute="top" constant="8" id="fIA-Md-nLX"/>
+                                    <constraint firstItem="quy-8x-Pfx" firstAttribute="leading" secondItem="6UK-U7-70f" secondAttribute="leading" id="zzH-pm-2WH"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1A-g4-xBa">
@@ -67,6 +69,7 @@
                             <constraint firstItem="k9J-QU-Avj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IKi-g1-w3A"/>
                             <constraint firstItem="6UK-U7-70f" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KiY-E2-7VJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="k9J-QU-Avj" secondAttribute="bottom" constant="6" id="KjP-Zc-YL5"/>
+                            <constraint firstItem="Zo1-oi-mww" firstAttribute="top" secondItem="6UK-U7-70f" secondAttribute="bottom" constant="8" id="RMd-f3-hRf"/>
                             <constraint firstItem="k9J-QU-Avj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="afc-62-znD"/>
                             <constraint firstItem="k9J-QU-Avj" firstAttribute="top" secondItem="x1A-g4-xBa" secondAttribute="bottom" constant="8" id="d64-ha-wbX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zo1-oi-mww" secondAttribute="trailing" constant="16" id="m2D-zY-RIw"/>

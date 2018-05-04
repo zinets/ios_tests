@@ -60,7 +60,7 @@
 #pragma mark -
 
 -(CGSize)collectionViewContentSize {
-    CGFloat contentWidth = (_itemSize.width + _minimumInterItemSpacing) * [self numberOfItems] - _minimumInterItemSpacing;
+    CGFloat contentWidth = (_itemSize.width + _minimumInterItemSpacing) * ([self numberOfItems] - 1) + _selectedItemSize.width;
     return (CGSize){contentWidth, self.height};
 }
 
