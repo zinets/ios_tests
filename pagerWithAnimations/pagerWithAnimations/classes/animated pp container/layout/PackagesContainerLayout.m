@@ -86,6 +86,9 @@ CGFloat dragOffset = 50;
 }
 
 -(void)prepareLayout {
+    if ([self selectedItemIndex] == 1 || [self nextItemPercentageOffset] == 0.5) {
+        NSLog(@"");
+    }
     [cache removeAllObjects];
     
     CGRect frame = CGRectZero;
@@ -102,21 +105,11 @@ CGFloat dragOffset = 50;
         CGFloat maxSizeInc = self.selectedItemSize.width - width;
         
         NSInteger selectedIndex = [self selectedItemIndex];
-        
         if (indexPath.item == selectedIndex) {
-            CGFloat maxX = x + self.selectedItemSize.width;
+            x = selectedIndex * (_itemSize.width + _minimumInterItemSpacing);
             width = self.selectedItemSize.width - MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
-            x = maxX - width;
-            
-//            CGFloat xOffset = self.itemSize.width * [self nextItemPercentageOffset];
-//            x = self.collectionView.contentOffset.x - xOffset + self.collectionView.contentInset.left;
-//            width = self.selectedItemSize.width;
-            
-//            NSLog(@"%f, x:%f, w:%f", [self nextItemPercentageOffset], x, width);
         } else if (indexPath.item == selectedIndex + 1) {
-            CGFloat maxX = x + self.itemSize.width;
             width = self.itemSize.width + MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
-            x = maxX - width;
         }
         
         frame = (CGRect){x, self.height - width, width, width};
