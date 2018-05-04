@@ -17,10 +17,27 @@
     if (self = [super init]) {
         _itemSize = (CGSize){180, 180};
         _selectedItemSize = (CGSize){244, 244};
+        _minimumInterItemSpacing = 16;
         
         cache = [NSMutableArray new];
     }
     return self;
+}
+
+#pragma mark magic -
+
+// берем значение из диза для 4.7 (375 пк), получаем эквивалент для текущего экрана
+
+- (CGFloat)dpFrom:(CGFloat)value {
+    static CGFloat magicValue = 0;
+    static BOOL needConversation = NO;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        magicValue = [UIScreen mainScreen].bounds.size.width / 375.;
+        needConversation = magicValue != 1;
+    });
+    
+    return needConversation ? round(value * magicValue) : value;
 }
 
 // это позиция "активной" ячейки..
@@ -43,7 +60,7 @@
     return res;
 }
 
-#pragma mark -
+#pragma mark helpers -
 
 - (NSInteger)numberOfItems {
     return [self.collectionView numberOfItemsInSection:0];
@@ -55,6 +72,16 @@
 
 - (CGFloat)height {
     return self.collectionView.bounds.size.height;
+}
+
+#pragma mark setters -
+
+-(void)setItemSize:(CGSize)itemSize {
+    _itemSize = (CGSize){[self dpFrom:itemSize.width], [self dpFrom:itemSize.height]};
+}
+
+-(void)setSelectedItemSize:(CGSize)selectedItemSize {
+    _selectedItemSize = (CGSize){[self dpFrom:selectedItemSize.width], [self dpFrom:selectedItemSize.height]};
 }
 
 #pragma mark -
