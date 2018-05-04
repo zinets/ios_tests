@@ -13,7 +13,6 @@
 }
 
 CGFloat dragOffset = 50;
-CGFloat leftOffset = 40;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -25,12 +24,24 @@ CGFloat leftOffset = 40;
     return self;
 }
 
-- (NSInteger)selectedItemIndex {
-    return MAX(0, self.collectionView.contentOffset.x / (leftOffset + _itemSize.width));
+// это позиция "активной" ячейки..
+- (CGFloat)currentPos {
+    CGFloat res = (self.collectionView.contentOffset.x + self.collectionView.contentInset.left) / (self.minimumInterItemSpacing + _itemSize.width);
+    return res;
 }
 
+// .. это ее индекс
+- (NSInteger)selectedItemIndex {
+    NSInteger res = MAX(0, self.currentPos);
+    return res;
+}
+
+// ф-ция возвращает значение от 0 до 1 для "активной" ячейки по мере ее приближения справа/слева к максимуму
 - (CGFloat)nextItemPercentageOffset {
-    return self.collectionView.contentOffset.x / dragOffset - self.selectedItemIndex;
+    // 0..1
+    CGFloat res = self.currentPos - self.selectedItemIndex;
+    
+    return res;
 }
 
 #pragma mark -
@@ -50,9 +61,7 @@ CGFloat leftOffset = 40;
 #pragma mark -
 
 -(CGSize)collectionViewContentSize {
-    CGFloat contentWidth = leftOffset;
-    contentWidth += self.numberOfItems * dragOffset + (self.width - dragOffset);
-    contentWidth += (self.numberOfItems - 1) * 16;
+    CGFloat contentWidth = (_itemSize.width + _minimumInterItemSpacing) * [self numberOfItems] - _minimumInterItemSpacing;
     return (CGSize){contentWidth, self.height};
 }
 
@@ -66,9 +75,9 @@ CGFloat leftOffset = 40;
     return arr;
 }
 
--(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset {
-    NSInteger itemIndex = round(proposedContentOffset.x / dragOffset);
-    CGFloat xOffset = itemIndex * dragOffset;
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+    NSInteger itemIndex = round(proposedContentOffset.x / (_itemSize.width + _minimumInterItemSpacing));
+    CGFloat xOffset = itemIndex * (_itemSize.width + _minimumInterItemSpacing) - self.collectionView.contentInset.left;
     return (CGPoint){xOffset, 0};
 }
 
@@ -82,25 +91,39 @@ CGFloat leftOffset = 40;
     CGRect frame = CGRectZero;
     CGFloat x = 0;
     
+//    NSLog(@"%f", [self nextItemPercentageOffset]);
+    
     for (int item = 0; item < [self.collectionView numberOfItemsInSection:0]; item++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         attributes.zIndex = item;
         
         CGFloat width = self.itemSize.width;
-        if (indexPath.item == [self selectedItemIndex]) {
-            CGFloat xOffset = self.itemSize.width * [self nextItemPercentageOffset];
-            x = self.collectionView.contentOffset.x - xOffset;
-            width = self.selectedItemSize.width;
-        } else if (indexPath.item == [self selectedItemIndex] + 1 && indexPath.item != [self.collectionView numberOfItemsInSection:0]) {
+        CGFloat maxSizeInc = self.selectedItemSize.width - width;
+        
+        NSInteger selectedIndex = [self selectedItemIndex];
+        
+        if (indexPath.item == selectedIndex) {
+            CGFloat maxX = x + self.selectedItemSize.width;
+            width = self.selectedItemSize.width - MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
+            x = maxX - width;
+            
+//            CGFloat xOffset = self.itemSize.width * [self nextItemPercentageOffset];
+//            x = self.collectionView.contentOffset.x - xOffset + self.collectionView.contentInset.left;
+//            width = self.selectedItemSize.width;
+            
+//            NSLog(@"%f, x:%f, w:%f", [self nextItemPercentageOffset], x, width);
+        } else if (indexPath.item == selectedIndex + 1) {
             CGFloat maxX = x + self.itemSize.width;
-            width = self.itemSize.width + MAX((self.selectedItemSize.width - self.itemSize.width) * [self nextItemPercentageOffset], 0);
+            width = self.itemSize.width + MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
             x = maxX - width;
         }
+        
         frame = (CGRect){x, self.height - width, width, width};
         attributes.frame = frame;
         [cache addObject:attributes];
-        x = CGRectGetMaxX(frame) + 16;
+        
+        x = CGRectGetMaxX(frame) + self.minimumInterItemSpacing;
     }
 }
 

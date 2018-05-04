@@ -10,7 +10,7 @@
 #import "PackagesContainerLayout.h"
 #import "PackageCell.h"
 
-@interface PackagesContainer () <UICollectionViewDataSource>
+@interface PackagesContainer () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
@@ -50,10 +50,12 @@
 //
         
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        _collectionView.contentInset = (UIEdgeInsets){0, 40, 0, self.bounds.size.width - 180 - 40};
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerNib:[UINib nibWithNibName:@"PackageCell" bundle:nil] forCellWithReuseIdentifier:CELL_ID];
         
         _collectionView.dataSource = self;
+        _collectionView.delegate = self;
     }
     return _collectionView;
 }
@@ -61,7 +63,7 @@
 #pragma mark collection -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 7;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,6 +71,5 @@
     
     return cell;
 }
-
 
 @end
