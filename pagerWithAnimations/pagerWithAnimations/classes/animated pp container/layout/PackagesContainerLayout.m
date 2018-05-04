@@ -11,6 +11,7 @@
 
 @implementation PackagesContainerLayout {
     NSMutableArray <UICollectionViewLayoutAttributes *> *cache;
+    BOOL shouldUpdateInsets;
 }
 
 - (instancetype)init {
@@ -84,6 +85,11 @@
     _selectedItemSize = (CGSize){[self dpFrom:selectedItemSize.width], [self dpFrom:selectedItemSize.height]};
 }
 
+-(void)setLeftPadding:(CGFloat)leftPadding {
+    _leftPadding = [self dpFrom:leftPadding];
+    shouldUpdateInsets = YES;
+}
+
 #pragma mark -
 
 -(CGSize)collectionViewContentSize {
@@ -112,6 +118,16 @@
 }
 
 -(void)prepareLayout {
+    if (shouldUpdateInsets) { //
+        shouldUpdateInsets = NO;
+        
+        CGFloat rightPadding = self.width - _leftPadding - _selectedItemSize.width;
+        UIEdgeInsets origInsets = self.collectionView.contentInset;
+        origInsets.left = _leftPadding;
+        origInsets.right = rightPadding;
+        self.collectionView.contentInset = origInsets;
+    }
+    
     [cache removeAllObjects];
     
     CGRect frame = CGRectZero;

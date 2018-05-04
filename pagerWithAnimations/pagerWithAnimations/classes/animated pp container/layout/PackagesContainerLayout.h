@@ -13,6 +13,8 @@
 @property (nonatomic) CGSize itemSize;
 /// размер БОЛЬШОЙ ячейки; адоптируецца для разных экранов, ждет значение из диза для 4.7"
 @property (nonatomic) CGSize selectedItemSize;
+/// отступ левой (активной) ячейки; адоптируецца. Правый отступ вычисляется автоматично
+@property (nonatomic) CGFloat leftPadding;
 /// расстояние между ячейками - не одоптируеца потому что пошло оно все нах
 @property (nonatomic) CGFloat minimumInterItemSpacing;
 @end

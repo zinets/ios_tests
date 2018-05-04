@@ -44,10 +44,10 @@
         layout.itemSize = (CGSize){180, 180};
         layout.selectedItemSize = (CGSize){244, 244};        
         layout.minimumInterItemSpacing = 16;
+        layout.leftPadding = 40;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _collectionView.contentInset = (UIEdgeInsets){0, 40, 0, self.bounds.size.width - 40 - 244};
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerNib:[UINib nibWithNibName:@"PackageCell" bundle:nil] forCellWithReuseIdentifier:CELL_ID];
         
