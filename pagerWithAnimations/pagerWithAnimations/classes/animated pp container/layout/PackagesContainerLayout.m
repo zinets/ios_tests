@@ -75,7 +75,7 @@
     return self.collectionView.bounds.size.height;
 }
 
-#pragma mark setters -
+#pragma mark setters/getters -
 
 -(void)setItemSize:(CGSize)itemSize {
     _itemSize = (CGSize){[self dpFrom:itemSize.width], [self dpFrom:itemSize.height]};
@@ -88,6 +88,15 @@
 -(void)setLeftPadding:(CGFloat)leftPadding {
     _leftPadding = [self dpFrom:leftPadding];
     shouldUpdateInsets = YES;
+}
+
+-(CGFloat)bottomPadding {
+    CGFloat vertPadding = 16; // неснижаемый остаток, если высота коллекции не позволяет - уменьшаем высоту ячейки на 16 сверху-снизу (а вообще ячейка "центруется" по вертикали, имея в виду бОльший размер ячейки; мЕньшие выравниваются по низу с большой)
+    if (self.height - 2 * vertPadding > _selectedItemSize.height) {
+        vertPadding = (self.height - _selectedItemSize.height) / 2;
+    }
+    
+    return vertPadding;
 }
 
 #pragma mark -
@@ -126,6 +135,7 @@
         origInsets.left = _leftPadding;
         origInsets.right = rightPadding;
         self.collectionView.contentInset = origInsets;
+        self.collectionView.showsHorizontalScrollIndicator = NO;
     }
     
     [cache removeAllObjects];
@@ -152,8 +162,13 @@
         } else {
             attributes.growingPercent = 0;
         }
-                
-        frame = (CGRect){x, self.height - width, width, width};
+
+        CGFloat height = width;
+        if (height > self.height - 2 * self.bottomPadding) {
+            height = self.height - 2 * self.bottomPadding;
+        }
+        
+        frame = (CGRect){x, self.height - height - self.bottomPadding, width, height};
         attributes.frame = frame;
         [cache addObject:attributes];
         
