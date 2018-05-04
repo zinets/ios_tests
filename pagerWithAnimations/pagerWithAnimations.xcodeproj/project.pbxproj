@@ -31,6 +31,7 @@
 		49F94E95209AFAE400571679 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F94E93209AFAE400571679 /* PackageCell.m */; };
 		49F94E96209AFAE400571679 /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F94E94209AFAE400571679 /* PackageCell.xib */; };
 		49F94E9B209B01FD00571679 /* PackagesContainerLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F94E9A209B01FD00571679 /* PackagesContainerLayout.m */; };
+		49F94E9F209C4DD500571679 /* PackageCellLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F94E9E209C4DD500571679 /* PackageCellLayoutAttributes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,8 @@
 		49F94E94209AFAE400571679 /* PackageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
 		49F94E99209B01FD00571679 /* PackagesContainerLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PackagesContainerLayout.h; sourceTree = "<group>"; };
 		49F94E9A209B01FD00571679 /* PackagesContainerLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PackagesContainerLayout.m; sourceTree = "<group>"; };
+		49F94E9D209C4DD500571679 /* PackageCellLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PackageCellLayoutAttributes.h; sourceTree = "<group>"; };
+		49F94E9E209C4DD500571679 /* PackageCellLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PackageCellLayoutAttributes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,7 @@
 			children = (
 				49F94E8F209AF9A000571679 /* PackagesContainer.h */,
 				49F94E90209AF9A000571679 /* PackagesContainer.m */,
+				49F94E9C209C4D6D00571679 /* attributes */,
 				49F94E98209AFE0900571679 /* layout */,
 				49F94E97209AFDFE00571679 /* cells */,
 			);
@@ -201,6 +205,15 @@
 				49F94E9A209B01FD00571679 /* PackagesContainerLayout.m */,
 			);
 			path = layout;
+			sourceTree = "<group>";
+		};
+		49F94E9C209C4D6D00571679 /* attributes */ = {
+			isa = PBXGroup;
+			children = (
+				49F94E9D209C4DD500571679 /* PackageCellLayoutAttributes.h */,
+				49F94E9E209C4DD500571679 /* PackageCellLayoutAttributes.m */,
+			);
+			path = attributes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +295,7 @@
 			files = (
 				49C81B572093435F00865FC5 /* ViewController.m in Sources */,
 				49C81B72209345B800865FC5 /* RMNibLoader.m in Sources */,
+				49F94E9F209C4DD500571679 /* PackageCellLayoutAttributes.m in Sources */,
 				49C81B622093436000865FC5 /* main.m in Sources */,
 				49C81B542093435F00865FC5 /* AppDelegate.m in Sources */,
 				49F94E91209AF9A000571679 /* PackagesContainer.m in Sources */,

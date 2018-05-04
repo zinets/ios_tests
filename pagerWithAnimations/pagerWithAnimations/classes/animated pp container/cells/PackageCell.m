@@ -7,30 +7,32 @@
 //
 
 #import "PackageCell.h"
+#import "PackageCellLayoutAttributes.h"
 
 @interface PackageCell()
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeight;
 
 @end
 
 @implementation PackageCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+-(void)prepareForReuse {
+    [self applyGrowingValue:0];
 }
 
--(void)layoutSubviews {
-    [super layoutSubviews];
+- (void)applyGrowingValue:(CGFloat)growingValue {
+    self.alpha = MAX(0.44, growingValue);
     
-    // todo: добавить в атрибуты поле "прогрес"?? внутри ячейки никак не вычислить прозрачности/размеры/видимость, зависящие от размеров - т.к. размеры вообще разные на разных экранах
-    CGFloat a = 1 - 0.57 * ((244 - self.bounds.size.width) / 244);
-//    NSLog(@">>>> %f", a);
-    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:a];
+    self.button.transform = CGAffineTransformMakeScale(growingValue, growingValue);
+    self.buttonHeight.constant = 48 * growingValue;
+    self.button.layer.cornerRadius = self.buttonHeight.constant / 2;
     
-    a = self.bounds.size.width / 244.;
-    
-    self.button.transform = CGAffineTransformMakeScale(a, a);
+    self.button.alpha = growingValue;
+}
+
+- (void)applyLayoutAttributes:(PackageCellLayoutAttributes *)layoutAttributes {
+    [self applyGrowingValue:layoutAttributes.growingPercent];
 }
 
 @end

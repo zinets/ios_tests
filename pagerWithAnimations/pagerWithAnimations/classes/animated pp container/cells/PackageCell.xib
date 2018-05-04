@@ -82,6 +82,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="button" destination="rQw-p5-36C" id="VeY-o8-6N9"/>
+                <outlet property="buttonHeight" destination="hsD-vK-5As" id="qzI-vS-lon"/>
             </connections>
         </collectionViewCell>
     </objects>

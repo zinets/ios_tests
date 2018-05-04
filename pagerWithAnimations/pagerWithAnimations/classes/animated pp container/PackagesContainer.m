@@ -63,13 +63,20 @@
 #pragma mark collection -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 7;
+    return 3;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PackageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    
+    CGFloat xOffset = indexPath.item * (180 + 16) - collectionView.contentInset.left;
+    [collectionView setContentOffset:(CGPoint){xOffset, 0} animated:YES];
 }
 
 @end

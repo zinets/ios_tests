@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @property (nonatomic) BOOL contentIsHidden;
+@property (nonatomic) BOOL animationInProgress;
 @end
 
 @implementation PagerAnimatedPage {

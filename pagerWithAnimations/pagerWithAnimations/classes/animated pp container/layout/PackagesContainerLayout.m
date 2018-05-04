@@ -7,12 +7,11 @@
 //
 
 #import "PackagesContainerLayout.h"
+#import "PackageCellLayoutAttributes.h"
 
 @implementation PackagesContainerLayout {
     NSMutableArray <UICollectionViewLayoutAttributes *> *cache;
 }
-
-CGFloat dragOffset = 50;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -86,20 +85,13 @@ CGFloat dragOffset = 50;
 }
 
 -(void)prepareLayout {
-    if ([self selectedItemIndex] == 1 || [self nextItemPercentageOffset] == 0.5) {
-        NSLog(@"");
-    }
     [cache removeAllObjects];
     
     CGRect frame = CGRectZero;
     CGFloat x = 0;
-    
-//    NSLog(@"%f", [self nextItemPercentageOffset]);
-    
     for (int item = 0; item < [self.collectionView numberOfItemsInSection:0]; item++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-        UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-        attributes.zIndex = item;
+        PackageCellLayoutAttributes *attributes = [PackageCellLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         
         CGFloat width = self.itemSize.width;
         CGFloat maxSizeInc = self.selectedItemSize.width - width;
@@ -108,10 +100,16 @@ CGFloat dragOffset = 50;
         if (indexPath.item == selectedIndex) {
             x = selectedIndex * (_itemSize.width + _minimumInterItemSpacing);
             width = self.selectedItemSize.width - MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
+            
+            attributes.growingPercent = 1 - (_selectedItemSize.width - width) / maxSizeInc;
         } else if (indexPath.item == selectedIndex + 1) {
             width = self.itemSize.width + MAX(maxSizeInc * [self nextItemPercentageOffset], 0);
+            
+            attributes.growingPercent = 1 - (_selectedItemSize.width - width) / maxSizeInc;
+        } else {
+            attributes.growingPercent = 0;
         }
-        
+                
         frame = (CGRect){x, self.height - width, width, width};
         attributes.frame = frame;
         [cache addObject:attributes];
