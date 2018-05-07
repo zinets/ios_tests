@@ -10,7 +10,10 @@
 #import "PackagesContainerLayout.h"
 #import "PackageCell.h"
 
-@interface PackagesContainer () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface PackagesContainer () <UICollectionViewDataSource, UICollectionViewDelegate> {
+    NSInteger indexOfElementBeforeScroll;
+    CGFloat initialContentOffset, maxContentOffset, minContentOffset;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
@@ -46,6 +49,8 @@
         layout.minimumInterItemSpacing = 16;
         layout.leftPadding = 40;
         
+        initialContentOffset = CGFLOAT_MAX;
+        
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
@@ -75,6 +80,40 @@
     PackagesContainerLayout *layout = (id)collectionView.collectionViewLayout;    
     CGFloat xOffset = indexPath.item * (layout.itemSize.width + layout.minimumInterItemSpacing) - layout.leftPadding;
     [collectionView setContentOffset:(CGPoint){xOffset, 0} animated:YES];
+}
+
+// следующая поебень нужна для ограничения скрола пакетов на 1 элемент; если просто выравнивать после скрола ячейку - то достаточно targetContentOffsetForProposedContentOffset, но если крутнуть сильно - там все выровняется, но с 0й ячейки можно пролистать сразу до 2й - 
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    PackagesContainerLayout *layout = (id)self.collectionView.collectionViewLayout;
+    indexOfElementBeforeScroll = round((scrollView.contentOffset.x + scrollView.contentInset.left) / (layout.itemSize.width + layout.minimumInterItemSpacing));
+    
+    initialContentOffset = scrollView.contentOffset.x;
+    minContentOffset = initialContentOffset - (layout.itemSize.width + layout.minimumInterItemSpacing);
+    maxContentOffset = initialContentOffset + (layout.itemSize.width + layout.minimumInterItemSpacing);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (initialContentOffset < CGFLOAT_MAX) {
+        PackagesContainerLayout *layout = (id)self.collectionView.collectionViewLayout;
+        CGPoint pt = scrollView.contentOffset;
+        pt.x = MIN(MAX(pt.x, minContentOffset), maxContentOffset);
+        [scrollView setContentOffset:pt];
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (targetContentOffset->x > initialContentOffset) {
+        indexOfElementBeforeScroll++;
+    } else {
+        indexOfElementBeforeScroll--;
+    }
+    
+    PackagesContainerLayout *layout = (id)self.collectionView.collectionViewLayout;
+    CGFloat xOffset = indexOfElementBeforeScroll * (layout.itemSize.width + layout.minimumInterItemSpacing) - self.collectionView.contentInset.left;
+    targetContentOffset->x = xOffset;
+    
+    initialContentOffset = CGFLOAT_MAX;
 }
 
 @end

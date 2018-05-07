@@ -116,11 +116,16 @@
     return arr;
 }
 
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
-    NSInteger itemIndex = round(proposedContentOffset.x / (_itemSize.width + _minimumInterItemSpacing));
-    CGFloat xOffset = itemIndex * (_itemSize.width + _minimumInterItemSpacing) - self.collectionView.contentInset.left;
-    return (CGPoint){xOffset, 0};
-}
+//- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+//    // простая дотяжка
+//    NSInteger itemIndex = round((proposedContentOffset.x + self.collectionView.contentInset.left) / (_itemSize.width + _minimumInterItemSpacing));
+//    
+//    CGFloat xOffset = itemIndex * (_itemSize.width + _minimumInterItemSpacing) - self.collectionView.contentInset.left;
+//    return (CGPoint){xOffset, 0};
+//    
+//    
+//    
+//}
 
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     return YES;
