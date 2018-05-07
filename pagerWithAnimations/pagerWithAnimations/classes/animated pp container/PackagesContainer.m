@@ -54,6 +54,8 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.bounces = NO;
+        
         [_collectionView registerNib:[UINib nibWithNibName:@"PackageCell" bundle:nil] forCellWithReuseIdentifier:CELL_ID];
         
         _collectionView.dataSource = self;
@@ -82,7 +84,9 @@
     [collectionView setContentOffset:(CGPoint){xOffset, 0} animated:YES];
 }
 
-// следующая поебень нужна для ограничения скрола пакетов на 1 элемент; если просто выравнивать после скрола ячейку - то достаточно targetContentOffsetForProposedContentOffset, но если крутнуть сильно - там все выровняется, но с 0й ячейки можно пролистать сразу до 2й - 
+#pragma mark scrolling -
+
+// следующая поебень нужна для ограничения скрола пакетов на 1 элемент; если просто выравнивать после скрола ячейку - то достаточно targetContentOffsetForProposedContentOffset, но если крутнуть сильно - там все выровняется, но с 0й ячейки можно пролистать сразу до 2й -
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     PackagesContainerLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -105,7 +109,7 @@
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (targetContentOffset->x > initialContentOffset) {
         indexOfElementBeforeScroll++;
-    } else {
+    } else if (targetContentOffset->x < initialContentOffset) {
         indexOfElementBeforeScroll--;
     }
     

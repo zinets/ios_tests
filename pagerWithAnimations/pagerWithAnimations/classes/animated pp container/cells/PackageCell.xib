@@ -57,11 +57,12 @@
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQw-p5-36C">
                         <rect key="frame" x="20" y="180" width="204" height="48"/>
-                        <color key="backgroundColor" red="0.09912109375" green="0.91509331597222221" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.75294117647058822" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="hsD-vK-5As"/>
                         </constraints>
-                        <state key="normal" title="Button">
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                        <state key="normal" title="CONTINUE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -95,6 +96,11 @@
             <connections>
                 <outlet property="button" destination="rQw-p5-36C" id="VeY-o8-6N9"/>
                 <outlet property="buttonHeight" destination="hsD-vK-5As" id="qzI-vS-lon"/>
+                <outlet property="continueButton" destination="rQw-p5-36C" id="vYN-Tk-Fyr"/>
+                <outlet property="durationLabel" destination="uar-xr-JJn" id="vVy-zo-vRE"/>
+                <outlet property="priceLabel" destination="TNX-6o-pAL" id="irS-HS-Acp"/>
+                <outlet property="saleLabel1" destination="EKJ-Rg-4EB" id="mhO-f4-Mzj"/>
+                <outlet property="saleLabel2" destination="LQC-r5-Jm1" id="hWy-RR-eKw"/>
             </connections>
         </collectionViewCell>
     </objects>
