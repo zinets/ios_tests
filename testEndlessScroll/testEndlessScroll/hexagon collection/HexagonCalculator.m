@@ -10,7 +10,9 @@
 
 #define sin60 0.8660254
 
-@interface HexagonCalculator()
+@interface HexagonCalculator() {
+    NSMutableArray *_frames;
+}
 // "радиус"/пол-ширины одной соты
 @property (nonatomic, readonly) CGFloat halfWidth;
 // пол-высоты одной соты
@@ -21,7 +23,7 @@
 
 -(instancetype)init {
     if (self = [super init]) {
-        
+        _frames = [NSMutableArray new];
     }
     return self;
 }
@@ -34,7 +36,7 @@
 }
 
 -(NSInteger)rows {
-    return (NSInteger)self.bounds.size.height / (2 * _halfHeight);
+    return self.bounds.size.height / _halfHeight - 1;
 }
 
 -(void)setBounds:(CGRect)bounds {
@@ -54,6 +56,24 @@
         _halfWidth = self.bounds.size.width / (halfRows + 0.5);
     }
     _halfHeight = _halfWidth * sin60;
+    
+    [self calculateFrames];
+}
+
+-(void)calculateFrames {
+    [_frames removeAllObjects];
+    
+    CGSize frameSize = (CGSize){self.halfWidth * 2, self.halfHeight * 2};
+    CGRect frame;
+    for (int y = 0; y < self.rows; y++) {
+        for (int x = 0; x < self.cols; x++) {
+            CGFloat top = y * self.halfHeight;
+            CGFloat left = x * 3 * self.halfWidth;
+            frame = (CGRect){{left, top}, frameSize};
+            
+            [_frames addObject:[NSValue valueWithCGRect:frame]];
+        }
+    }
 }
 
 @end

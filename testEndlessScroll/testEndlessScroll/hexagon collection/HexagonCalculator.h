@@ -15,4 +15,6 @@
 @property (nonatomic) NSInteger cols;
 /// кол-во "строк" (очевидно что цифра для справки)
 @property (nonatomic, readonly) NSInteger rows;
+
+@property (nonatomic, readonly) NSArray *frames;
 @end
