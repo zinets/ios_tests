@@ -13,11 +13,11 @@
 @property (nonatomic) CGRect bounds;
 /// кол-во "столбцов"
 @property (nonatomic) NSInteger cols;
+
 /// кол-во "строк" (очевидно что цифра для справки)
 @property (nonatomic, readonly) NSInteger rows;
-
 /// получившийся из исходных (фрейм для размещения, кол-во столбцов) размер элемента
 @property (nonatomic, readonly) CGSize elementSize;
 /// массив центров ячеек
-@property (nonatomic, readonly) NSArray *centers;
+@property (nonatomic, readonly) NSArray <NSValue /* CGPoint */ *> *centers;
 @end

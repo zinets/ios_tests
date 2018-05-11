@@ -18,6 +18,8 @@
 @property (nonatomic, readonly) CGFloat halfWidth;
 // пол-высоты одной соты
 @property (nonatomic, readonly) CGFloat halfHeight;
+// ячейки заполняют собой ширину полностью, а по высоте надо (?) выравнивать по центру
+@property (nonatomic, readonly) CGFloat topOffset ; // == bottomOffset вообще говоря
 @end
 
 @implementation HexagonCalculator
@@ -72,7 +74,9 @@
 -(void)calculateFrames {
     [_centers removeAllObjects];
 
+    NSMutableArray *array = [NSMutableArray array];
     CGRect frame = (CGRect){{}, self.elementSize};
+    CGRect contentFrame = CGRectZero;
     for (int y = 0; y < self.rows; y++) {
         for (int x = 0; x < self.cols / 2 + 1; x++) {
             frame.origin.y = y * self.halfHeight;
@@ -84,10 +88,20 @@
             }
             if (CGRectContainsRect(self.bounds, frame)) {
                 CGPoint centerOfElement = (CGPoint){CGRectGetMidX(frame), CGRectGetMidY(frame)};
-                [_centers addObject:[NSValue valueWithCGPoint:centerOfElement]];
+                [array addObject:[NSValue valueWithCGPoint:centerOfElement]];
+
+                contentFrame = CGRectUnion(contentFrame, frame);
             }
         }
     }
+
+    // если нужно выровнять по вертикали ячейки в фрейме..
+    _topOffset = (self.bounds.size.height - contentFrame.size.height) / 2;
+    [array enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL *stop) {
+        CGPoint point = [obj CGPointValue];
+        point.y += self.topOffset;
+        [_centers addObject:[NSValue valueWithCGPoint:point]];
+    }];
     [self sortFrames];
 }
 
