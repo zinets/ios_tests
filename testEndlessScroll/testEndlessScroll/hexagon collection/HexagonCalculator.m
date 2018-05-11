@@ -60,16 +60,28 @@
 }
 
 - (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements {
-    // тупо для тестирования
-    if (numberOfElements < 3) {
-        return 1;
-    } else if (numberOfElements < 5) {
-        return 2;
-    } else if (numberOfElements < 9) {
-        return 3;
-    } else {
-        return 4;
+    if (numberOfElements == 0) {
+        // иди нах
+        return 0;
     }
+    CGFloat cellHeight = self.bounds.size.height / numberOfElements; // это диаметр ячейки при таком кол-ве элементов
+    if (numberOfElements < 3) {
+        return 1; // это выглядит красиво
+    }
+    // test for 2
+    CGFloat expectedWidth = self.bounds.size.width / 3.5; // magic, see pics
+    CGFloat expectedHeight = expectedWidth * sin60;
+    CGFloat maxHeight = self.bounds.size.height / (numberOfElements + 1);
+    if (maxHeight >= expectedHeight) {
+        return 2;
+    }
+
+    // test for 3
+    expectedWidth = self.bounds.size.width / 5;
+    expectedHeight = expectedWidth * sin60;
+    maxHeight = self.bounds.size.height / ceil(numberOfElements / 3) / 2;
+
+    return 4;
 }
 
 #pragma mark internal -
@@ -149,12 +161,15 @@
     yDist = (point2.y - center.y);
     CGFloat distance2 = sqrt((xDist * xDist) + (yDist * yDist));
 
-    return distance1 < distance2 ? NSOrderedAscending : NSOrderedDescending;
+    return distance1 <= distance2 ? NSOrderedAscending : NSOrderedDescending;
 }
 
 - (void)sortFrames {
     CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
 
+    // do not sort
+    _sortedCenters = _centers;
+    return;
     _sortedCenters = [_centers sortedArrayUsingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
         CGPoint pt1 = [obj1 CGPointValue];
         CGPoint pt2 = [obj2 CGPointValue];

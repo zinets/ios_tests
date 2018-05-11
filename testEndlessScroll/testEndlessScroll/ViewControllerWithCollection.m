@@ -35,8 +35,13 @@
 }
 
 - (IBAction)removeItem:(id)sender {
-    NSInteger idx = arc4random_uniform(numberOfItems);
-    numberOfItems--;
+    // random delete
+//    NSInteger idx = arc4random_uniform(numberOfItems);
+//    numberOfItems--;
+//    [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:idx inSection:0]]];
+
+    // last element removing
+    NSInteger idx = --numberOfItems;
     [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:idx inSection:0]]];
 
 }
