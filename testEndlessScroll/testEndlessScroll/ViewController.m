@@ -129,9 +129,9 @@
 }
 
 - (IBAction)onStepFilling:(id)sender {
-    if (step < self.calculator.frames.count) {        
-        CGRect frm = [self.calculator.frames[step] CGRectValue];
-        HexView *view1 = [[HexView alloc] initWithFrame:frm];
+    if (step < self.calculator.centers.count) {
+        HexView *view1 = [[HexView alloc] initWithFrame:(CGRect){{}, self.calculator.elementSize}];
+        view1.center = [self.calculator.centers[step] CGPointValue];
         view1.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:0.5];
         [self.hexaView addSubview:view1];
         step++;
@@ -147,9 +147,9 @@
     hexagonCalculator.bounds = self.hexaView.bounds;
     hexagonCalculator.cols = 5;
 
-    [hexagonCalculator.frames enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
-        CGRect frm = [obj CGRectValue];
-        HexView *view1 = [[HexView alloc] initWithFrame:frm];
+    [hexagonCalculator.centers enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
+        HexView *view1 = [[HexView alloc] initWithFrame:(CGRect){{}, hexagonCalculator.elementSize}];
+        view1.center = [obj CGPointValue];
         view1.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:0.5];
         [self.hexaView addSubview:view1];
     }];

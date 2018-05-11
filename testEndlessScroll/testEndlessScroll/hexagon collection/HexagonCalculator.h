@@ -16,5 +16,8 @@
 /// кол-во "строк" (очевидно что цифра для справки)
 @property (nonatomic, readonly) NSInteger rows;
 
-@property (nonatomic, readonly) NSArray *frames;
+/// получившийся из исходных (фрейм для размещения, кол-во столбцов) размер элемента
+@property (nonatomic, readonly) CGSize elementSize;
+/// массив центров ячеек
+@property (nonatomic, readonly) NSArray *centers;
 @end

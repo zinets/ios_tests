@@ -11,7 +11,7 @@
 #define sin60 0.8660254
 
 @interface HexagonCalculator() {
-    NSMutableArray *_frames;
+    NSMutableArray *_centers;
 }
 // "радиус"/пол-ширины одной соты
 @property (nonatomic, readonly) CGFloat halfWidth;
@@ -23,7 +23,7 @@
 
 -(instancetype)init {
     if (self = [super init]) {
-        _frames = [NSMutableArray new];
+        _centers = [NSMutableArray new];
     }
     return self;
 }
@@ -44,6 +44,10 @@
     [self calculateSizes];
 }
 
+- (CGSize)elementSize {
+    return (CGSize){_halfWidth * 2, _halfHeight * 2};
+}
+
 #pragma mark internal -
 
 - (void)calculateSizes {
@@ -61,10 +65,9 @@
 }
 
 -(void)calculateFrames {
-    [_frames removeAllObjects];
-    
-    CGSize frameSize = (CGSize){self.halfWidth * 2, self.halfHeight * 2};
-    CGRect frame = (CGRect){{}, frameSize};
+    [_centers removeAllObjects];
+
+    CGRect frame = (CGRect){{}, self.elementSize};
     for (int y = 0; y < self.rows; y++) {
         for (int x = 0; x < self.cols / 2 + 1; x++) {
             frame.origin.y = y * self.halfHeight;
@@ -75,10 +78,17 @@
                 frame.origin.x += 1.5 * self.halfWidth;
             }
             if (CGRectContainsRect(self.bounds, frame)) {
-                [_frames addObject:[NSValue valueWithCGRect:frame]];
+                CGPoint centerOfElement = (CGPoint){CGRectGetMidX(frame), CGRectGetMidY(frame)};
+                [_centers addObject:[NSValue valueWithCGPoint:centerOfElement]];
             }
         }
     }
+}
+
+
+
+- (void)sortFrames {
+    CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
 }
 
 @end
