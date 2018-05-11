@@ -143,17 +143,12 @@
         [obj removeFromSuperview];
     }];
 
-    HexagonCalculator *hexagonCalculator = [HexagonCalculator new];
-    hexagonCalculator.bounds = self.hexaView.bounds;
-    hexagonCalculator.cols = 5;
-
-    [hexagonCalculator.centers enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
-        HexView *view1 = [[HexView alloc] initWithFrame:(CGRect){{}, hexagonCalculator.elementSize}];
+    [self.calculator.centers enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
+        HexView *view1 = [[HexView alloc] initWithFrame:(CGRect){{}, self.calculator.elementSize}];
         view1.center = [obj CGPointValue];
         view1.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:0.5];
         [self.hexaView addSubview:view1];
     }];
 }
-
 
 @end
