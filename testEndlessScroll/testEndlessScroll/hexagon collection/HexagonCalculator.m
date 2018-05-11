@@ -68,9 +68,10 @@
     for (int y = 0; y < self.rows; y++) {
         for (int x = 0; x < self.cols / 2 + 1; x++) {
             frame.origin.y = y * self.halfHeight;
-
             frame.origin.x = x * 3 * self.halfWidth;
-            if (y % 2 != 0) {
+            // заполнять из самого угла или как в картинке в дизе (там первая ячейка смещена вправо на пол-ячейки, а след. ряд начинается с самого начала)
+            // y % 2 == 0 - будет как в дизе, y % 2 != 0 - первая ячейка - в углу
+            if (y % 2 == 0) {
                 frame.origin.x += 1.5 * self.halfWidth;
             }
             if (CGRectContainsRect(self.bounds, frame)) {

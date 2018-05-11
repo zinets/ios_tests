@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulator_A9F7D67E-D392-474C-B7C4-0348989F250E" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testEndlessScroll/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="487">
-              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+              <caret line="130" selection-start-line="130" selection-end-line="130" />
               <folding>
                 <element signature="e#152#178#0" expanded="true" />
               </folding>
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HexagonCalculator.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HexagonCalculator.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testEndlessScroll/hexagon collection/HexagonCalculator.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="278">
+              <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -166,19 +166,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526023640603</updated>
-      <workItem from="1526023644636" duration="2051000" />
+      <workItem from="1526023644636" duration="2615000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2051000" />
+    <option name="totallyTimeSpent" value="2615000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2048" y="0" width="2048" height="1152" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" x="1" y="23" width="401" height="1078" id="Project" order="0" type="FLOATING" visible="true" weight="0.13183594" />
+      <window_info content_ui="combo" x="1" y="23" width="401" height="1078" id="Project" order="0" type="FLOATING" visible="true" weight="0.13183594" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32931355" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
@@ -187,7 +187,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39888683" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39888683" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -203,13 +203,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/testEndlessScroll/hexagon collection/HexagonCalculator.m</url>
-          <line>67</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="7" />
     </breakpoint-manager>
   </component>
@@ -302,20 +295,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testEndlessScroll/hexagon collection/HexagonCalculator.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testEndlessScroll/ViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
           <folding>
             <element signature="e#152#178#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testEndlessScroll/hexagon collection/HexagonCalculator.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -116,7 +116,7 @@
 
     HexagonCalculator *hexagonCalculator = [HexagonCalculator new];
     hexagonCalculator.bounds = self.hexaView.bounds;
-    hexagonCalculator.cols = 4;
+    hexagonCalculator.cols = 5;
 
     [hexagonCalculator.frames enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
         CGRect frm = [obj CGRectValue];
