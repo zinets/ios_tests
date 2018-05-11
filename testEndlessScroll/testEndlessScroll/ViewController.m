@@ -44,7 +44,7 @@
         layout.minimumLineSpacing = 5;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
 
-        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){{0, 100}, {320, 270}}
+        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){{0, 50}, {320, 270}}
                                              collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
@@ -57,7 +57,7 @@
 #pragma mark - collection
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5 + 1;
+    return _dataSource.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

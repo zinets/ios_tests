@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
 		D62A643599EA6DFF335A58DF /* testEndlessScrollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A9C36988152451EDE81 /* testEndlessScrollUITests.m */; };
 		D62A6478A54208F2A65B9154 /* testEndlessScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
+		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testEndlessScrollTests.m; sourceTree = "<group>"; };
 		D62A60F44CD6CD042039D92A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D62A623DA2A555F766BD13AB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -84,14 +87,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49C49A8920A564C1000158A5 /* endless scroller */ = {
+			isa = PBXGroup;
+			children = (
+				D62A6FB42404898D1D99B564 /* CollectionViewCell.m */,
+				D62A6A36D7977A5218BD9C56 /* CollectionViewCell.h */,
+			);
+			name = "endless scroller";
+			sourceTree = "<group>";
+		};
+		49C49A8A20A564CE000158A5 /* hexagon collection */ = {
+			isa = PBXGroup;
+			children = (
+				49C49A8B20A56B26000158A5 /* HexagonCalculator.h */,
+				49C49A8C20A56B26000158A5 /* HexagonCalculator.m */,
+			);
+			name = "hexagon collection";
+			sourceTree = "<group>";
+		};
 		D62A617603F2F84B4C7E6442 /* testEndlessScroll */ = {
 			isa = PBXGroup;
 			children = (
 				D62A64606A8656FF1AD97945 /* Supporting Files */,
 				D62A698F65E06F92F28BA113 /* ViewController.h */,
 				D62A68F44F55C17E659D83FE /* ViewController.m */,
-				D62A6FB42404898D1D99B564 /* CollectionViewCell.m */,
-				D62A6A36D7977A5218BD9C56 /* CollectionViewCell.h */,
+				49C49A8920A564C1000158A5 /* endless scroller */,
+				49C49A8A20A564CE000158A5 /* hexagon collection */,
 			);
 			path = testEndlessScroll;
 			sourceTree = "<group>";
@@ -268,6 +289,7 @@
 			files = (
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
+				49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */,
 				D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */,
 				D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */,
 			);
@@ -499,6 +521,7 @@
 				D62A686EB9A71C396C52F888 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D62A692D2748CB750C93FA06 /* Build configuration list for PBXNativeTarget "testEndlessScroll" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +530,7 @@
 				D62A671C5133BE9948A0C187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D62A6A20D251D74727319782 /* Build configuration list for PBXNativeTarget "testEndlessScrollUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +539,7 @@
 				D62A693D2CD2E9F437C47BA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
