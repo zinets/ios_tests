@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-el-8sy">
-                                <rect key="frame" x="0.0" y="320" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="347" width="375" height="320"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="320" id="TAm-uc-x3U"/>
@@ -33,17 +33,35 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-BR-TQH">
-                                <rect key="frame" x="337" y="282" width="30" height="30"/>
+                                <rect key="frame" x="337" y="309" width="30" height="30"/>
                                 <state key="normal" title="calc"/>
                                 <connections>
                                     <action selector="onCalc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6bM-bb-aNe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ynw-lv-34w">
+                                <rect key="frame" x="244" y="309" width="85" height="30"/>
+                                <state key="normal" title="step by step"/>
+                                <connections>
+                                    <action selector="onStepFilling:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0PM-1x-NXx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJb-X0-0km">
+                                <rect key="frame" x="159" y="309" width="77" height="30"/>
+                                <state key="normal" title="reset steps"/>
+                                <connections>
+                                    <action selector="resetSteps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lHg-Da-q7f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="300" id="0Np-r1-sAo"/>
+                            <constraint firstItem="Ynw-lv-34w" firstAttribute="leading" secondItem="jJb-X0-0km" secondAttribute="trailing" constant="8" id="8U7-93-Jaq"/>
+                            <constraint firstItem="6yg-BR-TQH" firstAttribute="leading" secondItem="Ynw-lv-34w" secondAttribute="trailing" constant="8" id="JbX-Gb-vtS"/>
+                            <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="jJb-X0-0km" secondAttribute="bottom" constant="8" id="TpP-0o-UrV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5zn-el-8sy" secondAttribute="bottom" id="n1S-iK-are"/>
                             <constraint firstItem="5zn-el-8sy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nQ8-Mt-aAF"/>
+                            <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="Ynw-lv-34w" secondAttribute="bottom" constant="8" id="nR6-we-cf1"/>
                             <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="6yg-BR-TQH" secondAttribute="bottom" constant="8" id="p6a-Qk-ydH"/>
                             <constraint firstAttribute="trailing" secondItem="6yg-BR-TQH" secondAttribute="trailing" constant="8" id="raF-jw-q2F"/>
                         </constraints>

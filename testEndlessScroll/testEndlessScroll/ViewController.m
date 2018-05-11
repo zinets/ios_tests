@@ -17,10 +17,13 @@
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
     NSMutableArray <UIColor *>*_dataSource;
+    NSInteger step;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, readonly) NSArray <UIColor *>*dataSource;
+
 @property (weak, nonatomic) IBOutlet UIView *hexaView;
+@property (nonatomic, strong) HexagonCalculator *calculator;
 @end
 
 @implementation ViewController
@@ -108,6 +111,32 @@
 }
 
 #pragma mark hex -
+
+- (IBAction)resetSteps:(id)sender {
+    step = 0;
+    [self.hexaView.subviews enumerateObjectsUsingBlock:^(__kindof UIView *obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
+}
+
+-(HexagonCalculator *)calculator {
+    if (!_calculator) {
+        _calculator = [HexagonCalculator new];
+        _calculator.bounds = self.hexaView.bounds;
+        _calculator.cols = 5;
+    }
+    return _calculator;
+}
+
+- (IBAction)onStepFilling:(id)sender {
+    if (step < self.calculator.frames.count) {        
+        CGRect frm = [self.calculator.frames[step] CGRectValue];
+        HexView *view1 = [[HexView alloc] initWithFrame:frm];
+        view1.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:0.5];
+        [self.hexaView addSubview:view1];
+        step++;
+    }
+}
 
 - (IBAction)onCalc:(id)sender {
     [self.hexaView.subviews enumerateObjectsUsingBlock:^(__kindof UIView *obj, NSUInteger idx, BOOL *stop) {
