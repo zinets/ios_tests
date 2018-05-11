@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		417568C9019332838056627D /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */; };
+		41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 417561DC2AEFDE2B26337048 /* HexagonCell.m */; };
+		41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
+		49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
 		D62A643599EA6DFF335A58DF /* testEndlessScrollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A9C36988152451EDE81 /* testEndlessScrollUITests.m */; };
 		D62A6478A54208F2A65B9154 /* testEndlessScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */; };
@@ -42,12 +45,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		417561DC2AEFDE2B26337048 /* HexagonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HexagonCell.m; path = "hexagon collection/HexagonCell.m"; sourceTree = "<group>"; };
+		41756250CEC3215BE1CAAE8C /* HexagonCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexagonCollectionLayout.h; path = "hexagon collection/HexagonCollectionLayout.h"; sourceTree = "<group>"; };
+		4175657019F4AD0BCBE62D0F /* HexagonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexagonCell.h; path = "hexagon collection/HexagonCell.h"; sourceTree = "<group>"; };
 		41756773C399085B9B1D42CA /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HexagonCollectionLayout.m; path = "hexagon collection/HexagonCollectionLayout.m"; sourceTree = "<group>"; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
 		49E7448620A586C100C4507E /* HexView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexView.m; path = "hexagon collection/HexView.m"; sourceTree = "<group>"; };
+		49E7448820A5ADA200C4507E /* ViewControllerWithCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerWithCollection.h; sourceTree = "<group>"; };
+		49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWithCollection.m; sourceTree = "<group>"; };
 		D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testEndlessScrollTests.m; sourceTree = "<group>"; };
 		D62A60F44CD6CD042039D92A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D62A623DA2A555F766BD13AB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +118,10 @@
 				49C49A8C20A56B26000158A5 /* HexagonCalculator.m */,
 				49E7448520A586C100C4507E /* HexView.h */,
 				49E7448620A586C100C4507E /* HexView.m */,
+				41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */,
+				41756250CEC3215BE1CAAE8C /* HexagonCollectionLayout.h */,
+				417561DC2AEFDE2B26337048 /* HexagonCell.m */,
+				4175657019F4AD0BCBE62D0F /* HexagonCell.h */,
 			);
 			name = "hexagon collection";
 			sourceTree = "<group>";
@@ -119,6 +132,9 @@
 				D62A64606A8656FF1AD97945 /* Supporting Files */,
 				D62A698F65E06F92F28BA113 /* ViewController.h */,
 				D62A68F44F55C17E659D83FE /* ViewController.m */,
+				49E7448820A5ADA200C4507E /* ViewControllerWithCollection.h */,
+				49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */,
+				D62A6056A076243335B6DFD1 /* Main.storyboard */,
 				49C49A8920A564C1000158A5 /* endless scroller */,
 				49C49A8A20A564CE000158A5 /* hexagon collection */,
 			);
@@ -133,7 +149,6 @@
 				D62A6686919D5BA97A3575AB /* Info.plist */,
 				D62A6F72A806CA715352A04B /* LaunchScreen.storyboard */,
 				D62A65293AFBC80909CAC617 /* AppDelegate.m */,
-				D62A6056A076243335B6DFD1 /* Main.storyboard */,
 				D62A6865CD5B17F39588383B /* AppDelegate.h */,
 				D62A6EFF7142E322BAD578CF /* testEndlessScrollUITests */,
 				D62A6958643117C70B99FE70 /* testEndlessScrollTests */,
@@ -298,12 +313,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E7448720A586C100C4507E /* HexView.m in Sources */,
+				49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */,
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
 				49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */,
 				D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */,
 				D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */,
 				417568C9019332838056627D /* UIColor+MUIColor.m in Sources */,
+				41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */,
+				41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

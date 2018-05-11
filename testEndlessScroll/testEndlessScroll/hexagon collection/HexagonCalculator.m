@@ -55,6 +55,10 @@
     return _sortedCenters;
 }
 
+- (NSInteger)numberOfItems {
+    return _centers.count;
+}
+
 #pragma mark internal -
 
 - (void)calculateSizes {

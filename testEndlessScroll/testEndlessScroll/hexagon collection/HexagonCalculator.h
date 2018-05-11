@@ -20,4 +20,6 @@
 @property (nonatomic, readonly) CGSize elementSize;
 /// массив центров ячеек
 @property (nonatomic, readonly) NSArray <NSValue /* CGPoint */ *> *centers;
+/// кол-во элементов
+@property (nonatomic, readonly) NSInteger numberOfItems;
 @end
