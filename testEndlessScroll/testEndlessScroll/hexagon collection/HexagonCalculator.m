@@ -60,7 +60,16 @@
 }
 
 - (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements {
-    return 3;
+    // тупо для тестирования
+    if (numberOfElements < 3) {
+        return 1;
+    } else if (numberOfElements < 5) {
+        return 2;
+    } else if (numberOfElements < 9) {
+        return 3;
+    } else {
+        return 4;
+    }
 }
 
 #pragma mark internal -
@@ -146,9 +155,6 @@
 - (void)sortFrames {
     CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
 
-#warning !!!
-    _sortedCenters = _centers;
-    return;
     _sortedCenters = [_centers sortedArrayUsingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
         CGPoint pt1 = [obj1 CGPointValue];
         CGPoint pt2 = [obj2 CGPointValue];
