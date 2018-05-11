@@ -58,6 +58,8 @@
     [maskPath addLineToPoint:(CGPoint){w / 2, 2 * h}]; // 5
     [maskPath closePath]; // 0
 
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    [maskLayer addAnimation:animation forKey:@"path animation"];
     maskLayer.path = maskPath.CGPath;
 }
 
