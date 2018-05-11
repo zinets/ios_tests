@@ -7,7 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "UIColor+MUIColor.h"
+
 #import "CollectionViewCell.h"
+
+#import "HexagonCalculator.h"
+#import "HexView.h"
 
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate> {
@@ -15,6 +20,7 @@
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, readonly) NSArray <UIColor *>*dataSource;
+@property (weak, nonatomic) IBOutlet UIView *hexaView;
 @end
 
 @implementation ViewController
@@ -100,5 +106,25 @@
         obj.centerPos = (x - 160) / 65;
     }];
 }
+
+#pragma mark hex -
+
+- (IBAction)onCalc:(id)sender {
+    [self.hexaView.subviews enumerateObjectsUsingBlock:^(__kindof UIView *obj, NSUInteger idx, BOOL *stop) {
+        [obj removeFromSuperview];
+    }];
+
+    HexagonCalculator *hexagonCalculator = [HexagonCalculator new];
+    hexagonCalculator.bounds = self.hexaView.bounds;
+    hexagonCalculator.cols = 4;
+
+    [hexagonCalculator.frames enumerateObjectsUsingBlock:^(NSValue * obj, NSUInteger idx, BOOL *stop) {
+        CGRect frm = [obj CGRectValue];
+        HexView *view1 = [[HexView alloc] initWithFrame:frm];
+        view1.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:0.5];
+        [self.hexaView addSubview:view1];
+    }];
+}
+
 
 @end

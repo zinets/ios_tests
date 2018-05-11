@@ -36,7 +36,7 @@
 }
 
 -(NSInteger)rows {
-    return self.bounds.size.height / _halfHeight - 1;
+    return (NSInteger) (self.bounds.size.height / _halfHeight - 1);
 }
 
 -(void)setBounds:(CGRect)bounds {
@@ -64,14 +64,18 @@
     [_frames removeAllObjects];
     
     CGSize frameSize = (CGSize){self.halfWidth * 2, self.halfHeight * 2};
-    CGRect frame;
+    CGRect frame = (CGRect){{}, frameSize};
     for (int y = 0; y < self.rows; y++) {
-        for (int x = 0; x < self.cols; x++) {
-            CGFloat top = y * self.halfHeight;
-            CGFloat left = x * 3 * self.halfWidth;
-            frame = (CGRect){{left, top}, frameSize};
-            
-            [_frames addObject:[NSValue valueWithCGRect:frame]];
+        for (int x = 0; x < self.cols / 2 + 1; x++) {
+            frame.origin.y = y * self.halfHeight;
+
+            frame.origin.x = x * 3 * self.halfWidth;
+            if (y % 2 != 0) {
+                frame.origin.x += 1.5 * self.halfWidth;
+            }
+            if (CGRectContainsRect(self.bounds, frame)) {
+                [_frames addObject:[NSValue valueWithCGRect:frame]];
+            }
         }
     }
 }

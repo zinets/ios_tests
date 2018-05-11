@@ -22,20 +22,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-el-8sy">
-                                <rect key="frame" x="0.0" y="320" width="375" height="347"/>
+                                <rect key="frame" x="0.0" y="320" width="375" height="320"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="TAm-uc-x3U"/>
+                                    <constraint firstAttribute="width" constant="375" id="gIx-6a-Vwx"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="b4x-Lb-uGW" kind="embed" id="cNk-lx-NRl"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-BR-TQH">
+                                <rect key="frame" x="337" y="282" width="30" height="30"/>
+                                <state key="normal" title="calc"/>
+                                <connections>
+                                    <action selector="onCalc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6bM-bb-aNe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="300" id="0Np-r1-sAo"/>
-                            <constraint firstAttribute="trailing" secondItem="5zn-el-8sy" secondAttribute="trailing" id="7Ir-pv-QRD"/>
                             <constraint firstItem="5zn-el-8sy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nQ8-Mt-aAF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5zn-el-8sy" secondAttribute="bottom" id="tnN-h9-jA8"/>
+                            <constraint firstItem="5zn-el-8sy" firstAttribute="top" secondItem="6yg-BR-TQH" secondAttribute="bottom" constant="8" id="p6a-Qk-ydH"/>
+                            <constraint firstAttribute="trailing" secondItem="6yg-BR-TQH" secondAttribute="trailing" constant="8" id="raF-jw-q2F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hexaView" destination="5zn-el-8sy" id="Px8-CV-J4X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,8 +60,12 @@
         <scene sceneID="oOw-3i-FV9">
             <objects>
                 <viewController id="b4x-Lb-uGW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Yb-OJ-Vji"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZWx-7e-oeg"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bsx-6l-e04">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="347"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
