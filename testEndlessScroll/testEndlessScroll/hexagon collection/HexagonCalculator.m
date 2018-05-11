@@ -12,6 +12,7 @@
 
 @interface HexagonCalculator() {
     NSMutableArray *_centers;
+    NSArray *_sortedCenters;
 }
 // "радиус"/пол-ширины одной соты
 @property (nonatomic, readonly) CGFloat halfWidth;
@@ -46,6 +47,10 @@
 
 - (CGSize)elementSize {
     return (CGSize){_halfWidth * 2, _halfHeight * 2};
+}
+
+- (NSArray *)centers {
+    return _sortedCenters;
 }
 
 #pragma mark internal -
@@ -83,12 +88,29 @@
             }
         }
     }
+    [self sortFrames];
 }
 
+- (NSComparisonResult)compareDictances:(CGPoint)point1 point:(CGPoint)point2 center:(CGPoint)center {
+    CGFloat xDist = (point1.x - center.x);
+    CGFloat yDist = (point1.y - center.y);
+    CGFloat distance1 = sqrt((xDist * xDist) + (yDist * yDist));
 
+    xDist = (point2.x - center.x);
+    yDist = (point2.y - center.y);
+    CGFloat distance2 = sqrt((xDist * xDist) + (yDist * yDist));
+
+    return distance1 < distance2 ? NSOrderedAscending : NSOrderedDescending;
+}
 
 - (void)sortFrames {
     CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
+
+    _sortedCenters = [_centers sortedArrayUsingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
+        CGPoint pt1 = [obj1 CGPointValue];
+        CGPoint pt2 = [obj2 CGPointValue];
+        return [self compareDictances:pt1 point:pt2 center:center];
+    }];
 }
 
 @end
