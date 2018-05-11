@@ -22,4 +22,7 @@
 @property (nonatomic, readonly) NSArray <NSValue /* CGPoint */ *> *centers;
 /// кол-во элементов
 @property (nonatomic, readonly) NSInteger numberOfItems;
+
+/// красивое с точки зрения дизайна кол-во столбцов для указанного кол-ва элементов
+- (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements;
 @end

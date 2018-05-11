@@ -10,7 +10,9 @@
 #import "UIColor+MUIColor.h"
 #import "HexagonCell.h"
 
-@interface ViewControllerWithCollection () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewControllerWithCollection () <UICollectionViewDataSource, UICollectionViewDelegate> {
+    NSInteger numberOfItems;
+}
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -23,13 +25,32 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self.collectionView.collectionViewLayout invalidateLayout];
+    numberOfItems = 0;
+    [self.collectionView reloadData];
+}
+
+- (IBAction)addItem:(id)sender {
+    numberOfItems++;
+    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:numberOfItems - 1 inSection:0]]];
+}
+
+- (IBAction)removeItem:(id)sender {
+    NSInteger idx = arc4random_uniform(numberOfItems);
+    numberOfItems--;
+    [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:idx inSection:0]]];
+
+}
+
+- (IBAction)incCols:(id)sender {
+}
+
+- (IBAction)decCols:(id)sender {
 }
 
 #pragma mark collection -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 25;
+    return numberOfItems;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

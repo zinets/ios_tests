@@ -106,8 +106,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn1-4b-OeD">
-                                <rect key="frame" x="16" y="28" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="16" y="28" width="65" height="30"/>
+                                <state key="normal" title="invalidate"/>
                                 <connections>
                                     <action selector="onTap:" destination="g9A-Q4-2mA" eventType="touchUpInside" id="8ij-Tm-N0J"/>
                                 </connections>
@@ -146,15 +146,51 @@
                                     <outlet property="delegate" destination="g9A-Q4-2mA" id="Cqb-F8-KDf"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKF-dU-mTR">
+                                <rect key="frame" x="92" y="28" width="60" height="30"/>
+                                <state key="normal" title="add item"/>
+                                <connections>
+                                    <action selector="addItem:" destination="g9A-Q4-2mA" eventType="touchUpInside" id="iAq-77-una"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-fw-c1h">
+                                <rect key="frame" x="163" y="28" width="85" height="30"/>
+                                <state key="normal" title="remove item"/>
+                                <connections>
+                                    <action selector="removeItem:" destination="g9A-Q4-2mA" eventType="touchUpInside" id="Aun-oZ-Pto"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7t-6O-6jo">
+                                <rect key="frame" x="329" y="28" width="30" height="30"/>
+                                <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="decCols:" destination="g9A-Q4-2mA" eventType="touchUpInside" id="bsK-gM-n8W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcJ-cT-x35">
+                                <rect key="frame" x="297" y="28" width="30" height="30"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="incCols:" destination="g9A-Q4-2mA" eventType="touchUpInside" id="e6K-Vn-ZFB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rce-fr-5zE" firstAttribute="trailing" secondItem="qWj-AQ-Wqy" secondAttribute="trailingMargin" id="35E-cv-KTK"/>
+                            <constraint firstItem="tcJ-cT-x35" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="CW5-fO-l7c"/>
+                            <constraint firstItem="fKF-dU-mTR" firstAttribute="leading" secondItem="zn1-4b-OeD" secondAttribute="trailing" constant="11" id="GmG-a2-w81"/>
+                            <constraint firstItem="d7t-6O-6jo" firstAttribute="trailing" secondItem="qWj-AQ-Wqy" secondAttribute="trailingMargin" id="LvK-rx-bUU"/>
+                            <constraint firstItem="d7t-6O-6jo" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="MiF-fY-F3e"/>
                             <constraint firstItem="3WM-bN-E7k" firstAttribute="top" secondItem="rce-fr-5zE" secondAttribute="bottom" constant="20" id="Qp7-Bj-liD"/>
                             <constraint firstItem="zn1-4b-OeD" firstAttribute="leading" secondItem="qWj-AQ-Wqy" secondAttribute="leadingMargin" id="Qzs-AQ-S3Z"/>
+                            <constraint firstItem="JLm-fw-c1h" firstAttribute="leading" secondItem="fKF-dU-mTR" secondAttribute="trailing" constant="11" id="TFv-8L-keV"/>
                             <constraint firstItem="zn1-4b-OeD" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="XHw-ID-SSJ"/>
                             <constraint firstItem="rce-fr-5zE" firstAttribute="leading" secondItem="qWj-AQ-Wqy" secondAttribute="leadingMargin" id="cC7-9b-jEj"/>
+                            <constraint firstItem="JLm-fw-c1h" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="e1v-tH-upk"/>
                             <constraint firstItem="rce-fr-5zE" firstAttribute="top" secondItem="zn1-4b-OeD" secondAttribute="bottom" constant="8" id="ixd-Ee-mi6"/>
+                            <constraint firstItem="d7t-6O-6jo" firstAttribute="leading" secondItem="tcJ-cT-x35" secondAttribute="trailing" constant="2" id="lfm-Jd-FeP"/>
+                            <constraint firstItem="fKF-dU-mTR" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="wYC-0X-3LZ"/>
                         </constraints>
                     </view>
                     <connections>

@@ -64,10 +64,11 @@
     [pool removeAllObjects];
     framesCalculator.bounds = self.collectionView.bounds;
     // todo: можно как-то определять тут кол-во столбцов в зависимости от кол-ва элементов (порисовать и посмотреть?)
-    framesCalculator.cols = 4;
+    NSInteger numberOfElementsInCollection = [self.collectionView numberOfItemsInSection:0];
+    framesCalculator.cols = [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection];
 
     CGSize elementSize = framesCalculator.elementSize;
-    NSInteger numberOfElements = MIN(framesCalculator.numberOfItems, [self.collectionView numberOfItemsInSection:0]);
+    NSInteger numberOfElements = MIN(framesCalculator.numberOfItems, numberOfElementsInCollection);
     for (int x = 0; x < numberOfElements; x++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:x inSection:0];
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
