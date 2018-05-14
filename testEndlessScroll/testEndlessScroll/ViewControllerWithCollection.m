@@ -23,7 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    HexagonCollectionLayout *layout = self.collectionView.collectionViewLayout;
+    layout.columnsCount = 4;
 }
 
 - (IBAction)onTap:(id)sender {
