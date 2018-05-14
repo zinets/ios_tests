@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4175674FE286778707CF56A5 /* HexagonCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756C8323FD3E26E5D6EAE4 /* HexagonCollectionView.m */; };
 		417568C9019332838056627D /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */; };
 		4175698CD13D83BDF1F81DDB /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
-		41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 417561DC2AEFDE2B26337048 /* HexagonCell.m */; };
 		41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */; };
+		49E7448F20A9AE5600C4507E /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448E20A9AE5600C4507E /* ViewController3.m */; };
+		49E7449320A9AF7000C4507E /* HexagonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7449120A9AF7000C4507E /* HexagonCell.m */; };
+		49E7449420A9AF7000C4507E /* HexagonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E7449220A9AF7000C4507E /* HexagonCell.xib */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
 		D62A643599EA6DFF335A58DF /* testEndlessScrollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A9C36988152451EDE81 /* testEndlessScrollUITests.m */; };
 		D62A6478A54208F2A65B9154 /* testEndlessScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */; };
@@ -45,18 +48,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		417561DC2AEFDE2B26337048 /* HexagonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HexagonCell.m; path = "hexagon collection/HexagonCell.m"; sourceTree = "<group>"; };
 		41756250CEC3215BE1CAAE8C /* HexagonCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexagonCollectionLayout.h; path = "hexagon collection/HexagonCollectionLayout.h"; sourceTree = "<group>"; };
-		4175657019F4AD0BCBE62D0F /* HexagonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HexagonCell.h; path = "hexagon collection/HexagonCell.h"; sourceTree = "<group>"; };
+		4175666FE758728C4FD67240 /* HexagonCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonCollectionView.h; sourceTree = "<group>"; };
 		41756773C399085B9B1D42CA /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		41756C8323FD3E26E5D6EAE4 /* HexagonCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonCollectionView.m; sourceTree = "<group>"; };
 		41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HexagonCollectionLayout.m; path = "hexagon collection/HexagonCollectionLayout.m"; sourceTree = "<group>"; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
-		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
-		49E7448620A586C100C4507E /* HexView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexView.m; path = "hexagon collection/HexView.m"; sourceTree = "<group>"; };
+		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexView.h; sourceTree = "<group>"; };
+		49E7448620A586C100C4507E /* HexView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HexView.m; sourceTree = "<group>"; };
 		49E7448820A5ADA200C4507E /* ViewControllerWithCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerWithCollection.h; sourceTree = "<group>"; };
 		49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWithCollection.m; sourceTree = "<group>"; };
+		49E7448D20A9AE5600C4507E /* ViewController3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController3.h; sourceTree = "<group>"; };
+		49E7448E20A9AE5600C4507E /* ViewController3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController3.m; sourceTree = "<group>"; };
+		49E7449020A9AF7000C4507E /* HexagonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCell.h; path = "hexagon collection/HexagonCell.h"; sourceTree = "<group>"; };
+		49E7449120A9AF7000C4507E /* HexagonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCell.m; path = "hexagon collection/HexagonCell.m"; sourceTree = "<group>"; };
+		49E7449220A9AF7000C4507E /* HexagonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HexagonCell.xib; path = "hexagon collection/HexagonCell.xib"; sourceTree = "<group>"; };
 		D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testEndlessScrollTests.m; sourceTree = "<group>"; };
 		D62A60F44CD6CD042039D92A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D62A623DA2A555F766BD13AB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -114,16 +122,33 @@
 		49C49A8A20A564CE000158A5 /* hexagon collection */ = {
 			isa = PBXGroup;
 			children = (
-				49C49A8B20A56B26000158A5 /* HexagonCalculator.h */,
-				49C49A8C20A56B26000158A5 /* HexagonCalculator.m */,
-				49E7448520A586C100C4507E /* HexView.h */,
-				49E7448620A586C100C4507E /* HexView.m */,
-				41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */,
-				41756250CEC3215BE1CAAE8C /* HexagonCollectionLayout.h */,
-				417561DC2AEFDE2B26337048 /* HexagonCell.m */,
-				4175657019F4AD0BCBE62D0F /* HexagonCell.h */,
+				49E7449620A9B26000C4507E /* layout */,
+				49E7449520A9B1EE00C4507E /* cells */,
+				4175666FE758728C4FD67240 /* HexagonCollectionView.h */,
+				41756C8323FD3E26E5D6EAE4 /* HexagonCollectionView.m */,
 			);
 			name = "hexagon collection";
+			sourceTree = "<group>";
+		};
+		49E7449520A9B1EE00C4507E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				49E7449020A9AF7000C4507E /* HexagonCell.h */,
+				49E7449120A9AF7000C4507E /* HexagonCell.m */,
+				49E7449220A9AF7000C4507E /* HexagonCell.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		49E7449620A9B26000C4507E /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				49C49A8B20A56B26000158A5 /* HexagonCalculator.h */,
+				49C49A8C20A56B26000158A5 /* HexagonCalculator.m */,
+				41756250CEC3215BE1CAAE8C /* HexagonCollectionLayout.h */,
+				41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */,
+			);
+			name = layout;
 			sourceTree = "<group>";
 		};
 		D62A617603F2F84B4C7E6442 /* testEndlessScroll */ = {
@@ -134,7 +159,11 @@
 				D62A68F44F55C17E659D83FE /* ViewController.m */,
 				49E7448820A5ADA200C4507E /* ViewControllerWithCollection.h */,
 				49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */,
+				49E7448D20A9AE5600C4507E /* ViewController3.h */,
+				49E7448E20A9AE5600C4507E /* ViewController3.m */,
 				D62A6056A076243335B6DFD1 /* Main.storyboard */,
+				49E7448520A586C100C4507E /* HexView.h */,
+				49E7448620A586C100C4507E /* HexView.m */,
 				49C49A8920A564C1000158A5 /* endless scroller */,
 				49C49A8A20A564CE000158A5 /* hexagon collection */,
 			);
@@ -300,6 +329,7 @@
 			files = (
 				D62A6ECBD506688B797EF25F /* Assets.xcassets in Resources */,
 				D62A6AF9CB73460CED7B3348 /* Info.plist in Resources */,
+				49E7449420A9AF7000C4507E /* HexagonCell.xib in Resources */,
 				D62A680D9CF77961E55452BE /* LaunchScreen.storyboard in Resources */,
 				D62A69D0538EB9C6623BE0FF /* Main.storyboard in Resources */,
 			);
@@ -314,14 +344,16 @@
 			files = (
 				49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */,
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
+				49E7449320A9AF7000C4507E /* HexagonCell.m in Sources */,
+				49E7448F20A9AE5600C4507E /* ViewController3.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
 				49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */,
 				D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */,
 				D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */,
 				417568C9019332838056627D /* UIColor+MUIColor.m in Sources */,
 				41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */,
-				41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */,
 				4175698CD13D83BDF1F81DDB /* HexView.m in Sources */,
+				4175674FE286778707CF56A5 /* HexagonCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

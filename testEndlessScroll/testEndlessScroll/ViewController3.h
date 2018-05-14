@@ -1,5 +1,5 @@
 //
-//  HexagonCell.h
+//  ViewController3.h
 //  testEndlessScroll
 //
 //  Created by Victor Zinets on 5/14/18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HexagonCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@interface ViewController3 : UIViewController
+
 @end

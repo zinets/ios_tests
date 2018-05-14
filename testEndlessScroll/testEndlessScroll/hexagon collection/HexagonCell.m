@@ -1,13 +1,12 @@
 //
-// Created by Victor Zinets on 5/11/18.
-// Copyright (c) 2018 ___FULLUSERNAME___. All rights reserved.
+//  HexagonCell.m
+//  testEndlessScroll
+//
+//  Created by Victor Zinets on 5/14/18.
+//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 #import "HexagonCell.h"
-
-@interface HexagonCell()
-
-@end
 
 @implementation HexagonCell  {
     UIBezierPath *maskPath;
@@ -16,7 +15,7 @@
 
 - (void)commonInit {
     maskLayer = [CAShapeLayer layer];
-
+    
     self.layer.mask = maskLayer;
     self.layer.masksToBounds = YES;
     [self updateMask];
@@ -27,7 +26,7 @@
     if (self) {
         [self commonInit];
     }
-
+    
     return self;
 }
 
@@ -36,13 +35,13 @@
     if (self) {
         [self commonInit];
     }
-
+    
     return self;
 }
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
-
+    
     [self updateMask];
 }
 
@@ -57,7 +56,7 @@
     [maskPath addLineToPoint:(CGPoint){3 * w / 2, 2 * h}]; // 4
     [maskPath addLineToPoint:(CGPoint){w / 2, 2 * h}]; // 5
     [maskPath closePath]; // 0
-
+    
     CABasicAnimation *animation = [CABasicAnimation animation];
     [maskLayer addAnimation:animation forKey:@"path animation"];
     maskLayer.path = maskPath.CGPath;
@@ -70,6 +69,5 @@
         return nil;
     }
 }
-
 
 @end
