@@ -5,6 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
+#define NSAutocalculatedCount -1
 @interface HexagonCollectionLayout : UICollectionViewLayout
-
+@property (nonatomic) NSInteger columnsCount;
 @end

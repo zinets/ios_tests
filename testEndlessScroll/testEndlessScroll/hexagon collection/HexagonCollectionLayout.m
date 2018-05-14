@@ -38,6 +38,14 @@
 - (void)commonInit {
     pool = [NSMutableArray new];
     framesCalculator = [HexagonCalculator new];
+    _columnsCount = NSAutocalculatedCount;
+}
+
+-(void)setColumnsCount:(NSInteger)columnsCount {
+    if (columnsCount != _columnsCount && columnsCount > 0) {
+        _columnsCount = columnsCount;
+        [self invalidateLayout];
+    }
 }
 
 #pragma mark required -
@@ -65,8 +73,7 @@
     framesCalculator.bounds = self.collectionView.bounds;
     // todo: можно как-то определять тут кол-во столбцов в зависимости от кол-ва элементов (порисовать и посмотреть?)
     NSInteger numberOfElementsInCollection = [self.collectionView numberOfItemsInSection:0];
-    framesCalculator.cols = [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection];
-
+    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection] : _columnsCount;
     CGSize elementSize = framesCalculator.elementSize;
     NSInteger numberOfElements = MIN(framesCalculator.numberOfItems, numberOfElementsInCollection);
     for (int x = 0; x < numberOfElements; x++) {

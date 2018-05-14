@@ -64,43 +64,41 @@
         // иди нах
         return 0;
     }
-    CGFloat expectedWidth, expectedHeight, maxHeight;
+    CGFloat expectedHalfWidth, expectedHalfHeight, maxHeight;
     NSInteger numberOfElementsInCol;
 
     // test for 1
-    expectedWidth = 2 * MIN(self.bounds.size.width, self.bounds.size.height) / 3;
-    expectedHeight = expectedWidth * sin60;
-    maxHeight = numberOfElements * expectedHeight;
+    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3;
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    maxHeight = 2 * expectedHalfHeight * numberOfElements;
     if (maxHeight < self.bounds.size.height) {
         return 1;
     }
 
     // test for 2
-    expectedWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3.5; // magic, see pics
-    expectedHeight = expectedWidth * sin60;
-    maxHeight = 2 * numberOfElements * 1.5 * expectedHeight;
+    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3.5; // magic, see pics
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    numberOfElementsInCol = (numberOfElements / 2) * 2 + (numberOfElements % 2 == 0 ? 1 : 2);
+    maxHeight = 2 * expectedHalfHeight * numberOfElementsInCol;
     if (maxHeight < self.bounds.size.height) {
         return 2;
     }
 
     // test for 3
-    expectedWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 5; // та же херня про геометрию, см. картинк
-    expectedHeight = expectedWidth * sin60;
-    numberOfElementsInCol = numberOfElements / 3 + (numberOfElements % 3 > 0 ? 1 : 0);
-    maxHeight = 2 * numberOfElementsInCol * expectedHeight;
-    if (numberOfElements % 3 != 1) {
-        maxHeight += expectedHeight;
-    }
+    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 5; // та же херня про геометрию, см. картинк
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    numberOfElementsInCol = 2 * (numberOfElements / 3 + 1) + (numberOfElements % 2 == 1 ? 1 : 0);
+    maxHeight = numberOfElementsInCol * expectedHalfHeight;
     if (maxHeight < self.bounds.size.height) {
         return 3;
     }
 
     // test for 4
-    expectedWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 6.5;
-    expectedHeight = expectedWidth * sin60;
-    numberOfElementsInCol = 2 * (numberOfElements / 4 + 1) + (numberOfElements % 4 == 3 ? 1 : 0);
+    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 6.5;
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    numberOfElementsInCol = 2 * (numberOfElements / 4 + 1) + (numberOfElements % 2 == 1 ? 1 : 0);
 
-    maxHeight = numberOfElementsInCol * expectedHeight;
+    maxHeight = numberOfElementsInCol * expectedHalfHeight;
     if (maxHeight < self.bounds.size.height) {
         return 4;
     }
