@@ -20,6 +20,8 @@
 @property (nonatomic, readonly) CGFloat halfHeight;
 // ячейки заполняют собой ширину полностью, а по высоте надо (?) выравнивать по центру
 @property (nonatomic, readonly) CGFloat topOffset ; // == bottomOffset вообще говоря
+// но (!) если широкий невысокий фрейм? тогда надо выравнивать и по центру по горизонтали
+@property (nonatomic, readonly) CGFloat leftOffset;
 @end
 
 @implementation HexagonCalculator
@@ -60,6 +62,52 @@
 }
 
 - (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements {
+    if (numberOfElements == 0) {
+        // иди нах
+        return 0;
+    }
+
+    CGFloat expectedHalfWidth, expectedHalfHeight, maxHeight;
+    NSInteger numberOfElementsInCol;
+
+    // test for 1
+    expectedHalfWidth = [self widthForCols:1];
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    maxHeight = 2 * expectedHalfHeight * numberOfElements;
+    if (maxHeight < self.bounds.size.height) {
+        return 1;
+    }
+
+    // test for 2
+    expectedHalfWidth = [self widthForCols:2];
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    maxHeight = expectedHalfHeight * (numberOfElements + 1); // при 2х столбиках кол-во полувышин всегда на 1 больше кол-ва элементов
+    if (maxHeight < self.bounds.size.height) {
+        return 2;
+    }
+
+    // test for 3
+    expectedHalfWidth = [self widthForCols:3];
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    numberOfElementsInCol = (int)ceil(numberOfElements / 3.) * 2 + (numberOfElements % 3 == 1 ? 0 : 1);
+    maxHeight = numberOfElementsInCol * expectedHalfHeight;
+    if (maxHeight < self.bounds.size.height) {
+        return 3;
+    }
+
+    // test for 4
+    expectedHalfWidth = [self widthForCols:4];
+    expectedHalfHeight = expectedHalfWidth * sin60;
+    numberOfElementsInCol = (int)ceil(numberOfElements / 4.) * 2 + (numberOfElements % 4 > 2 ? 1 : 0);
+    maxHeight = numberOfElementsInCol * expectedHalfHeight;
+    if (maxHeight < self.bounds.size.height) {
+        return 4;
+    }
+
+    return 5;
+}
+
+- (NSInteger)proposedNumberOfColumnsFor222:(NSInteger)numberOfElements {
     if (numberOfElements == 0) {
         // иди нах
         return 0;
@@ -108,18 +156,29 @@
 
 #pragma mark internal -
 
+- (CGFloat)widthForCols:(NSInteger)columns {
+    switch (columns) {
+        case 1:
+            return MIN(self.bounds.size.width, self.bounds.size.height) / 3;
+        case 2:
+            return MIN(self.bounds.size.width, self.bounds.size.height) / 3.5;
+        case 3:
+            return MIN(self.bounds.size.width, self.bounds.size.height) / 5;
+        case 4:
+            return MIN(self.bounds.size.width, self.bounds.size.height) / 6.5;
+        case 5:
+            return MIN(self.bounds.size.width, self.bounds.size.height) / 8;
+        default:
+
+            return 0;
+    }
+
+}
+
 - (void)calculateSizes {
     if (_cols > 0) {
         NSInteger halfRows;
-        if (_cols == 1) {
-            _halfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3;
-        } else if (_cols % 2 != 0) {
-            halfRows = _cols / 2 * 3 + 2;
-            _halfWidth = self.bounds.size.width / halfRows;
-        } else {
-            halfRows = _cols / 2 * 3;
-            _halfWidth = self.bounds.size.width / (halfRows + 0.5);
-        }
+        _halfWidth = [self widthForCols:_cols];
         _halfHeight = _halfWidth * sin60;
 
         [self calculateFrames];
@@ -165,12 +224,17 @@
         }
     }
 
-    // если нужно выровнять по вертикали ячейки в фрейме..
-
+    // если нужно выровнять ячейки в фрейме..
     _topOffset = (self.bounds.size.height - contentFrame.size.height) / 2;
+    _leftOffset = (self.bounds.size.width - contentFrame.size.width) / 2;
+    if (_cols == 1) {
+        _leftOffset = 0;
+    }
     [array enumerateObjectsUsingBlock:^(NSValue *obj, NSUInteger idx, BOOL *stop) {
         CGPoint point = [obj CGPointValue];
+        point.x += self.leftOffset;
         point.y += self.topOffset;
+
         [_centers addObject:[NSValue valueWithCGPoint:point]];
     }];
     [self sortFrames];

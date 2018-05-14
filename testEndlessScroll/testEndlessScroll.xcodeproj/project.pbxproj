@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		417568C9019332838056627D /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */; };
+		4175698CD13D83BDF1F81DDB /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 417561DC2AEFDE2B26337048 /* HexagonCell.m */; };
 		41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756E9FCE42FB51170DFEB3 /* HexagonCollectionLayout.m */; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
-		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448920A5ADA200C4507E /* ViewControllerWithCollection.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
 		D62A643599EA6DFF335A58DF /* testEndlessScrollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A9C36988152451EDE81 /* testEndlessScrollUITests.m */; };
@@ -312,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E7448720A586C100C4507E /* HexView.m in Sources */,
 				49E7448A20A5ADA200C4507E /* ViewControllerWithCollection.m in Sources */,
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
@@ -322,6 +321,7 @@
 				417568C9019332838056627D /* UIColor+MUIColor.m in Sources */,
 				41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */,
 				41756B50FEC2AE110BCC46B1 /* HexagonCell.m in Sources */,
+				4175698CD13D83BDF1F81DDB /* HexView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

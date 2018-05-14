@@ -68,10 +68,16 @@
     return pool[indexPath.item];
 }
 
+-(NSInteger)capacityOfLayoutMaxCount:(NSInteger)maxCount {
+    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:maxCount] : _columnsCount;
+    return framesCalculator.numberOfItems;
+}
+
 - (void)prepareLayout {
     [pool removeAllObjects];
+
     framesCalculator.bounds = self.collectionView.bounds;
-    // todo: можно как-то определять тут кол-во столбцов в зависимости от кол-ва элементов (порисовать и посмотреть?)
+
     NSInteger numberOfElementsInCollection = [self.collectionView numberOfItemsInSection:0];
     framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection] : _columnsCount;
     CGSize elementSize = framesCalculator.elementSize;

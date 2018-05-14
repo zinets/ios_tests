@@ -7,5 +7,8 @@
 
 #define NSAutocalculatedCount -1
 @interface HexagonCollectionLayout : UICollectionViewLayout
+/// default value is NSAutocalculatedCount 
 @property (nonatomic) NSInteger columnsCount;
+/// при определенном размере коллекции в нее можно всунуть ограниченное кол-во элементов
+-(NSInteger)capacityOfLayoutMaxCount:(NSInteger)maxCount;
 @end

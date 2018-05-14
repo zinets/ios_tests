@@ -25,7 +25,7 @@
     [super viewDidLoad];
 
     HexagonCollectionLayout *layout = self.collectionView.collectionViewLayout;
-    layout.columnsCount = 4;
+//    layout.columnsCount = 3;
 }
 
 - (IBAction)onTap:(id)sender {
@@ -63,6 +63,8 @@
 #pragma mark collection -
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    HexagonCollectionLayout *layout = (id)collectionView.collectionViewLayout;
+    NSInteger count = MIN (numberOfItems, [layout capacityOfLayoutMaxCount:numberOfItems]);
     return numberOfItems;
 }
 
