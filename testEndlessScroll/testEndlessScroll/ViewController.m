@@ -43,6 +43,10 @@
     [self.view addSubview:self.collectionView];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.collectionView.collectionViewLayout invalidateLayout];
+}
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {

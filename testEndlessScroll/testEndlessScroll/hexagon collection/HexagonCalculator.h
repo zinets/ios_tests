@@ -23,6 +23,6 @@
 /// кол-во элементов
 @property (nonatomic, readonly) NSInteger numberOfItems;
 
-/// красивое с точки зрения дизайна кол-во столбцов для указанного кол-ва элементов
+/// красивое с точки зрения дизайна кол-во столбцов для указанного кол-ва элементов (и известного размера из bounds для размещения)
 - (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements;
 @end

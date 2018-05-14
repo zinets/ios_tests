@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rce-fr-5zE">
-                                <rect key="frame" x="16" y="66" width="281" height="581"/>
+                                <rect key="frame" x="16" y="66" width="343" height="501"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="htZ-6g-vNh" customClass="HexagonCollectionLayout"/>
                                 <cells>
@@ -177,12 +177,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rce-fr-5zE" firstAttribute="trailing" secondItem="qWj-AQ-Wqy" secondAttribute="trailingMargin" constant="-62" id="35E-cv-KTK"/>
+                            <constraint firstItem="rce-fr-5zE" firstAttribute="trailing" secondItem="qWj-AQ-Wqy" secondAttribute="trailingMargin" id="35E-cv-KTK"/>
                             <constraint firstItem="tcJ-cT-x35" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="CW5-fO-l7c"/>
                             <constraint firstItem="fKF-dU-mTR" firstAttribute="leading" secondItem="zn1-4b-OeD" secondAttribute="trailing" constant="11" id="GmG-a2-w81"/>
                             <constraint firstItem="d7t-6O-6jo" firstAttribute="trailing" secondItem="qWj-AQ-Wqy" secondAttribute="trailingMargin" id="LvK-rx-bUU"/>
                             <constraint firstItem="d7t-6O-6jo" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="MiF-fY-F3e"/>
-                            <constraint firstItem="3WM-bN-E7k" firstAttribute="top" secondItem="rce-fr-5zE" secondAttribute="bottom" constant="20" id="Qp7-Bj-liD"/>
+                            <constraint firstItem="3WM-bN-E7k" firstAttribute="top" secondItem="rce-fr-5zE" secondAttribute="bottom" constant="100" id="Qp7-Bj-liD"/>
                             <constraint firstItem="zn1-4b-OeD" firstAttribute="leading" secondItem="qWj-AQ-Wqy" secondAttribute="leadingMargin" id="Qzs-AQ-S3Z"/>
                             <constraint firstItem="JLm-fw-c1h" firstAttribute="leading" secondItem="fKF-dU-mTR" secondAttribute="trailing" constant="11" id="TFv-8L-keV"/>
                             <constraint firstItem="zn1-4b-OeD" firstAttribute="top" secondItem="Nub-RO-tZ8" secondAttribute="bottom" constant="8" id="XHw-ID-SSJ"/>

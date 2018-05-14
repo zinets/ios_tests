@@ -64,42 +64,65 @@
         // иди нах
         return 0;
     }
-    CGFloat cellHeight = self.bounds.size.height / numberOfElements; // это диаметр ячейки при таком кол-ве элементов
-    if (numberOfElements < 3) {
-        return 1; // это выглядит красиво
+    CGFloat expectedWidth, expectedHeight, maxHeight;
+
+    // test for 1
+    expectedWidth = 2 * MIN(self.bounds.size.width, self.bounds.size.height) / 3;
+    expectedHeight = expectedWidth * sin60;
+    maxHeight = numberOfElements * expectedHeight;
+    if (maxHeight < self.bounds.size.height) {
+        return 1;
     }
+
     // test for 2
-    CGFloat expectedWidth = self.bounds.size.width / 3.5; // magic, see pics
-    CGFloat expectedHeight = expectedWidth * sin60;
-    CGFloat maxHeight = self.bounds.size.height / (numberOfElements + 1);
-    if (maxHeight >= expectedHeight) {
+    expectedWidth = 2 * MIN(self.bounds.size.width, self.bounds.size.height) / 3.5; // magic, see pics
+    expectedHeight = expectedWidth * sin60;
+    maxHeight = numberOfElements * 1.5 * expectedHeight;
+    if (maxHeight < self.bounds.size.height) {
         return 2;
     }
 
     // test for 3
-    expectedWidth = self.bounds.size.width / 5;
+    expectedWidth = self.bounds.size.width / 5; // та же херня про геометрию, см. картинк
     expectedHeight = expectedWidth * sin60;
-    maxHeight = self.bounds.size.height / ceil(numberOfElements / 3) / 2;
+    NSInteger numberOfElementsInCol = numberOfElements / 3 + (numberOfElements % 3 > 0 ? 1 : 0);
+    maxHeight = 2 * numberOfElementsInCol * expectedHeight;
+    if (numberOfElements % 3 != 1) {
+        maxHeight += expectedHeight;
+    }
+    if (maxHeight < self.bounds.size.height) {
+        return 3;
+    }
 
-    return 4;
+    // test for 4
+    expectedWidth = 2 * MIN(self.bounds.size.width, self.bounds.size.height) / 6.5;
+    expectedHeight = expectedWidth * sin60;
+    maxHeight = numberOfElements * 1.5 * expectedHeight;
+    if (maxHeight < self.bounds.size.height) {
+        return 4;
+    }
+
+    return 5;
 }
 
 #pragma mark internal -
 
 - (void)calculateSizes {
-    NSInteger halfRows;
-    if (_cols == 1) {
-        _halfWidth = self.bounds.size.width / 3;
-    } else if (_cols % 2 != 0) {
-        halfRows = _cols / 2 * 3 + 2;
-        _halfWidth = self.bounds.size.width / halfRows;
-    } else {
-        halfRows = _cols / 2 * 3;
-        _halfWidth = self.bounds.size.width / (halfRows + 0.5);
+    if (_cols > 0) {
+        NSInteger halfRows;
+        if (_cols == 1) {
+            _halfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3;
+        } else if (_cols % 2 != 0) {
+            halfRows = _cols / 2 * 3 + 2;
+            _halfWidth = self.bounds.size.width / halfRows;
+        } else {
+            halfRows = _cols / 2 * 3;
+            _halfWidth = self.bounds.size.width / (halfRows + 0.5);
+        }
+        _halfHeight = _halfWidth * sin60;
+
+        [self calculateFrames];
     }
-    _halfHeight = _halfWidth * sin60;
-    
-    [self calculateFrames];
 }
 
 -(void)calculateFrames {
@@ -168,8 +191,8 @@
     CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
 
     // do not sort
-    _sortedCenters = _centers;
-    return;
+//    _sortedCenters = _centers;
+//    return;
     _sortedCenters = [_centers sortedArrayUsingComparator:^NSComparisonResult(NSValue *obj1, NSValue *obj2) {
         CGPoint pt1 = [obj1 CGPointValue];
         CGPoint pt2 = [obj2 CGPointValue];
