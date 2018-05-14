@@ -29,7 +29,6 @@
 -(instancetype)init {
     if (self = [super init]) {
         _centers = [NSMutableArray new];
-        _maxCountOfColumns = NSIntegerMax;
     }
     return self;
 }
@@ -62,7 +61,7 @@
     return _centers.count;
 }
 
-- (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements {
+- (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements maxCountOfColumns:(NSInteger)maxCountOfColumns {
     NSInteger proposedCount = 0;
     if (numberOfElements == 0) {
         // иди нах
@@ -78,7 +77,7 @@
     expectedHalfWidth = [self widthForCols:1];
     expectedHalfHeight = expectedHalfWidth * sin60;
     maxHeight = 2 * expectedHalfHeight * numberOfElements;
-    if (maxHeight < self.bounds.size.height || proposedCount == _maxCountOfColumns) {
+    if (maxHeight < self.bounds.size.height || proposedCount == maxCountOfColumns) {
         return proposedCount;
     } else {
         proposedCount++;
@@ -88,7 +87,7 @@
     expectedHalfWidth = [self widthForCols:2];
     expectedHalfHeight = expectedHalfWidth * sin60;
     maxHeight = expectedHalfHeight * (numberOfElements + 1); // при 2х столбиках кол-во полувышин всегда на 1 больше кол-ва элементов
-    if (maxHeight < self.bounds.size.height || proposedCount == _maxCountOfColumns) {
+    if (maxHeight < self.bounds.size.height || proposedCount == maxCountOfColumns) {
         return proposedCount;
     } else {
         proposedCount++;
@@ -99,7 +98,7 @@
     expectedHalfHeight = expectedHalfWidth * sin60;
     numberOfElementsInCol = (int)ceil(numberOfElements / 3.) * 2 + (numberOfElements % 3 == 1 ? 0 : 1);
     maxHeight = numberOfElementsInCol * expectedHalfHeight;
-    if (maxHeight < self.bounds.size.height || proposedCount == _maxCountOfColumns) {
+    if (maxHeight < self.bounds.size.height || proposedCount == maxCountOfColumns) {
         return proposedCount;
     } else {
         proposedCount++;
@@ -110,60 +109,13 @@
     expectedHalfHeight = expectedHalfWidth * sin60;
     numberOfElementsInCol = (int)ceil(numberOfElements / 4.) * 2 + (numberOfElements % 4 > 2 ? 1 : 0);
     maxHeight = numberOfElementsInCol * expectedHalfHeight;
-    if (maxHeight < self.bounds.size.height || proposedCount == _maxCountOfColumns) {
+    if (maxHeight < self.bounds.size.height || proposedCount == maxCountOfColumns) {
         return proposedCount;
     } else {
         proposedCount++;
     }
 
     return proposedCount;
-}
-
-- (NSInteger)proposedNumberOfColumnsFor222:(NSInteger)numberOfElements {
-    if (numberOfElements == 0) {
-        // иди нах
-        return 0;
-    }
-    CGFloat expectedHalfWidth, expectedHalfHeight, maxHeight;
-    NSInteger numberOfElementsInCol;
-
-    // test for 1
-    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3;
-    expectedHalfHeight = expectedHalfWidth * sin60;
-    maxHeight = 2 * expectedHalfHeight * numberOfElements;
-    if (maxHeight < self.bounds.size.height) {
-        return 1;
-    }
-
-    // test for 2
-    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 3.5; // magic, see pics
-    expectedHalfHeight = expectedHalfWidth * sin60;
-    numberOfElementsInCol = (numberOfElements / 2) * 2 + (numberOfElements % 2 == 0 ? 1 : 2);
-    maxHeight = 2 * expectedHalfHeight * numberOfElementsInCol;
-    if (maxHeight < self.bounds.size.height) {
-        return 2;
-    }
-
-    // test for 3
-    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 5; // та же херня про геометрию, см. картинк
-    expectedHalfHeight = expectedHalfWidth * sin60;
-    numberOfElementsInCol = 2 * (numberOfElements / 3 + 1) + (numberOfElements % 2 == 1 ? 1 : 0);
-    maxHeight = numberOfElementsInCol * expectedHalfHeight;
-    if (maxHeight < self.bounds.size.height) {
-        return 3;
-    }
-
-    // test for 4
-    expectedHalfWidth = MIN(self.bounds.size.width, self.bounds.size.height) / 6.5;
-    expectedHalfHeight = expectedHalfWidth * sin60;
-    numberOfElementsInCol = 2 * (numberOfElements / 4 + 1) + (numberOfElements % 2 == 1 ? 1 : 0);
-
-    maxHeight = numberOfElementsInCol * expectedHalfHeight;
-    if (maxHeight < self.bounds.size.height) {
-        return 4;
-    }
-
-    return 5;
 }
 
 #pragma mark internal -

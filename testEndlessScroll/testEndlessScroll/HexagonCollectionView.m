@@ -45,7 +45,9 @@
 - (HexagonCollectionLayout *)layout {
     if (!_layout) {
         _layout = [HexagonCollectionLayout new];
+
         _layout.columnsCount = NSAutocalculatedCount;
+        _layout.maxCountOfColumns = 3;
     }
     return _layout;
 }

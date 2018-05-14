@@ -39,6 +39,7 @@
     pool = [NSMutableArray new];
     framesCalculator = [HexagonCalculator new];
     _columnsCount = NSAutocalculatedCount;
+    _maxCountOfColumns = NSIntegerMax;
 }
 
 -(void)setColumnsCount:(NSInteger)columnsCount {
@@ -69,7 +70,7 @@
 }
 
 -(NSInteger)capacityOfLayoutMaxCount:(NSInteger)maxCount {
-    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:maxCount] : _columnsCount;
+    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:maxCount maxCountOfColumns:self.maxCountOfColumns] : _columnsCount;
     return framesCalculator.numberOfItems;
 }
 
@@ -79,7 +80,7 @@
     framesCalculator.bounds = self.collectionView.bounds;
 
     NSInteger numberOfElementsInCollection = [self.collectionView numberOfItemsInSection:0];
-    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection] : _columnsCount;
+    framesCalculator.cols = _columnsCount == NSAutocalculatedCount ? [framesCalculator proposedNumberOfColumnsFor:numberOfElementsInCollection maxCountOfColumns:self.maxCountOfColumns] : _columnsCount;
     CGSize elementSize = framesCalculator.elementSize;
     NSInteger numberOfElements = MIN(framesCalculator.numberOfItems, numberOfElementsInCollection);
     for (int x = 0; x < numberOfElements; x++) {

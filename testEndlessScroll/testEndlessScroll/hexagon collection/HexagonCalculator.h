@@ -13,8 +13,6 @@
 @property (nonatomic) CGRect bounds;
 /// кол-во "столбцов"
 @property (nonatomic) NSInteger cols;
-/// ограничиваем кол-во "столбцов" (для случая, когда используется автоподгонка)
-@property (nonatomic) NSInteger maxCountOfColumns;
 
 /// кол-во "строк" (очевидно что цифра для справки)
 @property (nonatomic, readonly) NSInteger rows;
@@ -26,5 +24,5 @@
 @property (nonatomic, readonly) NSInteger numberOfItems;
 
 /// красивое с точки зрения дизайна кол-во столбцов для указанного кол-ва элементов (и известного размера из bounds для размещения)
-- (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements;
+- (NSInteger)proposedNumberOfColumnsFor:(NSInteger)numberOfElements maxCountOfColumns:(NSInteger)maxCountOfColumns;
 @end
