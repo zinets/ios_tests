@@ -9,11 +9,13 @@
 #import "ViewControllerWithCollection.h"
 #import "UIColor+MUIColor.h"
 #import "HexagonCell.h"
+#import "HexagonCollectionLayout.h"
 
-@interface ViewControllerWithCollection () <UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface ViewControllerWithCollection () <UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate> {
     NSInteger numberOfItems;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITextField *columnsCount;
 
 @end
 
@@ -47,9 +49,13 @@
 }
 
 - (IBAction)incCols:(id)sender {
+    HexagonCollectionLayout *layout = self.collectionView.collectionViewLayout;    
+    self.columnsCount.text = [NSString stringWithFormat:@"%@", @(++layout.columnsCount)];
 }
 
 - (IBAction)decCols:(id)sender {
+    HexagonCollectionLayout *layout = self.collectionView.collectionViewLayout;
+    self.columnsCount.text = [NSString stringWithFormat:@"%@", @(--layout.columnsCount)];
 }
 
 #pragma mark collection -
