@@ -7,8 +7,14 @@
 //
 
 #import "ViewController3.h"
+#import "HexagonCollectionView.h"
+#import "HexagonCellData.h"
 
-@interface ViewController3 ()
+@interface ViewController3 () {
+    NSInteger imageIndex;
+    NSMutableArray *data;
+}
+@property (weak, nonatomic) IBOutlet HexagonCollectionView *collectionView;
 
 @end
 
@@ -16,22 +22,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    data = [NSMutableArray array];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)addObject:(id)sender {
+    HexagonCellData *newItem = [HexagonCellData new];
+    newItem.avatarUrl = [NSString stringWithFormat:@"i%@.jpg", @(imageIndex % 7)];
+    imageIndex++;
+    
+    [data addObject:newItem];
+    
+    self.collectionView.data = data;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)removeObject:(id)sender {
 }
-*/
 
 @end

@@ -19,8 +19,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="186" height="159"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-KO-Xbe">
-                        <rect key="frame" x="72" y="69" width="42" height="21"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yhF-sO-9Ix">
+                        <rect key="frame" x="0.0" y="0.0" width="186" height="159"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label asa s asda sdad asd asd" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgy-KO-Xbe">
+                        <rect key="frame" x="4" y="69" width="178" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,12 +31,18 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="mgy-KO-Xbe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EfB-pW-41L"/>
+                <constraint firstAttribute="trailing" secondItem="yhF-sO-9Ix" secondAttribute="trailing" id="8Jb-vb-Nea"/>
                 <constraint firstItem="mgy-KO-Xbe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="HxH-YV-85z"/>
+                <constraint firstAttribute="bottom" secondItem="yhF-sO-9Ix" secondAttribute="bottom" id="IuJ-ia-sGc"/>
+                <constraint firstItem="yhF-sO-9Ix" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Q14-rK-znW"/>
+                <constraint firstItem="yhF-sO-9Ix" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iCX-YY-k1K"/>
+                <constraint firstItem="mgy-KO-Xbe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="lWm-Zv-iXR"/>
+                <constraint firstAttribute="trailing" secondItem="mgy-KO-Xbe" secondAttribute="trailing" constant="4" id="qEo-gN-irT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="186" height="159"/>
             <connections>
+                <outlet property="avatar" destination="yhF-sO-9Ix" id="niq-Ho-DQa"/>
                 <outlet property="label" destination="mgy-KO-Xbe" id="neA-nc-5h1"/>
             </connections>
             <point key="canvasLocation" x="10" y="110.5"/>

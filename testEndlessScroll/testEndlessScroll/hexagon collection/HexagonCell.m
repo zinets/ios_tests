@@ -8,6 +8,11 @@
 
 #import "HexagonCell.h"
 
+@interface HexagonCell()
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@end
+
 @implementation HexagonCell  {
     UIBezierPath *maskPath;
     CAShapeLayer *maskLayer;
@@ -68,6 +73,13 @@
     } else {
         return nil;
     }
+}
+
+#pragma mark public -
+
+- (void)setData:(HexagonCellData *)data {
+    self.label.text = data.avatarUrl;
+    _avatar.image = [UIImage imageNamed:data.avatarUrl];
 }
 
 @end

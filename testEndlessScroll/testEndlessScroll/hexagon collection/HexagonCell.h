@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HexagonCellData.h"
 
 @interface HexagonCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (nonatomic, strong) HexagonCellData *data;
 @end

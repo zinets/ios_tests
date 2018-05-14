@@ -71,7 +71,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HexagonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HexagonCell" forIndexPath:indexPath];
     cell.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:1];
-    cell.label.text = [NSString stringWithFormat:@"%d", indexPath.item];
+//    cell.label.text = [NSString stringWithFormat:@"%d", indexPath.item];
     return cell;
 }
 

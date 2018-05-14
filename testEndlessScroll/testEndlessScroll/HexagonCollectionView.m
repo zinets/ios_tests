@@ -5,14 +5,15 @@
 
 #import "HexagonCollectionView.h"
 #import "HexagonCollectionLayout.h"
-#import "HexagonCell.h"
+#import "HexagonalCollectionDatasource.h"
 
 #import "UIColor+MUIColor.h"
 
 
-@interface HexagonCollectionView() <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface HexagonCollectionView() <UICollectionViewDelegate> 
 @property (nonatomic, strong) HexagonCollectionLayout *layout;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) HexagonalCollectionDatasource *dataSource;
 @end
 
 @implementation HexagonCollectionView
@@ -54,28 +55,21 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
-        
-//        [_collectionView registerClass:[HexagonCell class] forCellWithReuseIdentifier:[HexagonCell description]];
         [_collectionView registerNib:[UINib nibWithNibName:@"HexagonCell" bundle:nil] forCellWithReuseIdentifier:@"HexagonCell"];
 
-        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        
+        _dataSource = [HexagonalCollectionDatasource new];
+        _dataSource.collectionView = _collectionView;
     }
     return _collectionView;
 }
 
+-(void)setData:(NSArray *)data {
+    self.dataSource.items = [data copy];
+}
+
 #pragma mark collection -
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
-}
-
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    HexagonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HexagonCell" forIndexPath:indexPath];
-    cell.backgroundColor = [[UIColor colorWithHex:arc4random() & 0xffffff] colorWithAlphaComponent:1];
-    cell.label.text = [NSString stringWithFormat:@"%d", indexPath.item];
-    
-    return cell;
-}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // посчитать куда попали и посигналить выше

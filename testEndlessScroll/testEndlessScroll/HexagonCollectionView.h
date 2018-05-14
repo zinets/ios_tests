@@ -11,6 +11,6 @@
 @end
 
 @interface HexagonCollectionView : UIView
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSArray *data;
 @property (nonatomic, weak) id <HexagonalCollectionDelegate> delegate;
 @end

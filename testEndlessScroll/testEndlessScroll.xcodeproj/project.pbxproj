@@ -16,6 +16,17 @@
 		49E7448F20A9AE5600C4507E /* ViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448E20A9AE5600C4507E /* ViewController3.m */; };
 		49E7449320A9AF7000C4507E /* HexagonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7449120A9AF7000C4507E /* HexagonCell.m */; };
 		49E7449420A9AF7000C4507E /* HexagonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E7449220A9AF7000C4507E /* HexagonCell.xib */; };
+		49E7449920A9B41C00C4507E /* HexagonCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7449820A9B41C00C4507E /* HexagonCellData.m */; };
+		49E7449F20A9B52400C4507E /* CollectionSectionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7449D20A9B52400C4507E /* CollectionSectionDatasource.m */; };
+		49E744A020A9B52400C4507E /* SectionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7449E20A9B52400C4507E /* SectionDatasource.m */; };
+		49E744A320A9B76200C4507E /* HexagonalCollectionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E744A220A9B76200C4507E /* HexagonalCollectionDatasource.m */; };
+		49E744AB20A9BA5500C4507E /* i2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A420A9BA5400C4507E /* i2.jpg */; };
+		49E744AC20A9BA5500C4507E /* i3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A520A9BA5400C4507E /* i3.jpg */; };
+		49E744AD20A9BA5500C4507E /* i1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A620A9BA5500C4507E /* i1.jpg */; };
+		49E744AE20A9BA5500C4507E /* i4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A720A9BA5500C4507E /* i4.jpg */; };
+		49E744AF20A9BA5500C4507E /* i0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A820A9BA5500C4507E /* i0.jpg */; };
+		49E744B020A9BA5500C4507E /* i6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744A920A9BA5500C4507E /* i6.jpg */; };
+		49E744B120A9BA5500C4507E /* i5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49E744AA20A9BA5500C4507E /* i5.jpg */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
 		D62A643599EA6DFF335A58DF /* testEndlessScrollUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6A9C36988152451EDE81 /* testEndlessScrollUITests.m */; };
 		D62A6478A54208F2A65B9154 /* testEndlessScrollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */; };
@@ -65,6 +76,21 @@
 		49E7449020A9AF7000C4507E /* HexagonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCell.h; path = "hexagon collection/HexagonCell.h"; sourceTree = "<group>"; };
 		49E7449120A9AF7000C4507E /* HexagonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCell.m; path = "hexagon collection/HexagonCell.m"; sourceTree = "<group>"; };
 		49E7449220A9AF7000C4507E /* HexagonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HexagonCell.xib; path = "hexagon collection/HexagonCell.xib"; sourceTree = "<group>"; };
+		49E7449720A9B41C00C4507E /* HexagonCellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCellData.h; path = "hexagon collection/HexagonCellData.h"; sourceTree = "<group>"; };
+		49E7449820A9B41C00C4507E /* HexagonCellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCellData.m; path = "hexagon collection/HexagonCellData.m"; sourceTree = "<group>"; };
+		49E7449B20A9B52400C4507E /* CollectionSectionDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionSectionDatasource.h; sourceTree = "<group>"; };
+		49E7449C20A9B52400C4507E /* SectionDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDatasource.h; sourceTree = "<group>"; };
+		49E7449D20A9B52400C4507E /* CollectionSectionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionSectionDatasource.m; sourceTree = "<group>"; };
+		49E7449E20A9B52400C4507E /* SectionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDatasource.m; sourceTree = "<group>"; };
+		49E744A120A9B76200C4507E /* HexagonalCollectionDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonalCollectionDatasource.h; path = "hexagon collection/HexagonalCollectionDatasource.h"; sourceTree = "<group>"; };
+		49E744A220A9B76200C4507E /* HexagonalCollectionDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonalCollectionDatasource.m; path = "hexagon collection/HexagonalCollectionDatasource.m"; sourceTree = "<group>"; };
+		49E744A420A9BA5400C4507E /* i2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i2.jpg; sourceTree = "<group>"; };
+		49E744A520A9BA5400C4507E /* i3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i3.jpg; sourceTree = "<group>"; };
+		49E744A620A9BA5500C4507E /* i1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i1.jpg; sourceTree = "<group>"; };
+		49E744A720A9BA5500C4507E /* i4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i4.jpg; sourceTree = "<group>"; };
+		49E744A820A9BA5500C4507E /* i0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i0.jpg; sourceTree = "<group>"; };
+		49E744A920A9BA5500C4507E /* i6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i6.jpg; sourceTree = "<group>"; };
+		49E744AA20A9BA5500C4507E /* i5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i5.jpg; sourceTree = "<group>"; };
 		D62A6067A9B8507FB60C9BE9 /* testEndlessScrollTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testEndlessScrollTests.m; sourceTree = "<group>"; };
 		D62A60F44CD6CD042039D92A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D62A623DA2A555F766BD13AB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +148,7 @@
 		49C49A8A20A564CE000158A5 /* hexagon collection */ = {
 			isa = PBXGroup;
 			children = (
+				49E7449A20A9B51700C4507E /* datasource */,
 				49E7449620A9B26000C4507E /* layout */,
 				49E7449520A9B1EE00C4507E /* cells */,
 				4175666FE758728C4FD67240 /* HexagonCollectionView.h */,
@@ -151,6 +178,21 @@
 			name = layout;
 			sourceTree = "<group>";
 		};
+		49E7449A20A9B51700C4507E /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				49E7449720A9B41C00C4507E /* HexagonCellData.h */,
+				49E7449820A9B41C00C4507E /* HexagonCellData.m */,
+				49E7449B20A9B52400C4507E /* CollectionSectionDatasource.h */,
+				49E7449D20A9B52400C4507E /* CollectionSectionDatasource.m */,
+				49E7449C20A9B52400C4507E /* SectionDatasource.h */,
+				49E7449E20A9B52400C4507E /* SectionDatasource.m */,
+				49E744A120A9B76200C4507E /* HexagonalCollectionDatasource.h */,
+				49E744A220A9B76200C4507E /* HexagonalCollectionDatasource.m */,
+			);
+			name = datasource;
+			sourceTree = "<group>";
+		};
 		D62A617603F2F84B4C7E6442 /* testEndlessScroll */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +215,13 @@
 		D62A64606A8656FF1AD97945 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49E744A820A9BA5500C4507E /* i0.jpg */,
+				49E744A620A9BA5500C4507E /* i1.jpg */,
+				49E744A420A9BA5400C4507E /* i2.jpg */,
+				49E744A520A9BA5400C4507E /* i3.jpg */,
+				49E744A720A9BA5500C4507E /* i4.jpg */,
+				49E744AA20A9BA5500C4507E /* i5.jpg */,
+				49E744A920A9BA5500C4507E /* i6.jpg */,
 				D62A60F44CD6CD042039D92A /* main.m */,
 				D62A6B93DEE84A5FA0C8ADE7 /* Assets.xcassets */,
 				D62A6686919D5BA97A3575AB /* Info.plist */,
@@ -327,11 +376,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E744AF20A9BA5500C4507E /* i0.jpg in Resources */,
+				49E744B020A9BA5500C4507E /* i6.jpg in Resources */,
 				D62A6ECBD506688B797EF25F /* Assets.xcassets in Resources */,
 				D62A6AF9CB73460CED7B3348 /* Info.plist in Resources */,
 				49E7449420A9AF7000C4507E /* HexagonCell.xib in Resources */,
 				D62A680D9CF77961E55452BE /* LaunchScreen.storyboard in Resources */,
+				49E744AB20A9BA5500C4507E /* i2.jpg in Resources */,
+				49E744B120A9BA5500C4507E /* i5.jpg in Resources */,
 				D62A69D0538EB9C6623BE0FF /* Main.storyboard in Resources */,
+				49E744AE20A9BA5500C4507E /* i4.jpg in Resources */,
+				49E744AC20A9BA5500C4507E /* i3.jpg in Resources */,
+				49E744AD20A9BA5500C4507E /* i1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +402,15 @@
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				49E7449320A9AF7000C4507E /* HexagonCell.m in Sources */,
 				49E7448F20A9AE5600C4507E /* ViewController3.m in Sources */,
+				49E744A020A9B52400C4507E /* SectionDatasource.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
+				49E7449920A9B41C00C4507E /* HexagonCellData.m in Sources */,
 				49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */,
+				49E744A320A9B76200C4507E /* HexagonalCollectionDatasource.m in Sources */,
 				D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */,
 				D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */,
 				417568C9019332838056627D /* UIColor+MUIColor.m in Sources */,
+				49E7449F20A9B52400C4507E /* CollectionSectionDatasource.m in Sources */,
 				41756D69C9BE699371E9890A /* HexagonCollectionLayout.m in Sources */,
 				4175698CD13D83BDF1F81DDB /* HexView.m in Sources */,
 				4175674FE286778707CF56A5 /* HexagonCollectionView.m in Sources */,
