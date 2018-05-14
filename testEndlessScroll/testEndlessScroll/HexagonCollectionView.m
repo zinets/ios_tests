@@ -66,7 +66,8 @@
 }
 
 -(void)setData:(NSArray *)data {
-    self.dataSource.items = [data copy];
+    NSInteger maxCountInDatasource = MIN([self.layout capacityOfLayoutMaxCount:data.count], data.count);
+    self.dataSource.items = [data subarrayWithRange:NSMakeRange(0, maxCountInDatasource)];
 }
 
 #pragma mark collection -

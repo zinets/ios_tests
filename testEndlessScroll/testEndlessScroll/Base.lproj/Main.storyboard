@@ -216,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="802.848575712144"/>
         </scene>
-        <!--View Controller3-->
+        <!--Delegate-->
         <scene sceneID="cBh-N4-ecC">
             <objects>
                 <viewController id="V6w-rL-GTV" customClass="ViewController3" sceneMemberID="viewController">
@@ -231,9 +231,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-5K-3kn" customClass="HexagonCollectionView">
                                 <rect key="frame" x="0.0" y="78" width="375" height="458"/>
                                 <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="V6w-rL-GTV" id="d2r-gT-Xoa"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebJ-ie-IJu">
                                 <rect key="frame" x="4" y="544" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <action selector="addObject:" destination="V6w-rL-GTV" eventType="touchUpInside" id="P6U-I7-qQQ"/>
@@ -241,9 +245,18 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-VY-JED">
                                 <rect key="frame" x="38" y="544" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="-"/>
                                 <connections>
                                     <action selector="removeObject:" destination="V6w-rL-GTV" eventType="touchUpInside" id="GdT-ir-wWX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77u-vH-qp0">
+                                <rect key="frame" x="72" y="544" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="~"/>
+                                <connections>
+                                    <action selector="replace:" destination="V6w-rL-GTV" eventType="touchUpInside" id="jqX-VI-jdv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -251,9 +264,11 @@
                         <constraints>
                             <constraint firstItem="ebJ-ie-IJu" firstAttribute="top" secondItem="7Sd-5K-3kn" secondAttribute="bottom" constant="8" id="8Zk-cK-Xo6"/>
                             <constraint firstItem="7Sd-5K-3kn" firstAttribute="leading" secondItem="4Yk-0i-SHL" secondAttribute="leading" id="IZS-NI-ii1"/>
+                            <constraint firstItem="77u-vH-qp0" firstAttribute="top" secondItem="7Sd-5K-3kn" secondAttribute="bottom" constant="8" id="MFt-fE-xZH"/>
                             <constraint firstItem="IxJ-VY-JED" firstAttribute="leading" secondItem="ebJ-ie-IJu" secondAttribute="trailing" constant="4" id="MJj-KA-cSx"/>
                             <constraint firstItem="IxJ-VY-JED" firstAttribute="top" secondItem="7Sd-5K-3kn" secondAttribute="bottom" constant="8" id="QGW-rf-wOl"/>
                             <constraint firstAttribute="trailing" secondItem="7Sd-5K-3kn" secondAttribute="trailing" id="Qon-Tl-L7x"/>
+                            <constraint firstItem="77u-vH-qp0" firstAttribute="leading" secondItem="IxJ-VY-JED" secondAttribute="trailing" constant="4" id="bRF-6o-qnp"/>
                             <constraint firstItem="O5i-V3-mqt" firstAttribute="top" secondItem="7Sd-5K-3kn" secondAttribute="bottom" constant="131" id="fsm-xz-dpU"/>
                             <constraint firstItem="ebJ-ie-IJu" firstAttribute="leading" secondItem="4Yk-0i-SHL" secondAttribute="leading" constant="4" id="mTq-gl-snM"/>
                             <constraint firstItem="7Sd-5K-3kn" firstAttribute="top" secondItem="jXw-QS-uzW" secondAttribute="bottom" constant="58" id="uRb-hh-3Pm"/>

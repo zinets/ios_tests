@@ -13,6 +13,8 @@
 @property (nonatomic) CGRect bounds;
 /// кол-во "столбцов"
 @property (nonatomic) NSInteger cols;
+/// ограничиваем кол-во "столбцов" (для случая, когда используется автоподгонка)
+@property (nonatomic) NSInteger maxCountOfColumns;
 
 /// кол-во "строк" (очевидно что цифра для справки)
 @property (nonatomic, readonly) NSInteger rows;
