@@ -8,10 +8,12 @@
 
 #import "HexagonCellData.h"
 
+NSString * const HexCellDataChanged = @"HexCellDataChanged";
+
 @implementation HexagonCellData
 
 -(NSUInteger)hash {
-    return [self.avatarUrl hash];
+    return [self.avatarUrl hash] ^ [@(self.progress) hash];
 }
 
 -(BOOL)isEqual:(HexagonCellData *)object {
@@ -22,6 +24,16 @@
         return NO;
     }
     return self.hash == object.hash;
+}
+
+#pragma mark setters -
+
+- (void)setProgress:(CGFloat)progress {
+    if (_progress != progress) {
+        _progress = progress;
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:HexCellDataChanged object:self];
+    }
 }
 
 @end

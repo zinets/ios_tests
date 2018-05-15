@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+extern NSString * const HexCellDataChanged;
 
 @interface HexagonCellData : NSObject
 @property (nonatomic, strong) NSString *avatarUrl;
+@property (nonatomic) CGFloat progress;
 @end

@@ -29,6 +29,7 @@
 - (IBAction)addObject:(id)sender {
     HexagonCellData *newItem = [HexagonCellData new];
     newItem.avatarUrl = [NSString stringWithFormat:@"i%@.jpg", @(imageIndex % 25)];
+    newItem.progress = 0.45;
     imageIndex++;
     
     
@@ -53,8 +54,15 @@
     
     self.collectionView.data = data;
 }
+- (IBAction)reset:(id)sender {
+    imageIndex = 0;
+    [data removeAllObjects];
+    self.collectionView.data = data;
+}
 
 - (void)hexagonalCollectionView:(UIView *)view didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%@", indexPath);
+    HexagonCellData *data1 = data[indexPath.item];
+    data1.progress += 0.05;
 }
+
 @end

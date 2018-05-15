@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HexView : UIView
-
+@property (nonatomic) CGFloat progress;
 @end
