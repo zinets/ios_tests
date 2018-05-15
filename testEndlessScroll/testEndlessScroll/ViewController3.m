@@ -45,8 +45,31 @@
     
     NSInteger index2replace = arc4random_uniform(data.count);
     data[index2replace] = newItem;
-    
+
     self.collectionView.data = data;
+
+    [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerFired:) userInfo:newItem repeats:YES];
+}
+
+- (void)timerFired:(NSTimer *)sender {
+    HexagonCellData *item = sender.userInfo;
+    item.progress += 0.01;
+    if (item.progress >= 1) {
+        [sender invalidate];
+
+//        [data removeObject:item];
+//        self.collectionView.data = data;
+
+        HexagonCellData *newItem = [HexagonCellData new];
+        newItem.avatarUrl = [NSString stringWithFormat:@"i%@.jpg", @(imageIndex % 25)];
+        imageIndex++;
+
+        NSInteger index = [data indexOfObject:item];
+        if (index != NSNotFound) {
+            data[index] = newItem;
+            self.collectionView.data = data;
+        }
+    }
 }
 
 - (IBAction)removeObject:(id)sender {

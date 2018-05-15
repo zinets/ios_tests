@@ -125,6 +125,8 @@
 }
 
 - (void)setProgress:(CGFloat)progress {
+    _progress = MAX(0, MIN(1, progress));
+
     progressLayer.strokeEnd = progress;
 }
 

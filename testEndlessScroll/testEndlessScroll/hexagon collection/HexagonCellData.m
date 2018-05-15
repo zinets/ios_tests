@@ -29,6 +29,7 @@ NSString * const HexCellDataChanged = @"HexCellDataChanged";
 #pragma mark setters -
 
 - (void)setProgress:(CGFloat)progress {
+    progress = MAX(0, MIN(1, progress));
     if (_progress != progress) {
         _progress = progress;
 
