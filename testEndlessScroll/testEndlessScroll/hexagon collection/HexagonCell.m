@@ -71,7 +71,13 @@
 }
 
 - (void)prepareForReuse {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
     self.data = nil;
+    
+    [CATransaction commit];
+    
 }
 
 -(UIBezierPath *)shapePath {
@@ -124,7 +130,6 @@
 
 - (void)setProgress:(CGFloat)progress {
     _progress = MAX(0, MIN(1, progress));
-
     progressLayer.strokeEnd = progress;
 }
 
