@@ -130,7 +130,17 @@
 
 - (void)setProgress:(CGFloat)progress {
     _progress = MAX(0, MIN(1, progress));
-    progressLayer.strokeEnd = progress;
+
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    animation.duration = 1;
+    animation.fromValue = @(progressLayer.strokeEnd);
+    animation.toValue = @(_progress);
+
+    progressLayer.strokeEnd = _progress;
+
+    [progressLayer addAnimation:animation forKey:@"a@"];
+
+
 }
 
 #pragma mark observing -
