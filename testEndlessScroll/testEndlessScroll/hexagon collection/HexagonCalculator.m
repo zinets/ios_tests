@@ -161,7 +161,7 @@
                 frame.origin.x = x * 3 * self.halfWidth;
                 // заполнять из самого угла или как в картинке в дизе (там первая ячейка смещена вправо на пол-ячейки, а след. ряд начинается с самого начала)
                 // y % 2 == 0 - будет как в дизе, y % 2 != 0 - первая ячейка - в углу
-                if (y % 2 == 0) {
+                if (y % 2 != 0) {
                     frame.origin.x += 1.5 * self.halfWidth;
                 }
                 if (CGRectContainsRect(self.bounds, frame)) {
@@ -204,15 +204,18 @@
 }
 
 - (NSComparisonResult)compareDictances:(CGPoint)point1 point:(CGPoint)point2 center:(CGPoint)center {
-    CGFloat xDist = (point1.x - center.x);
-    CGFloat yDist = (point1.y - center.y);
-    CGFloat distance1 = sqrt((xDist * xDist) + (yDist * yDist));
+//    CGFloat xDist = (point1.x - center.x);
+//    CGFloat yDist = (point1.y - center.y);
+//    CGFloat distance1 = sqrt((xDist * xDist) + (yDist * yDist));
+//
+//    xDist = (point2.x - center.x);
+//    yDist = (point2.y - center.y);
+//    CGFloat distance2 = sqrt((xDist * xDist) + (yDist * yDist));
 
-    xDist = (point2.x - center.x);
-    yDist = (point2.y - center.y);
-    CGFloat distance2 = sqrt((xDist * xDist) + (yDist * yDist));
+//    return distance1 <= distance2 ? NSOrderedAscending : NSOrderedDescending;
 
-    return distance1 <= distance2 ? NSOrderedAscending : NSOrderedDescending;
+    // вариант раскладки - ближе к верху 9а не вокруг центра)
+    return point1.y < point2.y ? NSOrderedAscending : NSOrderedDescending;
 }
 
 - (void)sortFrames {
