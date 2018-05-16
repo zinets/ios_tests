@@ -12,10 +12,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (nonatomic) CGFloat progress;
+
+@property (nonatomic, strong) UIBezierPath *shapePath;
 @end
 
 @implementation HexagonCell  {
-    UIBezierPath *maskPath;
     CAShapeLayer *maskLayer;
     CAShapeLayer *progressLayer;
 }
@@ -59,10 +60,12 @@
     [self removeObserver];
 }
 
+#pragma mark layout -
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
     [super applyLayoutAttributes:layoutAttributes];
     
+    _shapePath = nil;
     [self updateMask];
     [self updateProgressPath];
 }
@@ -71,43 +74,38 @@
     self.data = nil;
 }
 
+-(UIBezierPath *)shapePath {
+    if (!_shapePath) {
+        _shapePath = [UIBezierPath bezierPath];
+        CGFloat w = self.bounds.size.width / 2;
+        CGFloat h = self.bounds.size.height / 2;
+        [_shapePath moveToPoint:(CGPoint){w, 2 * h}]; // 0
+        [_shapePath addLineToPoint:(CGPoint){w / 2, 2 * h}]; // 1
+        [_shapePath addLineToPoint:(CGPoint){0, h}]; // 2
+        [_shapePath addLineToPoint:(CGPoint){w / 2, 0}]; // 3
+        [_shapePath addLineToPoint:(CGPoint){3 * w / 2, 0}]; // 4
+        [_shapePath addLineToPoint:(CGPoint){2 * w, h}]; // 5
+        [_shapePath addLineToPoint:(CGPoint){3 * w / 2, 2 * h}]; // 6
+        [_shapePath closePath]; // 0
+    }
+    return _shapePath;
+}
+
 -(void)updateMask {
-    maskPath = [UIBezierPath bezierPath];
-    CGFloat w = self.bounds.size.width / 2;
-    CGFloat h = self.bounds.size.height / 2;
-    [maskPath moveToPoint:(CGPoint){0, h}]; // 0
-    [maskPath addLineToPoint:(CGPoint){w / 2, 0}]; // 1
-    [maskPath addLineToPoint:(CGPoint){3 * w / 2, 0}]; // 2
-    [maskPath addLineToPoint:(CGPoint){2 * w, h}]; // 3
-    [maskPath addLineToPoint:(CGPoint){3 * w / 2, 2 * h}]; // 4
-    [maskPath addLineToPoint:(CGPoint){w / 2, 2 * h}]; // 5
-    [maskPath closePath]; // 0
-    
     CABasicAnimation *animation = [CABasicAnimation animation];
     [maskLayer addAnimation:animation forKey:@"path animation"];
-    maskLayer.path = maskPath.CGPath;
+    maskLayer.path = self.shapePath.CGPath;
 }
 
 - (void)updateProgressPath {
     progressLayer.frame = self.bounds;
-    // другой path нужен потому, что для прогрес-бара начало должно быть в "12" часов
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    CGFloat w = self.bounds.size.width / 2;
-    CGFloat h = self.bounds.size.height / 2;
-    [path moveToPoint:(CGPoint){w, 0}]; // 0
-    [path addLineToPoint:(CGPoint){3 * w / 2, 0}]; // 1
-    [path addLineToPoint:(CGPoint){2 * w, h}]; // 2
-    [path addLineToPoint:(CGPoint){3 * w / 2, 2 * h}]; // 3
-    [path addLineToPoint:(CGPoint){w / 2, 2 * h}]; // 4
-    [path addLineToPoint:(CGPoint){0, h}]; // 5
-    [path addLineToPoint:(CGPoint){w / 2, 0}]; // 6
-    [path closePath]; // 0
-
-    progressLayer.path = path.CGPath;
+    progressLayer.path = self.shapePath.CGPath;
 }
 
+#pragma mark touches -
+
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
-    if ([maskPath containsPoint:point]) {
+    if ([self.shapePath containsPoint:point]) {
         return [super hitTest:point withEvent:event];
     } else {
         return nil;

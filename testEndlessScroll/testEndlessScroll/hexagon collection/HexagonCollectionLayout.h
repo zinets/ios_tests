@@ -11,6 +11,8 @@
 /// default value is NSAutocalculatedCount 
 @property (nonatomic) NSInteger columnsCount;
 @property (nonatomic) NSInteger maxCountOfColumns;
+@property (nonatomic) CGFloat minimumInteritemSpacing;
+
 /// при определенном размере коллекции в нее можно всунуть ограниченное кол-во элементов - узнаем сколько
 -(NSInteger)capacityOfLayoutMaxCount:(NSInteger)maxCount;
 

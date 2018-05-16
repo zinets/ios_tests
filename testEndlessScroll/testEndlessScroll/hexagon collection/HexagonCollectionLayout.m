@@ -40,6 +40,7 @@
     framesCalculator = [HexagonCalculator new];
     _columnsCount = NSAutocalculatedCount;
     _maxCountOfColumns = NSIntegerMax;
+    _minimumInteritemSpacing = 8;
 }
 
 -(void)setColumnsCount:(NSInteger)columnsCount {
@@ -86,7 +87,8 @@
     for (int x = 0; x < numberOfElements; x++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:x inSection:0];
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-        attributes.frame = (CGRect){{}, elementSize};
+        
+        attributes.frame = CGRectInset((CGRect){{}, elementSize}, self.minimumInteritemSpacing, self.minimumInteritemSpacing);
         attributes.center = [framesCalculator.centers[x] CGPointValue];
 
         [pool addObject:attributes];
