@@ -23,6 +23,7 @@
     [super viewDidLoad];
 
     self.previewImageView.bwMode = YES;
+    self.previewImageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (IBAction)reset:(id)sender {

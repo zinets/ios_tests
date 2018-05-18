@@ -6,7 +6,7 @@
 #import "AnimatedMaskView2.h"
 #import "UIImage+Thumbnails.h"
 
-@interface AnimatedMaskView2 ()
+@interface AnimatedMaskView2 () <CAAnimationDelegate>
 @property (nonatomic, strong) CALayer *bwImageLayer;
 @property (nonatomic, strong) CAShapeLayer *maskLayer;
 @end
@@ -74,6 +74,7 @@
 -(void)animateBWRemoving {
     CGFloat w = 10;
     CGFloat h = 10;
+    NSTimeInterval animationDuration = 0.45;
 
     UIBezierPath *framePath = [UIBezierPath bezierPathWithRect:self.bounds];
     framePath.usesEvenOddFillRule = YES;
@@ -84,7 +85,7 @@
     [framePath appendPath:startPath];
 
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    animationGroup.duration = .45;
+    animationGroup.duration = animationDuration;
 
     CABasicAnimation *maskAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
     maskAnimation1.duration = animationGroup.duration / 2;
@@ -113,9 +114,20 @@
     maskAnimation2.toValue = (id)framePath.CGPath;
 
     animationGroup.animations = @[maskAnimation1, maskAnimation2];
+    animationGroup.delegate = self;
     [self.maskLayer addAnimation:animationGroup forKey:@"maskAnimation"];
 
     self.maskLayer.path = framePath.CGPath;
+}
+
+#pragma mark animation delegate -
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (flag) {
+        [_bwImageLayer removeFromSuperlayer];
+        _bwImageLayer = nil;
+        _maskLayer = nil;
+    }
 }
 
 @end
