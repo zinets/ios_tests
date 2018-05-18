@@ -8,9 +8,10 @@
 
 #import "ViewController.h"
 #import "AnimatedMaskView.h"
+#import "AnimatedMaskView2.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet AnimatedMaskView *previewImageView;
+@property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView *i2;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView *i3;
 
@@ -20,7 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.previewImageView.bwMode = YES;
 }
 
 - (IBAction)reset:(id)sender {
@@ -30,8 +32,13 @@
 
 }
 
+- (IBAction)changeBw:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    self.previewImageView.bwMode = !sender.selected;
+}
+
 - (IBAction)animate:(id)sender {
-    [self.previewImageView animate];
+//    [self.previewImageView animate];
     [self.i2 animate];
     [self.i3 animate];
 }
