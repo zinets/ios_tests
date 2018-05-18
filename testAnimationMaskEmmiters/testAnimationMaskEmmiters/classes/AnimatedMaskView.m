@@ -33,15 +33,17 @@
 - (void)commonInit {
     self.clipsToBounds = YES;
 
-    bwImage = [CALayer new];
-    [self.layer addSublayer:bwImage];
-
     colorImage = [CALayer new];
     [self.layer addSublayer:colorImage];
 
+    bwImage = [CALayer new];
+    [self.layer addSublayer:bwImage];
+
     maskLayer = [CAShapeLayer new];
-    colorImage.mask = maskLayer;
-    colorImage.masksToBounds = YES;
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+
+    bwImage.mask = maskLayer;
+
 }
 
 
@@ -58,9 +60,10 @@
 
 -(void)reset {
     maskLayer.path = nil;
+    maskLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
 }
 
--(void)animate {
+-(void)animateWorked { // если маска к цветному слою, который лежит поверх ч/б - то работает такая анимация
     CGFloat w = 10;
     CGFloat h = 10;
 
@@ -93,6 +96,54 @@
     [maskLayer addAnimation:animationGroup forKey:@"maskAnimation"];
 
     maskLayer.path = finish2Path.CGPath;
+}
+
+-(void)animate { // если ч/б картинка лежит поверх цветной, то анимируется показ цветной таким способом
+    CGFloat w = 10;
+    CGFloat h = 10;
+
+    UIBezierPath *framePath = [UIBezierPath bezierPathWithRect:self.bounds];
+    framePath.usesEvenOddFillRule = YES;
+
+
+    CGRect startFrame = (CGRect){(self.bounds.size.width - w) / 2, (self.bounds.size.height - h) / 2, w, h};
+    CGFloat radii = MIN(self.bounds.size.width, self.bounds.size.height) / 2;
+    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:startFrame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){radii, radii}];
+    [framePath appendPath:startPath];
+
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    animationGroup.duration = .45;
+
+    CABasicAnimation *maskAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
+    maskAnimation1.duration = animationGroup.duration / 2;
+    maskAnimation1.fromValue = (id)framePath.CGPath;
+
+    framePath = [UIBezierPath bezierPathWithRect:self.bounds];
+    framePath.usesEvenOddFillRule = YES;
+    CGRect finish1Frame = CGRectInset(self.bounds, self.bounds.size.width / 4, self.bounds.size.height / 4);
+    UIBezierPath *finish1Path = [UIBezierPath bezierPathWithRoundedRect:finish1Frame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){radii, radii}];
+    [framePath appendPath:finish1Path];
+
+    maskAnimation1.toValue = (id)framePath.CGPath;
+    maskAnimation1.removedOnCompletion = NO;
+
+    CABasicAnimation *maskAnimation2 = [CABasicAnimation animationWithKeyPath:@"path"];
+    maskAnimation2.duration = animationGroup.duration / 2;
+    maskAnimation2.beginTime = animationGroup.duration / 2;
+    maskAnimation2.fromValue = (id)framePath.CGPath;
+
+    framePath = [UIBezierPath bezierPathWithRect:self.bounds];
+    framePath.usesEvenOddFillRule = YES;
+    CGRect finish2Frame = self.bounds;
+    UIBezierPath *finish2Path = [UIBezierPath bezierPathWithRoundedRect:finish2Frame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){1, 1}];
+    [framePath appendPath:finish2Path];
+
+    maskAnimation2.toValue = (id)framePath.CGPath;
+
+    animationGroup.animations = @[maskAnimation1, maskAnimation2];
+    [maskLayer addAnimation:animationGroup forKey:@"maskAnimation"];
+
+    maskLayer.path = framePath.CGPath;
 }
 
 #pragma mark setters -
