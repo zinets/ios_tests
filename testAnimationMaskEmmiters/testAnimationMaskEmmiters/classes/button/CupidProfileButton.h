@@ -6,8 +6,8 @@
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ColorButton.h"
 
-@interface FavButton : UIButton
+@interface CupidProfileButton : ColorButton
 
 @end

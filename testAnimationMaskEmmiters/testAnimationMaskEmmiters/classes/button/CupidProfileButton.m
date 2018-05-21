@@ -6,14 +6,14 @@
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
-#import "FavButton.h"
-@interface FavButton() <CAAnimationDelegate> {
+#import "CupidProfileButton.h"
+@interface CupidProfileButton() <CAAnimationDelegate> {
     CAShapeLayer *pulseLayer;
     CALayer *iconLayer;
 }
 @end
 
-@implementation FavButton
+@implementation CupidProfileButton
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -36,7 +36,7 @@
         // bg animation
         pulseLayer = [CAShapeLayer layer];
         pulseLayer.frame = [self bounds];
-        pulseLayer.fillColor = [UIColor redColor].CGColor;
+        pulseLayer.fillColor = [self backgroundColorForState:(UIControlStateSelected)].CGColor;
         
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:pulseLayer.bounds];
         pulseLayer.path = path.CGPath;
@@ -51,7 +51,7 @@
         [values addObject:[NSValue valueWithCATransform3D:CATransform3DIdentity]];
         
         transform.values = values;
-        transform.keyTimes = @[@0.0, @0.4, @1.0];
+        transform.keyTimes = @[@0.0, @0.6, @1.0];
         transform.removedOnCompletion = NO;
         transform.fillMode = kCAFillModeForwards;
         transform.duration = 0.5;
@@ -68,8 +68,23 @@
         iconLayer.contentsScale = 2;
         [self.layer addSublayer:iconLayer];
         
+        transform = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+        values = [NSMutableArray new];
+        [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0., 0., 1)]];
+        [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.1, 0.1, 1)]];
+        [values addObject:[NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1)]];
+        [values addObject:[NSValue valueWithCATransform3D:CATransform3DIdentity]];
+        
+        transform.values = values;
+        transform.keyTimes = @[@0.0, @0.3, @0.8, @1.0];
+        transform.removedOnCompletion = NO;
+        transform.fillMode = kCAFillModeForwards;
+        transform.duration = 0.5;
+        transform.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [iconLayer addAnimation:transform forKey:@"1"];
     } else {
-        [super setSelected:selected];
+        [super setSelected:NO];
     }
 }
 
