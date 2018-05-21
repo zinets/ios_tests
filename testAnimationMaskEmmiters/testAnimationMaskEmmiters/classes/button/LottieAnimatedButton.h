@@ -17,4 +17,6 @@
 */
 @interface LottieAnimatedButton : ColorButton
 - (void)setSelectedUsingAnimation:(void (^)(void))lottieAnimation atFinishPoint:(CGPoint)destPoint;
+/// время полета шмеля до начала "настоящей" анимации
+@property (nonatomic) NSTimeInterval animationDuration;
 @end

@@ -46,27 +46,28 @@
 
 @interface LottieAnimatedButton() <CAAnimationDelegate> {
     CAShapeLayer *pulseLayer;
-    CALayer *iconLayer;
+    
 }
+@property (nonatomic, strong) CALayer *iconLayer;
+@property (nonatomic, copy) void (^lottieAnimation)(void);
 @end
 
 @implementation LottieAnimatedButton
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    self.layer.masksToBounds = NO;
+    self.animationDuration = 0.5;
     return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    self.clipsToBounds = NO;
-    self.layer.masksToBounds = NO;
+    self.animationDuration = 0.5;
     return self;
 }
 
 -(void)setSelected:(BOOL)selected {
-    [iconLayer removeFromSuperlayer];
+    [_iconLayer removeFromSuperlayer];
     [pulseLayer removeFromSuperlayer];
     if (selected) {
         // bg animation
@@ -96,12 +97,12 @@
         [pulseLayer addAnimation:transform forKey:@"1"];
         
         // icon animation
-        iconLayer = [CALayer layer];
-        iconLayer.frame = self.bounds;
-        iconLayer.contents = (id)[self imageForState:(UIControlStateSelected)].CGImage;
-        iconLayer.contentsGravity = @"center";
-        iconLayer.contentsScale = 2;
-        [self.layer addSublayer:iconLayer];
+        _iconLayer = [CALayer layer];
+        _iconLayer.frame = self.bounds;
+        _iconLayer.contents = (id)[self imageForState:(UIControlStateSelected)].CGImage;
+        _iconLayer.contentsGravity = @"center";
+        _iconLayer.contentsScale = 2;
+        [self.layer addSublayer:_iconLayer];
         
         transform = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
         values = [NSMutableArray new];
@@ -117,7 +118,7 @@
         transform.duration = 0.5;
         transform.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
         
-        [iconLayer addAnimation:transform forKey:@"1"];
+        [_iconLayer addAnimation:transform forKey:@"1"];
     } else {
         [super setSelected:NO];
     }
@@ -137,19 +138,19 @@
         CGPoint toPoint = [self convertPoint:destPoint fromView:self.superview];
         BOOL directionFromLeft = toPoint.x > fromPoint.x;
         
-        iconLayer = [CALayer layer];
-        iconLayer.frame = self.bounds;
-        iconLayer.contents = (id)[self imageForState:(UIControlStateHighlighted)].CGImage;
-        iconLayer.contentsGravity = @"center";
-        iconLayer.contentsScale = 2;
-        [self.layer addSublayer:iconLayer];
+        _iconLayer = [CALayer layer];
+        _iconLayer.frame = self.bounds;
+        _iconLayer.contents = (id)[self imageForState:(UIControlStateHighlighted)].CGImage;
+        _iconLayer.contentsGravity = @"center";
+        _iconLayer.contentsScale = 2;
+        [self.layer addSublayer:_iconLayer];
         
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:fromPoint];
         [path addQuadCurveToPoint:toPoint controlPoint:(CGPoint){fromPoint.x, toPoint.y}];
         
         CAAnimationGroup *ga = [CAAnimationGroup animation];
-        ga.duration = 2.4;
+        ga.duration = self.animationDuration;
         
         CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
         pathAnimation.path = path.CGPath;
@@ -171,14 +172,19 @@
         
         PreSelectAnimationDelegateObject *delegate;
         if (lottieAnimation) {
-            delegate = [[PreSelectAnimationDelegateObject alloc] initWithAnimationBlock:lottieAnimation];
+            self.lottieAnimation = lottieAnimation;
+            __weak typeof(self) weakSelf = self;
+            delegate = [[PreSelectAnimationDelegateObject alloc] initWithAnimationBlock:^{
+                weakSelf.lottieAnimation();
+                [weakSelf.iconLayer removeFromSuperlayer];
+            }];
         } else {
             delegate = [[PreSelectAnimationDelegateObject alloc] initWithButtonToSelect:self];
         }
         ga.delegate = delegate;
         ga.animations = @[pathAnimation, scaleAnimation, rotateAnimation];
         
-        [iconLayer addAnimation:ga forKey:@"animation"];
+        [_iconLayer addAnimation:ga forKey:@"animation"];
     }
 }
 
