@@ -59,11 +59,50 @@
                                     <constraint firstAttribute="width" constant="164" id="pUR-9i-Svp"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-g1-Uwn" customClass="FavButton">
+                                <rect key="frame" x="62" y="564" width="42" height="40"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Fcu-gN-DMv"/>
+                                    <constraint firstAttribute="height" constant="40" id="TQM-XP-d6a"/>
+                                </constraints>
+                                <state key="normal" image="favorite2"/>
+                                <state key="selected" image="favorite2_selected"/>
+                                <state key="highlighted" image="favorite2_hlited"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBw-lg-xga"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wve-Vk-NLa" customClass="FavButton">
+                                <rect key="frame" x="112" y="564" width="42" height="40"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="7uv-q4-XTT"/>
+                                    <constraint firstAttribute="height" constant="40" id="vbq-fx-APN"/>
+                                </constraints>
+                                <state key="normal" image="winkIcon"/>
+                                <state key="selected" image="winkIcon_selected"/>
+                                <state key="highlighted" image="winkIcon_hlited"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJq-JY-Dgg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="4Oe-Ju-NsD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zHG-x8-bJE" secondAttribute="bottom" constant="146" id="I8n-X5-QWk"/>
+                            <constraint firstItem="AyD-g1-Uwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="Idk-aL-pSC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zHG-x8-bJE" secondAttribute="trailing" constant="130" id="K7C-WD-Kpp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Sn-hp-DzU" secondAttribute="trailing" constant="16" id="LSI-Ru-wOm"/>
                             <constraint firstItem="zHG-x8-bJE" firstAttribute="leading" secondItem="PCO-JW-pt0" secondAttribute="trailing" constant="23" id="QYC-9E-1AI"/>
@@ -72,9 +111,12 @@
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ZEm-wp-kch"/>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Zfh-Ao-EBk"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bVg-vV-IIJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="63" id="eCZ-WK-nsk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Sn-hp-DzU" secondAttribute="bottom" constant="20" id="edN-dw-mAa"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="8" id="ogp-O2-L5s"/>
                             <constraint firstItem="zHG-x8-bJE" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="top" id="v4F-pz-HTN"/>
+                            <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="8" id="vLG-Nq-eKz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="63" id="wfN-aW-tVx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -82,6 +124,7 @@
                         <outlet property="i2" destination="zHG-x8-bJE" id="Tbi-Xv-hX7"/>
                         <outlet property="i3" destination="5Sn-hp-DzU" id="f0L-En-vE3"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>
+                        <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,4 +132,12 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="favorite2" width="24" height="24"/>
+        <image name="favorite2_hlited" width="24" height="24"/>
+        <image name="favorite2_selected" width="24" height="24"/>
+        <image name="winkIcon" width="24" height="24"/>
+        <image name="winkIcon_hlited" width="24" height="24"/>
+        <image name="winkIcon_selected" width="24" height="24"/>
+    </resources>
 </document>
