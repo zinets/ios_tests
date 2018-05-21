@@ -48,6 +48,7 @@
 }
 @property (nonatomic, strong) CALayer *iconLayer;
 @property (nonatomic, strong) CAShapeLayer *pulseLayer;
+
 @property (nonatomic, copy) void (^lottieAnimation)(void);
 @end
 
@@ -70,6 +71,8 @@
     [_pulseLayer removeFromSuperlayer];
     
     if (selected) {
+        self.userInteractionEnabled = NO;
+        
         // bg animation
         _pulseLayer = [CAShapeLayer layer];
         _pulseLayer.frame = [self bounds];
@@ -127,6 +130,7 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
         [super setSelected:YES];
+        self.userInteractionEnabled = YES;
     }
 }
 
@@ -134,6 +138,8 @@
     if (self.selected) {
         self.selected = NO;
     } else {
+        self.userInteractionEnabled = NO;
+        
         CGPoint fromPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
         CGPoint toPoint = [self convertPoint:destPoint fromView:self.superview];
         BOOL directionFromLeft = toPoint.x > fromPoint.x;
