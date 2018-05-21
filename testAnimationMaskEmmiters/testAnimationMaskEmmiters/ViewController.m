@@ -10,6 +10,7 @@
 #import "AnimatedMaskView.h"
 #import "AnimatedMaskView2.h"
 #import "CupidProfileButton.h"
+#import "UIColor+MUIColor.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
@@ -29,7 +30,11 @@
     self.previewImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.testFavButton setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
-    [self.testFavButton setBackgroundColor:[UIColor greenColor] forState:(UIControlStateSelected)];
+    [self.testFavButton setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];
+    
+    [self.testBtn2 setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    [self.testBtn2 setBackgroundColor:[UIColor colorWithHex:0x983dda] forState:(UIControlStateSelected)];
+    
 }
 
 - (IBAction)reset:(id)sender {
@@ -52,7 +57,17 @@
 
 #pragma mark button animations -
 
-- (IBAction)onTap:(UIButton *)sender {
+- (IBAction)onTap:(CupidProfileButton *)sender {
+    CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
+    
+    [sender performPreSelectAnimation:center];
+    
+    
+    
+    
+    return;
+    
+    
     if (sender.selected) {
         sender.selected = NO;
         return;
@@ -64,14 +79,16 @@
     icon.frame = frm;
     [self.view addSubview:icon];
     
-    CGPoint center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
+    
     [UIView animateWithDuration:0.9 animations:^{
         icon.center = center;
     } completion:^(BOOL finished) {
         [self startParticles:center tag:(NSInteger)sender.tag];
-        [icon removeFromSuperview];        
+        [icon removeFromSuperview];
+        
+        sender.selected = YES;
     }];
-    sender.selected = YES;
+    
 }
 
 - (void)startParticles:(CGPoint)startPoint tag:(NSInteger)tag {
@@ -86,6 +103,8 @@
     
     emitterCell.scale = 0.4;
     emitterCell.scaleRange = 0.7;
+    emitterCell.spin = 2 * (arc4random() % 2 == 0 ? 1 : -1);
+    emitterCell.spinRange = 0;
     
     emitterCell.emissionRange = (CGFloat)2 * M_PI;
     

@@ -19,6 +19,7 @@
 		41756E84A701953547291B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417565E1C297266FC10CF68A /* Assets.xcassets */; };
 		4967866020B2B028000B1083 /* CupidProfileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967865F20B2B028000B1083 /* CupidProfileButton.m */; };
 		4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967866D20B2DEB3000B1083 /* ColorButton.m */; };
+		4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967867220B2E759000B1083 /* UIColor+MUIColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		4967865F20B2B028000B1083 /* CupidProfileButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CupidProfileButton.m; sourceTree = "<group>"; };
 		4967866D20B2DEB3000B1083 /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorButton.m; sourceTree = "<group>"; };
 		4967866E20B2DEB3000B1083 /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorButton.h; sourceTree = "<group>"; };
+		4967867120B2E759000B1083 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		4967867220B2E759000B1083 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 				417567B94B2653D217C49F07 /* AppDelegate.h */,
 				41756184B7CEAE51C45A266E /* AppDelegate.m */,
 				41756C0599DC9EBEE8290451 /* Main.storyboard */,
+				4967867120B2E759000B1083 /* UIColor+MUIColor.h */,
+				4967867220B2E759000B1083 /* UIColor+MUIColor.m */,
 				417562685178700419907351 /* ViewController.h */,
 				41756FB37E4EC710383D0DA5 /* ViewController.m */,
 				41756CBF28511B3ECAA99EF1 /* classes */,
@@ -183,6 +188,7 @@
 				4967866020B2B028000B1083 /* CupidProfileButton.m in Sources */,
 				417563C6E538BD7F97463787 /* AppDelegate.m in Sources */,
 				4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */,
+				4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */,
 				417561330587CEBA81A7609C /* ViewController.m in Sources */,
 				417568A7D884C1583BDCD5A8 /* AnimatedMaskView.m in Sources */,
 				41756BF234B2A09E3AEC016D /* UIImage+Thumbnails.m in Sources */,

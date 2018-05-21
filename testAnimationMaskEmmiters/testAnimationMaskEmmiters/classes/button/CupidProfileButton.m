@@ -7,6 +7,30 @@
 //
 
 #import "CupidProfileButton.h"
+
+@interface PreSelectAnimationDelegateObject : NSObject <CAAnimationDelegate>
+@property (nonatomic, weak) UIButton *buttonToSelect;
+
+- (instancetype)initWithButtonToSelect:(UIButton *)button;
+@end
+
+@implementation PreSelectAnimationDelegateObject
+
+- (instancetype)initWithButtonToSelect:(UIButton *)button {
+    if (self = [super init]) {
+        self.buttonToSelect = button;
+    }
+    return self;
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    if (flag && self.buttonToSelect) {
+        self.buttonToSelect.selected = YES;
+    }
+}
+
+@end
+
 @interface CupidProfileButton() <CAAnimationDelegate> {
     CAShapeLayer *pulseLayer;
     CALayer *iconLayer;
@@ -29,9 +53,8 @@
 }
 
 -(void)setSelected:(BOOL)selected {
-    [pulseLayer removeFromSuperlayer];
     [iconLayer removeFromSuperlayer];
-    
+    [pulseLayer removeFromSuperlayer];
     if (selected) {
         // bg animation
         pulseLayer = [CAShapeLayer layer];
@@ -62,8 +85,7 @@
         // icon animation
         iconLayer = [CALayer layer];
         iconLayer.frame = self.bounds;
-        UIImage *img = [self imageForState:(UIControlStateSelected)];
-        iconLayer.contents = (id)img.CGImage;
+        iconLayer.contents = (id)[self imageForState:(UIControlStateSelected)].CGImage;
         iconLayer.contentsGravity = @"center";
         iconLayer.contentsScale = 2;
         [self.layer addSublayer:iconLayer];
@@ -90,8 +112,54 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
-
         [super setSelected:YES];
+    }
+}
+
+- (void)performPreSelectAnimation:(CGPoint)destPoint {
+    if (self.selected) {
+        self.selected = NO;
+    } else {
+        CGPoint fromPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+        CGPoint toPoint = [self convertPoint:destPoint fromView:self.superview];
+        BOOL directionFromLeft = toPoint.x > fromPoint.x;
+        
+        iconLayer = [CALayer layer];
+        iconLayer.frame = self.bounds;
+        iconLayer.contents = (id)[self imageForState:(UIControlStateHighlighted)].CGImage;
+        iconLayer.contentsGravity = @"center";
+        iconLayer.contentsScale = 2;
+        [self.layer addSublayer:iconLayer];
+        
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        [path moveToPoint:fromPoint];
+        [path addQuadCurveToPoint:toPoint controlPoint:(CGPoint){fromPoint.x, toPoint.y}];
+        
+        CAAnimationGroup *ga = [CAAnimationGroup animation];
+        ga.duration = 2.4;
+        
+        CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+        pathAnimation.path = path.CGPath;
+        pathAnimation.duration = ga.duration;
+        pathAnimation.additive = NO;
+        pathAnimation.repeatCount = 1;
+        pathAnimation.calculationMode = kCAAnimationPaced;
+        
+        CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+        scaleAnimation.duration = ga.duration;
+        scaleAnimation.values = @[@1, @2, @0.1];
+        scaleAnimation.keyTimes = @[@0, @0.3, @1];
+        
+        CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+        rotateAnimation.fromValue = @0;
+        rotateAnimation.toValue = @(3 * (directionFromLeft ? M_PI : -M_PI));
+        rotateAnimation.duration = ga.duration;
+        rotateAnimation.repeatCount = 1;
+        
+        ga.delegate = [[PreSelectAnimationDelegateObject alloc] initWithButtonToSelect:self];
+        ga.animations = @[pathAnimation, scaleAnimation, rotateAnimation];
+        
+        [iconLayer addAnimation:ga forKey:@"animation"];
     }
 }
 
