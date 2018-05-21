@@ -45,10 +45,9 @@
 @end
 
 @interface LottieAnimatedButton() <CAAnimationDelegate> {
-    CAShapeLayer *pulseLayer;
-    
 }
 @property (nonatomic, strong) CALayer *iconLayer;
+@property (nonatomic, strong) CAShapeLayer *pulseLayer;
 @property (nonatomic, copy) void (^lottieAnimation)(void);
 @end
 
@@ -68,16 +67,17 @@
 
 -(void)setSelected:(BOOL)selected {
     [_iconLayer removeFromSuperlayer];
-    [pulseLayer removeFromSuperlayer];
+    [_pulseLayer removeFromSuperlayer];
+    
     if (selected) {
         // bg animation
-        pulseLayer = [CAShapeLayer layer];
-        pulseLayer.frame = [self bounds];
-        pulseLayer.fillColor = [self backgroundColorForState:(UIControlStateSelected)].CGColor;
+        _pulseLayer = [CAShapeLayer layer];
+        _pulseLayer.frame = [self bounds];
+        _pulseLayer.fillColor = [self backgroundColorForState:(UIControlStateSelected)].CGColor;
         
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:pulseLayer.bounds];
-        pulseLayer.path = path.CGPath;
-        [self.layer addSublayer:pulseLayer];
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:_pulseLayer.bounds];
+        _pulseLayer.path = path.CGPath;
+        [self.layer addSublayer:_pulseLayer];
         
         CAKeyframeAnimation *transform = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
         transform.delegate = self;
@@ -94,7 +94,7 @@
         transform.duration = 0.5;
         transform.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
         
-        [pulseLayer addAnimation:transform forKey:@"1"];
+        [_pulseLayer addAnimation:transform forKey:@"1"];
         
         // icon animation
         _iconLayer = [CALayer layer];
