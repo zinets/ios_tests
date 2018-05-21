@@ -20,9 +20,20 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAx-kR-NKi" customClass="AnimatedMaskView2">
                                 <rect key="frame" x="32" y="28" width="311" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-TB-if4">
+                                        <rect key="frame" x="80" y="75" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="2bh-yj-M7I"/>
+                                            <constraint firstAttribute="width" constant="150" id="GZL-Ax-oAP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="2am-Yd-jsi"/>
+                                    <constraint firstItem="SEC-TB-if4" firstAttribute="centerX" secondItem="tAx-kR-NKi" secondAttribute="centerX" id="JbJ-sU-tls"/>
+                                    <constraint firstItem="SEC-TB-if4" firstAttribute="centerY" secondItem="tAx-kR-NKi" secondAttribute="centerY" id="zbo-dc-ekP"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sr-cN-QLq">
@@ -75,7 +86,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBw-lg-xga"/>
+                                    <action selector="onFavTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qqg-ej-NKv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wve-Vk-NLa" customClass="CupidProfileButton">
@@ -97,6 +108,13 @@
                                     <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJq-JY-Dgg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN8-zP-fhb">
+                                <rect key="frame" x="32" y="504" width="35" height="30"/>
+                                <state key="normal" title="lottie"/>
+                                <connections>
+                                    <action selector="lottieTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iti-QQ-pTP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -108,6 +126,8 @@
                             <constraint firstItem="zHG-x8-bJE" firstAttribute="leading" secondItem="PCO-JW-pt0" secondAttribute="trailing" constant="108" id="QYC-9E-1AI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAx-kR-NKi" secondAttribute="trailing" constant="32" id="Qfn-M8-rwX"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SBi-RI-55c"/>
+                            <constraint firstItem="fN8-zP-fhb" firstAttribute="top" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="8" id="Ulr-Mg-XNP"/>
+                            <constraint firstItem="fN8-zP-fhb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="W2o-2b-JEe"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ZEm-wp-kch"/>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Zfh-Ao-EBk"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bVg-vV-IIJ"/>
@@ -121,6 +141,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="animationSite" destination="SEC-TB-if4" id="34s-on-jIv"/>
                         <outlet property="i2" destination="zHG-x8-bJE" id="Tbi-Xv-hX7"/>
                         <outlet property="i3" destination="5Sn-hp-DzU" id="f0L-En-vE3"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>

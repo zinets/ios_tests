@@ -9,5 +9,5 @@
 #import "ColorButton.h"
 
 @interface CupidProfileButton : ColorButton
-- (void)performPreSelectAnimation:(CGPoint)destPoint;
+- (void)performPreSelectAnimation:(CGPoint)destPoint lottieAnimation:(void (^)(void))block;
 @end

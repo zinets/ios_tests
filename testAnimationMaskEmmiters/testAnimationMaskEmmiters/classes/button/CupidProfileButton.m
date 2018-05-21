@@ -10,8 +10,10 @@
 
 @interface PreSelectAnimationDelegateObject : NSObject <CAAnimationDelegate>
 @property (nonatomic, weak) UIButton *buttonToSelect;
+@property (nonatomic, copy) void (^lottieAnimation)(void);
 
 - (instancetype)initWithButtonToSelect:(UIButton *)button;
+- (instancetype)initWithAnimationBlock:(void (^)(void))animation;
 @end
 
 @implementation PreSelectAnimationDelegateObject
@@ -23,9 +25,20 @@
     return self;
 }
 
+- (instancetype)initWithAnimationBlock:(void (^)(void))animation {
+    if (self = [super init]) {
+        self.lottieAnimation = animation;
+    }
+    return self;
+}
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    if (flag && self.buttonToSelect) {
-        self.buttonToSelect.selected = YES;
+    if (flag) {
+        if (self.buttonToSelect) {
+            self.buttonToSelect.selected = YES;
+        } else if (self.lottieAnimation) {
+            self.lottieAnimation();
+        }
     }
 }
 
@@ -116,7 +129,7 @@
     }
 }
 
-- (void)performPreSelectAnimation:(CGPoint)destPoint {
+- (void)performPreSelectAnimation:(CGPoint)destPoint lottieAnimation:(void (^)(void))block {
     if (self.selected) {
         self.selected = NO;
     } else {
@@ -156,7 +169,13 @@
         rotateAnimation.duration = ga.duration;
         rotateAnimation.repeatCount = 1;
         
-        ga.delegate = [[PreSelectAnimationDelegateObject alloc] initWithButtonToSelect:self];
+        PreSelectAnimationDelegateObject *delegate;
+        if (block) {
+            delegate = [[PreSelectAnimationDelegateObject alloc] initWithAnimationBlock:block];
+        } else {
+            delegate = [[PreSelectAnimationDelegateObject alloc] initWithButtonToSelect:self];
+        }
+        ga.delegate = delegate;
         ga.animations = @[pathAnimation, scaleAnimation, rotateAnimation];
         
         [iconLayer addAnimation:ga forKey:@"animation"];

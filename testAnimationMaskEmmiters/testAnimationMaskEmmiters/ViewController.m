@@ -12,6 +12,8 @@
 #import "CupidProfileButton.h"
 #import "UIColor+MUIColor.h"
 
+#import <Lottie/Lottie.h>
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView *i2;
@@ -19,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet CupidProfileButton *testFavButton;
 @property (weak, nonatomic) IBOutlet CupidProfileButton *testBtn2;
+@property (weak, nonatomic) IBOutlet UIView *animationSite;
 @end
 
 @implementation ViewController
@@ -57,12 +60,22 @@
 
 #pragma mark button animations -
 
+- (IBAction)onFavTap:(id)sender {
+    CGPoint center = self.previewImageView.center;
+    __weak typeof(self) weakSelf = self;
+    [sender performPreSelectAnimation:center lottieAnimation:^{
+        LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
+        animation.frame = weakSelf.animationSite.bounds;
+        [weakSelf.animationSite addSubview:animation];
+        [animation playWithCompletion:^(BOOL animationFinished) {
+            [animation removeFromSuperview];
+            weakSelf.testFavButton.selected = YES;
+        }];
+    }];
+}
+
 - (IBAction)onTap:(CupidProfileButton *)sender {
     CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
-    
-    [sender performPreSelectAnimation:center];
-    
-    
     
     
     return;
@@ -121,6 +134,15 @@
     
     emitterLayer.emitterCells = @[emitterCell];
     [self.view.layer addSublayer:emitterLayer];
+}
+
+- (IBAction)lottieTest:(id)sender {
+    LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
+    animation.frame = self.animationSite.bounds;
+    [self.animationSite addSubview:animation];
+    [animation playWithCompletion:^(BOOL animationFinished) {
+        [animation removeFromSuperview];
+    }];
 }
 
 @end

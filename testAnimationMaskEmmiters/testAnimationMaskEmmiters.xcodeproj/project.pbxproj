@@ -20,7 +20,53 @@
 		4967866020B2B028000B1083 /* CupidProfileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967865F20B2B028000B1083 /* CupidProfileButton.m */; };
 		4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967866D20B2DEB3000B1083 /* ColorButton.m */; };
 		4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967867220B2E759000B1083 /* UIColor+MUIColor.m */; };
+		4967867820B2FE20000B1083 /* giftbox.json in Resources */ = {isa = PBXBuildFile; fileRef = 4967867720B2FE20000B1083 /* giftbox.json */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4967868220B30265000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 62CA59B81E3C173B002D7188;
+			remoteInfo = Lottie_iOS;
+		};
+		4967868420B30265000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FAE1F7E61E428CBE002E0974;
+			remoteInfo = Lottie_macOS;
+		};
+		4967868620B30265000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8C5379761FB471D100C1BC65;
+			remoteInfo = Lottie_tvOS;
+		};
+		4967868820B30265000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 84FE12EF1E4C1485009B157C;
+			remoteInfo = LottieLibraryIOS;
+		};
+		4967868A20B30265000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6445B0D5207E0D4D00D84F6A;
+			remoteInfo = LottieLibraryMacOS;
+		};
+		4967868C20B30279000B1083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
+			remoteInfo = Lottie_iOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		417560A2D6611E6D7E997FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +92,8 @@
 		4967866E20B2DEB3000B1083 /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorButton.h; sourceTree = "<group>"; };
 		4967867120B2E759000B1083 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		4967867220B2E759000B1083 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		4967867720B2FE20000B1083 /* giftbox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = giftbox.json; sourceTree = "<group>"; };
+		4967867A20B30264000B1083 /* Lottie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../../../../../../Volumes/data/Downloads/lottie-ios-master/Lottie.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +110,7 @@
 		417562C7948B2D21E04104B8 = {
 			isa = PBXGroup;
 			children = (
+				4967867A20B30264000B1083 /* Lottie.xcodeproj */,
 				41756B1223221154B0123B10 /* Products */,
 				41756EF0D221F061DB20CA16 /* testAnimationMaskEmmiters */,
 			);
@@ -93,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				417560A2D6611E6D7E997FEC /* Info.plist */,
-				417565E1C297266FC10CF68A /* Assets.xcassets */,
+				4967867620B2FE16000B1083 /* files */,
 				4175606083F3777CF3725EC9 /* LaunchScreen.storyboard */,
 				41756E01BA597483590220D0 /* main.m */,
 				417567B94B2653D217C49F07 /* AppDelegate.h */,
@@ -120,6 +169,27 @@
 			path = button;
 			sourceTree = "<group>";
 		};
+		4967867620B2FE16000B1083 /* files */ = {
+			isa = PBXGroup;
+			children = (
+				4967867720B2FE20000B1083 /* giftbox.json */,
+				417565E1C297266FC10CF68A /* Assets.xcassets */,
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
+		4967867B20B30264000B1083 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4967868320B30265000B1083 /* Lottie.framework */,
+				4967868520B30265000B1083 /* Lottie.framework */,
+				4967868720B30265000B1083 /* Lottie.framework */,
+				4967868920B30265000B1083 /* libLottie.a */,
+				4967868B20B30265000B1083 /* libLottie.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,6 +204,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4967868D20B30279000B1083 /* PBXTargetDependency */,
 			);
 			name = testAnimationMaskEmmiters;
 			productName = testAnimationMaskEmmiters;
@@ -147,6 +218,11 @@
 			isa = PBXProject;
 			attributes = {
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					417562273CB697DBF2EFECD3 = {
+						DevelopmentTeam = GA7JUF7GUE;
+					};
+				};
 			};
 			buildConfigurationList = 417569F8A1368B4A5B0BEEB5 /* Build configuration list for PBXProject "testAnimationMaskEmmiters" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -158,12 +234,56 @@
 			mainGroup = 417562C7948B2D21E04104B8;
 			productRefGroup = 41756B1223221154B0123B10 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4967867B20B30264000B1083 /* Products */;
+					ProjectRef = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				417562273CB697DBF2EFECD3 /* testAnimationMaskEmmiters */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4967868320B30265000B1083 /* Lottie.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lottie.framework;
+			remoteRef = 4967868220B30265000B1083 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4967868520B30265000B1083 /* Lottie.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lottie.framework;
+			remoteRef = 4967868420B30265000B1083 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4967868720B30265000B1083 /* Lottie.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Lottie.framework;
+			remoteRef = 4967868620B30265000B1083 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4967868920B30265000B1083 /* libLottie.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLottie.a;
+			remoteRef = 4967868820B30265000B1083 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4967868B20B30265000B1083 /* libLottie.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLottie.a;
+			remoteRef = 4967868A20B30265000B1083 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		41756BE2EFE0A6FF676D13F7 /* Resources */ = {
@@ -173,6 +293,7 @@
 				41756E84A701953547291B55 /* Assets.xcassets in Resources */,
 				417561D4664546C8961BAC34 /* LaunchScreen.storyboard in Resources */,
 				41756AEACEC868E437D92516 /* Main.storyboard in Resources */,
+				4967867820B2FE20000B1083 /* giftbox.json in Resources */,
 				41756639322E50C0413C70FD /* preview.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +318,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4967868D20B30279000B1083 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lottie_iOS;
+			targetProxy = 4967868C20B30279000B1083 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4175606083F3777CF3725EC9 /* LaunchScreen.storyboard */ = {
@@ -274,6 +403,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testAnimationMaskEmmiters",
+					"\"$(SRCROOT)/testAnimationMaskEmmiters/Lottie.framework/Headers/\"",
+				);
 				INFOPLIST_FILE = testAnimationMaskEmmiters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.testAnimationMaskEmmiters;
@@ -344,6 +479,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GA7JUF7GUE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/testAnimationMaskEmmiters",
+					"\"$(SRCROOT)/testAnimationMaskEmmiters/Lottie.framework/Headers/\"",
+				);
 				INFOPLIST_FILE = testAnimationMaskEmmiters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.testAnimationMaskEmmiters;
