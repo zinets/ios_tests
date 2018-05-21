@@ -63,7 +63,7 @@
 - (IBAction)onFavTap:(id)sender {
     CGPoint center = self.previewImageView.center;
     __weak typeof(self) weakSelf = self;
-    [sender performPreSelectAnimation:center lottieAnimation:^{
+    [sender setSelectedUsingAnimation:^{
         LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
         animation.frame = weakSelf.animationSite.bounds;
         [weakSelf.animationSite addSubview:animation];
@@ -71,12 +71,12 @@
             [animation removeFromSuperview];
             weakSelf.testFavButton.selected = YES;
         }];
-    }];
+    } atFinishPoint:center];
 }
 
 - (IBAction)onTap:(LottieAnimatedButton *)sender {
     CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
-    
+    [sender setSelectedUsingAnimation:nil atFinishPoint:center];
     
     return;
     

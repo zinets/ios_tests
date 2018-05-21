@@ -129,7 +129,7 @@
     }
 }
 
-- (void)performPreSelectAnimation:(CGPoint)destPoint lottieAnimation:(void (^)(void))block {
+- (void)setSelectedUsingAnimation:(void (^)(void))lottieAnimation atFinishPoint:(CGPoint)destPoint {
     if (self.selected) {
         self.selected = NO;
     } else {
@@ -170,8 +170,8 @@
         rotateAnimation.repeatCount = 1;
         
         PreSelectAnimationDelegateObject *delegate;
-        if (block) {
-            delegate = [[PreSelectAnimationDelegateObject alloc] initWithAnimationBlock:block];
+        if (lottieAnimation) {
+            delegate = [[PreSelectAnimationDelegateObject alloc] initWithAnimationBlock:lottieAnimation];
         } else {
             delegate = [[PreSelectAnimationDelegateObject alloc] initWithButtonToSelect:self];
         }
