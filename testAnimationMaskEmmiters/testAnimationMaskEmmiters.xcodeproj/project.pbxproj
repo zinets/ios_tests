@@ -17,7 +17,7 @@
 		41756BF234B2A09E3AEC016D /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756A480564D29E752E9A6B /* UIImage+Thumbnails.m */; };
 		41756C0B2BE249D1483A298F /* AnimatedMaskView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 417566CCFAD9ACDBAE6123BB /* AnimatedMaskView2.m */; };
 		41756E84A701953547291B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417565E1C297266FC10CF68A /* Assets.xcassets */; };
-		4967866020B2B028000B1083 /* CupidProfileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967865F20B2B028000B1083 /* CupidProfileButton.m */; };
+		4967866020B2B028000B1083 /* LottieAnimatedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967865F20B2B028000B1083 /* LottieAnimatedButton.m */; };
 		4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967866D20B2DEB3000B1083 /* ColorButton.m */; };
 		4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967867220B2E759000B1083 /* UIColor+MUIColor.m */; };
 		4967867820B2FE20000B1083 /* giftbox.json in Resources */ = {isa = PBXBuildFile; fileRef = 4967867720B2FE20000B1083 /* giftbox.json */; };
@@ -86,8 +86,8 @@
 		41756DFD5C8EB19BCB2DE3CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		41756E01BA597483590220D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		41756FB37E4EC710383D0DA5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4967865E20B2B028000B1083 /* CupidProfileButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CupidProfileButton.h; sourceTree = "<group>"; };
-		4967865F20B2B028000B1083 /* CupidProfileButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CupidProfileButton.m; sourceTree = "<group>"; };
+		4967865E20B2B028000B1083 /* LottieAnimatedButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LottieAnimatedButton.h; sourceTree = "<group>"; };
+		4967865F20B2B028000B1083 /* LottieAnimatedButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LottieAnimatedButton.m; sourceTree = "<group>"; };
 		4967866D20B2DEB3000B1083 /* ColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorButton.m; sourceTree = "<group>"; };
 		4967866E20B2DEB3000B1083 /* ColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorButton.h; sourceTree = "<group>"; };
 		4967867120B2E759000B1083 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 			children = (
 				4967866E20B2DEB3000B1083 /* ColorButton.h */,
 				4967866D20B2DEB3000B1083 /* ColorButton.m */,
-				4967865E20B2B028000B1083 /* CupidProfileButton.h */,
-				4967865F20B2B028000B1083 /* CupidProfileButton.m */,
+				4967865E20B2B028000B1083 /* LottieAnimatedButton.h */,
+				4967865F20B2B028000B1083 /* LottieAnimatedButton.m */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				417567BE91B706E739C685CE /* main.m in Sources */,
-				4967866020B2B028000B1083 /* CupidProfileButton.m in Sources */,
+				4967866020B2B028000B1083 /* LottieAnimatedButton.m in Sources */,
 				417563C6E538BD7F97463787 /* AppDelegate.m in Sources */,
 				4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */,
 				4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */,

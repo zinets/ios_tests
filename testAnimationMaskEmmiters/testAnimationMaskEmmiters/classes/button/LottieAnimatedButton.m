@@ -6,7 +6,7 @@
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
-#import "CupidProfileButton.h"
+#import "LottieAnimatedButton.h"
 
 @interface PreSelectAnimationDelegateObject : NSObject <CAAnimationDelegate>
 @property (nonatomic, weak) UIButton *buttonToSelect;
@@ -44,13 +44,13 @@
 
 @end
 
-@interface CupidProfileButton() <CAAnimationDelegate> {
+@interface LottieAnimatedButton() <CAAnimationDelegate> {
     CAShapeLayer *pulseLayer;
     CALayer *iconLayer;
 }
 @end
 
-@implementation CupidProfileButton
+@implementation LottieAnimatedButton
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];

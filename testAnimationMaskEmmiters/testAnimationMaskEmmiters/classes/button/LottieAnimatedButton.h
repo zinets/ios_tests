@@ -8,6 +8,6 @@
 
 #import "ColorButton.h"
 
-@interface CupidProfileButton : ColorButton
+@interface LottieAnimatedButton : ColorButton
 - (void)performPreSelectAnimation:(CGPoint)destPoint lottieAnimation:(void (^)(void))block;
 @end

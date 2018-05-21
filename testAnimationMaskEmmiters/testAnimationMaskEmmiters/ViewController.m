@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "AnimatedMaskView.h"
 #import "AnimatedMaskView2.h"
-#import "CupidProfileButton.h"
+#import "LottieAnimatedButton.h"
 #import "UIColor+MUIColor.h"
 
 #import <Lottie/Lottie.h>
@@ -19,8 +19,8 @@
 @property (weak, nonatomic) IBOutlet AnimatedMaskView *i2;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView *i3;
 
-@property (weak, nonatomic) IBOutlet CupidProfileButton *testFavButton;
-@property (weak, nonatomic) IBOutlet CupidProfileButton *testBtn2;
+@property (weak, nonatomic) IBOutlet LottieAnimatedButton *testFavButton;
+@property (weak, nonatomic) IBOutlet LottieAnimatedButton *testBtn2;
 @property (weak, nonatomic) IBOutlet UIView *animationSite;
 @end
 
@@ -74,7 +74,7 @@
     }];
 }
 
-- (IBAction)onTap:(CupidProfileButton *)sender {
+- (IBAction)onTap:(LottieAnimatedButton *)sender {
     CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
     
     
