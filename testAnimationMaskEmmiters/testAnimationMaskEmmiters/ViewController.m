@@ -76,8 +76,9 @@
 
 - (IBAction)onTap:(LottieAnimatedButton *)sender {
     CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
-    [sender setSelectedUsingAnimation:nil atFinishPoint:center];
-    
+//    [sender setSelectedUsingAnimation:nil atFinishPoint:center];
+//
+    sender.selected = !sender.selected;
     return;
     
     
