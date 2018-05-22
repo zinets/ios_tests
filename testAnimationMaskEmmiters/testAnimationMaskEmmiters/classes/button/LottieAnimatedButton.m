@@ -189,7 +189,8 @@
         }
         ga.delegate = delegate;
         ga.animations = @[pathAnimation, scaleAnimation, rotateAnimation];
-        
+
+        _iconLayer.transform = CATransform3DMakeScale(0., 0., 1); // мнекажется иногда редко, но - после улета "hlited" иконки она возвращалась в конце анимации назад и успевала мигнуть перед убиранием из слоя; поэтому оставлю ее размер нулевым, а потом сразу удалю - вроде пофиксило
         [_iconLayer addAnimation:ga forKey:@"animation"];
     }
 }

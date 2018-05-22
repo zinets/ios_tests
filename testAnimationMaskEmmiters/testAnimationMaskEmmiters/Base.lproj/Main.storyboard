@@ -36,6 +36,14 @@
                                     <constraint firstItem="SEC-TB-if4" firstAttribute="centerY" secondItem="tAx-kR-NKi" secondAttribute="centerY" id="zbo-dc-ekP"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R5i-km-ORF" customClass="AnimatedMaskView2">
+                                <rect key="frame" x="147" y="344" width="196" height="232"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mCk-BC-WMF" appends="YES" id="y23-hx-pXg"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sr-cN-QLq">
                                 <rect key="frame" x="32" y="344" width="35" height="30"/>
                                 <state key="normal" title="reset"/>
@@ -67,7 +75,7 @@
                                 </constraints>
                                 <state key="normal" image="favorite2"/>
                                 <state key="selected" image="favorite2_selected"/>
-                                <state key="highlighted" image="favorite2_hlited"/>
+                                <state key="highlighted" image="red_circle"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="20"/>
@@ -93,7 +101,7 @@
                                 </constraints>
                                 <state key="normal" image="winkIcon"/>
                                 <state key="selected" image="winkIcon_selected"/>
-                                <state key="highlighted" image="winkIcon_hlited"/>
+                                <state key="highlighted" image="red_circle"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="20"/>
@@ -124,22 +132,27 @@
                     </view>
                     <connections>
                         <outlet property="animationSite" destination="SEC-TB-if4" id="34s-on-jIv"/>
+                        <outlet property="i3" destination="R5i-km-ORF" id="atz-fq-aaa"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>
                         <outlet property="testBtn2" destination="wve-Vk-NLa" id="sZd-dR-vDX"/>
                         <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="mCk-BC-WMF">
+                    <connections>
+                        <action selector="doubleTap:" destination="BYZ-38-t0r" id="xYs-si-C51"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
         <image name="favorite2" width="24" height="24"/>
-        <image name="favorite2_hlited" width="24" height="24"/>
         <image name="favorite2_selected" width="24" height="24"/>
+        <image name="red_circle" width="42" height="42"/>
         <image name="winkIcon" width="24" height="24"/>
-        <image name="winkIcon_hlited" width="24" height="24"/>
         <image name="winkIcon_selected" width="24" height="24"/>
     </resources>
 </document>

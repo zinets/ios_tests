@@ -16,8 +16,8 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
-@property (weak, nonatomic) IBOutlet AnimatedMaskView *i2;
-@property (weak, nonatomic) IBOutlet AnimatedMaskView *i3;
+@property (weak, nonatomic) IBOutlet AnimatedMaskView2 *i3;
+
 
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testFavButton;
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testBtn2;
@@ -37,12 +37,19 @@
     
     [self.testBtn2 setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.testBtn2 setBackgroundColor:[UIColor colorWithHex:0x983dda] forState:(UIControlStateSelected)];
-    
+
+
+    self.i3.bwMode = YES;
+    self.i3.bwChangingStyle = BWChangeStyleFade;
+
+}
+
+- (IBAction)doubleTap:(id)sender {
+    self.i3.bwMode = !self.i3.bwMode;
 }
 
 - (IBAction)reset:(id)sender {
     self.previewImageView.image = [UIImage imageNamed:@"preview.jpg"];
-    self.i2.image = [UIImage imageNamed:@"preview.jpg"];
     self.i3.image = [UIImage imageNamed:@"preview.jpg"];
 
 }
@@ -54,8 +61,7 @@
 
 - (IBAction)animate:(id)sender {
 //    [self.previewImageView animate];
-    [self.i2 animate];
-    [self.i3 animate];
+
 }
 
 #pragma mark button animations -
@@ -86,14 +92,15 @@
         self.previewImageView.bwMode = YES;
         self.testBtn2.selected = NO;
     } else {
-        CGPoint center = self.previewImageView.center;
+        CGPoint center = self.i3.center;
+
         __weak typeof(self) weakSelf = self;
         [sender setSelectedUsingAnimation:^{
-            weakSelf.previewImageView.bwMode = NO;
+            weakSelf.i3.bwMode = NO;
 
             LOTAnimationView *animation = [LOTAnimationView animationNamed:@"boom-wink"];
-            animation.frame = weakSelf.animationSite.bounds;
-            [weakSelf.animationSite addSubview:animation];
+            animation.frame = weakSelf.i3.bounds;
+            [weakSelf.i3 addSubview:animation];
             [animation playWithCompletion:^(BOOL animationFinished) {
                 [animation removeFromSuperview];
                 weakSelf.testBtn2.selected = YES;
