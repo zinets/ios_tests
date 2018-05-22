@@ -70,7 +70,7 @@
         [sender setSelectedUsingAnimation:^{
             weakSelf.previewImageView.bwMode = NO;
             
-            LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
+            LOTAnimationView *animation = [LOTAnimationView animationNamed:@"boom-favorites"];
             animation.frame = weakSelf.animationSite.bounds;
             [weakSelf.animationSite addSubview:animation];
             [animation playWithCompletion:^(BOOL animationFinished) {
@@ -82,34 +82,24 @@
 }
 
 - (IBAction)onTap:(LottieAnimatedButton *)sender {
-    CGPoint center = self.previewImageView.center; //CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMidY(self.view.frame));
-//    [sender setSelectedUsingAnimation:nil atFinishPoint:center];
-//
-    sender.selected = !sender.selected;
-    return;
-    
-    
     if (sender.selected) {
-        sender.selected = NO;
-        return;
+        self.previewImageView.bwMode = YES;
+        self.testBtn2.selected = NO;
+    } else {
+        CGPoint center = self.previewImageView.center;
+        __weak typeof(self) weakSelf = self;
+        [sender setSelectedUsingAnimation:^{
+            weakSelf.previewImageView.bwMode = NO;
+
+            LOTAnimationView *animation = [LOTAnimationView animationNamed:@"boom-wink"];
+            animation.frame = weakSelf.animationSite.bounds;
+            [weakSelf.animationSite addSubview:animation];
+            [animation playWithCompletion:^(BOOL animationFinished) {
+                [animation removeFromSuperview];
+                weakSelf.testBtn2.selected = YES;
+            }];
+        } atFinishPoint:center];
     }
-    
-    UIImageView *icon = [UIImageView new];
-    CGRect frm = [self.view convertRect:sender.imageView.frame fromView:sender];
-    icon.image = [sender imageForState:(UIControlStateHighlighted)];
-    icon.frame = frm;
-    [self.view addSubview:icon];
-    
-    
-    [UIView animateWithDuration:0.9 animations:^{
-        icon.center = center;
-    } completion:^(BOOL finished) {
-        [self startParticles:center tag:(NSInteger)sender.tag];
-        [icon removeFromSuperview];
-        
-        sender.selected = YES;
-    }];
-    
 }
 
 - (void)startParticles:(CGPoint)startPoint tag:(NSInteger)tag {

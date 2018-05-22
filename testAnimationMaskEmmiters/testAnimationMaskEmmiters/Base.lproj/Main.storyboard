@@ -58,18 +58,6 @@
                                     <action selector="changeBw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o5u-gX-Nk2"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHG-x8-bJE" customClass="AnimatedMaskView">
-                                <rect key="frame" x="195" y="345" width="135" height="177"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-hp-DzU" customClass="AnimatedMaskView">
-                                <rect key="frame" x="195" y="530" width="164" height="117"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="117" id="RWA-kS-14x"/>
-                                    <constraint firstAttribute="width" constant="164" id="pUR-9i-Svp"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-g1-Uwn" customClass="LottieAnimatedButton">
                                 <rect key="frame" x="32" y="456" width="42" height="40"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,8 +77,15 @@
                                     <action selector="onFavTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qqg-ej-NKv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN8-zP-fhb">
+                                <rect key="frame" x="32" y="504" width="35" height="30"/>
+                                <state key="normal" title="lottie"/>
+                                <connections>
+                                    <action selector="lottieTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iti-QQ-pTP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wve-Vk-NLa" customClass="LottieAnimatedButton">
-                                <rect key="frame" x="326" y="449" width="42" height="40"/>
+                                <rect key="frame" x="97" y="456" width="42" height="40"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="7uv-q4-XTT"/>
@@ -108,22 +103,11 @@
                                     <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJq-JY-Dgg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN8-zP-fhb">
-                                <rect key="frame" x="32" y="504" width="35" height="30"/>
-                                <state key="normal" title="lottie"/>
-                                <connections>
-                                    <action selector="lottieTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iti-QQ-pTP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="4Oe-Ju-NsD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zHG-x8-bJE" secondAttribute="bottom" constant="145" id="I8n-X5-QWk"/>
                             <constraint firstItem="AyD-g1-Uwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Idk-aL-pSC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zHG-x8-bJE" secondAttribute="trailing" constant="45" id="K7C-WD-Kpp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Sn-hp-DzU" secondAttribute="trailing" constant="16" id="LSI-Ru-wOm"/>
-                            <constraint firstItem="zHG-x8-bJE" firstAttribute="leading" secondItem="PCO-JW-pt0" secondAttribute="trailing" constant="108" id="QYC-9E-1AI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAx-kR-NKi" secondAttribute="trailing" constant="32" id="Qfn-M8-rwX"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SBi-RI-55c"/>
                             <constraint firstItem="fN8-zP-fhb" firstAttribute="top" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="8" id="Ulr-Mg-XNP"/>
@@ -131,19 +115,15 @@
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ZEm-wp-kch"/>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Zfh-Ao-EBk"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bVg-vV-IIJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="178" id="eCZ-WK-nsk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Sn-hp-DzU" secondAttribute="bottom" constant="20" id="edN-dw-mAa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="171" id="eCZ-WK-nsk"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="8" id="ogp-O2-L5s"/>
-                            <constraint firstItem="zHG-x8-bJE" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="top" constant="1" id="v4F-pz-HTN"/>
-                            <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="252" id="vLG-Nq-eKz"/>
+                            <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="23" id="vLG-Nq-eKz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="171" id="wfN-aW-tVx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="animationSite" destination="SEC-TB-if4" id="34s-on-jIv"/>
-                        <outlet property="i2" destination="zHG-x8-bJE" id="Tbi-Xv-hX7"/>
-                        <outlet property="i3" destination="5Sn-hp-DzU" id="f0L-En-vE3"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>
                         <outlet property="testBtn2" destination="wve-Vk-NLa" id="sZd-dR-vDX"/>
                         <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>

@@ -172,7 +172,7 @@
         
         CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         rotateAnimation.fromValue = @0;
-        rotateAnimation.toValue = @(3 * (directionFromLeft ? M_PI : -M_PI));
+        rotateAnimation.toValue = @(0.8 * (directionFromLeft ? M_PI : -M_PI));
         rotateAnimation.duration = ga.duration;
         rotateAnimation.repeatCount = 1;
         
