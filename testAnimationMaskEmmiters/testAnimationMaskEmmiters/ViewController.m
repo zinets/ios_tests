@@ -60,18 +60,25 @@
 
 #pragma mark button animations -
 
-- (IBAction)onFavTap:(id)sender {
-    CGPoint center = self.previewImageView.center;
-    __weak typeof(self) weakSelf = self;
-    [sender setSelectedUsingAnimation:^{
-        LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
-        animation.frame = weakSelf.animationSite.bounds;
-        [weakSelf.animationSite addSubview:animation];
-        [animation playWithCompletion:^(BOOL animationFinished) {
-            [animation removeFromSuperview];
-            weakSelf.testFavButton.selected = YES;
-        }];
-    } atFinishPoint:center];
+- (IBAction)onFavTap:(LottieAnimatedButton *)sender {
+    if (sender.selected) {
+        self.previewImageView.bwMode = YES;
+        self.testFavButton.selected = NO;
+    } else {
+        CGPoint center = self.previewImageView.center;
+        __weak typeof(self) weakSelf = self;
+        [sender setSelectedUsingAnimation:^{
+            weakSelf.previewImageView.bwMode = NO;
+            
+            LOTAnimationView *animation = [LOTAnimationView animationNamed:@"giftbox"];
+            animation.frame = weakSelf.animationSite.bounds;
+            [weakSelf.animationSite addSubview:animation];
+            [animation playWithCompletion:^(BOOL animationFinished) {
+                [animation removeFromSuperview];
+                weakSelf.testFavButton.selected = YES;
+            }];
+        } atFinishPoint:center];
+    }
 }
 
 - (IBAction)onTap:(LottieAnimatedButton *)sender {

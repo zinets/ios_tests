@@ -27,6 +27,7 @@
 - (CAShapeLayer *)maskLayer {
     if (!_maskLayer) {
         _maskLayer = [CAShapeLayer new];
+        _maskLayer.frame = self.bounds;
         _maskLayer.fillRule = kCAFillRuleEvenOdd;
         _maskLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
     }
@@ -36,6 +37,7 @@
 - (CALayer *)bwImageLayer {
     if (!_bwImageLayer) {
         _bwImageLayer = [CALayer new];
+        _bwImageLayer.frame = self.bounds;
         _bwImageLayer.mask = self.maskLayer;
 
         [self.layer addSublayer:_bwImageLayer];
@@ -70,29 +72,37 @@
 
     _maskLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
 }
-
 -(void)animateBWRemoving {
+    CGFloat w = 10;
+    CGFloat h = 10;
+    [self animateBWRemoving:(CGPoint){(self.bounds.size.width - w) / 2, (self.bounds.size.height - h) / 2}];
+}
+
+-(void)animateBWRemoving:(CGPoint)startPoint {
     CGFloat w = 10;
     CGFloat h = 10;
     NSTimeInterval animationDuration = 0.45;
 
-    UIBezierPath *framePath = [UIBezierPath bezierPathWithRect:self.bounds];
-    framePath.usesEvenOddFillRule = YES;
-
-    CGRect startFrame = (CGRect){(self.bounds.size.width - w) / 2, (self.bounds.size.height - h) / 2, w, h};
-    CGFloat radii = MIN(self.bounds.size.width, self.bounds.size.height) / 2;
-    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:startFrame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){radii, radii}];
-    [framePath appendPath:startPath];
-
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
     animationGroup.duration = animationDuration;
 
+    UIBezierPath *framePath = [UIBezierPath bezierPathWithRect:self.bounds];
+    framePath.usesEvenOddFillRule = YES;
+
+    // 1) весь фрейм - дырочка с размером 4*4 = дырка в "сером" слое в указанной точке
+    CGRect startFrame = (CGRect){startPoint, {w, h}};
+    CGFloat radii = MIN(self.bounds.size.width, self.bounds.size.height) / 2;
+    UIBezierPath *startPath = [UIBezierPath bezierPathWithRoundedRect:startFrame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){radii, radii}];
+    [framePath appendPath:startPath];
+    
     CABasicAnimation *maskAnimation1 = [CABasicAnimation animationWithKeyPath:@"path"];
     maskAnimation1.duration = animationGroup.duration / 2;
     maskAnimation1.fromValue = (id)framePath.CGPath;
 
     framePath = [UIBezierPath bezierPathWithRect:self.bounds];
     framePath.usesEvenOddFillRule = YES;
+    
+    // 2) весь фрейм - 1/2 фрейма = "дырочка" в сером слое расширается с скругленными краями до "половины" фрейма
     CGRect finish1Frame = CGRectInset(self.bounds, self.bounds.size.width / 4, self.bounds.size.height / 4);
     UIBezierPath *finish1Path = [UIBezierPath bezierPathWithRoundedRect:finish1Frame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){radii, radii}];
     [framePath appendPath:finish1Path];
@@ -108,6 +118,7 @@
     framePath = [UIBezierPath bezierPathWithRect:self.bounds];
     framePath.usesEvenOddFillRule = YES;
     CGRect finish2Frame = self.bounds;
+    // 3) весь врейм со скруглением углов в 1 пк = дырка с скругленными краями на пол-фрейма расширяется на весь фрейм с уменьшением скругления
     UIBezierPath *finish2Path = [UIBezierPath bezierPathWithRoundedRect:finish2Frame byRoundingCorners:UIRectCornerAllCorners cornerRadii:(CGSize){1, 1}];
     [framePath appendPath:finish2Path];
 
