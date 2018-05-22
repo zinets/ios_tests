@@ -7,4 +7,6 @@
 
 @interface AnimatedMaskView2 : UIImageView
 @property (nonatomic) BOOL bwMode;
+/// отсюда начнет проявляться цветная версия; по умолчанию центр контрола
+@property (nonatomic) CGPoint startAnimationPoint;
 @end
