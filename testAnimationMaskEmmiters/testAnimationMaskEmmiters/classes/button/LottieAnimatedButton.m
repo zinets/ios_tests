@@ -56,13 +56,13 @@
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    self.animationDuration = 0.5;
+    self.animationDuration = 0.7;
     return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    self.animationDuration = 0.5;
+    self.animationDuration = 0.7;
     return self;
 }
 

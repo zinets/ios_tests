@@ -15,6 +15,7 @@
 		41756639322E50C0413C70FD /* preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417567B8B291B45A13B53EBE /* preview.jpg */; };
 		417567BE91B706E739C685CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756E01BA597483590220D0 /* main.m */; };
 		417568A7D884C1583BDCD5A8 /* AnimatedMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756227DA87CBE4CA54FA8A /* AnimatedMaskView.m */; };
+		417569876F79E9E1E06BF74A /* 80-80.json in Resources */ = {isa = PBXBuildFile; fileRef = 41756875AF67A1AFDCB40EA0 /* 80-80.json */; };
 		41756AEACEC868E437D92516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41756C0599DC9EBEE8290451 /* Main.storyboard */; };
 		41756BF234B2A09E3AEC016D /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756A480564D29E752E9A6B /* UIImage+Thumbnails.m */; };
 		41756C0B2BE249D1483A298F /* AnimatedMaskView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 417566CCFAD9ACDBAE6123BB /* AnimatedMaskView2.m */; };
@@ -24,6 +25,9 @@
 		4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967866D20B2DEB3000B1083 /* ColorButton.m */; };
 		4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4967867220B2E759000B1083 /* UIColor+MUIColor.m */; };
 		4967867820B2FE20000B1083 /* giftbox.json in Resources */ = {isa = PBXBuildFile; fileRef = 4967867720B2FE20000B1083 /* giftbox.json */; };
+		496E13B920B458670019C2DA /* Lottie.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4967868520B30265000B1083 /* Lottie.framework */; };
+		496E13BA20B459390019C2DA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4967868320B30265000B1083 /* Lottie.framework */; };
+		496E13BB20B459390019C2DA /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4967868320B30265000B1083 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +73,28 @@
 			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
 			remoteInfo = Lottie_iOS;
 		};
+		496E13BC20B459390019C2DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
+			remoteInfo = Lottie_iOS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		496E13BE20B459390019C2DA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				496E13BB20B459390019C2DA /* Lottie.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		417560A2D6611E6D7E997FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +109,7 @@
 		4175679DAA92FFD57DAEC942 /* boom-wink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "boom-wink.json"; sourceTree = "<group>"; };
 		417567B8B291B45A13B53EBE /* preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview.jpg; sourceTree = "<group>"; };
 		417567B94B2653D217C49F07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		41756875AF67A1AFDCB40EA0 /* 80-80.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "80-80.json"; sourceTree = "<group>"; };
 		417568F2E9D6C43F5D2AAB49 /* UIImage+Thumbnails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Thumbnails.h"; path = "../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/UIImage+Thumbnails.h"; sourceTree = "<group>"; };
 		41756A349FFF56006DDB7423 /* AnimatedMaskView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedMaskView2.h; sourceTree = "<group>"; };
 		41756A480564D29E752E9A6B /* UIImage+Thumbnails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Thumbnails.m"; path = "../../../../ios_tn/trunk/MUIControls/MUIControls/Classes/UIImage+Thumbnails.m"; sourceTree = "<group>"; };
@@ -107,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496E13BA20B459390019C2DA /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +210,7 @@
 				4175632C5146A3BB759B729D /* boom-favorites-at-search.json */,
 				41756A666A156F5A5C2DE6AA /* boom-favorites.json */,
 				4175679DAA92FFD57DAEC942 /* boom-wink.json */,
+				41756875AF67A1AFDCB40EA0 /* 80-80.json */,
 			);
 			path = files;
 			sourceTree = "<group>";
@@ -209,11 +237,13 @@
 				41756FE643192668AEC9BD17 /* Sources */,
 				4175679A8CD36D60BFD4396C /* Frameworks */,
 				41756BE2EFE0A6FF676D13F7 /* Resources */,
+				496E13BE20B459390019C2DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4967868D20B30279000B1083 /* PBXTargetDependency */,
+				496E13BD20B459390019C2DA /* PBXTargetDependency */,
 			);
 			name = testAnimationMaskEmmiters;
 			productName = testAnimationMaskEmmiters;
@@ -299,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496E13B920B458670019C2DA /* Lottie.framework in Resources */,
 				41756E84A701953547291B55 /* Assets.xcassets in Resources */,
 				417561D4664546C8961BAC34 /* LaunchScreen.storyboard in Resources */,
 				41756AEACEC868E437D92516 /* Main.storyboard in Resources */,
@@ -307,6 +338,7 @@
 				417565352ED7DCD84A7DBC9D /* boom-favorites-at-search.json in Resources */,
 				41756C9233B046E7E5979446 /* boom-favorites.json in Resources */,
 				417561F63B50F76DEBAC6B48 /* boom-wink.json in Resources */,
+				417569876F79E9E1E06BF74A /* 80-80.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +368,11 @@
 			isa = PBXTargetDependency;
 			name = Lottie_iOS;
 			targetProxy = 4967868C20B30279000B1083 /* PBXContainerItemProxy */;
+		};
+		496E13BD20B459390019C2DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Lottie_iOS;
+			targetProxy = 496E13BC20B459390019C2DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

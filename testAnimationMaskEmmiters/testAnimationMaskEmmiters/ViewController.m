@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *i3;
 
+@property (weak, nonatomic) IBOutlet UIImageView *favoriteMark;
+
 
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testFavButton;
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testBtn2;
@@ -40,12 +42,36 @@
 
 
     self.i3.bwMode = YES;
-    self.i3.bwChangingStyle = BWChangeStyleFade;
+    self.i3.bwChangingStyle = BWChangeStyleScale;
 
 }
 
-- (IBAction)doubleTap:(id)sender {
-    self.i3.bwMode = !self.i3.bwMode;
+- (IBAction)doubleTap:(UITapGestureRecognizer *)sender {
+    __weak typeof(self) weakSelf = self;
+    if (self.i3.bwMode) {
+        CGRect frm = (CGRect){0, 0, 80, 80};
+        LOTAnimationView *animationView = [LOTAnimationView animationNamed:@"80-80"];
+        animationView.frame = frm;
+        
+        UIView *wnd = [UIApplication sharedApplication].keyWindow;
+        animationView.center = [wnd convertPoint:self.favoriteMark.center fromView:self.view];
+        [wnd addSubview:animationView];
+
+        NSTimeInterval duration = animationView.sceneModel.timeDuration / 2;
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            self.favoriteMark.highlighted = self.i3.bwMode;
+        });
+
+        [animationView playWithCompletion:^(BOOL animationFinished) {
+            [animationView removeFromSuperview];
+
+            weakSelf.i3.bwMode = !self.i3.bwMode;
+        }];
+    } else {
+        self.i3.bwMode = !self.i3.bwMode;
+        self.favoriteMark.highlighted = !self.i3.bwMode;
+    }
 }
 
 - (IBAction)reset:(id)sender {
