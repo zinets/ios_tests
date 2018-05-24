@@ -37,10 +37,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5i-km-ORF" customClass="AnimatedMaskView2">
-                                <rect key="frame" x="147" y="344" width="196" height="232"/>
+                                <rect key="frame" x="147" y="344" width="102" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="232" id="TiT-uq-7fZ"/>
+                                    <constraint firstAttribute="height" constant="60" id="TiT-uq-7fZ"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mCk-BC-WMF" appends="YES" id="y23-hx-pXg"/>
@@ -127,6 +127,46 @@
                                     <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJq-JY-Dgg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihh-Fy-o5j" customClass="ColorButton">
+                                <rect key="frame" x="21" y="619" width="118" height="24"/>
+                                <color key="backgroundColor" red="0.09912109375" green="0.91509331599999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="FhZ-he-pCp"/>
+                                    <constraint firstAttribute="width" constant="118" id="gt9-f3-fhb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Message" image="mail"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBlockButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MkM-Cm-N4F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEY-dv-0SA" customClass="ColorButton">
+                                <rect key="frame" x="147" y="619" width="118" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="ghg-Gf-0nY"/>
+                                    <constraint firstAttribute="height" constant="24" id="onb-Eh-rTz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="View on map" image="pinIconSmall">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBlockButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3W-km-obt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -134,8 +174,10 @@
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="4Oe-Ju-NsD"/>
                             <constraint firstItem="BCJ-e5-9r4" firstAttribute="leading" secondItem="R5i-km-ORF" secondAttribute="leading" constant="8" id="5O9-gU-Hzw"/>
                             <constraint firstItem="RB5-i4-v6z" firstAttribute="centerY" secondItem="BCJ-e5-9r4" secondAttribute="centerY" id="8t9-Ew-ywx"/>
+                            <constraint firstItem="nEY-dv-0SA" firstAttribute="leading" secondItem="ihh-Fy-o5j" secondAttribute="trailing" constant="8" id="ESV-FB-ZZd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ihh-Fy-o5j" secondAttribute="bottom" constant="24" id="EuV-Ee-vRS"/>
                             <constraint firstItem="AyD-g1-Uwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Idk-aL-pSC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R5i-km-ORF" secondAttribute="trailing" constant="32" id="Lmm-zv-gph"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R5i-km-ORF" secondAttribute="trailing" constant="126" id="Lmm-zv-gph"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAx-kR-NKi" secondAttribute="trailing" constant="32" id="Qfn-M8-rwX"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SBi-RI-55c"/>
                             <constraint firstItem="R5i-km-ORF" firstAttribute="leading" secondItem="wve-Vk-NLa" secondAttribute="trailing" constant="8" id="UGq-2y-okP"/>
@@ -145,9 +187,11 @@
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Zfh-Ao-EBk"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bVg-vV-IIJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="171" id="eCZ-WK-nsk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nEY-dv-0SA" secondAttribute="bottom" constant="24" id="fhd-CT-IRm"/>
                             <constraint firstItem="R5i-km-ORF" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="knO-mD-g82"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="8" id="ogp-O2-L5s"/>
                             <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="23" id="vLG-Nq-eKz"/>
+                            <constraint firstItem="ihh-Fy-o5j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="wdg-OL-HKO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="171" id="wfN-aW-tVx"/>
                             <constraint firstItem="RB5-i4-v6z" firstAttribute="leading" secondItem="BCJ-e5-9r4" secondAttribute="trailing" constant="4" id="yBM-rP-LLf"/>
                         </constraints>
@@ -157,6 +201,8 @@
                         <outlet property="animationSite" destination="SEC-TB-if4" id="34s-on-jIv"/>
                         <outlet property="favoriteMark" destination="BCJ-e5-9r4" id="XCT-jQ-8J8"/>
                         <outlet property="i3" destination="R5i-km-ORF" id="atz-fq-aaa"/>
+                        <outlet property="mapButton" destination="nEY-dv-0SA" id="5d0-cz-LW2"/>
+                        <outlet property="messageButton" destination="ihh-Fy-o5j" id="r5s-ff-zUu"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>
                         <outlet property="testBtn2" destination="wve-Vk-NLa" id="sZd-dR-vDX"/>
                         <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>
@@ -178,6 +224,8 @@
         <image name="favorite2_selected" width="24" height="24"/>
         <image name="favoriteActive" width="20" height="20"/>
         <image name="favoriteInactive" width="20" height="20"/>
+        <image name="mail" width="10" height="8"/>
+        <image name="pinIconSmall" width="10" height="10"/>
         <image name="winkIcon" width="24" height="24"/>
         <image name="winkIcon_hlited" width="24" height="26"/>
         <image name="winkIcon_selected" width="24" height="24"/>

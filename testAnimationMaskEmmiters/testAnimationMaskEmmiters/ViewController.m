@@ -7,12 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "AnimatedMaskView.h"
+
 #import "AnimatedMaskView2.h"
 #import "LottieAnimatedButton.h"
 #import "UIColor+MUIColor.h"
 
-#import <Lottie/Lottie.h>
+@import Lottie;
+@import TNURLImageView;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
@@ -24,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testFavButton;
 @property (weak, nonatomic) IBOutlet LottieAnimatedButton *testBtn2;
 @property (weak, nonatomic) IBOutlet UIView *animationSite;
+
+@property (weak, nonatomic) IBOutlet ColorButton *messageButton;
+@property (weak, nonatomic) IBOutlet ColorButton *mapButton;
+
 @end
 
 @implementation ViewController
@@ -91,6 +96,19 @@
 }
 
 #pragma mark button animations -
+
+- (IBAction)onBlockButtonTap:(id)sender {
+    if (sender == self.messageButton) {
+        [self switchToButton:self.mapButton fromButton:sender];
+    } else {
+        [self switchToButton:self.messageButton fromButton:sender];
+    }
+}
+
+- (void)switchToButton:(UIButton *)toButton fromButton:(UIButton *)fromButton {
+    toButton.hidden = NO;
+    fromButton.hidden = YES;
+}
 
 - (IBAction)onFavTap:(LottieAnimatedButton *)sender {
     if (sender.selected) {

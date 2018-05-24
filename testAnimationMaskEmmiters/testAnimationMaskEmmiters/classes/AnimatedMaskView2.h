@@ -5,11 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    BWChangeStyleFade,
-    // todo: rename me!
-    BWChangeStyleScale,
-} BWChangeStyle;
+#import "GrayscaleImageView.h"
 
 @interface AnimatedMaskView2 : UIImageView
 /// ч/б режим?
