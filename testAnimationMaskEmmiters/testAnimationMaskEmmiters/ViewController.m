@@ -37,6 +37,7 @@
     [super viewDidLoad];
 
     self.previewImageView.bwMode = YES;
+    self.previewImageView.bwChangingStyle = BWChangeStyleScale;
     
     [self.testFavButton setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.testFavButton setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];

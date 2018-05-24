@@ -99,12 +99,14 @@
 #pragma mark -
 
 -(void)addBWLayer {
-    UIImage *grayscaleImage = self.image; // ...
-//    (id)[self.image grayScaleImageWithBgColor:self.backgroundColor].CGImage;
-    self.bwImageLayer.contents = (id)grayscaleImage.CGImage;
-    self.bwImageLayer.contentsGravity = self.layer.contentsGravity;
-    
-    _maskLayer.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+    __weak typeof(self) weakSelf = self;
+    [self getImageWithType:ImageTypeGrayscale onImageLoaded:^(UIImage *image) {
+        UIImage *grayscaleImage = image;
+        weakSelf.bwImageLayer.contents = (id)grayscaleImage.CGImage;
+        weakSelf.bwImageLayer.contentsGravity = self.layer.contentsGravity;
+
+        weakSelf.maskLayer.path = [UIBezierPath bezierPathWithRect:weakSelf.bounds].CGPath;
+    }];
 }
 
 -(void)animateBWRemovingWithFade {
