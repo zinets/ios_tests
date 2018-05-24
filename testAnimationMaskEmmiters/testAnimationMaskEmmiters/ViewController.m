@@ -16,7 +16,7 @@
 @import TNURLImageView;
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet AnimatedMaskView2 *previewImageView;
+@property (weak, nonatomic) IBOutlet GrayscaleImageView *previewImageView;
 @property (weak, nonatomic) IBOutlet AnimatedMaskView2 *i3;
 
 @property (weak, nonatomic) IBOutlet UIImageView *favoriteMark;
@@ -37,7 +37,6 @@
     [super viewDidLoad];
 
     self.previewImageView.bwMode = YES;
-    self.previewImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.testFavButton setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.testFavButton setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];
@@ -80,9 +79,10 @@
 }
 
 - (IBAction)reset:(id)sender {
-    self.previewImageView.image = [UIImage imageNamed:@"preview.jpg"];
-    self.i3.image = [UIImage imageNamed:@"preview.jpg"];
+//    self.previewImageView.image = [UIImage imageNamed:@"preview.jpg"];
+    [self.previewImageView loadImageFromUrl:@"https://learnappmaking.com/wp-content/uploads/2017/10/uialertcontroller-alerts-swift-how-to-770.jpg"];
 
+    self.i3.image = [UIImage imageNamed:@"preview.jpg"];
 }
 
 - (IBAction)changeBw:(UIButton *)sender {

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAx-kR-NKi" customClass="AnimatedMaskView2">
+                            <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAx-kR-NKi" customClass="GrayscaleImageView">
                                 <rect key="frame" x="32" y="28" width="311" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEC-TB-if4">
@@ -37,10 +37,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5i-km-ORF" customClass="AnimatedMaskView2">
-                                <rect key="frame" x="147" y="344" width="102" height="60"/>
+                                <rect key="frame" x="147" y="344" width="196" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="TiT-uq-7fZ"/>
+                                    <constraint firstAttribute="height" constant="242" id="TiT-uq-7fZ"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mCk-BC-WMF" appends="YES" id="y23-hx-pXg"/>
@@ -68,18 +68,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCO-JW-pt0">
-                                <rect key="frame" x="32" y="382" width="55" height="30"/>
+                                <rect key="frame" x="32" y="376" width="55" height="30"/>
                                 <state key="normal" title="animate"/>
                                 <connections>
                                     <action selector="animate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hT3-G9-IR3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovO-vH-X3s">
-                                <rect key="frame" x="32" y="418" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="change bw"/>
-                                <connections>
-                                    <action selector="changeBw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o5u-gX-Nk2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-g1-Uwn" customClass="LottieAnimatedButton">
@@ -109,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wve-Vk-NLa" customClass="LottieAnimatedButton">
-                                <rect key="frame" x="97" y="456" width="42" height="40"/>
+                                <rect key="frame" x="82" y="456" width="42" height="40"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="7uv-q4-XTT"/>
@@ -167,6 +159,14 @@
                                     <action selector="onBlockButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3W-km-obt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovO-vH-X3s">
+                                <rect key="frame" x="32" y="414" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="change bw"/>
+                                <connections>
+                                    <action selector="changeBw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o5u-gX-Nk2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -177,10 +177,10 @@
                             <constraint firstItem="nEY-dv-0SA" firstAttribute="leading" secondItem="ihh-Fy-o5j" secondAttribute="trailing" constant="8" id="ESV-FB-ZZd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ihh-Fy-o5j" secondAttribute="bottom" constant="24" id="EuV-Ee-vRS"/>
                             <constraint firstItem="AyD-g1-Uwn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Idk-aL-pSC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R5i-km-ORF" secondAttribute="trailing" constant="126" id="Lmm-zv-gph"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R5i-km-ORF" secondAttribute="trailing" constant="32" id="Lmm-zv-gph"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAx-kR-NKi" secondAttribute="trailing" constant="32" id="Qfn-M8-rwX"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SBi-RI-55c"/>
-                            <constraint firstItem="R5i-km-ORF" firstAttribute="leading" secondItem="wve-Vk-NLa" secondAttribute="trailing" constant="8" id="UGq-2y-okP"/>
+                            <constraint firstItem="R5i-km-ORF" firstAttribute="leading" secondItem="wve-Vk-NLa" secondAttribute="trailing" constant="23" id="UGq-2y-okP"/>
                             <constraint firstItem="fN8-zP-fhb" firstAttribute="top" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="8" id="Ulr-Mg-XNP"/>
                             <constraint firstItem="fN8-zP-fhb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="W2o-2b-JEe"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ZEm-wp-kch"/>
@@ -189,8 +189,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="171" id="eCZ-WK-nsk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nEY-dv-0SA" secondAttribute="bottom" constant="24" id="fhd-CT-IRm"/>
                             <constraint firstItem="R5i-km-ORF" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="knO-mD-g82"/>
-                            <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="8" id="ogp-O2-L5s"/>
-                            <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="23" id="vLG-Nq-eKz"/>
+                            <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="2" id="ogp-O2-L5s"/>
+                            <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="8" id="vLG-Nq-eKz"/>
                             <constraint firstItem="ihh-Fy-o5j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="wdg-OL-HKO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="171" id="wfN-aW-tVx"/>
                             <constraint firstItem="RB5-i4-v6z" firstAttribute="leading" secondItem="BCJ-e5-9r4" secondAttribute="trailing" constant="4" id="yBM-rP-LLf"/>
@@ -203,7 +203,7 @@
                         <outlet property="i3" destination="R5i-km-ORF" id="atz-fq-aaa"/>
                         <outlet property="mapButton" destination="nEY-dv-0SA" id="5d0-cz-LW2"/>
                         <outlet property="messageButton" destination="ihh-Fy-o5j" id="r5s-ff-zUu"/>
-                        <outlet property="previewImageView" destination="tAx-kR-NKi" id="V7p-6G-sKg"/>
+                        <outlet property="previewImageView" destination="tAx-kR-NKi" id="Ngj-jB-oqa"/>
                         <outlet property="testBtn2" destination="wve-Vk-NLa" id="sZd-dR-vDX"/>
                         <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>
                     </connections>
