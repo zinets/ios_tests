@@ -14,7 +14,6 @@
 		417565352ED7DCD84A7DBC9D /* boom-favorites-at-search.json in Resources */ = {isa = PBXBuildFile; fileRef = 4175632C5146A3BB759B729D /* boom-favorites-at-search.json */; };
 		41756639322E50C0413C70FD /* preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417567B8B291B45A13B53EBE /* preview.jpg */; };
 		417567BE91B706E739C685CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756E01BA597483590220D0 /* main.m */; };
-		417568A7D884C1583BDCD5A8 /* AnimatedMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756227DA87CBE4CA54FA8A /* AnimatedMaskView.m */; };
 		417569876F79E9E1E06BF74A /* 80-80.json in Resources */ = {isa = PBXBuildFile; fileRef = 41756875AF67A1AFDCB40EA0 /* 80-80.json */; };
 		41756AEACEC868E437D92516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41756C0599DC9EBEE8290451 /* Main.storyboard */; };
 		41756BF234B2A09E3AEC016D /* UIImage+Thumbnails.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756A480564D29E752E9A6B /* UIImage+Thumbnails.m */; };
@@ -28,6 +27,9 @@
 		496E13B920B458670019C2DA /* Lottie.framework in Resources */ = {isa = PBXBuildFile; fileRef = 4967868520B30265000B1083 /* Lottie.framework */; };
 		496E13BA20B459390019C2DA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4967868320B30265000B1083 /* Lottie.framework */; };
 		496E13BB20B459390019C2DA /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4967868320B30265000B1083 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49FDABF820B690E500A605E5 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FDABF120B690A800A605E5 /* TNURLImageView.framework */; };
+		49FDABF920B690E500A605E5 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49FDABF120B690A800A605E5 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49FDABFE20B696E900A605E5 /* GrayscaleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FDABFD20B696E900A605E5 /* GrayscaleImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,20 @@
 			remoteGlobalIDString = 62CA59B71E3C173B002D7188;
 			remoteInfo = Lottie_iOS;
 		};
+		49FDABF020B690A800A605E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FDABE820B690A800A605E5 /* TNURLImageView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3D232E620AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
+		49FDABFA20B690E500A605E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FDABE820B690A800A605E5 /* TNURLImageView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B3D232E520AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +106,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				496E13BB20B459390019C2DA /* Lottie.framework in Embed Frameworks */,
+				49FDABF920B690E500A605E5 /* TNURLImageView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,9 +115,7 @@
 
 /* Begin PBXFileReference section */
 		417560A2D6611E6D7E997FEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		4175610BF5799454B7CA4868 /* AnimatedMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedMaskView.h; sourceTree = "<group>"; };
 		41756184B7CEAE51C45A266E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		41756227DA87CBE4CA54FA8A /* AnimatedMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedMaskView.m; sourceTree = "<group>"; };
 		417562685178700419907351 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		417562A4F3D88E014B7E423D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4175632C5146A3BB759B729D /* boom-favorites-at-search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "boom-favorites-at-search.json"; sourceTree = "<group>"; };
@@ -126,6 +141,9 @@
 		4967867220B2E759000B1083 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		4967867720B2FE20000B1083 /* giftbox.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = giftbox.json; sourceTree = "<group>"; };
 		4967867A20B30264000B1083 /* Lottie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../../../../../../Volumes/data/Downloads/lottie-ios-master/Lottie.xcodeproj"; sourceTree = "<group>"; };
+		49FDABE820B690A800A605E5 /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../ios_tn/trunk/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
+		49FDABFC20B696E900A605E5 /* GrayscaleImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GrayscaleImageView.h; sourceTree = "<group>"; };
+		49FDABFD20B696E900A605E5 /* GrayscaleImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrayscaleImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				496E13BA20B459390019C2DA /* Lottie.framework in Frameworks */,
+				49FDABF820B690E500A605E5 /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +162,11 @@
 		417562C7948B2D21E04104B8 = {
 			isa = PBXGroup;
 			children = (
+				49FDABE820B690A800A605E5 /* TNURLImageView.xcodeproj */,
 				4967867A20B30264000B1083 /* Lottie.xcodeproj */,
 				41756B1223221154B0123B10 /* Products */,
 				41756EF0D221F061DB20CA16 /* testAnimationMaskEmmiters */,
+				49FDABF220B690CB00A605E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,13 +181,13 @@
 		41756CBF28511B3ECAA99EF1 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				4175610BF5799454B7CA4868 /* AnimatedMaskView.h */,
-				41756227DA87CBE4CA54FA8A /* AnimatedMaskView.m */,
 				417568F2E9D6C43F5D2AAB49 /* UIImage+Thumbnails.h */,
 				41756A480564D29E752E9A6B /* UIImage+Thumbnails.m */,
 				417566CCFAD9ACDBAE6123BB /* AnimatedMaskView2.m */,
 				41756A349FFF56006DDB7423 /* AnimatedMaskView2.h */,
 				4967867020B2DEB8000B1083 /* button */,
+				49FDABFC20B696E900A605E5 /* GrayscaleImageView.h */,
+				49FDABFD20B696E900A605E5 /* GrayscaleImageView.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -227,6 +248,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		49FDABE920B690A800A605E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49FDABF120B690A800A605E5 /* TNURLImageView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49FDABF220B690CB00A605E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,6 +280,7 @@
 			dependencies = (
 				4967868D20B30279000B1083 /* PBXTargetDependency */,
 				496E13BD20B459390019C2DA /* PBXTargetDependency */,
+				49FDABFB20B690E500A605E5 /* PBXTargetDependency */,
 			);
 			name = testAnimationMaskEmmiters;
 			productName = testAnimationMaskEmmiters;
@@ -277,6 +314,10 @@
 				{
 					ProductGroup = 4967867B20B30264000B1083 /* Products */;
 					ProjectRef = 4967867A20B30264000B1083 /* Lottie.xcodeproj */;
+				},
+				{
+					ProductGroup = 49FDABE920B690A800A605E5 /* Products */;
+					ProjectRef = 49FDABE820B690A800A605E5 /* TNURLImageView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -322,6 +363,13 @@
 			remoteRef = 4967868A20B30265000B1083 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		49FDABF120B690A800A605E5 /* TNURLImageView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TNURLImageView.framework;
+			remoteRef = 49FDABF020B690A800A605E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -353,9 +401,9 @@
 				4967866020B2B028000B1083 /* LottieAnimatedButton.m in Sources */,
 				417563C6E538BD7F97463787 /* AppDelegate.m in Sources */,
 				4967866F20B2DEB3000B1083 /* ColorButton.m in Sources */,
+				49FDABFE20B696E900A605E5 /* GrayscaleImageView.m in Sources */,
 				4967867320B2E75A000B1083 /* UIColor+MUIColor.m in Sources */,
 				417561330587CEBA81A7609C /* ViewController.m in Sources */,
-				417568A7D884C1583BDCD5A8 /* AnimatedMaskView.m in Sources */,
 				41756BF234B2A09E3AEC016D /* UIImage+Thumbnails.m in Sources */,
 				41756C0B2BE249D1483A298F /* AnimatedMaskView2.m in Sources */,
 			);
@@ -373,6 +421,11 @@
 			isa = PBXTargetDependency;
 			name = Lottie_iOS;
 			targetProxy = 496E13BC20B459390019C2DA /* PBXContainerItemProxy */;
+		};
+		49FDABFB20B690E500A605E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TNURLImageView;
+			targetProxy = 49FDABFA20B690E500A605E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -462,7 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.testAnimationMaskEmmiters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -538,7 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.testAnimationMaskEmmiters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
