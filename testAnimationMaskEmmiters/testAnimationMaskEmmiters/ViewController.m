@@ -29,6 +29,12 @@
 @property (weak, nonatomic) IBOutlet ColorButton *messageButton;
 @property (weak, nonatomic) IBOutlet ColorButton *mapButton;
 
+
+
+@property (weak, nonatomic) IBOutlet LottieAnimatedButton *testButton3;
+@property (weak, nonatomic) IBOutlet LottieAnimatedButton *testButton4;
+
+
 @end
 
 @implementation ViewController
@@ -41,6 +47,7 @@
     
     [self.testFavButton setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.testFavButton setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];
+    self.testFavButton.animatedSelection = YES;
     
     [self.testBtn2 setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     [self.testBtn2 setBackgroundColor:[UIColor colorWithHex:0x983dda] forState:(UIControlStateSelected)];
@@ -49,6 +56,13 @@
     self.i3.bwMode = YES;
     self.i3.bwChangingStyle = BWChangeStyleScale;
 
+    
+    
+    [self.testButton3 setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    [self.testButton3 setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];
+    
+    [self.testButton4 setBackgroundColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    [self.testButton4 setBackgroundColor:[UIColor colorWithHex:0xff8600] forState:(UIControlStateSelected)];
 }
 
 - (IBAction)doubleTap:(UITapGestureRecognizer *)sender {
@@ -116,19 +130,22 @@
         self.previewImageView.bwMode = YES;
         self.testFavButton.selected = NO;
     } else {
-        CGPoint center = self.previewImageView.center;
         __weak typeof(self) weakSelf = self;
-        [sender setSelectedUsingAnimation:^{
+        sender.destPoint = self.previewImageView.center;
+        sender.destinationAnimationBlock = ^{
             weakSelf.previewImageView.bwMode = NO;
-            
+
             LOTAnimationView *animation = [LOTAnimationView animationNamed:@"boom-favorites"];
+            animation.contentMode = UIViewContentModeScaleAspectFit;
             animation.frame = weakSelf.animationSite.bounds;
             [weakSelf.animationSite addSubview:animation];
             [animation playWithCompletion:^(BOOL animationFinished) {
                 [animation removeFromSuperview];
                 weakSelf.testFavButton.selected = YES;
             }];
-        } atFinishPoint:center];
+        };
+
+        weakSelf.testFavButton.selected = YES;
     }
 }
 
@@ -193,6 +210,14 @@
     [animation playWithCompletion:^(BOOL animationFinished) {
         [animation removeFromSuperview];
     }];
+}
+- (IBAction)onTap3:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    self.testButton4.selected = !self.testButton4.selected;
+}
+
+- (IBAction)onTap4:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 @end

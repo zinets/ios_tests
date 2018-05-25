@@ -5,7 +5,8 @@
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
-@import TNURLImageView;
+//@import TNURLImageView;
+#import <TNURLImageView/TNURLImageView.h>;
 
 typedef enum {
     BWChangeStyleFade,
@@ -21,3 +22,4 @@ typedef enum {
 /// как проявляется цветная картинка
 @property (nonatomic) BWChangeStyle bwChangingStyle;
 @end
+

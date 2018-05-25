@@ -17,6 +17,14 @@
 */
 @interface LottieAnimatedButton : ColorButton
 - (void)setSelectedUsingAnimation:(void (^)(void))lottieAnimation atFinishPoint:(CGPoint)destPoint;
+
 /// время полета шмеля до начала "настоящей" анимации
 @property (nonatomic) NSTimeInterval animationDuration;
+/// пункт назначения для hlited иконки (которая при селекте летит в ибеня)
+@property (nonatomic) CGPoint destPoint;
+/// блок, который заработает после прибытия в пункт назначения
+@property (nonatomic, copy) void (^destinationAnimationBlock)(void);
+/// делать selected "как обычно" или с анимацией
+@property (nonatomic) BOOL animatedSelection;
+
 @end

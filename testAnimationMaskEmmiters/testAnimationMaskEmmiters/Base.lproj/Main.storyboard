@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -159,12 +160,49 @@
                                     <action selector="onBlockButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l3W-km-obt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovO-vH-X3s">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovO-vH-X3s">
                                 <rect key="frame" x="32" y="414" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="change bw"/>
                                 <connections>
                                     <action selector="changeBw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o5u-gX-Nk2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="904-hA-F6F" customClass="LottieAnimatedButton">
+                                <rect key="frame" x="32" y="542" width="42" height="40"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="E23-Zj-Ly0"/>
+                                    <constraint firstAttribute="width" constant="42" id="Fqc-Fx-nKD"/>
+                                </constraints>
+                                <state key="normal" image="favorite2"/>
+                                <state key="selected" image="favorite2_selected"/>
+                                <state key="highlighted" image="favorite2_hlited"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTap3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cM5-6c-5Vu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qu-B9-8We" customClass="LottieAnimatedButton">
+                                <rect key="frame" x="82" y="542" width="42" height="40"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.92549019610000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Ros-AC-56t"/>
+                                    <constraint firstAttribute="height" constant="40" id="cPv-C8-zOs"/>
+                                </constraints>
+                                <state key="normal" image="favorite2"/>
+                                <state key="selected" image="favorite2_selected"/>
+                                <state key="highlighted" image="favorite2_hlited"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTap4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5g-qV-ixT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -180,15 +218,21 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R5i-km-ORF" secondAttribute="trailing" constant="32" id="Lmm-zv-gph"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAx-kR-NKi" secondAttribute="trailing" constant="32" id="Qfn-M8-rwX"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="SBi-RI-55c"/>
+                            <constraint firstItem="904-hA-F6F" firstAttribute="leading" secondItem="ovO-vH-X3s" secondAttribute="leading" id="TT0-yE-OQ1"/>
                             <constraint firstItem="R5i-km-ORF" firstAttribute="leading" secondItem="wve-Vk-NLa" secondAttribute="trailing" constant="23" id="UGq-2y-okP"/>
                             <constraint firstItem="fN8-zP-fhb" firstAttribute="top" secondItem="AyD-g1-Uwn" secondAttribute="bottom" constant="8" id="Ulr-Mg-XNP"/>
                             <constraint firstItem="fN8-zP-fhb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="W2o-2b-JEe"/>
                             <constraint firstItem="tAx-kR-NKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="ZEm-wp-kch"/>
                             <constraint firstItem="2sr-cN-QLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Zfh-Ao-EBk"/>
+                            <constraint firstItem="9qu-B9-8We" firstAttribute="baseline" secondItem="904-hA-F6F" secondAttribute="baseline" id="bED-B7-IZC"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="bVg-vV-IIJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wve-Vk-NLa" secondAttribute="bottom" constant="171" id="eCZ-WK-nsk"/>
+                            <constraint firstItem="9qu-B9-8We" firstAttribute="firstBaseline" secondItem="904-hA-F6F" secondAttribute="firstBaseline" id="eVx-b4-VcF"/>
+                            <constraint firstItem="9qu-B9-8We" firstAttribute="leading" secondItem="wve-Vk-NLa" secondAttribute="leading" id="f8o-9k-JDi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nEY-dv-0SA" secondAttribute="bottom" constant="24" id="fhd-CT-IRm"/>
                             <constraint firstItem="R5i-km-ORF" firstAttribute="top" secondItem="tAx-kR-NKi" secondAttribute="bottom" constant="16" id="knO-mD-g82"/>
+                            <constraint firstItem="904-hA-F6F" firstAttribute="top" secondItem="fN8-zP-fhb" secondAttribute="bottom" constant="8" symbolic="YES" id="mnC-Bf-XGD"/>
+                            <constraint firstItem="904-hA-F6F" firstAttribute="leading" secondItem="fN8-zP-fhb" secondAttribute="leading" id="n7Q-G4-FRA"/>
                             <constraint firstItem="PCO-JW-pt0" firstAttribute="top" secondItem="2sr-cN-QLq" secondAttribute="bottom" constant="2" id="ogp-O2-L5s"/>
                             <constraint firstItem="wve-Vk-NLa" firstAttribute="leading" secondItem="AyD-g1-Uwn" secondAttribute="trailing" constant="8" id="vLG-Nq-eKz"/>
                             <constraint firstItem="ihh-Fy-o5j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="wdg-OL-HKO"/>
@@ -205,6 +249,8 @@
                         <outlet property="messageButton" destination="ihh-Fy-o5j" id="r5s-ff-zUu"/>
                         <outlet property="previewImageView" destination="tAx-kR-NKi" id="Ngj-jB-oqa"/>
                         <outlet property="testBtn2" destination="wve-Vk-NLa" id="sZd-dR-vDX"/>
+                        <outlet property="testButton3" destination="904-hA-F6F" id="dA2-Wr-lZN"/>
+                        <outlet property="testButton4" destination="9qu-B9-8We" id="Q06-Se-jWS"/>
                         <outlet property="testFavButton" destination="AyD-g1-Uwn" id="XwD-wd-vgx"/>
                     </connections>
                 </viewController>
