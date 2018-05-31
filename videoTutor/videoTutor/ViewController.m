@@ -11,7 +11,7 @@
 #import "VideoUploadMotivationViewController.h"
 #import "GradientButton.h"
 
-@interface ViewController ()
+@interface ViewController () <VideoTutorialViewControllerDelegate>
 
 @end
 
@@ -39,10 +39,25 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self showViewController:[OnboardingVideoTutorialViewController new] sender:self];
+    OnboardingVideoTutorialViewController *ctrl = [OnboardingVideoTutorialViewController new];
+    ctrl.delegate = self;
+    [self showViewController:ctrl sender:self];
 }
 
 - (IBAction)onTap2:(id)sender {
-    [self showViewController:[VideoUploadMotivationViewController new] sender:self];
+    VideoUploadMotivationViewController *ctrl = [VideoUploadMotivationViewController new];
+    ctrl.delegate = self;
+    [self showViewController:ctrl sender:self];
 }
+
+- (void)videoTutorial:(UIViewController *)sender didSelectAction:(VideoTutorialAction)action {
+    switch (action) {
+        case VideoTutorialActionDoAction:
+            NSLog(@"upload video action");
+        default:
+            [sender dismissViewControllerAnimated:YES completion:nil];
+            break;
+    }
+}
+
 @end

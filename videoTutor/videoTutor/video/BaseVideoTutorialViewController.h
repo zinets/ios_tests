@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseVideoTutorialViewController : UIViewController
+typedef enum {
+    VideoTutorialActionClose,
+    VideoTutorialActionDoAction,
+} VideoTutorialAction;
 
+@protocol VideoTutorialViewControllerDelegate <NSObject>
+- (void)videoTutorial:(UIViewController *)sender didSelectAction:(VideoTutorialAction)action;
+@end
+
+@interface BaseVideoTutorialViewController : UIViewController
+@property (nonatomic, weak) id <VideoTutorialViewControllerDelegate> delegate;
 @end

@@ -22,6 +22,7 @@
 @implementation BaseVideoTutorialViewController
 
 - (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
+    // lifefuck
     return [super initWithNibName:@"BaseVideoTutorialViewController" bundle:nil];
 }
 
@@ -48,12 +49,22 @@
     [self.backgroundVideoView stop];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+#pragma mark actions -
+
 - (IBAction)onClose:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.delegate respondsToSelector:@selector(videoTutorial:didSelectAction:)]) {
+        [self.delegate videoTutorial:self didSelectAction:(VideoTutorialActionClose)];
+    }
 }
 
 - (IBAction)onActionTap:(id)sender {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    if ([self.delegate respondsToSelector:@selector(videoTutorial:didSelectAction:)]) {
+        [self.delegate videoTutorial:self didSelectAction:(VideoTutorialActionDoAction)];
+    }
 }
 
 #pragma mark overrides -
