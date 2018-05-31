@@ -16,6 +16,7 @@
 
 - (void)commonInit {
     [self.layer addSublayer:self.gradientLayer];
+    
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -61,8 +62,7 @@
 -(CAGradientLayer *)gradientLayer {
     if (!_gradientLayer) {
         _gradientLayer = [CAGradientLayer layer];
-        _gradientLayer.startPoint = (CGPoint){0, .5};
-        _gradientLayer.endPoint = (CGPoint){1, .5};
+        self.gradientDirection = ButtonGradientDirectionHorizontal;
     }
     return _gradientLayer;
 }
@@ -80,6 +80,24 @@
 -(void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
     [self updateGradientLayer];
+}
+
+-(void)setGradientDirection:(ButtonGradientDirection)gradientDirection {
+    _gradientDirection = gradientDirection;
+    switch (_gradientDirection) {
+        case ButtonGradientDirectionDiagonal:
+            _gradientLayer.startPoint = (CGPoint){0, 0};
+            _gradientLayer.endPoint = (CGPoint){1, 1};
+            break;
+        case ButtonGradientDirectionVertical:
+            _gradientLayer.startPoint = (CGPoint){0.5, 0};
+            _gradientLayer.endPoint = (CGPoint){0.5, 1};
+            break;
+        case ButtonGradientDirectionHorizontal:
+            _gradientLayer.startPoint = (CGPoint){0, 0.5};
+            _gradientLayer.endPoint = (CGPoint){1, 0.5};
+            break;
+    }
 }
 
 @end
