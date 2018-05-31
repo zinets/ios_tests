@@ -15,7 +15,7 @@
 @implementation GradientButton
 
 - (void)commonInit {
-    [self.layer addSublayer:self.gradientLayer];//insertSublayer:self.gradientLayer atIndex:0];
+    [self.layer addSublayer:self.gradientLayer];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -61,8 +61,8 @@
 -(CAGradientLayer *)gradientLayer {
     if (!_gradientLayer) {
         _gradientLayer = [CAGradientLayer layer];
-        _gradientLayer.startPoint = (CGPointZero);
-        _gradientLayer.endPoint = (CGPoint){1, 1};
+        _gradientLayer.startPoint = (CGPoint){0, .5};
+        _gradientLayer.endPoint = (CGPoint){1, .5};
     }
     return _gradientLayer;
 }

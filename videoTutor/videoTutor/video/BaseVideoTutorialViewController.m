@@ -52,6 +52,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)onActionTap:(id)sender {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
+
 #pragma mark overrides -
 
 -(NSString *)mediaFileName {

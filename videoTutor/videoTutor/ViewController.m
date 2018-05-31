@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "OnboardingVideoTutorialViewController.h"
 #import "VideoUploadMotivationViewController.h"
+#import "GradientButton.h"
 
 @interface ViewController ()
 
@@ -18,7 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+ 
+    GradientButton *btn = [GradientButton buttonWithType:(UIButtonTypeCustom)];
+    btn.frame = (CGRect){20, 120, 190, 60};
+    btn.startGradientColor = [UIColor greenColor];
+    btn.endGradientColor = [UIColor brownColor];
+    btn.cornerRadius = 25;
+    [btn setTitle:@"Tap me полность" forState:(UIControlStateNormal)];
+    [btn addTarget:self action:@selector(onTap:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:btn];
+    
+ 
 }
 
 
