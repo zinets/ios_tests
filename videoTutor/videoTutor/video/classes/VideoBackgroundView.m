@@ -36,7 +36,7 @@
 }
 
 -(void)setMedia:(NSString *)media {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:media withExtension:@"mov"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:media withExtension:nil];
     AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
     
     [self.player replaceCurrentItemWithPlayerItem:playerItem];
@@ -51,6 +51,8 @@
 
 - (void)commonInit {
     [self.layer insertSublayer:self.playerLayer atIndex:0];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endOfVideo:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -67,7 +69,18 @@
     return self;
 }
 
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark public playing -
+
+- (void)endOfVideo:(NSNotification *)notification {
+    if (self.player.currentItem == notification.object) {
+        [self.player seekToTime:kCMTimeZero];
+        [self.player play];
+    }
+}
 
 - (void)play {
     if (self.player.status == AVPlayerStatusReadyToPlay) {

@@ -27,7 +27,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.backgroundVideoView.media = @"Untitled";
+    self.backgroundVideoView.media = @"Untitled.mov";
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
