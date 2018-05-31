@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, ButtonGradientDirection) {
+    ButtonGradientDirectionHorizontal,
     ButtonGradientDirectionDiagonal,
     ButtonGradientDirectionVertical,
-    ButtonGradientDirectionHorizontal,
 };
 
 IB_DESIGNABLE
