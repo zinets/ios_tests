@@ -19,6 +19,7 @@
 		494F007E20BFC4B300B84DA4 /* VideoTutorialResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494F007D20BFC4B300B84DA4 /* VideoTutorialResources.xcassets */; };
 		494F008420BFC5ED00B84DA4 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008320BFC5EC00B84DA4 /* UIColor+MUIColor.m */; };
 		494F008820BFC63800B84DA4 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008720BFC63800B84DA4 /* GradientButton.m */; };
+		494F008B20BFD2A100B84DA4 /* VideoBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		494F008320BFC5EC00B84DA4 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		494F008620BFC63800B84DA4 /* GradientButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		494F008720BFC63800B84DA4 /* GradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
+		494F008920BFD2A100B84DA4 /* VideoBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoBackgroundView.h; sourceTree = "<group>"; };
+		494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoBackgroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				494F008320BFC5EC00B84DA4 /* UIColor+MUIColor.m */,
 				494F008620BFC63800B84DA4 /* GradientButton.h */,
 				494F008720BFC63800B84DA4 /* GradientButton.m */,
+				494F008920BFD2A100B84DA4 /* VideoBackgroundView.h */,
+				494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				494F008420BFC5ED00B84DA4 /* UIColor+MUIColor.m in Sources */,
 				494F006B20BFC2EE00B84DA4 /* main.m in Sources */,
 				494F007A20BFC42F00B84DA4 /* VideoTutorialViewController.m in Sources */,
+				494F008B20BFD2A100B84DA4 /* VideoBackgroundView.m in Sources */,
 				494F005D20BFC2EC00B84DA4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

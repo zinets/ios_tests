@@ -7,9 +7,10 @@
 //
 
 #import "VideoTutorialViewController.h"
+#import "VideoBackgroundView.h"
 
 @interface VideoTutorialViewController ()
-
+@property (weak, nonatomic) IBOutlet VideoBackgroundView *backgroundVideoView;
 @end
 
 @implementation VideoTutorialViewController
@@ -17,6 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.backgroundVideoView play];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.backgroundVideoView.media = @"Untitled";
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [self.backgroundVideoView stop];
 }
 
 - (IBAction)onClose:(id)sender {
