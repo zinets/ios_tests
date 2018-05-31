@@ -14,12 +14,14 @@
 		494F006820BFC2EE00B84DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F006620BFC2EE00B84DA4 /* LaunchScreen.storyboard */; };
 		494F006B20BFC2EE00B84DA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F006A20BFC2EE00B84DA4 /* main.m */; };
 		494F007320BFC3A800B84DA4 /* Untitled.mov in Resources */ = {isa = PBXBuildFile; fileRef = 494F007220BFC3A800B84DA4 /* Untitled.mov */; };
-		494F007A20BFC42F00B84DA4 /* VideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F007820BFC42F00B84DA4 /* VideoTutorialViewController.m */; };
-		494F007B20BFC42F00B84DA4 /* VideoTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F007920BFC42F00B84DA4 /* VideoTutorialViewController.xib */; };
+		494F007A20BFC42F00B84DA4 /* BaseVideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F007820BFC42F00B84DA4 /* BaseVideoTutorialViewController.m */; };
+		494F007B20BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F007920BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib */; };
 		494F007E20BFC4B300B84DA4 /* VideoTutorialResources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494F007D20BFC4B300B84DA4 /* VideoTutorialResources.xcassets */; };
 		494F008420BFC5ED00B84DA4 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008320BFC5EC00B84DA4 /* UIColor+MUIColor.m */; };
 		494F008820BFC63800B84DA4 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008720BFC63800B84DA4 /* GradientButton.m */; };
 		494F008B20BFD2A100B84DA4 /* VideoBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */; };
+		494F00AB20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F00AA20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m */; };
+		494F00AE20BFF00300B84DA4 /* VideoUploadMotivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F00AD20BFF00300B84DA4 /* VideoUploadMotivationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +36,9 @@
 		494F006920BFC2EE00B84DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		494F006A20BFC2EE00B84DA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		494F007220BFC3A800B84DA4 /* Untitled.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Untitled.mov; sourceTree = "<group>"; };
-		494F007720BFC42F00B84DA4 /* VideoTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTutorialViewController.h; sourceTree = "<group>"; };
-		494F007820BFC42F00B84DA4 /* VideoTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTutorialViewController.m; sourceTree = "<group>"; };
-		494F007920BFC42F00B84DA4 /* VideoTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTutorialViewController.xib; sourceTree = "<group>"; };
+		494F007720BFC42F00B84DA4 /* BaseVideoTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVideoTutorialViewController.h; sourceTree = "<group>"; };
+		494F007820BFC42F00B84DA4 /* BaseVideoTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVideoTutorialViewController.m; sourceTree = "<group>"; };
+		494F007920BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseVideoTutorialViewController.xib; sourceTree = "<group>"; };
 		494F007D20BFC4B300B84DA4 /* VideoTutorialResources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoTutorialResources.xcassets; sourceTree = "<group>"; };
 		494F008220BFC5EC00B84DA4 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		494F008320BFC5EC00B84DA4 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
@@ -44,6 +46,10 @@
 		494F008720BFC63800B84DA4 /* GradientButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		494F008920BFD2A100B84DA4 /* VideoBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoBackgroundView.h; sourceTree = "<group>"; };
 		494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoBackgroundView.m; sourceTree = "<group>"; };
+		494F00A920BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnboardingVideoTutorialViewController.h; sourceTree = "<group>"; };
+		494F00AA20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnboardingVideoTutorialViewController.m; sourceTree = "<group>"; };
+		494F00AC20BFF00300B84DA4 /* VideoUploadMotivationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUploadMotivationViewController.h; sourceTree = "<group>"; };
+		494F00AD20BFF00300B84DA4 /* VideoUploadMotivationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUploadMotivationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +101,13 @@
 			children = (
 				494F008520BFC5F800B84DA4 /* classes */,
 				494F007C20BFC48200B84DA4 /* resources */,
-				494F007720BFC42F00B84DA4 /* VideoTutorialViewController.h */,
-				494F007820BFC42F00B84DA4 /* VideoTutorialViewController.m */,
-				494F007920BFC42F00B84DA4 /* VideoTutorialViewController.xib */,
+				494F00A920BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.h */,
+				494F00AA20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m */,
+				494F00AC20BFF00300B84DA4 /* VideoUploadMotivationViewController.h */,
+				494F00AD20BFF00300B84DA4 /* VideoUploadMotivationViewController.m */,
+				494F007720BFC42F00B84DA4 /* BaseVideoTutorialViewController.h */,
+				494F007820BFC42F00B84DA4 /* BaseVideoTutorialViewController.m */,
+				494F007920BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -185,7 +195,7 @@
 				494F007E20BFC4B300B84DA4 /* VideoTutorialResources.xcassets in Resources */,
 				494F007320BFC3A800B84DA4 /* Untitled.mov in Resources */,
 				494F006520BFC2EE00B84DA4 /* Assets.xcassets in Resources */,
-				494F007B20BFC42F00B84DA4 /* VideoTutorialViewController.xib in Resources */,
+				494F007B20BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib in Resources */,
 				494F006320BFC2EC00B84DA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,11 +207,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494F00AE20BFF00300B84DA4 /* VideoUploadMotivationViewController.m in Sources */,
 				494F006020BFC2EC00B84DA4 /* ViewController.m in Sources */,
 				494F008820BFC63800B84DA4 /* GradientButton.m in Sources */,
+				494F00AB20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m in Sources */,
 				494F008420BFC5ED00B84DA4 /* UIColor+MUIColor.m in Sources */,
 				494F006B20BFC2EE00B84DA4 /* main.m in Sources */,
-				494F007A20BFC42F00B84DA4 /* VideoTutorialViewController.m in Sources */,
+				494F007A20BFC42F00B84DA4 /* BaseVideoTutorialViewController.m in Sources */,
 				494F008B20BFD2A100B84DA4 /* VideoBackgroundView.m in Sources */,
 				494F005D20BFC2EC00B84DA4 /* AppDelegate.m in Sources */,
 			);

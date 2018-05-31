@@ -10,9 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoTutorialViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseVideoTutorialViewController">
             <connections>
+                <outlet property="actionButton" destination="fkm-0g-eY1" id="lq3-SE-MIg"/>
                 <outlet property="backgroundVideoView" destination="Lag-Ik-1as" id="tse-1v-1O2"/>
+                <outlet property="descriptionLabel" destination="xsA-v4-9om" id="oUP-3g-8lk"/>
+                <outlet property="logoImage" destination="0O5-ZM-3RG" id="Isd-sN-lfp"/>
+                <outlet property="titleLabel" destination="RfX-Vg-Ei2" id="WQK-zm-wK0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

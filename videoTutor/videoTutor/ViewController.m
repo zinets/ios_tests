@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "VideoTutorialViewController.h"
+#import "OnboardingVideoTutorialViewController.h"
+#import "VideoUploadMotivationViewController.h"
 
 @interface ViewController ()
 
@@ -27,7 +28,10 @@
 }
 
 - (IBAction)onTap:(id)sender {
-    [self showViewController:[VideoTutorialViewController new] sender:self];
+    [self showViewController:[OnboardingVideoTutorialViewController new] sender:self];
 }
 
+- (IBAction)onTap2:(id)sender {
+    [self showViewController:[VideoUploadMotivationViewController new] sender:self];
+}
 @end

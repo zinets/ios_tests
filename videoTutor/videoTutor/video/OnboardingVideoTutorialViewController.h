@@ -6,8 +6,8 @@
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseVideoTutorialViewController.h"
 
-@interface VideoTutorialViewController : UIViewController
+@interface OnboardingVideoTutorialViewController : BaseVideoTutorialViewController
 
 @end
