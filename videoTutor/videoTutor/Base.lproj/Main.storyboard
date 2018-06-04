@@ -18,17 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8y-EL-rN3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8y-EL-rN3">
                                 <rect key="frame" x="159" y="590" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button 1"/>
                                 <connections>
                                     <action selector="onTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mf1-3r-cbA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-Vh-I8h">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3u-Vh-I8h">
                                 <rect key="frame" x="158" y="535" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button 2"/>
                                 <connections>
                                     <action selector="onTap2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZHb-3h-EJJ"/>
@@ -36,6 +34,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="H8y-EL-rN3" firstAttribute="top" secondItem="x3u-Vh-I8h" secondAttribute="bottom" constant="25" id="83g-4V-4Qo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="H8y-EL-rN3" secondAttribute="bottom" constant="47" id="MVr-1n-dLO"/>
+                            <constraint firstItem="H8y-EL-rN3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U2u-KW-BHT"/>
+                            <constraint firstItem="x3u-Vh-I8h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dHm-PV-o7W"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

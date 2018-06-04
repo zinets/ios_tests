@@ -22,6 +22,8 @@
 		494F008B20BFD2A100B84DA4 /* VideoBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F008A20BFD2A100B84DA4 /* VideoBackgroundView.m */; };
 		494F00AB20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F00AA20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m */; };
 		494F00AE20BFF00300B84DA4 /* VideoUploadMotivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494F00AD20BFF00300B84DA4 /* VideoUploadMotivationViewController.m */; };
+		494F01A520C025F300B84DA4 /* movie_bgr_postreg popup_376x812.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 494F01A320C025F100B84DA4 /* movie_bgr_postreg popup_376x812.mp4 */; };
+		494F01A620C025F300B84DA4 /* movie_bgr_postreg popup376x668.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 494F01A420C025F200B84DA4 /* movie_bgr_postreg popup376x668.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		494F00AA20BFEBE200B84DA4 /* OnboardingVideoTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnboardingVideoTutorialViewController.m; sourceTree = "<group>"; };
 		494F00AC20BFF00300B84DA4 /* VideoUploadMotivationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUploadMotivationViewController.h; sourceTree = "<group>"; };
 		494F00AD20BFF00300B84DA4 /* VideoUploadMotivationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUploadMotivationViewController.m; sourceTree = "<group>"; };
+		494F01A320C025F100B84DA4 /* movie_bgr_postreg popup_376x812.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "movie_bgr_postreg popup_376x812.mp4"; sourceTree = "<group>"; };
+		494F01A420C025F200B84DA4 /* movie_bgr_postreg popup376x668.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "movie_bgr_postreg popup376x668.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 		494F007C20BFC48200B84DA4 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				494F01A320C025F100B84DA4 /* movie_bgr_postreg popup_376x812.mp4 */,
+				494F01A420C025F200B84DA4 /* movie_bgr_postreg popup376x668.mp4 */,
 				494F007220BFC3A800B84DA4 /* Untitled.mov */,
 				494F007D20BFC4B300B84DA4 /* VideoTutorialResources.xcassets */,
 			);
@@ -197,6 +203,8 @@
 				494F006520BFC2EE00B84DA4 /* Assets.xcassets in Resources */,
 				494F007B20BFC42F00B84DA4 /* BaseVideoTutorialViewController.xib in Resources */,
 				494F006320BFC2EC00B84DA4 /* Main.storyboard in Resources */,
+				494F01A620C025F300B84DA4 /* movie_bgr_postreg popup376x668.mp4 in Resources */,
+				494F01A520C025F300B84DA4 /* movie_bgr_postreg popup_376x812.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

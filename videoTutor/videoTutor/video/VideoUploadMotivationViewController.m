@@ -33,7 +33,7 @@
 }
 
 -(NSString *)mediaFileName {
-    return @"Untitled.mov";
+    return @"movie_bgr_postreg popup376x668.mp4";
 }
 
 @end
