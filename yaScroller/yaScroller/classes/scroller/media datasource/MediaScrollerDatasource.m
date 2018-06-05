@@ -27,9 +27,19 @@
     if ([self.items[indexPath.item] isKindOfClass:[PhotoFromInternet class]]) {
         PhotoFromInternetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFromInternetCell" forIndexPath:indexPath];
         cell.data = self.items[indexPath.item];
-        
+        cell.fs = self.fs;
         return cell;
     }
     return nil;
 }
+
+#pragma mark setters -
+
+-(void)setFs:(BOOL)fs {
+    _fs = fs;
+    [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(__kindof UICollectionViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ((PhotoFromInternetCell *)obj).fs = _fs;
+    }];
+}
+
 @end

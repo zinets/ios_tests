@@ -25,4 +25,8 @@
     [self.imageView loadImageFromUrl:data.url];
 }
 
+-(void)setFs:(BOOL)fs {
+    self.imageView.contentMode = fs ? UIViewContentModeScaleAspectFit : UIViewContentModeScaleAspectFill;
+}
+
 @end

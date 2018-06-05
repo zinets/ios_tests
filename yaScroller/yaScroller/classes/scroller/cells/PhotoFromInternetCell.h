@@ -11,4 +11,5 @@
 
 @interface PhotoFromInternetCell : UICollectionViewCell
 @property (nonatomic, strong) PhotoFromInternet *data;
+@property (nonatomic) BOOL fs;
 @end

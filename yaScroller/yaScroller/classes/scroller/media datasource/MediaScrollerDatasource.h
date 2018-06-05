@@ -9,5 +9,5 @@
 #import "CollectionSectionDatasource.h"
 
 @interface MediaScrollerDatasource : CollectionSectionDatasource
-
+@property (nonatomic) BOOL fs;
 @end

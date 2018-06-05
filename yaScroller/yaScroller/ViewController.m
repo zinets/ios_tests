@@ -7,15 +7,28 @@
 //
 
 #import "ViewController.h"
+#import "MediaScrollerView.h"
 #import "MediaScrollerDatasource.h"
 
 #import "PhotoFromInternet.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet MediaScrollerView *collectionView;
 @property (nonatomic, strong) MediaScrollerDatasource *dataSource;
 
 @property (nonatomic, strong) NSArray <PhotoFromInternet *> *testItems;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topOffset;
+
+
+
+
+
+
 @end
 
 @implementation ViewController
@@ -31,7 +44,6 @@
        @"https://www.dhresource.com/albu_226507030_00-1.0x0/halter-dropshipping.jpg",
        @"https://thumbs.dreamstime.com/b/bikini-girl-sitting-seaside-rock-15452009.jpg",
        @"https://i.pinimg.com/originals/c4/81/e0/c481e0eca617af42933ff5a8c747dc67.jpg",
-       @"https://cdn0.documentaryheaven.com/wp-content/thumbnails/9251-770x433.jpg",
        @"https://www.glifting.co.uk/wp-content/uploads/2017/03/Glifting-Girls-Ibiza-2017-2-1024x683.jpg",
        @"https://c1.staticflickr.com/5/4109/5447991626_2121c39120_b.jpg",
        
@@ -54,7 +66,7 @@
 }
 
 - (IBAction)onRefresh:(id)sender {
-    self.dataSource.items = [self.testItems subarrayWithRange:(NSRange){0, 3}];
+    self.dataSource.items = [self.testItems subarrayWithRange:(NSRange){0, 1}];
 }
 
 - (IBAction)onRemove:(id)sender {
@@ -68,8 +80,33 @@
 
 - (IBAction)onAdd:(id)sender {
     NSMutableArray *array = [self.dataSource.items mutableCopy];
-    [array addObject:self.testItems[0]];
+    [array addObject:self.testItems[arc4random_uniform(self.testItems.count)]];
     self.dataSource.items = array;
+}
+
+- (IBAction)onFS:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
+    
+    [self.view layoutIfNeeded];
+    self.dataSource.fs = sender.selected;
+    [UIView animateWithDuration:0.4 animations:^{
+        
+        
+        if (sender.selected) {
+            self.leftOffset.constant =
+            self.rightOffset.constant =
+            self.topOffset.constant =
+            self.bottomOffset.constant = 0;
+        } else {
+            self.leftOffset.constant =
+            self.rightOffset.constant = 16;
+            self.topOffset.constant = 167;
+            self.bottomOffset.constant = 213;
+        }
+        
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end
