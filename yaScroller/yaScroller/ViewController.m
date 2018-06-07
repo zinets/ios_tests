@@ -61,7 +61,7 @@
 }
 
 - (IBAction)onRefresh:(id)sender {
-    self.collectionView.items = [self.testItems subarrayWithRange:(NSRange){0, 1}];
+    self.collectionView.items = [self.testItems subarrayWithRange:(NSRange){0, 3}];
 }
 
 - (IBAction)onRemove:(id)sender {

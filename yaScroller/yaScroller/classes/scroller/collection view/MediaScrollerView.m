@@ -73,10 +73,10 @@
 - (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection {
     _scrollDirection = scrollDirection;
 
-//    UICollectionViewFlowLayout *layout = (id)self.collectionViewLayout;
-//
-//    layout.scrollDirection = _scrollDirection;
-//    [layout invalidateLayout];
+    UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+
+    layout.scrollDirection = _scrollDirection;
+    [layout invalidateLayout];
 }
 
 #pragma mark dataSource -
