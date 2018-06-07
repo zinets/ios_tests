@@ -52,6 +52,10 @@
            [a addObject:item];
        }];
     self.testItems = [a copy];
+
+    self.collectionView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.collectionView.oneElementPaginating = YES;
+    self.collectionView.paginating = YES;
 }
 
 
@@ -75,33 +79,41 @@
 
 - (IBAction)onAdd:(id)sender {
     NSMutableArray *array = [self.collectionView.items mutableCopy];
-    [array addObject:self.testItems[arc4random_uniform(self.testItems.count)]];
+    id obj = self.testItems[arc4random_uniform(self.testItems.count)];
+    while (YES) {
+        if (![array containsObject:obj]) {
+            [array addObject:obj];
+            break;
+        }
+        obj = self.testItems[arc4random_uniform(self.testItems.count)];
+    }
+
     self.collectionView.items = array;
 }
 
 - (IBAction)onFS:(UIButton *)sender {
-//    sender.selected = !sender.selected;
-//    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
-//
-//    [self.view layoutIfNeeded];
+    sender.selected = !sender.selected;
+    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
+
+    [self.view layoutIfNeeded];
 //    self.dataSource.fs = sender.selected;
-//    [UIView animateWithDuration:0.4 animations:^{
-//
-//
-//        if (sender.selected) {
-//            self.leftOffset.constant =
-//            self.rightOffset.constant =
-//            self.topOffset.constant =
-//            self.bottomOffset.constant = 0;
-//        } else {
-//            self.leftOffset.constant =
-//            self.rightOffset.constant = 16;
-//            self.topOffset.constant = 167;
-//            self.bottomOffset.constant = 213;
-//        }
-//
-//        [self.view layoutIfNeeded];
-//    }];
+    [UIView animateWithDuration:0.4 animations:^{
+
+
+        if (sender.selected) {
+            self.leftOffset.constant =
+            self.rightOffset.constant =
+            self.topOffset.constant =
+            self.bottomOffset.constant = 0;
+        } else {
+            self.leftOffset.constant =
+            self.rightOffset.constant = 16;
+            self.topOffset.constant = 167;
+            self.bottomOffset.constant = 213;
+        }
+
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end

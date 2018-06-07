@@ -15,6 +15,7 @@
 }
 
 -(CGSize)itemSize {
+//    CGFloat w = self.collectionView.bounds.size.width -
     return self.collectionView.bounds.size;
 }
 

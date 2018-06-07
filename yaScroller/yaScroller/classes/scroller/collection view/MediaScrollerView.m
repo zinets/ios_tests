@@ -8,8 +8,11 @@
 
 #import "MediaScrollerView.h"
 #import "MediaScrollerDatasource.h"
+#import "MediaScrollerViewLayout.h"
 
-@interface MediaScrollerView () <UICollectionViewDelegateFlowLayout>
+@interface MediaScrollerView () <UICollectionViewDelegateFlowLayout> {
+    CGPoint offsetAtBeginScrolling;
+}
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, readonly) MediaScrollerDatasource *internalDataSource;
 @end
@@ -48,10 +51,10 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
-        layout.itemSize = self.bounds.size;
+        MediaScrollerViewLayout *layout = [MediaScrollerViewLayout new];
 
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
     }
@@ -77,6 +80,37 @@
 
     layout.scrollDirection = _scrollDirection;
     [layout invalidateLayout];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.oneElementPaginating) {
+        offsetAtBeginScrolling = scrollView.contentOffset;
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (self.paginating) {
+        UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+
+        CGFloat v = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? targetContentOffset->x : targetContentOffset->y;
+        CGFloat pageWidth = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing);
+        if (self.oneElementPaginating) {
+            CGFloat startOffset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? offsetAtBeginScrolling.x : offsetAtBeginScrolling.y;
+            CGFloat vel = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? velocity.x : velocity.y;
+            CGFloat m;
+            if (vel >= 0) {
+                m = MIN(pageWidth, v - startOffset);
+            } else {
+                m = MAX(-pageWidth, v - startOffset);
+            }
+            v = startOffset + m + pageWidth / 2;
+        }
+
+        NSInteger pageIndex = (NSInteger) (v / pageWidth);
+        CGFloat newOffset = pageWidth * pageIndex;
+
+        self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (targetContentOffset->x = newOffset) : (targetContentOffset->y = newOffset);
+    }
 }
 
 #pragma mark dataSource -
