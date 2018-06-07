@@ -8,13 +8,11 @@
 
 #import "ViewController.h"
 #import "MediaScrollerView.h"
-#import "MediaScrollerDatasource.h"
 
 #import "PhotoFromInternet.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet MediaScrollerView *collectionView;
-@property (nonatomic, strong) MediaScrollerDatasource *dataSource;
 
 @property (nonatomic, strong) NSArray <PhotoFromInternet *> *testItems;
 
@@ -54,9 +52,6 @@
            [a addObject:item];
        }];
     self.testItems = [a copy];
-    
-    self.dataSource = [[MediaScrollerDatasource alloc] init];
-    self.dataSource.collectionView = self.collectionView;
 }
 
 
@@ -66,47 +61,47 @@
 }
 
 - (IBAction)onRefresh:(id)sender {
-    self.dataSource.items = [self.testItems subarrayWithRange:(NSRange){0, 1}];
+    self.collectionView.items = [self.testItems subarrayWithRange:(NSRange){0, 1}];
 }
 
 - (IBAction)onRemove:(id)sender {
-    if (self.dataSource.items.count > 2) {
-        NSMutableArray *array = [self.dataSource.items mutableCopy];
+    if (self.collectionView.items.count > 2) {
+        NSMutableArray *array = [self.collectionView.items mutableCopy];
         [array removeObjectAtIndex:1];
         
-        self.dataSource.items = array;
+        self.collectionView.items = array;
     }
 }
 
 - (IBAction)onAdd:(id)sender {
-    NSMutableArray *array = [self.dataSource.items mutableCopy];
+    NSMutableArray *array = [self.collectionView.items mutableCopy];
     [array addObject:self.testItems[arc4random_uniform(self.testItems.count)]];
-    self.dataSource.items = array;
+    self.collectionView.items = array;
 }
 
 - (IBAction)onFS:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
-    
-    [self.view layoutIfNeeded];
-    self.dataSource.fs = sender.selected;
-    [UIView animateWithDuration:0.4 animations:^{
-        
-        
-        if (sender.selected) {
-            self.leftOffset.constant =
-            self.rightOffset.constant =
-            self.topOffset.constant =
-            self.bottomOffset.constant = 0;
-        } else {
-            self.leftOffset.constant =
-            self.rightOffset.constant = 16;
-            self.topOffset.constant = 167;
-            self.bottomOffset.constant = 213;
-        }
-        
-        [self.view layoutIfNeeded];
-    }];
+//    sender.selected = !sender.selected;
+//    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
+//
+//    [self.view layoutIfNeeded];
+//    self.dataSource.fs = sender.selected;
+//    [UIView animateWithDuration:0.4 animations:^{
+//
+//
+//        if (sender.selected) {
+//            self.leftOffset.constant =
+//            self.rightOffset.constant =
+//            self.topOffset.constant =
+//            self.bottomOffset.constant = 0;
+//        } else {
+//            self.leftOffset.constant =
+//            self.rightOffset.constant = 16;
+//            self.topOffset.constant = 167;
+//            self.bottomOffset.constant = 213;
+//        }
+//
+//        [self.view layoutIfNeeded];
+//    }];
 }
 
 @end

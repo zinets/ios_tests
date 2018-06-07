@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MediaScrollerView : UICollectionView
+@interface MediaScrollerView : UIView
+/// выравнивать ли ячейки
+@property (nonatomic) BOOL paginating;
+/// ограничить прокрутку одним элементов за раз
+@property (nonatomic) BOOL oneElementPaginating;
+/// бесконечная прокрутка
+@property (nonatomic) BOOL endlessScrolling;
+/// направление прокрутки
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection;
 
+/// datasource
+@property (nonatomic) NSArray *items;
 @end
