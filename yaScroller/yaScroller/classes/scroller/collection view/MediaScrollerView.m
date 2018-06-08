@@ -11,7 +11,6 @@
 #import "MediaScrollerViewLayout.h"
 
 @interface MediaScrollerView () <UICollectionViewDelegateFlowLayout> {
-//    CGPoint offsetAtBeginScrolling;
     UITapGestureRecognizer *tapGestureRecognizer;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -41,10 +40,72 @@
     return self;
 }
 
-#pragma mark setters -
+#pragma mark tap to scroll -
 
 - (void)setTapToScroll:(BOOL)tapToScroll {
+    if (tapToScroll) {
+        if (!tapGestureRecognizer) {
+            tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToScroll:)];
+            [self addGestureRecognizer:tapGestureRecognizer];
+        }
+        tapGestureRecognizer.enabled = YES;
+    } else {
+        tapGestureRecognizer.enabled = NO;
+    }
+    _tapToScroll = tapToScroll;
+}
 
+#define TAP_ZONE_WIDTH 50.
+- (void)tapToScroll:(UITapGestureRecognizer *)sender {
+    UIScrollView *scroller = self.collectionView;
+    CGPoint pt = [sender locationInView:scroller];
+    CGPoint offset = scroller.contentOffset;
+    UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+
+    NSInteger pageIndex;
+    CGFloat pageWidth;
+
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        pageWidth = layout.itemSize.width + layout.minimumInteritemSpacing;
+        pageIndex = (NSInteger) (offset.x / pageWidth);
+        if ((pt.x < offset.x + TAP_ZONE_WIDTH)) {
+            if (!self.endlessScrolling) {
+                pageIndex = MAX(0, pageIndex - 1);
+            } else {
+                pageIndex--;
+            }
+            offset.x = pageIndex * pageWidth;
+            [scroller setContentOffset:offset animated:YES];
+        } else if (pt.x > scroller.bounds.size.width - TAP_ZONE_WIDTH) {
+            if (!self.endlessScrolling) {
+                pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
+            } else {
+                pageIndex++;
+            }
+            offset.x = pageIndex * pageWidth;
+            [scroller setContentOffset:offset animated:YES];
+        }
+    } else {
+        pageWidth = layout.itemSize.height + layout.minimumLineSpacing;
+        pageIndex = (NSInteger) (offset.y / pageWidth);
+        if ((pt.y < offset.y + TAP_ZONE_WIDTH)) {
+            if (!self.endlessScrolling) {
+                pageIndex = MAX(0, pageIndex - 1);
+            } else {
+                pageIndex--;
+            }
+            offset.y = pageIndex * pageWidth;
+            [scroller setContentOffset:offset animated:YES];
+        } else if (pt.y > scroller.bounds.size.height - TAP_ZONE_WIDTH) {
+            if (!self.endlessScrolling) {
+                pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
+            } else {
+                pageIndex++;
+            }
+            offset.y = pageIndex * pageWidth;
+            [scroller setContentOffset:offset animated:YES];
+        }
+    }
 }
 
 #pragma mark collection -
@@ -135,7 +196,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.endlessScrolling && NO) {
+    if (self.endlessScrolling) {
         CGFloat minValue = 0;
         CGFloat maxValue = scrollView.contentSize.width - scrollView.bounds.size.width;
         CGFloat curX = scrollView.contentOffset.x;

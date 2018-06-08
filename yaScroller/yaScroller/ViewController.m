@@ -56,6 +56,8 @@
     self.collectionView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.oneElementPaginating = YES;
     self.collectionView.paginating = YES;
+    self.collectionView.endlessScrolling = NO;
+    self.collectionView.tapToScroll = YES;
 }
 
 
