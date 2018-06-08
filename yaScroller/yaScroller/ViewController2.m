@@ -30,6 +30,9 @@
 - (IBAction)loadt2:(id)sender {
     self.imageView.image = [UIImage imageNamed:@"t2"];
 }
+- (IBAction)loadt3:(id)sender {
+       self.imageView.image = [UIImage imageNamed:@"t3"];
+}
 
 - (IBAction)onFit:(id)sender {
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -55,6 +58,9 @@
 
 - (IBAction)onFill:(id)sender {
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+}
+- (IBAction)oncenter:(id)sender {
+    self.imageView.contentMode = UIViewContentModeBottomRight;
 }
 
 @end
