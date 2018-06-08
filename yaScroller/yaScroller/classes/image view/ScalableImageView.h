@@ -6,4 +6,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ScalableImageView : UIImageView
+@property (nonatomic) NSTimeInterval contentModeAnimationDuration;
 @end
