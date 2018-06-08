@@ -60,7 +60,7 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 - (IBAction)oncenter:(id)sender {
-    self.imageView.contentMode = UIViewContentModeBottomRight;
+    self.imageView.contentMode = UIViewContentModeCenter;
 }
 
 @end

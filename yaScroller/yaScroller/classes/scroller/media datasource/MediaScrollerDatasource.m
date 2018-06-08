@@ -38,7 +38,7 @@
 -(void)setFs:(BOOL)fs {
     _fs = fs;
     [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(__kindof UICollectionViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ((PhotoFromInternetCell *)obj).fs = _fs;
+        ((PhotoFromInternetCell *)obj).fs = self->_fs;
     }];
 }
 
