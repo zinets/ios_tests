@@ -232,6 +232,18 @@
     }
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+
+    CGFloat pageWidth = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing);
+    CGFloat offset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? scrollView.contentOffset.x : scrollView.contentOffset.y;
+
+    NSInteger pageIndex = (NSInteger) (offset + pageWidth / 2) / pageWidth;
+    CGPoint pt = scrollView.contentOffset;
+    self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (pt.x = pageIndex * pageWidth) : (pt.y = pageIndex * pageWidth);
+    [scrollView setContentOffset:pt animated:YES];
+}
+
 #pragma mark dataSource -
 
 - (void)setItems:(NSArray *)items {
