@@ -18,6 +18,9 @@
 /// направление прокрутки
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
 
+/// tap to scroll - тап по краю картинки (скажем, на расстоянии ХХ от края) вызывает прокрутку
+@property (nonatomic) BOOL tapToScroll;
+
 /// datasource
 @property (nonatomic) NSArray *items;
 @end

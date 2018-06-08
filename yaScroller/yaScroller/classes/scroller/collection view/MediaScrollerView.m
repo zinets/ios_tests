@@ -11,7 +11,8 @@
 #import "MediaScrollerViewLayout.h"
 
 @interface MediaScrollerView () <UICollectionViewDelegateFlowLayout> {
-    CGPoint offsetAtBeginScrolling;
+//    CGPoint offsetAtBeginScrolling;
+    UITapGestureRecognizer *tapGestureRecognizer;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, readonly) MediaScrollerDatasource *internalDataSource;
@@ -38,6 +39,12 @@
         [self commonInit];
     }
     return self;
+}
+
+#pragma mark setters -
+
+- (void)setTapToScroll:(BOOL)tapToScroll {
+
 }
 
 #pragma mark collection -
@@ -82,31 +89,45 @@
     [layout invalidateLayout];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (self.oneElementPaginating) {
-        offsetAtBeginScrolling = scrollView.contentOffset;
-    }
-}
+#pragma mark scroller -
+
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+//    if (self.oneElementPaginating) {
+//        offsetAtBeginScrolling = scrollView.contentOffset;
+//    }
+//}
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (self.paginating) {
         UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
 
-        CGFloat v = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? targetContentOffset->x : targetContentOffset->y;
+        CGFloat proposedOffset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? targetContentOffset->x : targetContentOffset->y;
         CGFloat pageWidth = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing);
+        CGFloat vel = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? velocity.x : velocity.y;
+        CGFloat offset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? scrollView.contentOffset.x : scrollView.contentOffset.y;
+
+        NSInteger pageIndex = (NSInteger) ((proposedOffset + pageWidth / 2)/ pageWidth);
         if (self.oneElementPaginating) {
-            CGFloat startOffset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? offsetAtBeginScrolling.x : offsetAtBeginScrolling.y;
-            CGFloat vel = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? velocity.x : velocity.y;
-            CGFloat m;
-            if (vel >= 0) {
-                m = MIN(pageWidth, v - startOffset);
-            } else {
-                m = MAX(-pageWidth, v - startOffset);
+            // можно так - но с лишним методом и сохранением в переменную оффсета перед движением
+//            CGFloat startOffset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? offsetAtBeginScrolling.x : offsetAtBeginScrolling.y;
+//            CGFloat vel = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? velocity.x : velocity.y;
+//            CGFloat m;
+//            if (vel >= 0) {
+//                m = MIN(pageWidth, proposedOffset - startOffset);
+//            } else {
+//                m = MAX(-pageWidth, proposedOffset - startOffset);
+//            }
+//            proposedOffset = startOffset + m + pageWidth / 2;
+
+            // можно так - используя тот факт, что для 1страничного перелистывания нужно знать только направление листания
+            NSInteger curIndex = (NSInteger) (offset / pageWidth);
+            if (vel > 0) {
+                pageIndex = curIndex + 1;
+            } else if (vel < 0){
+                pageIndex = curIndex;
             }
-            v = startOffset + m + pageWidth / 2;
         }
 
-        NSInteger pageIndex = (NSInteger) (v / pageWidth);
         CGFloat newOffset = pageWidth * pageIndex;
 
         self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (targetContentOffset->x = newOffset) : (targetContentOffset->y = newOffset);
@@ -114,38 +135,38 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.endlessScrolling || YES) {
+    if (self.endlessScrolling && NO) {
         CGFloat minValue = 0;
         CGFloat maxValue = scrollView.contentSize.width - scrollView.bounds.size.width;
         CGFloat curX = scrollView.contentOffset.x;
         CGPoint pt = scrollView.contentOffset;
         if (curX < minValue) {
             NSLog(@"%@", NSStringFromCGPoint(pt));
-//            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
-//
-//            pt.x += scrollView.bounds.size.width;
-//            scrollView.contentOffset = pt;
-//
-//            id lastObject = [data lastObject];
-//            [data removeObject:lastObject];
-//            [data insertObject:lastObject atIndex:0];
-//
-//            [UIView setAnimationsEnabled:NO];
-//            self.internalDataSource.items = data;
-//            [UIView setAnimationsEnabled:YES];
+            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
+
+            pt.x += scrollView.bounds.size.width;
+            scrollView.contentOffset = pt;
+
+            id lastObject = [data lastObject];
+            [data removeObject:lastObject];
+            [data insertObject:lastObject atIndex:0];
+
+            [UIView setAnimationsEnabled:NO];
+            self.internalDataSource.items = data;
+            [UIView setAnimationsEnabled:YES];
         } else if (curX > maxValue) {
-//            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
-//
-//            pt.x -= scrollView.bounds.size.width;
-//            scrollView.contentOffset = pt;
-//
-//            id firstObject = [data firstObject];
-//            [data removeObject:firstObject];
-//            [data addObject:firstObject];
-//
-//            [UIView setAnimationsEnabled:NO];
-//            self.internalDataSource.items = data;
-//            [UIView setAnimationsEnabled:YES];
+            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
+
+            pt.x -= scrollView.bounds.size.width;
+            scrollView.contentOffset = pt;
+
+            id firstObject = [data firstObject];
+            [data removeObject:firstObject];
+            [data addObject:firstObject];
+
+            [UIView setAnimationsEnabled:NO];
+            self.internalDataSource.items = data;
+            [UIView setAnimationsEnabled:YES];
         }
     }
 }
