@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MediaScrollerViewDelegate <NSObject>
+- (void)mediaScroller:(id)sender didSelectItem:(id)itemFromDataSource;
+@end
+
 @interface MediaScrollerView : UIView
 /// выравнивать ли ячейки
 @property (nonatomic) BOOL paginating;
@@ -23,4 +27,7 @@
 
 /// datasource
 @property (nonatomic) NSArray *items;
+
+/// delegate
+@property (nonatomic, weak) id <MediaScrollerViewDelegate> delegate;
 @end

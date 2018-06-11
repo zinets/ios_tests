@@ -7,10 +7,10 @@
 //
 
 #import "ViewController2.h"
-#import "ScalableImageView.h"
+@import TNURLImageView;
 
 @interface ViewController2 ()
-@property (weak, nonatomic) IBOutlet ScalableImageView *imageView;
+@property (weak, nonatomic) IBOutlet TNImageView *imageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeight;
 
 
@@ -20,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.imageView.contentModeAnimationDuration = 0.3;
 }
 
 - (IBAction)loadt1:(id)sender {
@@ -32,6 +33,10 @@
 }
 - (IBAction)loadt3:(id)sender {
        self.imageView.image = [UIImage imageNamed:@"t3"];
+}
+
+- (IBAction)onLoadUrl:(id)sender {
+    [self.imageView loadImageFromUrl:@"https://i.ytimg.com/vi/KvizWcoqjtw/maxresdefault.jpg"];
 }
 
 - (IBAction)onFit:(id)sender {

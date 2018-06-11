@@ -10,7 +10,9 @@
 #import "MediaScrollerDatasource.h"
 #import "MediaScrollerViewLayout.h"
 
-@interface MediaScrollerView () <UICollectionViewDelegateFlowLayout> {
+#define TAP_ZONE_WIDTH 50.
+
+@interface MediaScrollerView () <UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate> {
     UITapGestureRecognizer *tapGestureRecognizer;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -46,6 +48,7 @@
     if (tapToScroll) {
         if (!tapGestureRecognizer) {
             tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToScroll:)];
+            tapGestureRecognizer.delegate = self;
             [self addGestureRecognizer:tapGestureRecognizer];
         }
         tapGestureRecognizer.enabled = YES;
@@ -55,7 +58,6 @@
     _tapToScroll = tapToScroll;
 }
 
-#define TAP_ZONE_WIDTH 50.
 - (void)tapToScroll:(UITapGestureRecognizer *)sender {
     UIScrollView *scroller = self.collectionView;
     CGPoint pt = [sender locationInView:scroller];
@@ -76,7 +78,7 @@
             }
             offset.x = pageIndex * pageWidth;
             [scroller setContentOffset:offset animated:YES];
-        } else if (pt.x > scroller.bounds.size.width - TAP_ZONE_WIDTH) {
+        } else if (pt.x > offset.x + scroller.bounds.size.width - TAP_ZONE_WIDTH) {
             if (!self.endlessScrolling) {
                 pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
             } else {
@@ -96,7 +98,7 @@
             }
             offset.y = pageIndex * pageWidth;
             [scroller setContentOffset:offset animated:YES];
-        } else if (pt.y > scroller.bounds.size.height - TAP_ZONE_WIDTH) {
+        } else if (pt.y > offset.y + scroller.bounds.size.height - TAP_ZONE_WIDTH) {
             if (!self.endlessScrolling) {
                 pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
             } else {
@@ -106,6 +108,23 @@
             [scroller setContentOffset:offset animated:YES];
         }
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    BOOL res = NO;
+
+    UIScrollView *scroller = self.collectionView;
+    CGPoint pt = [touch locationInView:scroller];
+    CGPoint offset = scroller.contentOffset;
+
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        res = (pt.x < offset.x + TAP_ZONE_WIDTH)
+                || (pt.x > offset.x + scroller.bounds.size.width - TAP_ZONE_WIDTH);
+    } else {
+        res = (pt.y < offset.y + TAP_ZONE_WIDTH)
+                || (pt.y > offset.y + scroller.bounds.size.height - TAP_ZONE_WIDTH);
+    }
+    return res;
 }
 
 #pragma mark collection -
@@ -152,12 +171,6 @@
 
 #pragma mark scroller -
 
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    if (self.oneElementPaginating) {
-//        offsetAtBeginScrolling = scrollView.contentOffset;
-//    }
-//}
-
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (self.paginating) {
         UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -169,17 +182,6 @@
 
         NSInteger pageIndex = (NSInteger) ((proposedOffset + pageWidth / 2)/ pageWidth);
         if (self.oneElementPaginating) {
-            // можно так - но с лишним методом и сохранением в переменную оффсета перед движением
-//            CGFloat startOffset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? offsetAtBeginScrolling.x : offsetAtBeginScrolling.y;
-//            CGFloat vel = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? velocity.x : velocity.y;
-//            CGFloat m;
-//            if (vel >= 0) {
-//                m = MIN(pageWidth, proposedOffset - startOffset);
-//            } else {
-//                m = MAX(-pageWidth, proposedOffset - startOffset);
-//            }
-//            proposedOffset = startOffset + m + pageWidth / 2;
-
             // можно так - используя тот факт, что для 1страничного перелистывания нужно знать только направление листания
             NSInteger curIndex = (NSInteger) (offset / pageWidth);
             if (vel > 0) {
@@ -252,6 +254,16 @@
 
 - (NSArray *)items {
     return self.internalDataSource.items;
+}
+
+#pragma mark collection delegate -
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(mediaScroller:didSelectItem:)]) {
+        id obj = self.internalDataSource.items[indexPath.item];
+        [self.delegate mediaScroller:self didSelectItem:obj];
+    }
+    NSLog(@"%@ %@", indexPath, self.internalDataSource.items[indexPath.item]);
 }
 
 @end
