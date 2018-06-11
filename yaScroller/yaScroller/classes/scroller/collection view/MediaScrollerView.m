@@ -144,6 +144,7 @@
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
+        _collectionView.decelerationRate = 0;
     }
     return _collectionView;
 }
