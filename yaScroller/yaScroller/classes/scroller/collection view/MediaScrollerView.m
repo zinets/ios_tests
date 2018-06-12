@@ -113,6 +113,9 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     BOOL res = NO;
 
+    if (self.internalDataSource.items.count < 2)
+        return res;
+
     UIScrollView *scroller = self.collectionView;
     CGPoint pt = [touch locationInView:scroller];
     CGPoint offset = scroller.contentOffset;
