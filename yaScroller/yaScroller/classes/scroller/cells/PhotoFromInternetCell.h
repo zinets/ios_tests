@@ -12,4 +12,5 @@
 @interface PhotoFromInternetCell : UICollectionViewCell
 @property (nonatomic, strong) PhotoFromInternet *data;
 @property (nonatomic) BOOL fs;
+@property (nonatomic) NSInteger itemIndex;
 @end

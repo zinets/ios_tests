@@ -13,4 +13,8 @@
 @interface MediaScrollerDatasource : CollectionSectionDatasource
 // todo убрать полноэкранность отсюда, это только тесты
 @property (nonatomic) BOOL fs;
+
+// методы для бесконечной прокрутки
+- (void)shiftDataLeft;
+- (void)shiftDataRight;
 @end

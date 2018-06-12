@@ -57,7 +57,7 @@
     self.collectionView.oneElementPaginating = YES;
     self.collectionView.paginating = YES;
     self.collectionView.endlessScrolling = YES;
-    self.collectionView.tapToScroll = NO;
+    self.collectionView.tapToScroll = YES;
 }
 
 

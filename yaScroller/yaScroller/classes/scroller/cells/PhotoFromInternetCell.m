@@ -11,6 +11,8 @@
 
 @interface PhotoFromInternetCell()
 @property (weak, nonatomic) IBOutlet TNImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *index;
+
 
 @end
 
@@ -22,11 +24,17 @@
 }
 
 -(void)setData:(PhotoFromInternet *)data {
+    self.imageView.allowLoadingAnimation = NO;//self.imageView.image == nil;
+
     [self.imageView loadImageFromUrl:data.url];
+
 }
 
 -(void)setFs:(BOOL)fs {
     self.imageView.contentMode = fs ? UIViewContentModeScaleAspectFit : UIViewContentModeScaleAspectFill;
 }
 
+-(void)setItemIndex:(NSInteger)itemIndex {
+    self.index.text = [@(itemIndex) stringValue];
+}
 @end

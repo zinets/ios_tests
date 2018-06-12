@@ -23,19 +23,32 @@
                         <rect key="frame" x="5" y="5" width="243" height="221"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0a-Nq-4zW">
+                        <rect key="frame" x="20" y="20" width="42" height="21"/>
+                        <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="c5L-bO-baI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.09912109375" green="0.91509331599999999" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="F0a-Nq-4zW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="1CF-fW-5bd"/>
                 <constraint firstAttribute="bottom" secondItem="93P-nQ-LNu" secondAttribute="bottom" constant="5" id="FWa-lL-gZB"/>
                 <constraint firstItem="93P-nQ-LNu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="NPB-Od-5br"/>
                 <constraint firstItem="93P-nQ-LNu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="lfP-CF-Wnw"/>
+                <constraint firstItem="F0a-Nq-4zW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="qou-Ll-eL1"/>
                 <constraint firstAttribute="trailing" secondItem="93P-nQ-LNu" secondAttribute="trailing" constant="5" id="sX5-vI-S69"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="253" height="231"/>
             <connections>
                 <outlet property="imageView" destination="93P-nQ-LNu" id="BCg-xc-aYq"/>
+                <outlet property="index" destination="F0a-Nq-4zW" id="kay-wT-lar"/>
             </connections>
             <point key="canvasLocation" x="135.5" y="144.5"/>
         </collectionViewCell>

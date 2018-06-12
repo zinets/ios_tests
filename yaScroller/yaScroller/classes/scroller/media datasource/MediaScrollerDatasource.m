@@ -28,6 +28,7 @@
         PhotoFromInternetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFromInternetCell" forIndexPath:indexPath];
         cell.data = self.items[indexPath.item];
         cell.fs = self.fs;
+        cell.itemIndex = indexPath.item;
         return cell;
     }
     return nil;
@@ -40,6 +41,28 @@
     [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(__kindof UICollectionViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         ((PhotoFromInternetCell *)obj).fs = self->_fs;
     }];
+}
+
+- (void)shiftDataLeft {
+    NSMutableArray *data = [self.items mutableCopy];
+    id firstObject = [data firstObject];
+    [data removeObject:firstObject];
+    [data addObject:firstObject];
+
+    [UIView setAnimationsEnabled:NO];
+    self.items = data;
+    [UIView setAnimationsEnabled:YES];
+}
+
+- (void)shiftDataRight {
+    NSMutableArray *data = [self.items mutableCopy];
+    id lastObject = [data lastObject];
+    [data removeObject:lastObject];
+    [data insertObject:lastObject atIndex:0];
+
+    [UIView setAnimationsEnabled:NO];
+    self.items = data;
+    [UIView setAnimationsEnabled:YES];
 }
 
 @end

@@ -205,32 +205,13 @@
         CGFloat curX = scrollView.contentOffset.x;
         CGPoint pt = scrollView.contentOffset;
         if (curX < minValue) {
-            NSLog(@"%@", NSStringFromCGPoint(pt));
-            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
-
             pt.x += scrollView.bounds.size.width;
             scrollView.contentOffset = pt;
-
-            id lastObject = [data lastObject];
-            [data removeObject:lastObject];
-            [data insertObject:lastObject atIndex:0];
-
-            [UIView setAnimationsEnabled:NO];
-            self.internalDataSource.items = data;
-            [UIView setAnimationsEnabled:YES];
+            [self.internalDataSource shiftDataRight];
         } else if (curX > maxValue) {
-            NSMutableArray *data = [self.internalDataSource.items mutableCopy];
-
             pt.x -= scrollView.bounds.size.width;
             scrollView.contentOffset = pt;
-
-            id firstObject = [data firstObject];
-            [data removeObject:firstObject];
-            [data addObject:firstObject];
-
-            [UIView setAnimationsEnabled:NO];
-            self.internalDataSource.items = data;
-            [UIView setAnimationsEnabled:YES];
+            [self.internalDataSource shiftDataLeft];
         }
     }
 }
