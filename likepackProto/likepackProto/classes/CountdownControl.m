@@ -8,16 +8,18 @@
 
 #import "CountdownControl.h"
 
-@interface CountdownBlock : UIView
+@interface CountdownBlock : UIView <CAAnimationDelegate>
 @property (nonatomic, strong) UIColor *topColor;
 @property (nonatomic, strong) UIColor *bottomColor;
+@property (nonatomic, strong) UIColor *dividerColor;
 @property (nonatomic) CGFloat cornerRadius;
 
 @property (nonatomic, strong) NSString *stringValue;
 @end
 
 @implementation CountdownBlock {
-    CALayer *topLayer, *bottomLayer;
+    CALayer *topLayer, *bottomLayer, *dividerLayer;
+    CAShapeLayer *shapeLayer;
     UILabel *label;
 }
 
@@ -38,6 +40,7 @@
 - (void)commonInit {
     _bottomColor = [UIColor brownColor];
     _topColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    _dividerColor = [UIColor yellowColor];
     _cornerRadius = 10;
 
     CGRect frm = self.bounds;
@@ -51,6 +54,12 @@
     frm.origin.y = frm.size.height;
     bottomLayer.frame = frm;
     [self.layer insertSublayer:bottomLayer atIndex:0];
+    
+    dividerLayer = [CALayer layer];
+    frm.origin.y -= 0.5;
+    frm.size.height = 1;
+    dividerLayer.frame = frm;
+    [self.layer addSublayer:dividerLayer];
     
     label = [[UILabel alloc] initWithFrame:self.bounds];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -87,11 +96,14 @@
 -(void)setStringValue:(NSString *)stringValue {
     _stringValue = stringValue;
     label.text = _stringValue;
+    
+    
 }
 
 - (void)updateDesign {
     topLayer.backgroundColor = self.topColor.CGColor;
     bottomLayer.backgroundColor = self.bottomColor.CGColor;
+    dividerLayer.backgroundColor = self.dividerColor.CGColor;
     self.layer.cornerRadius = self.cornerRadius;
     self.layer.masksToBounds = YES;
 }
@@ -105,6 +117,17 @@
     
     frm.origin.y = frm.size.height;
     bottomLayer.frame = frm;
+    
+    frm.origin.y -= 0.5;
+    frm.size.height = 1;
+    dividerLayer.frame = frm;
+}
+
+#pragma mark animation -
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [shapeLayer removeFromSuperlayer];
+    shapeLayer = nil;
 }
 
 @end
