@@ -11,6 +11,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet CountdownControl *counter;
+@property (weak, nonatomic) IBOutlet UIView *testView;
 
 @end
 
@@ -31,5 +32,23 @@
     [self.counter test];
 }
 
+- (IBAction)reset:(id)sender {
+    self.testView.transform = CGAffineTransformIdentity;
+}
+- (IBAction)move1:(id)sender {
+    CGAffineTransform t = CGAffineTransformIdentity;
+    t = CGAffineTransformRotate(t, M_PI_4);
+    t = CGAffineTransformTranslate(t, 100, 0);
+    
+    self.testView.transform = t;
+}
+
+- (IBAction)move2:(id)sender {
+    CGAffineTransform t = CGAffineTransformIdentity;
+    t = CGAffineTransformTranslate(t, 100, 0);
+    t = CGAffineTransformRotate(t, M_PI_4);
+    
+    self.testView.transform = t;
+}
 
 @end

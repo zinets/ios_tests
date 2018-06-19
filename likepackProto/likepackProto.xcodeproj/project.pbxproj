@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DBD406384DB5FD3BE0A /* CountdownDigit.m */; };
 		49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843020D8D5DA00596150 /* AppDelegate.m */; };
 		49B1843420D8D5DA00596150 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843320D8D5DA00596150 /* ViewController.m */; };
 		49B1843720D8D5DA00596150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B1843520D8D5DA00596150 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4175692BCE613F4D457F3291 /* CountdownDigit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownDigit.h; sourceTree = "<group>"; };
+		41756DBD406384DB5FD3BE0A /* CountdownDigit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownDigit.m; sourceTree = "<group>"; };
 		49B1842C20D8D5DA00596150 /* likepackProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = likepackProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B1842F20D8D5DA00596150 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49B1843020D8D5DA00596150 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 			children = (
 				49B1844620D8D68A00596150 /* CountdownControl.h */,
 				49B1844720D8D68A00596150 /* CountdownControl.m */,
+				41756DBD406384DB5FD3BE0A /* CountdownDigit.m */,
+				4175692BCE613F4D457F3291 /* CountdownDigit.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				49B1843F20D8D5DB00596150 /* main.m in Sources */,
 				49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */,
 				49B1844820D8D68A00596150 /* CountdownControl.m in Sources */,
+				41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

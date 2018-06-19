@@ -19,8 +19,12 @@
 
 @implementation CountdownBlock {
     CALayer *topLayer, *bottomLayer, *dividerLayer;
-    CAShapeLayer *shapeLayer;
+    CALayer *shapeLayer;
     UILabel *label;
+    
+    CABasicAnimation *rotation1, *rotation2;
+    
+    UIImage *topPartNew, *bottomPartNew, *topPartOld, *bottomPartOld;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -68,9 +72,9 @@
     label.textColor = [UIColor whiteColor];
     [self addSubview:label];
     
-    self.stringValue = @"3";
+//    self.stringValue = @"0";
     
-    [self updateDesign];
+//    [self updateDesign];
 }
 
 - (void)setTopColor:(UIColor *)topColor {
@@ -94,10 +98,70 @@
 //}
 
 -(void)setStringValue:(NSString *)stringValue {
+    
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGSize sz = self.bounds.size;
+    sz.height /= 2;
+    
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshot drawAtPoint:(CGPoint){0, 0}];
+    topPartOld = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshot drawAtPoint:(CGPoint){0, -sz.height}];
+    bottomPartOld = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     _stringValue = stringValue;
     label.text = _stringValue;
     
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     
+    snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshot drawAtPoint:(CGPoint){0, 0}];
+    topPartNew = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshot drawAtPoint:(CGPoint){0, -sz.height}];
+    bottomPartNew = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    topLayer.contents = (id)topPartNew.CGImage;
+    bottomLayer.contents = (id)bottomPartOld.CGImage;
+    
+//    label.hidden = YES;
+    
+    shapeLayer = [CALayer layer];
+    shapeLayer.anchorPoint = (CGPoint){0.5, 1};
+    shapeLayer.frame = (CGRect){{0, 0}, sz};
+
+    shapeLayer.contents = (id)topPartOld.CGImage;
+    shapeLayer.doubleSided = YES;
+    
+    [self.layer addSublayer:shapeLayer];
+    
+    rotation1 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    rotation1.duration = 4;
+    rotation1.removedOnCompletion = NO;
+    rotation1.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    CATransform3D transform = CATransform3DMakeRotation(M_PI_2, 1, 0, 0);
+    transform.m34 = - 1. / 500.;
+    rotation1.toValue = [NSValue valueWithCATransform3D:transform];
+    
+    shapeLayer.delegate = self;
+    [shapeLayer addAnimation:rotation1 forKey:@"a1"];
 }
 
 - (void)updateDesign {
@@ -126,8 +190,20 @@
 #pragma mark animation -
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    [shapeLayer removeFromSuperlayer];
-    shapeLayer = nil;
+    if (anim == rotation1) {
+        shapeLayer.contents = (id)bottomPartNew.CGImage;
+        
+        rotation2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+        rotation2.duration = 4;
+        CATransform3D transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+        transform.m34 = - 1. / 500.;
+        rotation2.toValue = [NSValue valueWithCATransform3D:transform];
+        
+        [shapeLayer addAnimation:rotation2 forKey:@"a2"];
+    } else if (anim == rotation2) {
+        [shapeLayer removeFromSuperlayer];
+        shapeLayer = nil;
+    }
 }
 
 @end
@@ -144,7 +220,7 @@
     [self addSubview:blockMinutes];
     
     blockSeconds = [CountdownBlock new];
-    [self addSubview:blockSeconds];
+//    [self addSubview:blockSeconds];
     
     divider1 = [UILabel new];
     divider1.textAlignment = NSTextAlignmentCenter;
