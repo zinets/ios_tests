@@ -5,9 +5,10 @@
 
 #import "CountdownDigit.h"
 
-@interface CountdownDigit () {
+@interface CountdownDigit () <CAAnimationDelegate> {
     CALayer *topLayer, *bottomLayer, *dividerLayer;
     UILabel *label;
+    UIImageView *oldTopPart, *oldBottomPart;
 }
 @property (nonatomic, strong) UIColor *topColor;
 @property (nonatomic, strong) UIColor *bottomColor;
@@ -62,6 +63,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:28];
     label.textColor = [UIColor whiteColor];
+    label.text = @"0";
     [self addSubview:label];
 
     [self updateDesign];
@@ -88,13 +90,9 @@
     topLayer.backgroundColor = self.topColor.CGColor;
     bottomLayer.backgroundColor = self.bottomColor.CGColor;
     dividerLayer.backgroundColor = self.dividerColor.CGColor;
+
     self.layer.cornerRadius = self.cornerRadius;
     self.layer.masksToBounds = YES;
-}
-
-- (void)setNumericValue:(NSInteger)numericValue {
-    _numericValue = numericValue;
-    label.text = [@(_numericValue) stringValue];
 }
 
 #pragma mark overrides -
@@ -112,6 +110,85 @@
     frm.origin.y -= 0.5;
     frm.size.height = 1;
     dividerLayer.frame = frm;
+}
+
+#pragma mark animation -
+
+
+- (void)setNumericValue:(NSInteger)numericValue {
+
+    [oldBottomPart removeFromSuperview];
+    [oldTopPart removeFromSuperview];
+
+
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snapshotBeforeUpdate = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    CGSize sz = self.bounds.size;
+    sz.height /= 2;
+    UIImage *image;
+
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshotBeforeUpdate drawAtPoint:(CGPoint){0, 0}];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    oldTopPart = [[UIImageView alloc] initWithImage:image];
+    [self addSubview:oldTopPart];
+
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [snapshotBeforeUpdate drawAtPoint:(CGPoint){0, -sz.height}];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    oldBottomPart = [[UIImageView alloc] initWithImage:image];
+    oldBottomPart.frame = (CGRect){{0, sz.height}, sz};
+    [self addSubview:oldBottomPart];
+
+    _numericValue = numericValue;
+    label.text = [@(_numericValue) stringValue];
+
+    [self setAnchorPoint:(CGPoint){0.5, 1} forView:oldTopPart];
+
+    CALayer *layer1 = oldTopPart.layer;
+    layer1.borderWidth = 1;
+
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    CATransform3D transform = CATransform3DMakeRotation(-M_PI, 1, 0, 0);
+    transform.m34 = - 1 / 1500.0f;
+    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    animation.toValue = [NSValue valueWithCATransform3D:transform];
+    animation.duration = 1;
+
+    [layer1 addAnimation:animation forKey:@"a1"];
+    layer1.transform = transform;
+
+}
+
+- (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view {
+    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x, view.bounds.size.height * anchorPoint.y);
+    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x, view.bounds.size.height * view.layer.anchorPoint.y);
+
+    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
+    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
+
+    CGPoint position = view.layer.position;
+    position.x -= oldPoint.x;
+    position.x += newPoint.x;
+
+    position.y -= oldPoint.y;
+    position.y += newPoint.y;
+
+    view.layer.position = position;
+    view.layer.anchorPoint = anchorPoint;
+}
+
+#pragma mark animation -
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
 }
 
 @end

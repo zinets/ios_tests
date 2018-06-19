@@ -27,6 +27,7 @@
 
 - (IBAction)onIncCounter:(id)sender {
     [self.counter test];
+    self.testDigit.numericValue++;
 }
 
 - (IBAction)reset:(id)sender {
