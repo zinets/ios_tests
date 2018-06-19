@@ -35,7 +35,7 @@
 
 - (void)commonInit {
     _bottomColor = [UIColor brownColor];
-    _topColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    _topColor = [UIColor redColor];
     _dividerColor = [UIColor yellowColor];
     _cornerRadius = 10;
 
@@ -63,6 +63,55 @@
     label.font = [UIFont systemFontOfSize:28];
     label.textColor = [UIColor whiteColor];
     [self addSubview:label];
+
+    [self updateDesign];
+}
+
+#pragma mark setters -
+
+- (void)setTopColor:(UIColor *)topColor {
+    _topColor = topColor;
+    [self updateDesign];
+}
+
+-(void)setBottomColor:(UIColor *)bottomColor {
+    _bottomColor = bottomColor;
+    [self updateDesign];
+}
+
+-(void)setCornerRadius:(CGFloat)cornerRadius {
+    _cornerRadius = cornerRadius;
+    [self updateDesign];
+}
+
+- (void)updateDesign {
+    topLayer.backgroundColor = self.topColor.CGColor;
+    bottomLayer.backgroundColor = self.bottomColor.CGColor;
+    dividerLayer.backgroundColor = self.dividerColor.CGColor;
+    self.layer.cornerRadius = self.cornerRadius;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)setNumericValue:(NSInteger)numericValue {
+    _numericValue = numericValue;
+    label.text = [@(_numericValue) stringValue];
+}
+
+#pragma mark overrides -
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect frm = self.bounds;
+
+    frm.size.height /= 2;
+    topLayer.frame = frm;
+
+    frm.origin.y = frm.size.height;
+    bottomLayer.frame = frm;
+
+    frm.origin.y -= 0.5;
+    frm.size.height = 1;
+    dividerLayer.frame = frm;
 }
 
 @end

@@ -69,7 +69,7 @@
                                     <action selector="move2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D0H-Ul-gZK"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-DQ-jw4">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-DQ-jw4" customClass="CountdownDigit">
                                 <rect key="frame" x="20" y="92" width="100" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,6 +94,7 @@
                     </view>
                     <connections>
                         <outlet property="counter" destination="b2h-ck-Zry" id="v10-hS-k1C"/>
+                        <outlet property="testDigit" destination="XZT-DQ-jw4" id="2a2-wF-SOo"/>
                         <outlet property="testView" destination="c18-gn-EgM" id="yu9-KV-Sst"/>
                     </connections>
                 </viewController>

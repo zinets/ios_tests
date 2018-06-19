@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "CountdownControl.h"
+#import "CountdownDigit.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet CountdownControl *counter;
 @property (weak, nonatomic) IBOutlet UIView *testView;
+@property (weak, nonatomic) IBOutlet CountdownDigit *testDigit;
 
 @end
 
@@ -19,13 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.testDigit.numericValue = 2;
 }
 
 - (IBAction)onIncCounter:(id)sender {
