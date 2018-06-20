@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DBD406384DB5FD3BE0A /* CountdownDigit.m */; };
 		4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916644820DA1B7F009B403E /* UIColor+MUIColor.m */; };
+		4916645520DA5706009B403E /* LikepackCardsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916645420DA5706009B403E /* LikepackCardsControl.m */; };
 		49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843020D8D5DA00596150 /* AppDelegate.m */; };
 		49B1843420D8D5DA00596150 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843320D8D5DA00596150 /* ViewController.m */; };
 		49B1843720D8D5DA00596150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B1843520D8D5DA00596150 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 		41756DBD406384DB5FD3BE0A /* CountdownDigit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownDigit.m; sourceTree = "<group>"; };
 		4916644720DA1B7F009B403E /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		4916644820DA1B7F009B403E /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		4916645320DA5706009B403E /* LikepackCardsControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikepackCardsControl.h; sourceTree = "<group>"; };
+		4916645420DA5706009B403E /* LikepackCardsControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LikepackCardsControl.m; sourceTree = "<group>"; };
 		49B1842C20D8D5DA00596150 /* likepackProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = likepackProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B1842F20D8D5DA00596150 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49B1843020D8D5DA00596150 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				49B1844720D8D68A00596150 /* CountdownControl.m */,
 				41756DBD406384DB5FD3BE0A /* CountdownDigit.m */,
 				4175692BCE613F4D457F3291 /* CountdownDigit.h */,
+				4916645320DA5706009B403E /* LikepackCardsControl.h */,
+				4916645420DA5706009B403E /* LikepackCardsControl.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B1843420D8D5DA00596150 /* ViewController.m in Sources */,
+				4916645520DA5706009B403E /* LikepackCardsControl.m in Sources */,
 				4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */,
 				49B1843F20D8D5DB00596150 /* main.m in Sources */,
 				49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */,

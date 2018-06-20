@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface LikepackCardsControl : UIView
-
+@property (nonatomic, strong) IBInspectable UIImage *bgImage;
+@property (nonatomic, strong) IBInspectable UIImage *ribbonImage;
 @end
