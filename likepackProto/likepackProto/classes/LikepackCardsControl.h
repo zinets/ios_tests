@@ -10,6 +10,8 @@
 
 IB_DESIGNABLE
 @interface LikepackCardsControl : UIView
-@property (nonatomic, strong) IBInspectable UIImage *bgImage;
+@property (nonatomic, strong) IBInspectable UIImage *image;
+@property (nonatomic, strong) IBInspectable UIImage *frameImage;
+@property (nonatomic, strong) IBInspectable UIImage *frameMaskImage;
 @property (nonatomic, strong) IBInspectable UIImage *ribbonImage;
 @end

@@ -30,11 +30,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
-                                <rect key="frame" x="16" y="198" width="343" height="439"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
+                                <rect key="frame" x="16" y="188" width="343" height="449"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="bgImage" value="likePack"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frameImage" value="likePack"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="4405"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frameMaskImage" value="imgpsh_fullsize"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -57,6 +60,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="4405" width="562" height="700"/>
+        <image name="imgpsh_fullsize" width="300" height="367"/>
         <image name="likePack" width="343" height="439"/>
     </resources>
 </document>
