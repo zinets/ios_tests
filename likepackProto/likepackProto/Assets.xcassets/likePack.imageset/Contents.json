@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "likePack.png",
+      "filename" : "likePackCopy2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "likePack@2x.png",
+      "filename" : "likePackCopy2@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "likePack@3x.png",
+      "filename" : "likePackCopy2@3x.png",
       "scale" : "3x"
     }
   ],
