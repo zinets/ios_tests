@@ -48,7 +48,7 @@ typedef enum {
     _topColor = [UIColor colorWithHex:0x53BAFE];
     _dividerColor = [UIColor colorWithHex:0xB9E5FF];
     _cornerRadius = 10;
-    _animationDuration = .5;
+    _animationDuration = .15;
 
     CGRect frm = self.bounds;
 

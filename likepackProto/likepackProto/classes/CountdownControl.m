@@ -33,7 +33,7 @@
     divider1.text = @":";
     [self addSubview:divider1];
 
-    self.font = [UIFont systemFontOfSize:38 weight:UIFontWeightHeavy];
+    self.digitFont = [UIFont systemFontOfSize:38 weight:UIFontWeightHeavy];
     
     [self relayControls];
 }
@@ -69,6 +69,8 @@
     boxS1.frame = (CGRect){x, 0, w, h};
     x += w + smallSpace;
     boxS2.frame = (CGRect){x, 0, w, h};
+    
+    [self invalidateIntrinsicContentSize];
 }
 
 -(void)layoutSubviews {
@@ -76,12 +78,20 @@
     [self relayControls];
 }
 
+-(CGSize)intrinsicContentSize {
+    CGSize sz = (CGSize){boxS2.frame.origin.x + boxS2.frame.size.width, boxS2.frame.origin.y + boxS2.frame.size.height};
+    
+    return sz;
+}
+
 #pragma mark setters -
 
 -(void)setRemainingTime:(NSTimeInterval)remainingTime {
+    _remainingTime = MAX(0, remainingTime);
+
     // это секунды; значит делим и вычисляем..
-    NSInteger minutes = (int)remainingTime / 60;
-    NSInteger seconds = (int)remainingTime % 60;
+    NSInteger minutes = (int)_remainingTime / 60;
+    NSInteger seconds = (int)_remainingTime % 60;
 
     boxM1.numericValue = minutes / 10;
     boxM2.numericValue = minutes % 10;
@@ -89,22 +99,22 @@
     boxS2.numericValue = seconds % 10;
 }
 
-- (void)setFont:(UIFont *)font {
-    _font = font;
-    boxS1.font = _font;
-    boxS2.font = _font;
-    boxM1.font = _font;
-    boxM2.font = _font;
-    divider1.font = _font;
+- (void)setDigitFont:(UIFont *)font {
+    _digitFont = font;
+    boxS1.font = _digitFont;
+    boxS2.font = _digitFont;
+    boxM1.font = _digitFont;
+    boxM2.font = _digitFont;
+    divider1.font = _digitFont;
 }
 
-- (void)setFontColor:(UIColor *)fontColor {
-    _fontColor = fontColor;
-    boxS1.fontColor = _fontColor;
-    boxS2.fontColor = _fontColor;
-    boxM1.fontColor = _fontColor;
-    boxM2.fontColor = _fontColor;
-    divider1.textColor = _fontColor;
+- (void)setDigitColor:(UIColor *)fontColor {
+    _digitColor = fontColor;
+    boxS1.fontColor = _digitColor;
+    boxS2.fontColor = _digitColor;
+    boxM1.fontColor = _digitColor;
+    boxM2.fontColor = _digitColor;
+    divider1.textColor = _digitColor;
 }
 
 -(void)test {
