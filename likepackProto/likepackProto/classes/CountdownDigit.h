@@ -7,4 +7,5 @@
 
 @interface CountdownDigit : UIView
 @property (nonatomic) NSInteger numericValue;
+@property (nonatomic) NSTimeInterval animationDuration;
 @end

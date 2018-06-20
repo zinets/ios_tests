@@ -4,11 +4,20 @@
 //
 
 #import "CountdownDigit.h"
+#import "UIColor+MUIColor.h"
+
+typedef enum {
+    MovePhase0,
+    MovePhase1,
+    MovePhase2,
+} MovePhase;
 
 @interface CountdownDigit () <CAAnimationDelegate> {
     CALayer *topLayer, *bottomLayer, *dividerLayer;
     UILabel *label;
-    UIImageView *oldTopPart, *oldBottomPart;
+    UIImageView *movingPart, *oldBottomPart;
+    UIImage *newBottomPart;
+    MovePhase movePhase;
 }
 @property (nonatomic, strong) UIColor *topColor;
 @property (nonatomic, strong) UIColor *bottomColor;
@@ -35,10 +44,11 @@
 }
 
 - (void)commonInit {
-    _bottomColor = [UIColor brownColor];
-    _topColor = [UIColor redColor];
-    _dividerColor = [UIColor yellowColor];
+    _bottomColor = [UIColor colorWithHex:0x31A5EA];
+    _topColor = [UIColor colorWithHex:0x53BAFE];
+    _dividerColor = [UIColor colorWithHex:0xB9E5FF];
     _cornerRadius = 10;
+    _animationDuration = .5;
 
     CGRect frm = self.bounds;
 
@@ -54,7 +64,7 @@
 
     dividerLayer = [CALayer layer];
     frm.origin.y -= 0.5;
-    frm.size.height = 1;
+    frm.size.height = .5;
     dividerLayer.frame = frm;
     [self.layer addSublayer:dividerLayer];
 
@@ -63,7 +73,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:28];
     label.textColor = [UIColor whiteColor];
-    label.text = @"0";
+    label.text = @"4";
     [self addSubview:label];
 
     [self updateDesign];
@@ -117,9 +127,10 @@
 
 - (void)setNumericValue:(NSInteger)numericValue {
 
-    [oldBottomPart removeFromSuperview];
-    [oldTopPart removeFromSuperview];
+    movePhase = MovePhase1;
 
+    [oldBottomPart removeFromSuperview];
+    [movingPart removeFromSuperview];
 
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -134,9 +145,17 @@
     [snapshotBeforeUpdate drawAtPoint:(CGPoint){0, 0}];
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    _numericValue = numericValue;
+    label.text = [@(_numericValue) stringValue];
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snapshotAfterUpdate = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 
-    oldTopPart = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:oldTopPart];
+    movingPart = [[UIImageView alloc] initWithImage:image];
+    [self addSubview:movingPart];
 
     UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
     [snapshotBeforeUpdate drawAtPoint:(CGPoint){0, -sz.height}];
@@ -147,24 +166,32 @@
     oldBottomPart.frame = (CGRect){{0, sz.height}, sz};
     [self addSubview:oldBottomPart];
 
-    _numericValue = numericValue;
-    label.text = [@(_numericValue) stringValue];
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, image.size.height);
+    CGContextScaleCTM(UIGraphicsGetCurrentContext(), 1.0, -1.0);
+    
+    [snapshotAfterUpdate drawAtPoint:(CGPoint){0, -sz.height}];
+    newBottomPart = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 
-    [self setAnchorPoint:(CGPoint){0.5, 1} forView:oldTopPart];
+    [self setAnchorPoint:(CGPoint){0.5, 1} forView:movingPart];
 
-    CALayer *layer1 = oldTopPart.layer;
-    layer1.borderWidth = 1;
+    CALayer *layer1 = movingPart.layer;
+    layer1.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:0.2].CGColor;
+    layer1.shadowOpacity = 1;
+    layer1.shadowRadius = 4;
+    layer1.shadowOffset = (CGSize){0, -3};
+
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    CATransform3D transform = CATransform3DMakeRotation(-M_PI, 1, 0, 0);
-    transform.m34 = - 1 / 1500.0f;
+    CATransform3D transform = CATransform3DMakeRotation(-M_PI_2, 1, 0, 0);
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
     animation.toValue = [NSValue valueWithCATransform3D:transform];
-    animation.duration = 1;
+    animation.duration = self.animationDuration / 2;
+    animation.delegate = self;
 
     [layer1 addAnimation:animation forKey:@"a1"];
     layer1.transform = transform;
-
 }
 
 - (void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view {
@@ -188,7 +215,37 @@
 #pragma mark animation -
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
+    if (flag) {
+        switch (movePhase) {
+            case MovePhase0:
+                movePhase = MovePhase1;
+                break;
+            case MovePhase1: {
+                movingPart.image = newBottomPart;
+                CALayer *layer1 = movingPart.layer;
+
+                CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+                CATransform3D transform = CATransform3DMakeRotation(-M_PI, 1, 0, 0);
+                animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(-M_PI_2, 1, 0, 0)];
+                animation.toValue = [NSValue valueWithCATransform3D:transform];
+                animation.duration = self.animationDuration / 2;
+
+                animation.delegate = self;
+
+                [layer1 addAnimation:animation forKey:@"a2"];
+                layer1.transform = transform;
+
+                movePhase = MovePhase2;
+                break;
+            }
+            case MovePhase2:
+                [oldBottomPart removeFromSuperview];
+                [movingPart removeFromSuperview];
+
+                movePhase = MovePhase0;
+                break;
+        }
+    }
 }
 
 @end
