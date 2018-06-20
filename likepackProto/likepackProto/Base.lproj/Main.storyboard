@@ -30,21 +30,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
-                                <rect key="frame" x="16" y="188" width="343" height="449"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
+                                <rect key="frame" x="10" y="167" width="349" height="386"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="bgImage" value="likePack"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="frameImage" value="likePack"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="4405"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="frameMaskImage" value="imgpsh_fullsize"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="ribbonImage" value="ribbon3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="4405"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="30" id="6Bb-oQ-d3X"/>
-                            <constraint firstItem="en5-2w-MPg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8jA-Pn-5NZ"/>
                             <constraint firstItem="ifo-Yd-t7g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="q1d-Ch-s6P"/>
                             <constraint firstItem="ifo-Yd-t7g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="wFF-LB-QOc"/>
                         </constraints>
@@ -62,6 +62,7 @@
     <resources>
         <image name="4405" width="562" height="700"/>
         <image name="imgpsh_fullsize" width="300" height="367"/>
-        <image name="likePack" width="343" height="439"/>
+        <image name="likePack" width="355" height="433"/>
+        <image name="ribbon3" width="355" height="178"/>
     </resources>
 </document>

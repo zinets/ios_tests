@@ -12,12 +12,13 @@
 @property (nonatomic, strong) UIImageView *photoImageView;
 @property (nonatomic, strong) CALayer *frameMaskLayer;
 @property (nonatomic, strong) UIImageView *frameImageView;
+@property (nonatomic, strong) UIImageView *ribbonImageView;
 @end
 
 @implementation LikepackCardsControl
 
 - (void)commonInit {
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor brownColor];
     
     _photoImageView = [UIImageView new];
     _frameMaskLayer = [CALayer layer];
@@ -25,8 +26,11 @@
     [self addSubview:_photoImageView];
     
     _frameImageView = [UIImageView new];
-    _frameImageView.layer.borderWidth = 1;
     [self addSubview:_frameImageView];
+    
+    _ribbonImageView = [UIImageView new];
+    _frameImageView.layer.borderWidth = 1;
+    [self addSubview:_ribbonImageView];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -54,25 +58,35 @@
     
     CGFloat arBounds = boundsSize.width / boundsSize.height;
     CGFloat arImage = imageSize.width / imageSize.height;
-    
+    CGFloat x, w, h;
+    CGRect frm;
     if (arBounds < arImage) { // вписывание по ширине?
-        CGFloat x = 0;
-        CGFloat w = boundsSize.width;
-        CGFloat h = w / arImage;
+        x = 0;
+        w = boundsSize.width;
+        h = w / arImage;
         CGFloat y = (boundsSize.height - h) / 2;
-        CGRect frm = (CGRect){x, y, w, h};
+        frm = (CGRect){x, y, w, h};
         self.frameImageView.frame = frm;
     } else { // .. по высоте?
         CGFloat y = 0;
-        CGFloat h = boundsSize.height;
-        CGFloat w = h * arImage;
-        CGFloat x = (boundsSize.width - w) / 2;
-        CGRect frm = (CGRect){x, y, w, h};
+        h = boundsSize.height;
+        w = h * arImage;
+        x = (boundsSize.width - w) / 2;
+        frm = (CGRect){x, y, w, h};
         self.frameImageView.frame = frm;
     }
     
     self.photoImageView.frame = self.frameImageView.frame;
     self.frameMaskLayer.frame = self.photoImageView.bounds;
+    
+    // ribbon
+    if (self.ribbonImage) {
+        CGSize ribbonSize = self.ribbonImage.size;
+        CGFloat arRibbon = ribbonSize.width / ribbonSize.height;
+        CGFloat y = 195 * h / 450;
+        frm = (CGRect){x, y, w, w / arRibbon};
+        self.ribbonImageView.frame = frm;
+    }
 }
 
 -(CGSize)intrinsicContentSize {
@@ -95,6 +109,12 @@
 -(void)setImage:(UIImage *)image {
     _image = image;
     self.photoImageView.image = _image;
+}
+
+-(void)setRibbonImage:(UIImage *)ribbonImage {
+    _ribbonImage = ribbonImage;
+    self.ribbonImageView.image = _ribbonImage;
+    [self relayControls];
 }
 
 @end
