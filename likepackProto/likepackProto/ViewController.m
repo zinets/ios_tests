@@ -17,16 +17,21 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSTimeInterval remainingTime;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.testDigit.numericValue = 2;
+    
+    remainingTime = 605;
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timer) userInfo:nil repeats:YES];
 }
 
 - (IBAction)onIncCounter:(id)sender {
-    [self.counter test];
+    
     self.testDigit.numericValue++;
 }
 
@@ -47,6 +52,10 @@
     t = CGAffineTransformRotate(t, M_PI_4);
     
     self.testView.transform = t;
+}
+
+- (void)timer {
+    self.counter.remainingTime = remainingTime--;
 }
 
 @end

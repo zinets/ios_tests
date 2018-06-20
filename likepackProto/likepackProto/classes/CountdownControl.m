@@ -117,12 +117,4 @@
     divider1.textColor = _digitColor;
 }
 
--(void)test {
-    static NSTimeInterval num = 605;
-
-    [self setRemainingTime:num];
-
-    num--;
-}
-
 @end
