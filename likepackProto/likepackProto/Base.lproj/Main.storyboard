@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-ck-Zry" customClass="CountdownControl">
-                                <rect key="frame" x="20" y="40" width="152" height="44"/>
+                                <rect key="frame" x="20" y="40" width="152" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="hw5-32-ZkE"/>
-                                    <constraint firstAttribute="height" constant="44" id="ldg-La-HMW"/>
+                                    <constraint firstAttribute="height" constant="60" id="ldg-La-HMW"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8y-wv-1pL">
@@ -69,10 +69,13 @@
                                     <action selector="move2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D0H-Ul-gZK"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-DQ-jw4" customClass="CountdownDigit">
-                                <rect key="frame" x="20" y="92" width="100" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZT-DQ-jw4" customClass="CountdownDigit">
+                                <rect key="frame" x="20" y="108" width="100" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1zh-Tl-h8c"/>
+                                    <constraint firstAttribute="width" constant="100" id="E2J-Gm-rQV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -88,6 +91,8 @@
                             <constraint firstItem="3B7-4Q-IXi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="fyS-TP-inZ"/>
                             <constraint firstItem="b2h-ck-Zry" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lqZ-qd-pWf"/>
                             <constraint firstItem="K8y-wv-1pL" firstAttribute="leading" secondItem="b2h-ck-Zry" secondAttribute="trailing" constant="20" id="mH7-lo-veG"/>
+                            <constraint firstItem="XZT-DQ-jw4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="s5d-9F-aIm"/>
+                            <constraint firstItem="XZT-DQ-jw4" firstAttribute="top" secondItem="b2h-ck-Zry" secondAttribute="bottom" constant="8" id="why-3a-KWO"/>
                             <constraint firstItem="tZA-gO-0dJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yd1-gx-JbQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

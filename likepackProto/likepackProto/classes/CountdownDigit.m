@@ -73,13 +73,23 @@ typedef enum {
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:28];
     label.textColor = [UIColor whiteColor];
-    label.text = @"4";
+    label.text = @"0";
     [self addSubview:label];
 
     [self updateDesign];
 }
 
 #pragma mark setters -
+
+- (void)setFont:(UIFont *)font {
+    _font = font;
+    label.font = _font;
+}
+
+- (void)setFontColor:(UIColor *)fontColor {
+    _fontColor = fontColor;
+    label.textColor = _fontColor;
+}
 
 - (void)setTopColor:(UIColor *)topColor {
     _topColor = topColor;
@@ -126,6 +136,8 @@ typedef enum {
 
 
 - (void)setNumericValue:(NSInteger)numericValue {
+    if (numericValue == _numericValue)
+        return;
 
     movePhase = MovePhase1;
 

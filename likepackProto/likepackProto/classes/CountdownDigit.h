@@ -8,4 +8,7 @@
 @interface CountdownDigit : UIView
 @property (nonatomic) NSInteger numericValue;
 @property (nonatomic) NSTimeInterval animationDuration;
+
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *fontColor;
 @end
