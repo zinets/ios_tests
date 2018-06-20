@@ -11,16 +11,16 @@
 
 @implementation CountdownControl {
     UILabel *divider1;
-    CountdownDigit *boxH1, *boxH2, *boxM1, *boxM2;
+    CountdownDigit *boxS1, *boxS2, *boxM1, *boxM2;
 }
 
 - (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
 
-    boxH1 = [CountdownDigit new];
-    [self addSubview:boxH1];
-    boxH2 = [CountdownDigit new];
-    [self addSubview:boxH2];
+    boxS1 = [CountdownDigit new];
+    [self addSubview:boxS1];
+    boxS2 = [CountdownDigit new];
+    [self addSubview:boxS2];
     boxM1 = [CountdownDigit new];
     [self addSubview:boxM1];
     boxM2 = [CountdownDigit new];
@@ -57,18 +57,18 @@
     CGFloat const h = self.bounds.size.height;
     CGFloat const w = 0.75f * h;
     CGFloat x = 0;
-    CGFloat const space = 10;
+    CGFloat const space = 20;
     CGFloat const smallSpace = 2;
-    
-    boxH1.frame = (CGRect){x, 0, w, h};
-    x += w + smallSpace;
-    boxH2.frame = (CGRect){x, 0, w, h};
-    x += w;
-    divider1.frame = (CGRect){x, 0, space, h};
-    x += space;
+
     boxM1.frame = (CGRect){x, 0, w, h};
     x += w + smallSpace;
     boxM2.frame = (CGRect){x, 0, w, h};
+    x += w;
+    divider1.frame = (CGRect){x, 0, space, h};
+    x += space;
+    boxS1.frame = (CGRect){x, 0, w, h};
+    x += w + smallSpace;
+    boxS2.frame = (CGRect){x, 0, w, h};
 }
 
 -(void)layoutSubviews {
@@ -79,13 +79,20 @@
 #pragma mark setters -
 
 -(void)setRemainingTime:(NSTimeInterval)remainingTime {
-    
+    // это секунды; значит делим и вычисляем..
+    NSInteger minutes = (int)remainingTime / 60;
+    NSInteger seconds = (int)remainingTime % 60;
+
+    boxM1.numericValue = minutes / 10;
+    boxM2.numericValue = minutes % 10;
+    boxS1.numericValue = seconds / 10;
+    boxS2.numericValue = seconds % 10;
 }
 
 - (void)setFont:(UIFont *)font {
     _font = font;
-    boxH1.font = _font;
-    boxH2.font = _font;
+    boxS1.font = _font;
+    boxS2.font = _font;
     boxM1.font = _font;
     boxM2.font = _font;
     divider1.font = _font;
@@ -93,20 +100,19 @@
 
 - (void)setFontColor:(UIColor *)fontColor {
     _fontColor = fontColor;
-    boxH1.fontColor = _fontColor;
-    boxH2.fontColor = _fontColor;
+    boxS1.fontColor = _fontColor;
+    boxS2.fontColor = _fontColor;
     boxM1.fontColor = _fontColor;
     boxM2.fontColor = _fontColor;
     divider1.textColor = _fontColor;
 }
 
 -(void)test {
-    static NSInteger num = 0;
-    
-//    blockMinutes.stringValue = [@(num) stringValue];
-    
-    num = (num + 1) % 10;
-    
+    static NSTimeInterval num = 605;
+
+    [self setRemainingTime:num];
+
+    num--;
 }
 
 @end
