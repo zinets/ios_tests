@@ -54,7 +54,7 @@
 
 - (void)relayControls {
     // хз как делать раскладку; пусть возьмем высоту контрола и это будет размером "цыфры"; ширина цыфры - как 4:3
-    CGFloat const h = self.bounds.size.height;
+    CGFloat const h = MAX(self.bounds.size.height, 44);
     CGFloat const w = 0.75f * h;
     CGFloat x = 0;
     CGFloat const space = 20;
@@ -79,9 +79,12 @@
 }
 
 -(CGSize)intrinsicContentSize {
-    CGSize sz = (CGSize){boxS2.frame.origin.x + boxS2.frame.size.width, boxS2.frame.origin.y + boxS2.frame.size.height};
-    
+    CGSize sz = (CGSize){boxS2.frame.origin.x + boxS2.frame.size.width, boxS2.frame.origin.y + boxS2.frame.size.height};    
     return sz;
+}
+
+-(CGSize)sizeThatFits:(CGSize)size {
+    return [self intrinsicContentSize];
 }
 
 #pragma mark setters -

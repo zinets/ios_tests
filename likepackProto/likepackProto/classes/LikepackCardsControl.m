@@ -7,6 +7,7 @@
 //
 
 #import "LikepackCardsControl.h"
+#import "CountdownControl.h"
 
 @interface LikepackCardsControl ()
 @property (nonatomic, strong) UIImageView *photoImageView;
@@ -15,7 +16,7 @@
 @property (nonatomic, strong) UIImageView *ribbonImageView;
 @property (nonatomic, strong) UILabel *ribbonTitleLabel;
 @property (nonatomic, strong) UILabel *ribbonTextLabel;
-
+@property (nonatomic, strong) CountdownControl *countdownControl;
 @end
 
 @implementation LikepackCardsControl
@@ -104,12 +105,11 @@
         CGFloat y = 195 * h / 433; // без магии никуда.. цыфры выверены из дизайна
         frm = (CGRect){x, y, w, w / arRibbon};
         self.ribbonImageView.frame = frm;
-        self.ribbonImageView.layer.borderWidth = 1;
         
-        y = 301 * h / 433;
+        y = 314 * h / 433;
         frm = (CGRect){x + 20, y, w - 2 * 20, 20};
-        self.ribbonTitleLabel.frame = frm;
-        frm = (CGRect){x + 20, y + 21, w - 2 * 20, 30};
+//        self.ribbonTitleLabel.frame = frm;
+        frm = (CGRect){x + 20, y, w - 2 * 20, 30};
         self.ribbonTextLabel.frame = frm;
     }
 }
@@ -140,6 +140,37 @@
     _ribbonImage = ribbonImage;
     self.ribbonImageView.image = _ribbonImage;
     [self relayControls];
+}
+
+-(void)setRibbonTitle:(NSString *)ribbonTitle {
+    _ribbonTitle = ribbonTitle;
+    self.ribbonTitleLabel.text = _ribbonTitle;
+}
+
+-(void)setRibbonText:(NSString *)ribbonText {
+    _ribbonText = ribbonText;
+    self.ribbonTextLabel.text = _ribbonText;
+}
+
+-(void)setIsCountdownVisible:(BOOL)isCountdownVisible {
+    _isCountdownVisible = isCountdownVisible;
+    if (_isCountdownVisible && !_countdownControl) {
+        _countdownControl = [CountdownControl new];
+        [_countdownControl sizeToFit];
+        [self addSubview:_countdownControl];
+        
+        _countdownControl.angle = -0.05;
+        _countdownControl.digitColor = [UIColor whiteColor];
+        
+        _countdownControl.center = (CGPoint){self.bounds.size.width - _countdownControl.bounds.size.width / 2 - 50, 38};
+        _countdownControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    }
+    _countdownControl.hidden = !_isCountdownVisible;
+}
+
+-(void)setCountdownRemainingTime:(NSTimeInterval)countdownRemainingTime {
+    _countdownRemainingTime = countdownRemainingTime;
+    _countdownControl.remainingTime = _countdownRemainingTime;
 }
 
 @end

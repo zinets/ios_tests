@@ -140,6 +140,7 @@ typedef enum {
 
 
 - (void)setNumericValue:(NSInteger)numericValue {
+    numericValue = numericValue % 10;
     if (numericValue == _numericValue)
         return;
 
@@ -171,7 +172,6 @@ typedef enum {
     UIGraphicsEndImageContext();
 
     movingPart = [[UIImageView alloc] initWithImage:image];
-    [self addSubview:movingPart];
 
     UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
     [snapshotBeforeUpdate drawAtPoint:(CGPoint){0, -sz.height}];
@@ -181,6 +181,8 @@ typedef enum {
     oldBottomPart = [[UIImageView alloc] initWithImage:image];
     oldBottomPart.frame = (CGRect){{0, sz.height}, sz};
     [self addSubview:oldBottomPart];
+    
+    [self addSubview:movingPart];
 
     UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
     CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, image.size.height);
@@ -200,8 +202,8 @@ typedef enum {
 
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    CATransform3D transform = CATransform3DMakeRotation(-M_PI_2, 1, 0, 0);
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    CATransform3D transform = CATransform3DMakeRotation(-M_PI_2, 1, 0, 0);
     animation.toValue = [NSValue valueWithCATransform3D:transform];
     animation.duration = self.animationDuration / 2;
     animation.delegate = self;
@@ -241,8 +243,9 @@ typedef enum {
                 CALayer *layer1 = movingPart.layer;
 
                 CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-                CATransform3D transform = CATransform3DMakeRotation(-M_PI, 1, 0, 0);
-                animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(-M_PI_2, 1, 0, 0)];
+                CATransform3D transform = CATransform3DMakeRotation(-M_PI_2, 1, 0, 0);
+                animation.fromValue = [NSValue valueWithCATransform3D:transform];
+                transform = CATransform3DMakeRotation(-M_PI, 1, 0, 0);
                 animation.toValue = [NSValue valueWithCATransform3D:transform];
                 animation.duration = self.animationDuration / 2;
 

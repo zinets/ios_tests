@@ -18,7 +18,11 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIImage *frameMaskImage;
 /// картинка для обвивающей ленты; их кучка разных цветов
 @property (nonatomic, strong) IBInspectable UIImage *ribbonImage;
-
+/// тексты в ленте "выпускник-2018"
 @property (nonatomic, strong) IBInspectable NSString *ribbonTitle;
 @property (nonatomic, strong) IBInspectable NSString *ribbonText;
+/// видимость обратного отсчетчика
+@property (nonatomic) IBInspectable BOOL isCountdownVisible;
+/// остаток обратного отсчета
+@property (nonatomic) NSTimeInterval countdownRemainingTime;
 @end

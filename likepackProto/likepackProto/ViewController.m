@@ -9,9 +9,12 @@
 #import "ViewController.h"
 #import "CountdownControl.h"
 #import "CountdownDigit.h"
+#import "LikepackCardsControl.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet CountdownControl *counter;
+@property (weak, nonatomic) IBOutlet LikepackCardsControl *likePack;
+@property (weak, nonatomic) IBOutlet CountdownDigit *testDigit;
 
 @end
 
@@ -24,10 +27,20 @@
        
     remainingTime = 605;
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timer) userInfo:nil repeats:YES];
+    
+    self.likePack.isCountdownVisible = YES;
+    self.testDigit.font = [UIFont systemFontOfSize:80 weight:(UIFontWeightBold)];
+    
+}
+
+- (IBAction)tap:(id)sender {
+    [self timer];
 }
 
 - (void)timer {
-    self.counter.remainingTime = remainingTime--;
+//    self.counter.remainingTime = remainingTime;//self.counter.remainingTime + 671;
+    self.likePack.countdownRemainingTime = remainingTime;
+    self.testDigit.numericValue = remainingTime++;
 }
 
 @end
