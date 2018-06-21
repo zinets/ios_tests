@@ -15,4 +15,5 @@ IB_DESIGNABLE
 @property (nonatomic, strong) UIFont *digitFont; 
 @property (nonatomic, strong) IBInspectable UIColor *digitColor;
 @property (nonatomic) IBInspectable CGFloat angle;
+
 @end

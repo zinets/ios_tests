@@ -13,6 +13,9 @@
 @property (nonatomic, strong) CALayer *frameMaskLayer;
 @property (nonatomic, strong) UIImageView *frameImageView;
 @property (nonatomic, strong) UIImageView *ribbonImageView;
+@property (nonatomic, strong) UILabel *ribbonTitleLabel;
+@property (nonatomic, strong) UILabel *ribbonTextLabel;
+
 @end
 
 @implementation LikepackCardsControl
@@ -29,8 +32,23 @@
     [self addSubview:_frameImageView];
     
     _ribbonImageView = [UIImageView new];
-    _frameImageView.layer.borderWidth = 1;
     [self addSubview:_ribbonImageView];
+    
+    _ribbonTitleLabel = [UILabel new];
+    _ribbonTitleLabel.backgroundColor = [UIColor clearColor];
+    _ribbonTitleLabel.font = [UIFont systemFontOfSize:16 weight:(UIFontWeightRegular)];
+    _ribbonTitleLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    _ribbonTitleLabel.textAlignment = NSTextAlignmentCenter;
+    _ribbonTitleLabel.text = @"Ribbon title";
+    [self addSubview:_ribbonTitleLabel];
+    
+    _ribbonTextLabel = [UILabel new];
+    _ribbonTextLabel.backgroundColor = [UIColor clearColor];
+    _ribbonTextLabel.font = [UIFont systemFontOfSize:24 weight:(UIFontWeightBold)];
+    _ribbonTextLabel.textColor = [UIColor whiteColor];
+    _ribbonTextLabel.textAlignment = NSTextAlignmentCenter;
+    _ribbonTextLabel.text = @"Ribbon text";
+    [self addSubview:_ribbonTextLabel];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -83,9 +101,16 @@
     if (self.ribbonImage) {
         CGSize ribbonSize = self.ribbonImage.size;
         CGFloat arRibbon = ribbonSize.width / ribbonSize.height;
-        CGFloat y = 195 * h / 450;
+        CGFloat y = 195 * h / 433; // без магии никуда.. цыфры выверены из дизайна
         frm = (CGRect){x, y, w, w / arRibbon};
         self.ribbonImageView.frame = frm;
+        self.ribbonImageView.layer.borderWidth = 1;
+        
+        y = 301 * h / 433;
+        frm = (CGRect){x + 20, y, w - 2 * 20, 20};
+        self.ribbonTitleLabel.frame = frm;
+        frm = (CGRect){x + 20, y + 21, w - 2 * 20, 30};
+        self.ribbonTextLabel.frame = frm;
     }
 }
 

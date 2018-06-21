@@ -51,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4916645620DB923F009B403E /* countdown */ = {
+			isa = PBXGroup;
+			children = (
+				49B1844620D8D68A00596150 /* CountdownControl.h */,
+				49B1844720D8D68A00596150 /* CountdownControl.m */,
+				4175692BCE613F4D457F3291 /* CountdownDigit.h */,
+				41756DBD406384DB5FD3BE0A /* CountdownDigit.m */,
+			);
+			path = countdown;
+			sourceTree = "<group>";
+		};
 		49B1842320D8D5DA00596150 = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +100,7 @@
 		49B1844520D8D62500596150 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				49B1844620D8D68A00596150 /* CountdownControl.h */,
-				49B1844720D8D68A00596150 /* CountdownControl.m */,
-				4175692BCE613F4D457F3291 /* CountdownDigit.h */,
-				41756DBD406384DB5FD3BE0A /* CountdownDigit.m */,
+				4916645620DB923F009B403E /* countdown */,
 				4916645320DA5706009B403E /* LikepackCardsControl.h */,
 				4916645420DA5706009B403E /* LikepackCardsControl.m */,
 			);

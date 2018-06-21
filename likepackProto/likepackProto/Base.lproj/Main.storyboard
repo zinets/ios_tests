@@ -19,18 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
-                                <rect key="frame" x="10" y="271" width="355" height="366"/>
+                                <rect key="frame" x="10" y="267" width="355" height="390"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="bgImage" value="likePack"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="frameImage" value="likePack"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="frameMaskImage" value="imgpsh_fullsize"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="frameMaskImage" value="likePackMask"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="ribbonImage" value="ribbon3"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="4405"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-Yd-t7g" customClass="CountdownControl">
-                                <rect key="frame" x="152" y="285" width="156" height="44"/>
+                                <rect key="frame" x="156" y="215" width="156" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -38,16 +38,16 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="-0.064000000000000001"/>
+                                        <real key="value" value="-0.065000000000000002"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="en5-2w-MPg" secondAttribute="trailing" constant="10" id="5Us-Gh-9TO"/>
-                            <constraint firstItem="en5-2w-MPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="eKm-yr-7AD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="30" id="f57-ew-glH"/>
+                            <constraint firstItem="en5-2w-MPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HtX-Ub-t2h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="10" id="YO0-xk-IS0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="en5-2w-MPg" secondAttribute="trailing" constant="10" id="k8l-bL-Rw0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -57,13 +57,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="31.793478260869566"/>
+            <point key="canvasLocation" x="29.600000000000001" y="30.134932533733135"/>
         </scene>
     </scenes>
     <resources>
         <image name="4405" width="562" height="700"/>
-        <image name="imgpsh_fullsize" width="300" height="367"/>
         <image name="likePack" width="355" height="433"/>
+        <image name="likePackMask" width="355" height="433"/>
         <image name="ribbon3" width="355" height="178"/>
     </resources>
 </document>
