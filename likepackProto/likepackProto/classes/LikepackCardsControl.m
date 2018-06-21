@@ -18,7 +18,7 @@
 @implementation LikepackCardsControl
 
 - (void)commonInit {
-    self.backgroundColor = [UIColor brownColor];
+    self.backgroundColor = [UIColor clearColor];
     
     _photoImageView = [UIImageView new];
     _frameMaskLayer = [CALayer layer];

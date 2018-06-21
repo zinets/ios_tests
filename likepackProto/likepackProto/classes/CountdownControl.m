@@ -117,4 +117,10 @@
     divider1.textColor = _digitColor;
 }
 
+-(void)setAngle:(CGFloat)angle {
+    _angle = angle;
+    CGAffineTransform transform = _angle == 0 ? CGAffineTransformIdentity : CGAffineTransformMakeRotation(_angle);
+    self.transform = transform;
+}
+
 @end

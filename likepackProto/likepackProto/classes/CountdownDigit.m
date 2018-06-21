@@ -55,17 +55,21 @@ typedef enum {
     topLayer = [CALayer layer];
     frm.size.height /= 2;
     topLayer.frame = frm;
+    // контрол будет выводится под углом, так что эта хня нужна
+    topLayer.allowsEdgeAntialiasing = YES;
     [self.layer insertSublayer:topLayer atIndex:0];
 
     bottomLayer = [CALayer layer];
     frm.origin.y = frm.size.height;
     bottomLayer.frame = frm;
+    bottomLayer.allowsEdgeAntialiasing = YES;
     [self.layer insertSublayer:bottomLayer atIndex:0];
 
     dividerLayer = [CALayer layer];
     frm.origin.y -= 0.5;
     frm.size.height = .5;
     dividerLayer.frame = frm;
+    dividerLayer.allowsEdgeAntialiasing = YES;
     [self.layer addSublayer:dividerLayer];
 
     label = [[UILabel alloc] initWithFrame:self.bounds];
