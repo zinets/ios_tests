@@ -20,6 +20,7 @@
 
 @implementation ViewController {
     NSTimeInterval remainingTime;
+    CGPoint viewCenter;
 }
 
 - (void)viewDidLoad {
@@ -31,16 +32,50 @@
     self.likePack.isCountdownVisible = YES;
     self.testDigit.font = [UIFont systemFontOfSize:80 weight:(UIFontWeightBold)];
     
+    viewCenter = self.likePack.center;
 }
 
 - (IBAction)tap:(id)sender {
-    [self timer];
+//    [self timer];
+    static CGFloat pos = 1;
+    [self moveView:self.likePack position:pos];
+    pos = -pos;
 }
 
 - (void)timer {
 //    self.counter.remainingTime = remainingTime;//self.counter.remainingTime + 671;
     self.likePack.countdownRemainingTime = remainingTime;
     self.testDigit.numericValue = remainingTime++;
+}
+
+- (IBAction)onChange:(UISlider *)sender {
+    [self moveView:self.likePack position:sender.value];
+}
+
+typedef enum {
+    MoveDirectionRight,
+    MoveDirectionLeft,
+} MoveDirection;
+
+- (void)moveView:(UIView *)viewToMove direction:(MoveDirection)direction {
+    
+        [self moveView:viewToMove position:direction == MoveDirectionLeft ? -.2 : .2];
+    
+}
+
+- (void)moveView:(UIView *)view position:(CGFloat)position {
+    CGFloat const radius = 1000;
+    CGFloat const angle = (M_PI / 6) * position;
+    
+    CGFloat x = sin(angle) * radius;
+    CGFloat y = (radius - cos(angle) * radius);
+    
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, x, y);
+    transform = CGAffineTransformRotate(transform, angle);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.likePack.transform = transform;
+    }];
 }
 
 @end

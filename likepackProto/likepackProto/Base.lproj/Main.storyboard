@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
-                                <rect key="frame" x="10" y="267" width="355" height="390"/>
+                                <rect key="frame" x="10" y="30" width="355" height="390"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="bgImage" value="likePack"/>
@@ -30,31 +30,34 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCountdownVisible" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fj2-Lx-gze" customClass="CountdownDigit">
-                                <rect key="frame" x="67" y="60" width="156" height="155"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK0-f5-nxi">
-                                <rect key="frame" x="248" y="76" width="80" height="102"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-fT-VCe">
+                                <rect key="frame" x="8" y="494" width="359" height="31"/>
+                                <connections>
+                                    <action selector="onChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="QAP-YE-V54"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbn-Pv-NxR">
+                                <rect key="frame" x="234" y="575" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mqA-gn-6QE"/>
+                                    <action selector="tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RKQ-Vv-gX7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="en5-2w-MPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HtX-Ub-t2h"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="10" id="YO0-xk-IS0"/>
+                            <constraint firstItem="en5-2w-MPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Lf4-Tt-Dlv"/>
+                            <constraint firstItem="9KK-fT-VCe" firstAttribute="top" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="74" id="jBL-jr-fjh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="en5-2w-MPg" secondAttribute="trailing" constant="10" id="k8l-bL-Rw0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9KK-fT-VCe" secondAttribute="trailing" constant="10" id="y6v-zR-JwM"/>
+                            <constraint firstItem="9KK-fT-VCe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zTc-NQ-VYo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="likePack" destination="en5-2w-MPg" id="iVQ-5h-DoD"/>
-                        <outlet property="testDigit" destination="fj2-Lx-gze" id="Sp2-wy-WXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
