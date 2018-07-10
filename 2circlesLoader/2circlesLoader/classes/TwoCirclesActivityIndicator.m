@@ -61,6 +61,7 @@ typedef enum {
         _layer2 = [CAShapeLayer new];
         CGRect frame = self.bounds;
         CGPoint center = (CGPoint){self.bounds.size.width / 2, self.bounds.size.height / 2};
+
         CGFloat radius = MIN(self.bounds.size.width, self.bounds.size.height) / 2 - self.lineSpacing;
         _layer2.frame = frame;
         _layer2.strokeColor = self.line2Color.CGColor;
