@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
-
+#import "TwoCirclesActivityIndicator.h"
 
 @interface ViewController ()
-
+@property (weak, nonatomic) IBOutlet TwoCirclesActivityIndicator *activity1;
+@property (weak, nonatomic) IBOutlet TwoCirclesActivityIndicator *activity2;
 @end
 
 @implementation ViewController
@@ -26,5 +27,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startAnimation:(id)sender {
+    [self.activity1 startAnimation];
+    [self.activity2 startAnimation];
+}
+
+- (IBAction)stopAnimation:(id)sender {
+}
 
 @end

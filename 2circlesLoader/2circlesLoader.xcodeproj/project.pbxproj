@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		417560CE930D6CB60659088E /* TwoCirclesActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */; };
 		41756413FA942CF69F9865BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756C7628041F36193D9C27 /* AppDelegate.m */; };
 		417564DCF7C5D88EBEE42BA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756627D6CD01731703E141 /* main.m */; };
 		4175654DB4094F779F787B0B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417566AD28067F86F1279B49 /* ViewController.m */; };
@@ -22,7 +23,9 @@
 		41756627D6CD01731703E141 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		417566A29F18F8AE36174939 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		417566AD28067F86F1279B49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		41756A186C9A78003064D4FB /* TwoCirclesActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoCirclesActivityIndicator.h; sourceTree = "<group>"; };
 		41756B96F8D9733780AEB1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
+		41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCirclesActivityIndicator.m; sourceTree = "<group>"; };
 		41756C7628041F36193D9C27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		41756E4963E51EE099F97D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41756FE55087FF2B5B4E7F9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +50,15 @@
 			);
 			sourceTree = "<group>";
 		};
+		4175625012336F2799677CE0 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */,
+				41756A186C9A78003064D4FB /* TwoCirclesActivityIndicator.h */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
 		41756A314CBA64961C1EEE2D /* 2circlesLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +71,7 @@
 				41756B523D4C0D3031A2D807 /* Main.storyboard */,
 				4175651297B8152A1D8739B3 /* ViewController.h */,
 				417566AD28067F86F1279B49 /* ViewController.m */,
+				4175625012336F2799677CE0 /* classes */,
 			);
 			path = 2circlesLoader;
 			sourceTree = "<group>";
@@ -137,6 +150,7 @@
 				417564DCF7C5D88EBEE42BA2 /* main.m in Sources */,
 				41756413FA942CF69F9865BC /* AppDelegate.m in Sources */,
 				4175654DB4094F779F787B0B /* ViewController.m in Sources */,
+				417560CE930D6CB60659088E /* TwoCirclesActivityIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
