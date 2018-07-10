@@ -20,18 +20,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-yH-6fU" customClass="TwoCirclesActivityIndicator">
                                 <rect key="frame" x="40" y="40" width="65" height="65"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="XwH-P6-Rei"/>
                                     <constraint firstAttribute="width" constant="65" id="w3O-Kk-lVP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGs-Pw-uzZ" customClass="TwoCirclesActivityIndicator">
-                                <rect key="frame" x="40" y="269" width="100" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="40" y="269" width="36" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="kwm-r5-egN"/>
-                                    <constraint firstAttribute="height" constant="100" id="u0i-Lj-utb"/>
+                                    <constraint firstAttribute="width" constant="36" id="kwm-r5-egN"/>
+                                    <constraint firstAttribute="height" constant="36" id="u0i-Lj-utb"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0p-9L-6ue">
@@ -49,21 +49,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8c-wL-1lQ">
-                                <rect key="frame" x="170" y="304" width="32" height="30"/>
+                                <rect key="frame" x="106" y="272" width="32" height="30"/>
                                 <state key="normal" title="start"/>
                                 <connections>
                                     <action selector="startAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6nX-nW-JmB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-gN-ITl">
-                                <rect key="frame" x="222" y="304" width="31" height="30"/>
+                                <rect key="frame" x="158" y="272" width="31" height="30"/>
                                 <state key="normal" title="stop"/>
                                 <connections>
                                     <action selector="stopAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSZ-kP-pK5"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="e0U-yH-6fU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="7ip-oX-EwE"/>
                             <constraint firstItem="qmq-gN-ITl" firstAttribute="leading" secondItem="B8c-wL-1lQ" secondAttribute="trailing" constant="20" id="JNn-Qo-odM"/>
