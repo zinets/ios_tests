@@ -5,9 +5,19 @@
 
 #import "TwoCirclesActivityIndicator.h"
 
-@interface TwoCirclesActivityIndicator()
+typedef enum {
+    TwoCirclesActivityAnimationStageStopped,
+    TwoCirclesActivityAnimationStatring,
+    TwoCirclesActivityAnimationStageRotating,
+    TwoCirclesActivityAnimationStageStopping,
+} TwoCirclesActivityAnimationStage;
+
+@interface TwoCirclesActivityIndicator() {
+    TwoCirclesActivityAnimationStage animationStage;
+}
 @property (nonatomic, strong) CALayer *layer1;
 @end
+
 
 @implementation TwoCirclesActivityIndicator {
 
@@ -61,7 +71,7 @@
 }
 
 - (void)stopAnimation {
-
+    [self.layer1 removeAllAnimations];
 }
 
 @end

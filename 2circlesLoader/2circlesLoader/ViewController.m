@@ -33,6 +33,8 @@
 }
 
 - (IBAction)stopAnimation:(id)sender {
+    [self.activity1 stopAnimation];
+    [self.activity2 stopAnimation];
 }
 
 @end
