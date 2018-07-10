@@ -29,7 +29,8 @@
     remainingTime = 605;
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timer) userInfo:nil repeats:YES];
     
-    self.likePack.isCountdownVisible = YES;
+    self.likePack.isCountdownVisible = NO;
+    self.likePack.image = [UIImage imageNamed:@"Online_18-24_female"];
     self.testDigit.font = [UIFont systemFontOfSize:80 weight:(UIFontWeightBold)];
     
     viewCenter = self.likePack.center;
