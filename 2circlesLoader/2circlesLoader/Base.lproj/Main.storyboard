@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-yH-6fU" customClass="TwoCirclesActivityIndicator">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-yH-6fU" customClass="PingDotActivityIndicator">
                                 <rect key="frame" x="40" y="40" width="65" height="65"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -81,7 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="activity1" destination="e0U-yH-6fU" id="Qvf-uI-Gjl"/>
+                        <outlet property="activity1" destination="e0U-yH-6fU" id="STv-Hj-EIf"/>
                         <outlet property="activity2" destination="xGs-Pw-uzZ" id="Zax-pL-I8q"/>
                     </connections>
                 </viewController>

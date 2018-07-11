@@ -10,6 +10,7 @@
 		417560CE930D6CB60659088E /* TwoCirclesActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */; };
 		41756413FA942CF69F9865BC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756C7628041F36193D9C27 /* AppDelegate.m */; };
 		417564DCF7C5D88EBEE42BA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756627D6CD01731703E141 /* main.m */; };
+		417565462CEBD08D36CB0D93 /* PingDotActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756CD59CE6AF0F31F409A6 /* PingDotActivityIndicator.m */; };
 		4175654DB4094F779F787B0B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417566AD28067F86F1279B49 /* ViewController.m */; };
 		4175682A9C7756BE966ED0EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417568FF0856B583D111D75E /* LaunchScreen.storyboard */; };
 		41756E3D5755A5CA4BDE3C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41756FE55087FF2B5B4E7F9A /* Assets.xcassets */; };
@@ -21,12 +22,14 @@
 		41756218EEBD3C005FCE8307 /* 2circlesLoader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2circlesLoader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4175651297B8152A1D8739B3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		41756627D6CD01731703E141 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4175664388351FF4B51C6E9D /* PingDotActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingDotActivityIndicator.h; sourceTree = "<group>"; };
 		417566A29F18F8AE36174939 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		417566AD28067F86F1279B49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		41756A186C9A78003064D4FB /* TwoCirclesActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoCirclesActivityIndicator.h; sourceTree = "<group>"; };
 		41756B96F8D9733780AEB1AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCirclesActivityIndicator.m; sourceTree = "<group>"; };
 		41756C7628041F36193D9C27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		41756CD59CE6AF0F31F409A6 /* PingDotActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingDotActivityIndicator.m; sourceTree = "<group>"; };
 		41756E4963E51EE099F97D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41756FE55087FF2B5B4E7F9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +58,8 @@
 			children = (
 				41756C54CFE4C24AD116D597 /* TwoCirclesActivityIndicator.m */,
 				41756A186C9A78003064D4FB /* TwoCirclesActivityIndicator.h */,
+				41756CD59CE6AF0F31F409A6 /* PingDotActivityIndicator.m */,
+				4175664388351FF4B51C6E9D /* PingDotActivityIndicator.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				41756413FA942CF69F9865BC /* AppDelegate.m in Sources */,
 				4175654DB4094F779F787B0B /* ViewController.m in Sources */,
 				417560CE930D6CB60659088E /* TwoCirclesActivityIndicator.m in Sources */,
+				417565462CEBD08D36CB0D93 /* PingDotActivityIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

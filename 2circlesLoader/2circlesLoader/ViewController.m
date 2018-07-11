@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import "TwoCirclesActivityIndicator.h"
+#import "PingDotActivityIndicator.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet TwoCirclesActivityIndicator *activity1;
+@property (weak, nonatomic) IBOutlet PingDotActivityIndicator *activity1;
+
 @property (weak, nonatomic) IBOutlet TwoCirclesActivityIndicator *activity2;
 @end
 
