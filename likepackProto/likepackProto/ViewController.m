@@ -26,14 +26,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
        
-    remainingTime = 605;
+    remainingTime = 1 * 60 * 60 + 1 * 60 + 5;
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timer) userInfo:nil repeats:YES];
     
-    self.likePack.isCountdownVisible = NO;
+    self.likePack.isCountdownVisible = YES;
     self.likePack.image = [UIImage imageNamed:@"Online_18-24_female"];
     self.testDigit.font = [UIFont systemFontOfSize:80 weight:(UIFontWeightBold)];
     
     viewCenter = self.likePack.center;
+    
+    self.counter.backgroundColor = [UIColor brownColor];
+    self.counter.hoursVisible = NO;
 }
 
 - (IBAction)tap:(id)sender {
@@ -41,12 +44,15 @@
     static CGFloat pos = 1;
     [self moveView:self.likePack position:pos];
     pos = -pos;
+    [self.counter sizeToFit];
 }
 
 - (void)timer {
 //    self.counter.remainingTime = remainingTime;//self.counter.remainingTime + 671;
     self.likePack.countdownRemainingTime = remainingTime;
-    self.testDigit.numericValue = remainingTime++;
+    self.testDigit.numericValue = remainingTime--;
+    
+    self.counter.remainingTime = remainingTime;
 }
 
 - (IBAction)onChange:(UISlider *)sender {

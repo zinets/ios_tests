@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DBD406384DB5FD3BE0A /* CountdownDigit.m */; };
+		49123D5E20F75F9500AC35BE /* CountdownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49123D5D20F75F9500AC35BE /* CountdownControl.m */; };
 		4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916644820DA1B7F009B403E /* UIColor+MUIColor.m */; };
 		4916645520DA5706009B403E /* LikepackCardsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916645420DA5706009B403E /* LikepackCardsControl.m */; };
 		49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843020D8D5DA00596150 /* AppDelegate.m */; };
@@ -16,12 +17,13 @@
 		49B1843920D8D5DB00596150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49B1843820D8D5DB00596150 /* Assets.xcassets */; };
 		49B1843C20D8D5DB00596150 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B1843A20D8D5DB00596150 /* LaunchScreen.storyboard */; };
 		49B1843F20D8D5DB00596150 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843E20D8D5DB00596150 /* main.m */; };
-		49B1844820D8D68A00596150 /* CountdownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1844720D8D68A00596150 /* CountdownControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4175692BCE613F4D457F3291 /* CountdownDigit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownDigit.h; sourceTree = "<group>"; };
 		41756DBD406384DB5FD3BE0A /* CountdownDigit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownDigit.m; sourceTree = "<group>"; };
+		49123D5C20F75F9500AC35BE /* CountdownControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownControl.h; path = ../../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/likepacks/countdown/CountdownControl.h; sourceTree = "<group>"; };
+		49123D5D20F75F9500AC35BE /* CountdownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountdownControl.m; path = ../../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/likepacks/countdown/CountdownControl.m; sourceTree = "<group>"; };
 		4916644720DA1B7F009B403E /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		4916644820DA1B7F009B403E /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		4916645320DA5706009B403E /* LikepackCardsControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikepackCardsControl.h; sourceTree = "<group>"; };
@@ -36,8 +38,6 @@
 		49B1843B20D8D5DB00596150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49B1843D20D8D5DB00596150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B1843E20D8D5DB00596150 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49B1844620D8D68A00596150 /* CountdownControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountdownControl.h; sourceTree = "<group>"; };
-		49B1844720D8D68A00596150 /* CountdownControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountdownControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 		4916645620DB923F009B403E /* countdown */ = {
 			isa = PBXGroup;
 			children = (
-				49B1844620D8D68A00596150 /* CountdownControl.h */,
-				49B1844720D8D68A00596150 /* CountdownControl.m */,
+				49123D5C20F75F9500AC35BE /* CountdownControl.h */,
+				49123D5D20F75F9500AC35BE /* CountdownControl.m */,
 				4175692BCE613F4D457F3291 /* CountdownDigit.h */,
 				41756DBD406384DB5FD3BE0A /* CountdownDigit.m */,
 			);
@@ -182,8 +182,8 @@
 				4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */,
 				49B1843F20D8D5DB00596150 /* main.m in Sources */,
 				49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */,
-				49B1844820D8D68A00596150 /* CountdownControl.m in Sources */,
 				41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */,
+				49123D5E20F75F9500AC35BE /* CountdownControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

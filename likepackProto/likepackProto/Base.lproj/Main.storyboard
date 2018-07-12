@@ -32,13 +32,23 @@
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9KK-fT-VCe">
                                 <rect key="frame" x="8" y="494" width="359" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yuP-aU-vFN"/>
+                                </constraints>
                                 <connections>
                                     <action selector="onChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="QAP-YE-V54"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbn-Pv-NxR">
-                                <rect key="frame" x="234" y="575" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbj-KO-c5b" customClass="CountdownControl">
+                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" placeholder="YES" id="Lpf-KC-D8o"/>
+                                    <constraint firstAttribute="width" constant="343" placeholder="YES" id="rxG-z4-dWl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbn-Pv-NxR">
+                                <rect key="frame" x="319" y="549" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RKQ-Vv-gX7"/>
@@ -47,16 +57,22 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nbj-KO-c5b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HaA-SA-eKI"/>
                             <constraint firstItem="en5-2w-MPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HtX-Ub-t2h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9KK-fT-VCe" secondAttribute="bottom" constant="143" id="Kwp-nz-H6H"/>
                             <constraint firstItem="en5-2w-MPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Lf4-Tt-Dlv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mbn-Pv-NxR" secondAttribute="trailing" constant="10" id="TTg-4Q-6RA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nbj-KO-c5b" secondAttribute="bottom" constant="20" id="dxl-oi-Q6h"/>
                             <constraint firstItem="9KK-fT-VCe" firstAttribute="top" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="74" id="jBL-jr-fjh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="en5-2w-MPg" secondAttribute="trailing" constant="10" id="k8l-bL-Rw0"/>
+                            <constraint firstItem="Mbn-Pv-NxR" firstAttribute="top" secondItem="9KK-fT-VCe" secondAttribute="bottom" constant="25" id="xeA-tK-Ld8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9KK-fT-VCe" secondAttribute="trailing" constant="10" id="y6v-zR-JwM"/>
                             <constraint firstItem="9KK-fT-VCe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zTc-NQ-VYo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="counter" destination="nbj-KO-c5b" id="Lwd-V1-7Gk"/>
                         <outlet property="likePack" destination="en5-2w-MPg" id="iVQ-5h-DoD"/>
                     </connections>
                 </viewController>
