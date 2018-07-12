@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756DBD406384DB5FD3BE0A /* CountdownDigit.m */; };
 		49123D5E20F75F9500AC35BE /* CountdownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 49123D5D20F75F9500AC35BE /* CountdownControl.m */; };
+		49123D6720F770FD00AC35BE /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 49123D6520F770FC00AC35BE /* UIView+Geometry.m */; };
+		49123D6820F7711300AC35BE /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49123D6420F770CE00AC35BE /* TNURLImageView.framework */; };
+		49123D6920F7711300AC35BE /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49123D6420F770CE00AC35BE /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916644820DA1B7F009B403E /* UIColor+MUIColor.m */; };
 		4916645520DA5706009B403E /* LikepackCardsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916645420DA5706009B403E /* LikepackCardsControl.m */; };
 		49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843020D8D5DA00596150 /* AppDelegate.m */; };
@@ -19,11 +22,45 @@
 		49B1843F20D8D5DB00596150 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1843E20D8D5DB00596150 /* main.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		49123D6320F770CE00AC35BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49123D5F20F770CE00AC35BE /* TNURLImageView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3D232E620AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
+		49123D6A20F7711300AC35BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49123D5F20F770CE00AC35BE /* TNURLImageView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B3D232E520AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49123D6C20F7711300AC35BE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49123D6920F7711300AC35BE /* TNURLImageView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4175692BCE613F4D457F3291 /* CountdownDigit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownDigit.h; sourceTree = "<group>"; };
 		41756DBD406384DB5FD3BE0A /* CountdownDigit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownDigit.m; sourceTree = "<group>"; };
 		49123D5C20F75F9500AC35BE /* CountdownControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CountdownControl.h; path = ../../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/likepacks/countdown/CountdownControl.h; sourceTree = "<group>"; };
 		49123D5D20F75F9500AC35BE /* CountdownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CountdownControl.m; path = ../../../../../ios_tn/trunk/Flirt/Flirt/Classes/Controllers/likepacks/countdown/CountdownControl.m; sourceTree = "<group>"; };
+		49123D5F20F770CE00AC35BE /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../ios_tn/trunk/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
+		49123D6520F770FC00AC35BE /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
+		49123D6620F770FC00AC35BE /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
 		4916644720DA1B7F009B403E /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		4916644820DA1B7F009B403E /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		4916645320DA5706009B403E /* LikepackCardsControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LikepackCardsControl.h; sourceTree = "<group>"; };
@@ -45,12 +82,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49123D6820F7711300AC35BE /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49123D6020F770CE00AC35BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49123D6420F770CE00AC35BE /* TNURLImageView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4916645620DB923F009B403E /* countdown */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +111,7 @@
 		49B1842320D8D5DA00596150 = {
 			isa = PBXGroup;
 			children = (
+				49123D5F20F770CE00AC35BE /* TNURLImageView.xcodeproj */,
 				49B1842E20D8D5DA00596150 /* likepackProto */,
 				49B1842D20D8D5DA00596150 /* Products */,
 			);
@@ -83,6 +130,8 @@
 			children = (
 				4916644720DA1B7F009B403E /* UIColor+MUIColor.h */,
 				4916644820DA1B7F009B403E /* UIColor+MUIColor.m */,
+				49123D6620F770FC00AC35BE /* UIView+Geometry.h */,
+				49123D6520F770FC00AC35BE /* UIView+Geometry.m */,
 				49B1844520D8D62500596150 /* classes */,
 				49B1842F20D8D5DA00596150 /* AppDelegate.h */,
 				49B1843020D8D5DA00596150 /* AppDelegate.m */,
@@ -117,10 +166,12 @@
 				49B1842820D8D5DA00596150 /* Sources */,
 				49B1842920D8D5DA00596150 /* Frameworks */,
 				49B1842A20D8D5DA00596150 /* Resources */,
+				49123D6C20F7711300AC35BE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				49123D6B20F7711300AC35BE /* PBXTargetDependency */,
 			);
 			name = likepackProto;
 			productName = likepackProto;
@@ -152,12 +203,28 @@
 			mainGroup = 49B1842320D8D5DA00596150;
 			productRefGroup = 49B1842D20D8D5DA00596150 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 49123D6020F770CE00AC35BE /* Products */;
+					ProjectRef = 49123D5F20F770CE00AC35BE /* TNURLImageView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				49B1842B20D8D5DA00596150 /* likepackProto */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		49123D6420F770CE00AC35BE /* TNURLImageView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TNURLImageView.framework;
+			remoteRef = 49123D6320F770CE00AC35BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		49B1842A20D8D5DA00596150 /* Resources */ = {
@@ -181,6 +248,7 @@
 				4916645520DA5706009B403E /* LikepackCardsControl.m in Sources */,
 				4916644920DA1B7F009B403E /* UIColor+MUIColor.m in Sources */,
 				49B1843F20D8D5DB00596150 /* main.m in Sources */,
+				49123D6720F770FD00AC35BE /* UIView+Geometry.m in Sources */,
 				49B1843120D8D5DA00596150 /* AppDelegate.m in Sources */,
 				41756B091E752B0EC82A1DC8 /* CountdownDigit.m in Sources */,
 				49123D5E20F75F9500AC35BE /* CountdownControl.m in Sources */,
@@ -188,6 +256,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49123D6B20F7711300AC35BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TNURLImageView;
+			targetProxy = 49123D6A20F7711300AC35BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		49B1843520D8D5DA00596150 /* Main.storyboard */ = {

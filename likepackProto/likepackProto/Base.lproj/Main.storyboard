@@ -57,10 +57,10 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nbj-KO-c5b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HaA-SA-eKI"/>
                             <constraint firstItem="en5-2w-MPg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="HtX-Ub-t2h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9KK-fT-VCe" secondAttribute="bottom" constant="143" id="Kwp-nz-H6H"/>
                             <constraint firstItem="en5-2w-MPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Lf4-Tt-Dlv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nbj-KO-c5b" secondAttribute="trailing" constant="16" id="PpY-lI-Gaa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mbn-Pv-NxR" secondAttribute="trailing" constant="10" id="TTg-4Q-6RA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nbj-KO-c5b" secondAttribute="bottom" constant="20" id="dxl-oi-Q6h"/>
                             <constraint firstItem="9KK-fT-VCe" firstAttribute="top" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="74" id="jBL-jr-fjh"/>
