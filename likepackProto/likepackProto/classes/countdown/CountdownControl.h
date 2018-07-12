@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-/// контроль показывает оставшееся (в пределах 10 минут) время с отсчетом назад
+/// контроль показывает оставшееся (ЧЧ:ММ:СС) время с отсчетом назад
 IB_DESIGNABLE
 @interface CountdownControl : UIView
 @property (nonatomic) NSTimeInterval remainingTime;

@@ -12,6 +12,8 @@
 @implementation CountdownControl {
     UILabel *divider1;
     CountdownDigit *boxS1, *boxS2, *boxM1, *boxM2;
+    UILabel *divider2;
+    CountdownDigit *boxH1, *boxH2;
 }
 
 - (void)commonInit {
@@ -26,12 +28,24 @@
     boxM2 = [CountdownDigit new];
     [self addSubview:boxM2];
 
+    boxH1 = [CountdownDigit new];
+    [self addSubview:boxH1];
+    boxH2 = [CountdownDigit new];
+    [self addSubview:boxH2];
+
     divider1 = [UILabel new];
     divider1.textAlignment = NSTextAlignmentCenter;
     divider1.font = [UIFont systemFontOfSize:28];
     divider1.textColor = [UIColor whiteColor];
     divider1.text = @":";
     [self addSubview:divider1];
+
+    divider2 = [UILabel new];
+    divider2.textAlignment = NSTextAlignmentCenter;
+    divider2.font = divider1.font;
+    divider2.textColor = divider1.textColor;
+    divider2.text = @":";
+    [self addSubview:divider2];
 
     self.digitFont = [UIFont systemFontOfSize:38 weight:UIFontWeightHeavy];
     
@@ -60,6 +74,12 @@
     CGFloat const space = 20;
     CGFloat const smallSpace = 2;
 
+    boxH1.frame = (CGRect){x, 0, w, h};
+    x += w + smallSpace;
+    boxH2.frame = (CGRect){x, 0, w, h};
+    x += w;
+    divider2.frame = (CGRect){x, 0, space, h};
+    x += space;
     boxM1.frame = (CGRect){x, 0, w, h};
     x += w + smallSpace;
     boxM2.frame = (CGRect){x, 0, w, h};
@@ -69,6 +89,7 @@
     boxS1.frame = (CGRect){x, 0, w, h};
     x += w + smallSpace;
     boxS2.frame = (CGRect){x, 0, w, h};
+
     
     [self invalidateIntrinsicContentSize];
 }
@@ -93,9 +114,12 @@
     _remainingTime = MAX(0, remainingTime);
 
     // это секунды; значит делим и вычисляем..
+    NSInteger hours = (int)_remainingTime / 3600;
     NSInteger minutes = (int)_remainingTime / 60;
     NSInteger seconds = (int)_remainingTime % 60;
 
+    boxH1.numericValue = hours / 10;
+    boxH2.numericValue = hours % 10;
     boxM1.numericValue = minutes / 10;
     boxM2.numericValue = minutes % 10;
     boxS1.numericValue = seconds / 10;
@@ -108,7 +132,11 @@
     boxS2.font = _digitFont;
     boxM1.font = _digitFont;
     boxM2.font = _digitFont;
+    boxH1.font = _digitFont;
+    boxH2.font = _digitFont;
+
     divider1.font = _digitFont;
+    divider2.font = _digitFont;
 }
 
 - (void)setDigitColor:(UIColor *)fontColor {
@@ -117,7 +145,11 @@
     boxS2.fontColor = _digitColor;
     boxM1.fontColor = _digitColor;
     boxM2.fontColor = _digitColor;
+    boxH1.fontColor = _digitColor;
+    boxH2.fontColor = _digitColor;
+
     divider1.textColor = _digitColor;
+    divider2.textColor = _digitColor;
 }
 
 -(void)setAngle:(CGFloat)angle {

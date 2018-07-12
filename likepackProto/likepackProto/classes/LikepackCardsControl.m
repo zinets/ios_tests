@@ -9,8 +9,11 @@
 #import "LikepackCardsControl.h"
 #import "CountdownControl.h"
 
+#import "UIView+Geometry.h"
+#import <TNURLImageView/TNURLImageView.h>
+
 @interface LikepackCardsControl ()
-@property (nonatomic, strong) UIImageView *photoImageView;
+@property (nonatomic, strong) TNImageView *photoImageView;
 @property (nonatomic, strong) CALayer *frameMaskLayer;
 @property (nonatomic, strong) UIImageView *frameImageView;
 @property (nonatomic, strong) UIImageView *ribbonImageView;
@@ -24,7 +27,8 @@
 - (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
     
-    _photoImageView = [UIImageView new];
+    _photoImageView = [TNImageView new];
+    _photoImageView.contentMode = UIViewContentModeScaleAspectFill;
     _frameMaskLayer = [CALayer layer];
     _photoImageView.layer.mask = _frameMaskLayer;
     [self addSubview:_photoImageView];
@@ -34,15 +38,7 @@
     
     _ribbonImageView = [UIImageView new];
     [self addSubview:_ribbonImageView];
-    
-    _ribbonTitleLabel = [UILabel new];
-    _ribbonTitleLabel.backgroundColor = [UIColor clearColor];
-    _ribbonTitleLabel.font = [UIFont systemFontOfSize:16 weight:(UIFontWeightRegular)];
-    _ribbonTitleLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
-    _ribbonTitleLabel.textAlignment = NSTextAlignmentCenter;
-    _ribbonTitleLabel.text = @"Ribbon title";
-    [self addSubview:_ribbonTitleLabel];
-    
+
     _ribbonTextLabel = [UILabel new];
     _ribbonTextLabel.backgroundColor = [UIColor clearColor];
     _ribbonTextLabel.font = [UIFont systemFontOfSize:24 weight:(UIFontWeightBold)];
@@ -74,6 +70,10 @@
 -(void)relayControls {
     CGSize boundsSize = self.bounds.size;
     CGSize imageSize = self.frameImage.size;
+    
+    if (CGSizeIsEmpty(boundsSize) || CGSizeIsEmpty(imageSize)) {
+        return;
+    }
     
     CGFloat arBounds = boundsSize.width / boundsSize.height;
     CGFloat arImage = imageSize.width / imageSize.height;
@@ -107,8 +107,6 @@
         self.ribbonImageView.frame = frm;
         
         y = 314 * h / 433;
-        frm = (CGRect){x + 20, y, w - 2 * 20, 20};
-//        self.ribbonTitleLabel.frame = frm;
         frm = (CGRect){x + 20, y, w - 2 * 20, 30};
         self.ribbonTextLabel.frame = frm;
     }
@@ -136,15 +134,15 @@
     self.photoImageView.image = _image;
 }
 
+-(void)setImageUrl:(NSString *)imageUrl {
+    _imageUrl = imageUrl;
+    [self.photoImageView loadImageFromUrl:_imageUrl];
+}
+
 -(void)setRibbonImage:(UIImage *)ribbonImage {
     _ribbonImage = ribbonImage;
     self.ribbonImageView.image = _ribbonImage;
     [self relayControls];
-}
-
--(void)setRibbonTitle:(NSString *)ribbonTitle {
-    _ribbonTitle = ribbonTitle;
-    self.ribbonTitleLabel.text = _ribbonTitle;
 }
 
 -(void)setRibbonText:(NSString *)ribbonText {
@@ -156,19 +154,23 @@
     _isCountdownVisible = isCountdownVisible;
     if (_isCountdownVisible && !_countdownControl) {
         _countdownControl = [CountdownControl new];
-        [_countdownControl sizeToFit];
         [self addSubview:_countdownControl];
         
         _countdownControl.angle = -0.05;
         _countdownControl.digitColor = [UIColor whiteColor];
+        _countdownControl.hoursVisible = YES;
         
-        _countdownControl.center = (CGPoint){self.bounds.size.width - _countdownControl.bounds.size.width / 2 - 50, 38};
+        _countdownControl.center = (CGPoint){(self.bounds.size.width - _countdownControl.bounds.size.width) / 2 - 50, 38};
         _countdownControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     }
     _countdownControl.hidden = !_isCountdownVisible;
 }
 
 -(void)setCountdownRemainingTime:(NSTimeInterval)countdownRemainingTime {
+    if (_countdownRemainingTime == 0 && countdownRemainingTime > 0) {
+        // пусть это признак, что первый раз сеттим время; тут можно отключить часы, если времени менбше часа
+        self.countdownControl.hoursVisible = (int)countdownRemainingTime / 3600 > 0;
+    }
     _countdownRemainingTime = countdownRemainingTime;
     _countdownControl.remainingTime = _countdownRemainingTime;
 }
