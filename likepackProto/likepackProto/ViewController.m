@@ -36,7 +36,7 @@
     viewCenter = self.likePack.center;
     
     self.counter.backgroundColor = [UIColor brownColor];
-    self.counter.hoursVisible = NO;
+    self.counter.hoursVisible = YES;
 }
 
 - (IBAction)tap:(id)sender {
@@ -56,7 +56,10 @@
 }
 
 - (IBAction)onChange:(UISlider *)sender {
-    [self moveView:self.likePack position:sender.value];
+//    [self moveView:self.likePack position:sender.value];
+    
+    
+    self.counter.angle = sender.value / 10;
 }
 
 typedef enum {

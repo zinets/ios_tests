@@ -158,7 +158,7 @@
         
         _countdownControl.angle = -0.05;
         _countdownControl.digitColor = [UIColor whiteColor];
-        _countdownControl.hoursVisible = YES;
+        _countdownControl.hoursVisible = NO;
         
         _countdownControl.center = (CGPoint){(self.bounds.size.width - _countdownControl.bounds.size.width) / 2 - 50, 38};
         _countdownControl.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;

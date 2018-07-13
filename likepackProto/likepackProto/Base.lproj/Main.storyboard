@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +20,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en5-2w-MPg" customClass="LikepackCardsControl">
-                                <rect key="frame" x="10" y="30" width="355" height="390"/>
+                                <rect key="frame" x="10" y="30" width="355" height="434"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="en5-2w-MPg" secondAttribute="height" multiplier="355/434" id="ND4-qx-Q1G"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="bgImage" value="likePack"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="frameImage" value="likePack"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="frameMaskImage" value="likePackMask"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="ribbonImage" value="ribbon3"/>
@@ -40,7 +43,7 @@
                                 </connections>
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbj-KO-c5b" customClass="CountdownControl">
-                                <rect key="frame" x="16" y="603" width="343" height="44"/>
+                                <rect key="frame" x="16" y="583" width="343" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" placeholder="YES" id="Lpf-KC-D8o"/>
@@ -48,7 +51,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbn-Pv-NxR">
-                                <rect key="frame" x="319" y="549" width="46" height="30"/>
+                                <rect key="frame" x="319" y="449" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="tap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RKQ-Vv-gX7"/>
@@ -62,10 +65,9 @@
                             <constraint firstItem="en5-2w-MPg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Lf4-Tt-Dlv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nbj-KO-c5b" secondAttribute="trailing" constant="16" id="PpY-lI-Gaa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mbn-Pv-NxR" secondAttribute="trailing" constant="10" id="TTg-4Q-6RA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nbj-KO-c5b" secondAttribute="bottom" constant="20" id="dxl-oi-Q6h"/>
-                            <constraint firstItem="9KK-fT-VCe" firstAttribute="top" secondItem="en5-2w-MPg" secondAttribute="bottom" constant="74" id="jBL-jr-fjh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nbj-KO-c5b" secondAttribute="bottom" constant="40" id="dxl-oi-Q6h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="en5-2w-MPg" secondAttribute="trailing" constant="10" id="k8l-bL-Rw0"/>
-                            <constraint firstItem="Mbn-Pv-NxR" firstAttribute="top" secondItem="9KK-fT-VCe" secondAttribute="bottom" constant="25" id="xeA-tK-Ld8"/>
+                            <constraint firstItem="Mbn-Pv-NxR" firstAttribute="top" secondItem="9KK-fT-VCe" secondAttribute="bottom" constant="-75" id="xeA-tK-Ld8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9KK-fT-VCe" secondAttribute="trailing" constant="10" id="y6v-zR-JwM"/>
                             <constraint firstItem="9KK-fT-VCe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zTc-NQ-VYo"/>
                         </constraints>
