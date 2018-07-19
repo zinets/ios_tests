@@ -75,8 +75,8 @@
                                     <action selector="animate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hT3-G9-IR3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-g1-Uwn" customClass="LottieAnimatedButton">
-                                <rect key="frame" x="32" y="456" width="42" height="40"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyD-g1-Uwn" customClass="LottieAnimatedButton">
+                                <rect key="frame" x="21" y="449" width="53" height="47"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="Fcu-gN-DMv"/>
