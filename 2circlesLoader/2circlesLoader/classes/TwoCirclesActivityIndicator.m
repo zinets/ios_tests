@@ -12,6 +12,11 @@ typedef enum {
     TwoCirclesActivityAnimationStageStopping,
 } TwoCirclesActivityAnimationStage;
 
+typedef enum {
+    TwoCirclesActivityAnimationEndingTypeCompleting,
+    TwoCirclesActivityAnimationEndingTypeFade,
+} TwoCirclesActivityAnimationEndingType;
+
 @interface TwoCirclesActivityIndicator() <CAAnimationDelegate> {
     TwoCirclesActivityAnimationStage animationStage;
 }
@@ -26,6 +31,8 @@ typedef enum {
 @property (nonatomic) NSTimeInterval startStageDuration;
 @property (nonatomic) NSTimeInterval endStageDuration;
 @property (nonatomic) NSTimeInterval rotatingStageDuration;
+
+@property (nonatomic) TwoCirclesActivityAnimationEndingType endingType;
 @end
 
 @implementation TwoCirclesActivityIndicator {
@@ -95,9 +102,11 @@ typedef enum {
     _line1Color = [UIColor lightGrayColor];
     _line2Color = [UIColor lightGrayColor];
 
-    _startStageDuration = 0.4;
-    _endStageDuration = 0.4;
+    _startStageDuration = 0.3;
+    _endStageDuration = 0.2;
     _rotatingStageDuration = 0.8;
+
+    _endingType = TwoCirclesActivityAnimationEndingTypeFade;
 
     [self.layer addSublayer:self.layer1];
     [self.layer addSublayer:self.layer2];
@@ -127,7 +136,14 @@ typedef enum {
 }
 
 - (void)stopAnimation {
-    animationStage = TwoCirclesActivityAnimationStageStopping;
+    switch (self.endingType) {
+        case TwoCirclesActivityAnimationEndingTypeCompleting:
+            animationStage = TwoCirclesActivityAnimationStageStopping;
+            break;
+        case TwoCirclesActivityAnimationEndingTypeFade:
+            [self setFinalStageWithFade];
+            break;
+    }
 }
 
 #pragma mark animation -
@@ -138,6 +154,7 @@ typedef enum {
             [CATransaction setDisableActions:YES];
             self.layer1.strokeEnd = 1;
             self.layer2.strokeEnd = 1;
+
             [CATransaction setDisableActions:NO];
 
             [self setRotatingStage];
@@ -146,17 +163,26 @@ typedef enum {
         case TwoCirclesActivityAnimationStageRotating:
             [self setRotatingStage];
             break;
-        case TwoCirclesActivityAnimationStageStopping:
-            [CATransaction setDisableActions:YES];
-            self.layer1.strokeStart = 0;
-            self.layer1.strokeEnd = 1;
+        case TwoCirclesActivityAnimationStageStopping: {
+            switch (self.endingType) {
+                case TwoCirclesActivityAnimationEndingTypeCompleting:
+                    [CATransaction setDisableActions:YES];
+                    self.layer1.strokeStart = 0;
+                    self.layer1.strokeEnd = 1;
 
-            self.layer2.strokeStart = 0;
-            self.layer2.strokeEnd = 1;
-            [CATransaction setDisableActions:NO];
+                    self.layer2.strokeStart = 0;
+                    self.layer2.strokeEnd = 1;
+                    [CATransaction setDisableActions:NO];
 
-            [self setFinalStage];
-            break;
+                    [self setFinalStage];
+
+                    break;
+                case TwoCirclesActivityAnimationEndingTypeFade:
+
+                    break;
+            }
+
+        } break;
         case TwoCirclesActivityAnimationStageStopped:
             [self setInitialState];
             break;
@@ -199,6 +225,20 @@ typedef enum {
     return animation;
 }
 
+-(CABasicAnimation *)stoppingAnimationWithFade {
+    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+    animationGroup.duration = self.endStageDuration;
+
+    CABasicAnimation *fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnimation.duration = self.endStageDuration;
+    fadeAnimation.toValue = @0;
+
+    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+    transformAnimation.byValue = @-30;
+
+    animationGroup.animations = @[fadeAnimation, transformAnimation];
+    return animationGroup;
+}
 
 - (void)setStartingStage {
     [self.layer1 removeAllAnimations];
@@ -224,6 +264,14 @@ typedef enum {
     animation.delegate = self;
     [self.layer1 addAnimation:animation forKey:@"1"];
     [self.layer2 addAnimation:self.stoppingAnimation forKey:@"2"];
+    animationStage = TwoCirclesActivityAnimationStageStopped;
+}
+
+- (void)setFinalStageWithFade {
+    CABasicAnimation *animation = self.stoppingAnimationWithFade;
+    animation.delegate = self;
+
+    [self.layer addAnimation:animation forKey:@"3"];
     animationStage = TwoCirclesActivityAnimationStageStopped;
 }
 
