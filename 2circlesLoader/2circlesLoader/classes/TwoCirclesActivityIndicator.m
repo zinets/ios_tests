@@ -22,6 +22,10 @@ typedef enum {
 @property (nonatomic) CGFloat lineSpacing;
 @property (nonatomic, strong) UIColor *line1Color;
 @property (nonatomic, strong) UIColor *line2Color;
+
+@property (nonatomic) NSTimeInterval startStageDuration;
+@property (nonatomic) NSTimeInterval endStageDuration;
+@property (nonatomic) NSTimeInterval rotatingStageDuration;
 @end
 
 @implementation TwoCirclesActivityIndicator {
@@ -91,6 +95,10 @@ typedef enum {
     _line1Color = [UIColor lightGrayColor];
     _line2Color = [UIColor lightGrayColor];
 
+    _startStageDuration = 0.4;
+    _endStageDuration = 0.4;
+    _rotatingStageDuration = 0.8;
+
     [self.layer addSublayer:self.layer1];
     [self.layer addSublayer:self.layer2];
 }
@@ -157,7 +165,7 @@ typedef enum {
 
 - (CABasicAnimation *)rotatingAnimation {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    animation.duration = 1.5;
+    animation.duration = self.rotatingStageDuration;
     animation.toValue = @0;
     animation.fromValue = @(M_PI * 2);
 
@@ -166,7 +174,7 @@ typedef enum {
 
 - (CABasicAnimation *)ccwRotatingAnimation {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    animation.duration = 1.5;
+    animation.duration = self.rotatingStageDuration;
     animation.fromValue = @0;
     animation.toValue = @(M_PI * 2);
 
@@ -175,7 +183,7 @@ typedef enum {
 
 -(CABasicAnimation *)startingAnimation {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    animation.duration = 1.3;
+    animation.duration = self.startStageDuration;
     animation.fromValue = @0;
     animation.toValue = @1;
 
@@ -184,7 +192,7 @@ typedef enum {
 
 -(CABasicAnimation *)stoppingAnimation {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    animation.duration = 1.3;
+    animation.duration = self.endStageDuration;
     animation.fromValue = @0;
     animation.toValue = @1;
 
