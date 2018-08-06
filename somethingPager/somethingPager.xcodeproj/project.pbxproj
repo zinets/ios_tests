@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491E7B2521186EF300057AC8 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E7B2421186EF300057AC8 /* UIColor+MUIColor.m */; };
+		491E7B2821186F0C00057AC8 /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E7B2721186F0C00057AC8 /* HorizontalPageIndicator.m */; };
 		49CA93AF2084DE2600C73216 /* SPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA93AE2084DE2600C73216 /* SPager.m */; };
 		49CA93B32084DF0C00C73216 /* SPagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA93B12084DF0C00C73216 /* SPagerCell.m */; };
 		49CA93B42084DF0C00C73216 /* SPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CA93B22084DF0C00C73216 /* SPagerCell.xib */; };
-		49CA93B72084E93000C73216 /* HorizontalPageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA93B62084E93000C73216 /* HorizontalPageIndicator.m */; };
-		49CA93BA2085C3B600C73216 /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA93B92085C3B600C73216 /* UIColor+MUIColor.m */; };
 		49E86E9E2084DDAB00F1B676 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86E9D2084DDAB00F1B676 /* AppDelegate.m */; };
 		49E86EA12084DDAB00F1B676 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86EA02084DDAB00F1B676 /* ViewController.m */; };
 		49E86EA42084DDAB00F1B676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E86EA22084DDAB00F1B676 /* Main.storyboard */; };
@@ -21,15 +21,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		491E7B2321186EF300057AC8 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
+		491E7B2421186EF300057AC8 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
+		491E7B2621186F0B00057AC8 /* HorizontalPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPageIndicator.h; sourceTree = "<group>"; };
+		491E7B2721186F0C00057AC8 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPageIndicator.m; sourceTree = "<group>"; };
 		49CA93AD2084DE2600C73216 /* SPager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPager.h; sourceTree = "<group>"; };
 		49CA93AE2084DE2600C73216 /* SPager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPager.m; sourceTree = "<group>"; };
 		49CA93B02084DF0C00C73216 /* SPagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPagerCell.h; sourceTree = "<group>"; };
 		49CA93B12084DF0C00C73216 /* SPagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPagerCell.m; sourceTree = "<group>"; };
 		49CA93B22084DF0C00C73216 /* SPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SPagerCell.xib; sourceTree = "<group>"; };
-		49CA93B52084E92F00C73216 /* HorizontalPageIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorizontalPageIndicator.h; path = ../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.h; sourceTree = "<group>"; };
-		49CA93B62084E93000C73216 /* HorizontalPageIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HorizontalPageIndicator.m; path = ../../../ios_tn/trunk/MUIControls/MUIControls/Classes/HorizontalPageIndicator.m; sourceTree = "<group>"; };
-		49CA93B82085C3B600C73216 /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+MUIColor.h"; path = "../../../ios_tn/trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.h"; sourceTree = "<group>"; };
-		49CA93B92085C3B600C73216 /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MUIColor.m"; path = "../../../ios_tn/trunk/MUIControls/MUIControls/Classes/UIColor+MUIColor.m"; sourceTree = "<group>"; };
 		49E86E992084DDAB00F1B676 /* somethingPager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = somethingPager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E86E9C2084DDAB00F1B676 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49E86E9D2084DDAB00F1B676 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,15 +84,15 @@
 		49E86E9B2084DDAB00F1B676 /* somethingPager */ = {
 			isa = PBXGroup;
 			children = (
+				491E7B2321186EF300057AC8 /* UIColor+MUIColor.h */,
+				491E7B2421186EF300057AC8 /* UIColor+MUIColor.m */,
+				491E7B2621186F0B00057AC8 /* HorizontalPageIndicator.h */,
+				491E7B2721186F0C00057AC8 /* HorizontalPageIndicator.m */,
 				49CA93AC2084DE0B00C73216 /* classes */,
 				49E86E9C2084DDAB00F1B676 /* AppDelegate.h */,
 				49E86E9D2084DDAB00F1B676 /* AppDelegate.m */,
 				49E86E9F2084DDAB00F1B676 /* ViewController.h */,
 				49E86EA02084DDAB00F1B676 /* ViewController.m */,
-				49CA93B52084E92F00C73216 /* HorizontalPageIndicator.h */,
-				49CA93B62084E93000C73216 /* HorizontalPageIndicator.m */,
-				49CA93B82085C3B600C73216 /* UIColor+MUIColor.h */,
-				49CA93B92085C3B600C73216 /* UIColor+MUIColor.m */,
 				49E86EA22084DDAB00F1B676 /* Main.storyboard */,
 				49E86EA52084DDAD00F1B676 /* Assets.xcassets */,
 				49E86EA72084DDAD00F1B676 /* LaunchScreen.storyboard */,
@@ -173,13 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491E7B2821186F0C00057AC8 /* HorizontalPageIndicator.m in Sources */,
 				49E86EA12084DDAB00F1B676 /* ViewController.m in Sources */,
 				49CA93AF2084DE2600C73216 /* SPager.m in Sources */,
-				49CA93B72084E93000C73216 /* HorizontalPageIndicator.m in Sources */,
 				49E86EAC2084DDAD00F1B676 /* main.m in Sources */,
-				49CA93BA2085C3B600C73216 /* UIColor+MUIColor.m in Sources */,
 				49CA93B32084DF0C00C73216 /* SPagerCell.m in Sources */,
 				49E86E9E2084DDAB00F1B676 /* AppDelegate.m in Sources */,
+				491E7B2521186EF300057AC8 /* UIColor+MUIColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
