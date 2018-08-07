@@ -88,12 +88,16 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 - (void)commonInit {
     [self addSubview:self.playerPlaceholder];
     [self.layer insertSublayer:self.playerLayer atIndex:0];
+    // єтот нотіфікатор прідет? когда проігриваніе упрется в конец файла - чтоби перемотать на начало
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endOfVideo:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    // этот нотификатор дернется несколько раз при проигрывании - я использую его, чтобы убирать пласхолдер не перед началом проигрывания (визуально - мелькание белого экрана до начала проигрывания), а при проигрывании первых кадров
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(timeChanged:) name:AVPlayerItemTimeJumpedNotification object:nil];
 }
 
 - (void)dealloc {
     [self.player removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemTimeJumpedNotification object:nil];
 }
 
 - (void)layoutSubviews {
@@ -104,7 +108,6 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 - (void)loadVideo:(NSString *)videoUrl preview:(NSString *)previewUrl {
     // на случай последовательных загрузок видео
     if (self.loaded) {
-        [self stop];
         [self unloadVideo];
     }
 
@@ -115,7 +118,7 @@ static void *PlayerStatusContext = &PlayerStatusContext;
         self.playerPlaceholder.hidden = NO;
     }
     
-    self.playerLayer.hidden = self.suppressVideoLoad;
+    self.playerLayer.hidden = self.suppressVideoLoad; // очевидно что скорее всего видимо я добавлял свойство suppressVideoLoad, но накуа?.. не уверен, что ничего не сломается при его использовании (не проверял)
     
     if (!self.suppressVideoLoad) {
         NSURL *url = [[NSURL alloc] initWithString:videoUrl];
@@ -142,6 +145,15 @@ static void *PlayerStatusContext = &PlayerStatusContext;
     }
 }
 
+- (void)timeChanged:(NSNotification *)notification {
+    if (self.player.currentItem == notification.object && !self.playerPlaceholder.hidden) {
+        AVPlayerItem *item = self.player.currentItem;
+        if (item.status == AVPlayerItemStatusReadyToPlay) {
+            self.playerPlaceholder.hidden = YES;
+        }
+    }
+}
+
 - (void)play {
     if (self.player.status == AVPlayerStatusReadyToPlay &&
             !self.player.isPlaying) {
@@ -162,14 +174,6 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 - (void)stop {
     [self.player pause];
     [self.player seekToTime:kCMTimeZero];
-}
-
-- (void)updateUI {
-    if (self.player.status == AVPlayerStatusReadyToPlay && !self.suppressVideoLoad) {
-        _playerPlaceholder.hidden = YES;
-    } else {
-        _playerPlaceholder.hidden = NO;
-    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
@@ -194,9 +198,6 @@ static void *PlayerStatusContext = &PlayerStatusContext;
                     if (self.autostart) {
                         [self play];
                     }
-                    [self updateUI];
-                } else {
-                    self.playerPlaceholder.hidden = NO;
                 }
                 break;
             }
@@ -208,6 +209,5 @@ static void *PlayerStatusContext = &PlayerStatusContext;
                                change:change context:context];
     }
 }
-
 
 @end
