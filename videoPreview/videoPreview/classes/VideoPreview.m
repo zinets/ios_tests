@@ -35,7 +35,11 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 }
 
 - (void)setPlayer:(AVPlayer *)player {
+    if (self.player) {
+        [self.player removeObserver:self forKeyPath:@"status" context:&PlayerStatusContext];
+    }
     [self.playerLayer setPlayer:player];
+    [self.player addObserver:self forKeyPath:@"status" options:0 context:&PlayerStatusContext];
 }
 
 // геттер для проигрывающего слоя для нормальной "выгрузки" видео (если предполагается использование в ячейках и реюзание
@@ -84,8 +88,6 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 - (void)commonInit {
     [self addSubview:self.playerPlaceholder];
     [self.layer insertSublayer:self.playerLayer atIndex:0];
-    [self setPlayer:[[AVPlayer alloc] initWithPlayerItem:nil]];
-    [self.player addObserver:self forKeyPath:@"status" options:0 context:&PlayerStatusContext];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endOfVideo:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
@@ -102,23 +104,27 @@ static void *PlayerStatusContext = &PlayerStatusContext;
 - (void)loadVideo:(NSString *)videoUrl preview:(NSString *)previewUrl {
     // на случай последовательных загрузок видео
     if (self.loaded) {
+        [self stop];
         [self unloadVideo];
     }
 
     // идеальный флов - сразу есть картинка-заглушка, потом показываетс превью видео и уже потом показывается первый кадр видео (и оно стартует даже возможно, если настройка)
     self.playerPlaceholder.image = nil;
-    [self.playerPlaceholder loadImageFromUrl:previewUrl];
+    if (previewUrl) {
+        [self.playerPlaceholder loadImageFromUrl:previewUrl];
+        self.playerPlaceholder.hidden = NO;
+    }
     
     self.playerLayer.hidden = self.suppressVideoLoad;
     
     if (!self.suppressVideoLoad) {
         NSURL *url = [[NSURL alloc] initWithString:videoUrl];
         AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
-        [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        
+        [self setPlayer:[[AVPlayer alloc] initWithPlayerItem:playerItem]];
     }
 
     self.loaded = YES;
-    [self updateUI];
 }
 
 - (void)unloadVideo {
@@ -182,15 +188,15 @@ static void *PlayerStatusContext = &PlayerStatusContext;
                 if (tracks.count > 0) {
                     AVAssetTrack *track = [tracks firstObject];
                     self.playerLayer.affineTransform = track.preferredTransform;
-                }
-
-                CATransition *animation = [CATransition animation];
-                [self.layer addAnimation:animation forKey:@"1"];
-
-                [self updateUI];
-
-                if (self.autostart) {
-                    [self play];
+                    [self.player seekToTime:kCMTimeZero];
+                    [self.player pause];
+                    
+                    if (self.autostart) {
+                        [self play];
+                    }
+                    [self updateUI];
+                } else {
+                    self.playerPlaceholder.hidden = NO;
                 }
                 break;
             }
