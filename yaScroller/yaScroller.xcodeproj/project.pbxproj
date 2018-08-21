@@ -94,8 +94,8 @@
 		41756D89068179BCD633DEE1 /* image view */ = {
 			isa = PBXGroup;
 			children = (
-				417566E04AFC11BD25A5F8C4 /* ScalableImageView.m */,
 				4175646909D15FF7AC4142BC /* ScalableImageView.h */,
+				417566E04AFC11BD25A5F8C4 /* ScalableImageView.m */,
 			);
 			path = "image view";
 			sourceTree = "<group>";

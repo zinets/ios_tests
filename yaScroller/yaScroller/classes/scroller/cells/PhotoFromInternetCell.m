@@ -31,7 +31,7 @@
 }
 
 -(void)setFs:(BOOL)fs {
-    self.imageView.contentMode = fs ? UIViewContentModeScaleAspectFit : UIViewContentModeScaleAspectFill;
+//    self.imageView.contentMode = fs ? UIViewContentModeScaleAspectFit : UIViewContentModeScaleAspectFill;
 }
 
 -(void)setItemIndex:(NSInteger)itemIndex {
