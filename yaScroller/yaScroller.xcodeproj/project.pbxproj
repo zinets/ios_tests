@@ -11,6 +11,8 @@
 		4930B94820CA6E60009E348E /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B94720CA6E60009E348E /* ViewController2.m */; };
 		496F83BF212BDEC0003D2DBB /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; };
 		496F83C0212BDEC0003D2DBB /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		496F83C3212BDFA7003D2DBB /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83C2212BDFA7003D2DBB /* MD5.framework */; };
+		496F83C4212BDFA7003D2DBB /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83C2212BDFA7003D2DBB /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49D6417620C57E7E00889231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D6417520C57E7E00889231 /* AppDelegate.m */; };
 		49D6417920C57E7E00889231 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D6417820C57E7E00889231 /* ViewController.m */; };
 		49D6417C20C57E7E00889231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D6417A20C57E7E00889231 /* Main.storyboard */; };
@@ -35,6 +37,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				496F83C0212BDEC0003D2DBB /* TNURLImageView.framework in Embed Frameworks */,
+				496F83C4212BDFA7003D2DBB /* MD5.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +50,7 @@
 		4930B94620CA6E60009E348E /* ViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		4930B94720CA6E60009E348E /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
+		496F83C2212BDFA7003D2DBB /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
 		49D6417120C57E7E00889231 /* yaScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yaScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D6417420C57E7E00889231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49D6417520C57E7E00889231 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				496F83BF212BDEC0003D2DBB /* TNURLImageView.framework in Frameworks */,
+				496F83C3212BDFA7003D2DBB /* MD5.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +103,7 @@
 		496F83B5212BDB77003D2DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				496F83C2212BDFA7003D2DBB /* MD5.framework */,
 				496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */,
 			);
 			path = Frameworks;
