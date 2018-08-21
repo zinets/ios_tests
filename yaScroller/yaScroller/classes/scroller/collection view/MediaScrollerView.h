@@ -36,4 +36,6 @@
 
 /// delegate
 @property (nonatomic, weak) id <MediaScrollerViewDelegate> delegate;
+
+@property (nonatomic, readonly) UIImage *image;
 @end

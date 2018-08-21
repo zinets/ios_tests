@@ -20,4 +20,14 @@
     return (CGSize){w, h};
 }
 
+-(void)prepareForAnimatedBoundsChange:(CGRect)oldBounds {
+    [super prepareForAnimatedBoundsChange:oldBounds];
+    [self invalidateLayout];
+}
+
+//- (void)finalizeAnimatedBoundsChange {
+//    [super finalizeAnimatedBoundsChange];
+//    [self invalidateLayout];
+//}
+
 @end

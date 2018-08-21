@@ -27,7 +27,7 @@
     if ([self.items[indexPath.item] isKindOfClass:[PhotoFromInternet class]]) {
         PhotoFromInternetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFromInternetCell" forIndexPath:indexPath];
         cell.data = self.items[indexPath.item];
-        cell.fs = self.fs;
+        
         cell.itemIndex = indexPath.item;
         return cell;
     }
@@ -35,13 +35,6 @@
 }
 
 #pragma mark setters -
-
--(void)setFs:(BOOL)fs {
-    _fs = fs;
-    [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(__kindof UICollectionViewCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        ((PhotoFromInternetCell *)obj).fs = self->_fs;
-    }];
-}
 
 - (void)shiftDataLeft {
     NSMutableArray *data = [self.items mutableCopy];
@@ -63,6 +56,13 @@
     [UIView setAnimationsEnabled:NO];
     self.items = data;
     [UIView setAnimationsEnabled:YES];
+}
+
+
+
+-(UIImage *)image {
+    PhotoFromInternetCell *cell = (id)[[self.collectionView visibleCells] firstObject]; //[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    return cell.image;
 }
 
 @end

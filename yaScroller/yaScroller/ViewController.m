@@ -10,6 +10,7 @@
 #import "MediaScrollerView.h"
 
 #import "PhotoFromInternet.h"
+@import TNURLImageView;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet MediaScrollerView *collectionView;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topOffset;
 
+@property (weak, nonatomic) IBOutlet TNImageView *fsPreviewView;
 
 
 
@@ -89,12 +91,15 @@
 
 - (IBAction)onFS:(UIButton *)sender {
     sender.selected = !sender.selected;
-    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
-
+    
+    self.fsPreviewView.alpha = 1;
+    self.fsPreviewView.image = [self.collectionView image];
+    
+    self.collectionView.alpha = 0;
+    
     [self.view layoutIfNeeded];
-//    self.dataSource.fs = sender.selected;
+    
     [UIView animateWithDuration:0.4 animations:^{
-
 
         if (sender.selected) {
             self.leftOffset.constant =
@@ -107,11 +112,14 @@
             self.topOffset.constant = 167;
             self.bottomOffset.constant = 213;
         }
-
+        
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
-        [self.view layoutIfNeeded];
+        self.fsPreviewView.alpha = 0;
+        self.collectionView.alpha = 1;
     }];
+    
+    [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
 }
 
 @end

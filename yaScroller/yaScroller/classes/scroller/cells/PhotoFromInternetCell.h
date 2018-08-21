@@ -11,6 +11,9 @@
 
 @interface PhotoFromInternetCell : UICollectionViewCell
 @property (nonatomic, strong) PhotoFromInternet *data;
-@property (nonatomic) BOOL fs;
+// только для теста, цыфра на ячейке
 @property (nonatomic) NSInteger itemIndex;
+
+@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic) UIViewContentMode imageContentMode;
 @end

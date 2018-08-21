@@ -11,10 +11,10 @@
 // конкретный наследник dataSource знает а) (?) класс данных, которыми он владеет и б) класс ячейки, которая показывает данные
 // или можно ограничится только ячейкой? а если разные типы в данных, как определять какую ячейку использовать?
 @interface MediaScrollerDatasource : CollectionSectionDatasource
-// todo убрать полноэкранность отсюда, это только тесты
-@property (nonatomic) BOOL fs;
 
 // методы для бесконечной прокрутки
 - (void)shiftDataLeft;
 - (void)shiftDataRight;
+
+@property (nonatomic, readonly) UIImage *image;
 @end

@@ -256,4 +256,9 @@
     NSLog(@"%@ %@", indexPath, self.internalDataSource.items[indexPath.item]);
 }
 
+
+- (UIImage *)image {
+    return [self.internalDataSource image];
+}
+
 @end
