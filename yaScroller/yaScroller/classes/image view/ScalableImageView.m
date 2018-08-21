@@ -6,6 +6,7 @@
 #import "ScalableImageView.h"
 
 @interface ScalableImageView ()
+// временная картинка для анимации
 @property(nonatomic, strong) UIImageView *animatedImageView;
 @end
 
