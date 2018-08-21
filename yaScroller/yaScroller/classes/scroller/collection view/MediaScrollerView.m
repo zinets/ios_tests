@@ -42,6 +42,11 @@
     return self;
 }
 
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    [self.collectionView.collectionViewLayout invalidateLayout];
+}
+
 #pragma mark tap to scroll -
 
 - (void)setTapToScroll:(BOOL)tapToScroll {

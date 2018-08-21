@@ -109,6 +109,8 @@
         }
 
         [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.view layoutIfNeeded];
     }];
 }
 
