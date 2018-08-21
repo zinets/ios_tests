@@ -12,12 +12,18 @@
 - (void)mediaScroller:(id)sender didSelectItem:(id)itemFromDataSource;
 @end
 
+
+/*  класс для скрола всяких картинок; требует класс-датасорс (MediaScrollerDatasource) для прозрачной вставки/удаления элементов
+    данные для показа передаются в items и внутри передается в внутренний датасорс
+    регистрация ячейки производится в MediaScrollerDatasource; вообще тот класс должен понимать, что делать с данными, которые ему передаются через items - 
+*/
+
 @interface MediaScrollerView : UIView
 /// выравнивать ли ячейки
 @property (nonatomic) BOOL paginating;
 /// ограничить прокрутку одним элементов за раз
 @property (nonatomic) BOOL oneElementPaginating;
-/// бесконечная прокрутка
+/// бесконечная прокрутка - не использовать, работает криво
 @property (nonatomic) BOOL endlessScrolling;
 /// направление прокрутки
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
