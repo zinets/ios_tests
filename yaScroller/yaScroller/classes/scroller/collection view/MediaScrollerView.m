@@ -147,6 +147,8 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         MediaScrollerViewLayout *layout = [MediaScrollerViewLayout new];
+        layout.minimumLineSpacing =
+        layout.minimumInteritemSpacing = 0;
 
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -259,6 +261,10 @@
 
 - (UIImage *)image {
     return [self.internalDataSource image];
+}
+
+- (void)updateLayout {
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
 @end

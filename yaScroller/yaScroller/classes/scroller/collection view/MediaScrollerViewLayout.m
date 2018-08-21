@@ -8,10 +8,8 @@
 
 #import "MediaScrollerViewLayout.h"
 
-@implementation MediaScrollerViewLayout
-
--(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    return YES;
+@implementation MediaScrollerViewLayout {
+    NSInteger lastIndex;
 }
 
 -(CGSize)itemSize {
@@ -21,13 +19,20 @@
 }
 
 -(void)prepareForAnimatedBoundsChange:(CGRect)oldBounds {
-    [super prepareForAnimatedBoundsChange:oldBounds];
-    [self invalidateLayout];
+    CGPoint pt = self.collectionView.contentOffset;
+    CGFloat w = self.collectionView.bounds.size.width;
+    
+    lastIndex = (NSInteger)(oldBounds.origin.x / oldBounds.size.width);
 }
 
-//- (void)finalizeAnimatedBoundsChange {
-//    [super finalizeAnimatedBoundsChange];
-//    [self invalidateLayout];
-//}
+-(void)prepareLayout {
+    [super prepareLayout];
+    
+    CGPoint pt = self.collectionView.contentOffset;
+    CGFloat w = self.collectionView.bounds.size.width;
+    
+    pt.x = lastIndex * w;
+    self.collectionView.contentOffset = pt;
+}
 
 @end

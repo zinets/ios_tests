@@ -99,7 +99,7 @@
     
     [self.view layoutIfNeeded];
     
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:2. animations:^{
 
         if (sender.selected) {
             self.leftOffset.constant =
@@ -113,10 +113,12 @@
             self.bottomOffset.constant = 213;
         }
         
-        [self.view layoutIfNeeded];
+        [self.view layoutIfNeeded];        
     } completion:^(BOOL finished) {
         self.fsPreviewView.alpha = 0;
         self.collectionView.alpha = 1;
+        
+        [self.collectionView updateLayout];
     }];
     
     [self.navigationController setNavigationBarHidden:sender.selected animated:YES];

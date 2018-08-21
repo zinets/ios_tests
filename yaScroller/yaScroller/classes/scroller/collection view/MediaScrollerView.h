@@ -38,4 +38,5 @@
 @property (nonatomic, weak) id <MediaScrollerViewDelegate> delegate;
 
 @property (nonatomic, readonly) UIImage *image;
+- (void)updateLayout;
 @end
