@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41756A5616ED9CB0C8D0A33B /* ScalableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 417566E04AFC11BD25A5F8C4 /* ScalableImageView.m */; };
 		4930B94820CA6E60009E348E /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B94720CA6E60009E348E /* ViewController2.m */; };
 		496F83BF212BDEC0003D2DBB /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; };
 		496F83C0212BDEC0003D2DBB /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -45,8 +44,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4175646909D15FF7AC4142BC /* ScalableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScalableImageView.h; sourceTree = "<group>"; };
-		417566E04AFC11BD25A5F8C4 /* ScalableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScalableImageView.m; sourceTree = "<group>"; };
 		4930B94620CA6E60009E348E /* ViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		4930B94720CA6E60009E348E /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
@@ -91,15 +88,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41756D89068179BCD633DEE1 /* image view */ = {
-			isa = PBXGroup;
-			children = (
-				4175646909D15FF7AC4142BC /* ScalableImageView.h */,
-				417566E04AFC11BD25A5F8C4 /* ScalableImageView.m */,
-			);
-			path = "image view";
-			sourceTree = "<group>";
-		};
 		496F83B5212BDB77003D2DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +95,19 @@
 				496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		499A5BBC212D36880080D741 /* Supported files */ = {
+			isa = PBXGroup;
+			children = (
+				49D6417420C57E7E00889231 /* AppDelegate.h */,
+				49D6417520C57E7E00889231 /* AppDelegate.m */,
+				49D6417D20C57E7F00889231 /* Assets.xcassets */,
+				49D6417F20C57E7F00889231 /* LaunchScreen.storyboard */,
+				49D6418220C57E7F00889231 /* Info.plist */,
+				49D6418320C57E7F00889231 /* main.m */,
+			);
+			path = "Supported files";
 			sourceTree = "<group>";
 		};
 		49D6416820C57E7E00889231 = {
@@ -129,18 +130,13 @@
 		49D6417320C57E7E00889231 /* yaScroller */ = {
 			isa = PBXGroup;
 			children = (
-				49D6418A20C57E8900889231 /* classes */,
-				49D6417420C57E7E00889231 /* AppDelegate.h */,
-				49D6417520C57E7E00889231 /* AppDelegate.m */,
 				49D6417720C57E7E00889231 /* ViewController.h */,
 				49D6417820C57E7E00889231 /* ViewController.m */,
 				4930B94620CA6E60009E348E /* ViewController2.h */,
 				4930B94720CA6E60009E348E /* ViewController2.m */,
 				49D6417A20C57E7E00889231 /* Main.storyboard */,
-				49D6417D20C57E7F00889231 /* Assets.xcassets */,
-				49D6417F20C57E7F00889231 /* LaunchScreen.storyboard */,
-				49D6418220C57E7F00889231 /* Info.plist */,
-				49D6418320C57E7F00889231 /* main.m */,
+				49D6418A20C57E8900889231 /* classes */,
+				499A5BBC212D36880080D741 /* Supported files */,
 			);
 			path = yaScroller;
 			sourceTree = "<group>";
@@ -150,7 +146,6 @@
 			children = (
 				49D641A320C6544200889231 /* test data */,
 				49D641A220C653DD00889231 /* scroller */,
-				41756D89068179BCD633DEE1 /* image view */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -169,6 +164,7 @@
 		49D6419220C64FDA00889231 /* media datasource */ = {
 			isa = PBXGroup;
 			children = (
+				49D641A720C655AC00889231 /* cells */,
 				49D6419F20C6517400889231 /* MediaScrollerDatasource.h */,
 				49D641A020C6517400889231 /* MediaScrollerDatasource.m */,
 			);
@@ -179,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				49D641B220C6667B00889231 /* collection view */,
-				49D641A720C655AC00889231 /* cells */,
 				49D6419220C64FDA00889231 /* media datasource */,
 				49D6419120C57FDC00889231 /* base datasource */,
 			);
@@ -299,7 +294,6 @@
 				49D641B820C6703A00889231 /* MediaScrollerViewLayout.m in Sources */,
 				49D6419020C57FD300889231 /* SectionDatasource.m in Sources */,
 				49D641A120C6517400889231 /* MediaScrollerDatasource.m in Sources */,
-				41756A5616ED9CB0C8D0A33B /* ScalableImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +439,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = yaScroller/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/yaScroller/Supported files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +460,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
-				INFOPLIST_FILE = yaScroller/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/yaScroller/Supported files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

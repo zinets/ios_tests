@@ -60,6 +60,7 @@
     self.collectionView.paginating = YES;
     self.collectionView.endlessScrolling = NO;
     self.collectionView.tapToScroll = NO;
+    self.collectionView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (IBAction)onRefresh:(id)sender {
@@ -93,12 +94,12 @@
     sender.selected = !sender.selected;
     
     self.fsPreviewView.alpha = 1;
+    self.fsPreviewView.contentMode = self.collectionView.contentMode;
     self.fsPreviewView.image = [self.collectionView image];
     
     self.collectionView.alpha = 0;
     
-    [self.view layoutIfNeeded];
-    
+    [self.view layoutIfNeeded];    
     [UIView animateWithDuration:.7 animations:^{
 
         if (sender.selected) {
@@ -122,6 +123,11 @@
     }];
     
     [self.navigationController setNavigationBarHidden:sender.selected animated:YES];
+}
+
+- (IBAction)changeAspect:(UIButton *)sender {
+    self.collectionView.contentMode = self.collectionView.contentMode == UIViewContentModeScaleAspectFit ? UIViewContentModeScaleAspectFill : UIViewContentModeScaleAspectFit;
+    [sender setTitle:[NSString stringWithFormat:@"aspect %@", self.collectionView.contentMode == UIViewContentModeScaleAspectFit ? @"fit" : @"fill"] forState:(UIControlStateNormal)];
 }
 
 @end

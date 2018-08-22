@@ -69,6 +69,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSx-1P-osn">
+                                <rect key="frame" x="170" y="575" width="130" height="30"/>
+                                <state key="normal" title="change aspect (fit)"/>
+                                <connections>
+                                    <action selector="changeAspect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zpw-6C-0TL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -80,6 +87,7 @@
                             <constraint firstItem="hPH-gv-yim" firstAttribute="top" secondItem="wnh-M6-YNN" secondAttribute="bottom" constant="16" id="FCx-Lq-Qv1"/>
                             <constraint firstItem="NhQ-0N-1ua" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OA8-4T-APm"/>
                             <constraint firstItem="5eY-4Y-9KI" firstAttribute="bottom" secondItem="Umf-K4-xa9" secondAttribute="bottom" id="Ocb-1B-TbW"/>
+                            <constraint firstItem="pSx-1P-osn" firstAttribute="leading" secondItem="5eY-4Y-9KI" secondAttribute="trailing" constant="8" id="RLi-TQ-WvK"/>
                             <constraint firstItem="XUF-ui-Vl2" firstAttribute="leading" secondItem="1rc-af-OY9" secondAttribute="leading" constant="5" id="T1A-pD-dRu"/>
                             <constraint firstItem="hPH-gv-yim" firstAttribute="top" secondItem="Umf-K4-xa9" secondAttribute="bottom" constant="16" id="WfK-Ui-2hb"/>
                             <constraint firstItem="Umf-K4-xa9" firstAttribute="leading" secondItem="wnh-M6-YNN" secondAttribute="trailing" constant="8" id="aY2-fZ-l7m"/>
@@ -87,6 +95,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xJi-bH-4hp" secondAttribute="trailing" constant="16" id="fty-24-Tdg"/>
                             <constraint firstItem="XUF-ui-Vl2" firstAttribute="top" secondItem="1rc-af-OY9" secondAttribute="top" constant="5" id="gLh-1v-wU5"/>
                             <constraint firstItem="XUF-ui-Vl2" firstAttribute="bottom" secondItem="1rc-af-OY9" secondAttribute="bottom" constant="-5" id="gpW-TP-4Zr"/>
+                            <constraint firstItem="pSx-1P-osn" firstAttribute="centerY" secondItem="5eY-4Y-9KI" secondAttribute="centerY" id="jr2-gK-lGP"/>
                             <constraint firstItem="1rc-af-OY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="130" id="ngj-Kd-4XB"/>
                             <constraint firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" constant="16" id="nzc-4s-Vaz"/>
                             <constraint firstItem="1rc-af-OY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="oxV-fG-Ztv"/>

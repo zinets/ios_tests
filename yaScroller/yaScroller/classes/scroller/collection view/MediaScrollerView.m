@@ -149,12 +149,17 @@
         MediaScrollerViewLayout *layout = [MediaScrollerViewLayout new];
         layout.minimumLineSpacing =
         layout.minimumInteritemSpacing = 0;
+        layout.sectionInset = UIEdgeInsetsZero;
 
         _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
         _collectionView.decelerationRate = 0;
+        
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _collectionView;
 }
@@ -258,6 +263,7 @@
     NSLog(@"%@ %@", indexPath, self.internalDataSource.items[indexPath.item]);
 }
 
+#pragma mark animating bounds changes -
 
 - (UIImage *)image {
     return [self.internalDataSource image];
@@ -265,6 +271,12 @@
 
 - (void)updateLayout {
     [self.collectionView.collectionViewLayout invalidateLayout];
+}
+
+-(void)setContentMode:(UIViewContentMode)contentMode {
+    [super setContentMode:contentMode];
+    // смысл есть только в ScaleAspect***
+    self.internalDataSource.contentMode = contentMode;
 }
 
 @end

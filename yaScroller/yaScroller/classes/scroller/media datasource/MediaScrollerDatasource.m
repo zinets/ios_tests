@@ -27,8 +27,7 @@
     if ([self.items[indexPath.item] isKindOfClass:[PhotoFromInternet class]]) {
         PhotoFromInternetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFromInternetCell" forIndexPath:indexPath];
         cell.data = self.items[indexPath.item];
-        
-        cell.itemIndex = indexPath.item;
+        cell.imageContentMode = self.contentMode;
         return cell;
     }
     return nil;
@@ -58,11 +57,19 @@
     [UIView setAnimationsEnabled:YES];
 }
 
-
+#pragma mark поддержка "фулскринности", все что нужно для анимирования изменения размеров коллекции -
 
 -(UIImage *)image {
     PhotoFromInternetCell *cell = (id)[[self.collectionView visibleCells] firstObject]; //[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     return cell.image;
+}
+
+-(void)setContentMode:(UIViewContentMode)contentMode {
+    _contentMode = contentMode;
+    
+    [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(PhotoFromInternetCell *cell, NSUInteger idx, BOOL * _Nonnull stop) {
+        cell.imageContentMode = contentMode;
+    }];
 }
 
 @end

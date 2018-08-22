@@ -37,6 +37,7 @@
 /// delegate
 @property (nonatomic, weak) id <MediaScrollerViewDelegate> delegate;
 
+// подержка анимированного изменения размеров
 @property (nonatomic, readonly) UIImage *image;
 - (void)updateLayout;
 @end

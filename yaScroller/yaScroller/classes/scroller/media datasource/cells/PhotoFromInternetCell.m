@@ -11,32 +11,24 @@
 
 @interface PhotoFromInternetCell()
 @property (weak, nonatomic) IBOutlet TNImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *index;
-
-
 @end
 
 @implementation PhotoFromInternetCell
 
 -(void)awakeFromNib {
-    UITapGestureRecognizer *r = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
-    [self.imageView addGestureRecognizer:r];
+    [super awakeFromNib];
     
-    self.imageView.contentModeAnimationDuration = 0.75;
+    self.imageView.contentModeAnimationDuration = 0.25;
+}
+
+-(void)prepareForReuse {
+    self.imageView.image = nil;
 }
 
 -(void)setData:(PhotoFromInternet *)data {
     self.imageView.allowLoadingAnimation = NO;//self.imageView.image == nil;
 
     [self.imageView loadImageFromUrl:data.url];
-}
-
--(void)setFs:(BOOL)fs {
-//    self.imageView.contentMode = fs ? UIViewContentModeScaleAspectFit : UIViewContentModeScaleAspectFill;
-}
-
--(void)setItemIndex:(NSInteger)itemIndex {
-    self.index.text = [@(itemIndex) stringValue];
 }
 
 -(UIImage *)image {
@@ -49,14 +41,6 @@
 
 -(void)setImageContentMode:(UIViewContentMode)imageContentMode {
     self.imageView.contentMode = imageContentMode;
-}
-
-- (IBAction)onTap:(UITapGestureRecognizer *)sender {
-    if (self.imageView.contentMode == UIViewContentModeScaleAspectFit) {
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    } else {
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
 }
 
 @end
