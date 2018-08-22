@@ -99,7 +99,7 @@
     
     [self.view layoutIfNeeded];
     
-    [UIView animateWithDuration:2. animations:^{
+    [UIView animateWithDuration:.7 animations:^{
 
         if (sender.selected) {
             self.leftOffset.constant =
