@@ -12,6 +12,20 @@
     NSInteger lastIndex;
 }
 
+-(instancetype)init {
+    if (self = [super init]) {
+        lastIndex = NSNotFound;
+    }
+    return self;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self == [super initWithCoder:aDecoder]) {
+        lastIndex = NSNotFound;
+    }
+    return self;
+}
+
 -(CGSize)itemSize {
     CGFloat w = self.collectionView.bounds.size.width - (self.collectionView.contentInset.left + self.collectionView.contentInset.right);
     CGFloat h = self.collectionView.bounds.size.height - (self.collectionView.contentInset.top + self.collectionView.contentInset.bottom);
@@ -28,11 +42,15 @@
 -(void)prepareLayout {
     [super prepareLayout];
     
-    CGPoint pt = self.collectionView.contentOffset;
-    CGFloat w = self.collectionView.bounds.size.width;
-    
-    pt.x = lastIndex * w;
-    self.collectionView.contentOffset = pt;
+    if (lastIndex != NSNotFound) {
+        CGPoint pt = self.collectionView.contentOffset;
+        CGFloat w = self.collectionView.bounds.size.width;
+        
+        pt.x = lastIndex * w;
+        self.collectionView.contentOffset = pt;
+        
+        lastIndex = NSNotFound;
+    }
 }
 
 @end
