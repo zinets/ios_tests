@@ -276,7 +276,8 @@
 -(void)setContentMode:(UIViewContentMode)contentMode {
     [super setContentMode:contentMode];
     // смысл есть только в ScaleAspect***
-    self.internalDataSource.contentMode = contentMode;
+    MediaScrollerViewLayout *layout = self.collectionView.collectionViewLayout;
+    layout.contentMode = contentMode;
 }
 
 @end

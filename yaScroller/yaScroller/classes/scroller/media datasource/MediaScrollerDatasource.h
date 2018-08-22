@@ -17,5 +17,4 @@
 - (void)shiftDataRight;
 
 @property (nonatomic, readonly) UIImage *image;
-@property (nonatomic) UIViewContentMode contentMode;
 @end

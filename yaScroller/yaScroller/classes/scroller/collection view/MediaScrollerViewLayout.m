@@ -7,9 +7,14 @@
 //
 
 #import "MediaScrollerViewLayout.h"
+#import "MediaScrollerLayoutAttributes.h"
 
 @implementation MediaScrollerViewLayout {
     NSInteger lastIndex;
+}
+
++(Class)layoutAttributesClass {
+    return [MediaScrollerLayoutAttributes class];
 }
 
 -(instancetype)init {
@@ -51,6 +56,28 @@
         
         lastIndex = NSNotFound;
     }
+}
+
+#pragma mark -
+
+-(void)setContentMode:(UIViewContentMode)contentMode {
+    _contentMode = contentMode;
+    [self invalidateLayout];
+}
+
+-(NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSArray <MediaScrollerLayoutAttributes *> *attrs = [super layoutAttributesForElementsInRect:rect];
+    [attrs enumerateObjectsUsingBlock:^(MediaScrollerLayoutAttributes * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.contentMode = self.contentMode;
+    }];
+    return attrs;
+}
+
+-(UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    MediaScrollerLayoutAttributes *attrs = [super layoutAttributesForItemAtIndexPath:indexPath];
+    attrs.contentMode = self.contentMode;
+    
+    return attrs;
 }
 
 @end

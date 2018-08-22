@@ -1,0 +1,470 @@
+BCSymbolMap Version: 2.0
++[Cache diskCachePath]
+___22+[Cache diskCachePath]_block_invoke
++[Cache fullDataPathForKey:]
++[Cache setData:forKey:]
++[Cache setDataFromLocalPath:forKey:]
++[Cache dataForKey:]
++[Cache imageForKey:]
++[Cache dataExistForKey:]
+_diskCachePath.diskCachePath
+_diskCachePath.onceToken
+___block_descriptor_tmp
+___block_literal_global
+Apple LLVM version 9.1.0 (clang-902.0.39.2)
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Cache layer/Cache.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView
+__22+[Cache diskCachePath]_block_invoke
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/dispatch/once.h
++[PixelateImageProcessor processImage:]
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_ImageProcessor
+l_OBJC_LABEL_PROTOCOL_$_ImageProcessor
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Pixelate/PixelateImageProcessor.m
+-[Watcher initWithObject:type:]
+-[Watcher isEqual:]
+-[Watcher hash]
+-[Watcher object]
+-[Watcher type]
+-[Watcher .cxx_destruct]
+_OBJC_IVAR_$_Watcher._type
+_OBJC_IVAR_$_Watcher._object
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/DataProvider/Watcher.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/DataProvider/Watcher.h
++[ImageDataProvider sharedInstance]
+___35+[ImageDataProvider sharedInstance]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[ImageDataProvider init]
+-[ImageDataProvider removeWatcher:forImageUrl:]
+-[ImageDataProvider getImagesForUrls:watcher:imageType:]
+-[ImageDataProvider haveImageForUrl:]
+-[ImageDataProvider postprocessImageForURLString:withType:]
+-[ImageDataProvider getImagesForUrls:watcher:priority:imageType:]
+-[ImageDataProvider keyForURLString:ofType:]
+-[ImageDataProvider postprocessImage:toType:]
+-[ImageDataProvider callWatchersForURLString:withError:]
+___56-[ImageDataProvider callWatchersForURLString:withError:]_block_invoke
+___copy_helper_block_.80
+___destroy_helper_block_.81
+-[ImageDataProvider downloader:didDownloadDataToURL:sourceURL:]
+___63-[ImageDataProvider downloader:didDownloadDataToURL:sourceURL:]_block_invoke
+___copy_helper_block_.92
+___destroy_helper_block_.93
+-[ImageDataProvider downloader:didFinishDownloadingURL:withError:]
+-[ImageDataProvider downloader]
+-[ImageDataProvider setDownloader:]
+-[ImageDataProvider dataProviderTasks]
+-[ImageDataProvider setDataProviderTasks:]
+-[ImageDataProvider .cxx_destruct]
+_sharedInstance.onceToken
+_sharedInstance._sharedInstance
+_OBJC_IVAR_$_ImageDataProvider._downloader
+___block_descriptor_tmp.83
+___block_descriptor_tmp.94
+_OBJC_IVAR_$_ImageDataProvider._dataProviderTasks
+l_OBJC_PROTOCOL_$_DownloaderDelegate
+l_OBJC_LABEL_PROTOCOL_$_DownloaderDelegate
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/DataProvider/ImageDataProvider.m
+__destroy_helper_block_
+__copy_helper_block_
+__63-[ImageDataProvider downloader:didDownloadDataToURL:sourceURL:]_block_invoke
+__56-[ImageDataProvider callWatchersForURLString:withError:]_block_invoke
+__35+[ImageDataProvider sharedInstance]_block_invoke
+-[PXLPixelateLayer init:resolution:size:offset:alpha:]
++[PXLPixelateLayer layerWithShape:resolution:size:offset:alpha:]
++[PXLPixelateLayer layerWithShape:size:]
+-[PXLPixelateLayer shape]
+-[PXLPixelateLayer resolution]
+-[PXLPixelateLayer size]
+-[PXLPixelateLayer alpha]
+-[PXLPixelateLayer offset]
+_OBJC_IVAR_$_PXLPixelateLayer._shape
+_OBJC_IVAR_$_PXLPixelateLayer._resolution
+_OBJC_IVAR_$_PXLPixelateLayer._size
+_OBJC_IVAR_$_PXLPixelateLayer._offset
+_OBJC_IVAR_$_PXLPixelateLayer._alpha
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Pixelate/PXLPixelateLayer.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Pixelate/PXLPixelateLayer.h
++[GrayscaleImageProcessor processImage:]
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Grayscale/GrayscaleImageProcessor.m
+-[DeferredWatcher initWithType:url:]
+-[DeferredWatcher setCallback:]
+-[DeferredWatcher dataProvider:didLoadImage:fromURL:]
+-[DeferredWatcher dataProvider:didFailLoadingImageFromURL:]
+-[DeferredWatcher callback]
+-[DeferredWatcher urlString]
+-[DeferredWatcher setUrlString:]
+-[DeferredWatcher type]
+-[DeferredWatcher setType:]
+-[DeferredWatcher .cxx_destruct]
+_OBJC_IVAR_$_DeferredWatcher._urlString
+_OBJC_IVAR_$_DeferredWatcher._type
+_OBJC_IVAR_$_DeferredWatcher._callback
+l_OBJC_PROTOCOL_$_ImageDataProviderDelegate
+l_OBJC_LABEL_PROTOCOL_$_ImageDataProviderDelegate
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Deferred watcher/DeferredWatcher.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Deferred watcher/DeferredWatcher.h
+-[UIColor(PXLAlpha) multiply:]
++[UIColor(PXLAlpha) at:data:x:y:]
++[UIColor(PXLAlpha) at:x:y:]
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Pixelate/UIColor+PXLAlpha.m
+-[ImageDataProviderTask initWithURL:]
+-[ImageDataProviderTask addWatcher:forType:]
+-[ImageDataProviderTask removeWatcher:]
+___39-[ImageDataProviderTask removeWatcher:]_block_invoke
+-[ImageDataProviderTask url]
+-[ImageDataProviderTask watchers]
+-[ImageDataProviderTask .cxx_destruct]
+_OBJC_IVAR_$_ImageDataProviderTask._url
+_OBJC_IVAR_$_ImageDataProviderTask._watchers
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/DataProvider/ImageDataProviderTask.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/DataProvider/ImageDataProviderTask.h
+__39-[ImageDataProviderTask removeWatcher:]_block_invoke
++[PXLPixelator create:layers:]
++[PXLPixelator create:inBounds:width:height:layers:]
++[PXLPixelator render:canvas:outBounds:layers:]
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Pixelate/PXLPixelator.m
++[BlurImageProcessor processImage:]
++[BlurImageProcessor applyBlurTo:withRadius:tintColor:saturationDeltaFactor:maskImage:]
++[BlurImageProcessor resize4:]
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Postprocessing/Blur/BlurImageProcessor.m
+-[UIImage(Positioning) fitInSize:]
+-[UIImage(Positioning) fillInSize:]
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Utilities/UIImage+Positioning.m
+CGRectMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+CGSizeFitInSize2
+-[Downloader initWithDelegate:]
+-[Downloader addTask:]
+___22-[Downloader addTask:]_block_invoke
+-[Downloader removeTaskWithURL:]
+___32-[Downloader removeTaskWithURL:]_block_invoke
+___copy_helper_block_.36
+___destroy_helper_block_.37
+-[Downloader resumeTasks]
+-[Downloader setResumeForTasks:resume:]
+-[Downloader allTasksWithPriority:]
+-[Downloader createDownloadTaskForImageURL:priority:]
+___53-[Downloader createDownloadTaskForImageURL:priority:]_block_invoke
+___copy_helper_block_.69
+___destroy_helper_block_.70
+___53-[Downloader createDownloadTaskForImageURL:priority:]_block_invoke.92
+___copy_helper_block_.93
+___destroy_helper_block_.94
+-[Downloader setPriority:forURL:]
+___33-[Downloader setPriority:forURL:]_block_invoke
+___copy_helper_block_.96
+___destroy_helper_block_.97
+-[Downloader URLSession:downloadTask:didFinishDownloadingToURL:]
+-[Downloader URLSession:task:didCompleteWithError:]
+-[Downloader URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:]
+-[Downloader HTTPAdditionalHeaders]
+-[Downloader setHTTPAdditionalHeaders:]
+-[Downloader urlSession]
+-[Downloader setUrlSession:]
+-[Downloader tasks]
+-[Downloader setTasks:]
+-[Downloader delegate]
+-[Downloader setDelegate:]
+-[Downloader .cxx_destruct]
+_OBJC_IVAR_$_Downloader._urlSession
+_OBJC_IVAR_$_Downloader._tasks
+_OBJC_IVAR_$_Downloader._delegate
+___block_descriptor_tmp.38
+___block_descriptor_tmp.72
+___block_descriptor_tmp.95
+___block_descriptor_tmp.98
+_OBJC_IVAR_$_Downloader._HTTPAdditionalHeaders
+l_OBJC_PROTOCOL_$_NSURLSessionDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLSessionDelegate
+l_OBJC_PROTOCOL_$_NSURLSessionTaskDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLSessionTaskDelegate
+l_OBJC_PROTOCOL_$_NSURLSessionDownloadDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLSessionDownloadDelegate
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Downloader/Downloader.m
+__33-[Downloader setPriority:forURL:]_block_invoke
+__53-[Downloader createDownloadTaskForImageURL:priority:]_block_invoke.92
+__53-[Downloader createDownloadTaskForImageURL:priority:]_block_invoke
+__32-[Downloader removeTaskWithURL:]_block_invoke
+__22-[Downloader addTask:]_block_invoke
+-[DownloaderTask initWithUrl:downloadTask:priority:]
+-[DownloaderTask description]
+-[DownloaderTask resumeDownloadTask]
+-[DownloaderTask suspendDownloadTask]
+-[DownloaderTask cancelDownloadTask]
+-[DownloaderTask url]
+-[DownloaderTask downloadTask]
+-[DownloaderTask taskPriority]
+-[DownloaderTask setTaskPriority:]
+-[DownloaderTask .cxx_destruct]
+_OBJC_IVAR_$_DownloaderTask._url
+_OBJC_IVAR_$_DownloaderTask._downloadTask
+_OBJC_IVAR_$_DownloaderTask._taskPriority
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Downloader/DownloaderTask.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Downloader/DownloaderTask.h
+-[TNImageView initWithFrame:]
+-[TNImageView initWithCoder:]
+-[TNImageView commonInit]
+-[TNImageView dealloc]
+-[TNImageView currentImageURLString]
+-[TNImageView loadImageFromUrl:]
+-[TNImageView loadImageFromUrl:withType:]
+-[TNImageView loadImageFromUrl:forceLoad:]
+-[TNImageView loadImageFromUrl:withType:forceLoad:]
+-[TNImageView haveImageForUrl:]
+-[TNImageView cancelLoading]
+-[TNImageView setImage:forUrl:]
+___31-[TNImageView setImage:forUrl:]_block_invoke
+___31-[TNImageView setImage:forUrl:]_block_invoke_2
+-[TNImageView performImageLoadedBlockAndSetImage:forUrl:]
+___57-[TNImageView performImageLoadedBlockAndSetImage:forUrl:]_block_invoke
+___57-[TNImageView performImageLoadedBlockAndSetImage:forUrl:]_block_invoke_2
+___copy_helper_block_.74
+___destroy_helper_block_.75
+___copy_helper_block_.77
+___destroy_helper_block_.78
+-[TNImageView setImage:]
+-[TNImageView setContentMode:]
+___30-[TNImageView setContentMode:]_block_invoke
+___copy_helper_block_.124
+___destroy_helper_block_.125
+___30-[TNImageView setContentMode:]_block_invoke.127
+___copy_helper_block_.128
+___destroy_helper_block_.129
+___30-[TNImageView setContentMode:]_block_invoke.134
+___copy_helper_block_.135
+___destroy_helper_block_.136
+___30-[TNImageView setContentMode:]_block_invoke.138
+___copy_helper_block_.139
+___destroy_helper_block_.140
+___30-[TNImageView setContentMode:]_block_invoke.142
+___copy_helper_block_.143
+___destroy_helper_block_.144
+___30-[TNImageView setContentMode:]_block_invoke.146
+___copy_helper_block_.147
+___destroy_helper_block_.148
+___30-[TNImageView setContentMode:]_block_invoke.150
+___copy_helper_block_.151
+___destroy_helper_block_.152
+___30-[TNImageView setContentMode:]_block_invoke.154
+___copy_helper_block_.155
+___destroy_helper_block_.156
+___30-[TNImageView setContentMode:]_block_invoke.158
+___copy_helper_block_.159
+___destroy_helper_block_.160
+___30-[TNImageView setContentMode:]_block_invoke.162
+___copy_helper_block_.163
+___destroy_helper_block_.164
+___30-[TNImageView setContentMode:]_block_invoke.166
+___copy_helper_block_.167
+___destroy_helper_block_.168
+___30-[TNImageView setContentMode:]_block_invoke.170
+___copy_helper_block_.171
+___destroy_helper_block_.172
+___30-[TNImageView setContentMode:]_block_invoke.174
+___copy_helper_block_.175
+___destroy_helper_block_.176
+___30-[TNImageView setContentMode:]_block_invoke.178
+___copy_helper_block_.179
+___destroy_helper_block_.180
+___30-[TNImageView setContentMode:]_block_invoke.182
+___copy_helper_block_.183
+___destroy_helper_block_.184
+___30-[TNImageView setContentMode:]_block_invoke.186
+___copy_helper_block_.187
+___destroy_helper_block_.188
+___30-[TNImageView setContentMode:]_block_invoke.190
+___copy_helper_block_.191
+___destroy_helper_block_.192
+___30-[TNImageView setContentMode:]_block_invoke.194
+___copy_helper_block_.195
+___destroy_helper_block_.196
+___30-[TNImageView setContentMode:]_block_invoke.198
+___copy_helper_block_.199
+___destroy_helper_block_.200
+___30-[TNImageView setContentMode:]_block_invoke.202
+___copy_helper_block_.203
+___destroy_helper_block_.204
+___30-[TNImageView setContentMode:]_block_invoke.206
+___copy_helper_block_.207
+___destroy_helper_block_.208
+___30-[TNImageView setContentMode:]_block_invoke.210
+___copy_helper_block_.211
+___destroy_helper_block_.212
+___30-[TNImageView setContentMode:]_block_invoke.214
+___copy_helper_block_.215
+___destroy_helper_block_.216
+___30-[TNImageView setContentMode:]_block_invoke.218
+___copy_helper_block_.219
+___destroy_helper_block_.220
+-[TNImageView setPlaceholderView:]
+-[TNImageView setLoadingView:]
+-[TNImageView setOverlayView:]
+-[TNImageView dataProvider:didLoadImage:fromURL:]
+___49-[TNImageView dataProvider:didLoadImage:fromURL:]_block_invoke
+___copy_helper_block_.231
+___destroy_helper_block_.232
+-[TNImageView dataProvider:didFailLoadingImageFromURL:]
+___55-[TNImageView dataProvider:didFailLoadingImageFromURL:]_block_invoke
+___copy_helper_block_.238
+___destroy_helper_block_.239
++[TNImageView preloadImages:]
++[TNImageView preloadImages:withType:]
+-[TNImageView getImageWithType:onImageLoaded:]
+___46-[TNImageView getImageWithType:onImageLoaded:]_block_invoke
+___copy_helper_block_.252
+___destroy_helper_block_.253
+-[TNImageView onImageLoaded]
+-[TNImageView setOnImageLoaded:]
+-[TNImageView onLoadCompleted]
+-[TNImageView setOnLoadCompleted:]
+-[TNImageView onLoadError]
+-[TNImageView setOnLoadError:]
+-[TNImageView placeholderView]
+-[TNImageView loadingView]
+-[TNImageView overlayView]
+-[TNImageView allowLoadingAnimation]
+-[TNImageView setAllowLoadingAnimation:]
+-[TNImageView loadingAnimationDuration]
+-[TNImageView setLoadingAnimationDuration:]
+-[TNImageView resizeImageToSize]
+-[TNImageView setResizeImageToSize:]
+-[TNImageView hasToClearImage]
+-[TNImageView setHasToClearImage:]
+-[TNImageView contentModeAnimationDuration]
+-[TNImageView setContentModeAnimationDuration:]
+-[TNImageView currentURL]
+-[TNImageView setCurrentURL:]
+-[TNImageView currentImageType]
+-[TNImageView setCurrentImageType:]
+-[TNImageView deferredWatchers]
+-[TNImageView setDeferredWatchers:]
+-[TNImageView animatedImageView]
+-[TNImageView setAnimatedImageView:]
+-[TNImageView .cxx_destruct]
+_OBJC_IVAR_$_TNImageView._currentURL
+_OBJC_IVAR_$_TNImageView._currentImageType
+___block_descriptor_tmp.71
+___block_descriptor_tmp.76
+___block_descriptor_tmp.79
+_OBJC_IVAR_$_TNImageView._contentModeAnimationDuration
+___block_descriptor_tmp.126
+___block_descriptor_tmp.131
+___block_descriptor_tmp.137
+___block_descriptor_tmp.141
+___block_descriptor_tmp.145
+___block_descriptor_tmp.149
+___block_descriptor_tmp.153
+___block_descriptor_tmp.157
+___block_descriptor_tmp.161
+___block_descriptor_tmp.165
+___block_descriptor_tmp.169
+___block_descriptor_tmp.173
+___block_descriptor_tmp.177
+___block_descriptor_tmp.181
+___block_descriptor_tmp.185
+___block_descriptor_tmp.189
+___block_descriptor_tmp.193
+___block_descriptor_tmp.197
+___block_descriptor_tmp.201
+___block_descriptor_tmp.205
+___block_descriptor_tmp.209
+___block_descriptor_tmp.213
+___block_descriptor_tmp.217
+___block_descriptor_tmp.221
+_OBJC_IVAR_$_TNImageView._placeholderView
+_OBJC_IVAR_$_TNImageView._loadingView
+_OBJC_IVAR_$_TNImageView._overlayView
+___block_descriptor_tmp.233
+___block_descriptor_tmp.240
+___block_descriptor_tmp.255
+_OBJC_IVAR_$_TNImageView._onImageLoaded
+_OBJC_IVAR_$_TNImageView._onLoadCompleted
+_OBJC_IVAR_$_TNImageView._onLoadError
+_OBJC_IVAR_$_TNImageView._allowLoadingAnimation
+_OBJC_IVAR_$_TNImageView._loadingAnimationDuration
+_OBJC_IVAR_$_TNImageView._resizeImageToSize
+_OBJC_IVAR_$_TNImageView._hasToClearImage
+_OBJC_IVAR_$_TNImageView._deferredWatchers
+_OBJC_IVAR_$_TNImageView._animatedImageView
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Image view/TNImageView.m
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Image view/TNImageView.h
+__46-[TNImageView getImageWithType:onImageLoaded:]_block_invoke
+__55-[TNImageView dataProvider:didFailLoadingImageFromURL:]_block_invoke
+__49-[TNImageView dataProvider:didLoadImage:fromURL:]_block_invoke
+__30-[TNImageView setContentMode:]_block_invoke.218
+__30-[TNImageView setContentMode:]_block_invoke.214
+__30-[TNImageView setContentMode:]_block_invoke.210
+__30-[TNImageView setContentMode:]_block_invoke.206
+__30-[TNImageView setContentMode:]_block_invoke.202
+__30-[TNImageView setContentMode:]_block_invoke.198
+__30-[TNImageView setContentMode:]_block_invoke.194
+__30-[TNImageView setContentMode:]_block_invoke.190
+__30-[TNImageView setContentMode:]_block_invoke.186
+__30-[TNImageView setContentMode:]_block_invoke.182
+__30-[TNImageView setContentMode:]_block_invoke.178
+__30-[TNImageView setContentMode:]_block_invoke.174
+__30-[TNImageView setContentMode:]_block_invoke.170
+__30-[TNImageView setContentMode:]_block_invoke.166
+__30-[TNImageView setContentMode:]_block_invoke.162
+__30-[TNImageView setContentMode:]_block_invoke.158
+__30-[TNImageView setContentMode:]_block_invoke.154
+__30-[TNImageView setContentMode:]_block_invoke.150
+__30-[TNImageView setContentMode:]_block_invoke.146
+__30-[TNImageView setContentMode:]_block_invoke.142
+__30-[TNImageView setContentMode:]_block_invoke.138
+__30-[TNImageView setContentMode:]_block_invoke.134
+__30-[TNImageView setContentMode:]_block_invoke.127
+__30-[TNImageView setContentMode:]_block_invoke
+__57-[TNImageView performImageLoadedBlockAndSetImage:forUrl:]_block_invoke_2
+__57-[TNImageView performImageLoadedBlockAndSetImage:forUrl:]_block_invoke
+__31-[TNImageView setImage:forUrl:]_block_invoke_2
+__31-[TNImageView setImage:forUrl:]_block_invoke
+__CGSizeEqualToSize
+-[SafeMutableDictionary init]
+-[SafeMutableDictionary objectForKey:]
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+___38-[SafeMutableDictionary objectForKey:]_block_invoke
+-[SafeMutableDictionary removeObjectForKey:]
+___44-[SafeMutableDictionary removeObjectForKey:]_block_invoke
+___copy_helper_block_.8
+___destroy_helper_block_.9
+-[SafeMutableDictionary setObject:forKey:]
+___42-[SafeMutableDictionary setObject:forKey:]_block_invoke
+___copy_helper_block_.13
+___destroy_helper_block_.14
+-[SafeMutableDictionary objectForKeyedSubscript:]
+-[SafeMutableDictionary setObject:forKeyedSubscript:]
+-[SafeMutableDictionary allKeys]
+___32-[SafeMutableDictionary allKeys]_block_invoke
+___copy_helper_block_.18
+___destroy_helper_block_.19
+-[SafeMutableDictionary allValues]
+___34-[SafeMutableDictionary allValues]_block_invoke
+___copy_helper_block_.23
+___destroy_helper_block_.24
+-[SafeMutableDictionary enumerateKeysAndObjectsUsingBlock:]
+___59-[SafeMutableDictionary enumerateKeysAndObjectsUsingBlock:]_block_invoke
+___copy_helper_block_.28
+___destroy_helper_block_.29
+-[SafeMutableDictionary .cxx_destruct]
+_OBJC_IVAR_$_SafeMutableDictionary._data
+_OBJC_IVAR_$_SafeMutableDictionary._isolationQueue
+___block_descriptor_tmp.10
+___block_descriptor_tmp.15
+___block_descriptor_tmp.20
+___block_descriptor_tmp.25
+___block_descriptor_tmp.30
+/Users/victor.zinets/Documents/projects/ios_tests/frameworks/TNURLImageView/TNURLImageView/Utilities/SafeMutableDictionary.m
+__59-[SafeMutableDictionary enumerateKeysAndObjectsUsingBlock:]_block_invoke
+__34-[SafeMutableDictionary allValues]_block_invoke
+__32-[SafeMutableDictionary allKeys]_block_invoke
+__42-[SafeMutableDictionary setObject:forKey:]_block_invoke
+__44-[SafeMutableDictionary removeObjectForKey:]_block_invoke
+__38-[SafeMutableDictionary objectForKey:]_block_invoke
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+/Volumes/data/temp/DerivedData/TNURLImageView-ffbuiiuvokppiwbylfxdblkpaobd/Build/Intermediates.noindex/ArchiveIntermediates/TNURLImageView/IntermediateBuildFilesPath/TNURLImageView.build/Release-iphoneos/TNURLImageView.build/DerivedSources/TNURLImageView_vers.c

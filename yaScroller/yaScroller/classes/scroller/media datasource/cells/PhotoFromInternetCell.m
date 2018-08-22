@@ -7,6 +7,7 @@
 //
 
 #import "PhotoFromInternetCell.h"
+#import "MediaScrollerLayoutAttributes.h"
 @import TNURLImageView;
 
 @interface PhotoFromInternetCell()
@@ -41,6 +42,12 @@
 
 -(void)setImageContentMode:(UIViewContentMode)imageContentMode {
     self.imageView.contentMode = imageContentMode;
+}
+
+-(void)applyLayoutAttributes:(MediaScrollerLayoutAttributes *)layoutAttributes {
+    [super applyLayoutAttributes:layoutAttributes];
+    
+    self.imageContentMode = layoutAttributes.contentMode;
 }
 
 @end

@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4930B94820CA6E60009E348E /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4930B94720CA6E60009E348E /* ViewController2.m */; };
-		496F83BF212BDEC0003D2DBB /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; };
-		496F83C0212BDEC0003D2DBB /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		496F83C3212BDFA7003D2DBB /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83C2212BDFA7003D2DBB /* MD5.framework */; };
-		496F83C4212BDFA7003D2DBB /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 496F83C2212BDFA7003D2DBB /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		499A5BBF212D39D80080D741 /* MediaScrollerLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 499A5BBE212D39D80080D741 /* MediaScrollerLayoutAttributes.m */; };
+		499A5BC4212D46C40080D741 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499A5BC1212D46B80080D741 /* MD5.framework */; };
+		499A5BC5212D46C40080D741 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 499A5BC1212D46B80080D741 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		499A5BC6212D46C40080D741 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499A5BC0212D46B80080D741 /* TNURLImageView.framework */; };
+		499A5BC7212D46C40080D741 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 499A5BC0212D46B80080D741 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49D6417620C57E7E00889231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D6417520C57E7E00889231 /* AppDelegate.m */; };
 		49D6417920C57E7E00889231 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D6417820C57E7E00889231 /* ViewController.m */; };
 		49D6417C20C57E7E00889231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D6417A20C57E7E00889231 /* Main.storyboard */; };
@@ -35,8 +36,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				496F83C0212BDEC0003D2DBB /* TNURLImageView.framework in Embed Frameworks */,
-				496F83C4212BDFA7003D2DBB /* MD5.framework in Embed Frameworks */,
+				499A5BC5212D46C40080D741 /* MD5.framework in Embed Frameworks */,
+				499A5BC7212D46C40080D741 /* TNURLImageView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,8 +47,10 @@
 /* Begin PBXFileReference section */
 		4930B94620CA6E60009E348E /* ViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		4930B94720CA6E60009E348E /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
-		496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
-		496F83C2212BDFA7003D2DBB /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
+		499A5BBD212D39D80080D741 /* MediaScrollerLayoutAttributes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaScrollerLayoutAttributes.h; sourceTree = "<group>"; };
+		499A5BBE212D39D80080D741 /* MediaScrollerLayoutAttributes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaScrollerLayoutAttributes.m; sourceTree = "<group>"; };
+		499A5BC0212D46B80080D741 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
+		499A5BC1212D46B80080D741 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
 		49D6417120C57E7E00889231 /* yaScroller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yaScroller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D6417420C57E7E00889231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49D6417520C57E7E00889231 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -80,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496F83BF212BDEC0003D2DBB /* TNURLImageView.framework in Frameworks */,
-				496F83C3212BDFA7003D2DBB /* MD5.framework in Frameworks */,
+				499A5BC4212D46C40080D741 /* MD5.framework in Frameworks */,
+				499A5BC6212D46C40080D741 /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +94,8 @@
 		496F83B5212BDB77003D2DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				496F83C2212BDFA7003D2DBB /* MD5.framework */,
-				496F83BA212BDEAF003D2DBB /* TNURLImageView.framework */,
+				499A5BC1212D46B80080D741 /* MD5.framework */,
+				499A5BC0212D46B80080D741 /* TNURLImageView.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -207,6 +210,8 @@
 				49D641B420C666B600889231 /* MediaScrollerView.m */,
 				49D641B620C6703A00889231 /* MediaScrollerViewLayout.h */,
 				49D641B720C6703A00889231 /* MediaScrollerViewLayout.m */,
+				499A5BBD212D39D80080D741 /* MediaScrollerLayoutAttributes.h */,
+				499A5BBE212D39D80080D741 /* MediaScrollerLayoutAttributes.m */,
 			);
 			path = "collection view";
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D6418F20C57FD300889231 /* CollectionSectionDatasource.m in Sources */,
+				499A5BBF212D39D80080D741 /* MediaScrollerLayoutAttributes.m in Sources */,
 				49D641B020C6561400889231 /* PhotoFromInternetCell.m in Sources */,
 				49D641B520C666B600889231 /* MediaScrollerView.m in Sources */,
 				4930B94820CA6E60009E348E /* ViewController2.m in Sources */,
@@ -440,6 +446,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/yaScroller/Supported files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +468,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/yaScroller/Supported files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

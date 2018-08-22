@@ -26,8 +26,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.items[indexPath.item] isKindOfClass:[PhotoFromInternet class]]) {
         PhotoFromInternetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFromInternetCell" forIndexPath:indexPath];
-        cell.data = self.items[indexPath.item];
-        cell.imageContentMode = self.contentMode;
+        cell.data = self.items[indexPath.item];        
         return cell;
     }
     return nil;
@@ -62,14 +61,6 @@
 -(UIImage *)image {
     PhotoFromInternetCell *cell = (id)[[self.collectionView visibleCells] firstObject]; //[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     return cell.image;
-}
-
--(void)setContentMode:(UIViewContentMode)contentMode {
-    _contentMode = contentMode;
-    
-    [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(PhotoFromInternetCell *cell, NSUInteger idx, BOOL * _Nonnull stop) {
-        cell.imageContentMode = contentMode;
-    }];
 }
 
 @end
