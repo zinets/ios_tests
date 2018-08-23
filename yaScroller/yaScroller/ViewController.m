@@ -95,11 +95,17 @@
     
     self.fsPreviewView.alpha = 1;
     self.fsPreviewView.contentMode = self.collectionView.contentMode;
+    self.fsPreviewView.backgroundColor = self.collectionView.backgroundColor;
     self.fsPreviewView.image = [self.collectionView image];
     
     self.collectionView.alpha = 0;
     
-    [self.view layoutIfNeeded];    
+    [self.view layoutIfNeeded];
+
+    /*
+     * фулскриновость достигается а) на время анимации контрола он прячется и на его место кладется imageView с картинкой б) картинка привязана в ксибе к контролу с отступами в 5 пк! - потому что в дизайне ячейки картинка внутри ячейки с такими отступами
+     */
+
     [UIView animateWithDuration:.7 animations:^{
 
         if (sender.selected) {
