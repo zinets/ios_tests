@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUF-ui-Vl2" userLabel="Fs Preview View (zero alpha)" customClass="TNImageView">
-                                <rect key="frame" x="21" y="135" width="333" height="348"/>
+                                <rect key="frame" x="16" y="130" width="343" height="358"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-bH-4hp">
                                 <rect key="frame" x="313" y="80" width="46" height="30"/>
@@ -88,18 +88,18 @@
                             <constraint firstItem="NhQ-0N-1ua" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OA8-4T-APm"/>
                             <constraint firstItem="5eY-4Y-9KI" firstAttribute="bottom" secondItem="Umf-K4-xa9" secondAttribute="bottom" id="Ocb-1B-TbW"/>
                             <constraint firstItem="pSx-1P-osn" firstAttribute="leading" secondItem="5eY-4Y-9KI" secondAttribute="trailing" constant="8" id="RLi-TQ-WvK"/>
-                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="leading" secondItem="1rc-af-OY9" secondAttribute="leading" constant="5" id="T1A-pD-dRu"/>
+                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="leading" secondItem="1rc-af-OY9" secondAttribute="leading" id="T1A-pD-dRu"/>
                             <constraint firstItem="hPH-gv-yim" firstAttribute="top" secondItem="Umf-K4-xa9" secondAttribute="bottom" constant="16" id="WfK-Ui-2hb"/>
                             <constraint firstItem="Umf-K4-xa9" firstAttribute="leading" secondItem="wnh-M6-YNN" secondAttribute="trailing" constant="8" id="aY2-fZ-l7m"/>
                             <constraint firstItem="5eY-4Y-9KI" firstAttribute="leading" secondItem="Umf-K4-xa9" secondAttribute="trailing" constant="8" id="eQi-GX-mVK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xJi-bH-4hp" secondAttribute="trailing" constant="16" id="fty-24-Tdg"/>
-                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="top" secondItem="1rc-af-OY9" secondAttribute="top" constant="5" id="gLh-1v-wU5"/>
-                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="bottom" secondItem="1rc-af-OY9" secondAttribute="bottom" constant="-5" id="gpW-TP-4Zr"/>
+                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="top" secondItem="1rc-af-OY9" secondAttribute="top" id="gLh-1v-wU5"/>
+                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="bottom" secondItem="1rc-af-OY9" secondAttribute="bottom" id="gpW-TP-4Zr"/>
                             <constraint firstItem="pSx-1P-osn" firstAttribute="centerY" secondItem="5eY-4Y-9KI" secondAttribute="centerY" id="jr2-gK-lGP"/>
                             <constraint firstItem="1rc-af-OY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="130" id="ngj-Kd-4XB"/>
                             <constraint firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" constant="16" id="nzc-4s-Vaz"/>
                             <constraint firstItem="1rc-af-OY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="oxV-fG-Ztv"/>
-                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" constant="-5" id="syu-4Z-HrT"/>
+                            <constraint firstItem="XUF-ui-Vl2" firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" id="syu-4Z-HrT"/>
                             <constraint firstItem="hPH-gv-yim" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="tJC-Vx-Vrs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

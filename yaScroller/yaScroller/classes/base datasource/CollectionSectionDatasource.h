@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "SectionDatasource.h"
 
+// абстрактный класс - источник для коллекции; умеет считать дифы, но конкретное наполнение коллекции его не касается
 @interface CollectionSectionDatasource : SectionDatasource <UICollectionViewDataSource>
 @property (nonatomic, weak) UICollectionView *collectionView;
 @end

@@ -21,7 +21,6 @@
         if (self->toRemove.count) {
             NSMutableArray *array = [NSMutableArray arrayWithCapacity:self->toRemove.count];
             [self->toRemove enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-                // todo секции! хз; может просто как свойство класса?
                 [array addObject:[NSIndexPath indexPathForItem:idx inSection:0]];
             }];
             [self.collectionView deleteItemsAtIndexPaths:array];

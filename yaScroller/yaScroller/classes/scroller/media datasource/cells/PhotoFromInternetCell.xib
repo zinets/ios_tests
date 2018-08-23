@@ -20,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="93P-nQ-LNu" customClass="TNImageView">
-                        <rect key="frame" x="5" y="5" width="243" height="221"/>
+                        <rect key="frame" x="0.0" y="0.0" width="253" height="231"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="93P-nQ-LNu" secondAttribute="bottom" constant="5" id="FWa-lL-gZB"/>
-                <constraint firstItem="93P-nQ-LNu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="NPB-Od-5br"/>
-                <constraint firstItem="93P-nQ-LNu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="lfP-CF-Wnw"/>
-                <constraint firstAttribute="trailing" secondItem="93P-nQ-LNu" secondAttribute="trailing" constant="5" id="sX5-vI-S69"/>
+                <constraint firstAttribute="bottom" secondItem="93P-nQ-LNu" secondAttribute="bottom" id="FWa-lL-gZB"/>
+                <constraint firstItem="93P-nQ-LNu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NPB-Od-5br"/>
+                <constraint firstItem="93P-nQ-LNu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lfP-CF-Wnw"/>
+                <constraint firstAttribute="trailing" secondItem="93P-nQ-LNu" secondAttribute="trailing" id="sX5-vI-S69"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="253" height="231"/>

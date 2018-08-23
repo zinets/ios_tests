@@ -58,7 +58,7 @@
     }
 }
 
-#pragma mark -
+#pragma mark поддержка contentMode -
 
 -(void)setContentMode:(UIViewContentMode)contentMode {
     _contentMode = contentMode;

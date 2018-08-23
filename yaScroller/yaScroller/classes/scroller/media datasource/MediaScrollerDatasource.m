@@ -34,6 +34,9 @@
 
 #pragma mark setters -
 
+// бесконечная прокрутка реализована как перестановка элементов первого -> последний и наоборот + отключение "автоанимации"
+// но инициатором должен быть кто-то, кто будет следить за прокруткой или просто по таймеру говорить "дальше!"
+
 - (void)shiftDataLeft {
     NSMutableArray *data = [self.items mutableCopy];
     id firstObject = [data firstObject];
@@ -59,7 +62,7 @@
 #pragma mark поддержка "фулскринности", все что нужно для анимирования изменения размеров коллекции -
 
 -(UIImage *)image {
-    PhotoFromInternetCell *cell = (id)[[self.collectionView visibleCells] firstObject]; //[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    PhotoFromInternetCell *cell = (id)[[self.collectionView visibleCells] firstObject];
     return cell.image;
 }
 

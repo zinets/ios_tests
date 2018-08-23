@@ -155,7 +155,7 @@
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
-        _collectionView.decelerationRate = 0;
+        _collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
         
         if (@available(iOS 11.0, *)) {
             _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -168,12 +168,10 @@
 
 - (void)setPaginating:(BOOL)paginating {
     _paginating = paginating;
-
 }
 
 - (void)setOneElementPaginating:(BOOL)oneElementPaginating {
     _oneElementPaginating = oneElementPaginating;
-
 }
 
 - (void)setScrollDirection:(UICollectionViewScrollDirection)scrollDirection {
