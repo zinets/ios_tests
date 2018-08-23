@@ -212,7 +212,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.endlessScrolling) {
+    if (self.endlessScrolling && !scrollView.decelerating) {
         CGFloat minValue = 0;
         CGFloat maxValue = scrollView.contentSize.width - scrollView.bounds.size.width;
         CGFloat curX = scrollView.contentOffset.x;
