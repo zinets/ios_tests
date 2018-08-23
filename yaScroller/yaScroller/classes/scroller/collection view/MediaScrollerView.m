@@ -17,6 +17,7 @@
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, readonly) MediaScrollerDatasource *internalDataSource;
+@property (nonatomic, strong) NSTimer *scrollTimer;
 @end
 
 @implementation MediaScrollerView
@@ -26,6 +27,7 @@
 - (void)commonInit {
     self.internalDataSource.collectionView = self.collectionView;
     [self addSubview:self.collectionView];
+    self.autoScrollInterval = 4;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -41,6 +43,11 @@
     }
     return self;
 }
+
+- (void)dealloc {
+    [self destroyScrollTimer];
+}
+
 
 -(void)layoutSubviews {
     [super layoutSubviews];
@@ -185,6 +192,10 @@
 
 #pragma mark scroller -
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self destroyScrollTimer];
+}
+
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     if (self.paginating) {
         UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
@@ -209,6 +220,7 @@
 
         self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (targetContentOffset->x = newOffset) : (targetContentOffset->y = newOffset);
     }
+    [self recreateScrollTimer];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -245,6 +257,7 @@
 
 - (void)setItems:(NSArray *)items {
     self.internalDataSource.items = items;
+    [self recreateScrollTimer];
 }
 
 - (NSArray *)items {
@@ -274,8 +287,64 @@
 -(void)setContentMode:(UIViewContentMode)contentMode {
     [super setContentMode:contentMode];
     // смысл есть только в ScaleAspect***
-    MediaScrollerViewLayout *layout = self.collectionView.collectionViewLayout;
+    MediaScrollerViewLayout *layout = (id)self.collectionView.collectionViewLayout;
     layout.contentMode = contentMode;
+}
+
+#pragma mark autoscroll -
+
+- (void)setAutoScroll:(BOOL)autoScroll {
+    if (autoScroll != _autoScroll) {
+        _autoScroll = autoScroll;
+        [self recreateScrollTimer];
+    }
+}
+
+- (void)recreateScrollTimer {
+    [_scrollTimer invalidate];
+    if (self.autoScroll && self.internalDataSource.items.count > 1) {
+        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollInterval
+                                                        target:self
+                                                      selector:@selector(onAutoscrollTimerEvent)
+                                                      userInfo:nil repeats:YES];
+    } else {
+        _scrollTimer = nil;
+    }
+}
+
+- (void)destroyScrollTimer {
+    [_scrollTimer invalidate];
+    _scrollTimer = nil;
+};
+
+- (void)onAutoscrollTimerEvent {
+    if (self.autoScroll) {
+        UIScrollView *scroller = self.collectionView;
+        CGPoint offset = scroller.contentOffset;
+        UICollectionViewFlowLayout *layout = (id)self.collectionView.collectionViewLayout;
+
+        NSInteger pageIndex;
+        CGFloat pageWidth;
+
+        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+            pageWidth = layout.itemSize.width + layout.minimumInteritemSpacing;
+            pageIndex = (NSInteger) (offset.x / pageWidth);
+
+            if (!self.endlessScrolling) {
+                if (pageIndex == self.internalDataSource.items.count - 1) {
+                    pageIndex = 0;
+                } else {
+                    pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
+                }
+            } else {
+                pageIndex++;
+            }
+            offset.x = pageIndex * pageWidth;
+            [scroller setContentOffset:offset animated:YES];
+        } else {
+
+        }
+    }
 }
 
 @end

@@ -27,6 +27,9 @@
 @property (nonatomic) BOOL endlessScrolling;
 /// направление прокрутки
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;
+/// автоскролл
+@property (nonatomic) BOOL autoScroll;
+@property (nonatomic) NSTimeInterval autoScrollInterval;
 
 /// tap to scroll - тап по краю картинки (скажем, на расстоянии ХХ от края) вызывает прокрутку
 @property (nonatomic) BOOL tapToScroll;

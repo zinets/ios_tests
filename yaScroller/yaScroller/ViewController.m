@@ -24,9 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topOffset;
 
 @property (weak, nonatomic) IBOutlet TNImageView *fsPreviewView;
-
-
-
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *sideViews;
 
 
 @end
@@ -58,7 +56,7 @@
     self.collectionView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.oneElementPaginating = YES;
     self.collectionView.paginating = YES;
-    self.collectionView.endlessScrolling = YES;
+    self.collectionView.endlessScrolling = NO;
     self.collectionView.tapToScroll = YES;
     self.collectionView.contentMode = UIViewContentModeScaleAspectFit;
 }
@@ -134,6 +132,30 @@
 - (IBAction)changeAspect:(UIButton *)sender {
     self.collectionView.contentMode = self.collectionView.contentMode == UIViewContentModeScaleAspectFit ? UIViewContentModeScaleAspectFill : UIViewContentModeScaleAspectFit;
     [sender setTitle:[NSString stringWithFormat:@"aspect %@", self.collectionView.contentMode == UIViewContentModeScaleAspectFit ? @"fit" : @"fill"] forState:(UIControlStateNormal)];
+}
+
+- (IBAction)endless:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    self.collectionView.endlessScrolling = sender.selected;
+}
+
+- (IBAction)tapToScroll:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    [self.sideViews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
+        obj.hidden = !sender.selected;
+    }];
+    self.collectionView.tapToScroll = sender.selected;
+}
+
+#pragma mark autoscroll -
+
+- (IBAction)setAutoscroll:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    self.collectionView.autoScroll = sender.selected;
+}
+
+- (void)onScrollTime {
+    self.collectionView;
 }
 
 @end
