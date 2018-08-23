@@ -58,8 +58,8 @@
     self.collectionView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.oneElementPaginating = YES;
     self.collectionView.paginating = YES;
-    self.collectionView.endlessScrolling = NO;
-    self.collectionView.tapToScroll = NO;
+    self.collectionView.endlessScrolling = YES;
+    self.collectionView.tapToScroll = YES;
     self.collectionView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
@@ -106,7 +106,7 @@
             self.leftOffset.constant =
             self.rightOffset.constant =
             self.topOffset.constant =
-            self.bottomOffset.constant = 0;
+            self.bottomOffset.constant = 40;
         } else {
             self.leftOffset.constant =
             self.rightOffset.constant = 16;
