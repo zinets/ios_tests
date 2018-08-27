@@ -37,7 +37,7 @@
 // бесконечная прокрутка реализована как перестановка элементов первого -> последний и наоборот + отключение "автоанимации"
 // но инициатором должен быть кто-то, кто будет следить за прокруткой или просто по таймеру говорить "дальше!"
 
-- (void)shiftDataLeft {
+- (void)shiftDataPrev {
     NSMutableArray *data = [self.items mutableCopy];
     id firstObject = [data firstObject];
     [data removeObject:firstObject];
@@ -48,7 +48,7 @@
     [UIView setAnimationsEnabled:YES];
 }
 
-- (void)shiftDataRight {
+- (void)shiftDataNext {
     NSMutableArray *data = [self.items mutableCopy];
     id lastObject = [data lastObject];
     [data removeObject:lastObject];

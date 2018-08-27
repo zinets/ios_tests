@@ -13,8 +13,8 @@
 @interface MediaScrollerDatasource : CollectionSectionDatasource
 
 // методы для бесконечной прокрутки
-- (void)shiftDataLeft;
-- (void)shiftDataRight;
+- (void)shiftDataPrev;
+- (void)shiftDataNext;
 
 @property (nonatomic, readonly) UIImage *image;
 @end

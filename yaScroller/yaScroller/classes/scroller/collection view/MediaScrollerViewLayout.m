@@ -38,10 +38,11 @@
 }
 
 -(void)prepareForAnimatedBoundsChange:(CGRect)oldBounds {
-    CGPoint pt = self.collectionView.contentOffset;
-    CGFloat w = self.collectionView.bounds.size.width;
-    
-    lastIndex = (NSInteger)(oldBounds.origin.x / oldBounds.size.width);
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        lastIndex = (NSInteger) (oldBounds.origin.x / oldBounds.size.width);
+    } else {
+        lastIndex = (NSInteger) (oldBounds.origin.y / oldBounds.size.height);
+    }
 }
 
 -(void)prepareLayout {
@@ -49,9 +50,11 @@
     
     if (lastIndex != NSNotFound) {
         CGPoint pt = self.collectionView.contentOffset;
-        CGFloat w = self.collectionView.bounds.size.width;
-        
-        pt.x = lastIndex * w;
+        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+            pt.x = lastIndex * self.collectionView.bounds.size.width;
+        } else {
+            pt.y = lastIndex * self.collectionView.bounds.size.height;
+        }
         self.collectionView.contentOffset = pt;
         
         lastIndex = NSNotFound;

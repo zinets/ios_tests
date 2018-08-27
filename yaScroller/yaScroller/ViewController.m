@@ -57,7 +57,7 @@
     self.collectionView.oneElementPaginating = YES;
     self.collectionView.paginating = YES;
     self.collectionView.endlessScrolling = NO;
-    self.collectionView.tapToScroll = YES;
+    self.collectionView.tapToScroll = NO;
     self.collectionView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
@@ -141,10 +141,22 @@
 
 - (IBAction)tapToScroll:(UIButton *)sender {
     sender.selected = !sender.selected;
+    
     [self.sideViews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
-        obj.hidden = !sender.selected;
+        obj.hidden = !sender.selected && self.collectionView.scrollDirection == UICollectionViewScrollDirectionHorizontal;
     }];
     self.collectionView.tapToScroll = sender.selected;
+}
+
+- (IBAction)scrollDir:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (!sender.selected) {
+        [sender setTitle:@"hor.scrolling" forState:(UIControlStateNormal)];
+        self.collectionView.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    } else {
+        [sender setTitle:@"vert.scrolling" forState:(UIControlStateNormal)];
+        self.collectionView.scrollDirection = UICollectionViewScrollDirectionVertical;
+    }
 }
 
 #pragma mark autoscroll -

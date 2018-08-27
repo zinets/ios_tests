@@ -119,6 +119,15 @@
                                     <constraint firstAttribute="width" constant="50" id="H5I-E5-4eg"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wj5-RL-PsQ">
+                                <rect key="frame" x="16" y="621" width="88" height="30"/>
+                                <state key="normal" title="hor. scrolling">
+                                    <color key="titleColor" red="0.078431372550000003" green="0.75294117650000003" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scrollDir:" destination="BYZ-38-t0r" eventType="touchUpInside" id="42O-i1-H0I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.66666666669999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -139,6 +148,7 @@
                             <constraint firstItem="hPH-gv-yim" firstAttribute="leading" secondItem="wnh-M6-YNN" secondAttribute="leading" id="RZU-va-2i5"/>
                             <constraint firstItem="XUF-ui-Vl2" firstAttribute="leading" secondItem="1rc-af-OY9" secondAttribute="leading" id="T1A-pD-dRu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wnh-M6-YNN" secondAttribute="bottom" constant="92" id="XKO-pX-WTf"/>
+                            <constraint firstItem="Wj5-RL-PsQ" firstAttribute="top" secondItem="hPH-gv-yim" secondAttribute="bottom" constant="8" id="YuG-Yt-BM3"/>
                             <constraint firstItem="W6k-eE-f0c" firstAttribute="bottom" secondItem="XUF-ui-Vl2" secondAttribute="bottom" id="a2h-Lb-Ubb"/>
                             <constraint firstItem="7Nb-tj-nQF" firstAttribute="top" secondItem="1rc-af-OY9" secondAttribute="top" id="elv-9E-ga5"/>
                             <constraint firstItem="dxj-Cv-27L" firstAttribute="centerY" secondItem="VsQ-ny-n5M" secondAttribute="centerY" id="fN2-lF-hh3"/>
@@ -149,6 +159,7 @@
                             <constraint firstItem="1rc-af-OY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="130" id="ngj-Kd-4XB"/>
                             <constraint firstItem="dxj-Cv-27L" firstAttribute="leading" secondItem="VsQ-ny-n5M" secondAttribute="trailing" constant="8" id="njX-bI-hFg"/>
                             <constraint firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" constant="16" id="nzc-4s-Vaz"/>
+                            <constraint firstItem="Wj5-RL-PsQ" firstAttribute="leading" secondItem="hPH-gv-yim" secondAttribute="leading" id="o2V-PV-9xe"/>
                             <constraint firstItem="1rc-af-OY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="oxV-fG-Ztv"/>
                             <constraint firstItem="XUF-ui-Vl2" firstAttribute="trailing" secondItem="1rc-af-OY9" secondAttribute="trailing" id="syu-4Z-HrT"/>
                             <constraint firstItem="W6k-eE-f0c" firstAttribute="top" secondItem="XUF-ui-Vl2" secondAttribute="top" id="tQE-pl-9Cg"/>

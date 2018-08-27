@@ -225,18 +225,27 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.endlessScrolling && !scrollView.decelerating) {
+        BOOL horizontalDir = self.scrollDirection == UICollectionViewScrollDirectionHorizontal;
+
         CGFloat minValue = 0;
-        CGFloat maxValue = scrollView.contentSize.width - scrollView.bounds.size.width;
-        CGFloat curX = scrollView.contentOffset.x;
+        CGFloat maxValue = horizontalDir ? scrollView.contentSize.width - scrollView.bounds.size.width : scrollView.contentSize.height - scrollView.bounds.size.height;
+
+        CGFloat curOffset = horizontalDir ? scrollView.contentOffset.x : scrollView.contentOffset.y;
         CGPoint pt = scrollView.contentOffset;
-        if (curX < minValue) {
-            pt.x += scrollView.bounds.size.width;
+        if (curOffset < minValue) {
+            if (horizontalDir)
+                pt.x += scrollView.bounds.size.width;
+            else
+                pt.y += scrollView.bounds.size.height;
             scrollView.contentOffset = pt;
-            [self.internalDataSource shiftDataRight];
-        } else if (curX > maxValue) {
-            pt.x -= scrollView.bounds.size.width;
+            [self.internalDataSource shiftDataNext];
+        } else if (curOffset > maxValue) {
+            if (horizontalDir)
+                pt.x -= scrollView.bounds.size.width;
+            else
+                pt.y -= scrollView.bounds.size.height;
             scrollView.contentOffset = pt;
-            [self.internalDataSource shiftDataLeft];
+            [self.internalDataSource shiftDataPrev];
         }
     }
 }
@@ -247,7 +256,7 @@
     CGFloat pageWidth = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing);
     CGFloat offset = self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? scrollView.contentOffset.x : scrollView.contentOffset.y;
 
-    NSInteger pageIndex = (NSInteger) (offset + pageWidth / 2) / pageWidth;
+    NSInteger pageIndex = (NSInteger) ((offset + pageWidth / 2) / pageWidth);
     CGPoint pt = scrollView.contentOffset;
     self.scrollDirection == UICollectionViewScrollDirectionHorizontal ? (pt.x = pageIndex * pageWidth) : (pt.y = pageIndex * pageWidth);
     [scrollView setContentOffset:pt animated:YES];
@@ -340,10 +349,22 @@
                 pageIndex++;
             }
             offset.x = pageIndex * pageWidth;
-            [scroller setContentOffset:offset animated:YES];
         } else {
+            pageWidth = layout.itemSize.height + layout.minimumInteritemSpacing;
+            pageIndex = (NSInteger) (offset.y / pageWidth);
 
+            if (!self.endlessScrolling) {
+                if (pageIndex == self.internalDataSource.items.count - 1) {
+                    pageIndex = 0;
+                } else {
+                    pageIndex = MIN(pageIndex + 1, self.internalDataSource.items.count - 1);
+                }
+            } else {
+                pageIndex++;
+            }
+            offset.y = pageIndex * pageWidth;
         }
+        [scroller setContentOffset:offset animated:YES];
     }
 }
 
