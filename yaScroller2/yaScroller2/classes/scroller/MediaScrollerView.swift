@@ -260,6 +260,16 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         }
     }
     
+    // MARK: animated bounds changing -
+    
+    override var contentMode: UIViewContentMode {
+        didSet {
+            if let layout = collectionView.collectionViewLayout as? MediaScrollerViewLayout {
+                layout.contentMode = contentMode
+            }
+        }
+    }
+    
     // MARK: timer -
     
     func recreateScrollingTimer() {

@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31Y-nj-eZp">
-                                <rect key="frame" x="16" y="347" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="16" y="347" width="43" height="30"/>
+                                <state key="normal" title="reload"/>
                                 <connections>
                                     <action selector="fillCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUb-jK-NEb"/>
                                 </connections>
@@ -32,14 +32,23 @@
                                     <constraint firstAttribute="height" constant="299" id="d30-TU-DX4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-I7-mcU">
+                                <rect key="frame" x="67" y="347" width="132" height="30"/>
+                                <state key="normal" title="change aspect (fill)"/>
+                                <connections>
+                                    <action selector="aspectCnahge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgU-R0-q98"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
+                            <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ENb-KG-UBY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="JOS-wC-iDt"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XCg-KD-YxK"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="iTw-wT-gy2"/>
+                            <constraint firstItem="Gkt-I7-mcU" firstAttribute="centerY" secondItem="31Y-nj-eZp" secondAttribute="centerY" id="wlw-ka-fdl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

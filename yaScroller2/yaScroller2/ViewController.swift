@@ -47,7 +47,17 @@ class ViewController: UIViewController {
         collectionView.items = items
     }
     
-
+    @IBAction func aspectCnahge(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            collectionView.contentMode = .scaleAspectFit
+            sender.setTitle("aspect fit", for: .normal)
+        } else {
+            collectionView.contentMode = .scaleAspectFill
+            sender.setTitle("aspect fill", for: .normal)
+        }
+    }
+    
     
 }
 
