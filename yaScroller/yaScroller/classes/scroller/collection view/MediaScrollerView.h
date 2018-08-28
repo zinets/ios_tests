@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL paginating;
 /// ограничить прокрутку одним элементов за раз
 @property (nonatomic) BOOL oneElementPaginating;
-/// бесконечная прокрутка - не использовать, работает криво
+/// бесконечная прокрутка
 @property (nonatomic) BOOL endlessScrolling;
 /// направление прокрутки
 @property (nonatomic) UICollectionViewScrollDirection scrollDirection;

@@ -38,7 +38,8 @@ class ViewController: UIViewController {
             items.append(newItem)
         }
         
-        
+        collectionView.autoScroll = true
+        collectionView.tapToScroll = true
     }
 
     @IBAction func fillCollection(_ sender: Any) {
