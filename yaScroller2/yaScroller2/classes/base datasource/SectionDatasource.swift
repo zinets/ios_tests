@@ -86,16 +86,16 @@ class SectionDatasource: NSObject {
                 i = i - 1;
                 j = j - 1;
             } else if (i > 0 && j > 0 && temp[i][j] == temp[i - 1][j - 1] + 1){
-                print("replace \(fromArray[i - 1]) with \(toArray[j - 1])")
+//                print("replace \(fromArray[i - 1]) with \(toArray[j - 1])")
                 toUpdate.insert(i - 1);
                 i = i - 1;
                 j = j - 1;
             } else if (i > 0 && temp[i][j] == temp[i - 1][j] + 1) {
-                print("delete \(fromArray[i - 1]) @ index \((i - 1))")
+//                print("delete \(fromArray[i - 1]) @ index \((i - 1))")
                 toRemove.insert(i - 1);
                 i = i - 1;
             } else if (j > 0 && temp[i][j] == temp[i][j - 1] + 1){
-                print("Insert \(toArray[j - 1]) @ index \((j - 1))")
+//                print("Insert \(toArray[j - 1]) @ index \((j - 1))")
                 toInsert.insert(j - 1);
                 j = j - 1;
             } else {
