@@ -27,6 +27,15 @@ class PhotosDatasource : CollectionSectionDatasource {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        if items[indexPath.item] is PhotoFromInternetModel {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: sectionCellId, for: indexPath) as? PhotoFromInternetCell {
+                cell.data = items[indexPath.item] as? PhotoFromInternetModel
+                return cell
+            } else {
+                return UICollectionViewCell()
+            }
+        } else {
+            return UICollectionViewCell()
+        }
     }
 }

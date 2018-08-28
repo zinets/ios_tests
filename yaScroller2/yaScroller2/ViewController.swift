@@ -20,18 +20,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func test1(_ sender: Any) {
-        
-        let testDatasource = SectionDatasource()
-        
-        testDatasource.items = ["1", "2", "3"]
-        
-        testDatasource.items = ["4", "1", "2"]
-        
-        
-        
-    }
-    
     
 }
 

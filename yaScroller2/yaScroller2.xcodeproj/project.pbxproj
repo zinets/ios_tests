@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417560B72161BF7476EEC9A1 /* PhotosLayoutAttributes.swift */; };
+		41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41756AEB376A67EEA980B30C /* PhotoFromInternetModel.swift */; };
 		4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E99F2134270F0005ECED /* AppDelegate.swift */; };
 		4942E9A22134270F0005ECED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9A12134270F0005ECED /* ViewController.swift */; };
 		4942E9A52134270F0005ECED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4942E9A32134270F0005ECED /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		417560B72161BF7476EEC9A1 /* PhotosLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosLayoutAttributes.swift; sourceTree = "<group>"; };
+		41756AEB376A67EEA980B30C /* PhotoFromInternetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFromInternetModel.swift; sourceTree = "<group>"; };
 		4942E99C2134270F0005ECED /* yaScroller2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yaScroller2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4942E99F2134270F0005ECED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4942E9A12134270F0005ECED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 			children = (
 				4942E9BA213525A70005ECED /* cells */,
 				4942E9B8213520A30005ECED /* PhotosDatasource.swift */,
+				41756AEB376A67EEA980B30C /* PhotoFromInternetModel.swift */,
+				417560B72161BF7476EEC9A1 /* PhotosLayoutAttributes.swift */,
 			);
 			path = "photos datasource";
 			sourceTree = "<group>";
@@ -219,6 +225,8 @@
 				4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */,
 				4942E9B42134275D0005ECED /* SectionDatasource.swift in Sources */,
 				4942E9B9213520A30005ECED /* PhotosDatasource.swift in Sources */,
+				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
+				4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
