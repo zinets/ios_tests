@@ -19,6 +19,9 @@
 */
 
 @interface MediaScrollerView : UIView
+/// datasource
+@property (nonatomic) NSArray *items;
+
 /// выравнивать ли ячейки
 @property (nonatomic) BOOL paginating;
 /// ограничить прокрутку одним элементов за раз
@@ -34,8 +37,6 @@
 /// tap to scroll - тап по краю картинки (скажем, на расстоянии ХХ от края) вызывает прокрутку
 @property (nonatomic) BOOL tapToScroll;
 
-/// datasource
-@property (nonatomic) NSArray *items;
 
 /// delegate
 @property (nonatomic, weak) id <MediaScrollerViewDelegate> delegate;

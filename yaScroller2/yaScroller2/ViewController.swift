@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: MediaScrollerView!
     
-    var dataSource = PhotosDatasource()
+    
     var items = [PhotoFromInternetModel]()
     
     override func viewDidLoad() {
@@ -38,11 +38,11 @@ class ViewController: UIViewController {
             items.append(newItem)
         }
         
-        dataSource.collectionView = collectionView
+        
     }
 
     @IBAction func fillCollection(_ sender: Any) {
-        dataSource.items = items
+        collectionView.items = items
     }
     
 

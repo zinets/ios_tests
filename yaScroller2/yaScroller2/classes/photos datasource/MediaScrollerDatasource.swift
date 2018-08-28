@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosDatasource : CollectionSectionDatasource {
+class MediaScrollerDatasource : CollectionSectionDatasource {
     
     let sectionCellId = "PhotoFromInternetCell"
     
