@@ -19,9 +19,9 @@ class SectionDatasource: NSObject {
         get {
             return internalItems;
         }
-        set(newItems) {
-            calculateChangesFrom(fromArray: internalItems, toArray: newItems)
-            internalItems = Array(newItems)
+        set {
+            calculateChangesFrom(fromArray: internalItems, toArray: newValue)
+            internalItems = newValue
         }
     }
     
@@ -30,9 +30,9 @@ class SectionDatasource: NSObject {
     }
     
     func calculateChangesFrom(fromArray: [AnyHashable], toArray: [AnyHashable]) {
-        toRemove = Set<Int>()
-        toInsert = Set<Int>()
-        toUpdate = Set<Int>()
+        toRemove.removeAll()
+        toInsert.removeAll()
+        toUpdate.removeAll()
         
         if ((fromArray.count == 0 && toArray.count == 0) || fromArray == toArray) {
             return

@@ -18,9 +18,11 @@
 		4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9B5213510E80005ECED /* CollectionSectionDatasource.swift */; };
 		4942E9B9213520A30005ECED /* PhotosDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9B8213520A30005ECED /* PhotosDatasource.swift */; };
 		4942E9D5213527C20005ECED /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D4213527C20005ECED /* MD5.framework */; };
-		4942E9D7213527DB0005ECED /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D6213527DA0005ECED /* TNURLImageView.framework */; };
 		4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9D82135290F0005ECED /* PhotoFromInternetCell.swift */; };
 		4942E9DB2135290F0005ECED /* PhotoFromInternetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4942E9D92135290F0005ECED /* PhotoFromInternetCell.xib */; };
+		4942E9DC213534290005ECED /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D6213527DA0005ECED /* TNURLImageView.framework */; };
+		4942E9DD213534290005ECED /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D6213527DA0005ECED /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4942E9DF213534290005ECED /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D4213527C20005ECED /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4942E9DD213534290005ECED /* TNURLImageView.framework in Embed Frameworks */,
+				4942E9DF213534290005ECED /* MD5.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4942E9D7213527DB0005ECED /* TNURLImageView.framework in Frameworks */,
+				4942E9DC213534290005ECED /* TNURLImageView.framework in Frameworks */,
 				4942E9D5213527C20005ECED /* MD5.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
