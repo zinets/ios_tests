@@ -28,6 +28,9 @@
 		4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EA21366D620005ECED /* ProgressWithGradient.swift */; };
 		4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EC21369CDB0005ECED /* GradientView.swift */; };
 		4942E9EF2136A8B80005ECED /* RoundedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */; };
+		4942E9F12136BF820005ECED /* ProgressWithGradient2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */; };
+		4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F22136C09A0005ECED /* UIColor+RGB.swift */; };
+		4942E9F52136C0DD0005ECED /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F42136C0DD0005ECED /* String+Size.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +70,9 @@
 		4942E9EA21366D620005ECED /* ProgressWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient.swift; sourceTree = "<group>"; };
 		4942E9EC21369CDB0005ECED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedGradientView.swift; sourceTree = "<group>"; };
+		4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient2.swift; sourceTree = "<group>"; };
+		4942E9F22136C09A0005ECED /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		4942E9F42136C0DD0005ECED /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +122,12 @@
 		4942E9B12134271C0005ECED /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4942E9F22136C09A0005ECED /* UIColor+RGB.swift */,
 				4942E9E921366CF30005ECED /* gradients */,
 				4942E9E02135484D0005ECED /* scroller */,
 				4942E9B22134272A0005ECED /* base datasource */,
 				4942E9B7213520410005ECED /* photos datasource */,
+				4942E9F42136C0DD0005ECED /* String+Size.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -177,6 +185,7 @@
 				4942E9EC21369CDB0005ECED /* GradientView.swift */,
 				4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */,
 				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
+				4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */,
 			);
 			path = gradients;
 			sourceTree = "<group>";
@@ -255,12 +264,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */,
+				4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
 				4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */,
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,
+				4942E9F12136BF820005ECED /* ProgressWithGradient2.swift in Sources */,
 				4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */,
 				4942E9B42134275D0005ECED /* SectionDatasource.swift in Sources */,
+				4942E9F52136C0DD0005ECED /* String+Size.swift in Sources */,
 				4942E9EF2136A8B80005ECED /* RoundedGradientView.swift in Sources */,
 				4942E9B9213520A30005ECED /* MediaScrollerDatasource.swift in Sources */,
 				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
