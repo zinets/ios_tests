@@ -26,11 +26,20 @@ extension UIColor {
     }
 }
 
+extension String {
+    func sizeWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGSize {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect,
+                                            options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                            attributes: [NSAttributedStringKey.font: font], context: nil)
+        return boundingBox.size
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: MediaScrollerView!
     @IBOutlet weak var gradientProgress: ProgressWithGradient!
-    
     
     var items = [PhotoFromInternetModel]()
     
@@ -129,17 +138,39 @@ class ViewController: UIViewController {
         sublayer1.lineWidth = 10
         sublayer1.fillColor = UIColor.clear.cgColor
         sublayer1.strokeColor = UIColor.black.cgColor
-        let path = UIBezierPath(ovalIn: sublayer1.bounds.insetBy(dx: 10, dy: 10))
+        let path = UIBezierPath(ovalIn: sublayer1.bounds.insetBy(dx: 5, dy: 5))
         sublayer1.path = path.cgPath
         
         composedMaskLayer.addSublayer(sublayer1)
         
         let sublayer2 = CATextLayer()
-        sublayer2.frame = testView.bounds
+        let textString: String = "Wow"
+        // setup font..
+        sublayer2.fontSize = 16
+        let font = UIFont.boldSystemFont(ofSize: sublayer2.fontSize)
+        sublayer2.font = font
+        
+        let textSize = textString.sizeWithConstrainedWidth(width: testView.bounds.size.width, font: font)
+        sublayer2.string = textString
+        
+        let x = (testView.bounds.size.width - textSize.width) / 2
+        let y = (testView.bounds.size.height - textSize.height) / 2
+        
+        sublayer2.frame = CGRect(origin: CGPoint(x: x, y: y), size: textSize)
+        
         sublayer2.alignmentMode = kCAAlignmentCenter
-        sublayer2.string = "Cool !"
         sublayer2.contentsScale = UIScreen.main.scale
         
+        let angle = 1.7 * CGFloat.pi
+        
+        var transform = CATransform3DIdentity
+        transform = CATransform3DRotate(transform, angle, 0, 0, 1)
+        transform = CATransform3DTranslate(transform, 30, 0, 0)
+        
+        
+        transform = CATransform3DRotate(transform, .pi / 2 * (angle < .pi ? -1 : 1), 0, 0, 1)
+        
+        sublayer2.transform = transform
         composedMaskLayer.addSublayer(sublayer2)
         
         
