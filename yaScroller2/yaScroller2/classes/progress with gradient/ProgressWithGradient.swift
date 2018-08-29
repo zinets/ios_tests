@@ -10,27 +10,24 @@ import UIKit
 
 class ProgressWithGradient: UIView {
     
-    var bgLayer: CAGradientLayer?
-    func createBgLayer() -> CAGradientLayer {
+    lazy var bgLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.colors = [
             UIColor(rgb: 0xfec624).cgColor,
             UIColor(rgb: 0xf161f8).cgColor,
             UIColor(rgb: 0x7b2df8).cgColor,
         ]
-        layer.startPoint = CGPoint(x: 1.0, y: 0.5)
-        layer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        layer.startPoint = CGPoint(x: 1.0, y: 0.3)
+        layer.endPoint = CGPoint(x: 0.0, y: 0.7)
         layer.frame = self.bounds
         layer.shouldRasterize = true
         
-        maskLayer = createMaskLayer()
-        layer.mask = maskLayer!
+        layer.mask = self.maskLayer
         
         return layer
-    }
+    }()
     
-    var maskLayer: CAShapeLayer?
-    func createMaskLayer() -> CAShapeLayer {
+    lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.frame = self.bounds.insetBy(dx: 5, dy: 5)
         let path = UIBezierPath(ovalIn: layer.bounds)
@@ -48,7 +45,7 @@ class ProgressWithGradient: UIView {
         layer.transform = transform
         
         return layer
-    }
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,26 +59,23 @@ class ProgressWithGradient: UIView {
     
     func commonInit() {
         self.backgroundColor = UIColor.green
-        bgLayer = createBgLayer()
-        self.layer.addSublayer(bgLayer!)
+        self.layer.addSublayer(bgLayer)
         position = 0
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        bgLayer?.frame = self.bounds
-        maskLayer?.frame = self.bounds
-        maskLayer?.path = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 5, dy: 5)).cgPath
+        bgLayer.frame = self.bounds
+        maskLayer.frame = bgLayer.bounds
+        maskLayer.path = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 5, dy: 5)).cgPath
     }
     
     // MARK: setters -
     
     var position: CGFloat = 0 {
         didSet {
-            if let layer = maskLayer {
-                layer.strokeEnd = max(0, min(1, position))
-            }
+            maskLayer.strokeEnd = max(0, min(1, position))
         }
     }
     

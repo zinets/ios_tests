@@ -165,7 +165,7 @@ class ViewController: UIViewController {
         
         var transform = CATransform3DIdentity
         transform = CATransform3DRotate(transform, angle, 0, 0, 1)
-        transform = CATransform3DTranslate(transform, 30, 0, 0)
+        transform = CATransform3DTranslate(transform, 70, 0, 0)
         
         
         transform = CATransform3DRotate(transform, .pi / 2 * (angle < .pi ? -1 : 1), 0, 0, 1)
