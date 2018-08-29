@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ProgressWithGradient: GradientView {
+protocol ProgressControl {
+    var position: CGFloat { get set }
+}
+
+class ProgressWithGradient: GradientView, ProgressControl {
     let progressLineWidth: CGFloat = 10
     lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()

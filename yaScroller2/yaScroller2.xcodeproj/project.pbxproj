@@ -123,11 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				4942E9F22136C09A0005ECED /* UIColor+RGB.swift */,
+				4942E9F42136C0DD0005ECED /* String+Size.swift */,
 				4942E9E921366CF30005ECED /* gradients */,
 				4942E9E02135484D0005ECED /* scroller */,
 				4942E9B22134272A0005ECED /* base datasource */,
 				4942E9B7213520410005ECED /* photos datasource */,
-				4942E9F42136C0DD0005ECED /* String+Size.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
