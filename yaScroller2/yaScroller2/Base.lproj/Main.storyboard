@@ -69,6 +69,13 @@
                                     <constraint firstAttribute="width" secondItem="YfG-kW-rft" secondAttribute="height" multiplier="1:1" id="ArJ-qZ-NIi"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jp5-6R-yte">
+                                <rect key="frame" x="185" y="554" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="gradientAngleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Spa-29-xvK"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>

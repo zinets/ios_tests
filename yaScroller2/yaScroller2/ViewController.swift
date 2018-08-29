@@ -120,7 +120,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var testView: GradientView!
     
     func makeGradiemts() {
-        
         let gradientLayer1 = CAGradientLayer()
         
         gradientLayer1.colors = [
@@ -185,6 +184,9 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func gradientAngleChanged(_ sender: UISlider) {
+        testView.gradientAngle = CGFloat(sender.value)
+    }
     
     
     

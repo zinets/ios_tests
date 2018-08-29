@@ -13,27 +13,39 @@ import UIKit
 
 class GradientView: UIView {
 
-    var colors: [UIColor] = [] {
+    /// массив цветов для формирования градиента; распределение равномерное
+    var gradientColors: [UIColor] = [] {
         didSet {
             var cgColors = [CGColor]()
-            for color in colors {
+            for color in gradientColors {
                 cgColors.append(color.cgColor)
             }
             gradientLayer.colors = cgColors
         }
     }
+    /// угол градиента, от 0 до 1; 0 == 12 часов
+    var gradientAngle: CGFloat = 0 {
+        didSet {
+            let angle = 2 * .pi * CGFloat(gradientAngle) - .pi / 2
+            var x: CGFloat = 0.5 + cos(angle) / 2
+            var y: CGFloat = 0.5 + sin(angle) / 2
+            gradientLayer.startPoint = CGPoint(x: x, y: y)
+            
+            x = 0.5 + cos(angle + .pi) / 2
+            y = 0.5 + sin(angle + .pi) / 2
+            gradientLayer.endPoint = CGPoint(x: x, y: y)
+        }
+    }
     
     lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        layer.startPoint = CGPoint(x: 1.0, y: 0.3)
-        layer.endPoint = CGPoint(x: 0.0, y: 0.7)
+        layer.startPoint = CGPoint(x: 1.0, y: 0.5)
+        layer.endPoint = CGPoint(x: 0.0, y: 0.5)
         layer.frame = self.bounds
         layer.shouldRasterize = true
         
         return layer
     }()
-    
-    // TODO: настройка угла градиента..
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,11 +60,12 @@ class GradientView: UIView {
     func commonInit() {
         self.backgroundColor = UIColor.clear
         self.layer.addSublayer(gradientLayer)
-        self.colors = [
+        self.gradientColors = [
             UIColor(rgb: 0xfec624),
             UIColor(rgb: 0xf161f8),
             UIColor(rgb: 0x7b2df8)
         ]
+        self.gradientAngle = 0;
     }
     
     func changesToAnimate() {

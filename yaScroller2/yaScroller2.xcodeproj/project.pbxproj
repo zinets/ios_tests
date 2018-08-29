@@ -174,9 +174,9 @@
 		4942E9E921366CF30005ECED /* gradients */ = {
 			isa = PBXGroup;
 			children = (
-				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
 				4942E9EC21369CDB0005ECED /* GradientView.swift */,
 				4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */,
+				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
 			);
 			path = gradients;
 			sourceTree = "<group>";
