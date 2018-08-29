@@ -39,40 +39,58 @@
                                     <action selector="aspectCnahge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgU-R0-q98"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efb-cx-WBR">
-                                <rect key="frame" x="16" y="395" width="160" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-vX-y6P" customClass="ProgressWithGradient" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="16" y="385" width="160" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Cea-hX-HAb"/>
+                                    <constraint firstAttribute="width" constant="160" id="Y2t-vk-YjC"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-vX-y6P" customClass="ProgressWithGradient" customModule="yaScroller2" customModuleProvider="target">
-                                <rect key="frame" x="190" y="395" width="160" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rrA-yN-fea">
-                                <rect key="frame" x="190" y="563" width="162" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rrA-yN-fea">
+                                <rect key="frame" x="16" y="553" width="164" height="31"/>
                                 <connections>
                                     <action selector="sliderChanges:" destination="BYZ-38-t0r" eventType="valueChanged" id="dVn-ex-bth"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xof-1M-L4X">
+                                <rect key="frame" x="184" y="385" width="82" height="30"/>
+                                <state key="normal" title="change size"/>
+                                <connections>
+                                    <action selector="changeSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hw0-kK-zJn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YfG-kW-rft">
+                                <rect key="frame" x="219" y="435" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
+                            <constraint firstItem="rrA-yN-fea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="5pr-bh-QL2"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ENb-KG-UBY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="JOS-wC-iDt"/>
+                            <constraint firstItem="bEZ-vX-y6P" firstAttribute="top" secondItem="31Y-nj-eZp" secondAttribute="bottom" constant="8" id="Udh-y4-rmG"/>
+                            <constraint firstItem="bEZ-vX-y6P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VrI-gL-OPg"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XCg-KD-YxK"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="iTw-wT-gy2"/>
+                            <constraint firstItem="rrA-yN-fea" firstAttribute="width" secondItem="bEZ-vX-y6P" secondAttribute="width" id="nlz-f0-MXz"/>
+                            <constraint firstItem="Xof-1M-L4X" firstAttribute="top" secondItem="bEZ-vX-y6P" secondAttribute="top" id="prY-Gj-X8D"/>
+                            <constraint firstItem="rrA-yN-fea" firstAttribute="top" secondItem="bEZ-vX-y6P" secondAttribute="bottom" constant="8" id="snc-OS-DdM"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="centerY" secondItem="31Y-nj-eZp" secondAttribute="centerY" id="wlw-ka-fdl"/>
+                            <constraint firstItem="Xof-1M-L4X" firstAttribute="leading" secondItem="bEZ-vX-y6P" secondAttribute="trailing" constant="8" id="zWG-Bz-zb5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fyg-j5-d3h" id="QgJ-Fx-6lJ"/>
-                        <outlet property="grad1" destination="Efb-cx-WBR" id="Xdq-dc-T6J"/>
+                        <outlet property="gradientHeight" destination="Cea-hX-HAb" id="GYE-Fn-R1L"/>
                         <outlet property="gradientProgress" destination="bEZ-vX-y6P" id="4cN-eS-WxQ"/>
+                        <outlet property="gradientWidth" destination="Y2t-vk-YjC" id="HnE-yv-tXf"/>
+                        <outlet property="testView" destination="YfG-kW-rft" id="LMn-rS-o34"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

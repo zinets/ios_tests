@@ -62,47 +62,9 @@ class ViewController: UIViewController {
         collectionView.endlessScrolling = true
         
         
-        // gradients
-        let gradientLayer1 = CAGradientLayer()
-        
-        gradientLayer1.colors = [
-            UIColor(rgb: 0xfec624).cgColor,
-            UIColor(rgb: 0xf161f8).cgColor,
-            UIColor(rgb: 0x7b2df8).cgColor
-        ]
-        gradientLayer1.startPoint = CGPoint(x: 1.0, y: 0.5)
-        gradientLayer1.endPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer1.frame = grad1.bounds
-        
-        grad1.layer.addSublayer(gradientLayer1)
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = grad1.bounds.insetBy(dx: 10, dy: 10)
-        let path = UIBezierPath(ovalIn: maskLayer.bounds)
-                
-        maskLayer.path = path.cgPath
-        maskLayer.fillColor = UIColor.clear.cgColor
-        maskLayer.strokeColor = UIColor.black.cgColor
-        maskLayer.lineWidth = 10
-        maskLayer.lineCap = kCALineCapRound
-        
-        maskLayer.strokeStart = 0.0
-        let pos: CGFloat = 0.95
-        maskLayer.strokeEnd = pos
-        
-        
-        
-        
-        let angle: CGFloat = .pi / 2
-        var transform: CATransform3D = CATransform3DIdentity
-        transform = CATransform3DScale(transform, -1, 1, 1)
-        transform = CATransform3DRotate(transform, angle, 0, 0, 1)
-        
-        maskLayer.transform = transform
-        
-        grad1.layer.mask = maskLayer
-        
         gradientProgress.position = 0.25
+        
+        makeGradiemts()
     }
 
     @IBAction func fillCollection(_ sender: Any) {
@@ -119,12 +81,86 @@ class ViewController: UIViewController {
             sender.setTitle("aspect fill", for: .normal)
         }
     }
-    
-    @IBOutlet weak var grad1: UIView!
-    
+        
     @IBAction func sliderChanges(_ sender: UISlider) {
         gradientProgress.position = CGFloat(sender.value)
     }
+    
+    @IBOutlet weak var gradientHeight: NSLayoutConstraint!
+    @IBOutlet weak var gradientWidth: NSLayoutConstraint!
+    
+    @IBAction func changeSize(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        UIView.animate(withDuration: 0.7) {
+            if (sender.isSelected) {
+                self.gradientWidth.constant = 240
+                self.gradientHeight.constant = 240
+            } else {
+                self.gradientWidth.constant = 160
+                self.gradientHeight.constant = 160
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBOutlet weak var testView: UIView!
+    
+    func makeGradiemts() {
+        
+        let gradientLayer1 = CAGradientLayer()
+        
+        gradientLayer1.colors = [
+            UIColor(rgb: 0xfec624).cgColor,
+            UIColor(rgb: 0xf161f8).cgColor,
+            UIColor(rgb: 0x7b2df8).cgColor
+        ]
+        gradientLayer1.startPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer1.endPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer1.frame = testView.bounds
+        
+        testView.layer.addSublayer(gradientLayer1)
+        
+        let composedMaskLayer = CALayer()
+        composedMaskLayer.frame = testView.bounds
+        
+        let sublayer1 = CAShapeLayer()
+        sublayer1.frame = testView.bounds
+        sublayer1.lineWidth = 10
+        sublayer1.fillColor = UIColor.clear.cgColor
+        sublayer1.strokeColor = UIColor.black.cgColor
+        let path = UIBezierPath(ovalIn: sublayer1.bounds.insetBy(dx: 10, dy: 10))
+        sublayer1.path = path.cgPath
+        
+        composedMaskLayer.addSublayer(sublayer1)
+        
+        let sublayer2 = CATextLayer()
+        sublayer2.frame = testView.bounds
+        sublayer2.alignmentMode = kCAAlignmentCenter
+        sublayer2.string = "Cool !"
+        sublayer2.contentsScale = UIScreen.main.scale
+        
+        composedMaskLayer.addSublayer(sublayer2)
+        
+        
+        
+        gradientLayer1.mask = composedMaskLayer
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 

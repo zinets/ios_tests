@@ -10,7 +10,8 @@ import UIKit
 
 class ProgressWithGradient: UIView {
     
-    func bgLayer() -> CAGradientLayer {
+    var bgLayer: CAGradientLayer?
+    func createBgLayer() -> CAGradientLayer {
         let layer = CAGradientLayer()
         layer.colors = [
             UIColor(rgb: 0xfec624).cgColor,
@@ -20,6 +21,7 @@ class ProgressWithGradient: UIView {
         layer.startPoint = CGPoint(x: 1.0, y: 0.5)
         layer.endPoint = CGPoint(x: 0.0, y: 0.5)
         layer.frame = self.bounds
+        layer.shouldRasterize = true
         
         maskLayer = createMaskLayer()
         layer.mask = maskLayer!
@@ -59,18 +61,26 @@ class ProgressWithGradient: UIView {
     }
     
     func commonInit() {
-        self.backgroundColor = UIColor.clear
-        self.layer.addSublayer(bgLayer())
+        self.backgroundColor = UIColor.green
+        bgLayer = createBgLayer()
+        self.layer.addSublayer(bgLayer!)
         position = 0
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        bgLayer?.frame = self.bounds
+        maskLayer?.frame = self.bounds
+        maskLayer?.path = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 5, dy: 5)).cgPath
     }
     
     // MARK: setters -
     
     var position: CGFloat = 0 {
         didSet {
-            self.position = max(0, min(1, position))
             if let layer = maskLayer {
-                layer.strokeEnd = position
+                layer.strokeEnd = max(0, min(1, position))
             }
         }
     }
