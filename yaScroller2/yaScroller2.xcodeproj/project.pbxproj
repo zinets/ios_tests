@@ -25,6 +25,7 @@
 		4942E9DF213534290005ECED /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4942E9D4213527C20005ECED /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4942E9E6213548C50005ECED /* MediaScrollerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9E5213548C50005ECED /* MediaScrollerViewLayout.swift */; };
 		4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9E72135580E0005ECED /* MediaScrollerView.swift */; };
+		4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EA21366D620005ECED /* ProgressWithGradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,7 @@
 		4942E9D92135290F0005ECED /* PhotoFromInternetCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoFromInternetCell.xib; sourceTree = "<group>"; };
 		4942E9E5213548C50005ECED /* MediaScrollerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaScrollerViewLayout.swift; sourceTree = "<group>"; };
 		4942E9E72135580E0005ECED /* MediaScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaScrollerView.swift; sourceTree = "<group>"; };
+		4942E9EA21366D620005ECED /* ProgressWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		4942E9B12134271C0005ECED /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4942E9E921366CF30005ECED /* progress with gradient */,
 				4942E9E02135484D0005ECED /* scroller */,
 				4942E9B22134272A0005ECED /* base datasource */,
 				4942E9B7213520410005ECED /* photos datasource */,
@@ -162,6 +165,14 @@
 				4942E9E72135580E0005ECED /* MediaScrollerView.swift */,
 			);
 			path = scroller;
+			sourceTree = "<group>";
+		};
+		4942E9E921366CF30005ECED /* progress with gradient */ = {
+			isa = PBXGroup;
+			children = (
+				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
+			);
+			path = "progress with gradient";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,

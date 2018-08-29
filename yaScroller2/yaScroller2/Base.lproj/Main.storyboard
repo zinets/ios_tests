@@ -39,8 +39,25 @@
                                     <action selector="aspectCnahge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgU-R0-q98"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efb-cx-WBR">
+                                <rect key="frame" x="16" y="395" width="160" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-vX-y6P" customClass="ProgressWithGradient" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="190" y="395" width="160" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rrA-yN-fea">
+                                <rect key="frame" x="190" y="563" width="162" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderChanges:" destination="BYZ-38-t0r" eventType="valueChanged" id="dVn-ex-bth"/>
+                                </connections>
+                            </slider>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
@@ -54,6 +71,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fyg-j5-d3h" id="QgJ-Fx-6lJ"/>
+                        <outlet property="grad1" destination="Efb-cx-WBR" id="Xdq-dc-T6J"/>
+                        <outlet property="gradientProgress" destination="bEZ-vX-y6P" id="4cN-eS-WxQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
