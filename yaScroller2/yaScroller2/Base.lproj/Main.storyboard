@@ -61,7 +61,7 @@
                                     <action selector="changeSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hw0-kK-zJn"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfG-kW-rft" customClass="GradientView" customModule="yaScroller2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YfG-kW-rft" customClass="RoundedGradientView" customModule="yaScroller2" customModuleProvider="target">
                                 <rect key="frame" x="184" y="417" width="120" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

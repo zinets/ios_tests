@@ -27,6 +27,7 @@
 		4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9E72135580E0005ECED /* MediaScrollerView.swift */; };
 		4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EA21366D620005ECED /* ProgressWithGradient.swift */; };
 		4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EC21369CDB0005ECED /* GradientView.swift */; };
+		4942E9EF2136A8B80005ECED /* RoundedGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		4942E9E72135580E0005ECED /* MediaScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaScrollerView.swift; sourceTree = "<group>"; };
 		4942E9EA21366D620005ECED /* ProgressWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient.swift; sourceTree = "<group>"; };
 		4942E9EC21369CDB0005ECED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedGradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
 				4942E9EC21369CDB0005ECED /* GradientView.swift */,
+				4942E9EE2136A8B80005ECED /* RoundedGradientView.swift */,
 			);
 			path = gradients;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,
 				4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */,
 				4942E9B42134275D0005ECED /* SectionDatasource.swift in Sources */,
+				4942E9EF2136A8B80005ECED /* RoundedGradientView.swift in Sources */,
 				4942E9B9213520A30005ECED /* MediaScrollerDatasource.swift in Sources */,
 				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
 				4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */,

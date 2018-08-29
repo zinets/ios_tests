@@ -8,9 +8,12 @@
 
 import UIKit
 
+// просто вью, фон которого - градиент
+// + анимация изменения фрейма
+
 class GradientView: UIView {
 
-    lazy var bgLayer: CAGradientLayer = {
+    lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.colors = [
             UIColor(rgb: 0xfec624).cgColor,
@@ -22,21 +25,11 @@ class GradientView: UIView {
         layer.frame = self.bounds
         layer.shouldRasterize = true
         
-        layer.mask = self.maskLayer
-        
         return layer
     }()
     
-    lazy var maskLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.frame = self.bounds
-        let path = UIBezierPath(ovalIn: layer.bounds)
-        
-        layer.path = path.cgPath
-        
-        return layer
-    }()
-
+    // TODO: настройка цветов, угла градиента..
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -49,7 +42,11 @@ class GradientView: UIView {
     
     func commonInit() {
         self.backgroundColor = UIColor.clear
-        self.layer.addSublayer(bgLayer)
+        self.layer.addSublayer(gradientLayer)
+    }
+    
+    func changesToAnimate() {
+        gradientLayer.frame = self.bounds
     }
     
     override func layoutSubviews() {
@@ -63,16 +60,7 @@ class GradientView: UIView {
             CATransaction.disableActions()
         }
         
-        bgLayer.frame = self.bounds
-        
-        let pathAnimation = CABasicAnimation(keyPath: "path")
-        let newPath = UIBezierPath(ovalIn: bgLayer.bounds)
-        pathAnimation.fromValue = maskLayer.path
-        pathAnimation.toValue = newPath.cgPath
-        
-        maskLayer.add(pathAnimation, forKey: "path")
-        maskLayer.path = newPath.cgPath
-        
+        changesToAnimate()
         CATransaction.commit()
     }
 }
