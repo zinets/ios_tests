@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         
         gradientProgress.position = 0.25
         
-        makeGradiemts()
+//        makeGradiemts()
     }
 
     @IBAction func fillCollection(_ sender: Any) {
@@ -98,22 +98,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var gradientHeight: NSLayoutConstraint!
     @IBOutlet weak var gradientWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var gradient2Width: NSLayoutConstraint!
+    
     @IBAction func changeSize(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
         UIView.animate(withDuration: 0.7) {
             if (sender.isSelected) {
-                self.gradientWidth.constant = 240
-                self.gradientHeight.constant = 240
+//                self.gradientWidth.constant = 240
+//                self.gradientHeight.constant = 240
+                self.gradient2Width.constant = 170
             } else {
-                self.gradientWidth.constant = 160
-                self.gradientHeight.constant = 160
+//                self.gradientWidth.constant = 160
+//                self.gradientHeight.constant = 160
+                self.gradient2Width.constant = 120
             }
             self.view.layoutIfNeeded()
         }
     }
     
-    @IBOutlet weak var testView: UIView!
+    @IBOutlet weak var testView: GradientView!
     
     func makeGradiemts() {
         

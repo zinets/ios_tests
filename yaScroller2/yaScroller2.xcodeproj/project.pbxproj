@@ -26,6 +26,7 @@
 		4942E9E6213548C50005ECED /* MediaScrollerViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9E5213548C50005ECED /* MediaScrollerViewLayout.swift */; };
 		4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9E72135580E0005ECED /* MediaScrollerView.swift */; };
 		4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EA21366D620005ECED /* ProgressWithGradient.swift */; };
+		4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9EC21369CDB0005ECED /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		4942E9E5213548C50005ECED /* MediaScrollerViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaScrollerViewLayout.swift; sourceTree = "<group>"; };
 		4942E9E72135580E0005ECED /* MediaScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaScrollerView.swift; sourceTree = "<group>"; };
 		4942E9EA21366D620005ECED /* ProgressWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient.swift; sourceTree = "<group>"; };
+		4942E9EC21369CDB0005ECED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +114,7 @@
 		4942E9B12134271C0005ECED /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				4942E9E921366CF30005ECED /* progress with gradient */,
+				4942E9E921366CF30005ECED /* gradients */,
 				4942E9E02135484D0005ECED /* scroller */,
 				4942E9B22134272A0005ECED /* base datasource */,
 				4942E9B7213520410005ECED /* photos datasource */,
@@ -167,12 +169,13 @@
 			path = scroller;
 			sourceTree = "<group>";
 		};
-		4942E9E921366CF30005ECED /* progress with gradient */ = {
+		4942E9E921366CF30005ECED /* gradients */ = {
 			isa = PBXGroup;
 			children = (
 				4942E9EA21366D620005ECED /* ProgressWithGradient.swift */,
+				4942E9EC21369CDB0005ECED /* GradientView.swift */,
 			);
-			path = "progress with gradient";
+			path = gradients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +253,7 @@
 			files = (
 				4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
+				4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */,
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,
 				4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */,
