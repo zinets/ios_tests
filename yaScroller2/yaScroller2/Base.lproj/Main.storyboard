@@ -41,31 +41,40 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZND-I0-gEm" customClass="ProgressWithGradient2" customModule="yaScroller2" customModuleProvider="target">
-                                <rect key="frame" x="16" y="385" width="160" height="160"/>
+                                <rect key="frame" x="16" y="385" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZND-I0-gEm" secondAttribute="height" multiplier="1:1" id="h2U-bl-DwA"/>
-                                    <constraint firstAttribute="width" constant="160" id="ndR-YE-MR5"/>
+                                    <constraint firstAttribute="width" constant="200" id="ndR-YE-MR5"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-Qg-Er3">
-                                <rect key="frame" x="14" y="550" width="164" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-Qg-Er3">
+                                <rect key="frame" x="14" y="590" width="204" height="31"/>
                                 <connections>
                                     <action selector="progressChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eX1-9Y-LSF"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-oB-5jp">
+                                <rect key="frame" x="224" y="385" width="82" height="30"/>
+                                <state key="normal" title="change size"/>
+                                <connections>
+                                    <action selector="cjangeProgressViewSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWn-Wg-0FF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
                             <constraint firstItem="ZND-I0-gEm" firstAttribute="top" secondItem="Gkt-I7-mcU" secondAttribute="bottom" constant="8" id="5ui-FG-qZE"/>
+                            <constraint firstItem="uEy-oB-5jp" firstAttribute="leading" secondItem="ZND-I0-gEm" secondAttribute="trailing" constant="8" id="BIm-2x-hgD"/>
                             <constraint firstItem="ZND-I0-gEm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CWn-K5-XqL"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ENb-KG-UBY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="JOS-wC-iDt"/>
                             <constraint firstItem="2Qb-Qg-Er3" firstAttribute="width" secondItem="ZND-I0-gEm" secondAttribute="width" id="QRY-xj-SgJ"/>
                             <constraint firstItem="2Qb-Qg-Er3" firstAttribute="top" secondItem="ZND-I0-gEm" secondAttribute="bottom" constant="5" id="Vo3-1o-D9f"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XCg-KD-YxK"/>
+                            <constraint firstItem="uEy-oB-5jp" firstAttribute="top" secondItem="ZND-I0-gEm" secondAttribute="top" id="bbJ-Ze-zfh"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="iTw-wT-gy2"/>
                             <constraint firstItem="2Qb-Qg-Er3" firstAttribute="centerX" secondItem="ZND-I0-gEm" secondAttribute="centerX" id="lWu-OZ-5qt"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="centerY" secondItem="31Y-nj-eZp" secondAttribute="centerY" id="wlw-ka-fdl"/>
@@ -74,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fyg-j5-d3h" id="QgJ-Fx-6lJ"/>
+                        <outlet property="progressViewWidth" destination="ndR-YE-MR5" id="mKV-f3-Zcw"/>
                         <outlet property="testView2" destination="ZND-I0-gEm" id="yhA-Lx-puB"/>
                     </connections>
                 </viewController>

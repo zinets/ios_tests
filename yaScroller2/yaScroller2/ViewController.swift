@@ -66,11 +66,21 @@ class ViewController: UIViewController {
     //==================================================
     
     @IBOutlet weak var testView2: ProgressWithGradient2!
+    @IBOutlet weak var progressViewWidth: NSLayoutConstraint!
     
     @IBAction func progressChanged(_ sender: UISlider) {
         testView2.position = CGFloat(sender.value)
     }
     
+    @IBAction func cjangeProgressViewSize(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        UIView.animate(withDuration: 0.7) {
+            self.progressViewWidth.constant = sender.isSelected ? 200 : 160
+            
+            self.view.layoutIfNeeded()
+        }
+    }
     
     
     
