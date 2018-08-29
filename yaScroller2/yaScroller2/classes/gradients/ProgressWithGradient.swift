@@ -8,34 +8,14 @@
 
 import UIKit
 
-class ProgressWithGradient: UIView {
-    
-    lazy var bgLayer: CAGradientLayer = {
-        let layer = CAGradientLayer()
-        layer.colors = [
-            UIColor(rgb: 0xfec624).cgColor,
-            UIColor(rgb: 0xf161f8).cgColor,
-            UIColor(rgb: 0x7b2df8).cgColor,
-        ]
-        layer.startPoint = CGPoint(x: 1.0, y: 0.3)
-        layer.endPoint = CGPoint(x: 0.0, y: 0.7)
-        layer.frame = self.bounds
-        layer.shouldRasterize = true
-        
-        layer.mask = self.maskLayer
-        
-        return layer
-    }()
-    
+class ProgressWithGradient: GradientView {
+    let progressLineWidth: CGFloat = 10
     lazy var maskLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
-        layer.frame = self.bounds.insetBy(dx: 5, dy: 5)
-        let path = UIBezierPath(ovalIn: layer.bounds)
         
-        layer.path = path.cgPath
         layer.fillColor = UIColor.clear.cgColor
         layer.strokeColor = UIColor.black.cgColor
-        layer.lineWidth = 10
+        layer.lineWidth = progressLineWidth
         layer.lineCap = kCALineCapRound
         
         let angle: CGFloat = .pi / 2
@@ -47,36 +27,34 @@ class ProgressWithGradient: UIView {
         return layer
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    func commonInit() {
-        self.backgroundColor = UIColor.green
-        self.layer.addSublayer(bgLayer)
-        position = 0
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func commonInit() {
+        super.commonInit()
+        gradientLayer.mask = maskLayer
         
-        bgLayer.frame = self.bounds
-        maskLayer.frame = bgLayer.bounds
-        maskLayer.path = UIBezierPath(ovalIn: self.bounds.insetBy(dx: 5, dy: 5)).cgPath
+        position = 0
     }
     
     // MARK: setters -
     
     var position: CGFloat = 0 {
         didSet {
+            // TODO: анимация заполнения новым значением - если недостаточно implicitа
             maskLayer.strokeEnd = max(0, min(1, position))
         }
+    }
+    
+    // MARK: animation -
+    
+    override func changesToAnimate() {
+        gradientLayer.frame = self.bounds
+        
+        let pathAnimation = CABasicAnimation(keyPath: "path")
+        let newPath = UIBezierPath(ovalIn: self.bounds.insetBy(dx: progressLineWidth / 2, dy: progressLineWidth / 2))
+        pathAnimation.fromValue = maskLayer.path
+        pathAnimation.toValue = newPath.cgPath
+        
+        maskLayer.add(pathAnimation, forKey: "path")
+        maskLayer.path = newPath.cgPath
     }
     
 }

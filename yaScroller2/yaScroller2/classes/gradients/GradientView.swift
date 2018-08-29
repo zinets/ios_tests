@@ -13,13 +13,18 @@ import UIKit
 
 class GradientView: UIView {
 
+    var colors: [UIColor] = [] {
+        didSet {
+            var cgColors = [CGColor]()
+            for color in colors {
+                cgColors.append(color.cgColor)
+            }
+            gradientLayer.colors = cgColors
+        }
+    }
+    
     lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        layer.colors = [
-            UIColor(rgb: 0xfec624).cgColor,
-            UIColor(rgb: 0xf161f8).cgColor,
-            UIColor(rgb: 0x7b2df8).cgColor,
-        ]
         layer.startPoint = CGPoint(x: 1.0, y: 0.3)
         layer.endPoint = CGPoint(x: 0.0, y: 0.7)
         layer.frame = self.bounds
@@ -28,7 +33,7 @@ class GradientView: UIView {
         return layer
     }()
     
-    // TODO: настройка цветов, угла градиента..
+    // TODO: настройка угла градиента..
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +48,11 @@ class GradientView: UIView {
     func commonInit() {
         self.backgroundColor = UIColor.clear
         self.layer.addSublayer(gradientLayer)
+        self.colors = [
+            UIColor(rgb: 0xfec624),
+            UIColor(rgb: 0xf161f8),
+            UIColor(rgb: 0x7b2df8)
+        ]
     }
     
     func changesToAnimate() {

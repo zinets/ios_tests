@@ -105,13 +105,13 @@ class ViewController: UIViewController {
         
         UIView.animate(withDuration: 0.7) {
             if (sender.isSelected) {
-//                self.gradientWidth.constant = 240
-//                self.gradientHeight.constant = 240
-                self.gradient2Width.constant = 170
+                self.gradientWidth.constant = 240
+                self.gradientHeight.constant = 240
+//                self.gradient2Width.constant = 170
             } else {
-//                self.gradientWidth.constant = 160
-//                self.gradientHeight.constant = 160
-                self.gradient2Width.constant = 120
+                self.gradientWidth.constant = 160
+                self.gradientHeight.constant = 160
+//                self.gradient2Width.constant = 120
             }
             self.view.layoutIfNeeded()
         }
