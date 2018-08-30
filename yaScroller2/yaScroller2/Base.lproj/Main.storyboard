@@ -133,6 +133,12 @@
                                 <rect key="frame" x="16" y="161" width="18" height="4"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pNs-1G-h1c" customClass="PasswordTextField" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="16" y="233" width="273" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk2-fs-pk6">
                                 <rect key="frame" x="60" y="166" width="136" height="48"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.50980392159999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -148,8 +154,11 @@
                         <color key="backgroundColor" red="0.61176470588235299" green="0.60392156862745094" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jk2-fs-pk6" firstAttribute="trailing" secondItem="gsF-ge-qmS" secondAttribute="trailing" id="5IU-aP-e9O"/>
+                            <constraint firstItem="K9N-Jo-2iV" firstAttribute="trailing" secondItem="pNs-1G-h1c" secondAttribute="trailing" constant="86" id="8D7-s9-638"/>
                             <constraint firstItem="sQW-6d-6PI" firstAttribute="top" secondItem="gsF-ge-qmS" secondAttribute="bottom" constant="3" id="H5C-f7-DKo"/>
+                            <constraint firstItem="pNs-1G-h1c" firstAttribute="leading" secondItem="K9N-Jo-2iV" secondAttribute="leading" constant="16" id="MDr-gu-lBF"/>
                             <constraint firstItem="jk2-fs-pk6" firstAttribute="top" secondItem="gsF-ge-qmS" secondAttribute="bottom" constant="8" id="O6j-wM-IPS"/>
+                            <constraint firstItem="pNs-1G-h1c" firstAttribute="top" secondItem="K9N-Jo-2iV" secondAttribute="top" constant="213" id="RqL-dq-GFE"/>
                             <constraint firstItem="jk2-fs-pk6" firstAttribute="leading" secondItem="gsF-ge-qmS" secondAttribute="leading" constant="44" id="dKd-Y4-yNW"/>
                             <constraint firstItem="gsF-ge-qmS" firstAttribute="top" secondItem="K9N-Jo-2iV" secondAttribute="top" constant="34" id="pY4-gh-sX9"/>
                             <constraint firstItem="gsF-ge-qmS" firstAttribute="leading" secondItem="K9N-Jo-2iV" secondAttribute="leading" constant="16" id="ygd-Am-6zB"/>
@@ -159,6 +168,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="sQW-6d-6PI" id="gTh-kD-hVP"/>
+                        <outlet property="passwordTextField" destination="pNs-1G-h1c" id="Ouc-Th-9oB"/>
                         <outlet property="stopButton" destination="jk2-fs-pk6" id="bhs-Qu-kfP"/>
                     </connections>
                 </viewController>

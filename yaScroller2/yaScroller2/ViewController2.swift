@@ -13,6 +13,7 @@ class ViewController2: UIViewController {
     @IBOutlet weak var activityIndicator: ThreeDotsActivityIndicator!
     
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     
     
     override func viewDidLoad() {
