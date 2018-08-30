@@ -8,8 +8,9 @@
 
 import UIKit
 
+@IBDesignable
 class ThreeDotsActivityIndicator: UIView {
-
+    
     var dotsCount: Int = 3 {
         didSet {
             updateProperties()
@@ -41,7 +42,7 @@ class ThreeDotsActivityIndicator: UIView {
     private let replicatorLayer = CAReplicatorLayer()
     
     private func commonInit() {
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.yellow
         updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
@@ -55,6 +56,9 @@ class ThreeDotsActivityIndicator: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        if frame.isEmpty {
+            sizeToFit()
+        }
         commonInit()
     }
     
@@ -109,5 +113,9 @@ class ThreeDotsActivityIndicator: UIView {
             let width = CGFloat(dotsCount) * (dotSize.width + dotSpace) - dotSpace
             return CGSize(width: width, height: height)
         }
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return self.intrinsicContentSize
     }
 }
