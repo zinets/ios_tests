@@ -117,6 +117,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk2-fs-pk6">
+                                <rect key="frame" x="60" y="166" width="136" height="48"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.50980392159999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="4aK-Wq-rFE"/>
+                                </constraints>
+                                <state key="normal" title="stop"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="M7C-AK-bw2"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-ge-qmS">
                                 <rect key="frame" x="16" y="54" width="180" height="104"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,21 +150,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk2-fs-pk6">
-                                <rect key="frame" x="60" y="166" width="136" height="48"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.50980392159999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="4aK-Wq-rFE"/>
-                                </constraints>
-                                <state key="normal" title="stop"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKH-Rr-gHr" customClass="Checkbox" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="16" y="277" width="343" height="34"/>
+                                <state key="normal" title="I agree with all lorem ipsum huipsum long text alarsum ibanicum slava trudu povar suchiist">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="stopAction:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="M7C-AK-bw2"/>
+                                    <action selector="checkBoxChanged:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="kgf-Ik-N0P"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.61176470588235299" green="0.60392156862745094" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jk2-fs-pk6" firstAttribute="trailing" secondItem="gsF-ge-qmS" secondAttribute="trailing" id="5IU-aP-e9O"/>
+                            <constraint firstItem="KKH-Rr-gHr" firstAttribute="leading" secondItem="pNs-1G-h1c" secondAttribute="leading" id="70e-7Z-hIO"/>
                             <constraint firstItem="K9N-Jo-2iV" firstAttribute="trailing" secondItem="pNs-1G-h1c" secondAttribute="trailing" constant="86" id="8D7-s9-638"/>
                             <constraint firstItem="sQW-6d-6PI" firstAttribute="top" secondItem="gsF-ge-qmS" secondAttribute="bottom" constant="3" id="H5C-f7-DKo"/>
                             <constraint firstItem="pNs-1G-h1c" firstAttribute="leading" secondItem="K9N-Jo-2iV" secondAttribute="leading" constant="16" id="MDr-gu-lBF"/>
@@ -161,8 +171,10 @@
                             <constraint firstItem="pNs-1G-h1c" firstAttribute="top" secondItem="K9N-Jo-2iV" secondAttribute="top" constant="213" id="RqL-dq-GFE"/>
                             <constraint firstItem="jk2-fs-pk6" firstAttribute="leading" secondItem="gsF-ge-qmS" secondAttribute="leading" constant="44" id="dKd-Y4-yNW"/>
                             <constraint firstItem="gsF-ge-qmS" firstAttribute="top" secondItem="K9N-Jo-2iV" secondAttribute="top" constant="34" id="pY4-gh-sX9"/>
+                            <constraint firstItem="K9N-Jo-2iV" firstAttribute="trailing" secondItem="KKH-Rr-gHr" secondAttribute="trailing" constant="16" id="xlv-or-9s7"/>
                             <constraint firstItem="gsF-ge-qmS" firstAttribute="leading" secondItem="K9N-Jo-2iV" secondAttribute="leading" constant="16" id="ygd-Am-6zB"/>
                             <constraint firstItem="sQW-6d-6PI" firstAttribute="leading" secondItem="gsF-ge-qmS" secondAttribute="leading" id="z6V-Dx-pj6"/>
+                            <constraint firstItem="KKH-Rr-gHr" firstAttribute="top" secondItem="pNs-1G-h1c" secondAttribute="bottom" constant="14" id="zez-cp-gtX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9N-Jo-2iV"/>
                     </view>

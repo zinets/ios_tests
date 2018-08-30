@@ -35,6 +35,8 @@
 		4942E9FB2137E0590005ECED /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9FA2137E0590005ECED /* ViewController2.swift */; };
 		4942E9FE2138108A0005ECED /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9FD2138108A0005ECED /* PasswordTextField.swift */; };
 		4942EA00213812840005ECED /* PasswordTextFieldAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942E9FF213812840005ECED /* PasswordTextFieldAsset.xcassets */; };
+		4942EA0321381FB60005ECED /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0221381FB60005ECED /* Checkbox.swift */; };
+		4942EA0521381FD00005ECED /* CheckboxAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +83,8 @@
 		4942E9FA2137E0590005ECED /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		4942E9FD2138108A0005ECED /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		4942E9FF213812840005ECED /* PasswordTextFieldAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PasswordTextFieldAsset.xcassets; sourceTree = "<group>"; };
+		4942EA0221381FB60005ECED /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckboxAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				4942E9F62137DA850005ECED /* extensions */,
+				4942EA0121381F930005ECED /* check box */,
 				4942E9FC213810600005ECED /* password textfield */,
 				4942E9F72137DA930005ECED /* 3dots activity */,
 				4942E9E921366CF30005ECED /* gradients */,
@@ -226,6 +231,15 @@
 			path = "password textfield";
 			sourceTree = "<group>";
 		};
+		4942EA0121381F930005ECED /* check box */ = {
+			isa = PBXGroup;
+			children = (
+				4942EA0221381FB60005ECED /* Checkbox.swift */,
+				4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */,
+			);
+			path = "check box";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4942E9AA213427100005ECED /* LaunchScreen.storyboard in Resources */,
+				4942EA0521381FD00005ECED /* CheckboxAssets.xcassets in Resources */,
 				4942E9DB2135290F0005ECED /* PhotoFromInternetCell.xib in Resources */,
 				4942E9A7213427100005ECED /* Assets.xcassets in Resources */,
 				4942EA00213812840005ECED /* PasswordTextFieldAsset.xcassets in Resources */,
@@ -304,6 +319,7 @@
 				4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
 				4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */,
+				4942EA0321381FB60005ECED /* Checkbox.swift in Sources */,
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,
 				4942E9F12136BF820005ECED /* ProgressWithGradient2.swift in Sources */,

@@ -42,4 +42,8 @@ class ViewController2: UIViewController {
         activityIndicator.stopAnimation()
     }
     
+    @IBAction func checkBoxChanged(_ sender: Checkbox) {
+        sender.isSelected = !sender.isSelected
+    }
+    
 }
