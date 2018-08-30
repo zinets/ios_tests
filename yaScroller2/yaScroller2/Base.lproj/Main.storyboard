@@ -61,11 +61,26 @@
                                     <action selector="cjangeProgressViewSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWn-Wg-0FF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbp-0y-c06">
+                                <rect key="frame" x="16" y="628" width="30" height="30"/>
+                                <state key="normal" title="min"/>
+                                <connections>
+                                    <action selector="changeToMin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cVx-ZK-o7m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvQ-1N-9jf">
+                                <rect key="frame" x="170" y="628" width="46" height="30"/>
+                                <state key="normal" title="max"/>
+                                <connections>
+                                    <action selector="changeToMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-ae-lyw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
+                            <constraint firstItem="DvQ-1N-9jf" firstAttribute="trailing" secondItem="2Qb-Qg-Er3" secondAttribute="trailing" id="5UU-Ip-xn6"/>
                             <constraint firstItem="ZND-I0-gEm" firstAttribute="top" secondItem="Gkt-I7-mcU" secondAttribute="bottom" constant="8" id="5ui-FG-qZE"/>
                             <constraint firstItem="uEy-oB-5jp" firstAttribute="leading" secondItem="ZND-I0-gEm" secondAttribute="trailing" constant="8" id="BIm-2x-hgD"/>
                             <constraint firstItem="ZND-I0-gEm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CWn-K5-XqL"/>
@@ -77,7 +92,10 @@
                             <constraint firstItem="uEy-oB-5jp" firstAttribute="top" secondItem="ZND-I0-gEm" secondAttribute="top" id="bbJ-Ze-zfh"/>
                             <constraint firstItem="31Y-nj-eZp" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="iTw-wT-gy2"/>
                             <constraint firstItem="2Qb-Qg-Er3" firstAttribute="centerX" secondItem="ZND-I0-gEm" secondAttribute="centerX" id="lWu-OZ-5qt"/>
+                            <constraint firstItem="DvQ-1N-9jf" firstAttribute="top" secondItem="2Qb-Qg-Er3" secondAttribute="bottom" constant="8" id="m29-Gq-VBe"/>
+                            <constraint firstItem="Zbp-0y-c06" firstAttribute="top" secondItem="2Qb-Qg-Er3" secondAttribute="bottom" constant="8" id="qCO-ko-SCL"/>
                             <constraint firstItem="Gkt-I7-mcU" firstAttribute="centerY" secondItem="31Y-nj-eZp" secondAttribute="centerY" id="wlw-ka-fdl"/>
+                            <constraint firstItem="Zbp-0y-c06" firstAttribute="leading" secondItem="2Qb-Qg-Er3" secondAttribute="leading" id="xbQ-aa-RE3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

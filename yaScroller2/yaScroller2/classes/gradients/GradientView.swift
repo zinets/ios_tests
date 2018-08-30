@@ -23,6 +23,13 @@ class GradientView: UIView {
             gradientLayer.colors = cgColors
         }
     }
+    
+    let defaultColors =  [
+        UIColor(rgb: 0xfec624),
+        UIColor(rgb: 0xf161f8),
+        UIColor(rgb: 0x7b2df8)
+    ]
+    
     /// угол градиента, от 0 до 1; 0 == 12 часов
     var gradientAngle: CGFloat = 0 {
         didSet {
@@ -60,11 +67,7 @@ class GradientView: UIView {
     func commonInit() {
         self.backgroundColor = UIColor.clear
         self.layer.addSublayer(gradientLayer)
-        self.gradientColors = [
-            UIColor(rgb: 0xfec624),
-            UIColor(rgb: 0xf161f8),
-            UIColor(rgb: 0x7b2df8)
-        ]
+        self.gradientColors = defaultColors
         self.gradientAngle = 0;
     }
     

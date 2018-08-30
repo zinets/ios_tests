@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         
 //        makeGradiemts()
         testView2.gradientAngle = 0.2
-        testView2.position = 0.5
+        testView2.progressValue = 0.5
     }
 
     @IBAction func fillCollection(_ sender: Any) {
@@ -69,12 +69,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressViewWidth: NSLayoutConstraint!
     
     @IBAction func progressChanged(_ sender: UISlider) {
-        testView2.position = CGFloat(sender.value)
+        testView2.progressValue = CGFloat(sender.value)
+    }
+    
+    @IBAction func changeToMin(_ sender: Any) {
+        UIView.animate(withDuration: 0.7) {
+            self.testView2.progressValue = 0
+        }
+    }
+    
+    @IBAction func changeToMax(_ sender: Any) {
+       
+
+        self.testView2.progressValue = 1
+        
     }
     
     @IBAction func cjangeProgressViewSize(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
+        self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.7) {
             self.progressViewWidth.constant = sender.isSelected ? 200 : 160
             

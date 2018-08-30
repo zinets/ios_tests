@@ -107,10 +107,9 @@ class ProgressWithGradient2: GradientView, ProgressControl {
 
     // MARK: protocol -
     
-    var position: CGFloat = 0 {
+    var progressValue: CGFloat = 0 {
         didSet {
-            let pos = max(0, min(1, position))
-            progressLayer!.strokeEnd = pos
+            let pos = max(0, min(1, progressValue))
             
             for textLayer in textLayers {
                 if let layer = textLayer.layer {
@@ -123,6 +122,8 @@ class ProgressWithGradient2: GradientView, ProgressControl {
                     }
                 }
             }
+            
+            layer.setValue(pos, forKey: "progressValue")
         }
     }
     
@@ -166,5 +167,26 @@ class ProgressWithGradient2: GradientView, ProgressControl {
             
             sublayer2.transform = transform
         }
+    }
+    
+    override func action(for layer: CALayer, forKey event: String) -> CAAction? {
+        if event == "progressValue" {
+            progressLayer!.actions = ["strokeEnd": NSNull()]
+            progressLayer!.strokeEnd = progressValue
+            
+            // стремная проверка "в блоке анимации ли сейчас код" - для а) анимации только тогда и б) взять свойства анимации
+            if let existingAnimation = action(for: layer, forKey: "backgroundColor") as? CABasicAnimation {
+            
+                let animation = CABasicAnimation(keyPath: "strokeEnd")
+                animation.fromValue = layer.value(forKey: "progressValue")
+                animation.toValue = progressValue
+                
+                animation.duration = existingAnimation.duration
+                animation.timingFunction = existingAnimation.timingFunction
+                
+                progressLayer?.add(animation, forKey: "strokeEnd")
+            }
+        }
+        return super.action(for: layer, forKey: event)
     }
 }

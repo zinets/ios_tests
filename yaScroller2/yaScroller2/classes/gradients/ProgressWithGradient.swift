@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProgressControl {
-    var position: CGFloat { get set }
+    var progressValue: CGFloat { get set }
 }
 
 class ProgressWithGradient: GradientView, ProgressControl {
@@ -35,15 +35,16 @@ class ProgressWithGradient: GradientView, ProgressControl {
         super.commonInit()
         gradientLayer.mask = maskLayer
         
-        position = 0
+        progressValue = 0
     }
     
     // MARK: setters -
     
-    var position: CGFloat = 0 {
+    var progressValue: CGFloat = 0 {
         didSet {
             // TODO: анимация заполнения новым значением - если недостаточно implicitа
-            maskLayer.strokeEnd = max(0, min(1, position))
+            maskLayer.actions = ["strokeEnd": NSNull()]            
+            maskLayer.strokeEnd = max(0, min(1, progressValue))
         }
     }
     
