@@ -26,9 +26,8 @@ class ViewController2: UIViewController {
 //        activityIndicator.animationDuration = 3
         
         let activity2 = ThreeDotsActivityIndicator()
-//        activity2.sizeToFit()
-        activity2.center = CGPoint(x: stopButton.bounds.size.width / 2, y: stopButton.bounds.size.height / 2)
-//        activity2.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
+        activity2.center = CGPoint(x: stopButton.bounds.size.width / 2 - 30, y: stopButton.bounds.size.height / 2)
+        activity2.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleLeftMargin, .flexibleRightMargin]
         
         stopButton.addSubview(activity2)
         activity2.startAnimation()

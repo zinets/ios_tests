@@ -42,7 +42,7 @@ class ThreeDotsActivityIndicator: UIView {
     private let replicatorLayer = CAReplicatorLayer()
     
     private func commonInit() {
-        backgroundColor = UIColor.yellow
+        backgroundColor = UIColor.clear
         updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
