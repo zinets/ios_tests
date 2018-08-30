@@ -31,6 +31,8 @@
 		4942E9F12136BF820005ECED /* ProgressWithGradient2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */; };
 		4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F22136C09A0005ECED /* UIColor+RGB.swift */; };
 		4942E9F52136C0DD0005ECED /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F42136C0DD0005ECED /* String+Size.swift */; };
+		4942E9F92137DAD30005ECED /* ThreeDotsActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9F82137DAD30005ECED /* ThreeDotsActivityIndicator.swift */; };
+		4942E9FB2137E0590005ECED /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942E9FA2137E0590005ECED /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +75,8 @@
 		4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressWithGradient2.swift; sourceTree = "<group>"; };
 		4942E9F22136C09A0005ECED /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		4942E9F42136C0DD0005ECED /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
+		4942E9F82137DAD30005ECED /* ThreeDotsActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDotsActivityIndicator.swift; sourceTree = "<group>"; };
+		4942E9FA2137E0590005ECED /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				4942E9B12134271C0005ECED /* classes */,
 				4942E99F2134270F0005ECED /* AppDelegate.swift */,
 				4942E9A12134270F0005ECED /* ViewController.swift */,
+				4942E9FA2137E0590005ECED /* ViewController2.swift */,
 				4942E9A32134270F0005ECED /* Main.storyboard */,
 				4942E9A6213427100005ECED /* Assets.xcassets */,
 				4942E9A8213427100005ECED /* LaunchScreen.storyboard */,
@@ -122,8 +127,8 @@
 		4942E9B12134271C0005ECED /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				4942E9F22136C09A0005ECED /* UIColor+RGB.swift */,
-				4942E9F42136C0DD0005ECED /* String+Size.swift */,
+				4942E9F62137DA850005ECED /* extensions */,
+				4942E9F72137DA930005ECED /* 3dots activity */,
 				4942E9E921366CF30005ECED /* gradients */,
 				4942E9E02135484D0005ECED /* scroller */,
 				4942E9B22134272A0005ECED /* base datasource */,
@@ -188,6 +193,23 @@
 				4942E9F02136BF820005ECED /* ProgressWithGradient2.swift */,
 			);
 			path = gradients;
+			sourceTree = "<group>";
+		};
+		4942E9F62137DA850005ECED /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4942E9F22136C09A0005ECED /* UIColor+RGB.swift */,
+				4942E9F42136C0DD0005ECED /* String+Size.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		4942E9F72137DA930005ECED /* 3dots activity */ = {
+			isa = PBXGroup;
+			children = (
+				4942E9F82137DAD30005ECED /* ThreeDotsActivityIndicator.swift */,
+			);
+			path = "3dots activity";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,8 +296,10 @@
 				4942E9B42134275D0005ECED /* SectionDatasource.swift in Sources */,
 				4942E9F52136C0DD0005ECED /* String+Size.swift in Sources */,
 				4942E9EF2136A8B80005ECED /* RoundedGradientView.swift in Sources */,
+				4942E9FB2137E0590005ECED /* ViewController2.swift in Sources */,
 				4942E9B9213520A30005ECED /* MediaScrollerDatasource.swift in Sources */,
 				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
+				4942E9F92137DAD30005ECED /* ThreeDotsActivityIndicator.swift in Sources */,
 				4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */,
 				4942E9E6213548C50005ECED /* MediaScrollerViewLayout.swift in Sources */,
 				4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */,
