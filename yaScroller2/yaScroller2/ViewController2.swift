@@ -23,6 +23,8 @@ class ViewController2: UIViewController {
         activityIndicator.dotColor = UIColor.blue
         activityIndicator.activeDotColor = UIColor.red
         activityIndicator.animationDuration = 3
+        
+//        activityIndicator.commonInit()
     }
 
     @IBAction func startAction(_ sender: Any) {

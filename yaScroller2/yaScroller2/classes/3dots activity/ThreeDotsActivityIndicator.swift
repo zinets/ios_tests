@@ -25,7 +25,6 @@ class ThreeDotsActivityIndicator: UIView {
             updateProperties()
         }
     }
-    
     var activeDotColor = UIColor(rgb: 0x9C9A9D) 
     var dotColor = UIColor(rgb: 0x9C9A9D) {
         didSet {
@@ -38,10 +37,10 @@ class ThreeDotsActivityIndicator: UIView {
         }
     }
     
-    let dotLayer = CAShapeLayer()
-    let replicatorLayer = CAReplicatorLayer()
+    private let dotLayer = CAShapeLayer()
+    private let replicatorLayer = CAReplicatorLayer()
     
-    func commonInit() {
+    private func commonInit() {
         updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
@@ -90,7 +89,7 @@ class ThreeDotsActivityIndicator: UIView {
     
     // MARK: design -
     
-    func updateProperties() {
+    private func updateProperties() {
         dotLayer.frame = CGRect(origin: CGPoint.zero, size: dotSize)
         dotLayer.fillColor = dotColor.cgColor
         dotLayer.path = UIBezierPath(ovalIn: dotLayer.bounds).cgPath
