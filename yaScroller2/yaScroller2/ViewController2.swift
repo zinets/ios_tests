@@ -17,7 +17,12 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        activityIndicator.dotSize = CGSize(width: 10, height: 10)
+        activityIndicator.dotSpace = 10
+        activityIndicator.dotsCount = 5
+        activityIndicator.dotColor = UIColor.blue
+        activityIndicator.activeDotColor = UIColor.red
+        activityIndicator.animationDuration = 3
     }
 
     @IBAction func startAction(_ sender: Any) {

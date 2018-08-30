@@ -10,26 +10,39 @@ import UIKit
 
 class ThreeDotsActivityIndicator: UIView {
 
-    var dotsCount: Int = 3
-    var dotSize = CGSize(width: 4, height: 4)
-    var dotSpace: CGFloat = 3.0
+    var dotsCount: Int = 3 {
+        didSet {
+            updateProperties()
+        }
+    }
+    var dotSize = CGSize(width: 4, height: 4) {
+        didSet {
+            updateProperties()
+        }
+    }
+    var dotSpace: CGFloat = 3.0 {
+        didSet {
+            updateProperties()
+        }
+    }
     
-    var activeDotColor = UIColor.white //(rgb: 0x9C9A9D)
-    var dotColor = UIColor(rgb: 0x9C9A9D)
+    var activeDotColor = UIColor(rgb: 0x9C9A9D) 
+    var dotColor = UIColor(rgb: 0x9C9A9D) {
+        didSet {
+            updateProperties()
+        }
+    }
+    var animationDuration: TimeInterval = 1.7 {
+        didSet {
+            updateProperties()
+        }
+    }
     
     let dotLayer = CAShapeLayer()
-    
-    let animationDuration: TimeInterval = 1.7
+    let replicatorLayer = CAReplicatorLayer()
     
     func commonInit() {
-        let replicatorLayer = CAReplicatorLayer()
-        replicatorLayer.instanceCount = dotsCount;
-        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(dotSize.width + dotSpace, 0, 0)
-        replicatorLayer.instanceDelay = animationDuration / Double(dotsCount)
-        
-        dotLayer.frame = CGRect(origin: CGPoint.zero, size: dotSize)
-        dotLayer.fillColor = dotColor.cgColor
-        dotLayer.path = UIBezierPath(ovalIn: dotLayer.bounds).cgPath
+        updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
         layer.addSublayer(replicatorLayer)
@@ -44,6 +57,8 @@ class ThreeDotsActivityIndicator: UIView {
         super.init(frame: frame)
         commonInit()
     }
+    
+    // MARK: animation -
     
     func startAnimation() {
         let groupAnimation = CAAnimationGroup()
@@ -71,6 +86,18 @@ class ThreeDotsActivityIndicator: UIView {
     
     func stopAnimation() {
         dotLayer.removeAllAnimations()
+    }
+    
+    // MARK: design -
+    
+    func updateProperties() {
+        dotLayer.frame = CGRect(origin: CGPoint.zero, size: dotSize)
+        dotLayer.fillColor = dotColor.cgColor
+        dotLayer.path = UIBezierPath(ovalIn: dotLayer.bounds).cgPath
+        
+        replicatorLayer.instanceCount = dotsCount;
+        replicatorLayer.instanceTransform = CATransform3DMakeTranslation(dotSize.width + dotSpace, 0, 0)
+        replicatorLayer.instanceDelay = animationDuration / Double(dotsCount)
     }
 
 }
