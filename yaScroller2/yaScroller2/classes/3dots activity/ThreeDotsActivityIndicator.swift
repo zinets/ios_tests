@@ -25,8 +25,8 @@ class ThreeDotsActivityIndicator: UIView {
             updateProperties()
         }
     }
-    var activeDotColor = UIColor(rgb: 0x9C9A9D) 
-    var dotColor = UIColor(rgb: 0x9C9A9D) {
+    var activeDotColor = UIColor.white
+    var dotColor = UIColor.white.withAlphaComponent(0.5) {
         didSet {
             updateProperties()
         }
@@ -41,6 +41,7 @@ class ThreeDotsActivityIndicator: UIView {
     private let replicatorLayer = CAReplicatorLayer()
     
     private func commonInit() {
+        backgroundColor = UIColor.clear
         updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
@@ -85,6 +86,7 @@ class ThreeDotsActivityIndicator: UIView {
     
     func stopAnimation() {
         dotLayer.removeAllAnimations()
+        // TODO: сделать неугребищььно
     }
     
     // MARK: design -
@@ -97,6 +99,15 @@ class ThreeDotsActivityIndicator: UIView {
         replicatorLayer.instanceCount = dotsCount;
         replicatorLayer.instanceTransform = CATransform3DMakeTranslation(dotSize.width + dotSpace, 0, 0)
         replicatorLayer.instanceDelay = animationDuration / Double(dotsCount)
+        
+        self.invalidateIntrinsicContentSize()
     }
 
+    override var intrinsicContentSize: CGSize {
+        get {
+            let height = dotSize.height
+            let width = CGFloat(dotsCount) * (dotSize.width + dotSpace) - dotSpace
+            return CGSize(width: width, height: height)
+        }
+    }
 }

@@ -121,18 +121,18 @@
                                 <rect key="frame" x="22" y="61" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.83921568627450982" green="0.82745098039215681" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="A32-1j-jI8"/>
-                                    <constraint firstAttribute="width" constant="240" id="dzg-FS-83y"/>
+                                    <constraint firstAttribute="height" constant="128" placeholder="YES" id="A32-1j-jI8"/>
+                                    <constraint firstAttribute="width" constant="240" placeholder="YES" id="dzg-FS-83y"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-ge-qmS">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsF-ge-qmS">
                                 <rect key="frame" x="270" y="61" width="89" height="30"/>
                                 <state key="normal" title="start"/>
                                 <connections>
                                     <action selector="startAction:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="CRd-X8-a3g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk2-fs-pk6">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jk2-fs-pk6">
                                 <rect key="frame" x="270" y="99" width="89" height="30"/>
                                 <state key="normal" title="stop"/>
                                 <connections>
@@ -142,14 +142,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.61176470588235299" green="0.60392156862745094" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gsF-ge-qmS" firstAttribute="leading" secondItem="j47-W1-dDg" secondAttribute="trailing" constant="8" id="9B5-1Q-IeJ"/>
+                            <constraint firstItem="jk2-fs-pk6" firstAttribute="top" secondItem="gsF-ge-qmS" secondAttribute="bottom" constant="8" id="AUk-FE-WVI"/>
+                            <constraint firstItem="gsF-ge-qmS" firstAttribute="top" secondItem="j47-W1-dDg" secondAttribute="top" id="EgQ-pD-Uob"/>
                             <constraint firstItem="j47-W1-dDg" firstAttribute="leading" secondItem="K9N-Jo-2iV" secondAttribute="leading" constant="22" id="XXH-pB-i1D"/>
                             <constraint firstItem="j47-W1-dDg" firstAttribute="top" secondItem="K9N-Jo-2iV" secondAttribute="top" constant="41" id="aLE-lM-v03"/>
-                            <constraint firstItem="gsF-ge-qmS" firstAttribute="top" secondItem="j47-W1-dDg" secondAttribute="top" id="ek6-ez-Nbp"/>
-                            <constraint firstItem="jk2-fs-pk6" firstAttribute="width" secondItem="gsF-ge-qmS" secondAttribute="width" id="fxO-ZC-lxF"/>
-                            <constraint firstItem="jk2-fs-pk6" firstAttribute="centerX" secondItem="gsF-ge-qmS" secondAttribute="centerX" id="o5R-OY-eDP"/>
-                            <constraint firstItem="K9N-Jo-2iV" firstAttribute="trailing" secondItem="gsF-ge-qmS" secondAttribute="trailing" constant="16" id="oMe-fe-pJw"/>
-                            <constraint firstItem="jk2-fs-pk6" firstAttribute="top" secondItem="gsF-ge-qmS" secondAttribute="bottom" constant="8" id="omE-36-Zfz"/>
+                            <constraint firstItem="jk2-fs-pk6" firstAttribute="leading" secondItem="gsF-ge-qmS" secondAttribute="leading" id="hpI-ra-HTP"/>
+                            <constraint firstItem="gsF-ge-qmS" firstAttribute="leading" secondItem="j47-W1-dDg" secondAttribute="trailing" constant="8" id="kEV-q4-PVa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9N-Jo-2iV"/>
                     </view>
