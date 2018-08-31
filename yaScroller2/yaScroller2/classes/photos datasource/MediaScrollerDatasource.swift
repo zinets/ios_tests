@@ -67,6 +67,4 @@ class MediaScrollerDatasource : CollectionSectionDatasource {
             UIView.setAnimationsEnabled(true)
         }
     }   
-
-
 }

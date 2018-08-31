@@ -41,9 +41,6 @@ class ViewController: UIViewController {
         collectionView.tapToScroll = true
         collectionView.endlessScrolling = false
         
-        
-        
-//        makeGradiemts()
         testView2.gradientAngle = 0.2
         testView2.progressValue = 0.5
     }

@@ -40,6 +40,8 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         }
         scrollDirection = .horizontal
         addSubview(collectionView)
+        
+        contentMode = .scaleAspectFill
     }
     
     // MARK: overrides -
@@ -64,6 +66,7 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         _collectionView.backgroundColor = UIColor.white
         _collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         _collectionView.delegate = self
+        
         
         return _collectionView
     }()
