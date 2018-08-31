@@ -16,8 +16,8 @@ import UIKit
 class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     var autoScrollInterval: TimeInterval = 4
-    var scrollTimer: Timer?
-    var tapRecognizer: UITapGestureRecognizer?
+    private var scrollTimer: Timer?
+    private var tapRecognizer: UITapGestureRecognizer?
     
     // MARK: init
     
@@ -31,8 +31,13 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         commonInit()
     }
     
-    func commonInit() {
+    private func commonInit() {
         internalDatasource.collectionView = collectionView
+        internalDatasource.onItemChanged = {
+            if let ctrl = self.pageControl {
+                ctrl.numberOfPages = self.internalDatasource.items.count
+            }
+        }
         scrollDirection = .horizontal
         addSubview(collectionView)
     }
@@ -46,9 +51,9 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
     
     // MARK: collection -
     
-    lazy var internalDatasource = MediaScrollerDatasource()
+    private lazy var internalDatasource = MediaScrollerDatasource()
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         var layout = MediaScrollerViewLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -106,7 +111,7 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    @objc func onTapRecognizer(_ sender: UITapGestureRecognizer) {        
+    @objc func onTapRecognizer(_ sender: UITapGestureRecognizer) {
         let pt = sender.location(in: collectionView)
         var offset = collectionView.contentOffset
         
@@ -272,7 +277,7 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
     
     // MARK: timer -
     
-    func recreateScrollingTimer() {
+    private func recreateScrollingTimer() {
         scrollTimer?.invalidate()
         if autoScroll && internalDatasource.items.count > 1 {
             scrollTimer = Timer.scheduledTimer(timeInterval: autoScrollInterval, target: self, selector: #selector(onAutoscrollTimerEvent), userInfo: nil, repeats: true)
@@ -281,7 +286,7 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    func destroyScrollTimer() {
+    private func destroyScrollTimer() {
         scrollTimer?.invalidate()
         scrollTimer = nil
     }
@@ -337,4 +342,6 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         }
     }
     
+    // MARK: page indication -
+    @IBOutlet weak var pageControl: PageControlProto!
 }

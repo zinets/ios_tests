@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PageControlProto {
+@objc protocol PageControlProto {
     var numberOfPages: Int { get set }
     var pageIndex: Int { get set }
 }

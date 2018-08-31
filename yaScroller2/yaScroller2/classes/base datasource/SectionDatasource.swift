@@ -22,8 +22,14 @@ class SectionDatasource: NSObject {
         set {
             calculateChangesFrom(fromArray: internalItems, toArray: newValue)
             internalItems = newValue
+            
+            if let handler = onItemChanged {
+                handler()
+            }
         }
     }
+    
+    var onItemChanged: (() -> ())?
     
     func objectsEqual(obj1: AnyHashable, obj2: AnyHashable) -> Bool {
         return obj1 == obj2

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,89 +18,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31Y-nj-eZp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31Y-nj-eZp">
                                 <rect key="frame" x="16" y="347" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="reload"/>
                                 <connections>
                                     <action selector="fillCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUb-jK-NEb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyg-j5-d3h" customClass="MediaScrollerView" customModule="yaScroller2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fyg-j5-d3h" customClass="MediaScrollerView" customModule="yaScroller2" customModuleProvider="target">
                                 <rect key="frame" x="16" y="40" width="343" height="299"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="299" id="d30-TU-DX4"/>
-                                </constraints>
+                                <connections>
+                                    <outlet property="pageControl" destination="ZcZ-Cg-vLr" id="kOo-zQ-cmA"/>
+                                </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-I7-mcU">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-I7-mcU">
                                 <rect key="frame" x="67" y="347" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="change aspect (fill)"/>
                                 <connections>
                                     <action selector="aspectCnahge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SgU-R0-q98"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZND-I0-gEm" customClass="ProgressWithGradient2" customModule="yaScroller2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZND-I0-gEm" customClass="ProgressWithGradient2" customModule="yaScroller2" customModuleProvider="target">
                                 <rect key="frame" x="16" y="385" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ZND-I0-gEm" secondAttribute="height" multiplier="1:1" id="h2U-bl-DwA"/>
-                                    <constraint firstAttribute="width" constant="200" id="ndR-YE-MR5"/>
-                                </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-Qg-Er3">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Qb-Qg-Er3">
                                 <rect key="frame" x="14" y="590" width="204" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="progressChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eX1-9Y-LSF"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-oB-5jp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEy-oB-5jp">
                                 <rect key="frame" x="224" y="385" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="change size"/>
                                 <connections>
                                     <action selector="cjangeProgressViewSize:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWn-Wg-0FF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbp-0y-c06">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbp-0y-c06">
                                 <rect key="frame" x="16" y="628" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="min"/>
                                 <connections>
                                     <action selector="changeToMin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cVx-ZK-o7m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvQ-1N-9jf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvQ-1N-9jf">
                                 <rect key="frame" x="170" y="628" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="max"/>
                                 <connections>
                                     <action selector="changeToMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-ae-lyw"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcZ-Cg-vLr" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="231" y="356" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="02N-4E-csR"/>
-                            <constraint firstItem="Gkt-I7-mcU" firstAttribute="leading" secondItem="31Y-nj-eZp" secondAttribute="trailing" constant="8" id="5GH-Q2-e79"/>
-                            <constraint firstItem="DvQ-1N-9jf" firstAttribute="trailing" secondItem="2Qb-Qg-Er3" secondAttribute="trailing" id="5UU-Ip-xn6"/>
-                            <constraint firstItem="ZND-I0-gEm" firstAttribute="top" secondItem="Gkt-I7-mcU" secondAttribute="bottom" constant="8" id="5ui-FG-qZE"/>
-                            <constraint firstItem="uEy-oB-5jp" firstAttribute="leading" secondItem="ZND-I0-gEm" secondAttribute="trailing" constant="8" id="BIm-2x-hgD"/>
-                            <constraint firstItem="ZND-I0-gEm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CWn-K5-XqL"/>
-                            <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ENb-KG-UBY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="JOS-wC-iDt"/>
-                            <constraint firstItem="2Qb-Qg-Er3" firstAttribute="width" secondItem="ZND-I0-gEm" secondAttribute="width" id="QRY-xj-SgJ"/>
-                            <constraint firstItem="2Qb-Qg-Er3" firstAttribute="top" secondItem="ZND-I0-gEm" secondAttribute="bottom" constant="5" id="Vo3-1o-D9f"/>
-                            <constraint firstItem="31Y-nj-eZp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XCg-KD-YxK"/>
-                            <constraint firstItem="uEy-oB-5jp" firstAttribute="top" secondItem="ZND-I0-gEm" secondAttribute="top" id="bbJ-Ze-zfh"/>
-                            <constraint firstItem="31Y-nj-eZp" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="iTw-wT-gy2"/>
-                            <constraint firstItem="2Qb-Qg-Er3" firstAttribute="centerX" secondItem="ZND-I0-gEm" secondAttribute="centerX" id="lWu-OZ-5qt"/>
-                            <constraint firstItem="DvQ-1N-9jf" firstAttribute="top" secondItem="2Qb-Qg-Er3" secondAttribute="bottom" constant="8" id="m29-Gq-VBe"/>
-                            <constraint firstItem="Zbp-0y-c06" firstAttribute="top" secondItem="2Qb-Qg-Er3" secondAttribute="bottom" constant="8" id="qCO-ko-SCL"/>
-                            <constraint firstItem="Gkt-I7-mcU" firstAttribute="centerY" secondItem="31Y-nj-eZp" secondAttribute="centerY" id="wlw-ka-fdl"/>
-                            <constraint firstItem="Zbp-0y-c06" firstAttribute="leading" secondItem="2Qb-Qg-Er3" secondAttribute="leading" id="xbQ-aa-RE3"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fyg-j5-d3h" id="QgJ-Fx-6lJ"/>
-                        <outlet property="progressViewWidth" destination="ndR-YE-MR5" id="mKV-f3-Zcw"/>
                         <outlet property="testView2" destination="ZND-I0-gEm" id="yhA-Lx-puB"/>
                     </connections>
                 </viewController>
