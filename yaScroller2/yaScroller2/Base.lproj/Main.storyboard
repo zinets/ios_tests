@@ -36,6 +36,10 @@
                                     <outlet property="pageControl" destination="dmO-xI-uKw" id="efD-e4-lIc"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmO-xI-uKw" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="152" y="343" width="70" height="6"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-I7-mcU">
                                 <rect key="frame" x="67" y="347" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,18 +84,14 @@
                                     <action selector="changeToMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-ae-lyw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmO-xI-uKw" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
-                                <rect key="frame" x="321" y="347" width="38" height="6"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dmO-xI-uKw" firstAttribute="centerX" secondItem="Fyg-j5-d3h" secondAttribute="centerX" id="PfT-uO-ihm"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Uay-aq-Rf6"/>
-                            <constraint firstItem="dmO-xI-uKw" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="W1L-Tx-LnV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="Y14-Z3-YcI"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jEW-uX-0F1"/>
-                            <constraint firstItem="dmO-xI-uKw" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" id="tY3-Vv-6Ks"/>
+                            <constraint firstItem="dmO-xI-uKw" firstAttribute="bottom" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="10" id="pir-nE-020"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

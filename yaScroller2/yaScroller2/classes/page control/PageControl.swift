@@ -16,7 +16,7 @@ import UIKit
 @IBDesignable
 class PageControl: UIView, PageControlProto {
 
-    var numberOfPages: Int = 3 {
+    var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
@@ -74,10 +74,17 @@ class PageControl: UIView, PageControlProto {
         replicatorLayer.instanceTransform = CATransform3DMakeTranslation(dotSize.width + dotSpace, 0, 0)
         
         let pos = CGFloat(pageIndex) * (dotSize.width + dotSpace) - dotSize.width / 2
-        activeDotLayer.frame = CGRect(origin: CGPoint(x: pos, y: 0), size: CGSize(width: dotSize.width * 2, height: dotSize.height))
-        activeDotLayer.fillColor = activeDotColor.cgColor
-        activeDotLayer.path = UIBezierPath(roundedRect: activeDotLayer.bounds, cornerRadius: dotSize.height / 2).cgPath
-        
+        if numberOfPages > 0 {
+            activeDotLayer.isHidden = false
+            replicatorLayer.isHidden = false
+            
+            activeDotLayer.frame = CGRect(origin: CGPoint(x: pos, y: 0), size: CGSize(width: dotSize.width * 2, height: dotSize.height))
+            activeDotLayer.fillColor = activeDotColor.cgColor
+            activeDotLayer.path = UIBezierPath(roundedRect: activeDotLayer.bounds, cornerRadius: dotSize.height / 2).cgPath
+        } else {
+            activeDotLayer.isHidden = true
+            replicatorLayer.isHidden = true
+        }
         self.invalidateIntrinsicContentSize()        
     }
 
@@ -95,9 +102,12 @@ class PageControl: UIView, PageControlProto {
         return self.intrinsicContentSize
     }
     
-//    override func prepareForInterfaceBuilder() {
-//        numberOfPages = 3
-//        pageIndex = 0
-//    }
+    override func prepareForInterfaceBuilder() {
+        // тут задаются начальные значения для контрола, помещенного в IB
+        super.prepareForInterfaceBuilder()
+        
+        numberOfPages = 5
+        pageIndex = 0
+    }
 
 }
