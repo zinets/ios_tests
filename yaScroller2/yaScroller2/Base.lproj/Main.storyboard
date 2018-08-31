@@ -26,12 +26,14 @@
                                     <action selector="fillCollection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUb-jK-NEb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fyg-j5-d3h" customClass="MediaScrollerView" customModule="yaScroller2" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyg-j5-d3h" customClass="MediaScrollerView" customModule="yaScroller2" customModuleProvider="target">
                                 <rect key="frame" x="16" y="40" width="343" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="299" id="niB-3G-tI9"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="pageControl" destination="ZcZ-Cg-vLr" id="kOo-zQ-cmA"/>
+                                    <outlet property="pageControl" destination="dmO-xI-uKw" id="efD-e4-lIc"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-I7-mcU">
@@ -78,13 +80,19 @@
                                     <action selector="changeToMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-ae-lyw"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZcZ-Cg-vLr" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
-                                <rect key="frame" x="231" y="356" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmO-xI-uKw" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="321" y="347" width="38" height="6"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Uay-aq-Rf6"/>
+                            <constraint firstItem="dmO-xI-uKw" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="W1L-Tx-LnV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="Y14-Z3-YcI"/>
+                            <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jEW-uX-0F1"/>
+                            <constraint firstItem="dmO-xI-uKw" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" id="tY3-Vv-6Ks"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

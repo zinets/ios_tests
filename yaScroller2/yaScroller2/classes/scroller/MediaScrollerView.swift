@@ -247,8 +247,8 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
             }
         }
         
-        if let index = self.itemIndex {
-            self.pageControl.pageIndex = index
+        if let index = self.itemIndex, let pageControl = self.pageControl {
+            pageControl.pageIndex = index
         }
     }
     

@@ -13,6 +13,7 @@ import UIKit
     var pageIndex: Int { get set }
 }
 
+@IBDesignable
 class PageControl: UIView, PageControlProto {
 
     var numberOfPages: Int = 3 {
@@ -57,7 +58,6 @@ class PageControl: UIView, PageControlProto {
     private let activeDotLayer = CAShapeLayer()
     
     private func commonInit() {
-        backgroundColor = UIColor.clear
         updateProperties()
         
         replicatorLayer.addSublayer(dotLayer)
@@ -78,7 +78,7 @@ class PageControl: UIView, PageControlProto {
         activeDotLayer.fillColor = activeDotColor.cgColor
         activeDotLayer.path = UIBezierPath(roundedRect: activeDotLayer.bounds, cornerRadius: dotSize.height / 2).cgPath
         
-        self.invalidateIntrinsicContentSize()
+        self.invalidateIntrinsicContentSize()        
     }
 
     // MARK: layout -
@@ -95,8 +95,9 @@ class PageControl: UIView, PageControlProto {
         return self.intrinsicContentSize
     }
     
-    override func updateConstraints() {
-        super.updateConstraints()
-        self.invalidateIntrinsicContentSize()
-    }
+//    override func prepareForInterfaceBuilder() {
+//        numberOfPages = 3
+//        pageIndex = 0
+//    }
+
 }
