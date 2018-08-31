@@ -8,7 +8,12 @@
 
 import UIKit
 
-class PageControl: UIView {
+protocol PageControlProto {
+    var numberOfPages: Int { get set }
+    var pageIndex: Int { get set }
+}
+
+class PageControl: UIView, PageControlProto {
 
     var numberOfPages: Int = 3 {
         didSet {
