@@ -37,6 +37,7 @@
 		4942EA00213812840005ECED /* PasswordTextFieldAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942E9FF213812840005ECED /* PasswordTextFieldAsset.xcassets */; };
 		4942EA0321381FB60005ECED /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0221381FB60005ECED /* Checkbox.swift */; };
 		4942EA0521381FD00005ECED /* CheckboxAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */; };
+		4942EA08213912190005ECED /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA07213912190005ECED /* PageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +86,7 @@
 		4942E9FF213812840005ECED /* PasswordTextFieldAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PasswordTextFieldAsset.xcassets; sourceTree = "<group>"; };
 		4942EA0221381FB60005ECED /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckboxAssets.xcassets; sourceTree = "<group>"; };
+		4942EA07213912190005ECED /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				4942E9F62137DA850005ECED /* extensions */,
+				4942EA062139119B0005ECED /* page control */,
 				4942EA0121381F930005ECED /* check box */,
 				4942E9FC213810600005ECED /* password textfield */,
 				4942E9F72137DA930005ECED /* 3dots activity */,
@@ -240,6 +243,14 @@
 			path = "check box";
 			sourceTree = "<group>";
 		};
+		4942EA062139119B0005ECED /* page control */ = {
+			isa = PBXGroup;
+			children = (
+				4942EA07213912190005ECED /* PageControl.swift */,
+			);
+			path = "page control";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +334,7 @@
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
 				4942E9A02134270F0005ECED /* AppDelegate.swift in Sources */,
 				4942E9F12136BF820005ECED /* ProgressWithGradient2.swift in Sources */,
+				4942EA08213912190005ECED /* PageControl.swift in Sources */,
 				4942E9DA2135290F0005ECED /* PhotoFromInternetCell.swift in Sources */,
 				4942E9FE2138108A0005ECED /* PasswordTextField.swift in Sources */,
 				4942E9B42134275D0005ECED /* SectionDatasource.swift in Sources */,

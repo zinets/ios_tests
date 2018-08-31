@@ -14,6 +14,7 @@ class ViewController2: UIViewController {
     
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var passwordTextField: PasswordTextField!
+    @IBOutlet weak var pageControl: PageControl!
     
     
     override func viewDidLoad() {
@@ -32,6 +33,10 @@ class ViewController2: UIViewController {
         
         stopButton.addSubview(activity2)
         activity2.startAnimation()
+        
+        pageControl.numberOfPages = 5
+        pageControl.activeDotColor = UIColor(rgb: 0x19b136)
+        pageControl.dotColor = pageControl.activeDotColor.withAlphaComponent(0.5)
     }
 
     @IBAction func startAction(_ sender: Any) {
@@ -46,4 +51,11 @@ class ViewController2: UIViewController {
         sender.isSelected = !sender.isSelected
     }
     
+    @IBAction func changePage(_ sender: UIButton) {
+        if sender.tag == 1 {
+            pageControl.pageIndex += 1
+        } else if sender.tag == 2 {
+            pageControl.pageIndex -= 1
+        }
+    }
 }

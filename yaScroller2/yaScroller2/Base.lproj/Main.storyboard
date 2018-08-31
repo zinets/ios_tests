@@ -159,6 +159,27 @@
                                     <action selector="checkBoxChanged:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="kgf-Ik-N0P"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apw-OV-7Pe" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="212" y="54" width="117" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.99430357725547791" blue="0.52392810340632179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tlx-t2-RhV">
+                                <rect key="frame" x="220" y="103" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="++"/>
+                                <connections>
+                                    <action selector="changePage:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="Te2-mK-447"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-s0-AMn">
+                                <rect key="frame" x="291" y="103" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="--"/>
+                                <connections>
+                                    <action selector="changePage:" destination="Hij-D5-wOJ" eventType="touchUpInside" id="QFT-N4-tZi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -180,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="sQW-6d-6PI" id="gTh-kD-hVP"/>
+                        <outlet property="pageControl" destination="apw-OV-7Pe" id="Cq3-Pc-IwQ"/>
                         <outlet property="passwordTextField" destination="pNs-1G-h1c" id="Ouc-Th-9oB"/>
                         <outlet property="stopButton" destination="jk2-fs-pk6" id="bhs-Qu-kfP"/>
                     </connections>

@@ -49,7 +49,7 @@ class Checkbox: UIButton {
         if let text = title(for: self.state) {
             let imageRect = self.imageRect(forContentRect: bounds)
             let textWidth = bounds.size.width - imageRect.size.width
-            let font = UIFont.systemFont(ofSize: 18)
+            let font = UIFont.systemFont(ofSize: 18) // и тут нужна магика - как узнать шрифт? спрашивать titleLabel == рекурсия..
             let textHeight = text.sizeWithConstrainedWidth(width: textWidth, font: font).height
             return CGRect(x: imageRect.size.width,
                           y: 0,
