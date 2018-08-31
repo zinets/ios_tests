@@ -94,4 +94,9 @@ class PageControl: UIView, PageControlProto {
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         return self.intrinsicContentSize
     }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        self.invalidateIntrinsicContentSize()
+    }
 }

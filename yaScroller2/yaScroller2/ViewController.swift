@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         collectionView.autoScroll = false
         collectionView.tapToScroll = true
-        collectionView.endlessScrolling = true
+        collectionView.endlessScrolling = false
         
         
         

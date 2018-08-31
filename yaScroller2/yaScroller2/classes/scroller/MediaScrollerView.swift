@@ -246,6 +246,10 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
                 internalDatasource.shiftDataPrev()
             }
         }
+        
+        if let index = self.itemIndex {
+            self.pageControl.pageIndex = index
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -339,6 +343,24 @@ class MediaScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDe
         set {
             internalDatasource.items = newValue
             recreateScrollingTimer()
+        }
+    }
+    
+    var itemIndex: Int? {
+        get {
+            if !endlessScrolling && internalDatasource.items.count > 1 {
+                
+                let size: CGFloat = scrollDirection == .horizontal ? collectionView.bounds.width : collectionView.bounds.height
+                let offset: CGFloat = size / 2 + (scrollDirection == .horizontal ? collectionView.contentOffset.x : collectionView.contentOffset.y)
+                
+                let index = Int(offset / size)
+                
+                return index
+                
+                
+            } else {
+                return nil
+            }
         }
     }
     

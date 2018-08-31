@@ -38,6 +38,7 @@
 		4942EA0321381FB60005ECED /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0221381FB60005ECED /* Checkbox.swift */; };
 		4942EA0521381FD00005ECED /* CheckboxAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */; };
 		4942EA08213912190005ECED /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA07213912190005ECED /* PageControl.swift */; };
+		4942EA0A2139359C0005ECED /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA092139359C0005ECED /* Geometry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,7 @@
 		4942EA0221381FB60005ECED /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckboxAssets.xcassets; sourceTree = "<group>"; };
 		4942EA07213912190005ECED /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		4942EA092139359C0005ECED /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				4942E9F22136C09A0005ECED /* UIColor+RGB.swift */,
 				4942E9F42136C0DD0005ECED /* String+Size.swift */,
+				4942EA092139359C0005ECED /* Geometry.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */,
 				4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
+				4942EA0A2139359C0005ECED /* Geometry.swift in Sources */,
 				4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */,
 				4942EA0321381FB60005ECED /* Checkbox.swift in Sources */,
 				4942E9A22134270F0005ECED /* ViewController.swift in Sources */,
