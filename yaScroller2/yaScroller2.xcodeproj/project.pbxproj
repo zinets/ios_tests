@@ -39,6 +39,7 @@
 		4942EA0521381FD00005ECED /* CheckboxAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */; };
 		4942EA08213912190005ECED /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA07213912190005ECED /* PageControl.swift */; };
 		4942EA0A2139359C0005ECED /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA092139359C0005ECED /* Geometry.swift */; };
+		4942EA0C213956DE0005ECED /* OneWayPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0B213956DE0005ECED /* OneWayPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		4942EA0421381FD00005ECED /* CheckboxAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CheckboxAssets.xcassets; sourceTree = "<group>"; };
 		4942EA07213912190005ECED /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4942EA092139359C0005ECED /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		4942EA0B213956DE0005ECED /* OneWayPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWayPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				4942EA07213912190005ECED /* PageControl.swift */,
+				4942EA0B213956DE0005ECED /* OneWayPageControl.swift */,
 			);
 			path = "page control";
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				4942E9B9213520A30005ECED /* MediaScrollerDatasource.swift in Sources */,
 				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
 				4942E9F92137DAD30005ECED /* ThreeDotsActivityIndicator.swift in Sources */,
+				4942EA0C213956DE0005ECED /* OneWayPageControl.swift in Sources */,
 				4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */,
 				4942E9E6213548C50005ECED /* MediaScrollerViewLayout.swift in Sources */,
 				4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */,

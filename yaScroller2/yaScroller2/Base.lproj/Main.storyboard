@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="height" constant="299" id="niB-3G-tI9"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="pageControl" destination="dmO-xI-uKw" id="efD-e4-lIc"/>
+                                    <outlet property="pageControl" destination="D6h-if-dud" id="1bJ-RL-Zhj"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmO-xI-uKw" customClass="PageControl" customModule="yaScroller2" customModuleProvider="target">
@@ -84,14 +84,20 @@
                                     <action selector="changeToMax:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-ae-lyw"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6h-if-dud" customClass="OneWayPageControl" customModule="yaScroller2" customModuleProvider="target">
+                                <rect key="frame" x="229" y="347" width="130" height="10"/>
+                                <color key="backgroundColor" red="1" green="0.4672851562" blue="1" alpha="0.55305543660000001" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dmO-xI-uKw" firstAttribute="centerX" secondItem="Fyg-j5-d3h" secondAttribute="centerX" id="PfT-uO-ihm"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Uay-aq-Rf6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" constant="16" id="Y14-Z3-YcI"/>
+                            <constraint firstItem="D6h-if-dud" firstAttribute="top" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="8" id="dBV-1L-l7I"/>
                             <constraint firstItem="Fyg-j5-d3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jEW-uX-0F1"/>
                             <constraint firstItem="dmO-xI-uKw" firstAttribute="bottom" secondItem="Fyg-j5-d3h" secondAttribute="bottom" constant="10" id="pir-nE-020"/>
+                            <constraint firstItem="D6h-if-dud" firstAttribute="trailing" secondItem="Fyg-j5-d3h" secondAttribute="trailing" id="yAE-46-FJ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
