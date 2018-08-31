@@ -42,7 +42,6 @@ import UIKit
         
         commonInit()
     }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -69,21 +68,13 @@ import UIKit
     
     // MARK: proto -
     
-    var numberOfPages: Int = 7 {
+    var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
     var pageIndex: Int = 0 {
         didSet {
-            switch pageIndex {
-            case ..<0:
-                pageIndex = 0
-            case numberOfPages...:
-                pageIndex = numberOfPages - 1
-            default: break
-
-            }
             updateProperties()
         }
     }
@@ -91,6 +82,14 @@ import UIKit
     // MARK: layout -
     
     private func updateProperties() {
+        activeDotLayer.isHidden = numberOfPages == 0
+        leftReplicatorLayer.isHidden = numberOfPages == 0 || pageIndex == 0
+        rightReplicatorLayer.isHidden = numberOfPages == 0 || numberOfPages - pageIndex - 1 == 0
+        
+        guard numberOfPages > 0 else {
+            return
+        }
+
         let addedOffset = dotLineWidth / 2
         leftDotLayer.frame = CGRect(origin: CGPoint(x: addedOffset, y: addedOffset),
                                     size: CGSize(width: dotSize - dotLineWidth, height: dotSize - dotLineWidth))
@@ -100,11 +99,9 @@ import UIKit
         leftDotLayer.strokeColor = dotColor.cgColor
 
         let leftDotsCount = pageIndex
-        leftReplicatorLayer.isHidden = leftDotsCount == 0
         leftReplicatorLayer.instanceCount = leftDotsCount
         leftReplicatorLayer.instanceTransform = CATransform3DMakeTranslation(dotSize + dotSpace, 0, 0)
-       
-
+        
         activeDotLayer.frame = CGRect(origin: CGPoint(x: (CGFloat(leftDotsCount) * (dotSize + dotSpace)), y: 0),
                                       size: CGSize(width: dotSize, height: dotSize))
         activeDotLayer.path = UIBezierPath(ovalIn: activeDotLayer.bounds).cgPath
@@ -118,7 +115,6 @@ import UIKit
         rightDotLayer.fillColor = dotColor.cgColor
         
         let rightDotsCount = numberOfPages - leftDotsCount - 1
-        rightReplicatorLayer.isHidden = rightDotsCount == 0
         rightReplicatorLayer.instanceCount = rightDotsCount
         rightReplicatorLayer.instanceTransform = CATransform3DMakeTranslation(-(dotSize + dotSpace), 0, 0)
         
@@ -141,6 +137,6 @@ import UIKit
         super.prepareForInterfaceBuilder()
         
         numberOfPages = 7
-        pageIndex = 3
+        pageIndex = 0
     }
 }
