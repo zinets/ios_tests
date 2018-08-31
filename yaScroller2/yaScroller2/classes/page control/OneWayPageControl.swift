@@ -8,31 +8,30 @@
 
 import UIKit
 
-@IBDesignable
-class OneWayPageControl: UIView, PageControlProto {
+@IBDesignable class OneWayPageControl: UIView, PageControlProto {
     
     /// пусть размер всегда квадратный
-    var dotSize: CGFloat = 10 {
+    var dotSize: CGFloat = 6 {
         didSet {
             updateProperties()
         }
     }
-    let dotLineWidth: CGFloat = 2
-    let activeDotLineWidth: CGFloat = 4
+    let dotLineWidth: CGFloat = 1
+    let activeDotLineWidth: CGFloat = 3
     
     /// расстояние между точками
-    var dotSpace: CGFloat = 10 {
+    var dotSpace: CGFloat = 6 {
         didSet {
             updateProperties()
         }
     }
     /// у неактивных точек одинаковый цвет, но есть отличия
-    var dotColor = UIColor.gray {
+    @IBInspectable var dotColor: UIColor = .green {
         didSet {
             updateProperties()
         }
     }
-    var activeDotColor = UIColor.magenta {
+    @IBInspectable var activeDotColor: UIColor = .magenta {
         didSet {
             updateProperties()
         }
@@ -40,11 +39,13 @@ class OneWayPageControl: UIView, PageControlProto {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         commonInit()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         commonInit()
     }
     
@@ -73,8 +74,16 @@ class OneWayPageControl: UIView, PageControlProto {
             updateProperties()
         }
     }
-    var pageIndex: Int = 2 {
+    var pageIndex: Int = 0 {
         didSet {
+            switch pageIndex {
+            case ..<0:
+                pageIndex = 0
+            case numberOfPages...:
+                pageIndex = numberOfPages - 1
+            default: break
+
+            }
             updateProperties()
         }
     }

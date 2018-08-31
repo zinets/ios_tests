@@ -85,8 +85,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6h-if-dud" customClass="OneWayPageControl" customModule="yaScroller2" customModuleProvider="target">
-                                <rect key="frame" x="229" y="347" width="130" height="10"/>
-                                <color key="backgroundColor" red="1" green="0.4672851562" blue="1" alpha="0.55305543660000001" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="281" y="347" width="78" height="6"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dotColor">
+                                        <color key="value" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeDotColor">
+                                        <color key="value" red="0.4823529411764706" green="0.19215686274509805" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
