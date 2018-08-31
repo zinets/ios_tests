@@ -56,6 +56,10 @@ class ViewController2: UIViewController {
             pageControl.pageIndex += 1
         } else if sender.tag == 2 {
             pageControl.pageIndex -= 1
+        } else if sender.tag == 3 {
+            pageControl.pageIndex = 0
+        } else if sender.tag == 4 {
+            pageControl.pageIndex = 4
         }
     }
 }
