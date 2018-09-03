@@ -31,6 +31,13 @@
 		4942EA6A213D1EEA0005ECED /* FavoritesListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA69213D1EEA0005ECED /* FavoritesListDatasource.swift */; };
 		4942EA6D213D1F880005ECED /* FavoritesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA6B213D1F880005ECED /* FavoritesListCell.swift */; };
 		4942EA6E213D1F880005ECED /* FavoritesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4942EA6C213D1F880005ECED /* FavoritesListCell.xib */; };
+		49AAC800213D531A00443F88 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC7FF213D531A00443F88 /* IntroView.swift */; };
+		49AAC802213D54E600443F88 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC801213D54E600443F88 /* IntroController.swift */; };
+		49AAC804213D557F00443F88 /* IntroViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC803213D557F00443F88 /* IntroViewDatasource.swift */; };
+		49AAC807213D55EE00443F88 /* IntroCellFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC805213D55EE00443F88 /* IntroCellFirst.swift */; };
+		49AAC808213D55EE00443F88 /* IntroCellFirst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC806213D55EE00443F88 /* IntroCellFirst.xib */; };
+		49AAC80B213D560E00443F88 /* IntroCellOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC809213D560E00443F88 /* IntroCellOther.swift */; };
+		49AAC80C213D560E00443F88 /* IntroCellOther.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC80A213D560E00443F88 /* IntroCellOther.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +80,13 @@
 		4942EA69213D1EEA0005ECED /* FavoritesListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListDatasource.swift; sourceTree = "<group>"; };
 		4942EA6B213D1F880005ECED /* FavoritesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListCell.swift; sourceTree = "<group>"; };
 		4942EA6C213D1F880005ECED /* FavoritesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesListCell.xib; sourceTree = "<group>"; };
+		49AAC7FF213D531A00443F88 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		49AAC801213D54E600443F88 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		49AAC803213D557F00443F88 /* IntroViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewDatasource.swift; sourceTree = "<group>"; };
+		49AAC805213D55EE00443F88 /* IntroCellFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCellFirst.swift; sourceTree = "<group>"; };
+		49AAC806213D55EE00443F88 /* IntroCellFirst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellFirst.xib; sourceTree = "<group>"; };
+		49AAC809213D560E00443F88 /* IntroCellOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCellOther.swift; sourceTree = "<group>"; };
+		49AAC80A213D560E00443F88 /* IntroCellOther.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellOther.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,7 @@
 				4942EA20213CF9A70005ECED /* listTest */,
 				4942EA44213D01640005ECED /* photo scroller */,
 				4942EA47213D01CB0005ECED /* favorites list */,
+				49AAC7FE213D523D00443F88 /* intro */,
 				4942EA1F213CF9A70005ECED /* Products */,
 				49367120213D2B8600314382 /* Frameworks */,
 			);
@@ -134,6 +149,7 @@
 				4942EA21213CF9A70005ECED /* AppDelegate.swift */,
 				4942EA2D213CF9A80005ECED /* Info.plist */,
 				4942EA23213CF9A70005ECED /* ViewController.swift */,
+				49AAC801213D54E600443F88 /* IntroController.swift */,
 				4942EA25213CF9A70005ECED /* Main.storyboard */,
 			);
 			path = "Support files";
@@ -206,6 +222,19 @@
 			path = "favorites list";
 			sourceTree = "<group>";
 		};
+		49AAC7FE213D523D00443F88 /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				49AAC7FF213D531A00443F88 /* IntroView.swift */,
+				49AAC803213D557F00443F88 /* IntroViewDatasource.swift */,
+				49AAC805213D55EE00443F88 /* IntroCellFirst.swift */,
+				49AAC806213D55EE00443F88 /* IntroCellFirst.xib */,
+				49AAC809213D560E00443F88 /* IntroCellOther.swift */,
+				49AAC80A213D560E00443F88 /* IntroCellOther.xib */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,7 +294,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AAC80C213D560E00443F88 /* IntroCellOther.xib in Resources */,
 				4942EA6E213D1F880005ECED /* FavoritesListCell.xib in Resources */,
+				49AAC808213D55EE00443F88 /* IntroCellFirst.xib in Resources */,
 				4942EA53213D09BE0005ECED /* PhotoCell.xib in Resources */,
 				4942EA2C213CF9A80005ECED /* LaunchScreen.storyboard in Resources */,
 				4942EA29213CF9A80005ECED /* Assets.xcassets in Resources */,
@@ -280,15 +311,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AAC807213D55EE00443F88 /* IntroCellFirst.swift in Sources */,
 				4942EA3E213CFAAB0005ECED /* CellTypes.swift in Sources */,
+				49AAC800213D531A00443F88 /* IntroView.swift in Sources */,
 				4942EA4F213D08820005ECED /* CellsFactory.swift in Sources */,
 				4942EA66213D18D80005ECED /* SectionDatasource.swift in Sources */,
+				49AAC804213D557F00443F88 /* IntroViewDatasource.swift in Sources */,
 				4942EA68213D1A060005ECED /* TableSectionDatasource.swift in Sources */,
 				4936711F213D24E200314382 /* UserInfo.swift in Sources */,
 				4942EA24213CF9A70005ECED /* ViewController.swift in Sources */,
 				4942EA6D213D1F880005ECED /* FavoritesListCell.swift in Sources */,
 				4942EA52213D09BE0005ECED /* PhotoCell.swift in Sources */,
 				4942EA64213D18C80005ECED /* CollectionSectionDatasource.swift in Sources */,
+				49AAC802213D54E600443F88 /* IntroController.swift in Sources */,
+				49AAC80B213D560E00443F88 /* IntroCellOther.swift in Sources */,
 				4942EA4D213D04500005ECED /* PhotoScrollerDatasource.swift in Sources */,
 				4942EA6A213D1EEA0005ECED /* FavoritesListDatasource.swift in Sources */,
 				4942EA46213D01B10005ECED /* PhotoScroller.swift in Sources */,

@@ -11,6 +11,9 @@ import Foundation
 enum CellType: String {
     case TestPhotoItem = "photoCellID"
     case TestFavoriteItem = "favoriteCellID"
+    
+    case TestIntroFirst = "TestIntro1"
+    case TestIntroOther = "TestIntro2"
     // e.g.
 //    case SearchUser
 //    case GeoSearchUser

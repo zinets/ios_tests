@@ -17,6 +17,10 @@ class CellsFactory {
             return PhotoCell.self
         case .TestFavoriteItem:
             return FavoritesListCell.self
+        case .TestIntroFirst:
+            return IntroCellFirst.self
+        case .TestIntroOther:
+            return IntroCellOther.self
         }
     }
     static func cellNibFor(_ cellType: CellType) -> String {
@@ -25,6 +29,10 @@ class CellsFactory {
             return "PhotoCell"
         case .TestFavoriteItem:
             return "FavoritesListCell"
+        case .TestIntroFirst:
+            return "IntroCellFirst"
+        case .TestIntroOther:
+            return "IntroCellOther"
         }
     }
     
