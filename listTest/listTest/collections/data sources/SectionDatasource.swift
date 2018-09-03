@@ -46,7 +46,7 @@ class SectionDatasource: NSObject {
             return
         } else if (fromArray.count > 0 && toArray.count == 0) {
             // remove all
-            for index in 0..<toArray.count {
+            for index in 0..<fromArray.count {
                 toRemove.insert(index)
             }
             return

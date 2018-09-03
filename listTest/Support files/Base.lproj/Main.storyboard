@@ -46,10 +46,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ls-Gf-V4g" customClass="FavoritesList" customModule="listTest" customModuleProvider="target">
-                                <rect key="frame" x="16" y="286" width="240" height="128"/>
+                                <rect key="frame" x="16" y="286" width="240" height="294"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="XkB-aV-bPP"/>
+                                    <constraint firstAttribute="height" constant="294" id="XkB-aV-bPP"/>
                                     <constraint firstAttribute="width" constant="240" id="w1V-4b-meG"/>
                                 </constraints>
                             </view>
@@ -60,14 +60,40 @@
                                     <action selector="reloadFavorites:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzY-gS-pRd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jj-Uq-SB3">
+                                <rect key="frame" x="264" y="318" width="59" height="30"/>
+                                <state key="normal" title="add new"/>
+                                <connections>
+                                    <action selector="addFavoritka:" destination="BYZ-38-t0r" eventType="touchUpInside" id="71Q-Yi-TL7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUO-X7-8K9">
+                                <rect key="frame" x="264" y="350" width="51" height="30"/>
+                                <state key="normal" title="remove"/>
+                                <connections>
+                                    <action selector="removeFavoritka:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tDD-5v-bbR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-43-5tQ">
+                                <rect key="frame" x="224" y="81" width="59" height="30"/>
+                                <state key="normal" title="add new"/>
+                                <connections>
+                                    <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GSz-iM-606"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hXp-C8-4mB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0h0-Ms-XEl"/>
+                            <constraint firstItem="hUO-X7-8K9" firstAttribute="top" secondItem="8jj-Uq-SB3" secondAttribute="bottom" constant="2" id="35A-cj-rIX"/>
                             <constraint firstItem="7wa-BQ-6T0" firstAttribute="top" secondItem="2yU-AR-6Ok" secondAttribute="bottom" constant="8" id="4KG-Jt-xDj"/>
                             <constraint firstItem="hXp-C8-4mB" firstAttribute="top" secondItem="7wa-BQ-6T0" secondAttribute="bottom" constant="8" id="5ZP-fx-evZ"/>
+                            <constraint firstItem="LOX-43-5tQ" firstAttribute="top" secondItem="gv2-0u-pY5" secondAttribute="bottom" constant="2" id="C4j-4x-0H4"/>
                             <constraint firstItem="gv2-0u-pY5" firstAttribute="top" secondItem="7wa-BQ-6T0" secondAttribute="top" id="Eiy-0c-rFP"/>
+                            <constraint firstItem="hUO-X7-8K9" firstAttribute="leading" secondItem="2ls-Gf-V4g" secondAttribute="trailing" constant="8" id="Ljf-Rm-WvO"/>
                             <constraint firstItem="At8-iJ-uvE" firstAttribute="leading" secondItem="2ls-Gf-V4g" secondAttribute="trailing" constant="8" id="RjK-l1-hTt"/>
+                            <constraint firstItem="8jj-Uq-SB3" firstAttribute="top" secondItem="At8-iJ-uvE" secondAttribute="bottom" constant="2" id="SLH-sF-eGa"/>
+                            <constraint firstItem="8jj-Uq-SB3" firstAttribute="leading" secondItem="2ls-Gf-V4g" secondAttribute="trailing" constant="8" id="UYW-Gi-6qp"/>
                             <constraint firstItem="2ls-Gf-V4g" firstAttribute="top" secondItem="hXp-C8-4mB" secondAttribute="bottom" constant="8" id="eBg-ng-oTx"/>
                             <constraint firstItem="At8-iJ-uvE" firstAttribute="top" secondItem="2ls-Gf-V4g" secondAttribute="top" id="gZK-0y-5QM"/>
                             <constraint firstItem="gv2-0u-pY5" firstAttribute="leading" secondItem="7wa-BQ-6T0" secondAttribute="trailing" constant="8" id="hbS-TS-GXV"/>
@@ -75,6 +101,7 @@
                             <constraint firstItem="2yU-AR-6Ok" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="omd-6a-xKE"/>
                             <constraint firstItem="2yU-AR-6Ok" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="p5u-oE-gCc"/>
                             <constraint firstItem="2ls-Gf-V4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="su1-qf-Tbp"/>
+                            <constraint firstItem="LOX-43-5tQ" firstAttribute="leading" secondItem="7wa-BQ-6T0" secondAttribute="trailing" constant="8" id="y4i-Db-qgG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -85,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.5" y="133.5"/>
         </scene>
     </scenes>
 </document>

@@ -47,6 +47,19 @@ class ViewController: UIViewController {
         photoDatasource.items = newData        
     }
     
+    @IBAction func addPhoto(_ sender: Any) {
+        var newData = photoDatasource.items
+        let newItem = DataSourceItem(.TestPhotoItem, payload: urls[0])
+        // датасорс может найти различия между старым и новым массивом - но кто должен проверять дублирование данных??
+        if !newData.contains(newItem) {
+            newData.append(newItem)
+            
+            photoDatasource.items = newData
+        }
+    }
+    
+    
+    
     @IBAction func reloadFavorites(_ sender: Any) {
         
         var newData = [DataSourceItem]()
@@ -58,11 +71,31 @@ class ViewController: UIViewController {
         
         
         for x in 0..<3 {
-            let newItem = DataSourceItem(.TestPhotoItem, payload: UserInfo(screenName: names[x], avatarUrl: urls[x]))
+            let newItem = DataSourceItem(.TestFavoriteItem, payload: UserInfo(screenName: names[x], avatarUrl: urls[x]))
             newData.append(newItem)
         }
         
         favoritesDatasource.items = newData
     }
+    
+    @IBAction func addFavoritka(_ sender: Any) {
+        var data = favoritesDatasource.items
+        let newUser = DataSourceItem(.TestFavoriteItem, payload: UserInfo(screenName: "Katya", avatarUrl: urls[0]))
+        
+        if !data.contains(newUser) {
+            data.append(newUser)
+            favoritesDatasource.items = data
+        }
+    }
+    
+    @IBAction func removeFavoritka(_ sender: Any) {
+        var data = favoritesDatasource.items
+        if !data.isEmpty {
+            data.remove(at: 0)
+            
+            favoritesDatasource.items = data
+        }
+    }
+    
 }
 

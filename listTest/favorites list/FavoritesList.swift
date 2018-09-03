@@ -36,6 +36,7 @@ class FavoritesList: UIView, UITableViewDelegate {
         _tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         _tableView.backgroundColor = UIColor.white
         _tableView.decelerationRate = UIScrollViewDecelerationRateFast
+        _tableView.rowHeight = 80
         _tableView.delegate = self
         
         return _tableView
