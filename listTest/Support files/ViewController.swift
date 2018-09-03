@@ -49,12 +49,21 @@ class ViewController: UIViewController {
     
     @IBAction func addPhoto(_ sender: Any) {
         var newData = photoDatasource.items
-        let newItem = DataSourceItem(.TestPhotoItem, payload: urls[0])
+        let newItem = DataSourceItem(.TestPhotoItem, payload: urls[5])
         // датасорс может найти различия между старым и новым массивом - но кто должен проверять дублирование данных??
         if !newData.contains(newItem) {
             newData.append(newItem)
             
             photoDatasource.items = newData
+        }
+    }
+    
+    @IBAction func removePhoto(_ sender: Any) {
+        if !photoDatasource.items.isEmpty {
+            var items = photoDatasource.items
+            items.remove(at: 0)
+            
+            photoDatasource.items = items
         }
     }
     
@@ -80,7 +89,7 @@ class ViewController: UIViewController {
     
     @IBAction func addFavoritka(_ sender: Any) {
         var data = favoritesDatasource.items
-        let newUser = DataSourceItem(.TestFavoriteItem, payload: UserInfo(screenName: "Katya", avatarUrl: urls[0]))
+        let newUser = DataSourceItem(.TestFavoriteItem, payload: UserInfo(screenName: "Katya", avatarUrl: urls[5]))
         
         if !data.contains(newUser) {
             data.append(newUser)

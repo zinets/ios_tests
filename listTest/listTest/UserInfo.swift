@@ -13,14 +13,6 @@ class UserInfo: Equatable, Hashable {
     var screenName: String?
     
     public static func == (lhs: UserInfo, rhs: UserInfo) -> Bool {
-//        if lhs.avatarUrl != rhs.avatarUrl {
-//            return false
-//        }
-//        if lhs.screenName != rhs.screenName {
-//            return false
-//        }
-//
-//        return true
         return
             lhs.avatarUrl == rhs.avatarUrl &&
                 lhs.screenName == rhs.screenName

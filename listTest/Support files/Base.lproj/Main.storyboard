@@ -81,6 +81,13 @@
                                     <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GSz-iM-606"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpf-bi-Xda">
+                                <rect key="frame" x="224" y="113" width="51" height="30"/>
+                                <state key="normal" title="remove"/>
+                                <connections>
+                                    <action selector="removePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SKb-e8-piL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -94,12 +101,14 @@
                             <constraint firstItem="At8-iJ-uvE" firstAttribute="leading" secondItem="2ls-Gf-V4g" secondAttribute="trailing" constant="8" id="RjK-l1-hTt"/>
                             <constraint firstItem="8jj-Uq-SB3" firstAttribute="top" secondItem="At8-iJ-uvE" secondAttribute="bottom" constant="2" id="SLH-sF-eGa"/>
                             <constraint firstItem="8jj-Uq-SB3" firstAttribute="leading" secondItem="2ls-Gf-V4g" secondAttribute="trailing" constant="8" id="UYW-Gi-6qp"/>
+                            <constraint firstItem="Vpf-bi-Xda" firstAttribute="top" secondItem="LOX-43-5tQ" secondAttribute="bottom" constant="2" id="Vam-6D-OUH"/>
                             <constraint firstItem="2ls-Gf-V4g" firstAttribute="top" secondItem="hXp-C8-4mB" secondAttribute="bottom" constant="8" id="eBg-ng-oTx"/>
                             <constraint firstItem="At8-iJ-uvE" firstAttribute="top" secondItem="2ls-Gf-V4g" secondAttribute="top" id="gZK-0y-5QM"/>
                             <constraint firstItem="gv2-0u-pY5" firstAttribute="leading" secondItem="7wa-BQ-6T0" secondAttribute="trailing" constant="8" id="hbS-TS-GXV"/>
                             <constraint firstItem="7wa-BQ-6T0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oSy-T3-UKh"/>
                             <constraint firstItem="2yU-AR-6Ok" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="omd-6a-xKE"/>
                             <constraint firstItem="2yU-AR-6Ok" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="p5u-oE-gCc"/>
+                            <constraint firstItem="Vpf-bi-Xda" firstAttribute="leading" secondItem="7wa-BQ-6T0" secondAttribute="trailing" constant="8" id="pp4-Y6-LIJ"/>
                             <constraint firstItem="2ls-Gf-V4g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="su1-qf-Tbp"/>
                             <constraint firstItem="LOX-43-5tQ" firstAttribute="leading" secondItem="7wa-BQ-6T0" secondAttribute="trailing" constant="8" id="y4i-Db-qgG"/>
                         </constraints>

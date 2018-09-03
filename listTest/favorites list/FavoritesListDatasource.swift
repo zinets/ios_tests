@@ -27,6 +27,10 @@ class FavoritesListDatasource: TableSectionDatasource {
     
     // MARK: cell creation -
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = CellsFactory.cellIdFor(.TestFavoriteItem)
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FavoritesListCell {

@@ -22,8 +22,8 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
         get {
             return super.items
         }
-        set {
-            super.items = newValue
+        set (newItems){
+            super.items = newItems
             
             if let table = tableView {
                 if (!toRemove.isEmpty) {
@@ -55,7 +55,7 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     // MARK: tableview support -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
