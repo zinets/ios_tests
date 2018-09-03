@@ -39,6 +39,7 @@
 		49AAC80B213D560E00443F88 /* IntroCellOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC809213D560E00443F88 /* IntroCellOther.swift */; };
 		49AAC80C213D560E00443F88 /* IntroCellOther.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC80A213D560E00443F88 /* IntroCellOther.xib */; };
 		49AAC80E213D5EB300443F88 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC80D213D5EB300443F88 /* PageControl.swift */; };
+		49AAC812213D75F600443F88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC811213D75F600443F88 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		49AAC809213D560E00443F88 /* IntroCellOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCellOther.swift; sourceTree = "<group>"; };
 		49AAC80A213D560E00443F88 /* IntroCellOther.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellOther.xib; sourceTree = "<group>"; };
 		49AAC80D213D5EB300443F88 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../yaScroller2/yaScroller2/classes/page control/PageControl.swift"; sourceTree = "<group>"; };
+		49AAC811213D75F600443F88 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				4942EA44213D01640005ECED /* photo scroller */,
 				4942EA47213D01CB0005ECED /* favorites list */,
 				49AAC7FE213D523D00443F88 /* intro */,
+				49AAC810213D759700443F88 /* settings */,
 				4942EA1F213CF9A70005ECED /* Products */,
 				49367120213D2B8600314382 /* Frameworks */,
 			);
@@ -154,6 +157,7 @@
 				4942EA23213CF9A70005ECED /* ViewController.swift */,
 				49AAC801213D54E600443F88 /* IntroController.swift */,
 				4942EA25213CF9A70005ECED /* Main.storyboard */,
+				49AAC811213D75F600443F88 /* SettingsViewController.swift */,
 			);
 			path = "Support files";
 			sourceTree = "<group>";
@@ -236,6 +240,13 @@
 				49AAC80A213D560E00443F88 /* IntroCellOther.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		49AAC810213D759700443F88 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +338,7 @@
 				4942EA6D213D1F880005ECED /* FavoritesListCell.swift in Sources */,
 				4942EA52213D09BE0005ECED /* PhotoCell.swift in Sources */,
 				4942EA64213D18C80005ECED /* CollectionSectionDatasource.swift in Sources */,
+				49AAC812213D75F600443F88 /* SettingsViewController.swift in Sources */,
 				49AAC802213D54E600443F88 /* IntroController.swift in Sources */,
 				49AAC80B213D560E00443F88 /* IntroCellOther.swift in Sources */,
 				4942EA4D213D04500005ECED /* PhotoScrollerDatasource.swift in Sources */,
