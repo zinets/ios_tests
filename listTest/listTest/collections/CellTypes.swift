@@ -8,9 +8,12 @@
 
 import Foundation
 
-enum CellType {
-    case SearchUser
-    case GeoSearchUser
-    case MessageListItem
-    case SettingsItem
+enum CellType: String {
+//    case SearchUser
+//    case GeoSearchUser
+//    case MessageListItem
+//    case SettingsItem
+    
+    case TestPhotoItem = "TestPhotoItemCell"
+//    case TestFavoriteItem
 }
