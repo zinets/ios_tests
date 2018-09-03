@@ -9,11 +9,12 @@
 import Foundation
 
 enum CellType: String {
+    // e.g.
 //    case SearchUser
 //    case GeoSearchUser
 //    case MessageListItem
 //    case SettingsItem
     
-    case TestPhotoItem = "TestPhotoItemCell"
-//    case TestFavoriteItem
+    case TestPhotoItem = "photoCellID"
+    case TestFavoriteItem = "favoriteCellID"
 }

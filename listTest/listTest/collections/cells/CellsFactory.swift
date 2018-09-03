@@ -15,19 +15,20 @@ class CellsFactory {
         switch cellType {
         case .TestPhotoItem:
             return PhotoCell.self
+        case .TestFavoriteItem:
+            return FavoritesListCell.self
         }
     }
     static func cellNibFor(_ cellType: CellType) -> String {
         switch cellType {
         case .TestPhotoItem:
             return "PhotoCell"
+        case .TestFavoriteItem:
+            return "FavoritesListCell"
         }
     }
     
     static func cellIdFor(_ cellType: CellType) -> String {
-        switch cellType {
-        case .TestPhotoItem:
-            return cellType.rawValue
-        }
+        return cellType.rawValue        
     }
 }
