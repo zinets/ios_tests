@@ -28,28 +28,34 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
             if let table = tableView {
                 table.beginUpdates()
                 
-                if (!toRemove.isEmpty) {
-                    var array = [IndexPath]()
-                    for index in toRemove {
-                        array.append(IndexPath(item: index, section: section))
+//                table.performBatchUpdates({
+                
+                    if (!toRemove.isEmpty) {
+                        var array = [IndexPath]()
+                        for index in toRemove {
+                            array.append(IndexPath(item: index, section: section))
+                        }
+                        // TODO: consider to use performBatchUpdate
+                        table.deleteRows(at: array, with: .automatic)
                     }
-                    // TODO: consider to use performBatchUpdate
-                    table.deleteRows(at: array, with: .automatic)
-                }
-                if (!toInsert.isEmpty) {
-                    var array = [IndexPath]()
-                    for index in toInsert {
-                        array.append(IndexPath(item: index, section: section))
+                    if (!toInsert.isEmpty) {
+                        var array = [IndexPath]()
+                        for index in toInsert {
+                            array.append(IndexPath(item: index, section: section))
+                        }
+                        table.insertRows(at: array, with: .automatic)
                     }
-                    table.insertRows(at: array, with: .automatic)
-                }
-                if !toUpdate.isEmpty {
-                    var array = [IndexPath]()
-                    for index in toUpdate {
-                        array.append(IndexPath(item: index, section: section))
+                    if !toUpdate.isEmpty {
+                        var array = [IndexPath]()
+                        for index in toUpdate {
+                            array.append(IndexPath(item: index, section: section))
+                        }
+                        table.reloadRows(at: array, with: .automatic)
                     }
-                    table.reloadRows(at: array, with: .automatic)
-                }
+                    
+//                }) { (b) in
+//
+//                }
                 
                 table.endUpdates()
             }
