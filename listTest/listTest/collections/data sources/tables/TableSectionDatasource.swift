@@ -26,6 +26,8 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
             super.items = newItems
             
             if let table = tableView {
+                table.beginUpdates()
+                
                 if (!toRemove.isEmpty) {
                     var array = [IndexPath]()
                     for index in toRemove {
@@ -47,7 +49,9 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
                         array.append(IndexPath(item: index, section: section))
                     }
                     table.reloadRows(at: array, with: .automatic)
-                }                
+                }
+                
+                table.endUpdates()
             }
         }
     }
