@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="502" height="690"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="onboardingIllustration1" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-ll-ywc">
-                        <rect key="frame" x="100" y="130" width="300" height="430"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingIllustration1" translatesAutoresizingMaskIntoConstraints="NO" id="X7P-ll-ywc">
+                        <rect key="frame" x="101" y="130" width="300" height="430"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFN-kb-iyf">
                         <rect key="frame" x="101" y="587" width="300" height="21"/>
@@ -31,19 +31,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JI-OJ-3cZ">
+                        <rect key="frame" x="101" y="621" width="300" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="300" id="lQW-P1-zYm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="X7P-ll-ywc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="3SA-Hv-DPO"/>
                 <constraint firstItem="mFN-kb-iyf" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Mxp-Tx-Z5e"/>
+                <constraint firstItem="8JI-OJ-3cZ" firstAttribute="centerX" secondItem="mFN-kb-iyf" secondAttribute="centerX" id="VlB-1O-1dJ"/>
                 <constraint firstItem="X7P-ll-ywc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cEi-Xq-WQJ"/>
                 <constraint firstItem="mFN-kb-iyf" firstAttribute="top" secondItem="X7P-ll-ywc" secondAttribute="bottom" constant="27" id="hXR-3U-cyr"/>
+                <constraint firstItem="8JI-OJ-3cZ" firstAttribute="top" secondItem="mFN-kb-iyf" secondAttribute="bottom" constant="13" id="nQ4-Pv-JRv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="502" height="690"/>
             <connections>
                 <outlet property="imageView" destination="X7P-ll-ywc" id="AaP-ai-tdX"/>
                 <outlet property="label" destination="mFN-kb-iyf" id="dYZ-wc-ypm"/>
+                <outlet property="label2" destination="8JI-OJ-3cZ" id="gsQ-kL-m6a"/>
             </connections>
             <point key="canvasLocation" x="129" y="374"/>
         </collectionViewCell>

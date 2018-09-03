@@ -18,13 +18,16 @@ class IntroController: UIViewController {
 
         var array = [DataSourceItem]()
         array.append(DataSourceItem(CellType.TestIntroFirst))
-        array.append(DataSourceItem(CellType.TestIntroOther, payload: "onboardingIllustration1"))
-        array.append(DataSourceItem(CellType.TestIntroOther, payload: "onboardingIllustration2"))
-        array.append(DataSourceItem(CellType.TestIntroOther, payload: "onboardingIllustration3"))
+        array.append(DataSourceItem(CellType.TestIntroOther, payload: 1))
+        array.append(DataSourceItem(CellType.TestIntroOther, payload: 2))
+        array.append(DataSourceItem(CellType.TestIntroOther, payload: 3))
         datasource.items = array
         introView.dataSource = datasource
     }
 
-
+    @IBAction func closeCtrl(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
 }

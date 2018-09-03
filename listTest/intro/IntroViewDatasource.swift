@@ -10,25 +10,10 @@ import UIKit
 
 class IntroViewDatasource: CollectionSectionDatasource {
     
-    let supportedCells: [CellType] = [.TestIntroFirst, .TestIntroOther]
-    
-    override var collectionView: UICollectionView? {
-        didSet {
-            if let collection = collectionView {
-                for cellType in supportedCells {
-                    let cellId = CellsFactory.cellIdFor(cellType)
-                    let cellNib = CellsFactory.cellNibFor(cellType)
-                    
-                    collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
-                }
-            }
-        }
+    override var supportedCellTypes: [CellType] {
+        return [.TestIntroFirst, .TestIntroOther]
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-    
+        
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 0 {

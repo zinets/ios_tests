@@ -10,25 +10,10 @@ import UIKit
 
 class PhotoScrollerDatasource: CollectionSectionDatasource {
     
-    let supportedCells: [CellType] = [.TestPhotoItem]
-    
-    override var collectionView: UICollectionView? {
-        didSet {
-            if let collection = collectionView {
-                for cellType in supportedCells {
-                    let cellId = CellsFactory.cellIdFor(cellType)
-                    let cellNib = CellsFactory.cellNibFor(cellType)
-                    
-                    collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
-                }
-            }
-        }
+    override var supportedCellTypes: [CellType] {
+        return [.TestPhotoItem]
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
-    }
-
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellId = CellsFactory.cellIdFor(.TestPhotoItem) // всегда 1 тип ячейки
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? PhotoCell {
@@ -38,6 +23,4 @@ class PhotoScrollerDatasource: CollectionSectionDatasource {
         
         return UICollectionViewCell()
     }
-    
-    
 }

@@ -1,9 +1,5 @@
 //
 //  CollectionSectionDatasource.swift
-//  yaScroller2
-//
-//  Created by Victor Zinets on 8/28/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit
@@ -14,6 +10,12 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
         didSet {
             if let collection = collectionView {
                 collection.dataSource = self
+                
+                for cellType in supportedCellTypes {
+                    let cellId = CellsFactory.cellIdFor(cellType)
+                    let cellNib = CellsFactory.cellNibFor(cellType)
+                    collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
+                }
             }
         }
     }
@@ -60,7 +62,7 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
     // MARK: collection support -
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -1,19 +1,17 @@
 //
 //  CellTypes.swift
-//  listTest
-//
-//  Created by Victor Zinets on 9/3/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import Foundation
 
 enum CellType: String {
-    case TestPhotoItem = "photoCellID"
-    case TestFavoriteItem = "favoriteCellID"
+    // уговор - raw значение используется и как reuseCellID, и как имя для ксиба (и как имя класса, когда до этого дойдет)
+    // а если надо будет как-то "нетак" - в свитче в CellsFactory можно порулить
+    case TestPhotoItem = "PhotoCell"
+    case TestFavoriteItem = "FavoritesListCell"
     
-    case TestIntroFirst = "TestIntro1"
-    case TestIntroOther = "TestIntro2"
+    case TestIntroFirst = "IntroCellFirst"
+    case TestIntroOther = "IntroCellOther"
     // e.g.
 //    case SearchUser
 //    case GeoSearchUser

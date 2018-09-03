@@ -38,6 +38,7 @@
 		49AAC808213D55EE00443F88 /* IntroCellFirst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC806213D55EE00443F88 /* IntroCellFirst.xib */; };
 		49AAC80B213D560E00443F88 /* IntroCellOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC809213D560E00443F88 /* IntroCellOther.swift */; };
 		49AAC80C213D560E00443F88 /* IntroCellOther.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC80A213D560E00443F88 /* IntroCellOther.xib */; };
+		49AAC80E213D5EB300443F88 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC80D213D5EB300443F88 /* PageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,7 @@
 		49AAC806213D55EE00443F88 /* IntroCellFirst.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellFirst.xib; sourceTree = "<group>"; };
 		49AAC809213D560E00443F88 /* IntroCellOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCellOther.swift; sourceTree = "<group>"; };
 		49AAC80A213D560E00443F88 /* IntroCellOther.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellOther.xib; sourceTree = "<group>"; };
+		49AAC80D213D5EB300443F88 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../yaScroller2/yaScroller2/classes/page control/PageControl.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		4942EA33213CF9E90005ECED /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				49AAC80D213D5EB300443F88 /* PageControl.swift */,
 				4942EA28213CF9A80005ECED /* Assets.xcassets */,
 				4942EA2A213CF9A80005ECED /* LaunchScreen.storyboard */,
 				4942EA21213CF9A70005ECED /* AppDelegate.swift */,
@@ -169,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				4942EA65213D18D80005ECED /* SectionDatasource.swift */,
-				4942EA41213CFCAD0005ECED /* data source items */,
+				4942EA42213CFD040005ECED /* DataSourceItem.swift */,
 				4942EA3B213CFA7C0005ECED /* collections */,
 				4942EA3A213CFA640005ECED /* tables */,
 			);
@@ -190,14 +193,6 @@
 				4942EA63213D18C80005ECED /* CollectionSectionDatasource.swift */,
 			);
 			path = collections;
-			sourceTree = "<group>";
-		};
-		4942EA41213CFCAD0005ECED /* data source items */ = {
-			isa = PBXGroup;
-			children = (
-				4942EA42213CFD040005ECED /* DataSourceItem.swift */,
-			);
-			path = "data source items";
 			sourceTree = "<group>";
 		};
 		4942EA44213D01640005ECED /* photo scroller */ = {
@@ -227,12 +222,20 @@
 			children = (
 				49AAC7FF213D531A00443F88 /* IntroView.swift */,
 				49AAC803213D557F00443F88 /* IntroViewDatasource.swift */,
+				49AAC80F213D66B900443F88 /* cells */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
+		49AAC80F213D66B900443F88 /* cells */ = {
+			isa = PBXGroup;
+			children = (
 				49AAC805213D55EE00443F88 /* IntroCellFirst.swift */,
 				49AAC806213D55EE00443F88 /* IntroCellFirst.xib */,
 				49AAC809213D560E00443F88 /* IntroCellOther.swift */,
 				49AAC80A213D560E00443F88 /* IntroCellOther.xib */,
 			);
-			path = intro;
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +322,7 @@
 				49AAC804213D557F00443F88 /* IntroViewDatasource.swift in Sources */,
 				4942EA68213D1A060005ECED /* TableSectionDatasource.swift in Sources */,
 				4936711F213D24E200314382 /* UserInfo.swift in Sources */,
+				49AAC80E213D5EB300443F88 /* PageControl.swift in Sources */,
 				4942EA24213CF9A70005ECED /* ViewController.swift in Sources */,
 				4942EA6D213D1F880005ECED /* FavoritesListCell.swift in Sources */,
 				4942EA52213D09BE0005ECED /* PhotoCell.swift in Sources */,

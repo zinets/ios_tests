@@ -28,6 +28,8 @@ class IntroView: UIView, UICollectionViewDelegateFlowLayout {
     
     private func commonInit() {
         addSubview(collectionView)
+        
+        
     }
 
     private lazy var collectionView: UICollectionView = {

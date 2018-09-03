@@ -1,9 +1,5 @@
 //
 //  CellsFactory.swift
-//  listTest
-//
-//  Created by Victor Zinets on 9/3/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit
@@ -25,18 +21,15 @@ class CellsFactory {
     }
     static func cellNibFor(_ cellType: CellType) -> String {
         switch cellType {
-        case .TestPhotoItem:
-            return "PhotoCell"
-        case .TestFavoriteItem:
-            return "FavoritesListCell"
-        case .TestIntroFirst:
-            return "IntroCellFirst"
-        case .TestIntroOther:
-            return "IntroCellOther"
+        default:
+            return cellType.rawValue
         }
     }
     
     static func cellIdFor(_ cellType: CellType) -> String {
-        return cellType.rawValue        
+        switch cellType {
+        default:
+            return cellType.rawValue
+        }
     }
 }

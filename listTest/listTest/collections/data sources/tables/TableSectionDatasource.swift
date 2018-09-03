@@ -1,9 +1,5 @@
 //
 //  TableSectionDatasource.swift
-//  listTest
-//
-//  Created by Victor Zinets on 9/3/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit
@@ -14,6 +10,13 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
         didSet {
             if let table = tableView {
                 table.dataSource = self
+                
+                for cellType in supportedCellTypes {
+                    let cellId = CellsFactory.cellIdFor(cellType)
+                    let cellNib = CellsFactory.cellNibFor(cellType)
+                    
+                    table.register(UINib(nibName: cellNib, bundle: nil), forCellReuseIdentifier: cellId)
+                }
             }
         }
     }
@@ -65,7 +68,7 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     // MARK: tableview support -
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -6,6 +6,11 @@ import UIKit
 
 class SectionDatasource: NSObject {
     var internalItems = [DataSourceItem]()
+    var supportedCellTypes: [CellType] {
+        get {
+            return []
+        }
+    }
     
     var toRemove = Set<Int>()
     var toInsert = Set<Int>()
@@ -16,40 +21,43 @@ class SectionDatasource: NSObject {
             return internalItems;
         }
         set {
-            calculateChangesFrom(fromArray: internalItems, toArray: newValue)
+            let countChanged = calculateChangesFrom(fromArray: internalItems, toArray: newValue)
             internalItems = newValue
             
-            if let handler = onItemChanged {
+            if let handler = onNumberOfItemsChanged, countChanged {
                 handler()
             }
         }
     }
     
-    var onItemChanged: (() -> ())?
+    var onNumberOfItemsChanged: (() -> ())?
     
     func objectsEqual(obj1: AnyHashable, obj2: AnyHashable) -> Bool {
         return obj1 == obj2
     }
     
-    func calculateChangesFrom(fromArray: [AnyHashable], toArray: [AnyHashable]) {
+    func calculateChangesFrom(fromArray: [AnyHashable], toArray: [AnyHashable]) -> Bool {
+        var result = false;
+        
         toRemove.removeAll()
         toInsert.removeAll()
         toUpdate.removeAll()
         
         if ((fromArray.count == 0 && toArray.count == 0) || fromArray == toArray) {
-            return
+            return result
         } else if (fromArray.count == 0 && toArray.count > 0) {
             // insert all
             for index in 0..<toArray.count {
                 toInsert.insert(index)
             }
-            return
+            
+            return true
         } else if (fromArray.count > 0 && toArray.count == 0) {
             // remove all
             for index in 0..<fromArray.count {
                 toRemove.insert(index)
             }
-            return
+            return true
         }
         
         var temp = [[Int]](repeating: [Int](repeating: 0, count: toArray.count + 1), count: fromArray.count + 1)
@@ -94,16 +102,20 @@ class SectionDatasource: NSObject {
                 j = j - 1;
             } else if (i > 0 && temp[i][j] == temp[i - 1][j] + 1) {
 //                print("delete \(fromArray[i - 1]) @ index \((i - 1))")
+                result = true
                 toRemove.insert(i - 1);
                 i = i - 1;
             } else if (j > 0 && temp[i][j] == temp[i][j - 1] + 1){
 //                print("Insert \(toArray[j - 1]) @ index \((j - 1))")
+                result = true
                 toInsert.insert(j - 1);
                 j = j - 1;
             } else {
                 print("WTF?");
             }
         }
+        
+        return result
     }
     
     // MARK: endless scrolling -
