@@ -30,14 +30,8 @@ class IntroScrollerDatasource: CollectionSectionDatasource {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch indexPath.item {
-        case 0:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: sectionCellIds[0], for: indexPath) as? IntroFirstCell {
-                cell.data = items[indexPath.item] as? PhotoFromInternetModel
-                return cell
-            }
-        default:
-            
-        }
+        
+            return UICollectionViewCell()
+        
     }
 }
