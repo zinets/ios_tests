@@ -56,6 +56,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At8-iJ-uvE">
                                 <rect key="frame" x="264" y="286" width="43" height="30"/>
                                 <state key="normal" title="reload"/>
+                                <connections>
+                                    <action selector="reloadFavorites:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzY-gS-pRd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>

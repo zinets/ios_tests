@@ -17,7 +17,6 @@ class PhotoScrollerDatasource: CollectionSectionDatasource {
             if let collection = collectionView {
                 for cellType in supportedCells {
                     let cellId = CellsFactory.cellIdFor(cellType)
-//                    let cellClass = CellsFactory.cellClassFor(cellType)
                     let cellNib = CellsFactory.cellNibFor(cellType)
                     
                     collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)

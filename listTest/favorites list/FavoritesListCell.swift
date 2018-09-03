@@ -24,6 +24,12 @@ class FavoritesListCell: UITableViewCell {
     }
     
     func fillData(_ data: DataSourceItem) {
-
+        let payload = data.payload as! UserInfo
+        if let avatarUrl = payload.avatarUrl {
+            userAvatarView.loadImage(fromUrl: avatarUrl)
+        }
+        if let screenName = payload.screenName {
+            screenNameLabel.text = screenName
+        }
     }
 }

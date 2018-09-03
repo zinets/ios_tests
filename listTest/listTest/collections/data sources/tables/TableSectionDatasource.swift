@@ -23,7 +23,7 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
             return super.items
         }
         set {
-            super.items = items
+            super.items = newValue
             
             if let table = tableView {
                 if (!toRemove.isEmpty) {
