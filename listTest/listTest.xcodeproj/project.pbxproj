@@ -27,6 +27,7 @@
 		4942EA61213D123C0005ECED /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4942EA5D213D123B0005ECED /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4942EA64213D18C80005ECED /* CollectionSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA63213D18C80005ECED /* CollectionSectionDatasource.swift */; };
 		4942EA66213D18D80005ECED /* SectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA65213D18D80005ECED /* SectionDatasource.swift */; };
+		4942EA68213D1A060005ECED /* TableSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA67213D1A060005ECED /* TableSectionDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		4942EA5D213D123B0005ECED /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNURLImageView.framework; path = Frameworks/TNURLImageView.framework; sourceTree = "<group>"; };
 		4942EA63213D18C80005ECED /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSectionDatasource.swift; sourceTree = "<group>"; };
 		4942EA65213D18D80005ECED /* SectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDatasource.swift; sourceTree = "<group>"; };
+		4942EA67213D1A060005ECED /* TableSectionDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSectionDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		4942EA3A213CFA640005ECED /* tables */ = {
 			isa = PBXGroup;
 			children = (
+				4942EA67213D1A060005ECED /* TableSectionDatasource.swift */,
 			);
 			path = tables;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				4942EA3E213CFAAB0005ECED /* CellTypes.swift in Sources */,
 				4942EA4F213D08820005ECED /* CellsFactory.swift in Sources */,
 				4942EA66213D18D80005ECED /* SectionDatasource.swift in Sources */,
+				4942EA68213D1A060005ECED /* TableSectionDatasource.swift in Sources */,
 				4942EA24213CF9A70005ECED /* ViewController.swift in Sources */,
 				4942EA52213D09BE0005ECED /* PhotoCell.swift in Sources */,
 				4942EA64213D18C80005ECED /* CollectionSectionDatasource.swift in Sources */,

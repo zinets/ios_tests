@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoCollection: PhotoScroller!
     var photoDatasource = PhotoScrollerDatasource()
     
+    @IBOutlet weak var favoritesCollection: FavoritesList!
+    var favoritesDatasource 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
