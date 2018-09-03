@@ -40,6 +40,9 @@
 		4942EA08213912190005ECED /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA07213912190005ECED /* PageControl.swift */; };
 		4942EA0A2139359C0005ECED /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA092139359C0005ECED /* Geometry.swift */; };
 		4942EA0C213956DE0005ECED /* OneWayPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0B213956DE0005ECED /* OneWayPageControl.swift */; };
+		4942EA0E2139818F0005ECED /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA0D2139818F0005ECED /* ViewController3.swift */; };
+		4942EA112139872A0005ECED /* SectionDatasource+EndlessScrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA102139872A0005ECED /* SectionDatasource+EndlessScrolling.swift */; };
+		4942EA13213987EB0005ECED /* IntroScrollerDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942EA12213987EB0005ECED /* IntroScrollerDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +94,9 @@
 		4942EA07213912190005ECED /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4942EA092139359C0005ECED /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		4942EA0B213956DE0005ECED /* OneWayPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneWayPageControl.swift; sourceTree = "<group>"; };
+		4942EA0D2139818F0005ECED /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		4942EA102139872A0005ECED /* SectionDatasource+EndlessScrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionDatasource+EndlessScrolling.swift"; sourceTree = "<group>"; };
+		4942EA12213987EB0005ECED /* IntroScrollerDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScrollerDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 				4942E99F2134270F0005ECED /* AppDelegate.swift */,
 				4942E9A12134270F0005ECED /* ViewController.swift */,
 				4942E9FA2137E0590005ECED /* ViewController2.swift */,
+				4942EA0F213982850005ECED /* intro */,
 				4942E9A32134270F0005ECED /* Main.storyboard */,
 				4942E9A6213427100005ECED /* Assets.xcassets */,
 				4942E9A8213427100005ECED /* LaunchScreen.storyboard */,
@@ -158,7 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				4942E9B32134275D0005ECED /* SectionDatasource.swift */,
+				4942EA102139872A0005ECED /* SectionDatasource+EndlessScrolling.swift */,
 				4942E9B5213510E80005ECED /* CollectionSectionDatasource.swift */,
+				4942E9B8213520A30005ECED /* MediaScrollerDatasource.swift */,
 			);
 			path = "base datasource";
 			sourceTree = "<group>";
@@ -167,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				4942E9BA213525A70005ECED /* cells */,
-				4942E9B8213520A30005ECED /* MediaScrollerDatasource.swift */,
 				41756AEB376A67EEA980B30C /* PhotoFromInternetModel.swift */,
 				417560B72161BF7476EEC9A1 /* PhotosLayoutAttributes.swift */,
 			);
@@ -257,6 +265,23 @@
 			path = "page control";
 			sourceTree = "<group>";
 		};
+		4942EA0F213982850005ECED /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				4942EA0D2139818F0005ECED /* ViewController3.swift */,
+				4942EA14213988050005ECED /* datasource */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
+		4942EA14213988050005ECED /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				4942EA12213987EB0005ECED /* IntroScrollerDatasource.swift */,
+			);
+			path = datasource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +359,7 @@
 			files = (
 				4942E9EB21366D620005ECED /* ProgressWithGradient.swift in Sources */,
 				4942E9F32136C09A0005ECED /* UIColor+RGB.swift in Sources */,
+				4942EA0E2139818F0005ECED /* ViewController3.swift in Sources */,
 				4942E9B6213510E80005ECED /* CollectionSectionDatasource.swift in Sources */,
 				4942EA0A2139359C0005ECED /* Geometry.swift in Sources */,
 				4942E9ED21369CDB0005ECED /* GradientView.swift in Sources */,
@@ -351,8 +377,10 @@
 				4942E9B9213520A30005ECED /* MediaScrollerDatasource.swift in Sources */,
 				41756E7E2E6341C92CDD9F93 /* PhotoFromInternetModel.swift in Sources */,
 				4942E9F92137DAD30005ECED /* ThreeDotsActivityIndicator.swift in Sources */,
+				4942EA112139872A0005ECED /* SectionDatasource+EndlessScrolling.swift in Sources */,
 				4942EA0C213956DE0005ECED /* OneWayPageControl.swift in Sources */,
 				4175641E13534A96841701C0 /* PhotosLayoutAttributes.swift in Sources */,
+				4942EA13213987EB0005ECED /* IntroScrollerDatasource.swift in Sources */,
 				4942E9E6213548C50005ECED /* MediaScrollerViewLayout.swift in Sources */,
 				4942E9E82135580E0005ECED /* MediaScrollerView.swift in Sources */,
 			);

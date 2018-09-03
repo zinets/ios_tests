@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         collectionView.autoScroll = false
         collectionView.tapToScroll = true
-        collectionView.endlessScrolling = false
+        collectionView.endlessScrolling = true
         
         testView2.gradientAngle = 0.2
         testView2.progressValue = 0.5
@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 
     @IBAction func fillCollection(_ sender: Any) {
         collectionView.items = items
+        collectionView.autoScroll = true
     }
     
     @IBAction func aspectCnahge(_ sender: UIButton) {
