@@ -13,8 +13,10 @@ class ProfileAboutItemCell: UITableViewCell, DataAwareCell {
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     func fillWithData(_ data: DataSourceItem) {
-        propertyLabel.text = "Marital status"
-        valueLabel.text = "Divorced"
+        if let aboutData = data.payload as? UserInfoAboutItem {
+            propertyLabel.text = aboutData.type
+            valueLabel.text = aboutData.value
+        }
     }
 
 }

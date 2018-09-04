@@ -12,7 +12,9 @@ class ProfileAboutDescriptionItemCell: UITableViewCell, DataAwareCell{
 
     @IBOutlet weak var descriptionLabel: UILabel!
     func fillWithData(_ data: DataSourceItem) {
-        descriptionLabel.text = "I am a 29 years old Shortie (just under 5 foot). Looking for passion and romance, lots of laughs and good conversation. А еще я люблю бухать"
+        if let userInfo = data.payload as? UserInfo {
+            descriptionLabel.text = userInfo.aboutDescription
+        }
     }
 
 }

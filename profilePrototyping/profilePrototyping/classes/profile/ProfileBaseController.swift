@@ -18,12 +18,27 @@ class ProfileBaseController: UIViewController {
 
         var items = [DataSourceItem]()
         
+        let userInfo: UserInfo = UserInfo()
+        userInfo.screenName = "Vovan Padavan"
+        userInfo.age = 29
+        userInfo.location = "Zaporizhzhya, Ukraine"
+        userInfo.aboutDescription = "Чоткий пацан, якого люблять девки шо дньом, шо ноччю"
+        userInfo.about = ["Looking for" : "Man",
+                          "Height": "170 cm",
+                          "Body": "Medium",
+                          "Orientation": "Straight",
+                          "Marital status": "Free",
+                          "Smoke": "No",
+                          "Drink": "Always",
+                          "Children": "Never"]
+        
         
         // buttons
         var item = DataSourceItem(.ProfileAboutButtonsItem)
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutInfoItem)
+        item.payload = userInfo
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutSubtitleItem)
@@ -31,18 +46,19 @@ class ProfileBaseController: UIViewController {
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutDescriptionItem)
+        item.payload = userInfo
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutSubtitleItem)
         item.payload = "Personality"
         items.append(item)
         
-        item = DataSourceItem(.ProfileAboutItem)
-        items.append(item)
-        item = DataSourceItem(.ProfileAboutItem)
-        items.append(item)
-        item = DataSourceItem(.ProfileAboutItem)
-        items.append(item)
+        for (a, b) in userInfo.about {
+            item = DataSourceItem(.ProfileAboutItem)            
+            item.payload = UserInfoAboutItem.init(a, value: b)
+            items.append(item)
+        }
+        
         
         
         profileDatasource.items = items

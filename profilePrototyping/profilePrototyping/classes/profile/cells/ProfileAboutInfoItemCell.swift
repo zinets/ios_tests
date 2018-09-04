@@ -15,10 +15,12 @@ class ProfileAboutInfoItemCell: UITableViewCell, DataAwareCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var onlineIndicatorView: ProfileOnlineIndicatorView!
     func fillWithData(_ data: DataSourceItem) {
-        screenNameLabel.text = "Kurgan Agregat"
-        ageLabel.text = "28"
-        locationLabel.text = "Chernigov, Ukraine"
-        onlineIndicatorView.state = .Online
+        if let userInfo = data.payload as? UserInfo {
+            screenNameLabel.text = userInfo.screenName
+            ageLabel.text = String(userInfo.age)
+            locationLabel.text = userInfo.location
+            onlineIndicatorView.state = userInfo.onlineStatus
+        }
     }
 
 }
