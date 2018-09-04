@@ -72,6 +72,13 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let data = items[indexPath.item]
+        let cellId = CellsFactory.cellIdFor(data.itemType)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DataAwareCell {
+            cell.fillWithData(data)
+            return cell as! UITableViewCell
+        }
+                
+        return tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     }
 }

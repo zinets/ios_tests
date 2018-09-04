@@ -18,3 +18,8 @@ enum CellType: String {
 //    case MessageListItem
 //    case SettingsItem
 }
+
+// ячейка должна уметь показать переданные ей данные
+protocol DataAwareCell {
+    func fillWithData(_ data: DataSourceItem)
+}

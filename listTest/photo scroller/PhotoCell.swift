@@ -9,7 +9,7 @@
 import UIKit
 import TNURLImageView
 
-class PhotoCell: UICollectionViewCell {
+class PhotoCell: UICollectionViewCell, DataAwareCell {
 
     
     @IBOutlet weak var photoView: TNImageView!
@@ -19,7 +19,7 @@ class PhotoCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func fillData(_ data: DataSourceItem) {
+    func fillWithData(_ data: DataSourceItem) {
         photoView.loadImage(fromUrl: data.payload as? String)
     }
 }

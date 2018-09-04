@@ -8,13 +8,13 @@
 
 import UIKit
 
-class IntroCellOther: UICollectionViewCell {
+class IntroCellOther: UICollectionViewCell, DataAwareCell {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var label2: UILabel!
     
-    func fillData(_ data: DataSourceItem) {
+    func fillWithData(_ data: DataSourceItem) {
         let images = [
             "onboardingIllustration1",
             "onboardingIllustration2",

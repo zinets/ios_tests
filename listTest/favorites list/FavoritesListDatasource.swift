@@ -15,14 +15,14 @@ class FavoritesListDatasource: TableSectionDatasource {
     }    
     
     // MARK: cell creation -
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = CellsFactory.cellIdFor(.TestFavoriteItem)
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FavoritesListCell {
-            cell.fillData(items[indexPath.row])
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
+//    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cellId = CellsFactory.cellIdFor(.TestFavoriteItem)
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FavoritesListCell {
+//            cell.fillData(items[indexPath.row])
+//            return cell
+//        }
+//        
+//        return UITableViewCell()
+//    }
 }

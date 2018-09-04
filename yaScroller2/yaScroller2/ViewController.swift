@@ -71,15 +71,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func changeToMin(_ sender: Any) {
-        UIView.animate(withDuration: 0.7) {
+        UIView.animate(withDuration: 2.7) {
             self.testView2.progressValue = 0
         }
     }
     
     @IBAction func changeToMax(_ sender: Any) {
        
-
-        self.testView2.progressValue = 1
+        UIView.animate(withDuration: 0.7) {
+            self.testView2.progressValue = 0.8
+        }
         
     }
     

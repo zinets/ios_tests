@@ -9,7 +9,7 @@
 import UIKit
 import TNURLImageView
 
-class FavoritesListCell: UITableViewCell {
+class FavoritesListCell: UITableViewCell, DataAwareCell {
 
     @IBOutlet weak var userAvatarView: TNImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
@@ -23,7 +23,7 @@ class FavoritesListCell: UITableViewCell {
         super.setSelected(false, animated: false)
     }
     
-    func fillData(_ data: DataSourceItem) {
+    func fillWithData(_ data: DataSourceItem) {
         let payload = data.payload as! UserInfo
         if let avatarUrl = payload.avatarUrl {
             userAvatarView.loadImage(fromUrl: avatarUrl)

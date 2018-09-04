@@ -232,10 +232,33 @@
                                     <action selector="closeCtrl:" destination="xKh-mb-fdn" eventType="touchUpInside" id="dz9-H6-aZG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAt-el-NoB" customClass="SettingsView" customModule="listTest" customModuleProvider="target">
+                                <rect key="frame" x="16" y="77" width="343" height="549"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jb0-TW-w8a">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="549"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92338835816362352" green="1" blue="0.99568217123095848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jb0-TW-w8a" firstAttribute="top" secondItem="hAt-el-NoB" secondAttribute="top" id="0K2-C7-oeG"/>
+                                    <constraint firstAttribute="trailing" secondItem="jb0-TW-w8a" secondAttribute="trailing" id="2x6-4d-W8C"/>
+                                    <constraint firstAttribute="bottom" secondItem="jb0-TW-w8a" secondAttribute="bottom" id="CcV-bP-hST"/>
+                                    <constraint firstItem="jb0-TW-w8a" firstAttribute="leading" secondItem="hAt-el-NoB" secondAttribute="leading" id="jF5-1w-A0W"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="table" destination="jb0-TW-w8a" id="LDm-1a-RKC"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hAt-el-NoB" firstAttribute="top" secondItem="uDu-wC-jxu" secondAttribute="bottom" constant="13" id="Bzl-kg-4bJ"/>
+                            <constraint firstItem="sH6-db-N8t" firstAttribute="trailing" secondItem="hAt-el-NoB" secondAttribute="trailing" constant="16" id="Cyu-dS-Ac8"/>
+                            <constraint firstItem="hAt-el-NoB" firstAttribute="leading" secondItem="sH6-db-N8t" secondAttribute="leading" constant="16" id="FM7-wO-Jiv"/>
                             <constraint firstItem="uDu-wC-jxu" firstAttribute="leading" secondItem="sH6-db-N8t" secondAttribute="leading" constant="16" id="WfL-Ck-Zvn"/>
+                            <constraint firstItem="sH6-db-N8t" firstAttribute="bottom" secondItem="hAt-el-NoB" secondAttribute="bottom" constant="41" id="dfi-zw-aaJ"/>
                             <constraint firstItem="uDu-wC-jxu" firstAttribute="top" secondItem="sH6-db-N8t" secondAttribute="top" id="krb-Wg-FJb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sH6-db-N8t"/>
@@ -243,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IgN-27-VJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="851"/>
+            <point key="canvasLocation" x="845.60000000000002" y="850.52473763118451"/>
         </scene>
     </scenes>
 </document>

@@ -13,22 +13,22 @@ class IntroViewDatasource: CollectionSectionDatasource {
     override var supportedCellTypes: [CellType] {
         return [.TestIntroFirst, .TestIntroOther]
     }
-        
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.item == 0 {
-            let cellId = CellsFactory.cellIdFor(.TestIntroFirst)
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? IntroCellFirst {
-                return cell
-            }
-        } else {
-            let cellId = CellsFactory.cellIdFor(.TestIntroOther)
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? IntroCellOther {
-                cell.fillData(items[indexPath.item])
-                return cell
-            }
-        }
-        
-        return UICollectionViewCell()
-    }
+    
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        if indexPath.item == 0 {
+//            let cellId = CellsFactory.cellIdFor(.TestIntroFirst)
+//            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? IntroCellFirst {
+//                return cell
+//            }
+//        } else {
+//            let cellId = CellsFactory.cellIdFor(.TestIntroOther)
+//            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? IntroCellOther {
+//                cell.fillData(items[indexPath.item])
+//                return cell
+//            }
+//        }
+//        
+//        return UICollectionViewCell()
+//    }
 }

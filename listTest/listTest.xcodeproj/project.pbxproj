@@ -40,6 +40,7 @@
 		49AAC80C213D560E00443F88 /* IntroCellOther.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49AAC80A213D560E00443F88 /* IntroCellOther.xib */; };
 		49AAC80E213D5EB300443F88 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC80D213D5EB300443F88 /* PageControl.swift */; };
 		49AAC812213D75F600443F88 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC811213D75F600443F88 /* SettingsViewController.swift */; };
+		49AAC814213D76E000443F88 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AAC813213D76E000443F88 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +92,7 @@
 		49AAC80A213D560E00443F88 /* IntroCellOther.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCellOther.xib; sourceTree = "<group>"; };
 		49AAC80D213D5EB300443F88 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageControl.swift; path = "../../yaScroller2/yaScroller2/classes/page control/PageControl.swift"; sourceTree = "<group>"; };
 		49AAC811213D75F600443F88 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		49AAC813213D76E000443F88 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		49AAC810213D759700443F88 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				49AAC813213D76E000443F88 /* SettingsView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49AAC807213D55EE00443F88 /* IntroCellFirst.swift in Sources */,
+				49AAC814213D76E000443F88 /* SettingsView.swift in Sources */,
 				4942EA3E213CFAAB0005ECED /* CellTypes.swift in Sources */,
 				49AAC800213D531A00443F88 /* IntroView.swift in Sources */,
 				4942EA4F213D08820005ECED /* CellsFactory.swift in Sources */,

@@ -66,7 +66,14 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let data = items[indexPath.item]
+        let cellId = CellsFactory.cellIdFor(data.itemType)
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? DataAwareCell {
+            cell.fillWithData(data)            
+            return cell as! UICollectionViewCell
+        }
+        
+        return collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
     }
     
 }
