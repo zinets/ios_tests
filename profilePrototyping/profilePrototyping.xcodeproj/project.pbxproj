@@ -12,6 +12,13 @@
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
 		495AB7C3213E91D10022D04E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7C2213E91D10022D04E /* Assets.xcassets */; };
 		495AB7C6213E91D10022D04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7C4213E91D10022D04E /* LaunchScreen.storyboard */; };
+		495AB7D1213E93410022D04E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7D0213E93410022D04E /* Profile.storyboard */; };
+		495AB7D4213E93900022D04E /* SectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D3213E93900022D04E /* SectionDatasource.swift */; };
+		495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D5213E939D0022D04E /* CellTypes.swift */; };
+		495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D7213E93A10022D04E /* CellsFactory.swift */; };
+		495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D9213E93A70022D04E /* DataSourceItem.swift */; };
+		495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */; };
+		495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		495AB7C2213E91D10022D04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495AB7C5213E91D10022D04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495AB7C7213E91D10022D04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495AB7D0213E93410022D04E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		495AB7D3213E93900022D04E /* SectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/SectionDatasource.swift"; sourceTree = "<group>"; };
+		495AB7D5213E939D0022D04E /* CellTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellTypes.swift; path = ../../../../listTest/listTest/collections/CellTypes.swift; sourceTree = "<group>"; };
+		495AB7D7213E93A10022D04E /* CellsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellsFactory.swift; path = ../../../../listTest/listTest/collections/CellsFactory.swift; sourceTree = "<group>"; };
+		495AB7D9213E93A70022D04E /* DataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSourceItem.swift; path = "../../../../listTest/listTest/collections/data sources/DataSourceItem.swift"; sourceTree = "<group>"; };
+		495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/tables/TableSectionDatasource.swift"; sourceTree = "<group>"; };
+		495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/collections/CollectionSectionDatasource.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 		495AB7BA213E91D00022D04E /* profilePrototyping */ = {
 			isa = PBXGroup;
 			children = (
+				495AB7CE213E92F10022D04E /* classes */,
 				495AB7CD213E92540022D04E /* Supporting files */,
 			);
 			path = profilePrototyping;
@@ -70,6 +85,36 @@
 				495AB7C7213E91D10022D04E /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		495AB7CE213E92F10022D04E /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7D2213E937D0022D04E /* data sources */,
+				495AB7CF213E93230022D04E /* profile */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		495AB7CF213E93230022D04E /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7D0213E93410022D04E /* Profile.storyboard */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		495AB7D2213E937D0022D04E /* data sources */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7D5213E939D0022D04E /* CellTypes.swift */,
+				495AB7D7213E93A10022D04E /* CellsFactory.swift */,
+				495AB7D9213E93A70022D04E /* DataSourceItem.swift */,
+				495AB7D3213E93900022D04E /* SectionDatasource.swift */,
+				495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */,
+				495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */,
+			);
+			path = "data sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +177,7 @@
 			files = (
 				495AB7C6213E91D10022D04E /* LaunchScreen.storyboard in Resources */,
 				495AB7C3213E91D10022D04E /* Assets.xcassets in Resources */,
+				495AB7D1213E93410022D04E /* Profile.storyboard in Resources */,
 				495AB7C1213E91D00022D04E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,8 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */,
+				495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */,
+				495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */,
 				495AB7BE213E91D00022D04E /* ViewController.swift in Sources */,
 				495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */,
+				495AB7D4213E93900022D04E /* SectionDatasource.swift in Sources */,
+				495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */,
+				495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
