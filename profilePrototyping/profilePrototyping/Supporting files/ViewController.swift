@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showProfile(_ sender: Any) {
+        if let ctrl = UIStoryboard.init(name: "Profile", bundle: nil).instantiateInitialViewController() {
+            self.show(ctrl, sender: nil)
+        }
+        
     }
     
 }

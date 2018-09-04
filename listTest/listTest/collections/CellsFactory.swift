@@ -14,8 +14,13 @@ class CellsFactory {
 //        }
 //    }
     
-    static func cellNibFor(_ cellType: CellType) -> String {
+    // исключение для ячеек, которые описываются в сториборде; т.е. если ячейка в сториборде - не вертаем имя ниб-а, ячейка уже зарегистрирована
+    static func cellNibFor(_ cellType: CellType) -> String? {
         switch cellType {
+        case .ProfileAboutButtonsItem, .ProfileAboutInfoItem, .ProfileAboutSubtitleItem,
+             .ProfileAboutDescriptionItem, .ProfileAboutItem:
+            return nil
+        
         default:
             return cellType.rawValue
         }

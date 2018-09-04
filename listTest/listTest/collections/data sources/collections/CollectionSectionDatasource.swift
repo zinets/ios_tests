@@ -13,8 +13,9 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
                 
                 for cellType in supportedCellTypes {
                     let cellId = CellsFactory.cellIdFor(cellType)
-                    let cellNib = CellsFactory.cellNibFor(cellType)
-                    collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
+                    if let cellNib = CellsFactory.cellNibFor(cellType) {
+                        collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
+                    }
                 }
             }
         }

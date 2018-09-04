@@ -19,6 +19,13 @@
 		495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D9213E93A70022D04E /* DataSourceItem.swift */; };
 		495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */; };
 		495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */; };
+		495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DF213E94D10022D04E /* ProfileBaseController.swift */; };
+		495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7E1213E96520022D04E /* ProfileDatasource.swift */; };
+		495AB7EB213EAC800022D04E /* ProfileAboutButtonsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */; };
+		495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */; };
+		495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */; };
+		495AB7F1213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */; };
+		495AB7F3213EB20A0022D04E /* ProfileAboutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F2213EB20A0022D04E /* ProfileAboutItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +43,13 @@
 		495AB7D9213E93A70022D04E /* DataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSourceItem.swift; path = "../../../../listTest/listTest/collections/data sources/DataSourceItem.swift"; sourceTree = "<group>"; };
 		495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/tables/TableSectionDatasource.swift"; sourceTree = "<group>"; };
 		495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/collections/CollectionSectionDatasource.swift"; sourceTree = "<group>"; };
+		495AB7DF213E94D10022D04E /* ProfileBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBaseController.swift; sourceTree = "<group>"; };
+		495AB7E1213E96520022D04E /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
+		495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutButtonsItemCell.swift; sourceTree = "<group>"; };
+		495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutInfoItemCell.swift; sourceTree = "<group>"; };
+		495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutSubtitleItemCell.swift; sourceTree = "<group>"; };
+		495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutDescriptionItemCell.swift; sourceTree = "<group>"; };
+		495AB7F2213EB20A0022D04E /* ProfileAboutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +113,10 @@
 		495AB7CF213E93230022D04E /* profile */ = {
 			isa = PBXGroup;
 			children = (
+				495AB7E3213E976C0022D04E /* cells */,
 				495AB7D0213E93410022D04E /* Profile.storyboard */,
+				495AB7DF213E94D10022D04E /* ProfileBaseController.swift */,
+				495AB7E1213E96520022D04E /* ProfileDatasource.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -115,6 +132,18 @@
 				495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */,
 			);
 			path = "data sources";
+			sourceTree = "<group>";
+		};
+		495AB7E3213E976C0022D04E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */,
+				495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */,
+				495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */,
+				495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */,
+				495AB7F2213EB20A0022D04E /* ProfileAboutItemCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,14 +218,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */,
 				495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */,
 				495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */,
 				495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */,
+				495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */,
 				495AB7BE213E91D00022D04E /* ViewController.swift in Sources */,
 				495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */,
+				495AB7EB213EAC800022D04E /* ProfileAboutButtonsItemCell.swift in Sources */,
 				495AB7D4213E93900022D04E /* SectionDatasource.swift in Sources */,
+				495AB7F3213EB20A0022D04E /* ProfileAboutItemCell.swift in Sources */,
+				495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */,
+				495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */,
 				495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */,
 				495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */,
+				495AB7F1213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

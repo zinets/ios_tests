@@ -13,9 +13,9 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
                 
                 for cellType in supportedCellTypes {
                     let cellId = CellsFactory.cellIdFor(cellType)
-                    let cellNib = CellsFactory.cellNibFor(cellType)
-                    // TODO: регистрация из сториборда?
-                    table.register(UINib(nibName: cellNib, bundle: nil), forCellReuseIdentifier: cellId)
+                    if let cellNib = CellsFactory.cellNibFor(cellType) {
+                        table.register(UINib(nibName: cellNib, bundle: nil), forCellReuseIdentifier: cellId)
+                    }
                 }
             }
         }
