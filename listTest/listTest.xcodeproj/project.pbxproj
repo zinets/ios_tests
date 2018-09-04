@@ -60,8 +60,8 @@
 
 /* Begin PBXFileReference section */
 		4936711E213D24E200314382 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		49367128213D2BCD00314382 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MD5.framework; path = Frameworks/MD5.framework; sourceTree = "<group>"; };
-		49367129213D2BCD00314382 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNURLImageView.framework; path = Frameworks/TNURLImageView.framework; sourceTree = "<group>"; };
+		49367128213D2BCD00314382 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
+		49367129213D2BCD00314382 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
 		4942EA1E213CF9A70005ECED /* listTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = listTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4942EA21213CF9A70005ECED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4942EA23213CF9A70005ECED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,15 +111,15 @@
 		49367120213D2B8600314382 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49367128213D2BCD00314382 /* MD5.framework */,
+				49367129213D2BCD00314382 /* TNURLImageView.framework */,
 			);
-			name = Frameworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		4942EA15213CF9A70005ECED = {
 			isa = PBXGroup;
 			children = (
-				49367128213D2BCD00314382 /* MD5.framework */,
-				49367129213D2BCD00314382 /* TNURLImageView.framework */,
 				4942EA33213CF9E90005ECED /* Support files */,
 				4942EA20213CF9A70005ECED /* listTest */,
 				4942EA44213D01640005ECED /* photo scroller */,
