@@ -8,17 +8,12 @@
 
 import UIKit
 
-class ProfileAboutSubtitleItemCell: UITableViewCell {
+class ProfileAboutSubtitleItemCell: UITableViewCell, DataAwareCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var titleLabel: UILabel!
+    func fillWithData(_ data: DataSourceItem) {
+        if let titleText = data.payload as? String {
+            titleLabel.text = titleText
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

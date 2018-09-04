@@ -27,12 +27,14 @@ class ProfileBaseController: UIViewController {
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutSubtitleItem)
+        item.payload = "About"
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutDescriptionItem)
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutSubtitleItem)
+        item.payload = "Personality"
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutItem)
