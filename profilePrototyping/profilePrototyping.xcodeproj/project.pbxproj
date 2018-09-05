@@ -21,7 +21,7 @@
 		495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */; };
 		495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DF213E94D10022D04E /* ProfileBaseController.swift */; };
 		495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7E1213E96520022D04E /* ProfileDatasource.swift */; };
-		495AB7EB213EAC800022D04E /* ProfileAboutButtonsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */; };
+		495AB7EB213EAC800022D04E /* ProfileButtonsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EA213EAC800022D04E /* ProfileButtonsItemCell.swift */; };
 		495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */; };
 		495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */; };
 		495AB7F1213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */; };
@@ -48,7 +48,7 @@
 		495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/collections/CollectionSectionDatasource.swift"; sourceTree = "<group>"; };
 		495AB7DF213E94D10022D04E /* ProfileBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBaseController.swift; sourceTree = "<group>"; };
 		495AB7E1213E96520022D04E /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
-		495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutButtonsItemCell.swift; sourceTree = "<group>"; };
+		495AB7EA213EAC800022D04E /* ProfileButtonsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsItemCell.swift; sourceTree = "<group>"; };
 		495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutInfoItemCell.swift; sourceTree = "<group>"; };
 		495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutSubtitleItemCell.swift; sourceTree = "<group>"; };
 		495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutDescriptionItemCell.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		495AB7E3213E976C0022D04E /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				495AB7EA213EAC800022D04E /* ProfileAboutButtonsItemCell.swift */,
+				495AB7EA213EAC800022D04E /* ProfileButtonsItemCell.swift */,
 				495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */,
 				495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */,
 				495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */,
@@ -244,7 +244,7 @@
 				495AB7F8213EBA5C0022D04E /* UIColor+RGB.swift in Sources */,
 				495AB7BE213E91D00022D04E /* ViewController.swift in Sources */,
 				495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */,
-				495AB7EB213EAC800022D04E /* ProfileAboutButtonsItemCell.swift in Sources */,
+				495AB7EB213EAC800022D04E /* ProfileButtonsItemCell.swift in Sources */,
 				495AB7D4213E93900022D04E /* SectionDatasource.swift in Sources */,
 				495AB7F3213EB20A0022D04E /* ProfileAboutItemCell.swift in Sources */,
 				495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */,

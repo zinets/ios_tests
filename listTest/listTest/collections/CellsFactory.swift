@@ -17,7 +17,7 @@ class CellsFactory {
     // исключение для ячеек, которые описываются в сториборде; т.е. если ячейка в сториборде - не вертаем имя ниб-а, ячейка уже зарегистрирована
     static func cellNibFor(_ cellType: CellType) -> String? {
         switch cellType {
-        case .ProfileAboutButtonsItem, .ProfileAboutInfoItem, .ProfileAboutSubtitleItem,
+        case .ProfileButtonsItem, .ProfileAboutInfoItem, .ProfileAboutSubtitleItem,
              .ProfileAboutDescriptionItem, .ProfileAboutItem:
             return nil
         

@@ -11,7 +11,7 @@ import UIKit
 class ProfileDatasource: TableSectionDatasource {
 
     override var supportedCellTypes: [CellType] {
-        return [.ProfileAboutButtonsItem, .ProfileAboutInfoItem, .ProfileAboutSubtitleItem, .ProfileAboutDescriptionItem, .ProfileAboutItem]
+        return [.ProfileButtonsItem, .ProfileAboutInfoItem, .ProfileAboutSubtitleItem, .ProfileAboutDescriptionItem, .ProfileAboutItem]
     }
     
 }

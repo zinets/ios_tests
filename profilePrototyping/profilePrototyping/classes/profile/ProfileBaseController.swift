@@ -34,7 +34,7 @@ class ProfileBaseController: UIViewController {
         
         
         // buttons
-        var item = DataSourceItem(.ProfileAboutButtonsItem)
+        var item = DataSourceItem(.ProfileButtonsItem)
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutInfoItem)

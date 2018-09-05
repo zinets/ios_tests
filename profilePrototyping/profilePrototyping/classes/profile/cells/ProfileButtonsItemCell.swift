@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileAboutButtonsItemCell: UITableViewCell, DataAwareCell {
+class ProfileButtonsItemCell: UITableViewCell, DataAwareCell {
     
     func fillWithData(_ data: DataSourceItem) {
         
