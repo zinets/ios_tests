@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ProfileBaseController: UIViewController {
+class ProfileBaseController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let profileDatasource = ProfileDatasource()
     
+    @IBOutlet weak var shadeView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shadeView.alpha = 0
 
         var items = [DataSourceItem]()
         
@@ -68,5 +73,14 @@ class ProfileBaseController: UIViewController {
         profileDatasource.items = items
         profileDatasource.tableView = self.tableView
 
+    }
+    
+    // MARK: table delegate -
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y / 420
+        
+        if offset > 0 {
+            shadeView.alpha = offset
+        }
     }
 }
