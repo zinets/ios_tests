@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileOwnPhotoItemCell: UITableViewCell, DataAwareCell {
+class ProfileOwnPhotoItemCell: ProfileItemCell {
     
     @IBOutlet weak var userAvatarView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -20,7 +20,7 @@ class ProfileOwnPhotoItemCell: UITableViewCell, DataAwareCell {
         UIColor(rgb: 0x989cfe),
     ]
     
-    func fillWithData(_ data: DataSourceItem) {
+    override func fillWithData(_ data: DataSourceItem) {
         if let userInfo = data.payload as? UserInfo {
             if userInfo.photos.isEmpty {
                 userNameLabel.isHidden = false

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ProfileButtonsItemCell: UITableViewCell, DataAwareCell {
+class ProfileButtonsItemCell: ProfileItemCell {
     
-    func fillWithData(_ data: DataSourceItem) {
+    override func fillWithData(_ data: DataSourceItem) {
         
     }
 }

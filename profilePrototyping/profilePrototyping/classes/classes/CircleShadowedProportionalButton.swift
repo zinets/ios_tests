@@ -28,8 +28,8 @@ class CircleShadowedProportionalButton: UIButton {
             layer.path = UIBezierPath(ovalIn: bounds).cgPath
         } else {
             let layer = CAShapeLayer()
-            layer.fillColor = UIColor(rgb: 0x7c30fe).cgColor
-            layer.shadowColor = UIColor(rgb: 0x7c30fe).cgColor
+            layer.fillColor = bgColor.cgColor
+            layer.shadowColor = layer.fillColor
             layer.shadowRadius = 16
             layer.shadowOpacity = 0x4c / 0xff
             layer.shadowOffset = CGSize(width: 0, height: 3)

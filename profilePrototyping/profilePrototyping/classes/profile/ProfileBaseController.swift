@@ -35,7 +35,7 @@ class ProfileBaseController: UIViewController {
         
         var item = DataSourceItem(.ProfileOwnPhotoItem)
         item.payload = userInfo
-        items.append(item)
+//        items.append(item)
         
         // buttons
         item = DataSourceItem(.ProfileButtonsItem)
