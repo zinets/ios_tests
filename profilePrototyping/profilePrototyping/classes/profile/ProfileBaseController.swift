@@ -31,8 +31,10 @@ class ProfileBaseController: UIViewController {
                           "Smoke": "No",
                           "Drink": "Always",
                           "Children": "Never"]
+        userInfo.photos = ["userPhoto1.jpg"]
         
         var item = DataSourceItem(.ProfileOwnPhotoItem)
+        item.payload = userInfo
         items.append(item)
         
         // buttons

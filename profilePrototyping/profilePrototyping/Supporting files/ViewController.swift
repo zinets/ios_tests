@@ -22,5 +22,10 @@ class ViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var testView: UIView!
+    
+    @IBAction func testAnimation(_ sender: UIButton) {
+        
+    }
 }
 
