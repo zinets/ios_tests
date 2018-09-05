@@ -29,6 +29,8 @@
 		495AB7F6213EB8D80022D04E /* ProfileOnlineIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F5213EB8D80022D04E /* ProfileOnlineIndicatorView.swift */; };
 		495AB7F8213EBA5C0022D04E /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */; };
 		495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F9213EC1BB0022D04E /* UserInfo.swift */; };
+		495AB7FC213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */; };
+		495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		495AB7F5213EB8D80022D04E /* ProfileOnlineIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnlineIndicatorView.swift; sourceTree = "<group>"; };
 		495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+RGB.swift"; path = "../../../../yaScroller2/yaScroller2/classes/extensions/UIColor+RGB.swift"; sourceTree = "<group>"; };
 		495AB7F9213EC1BB0022D04E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOwnPhotoItemCell.swift; sourceTree = "<group>"; };
+		495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadowedProportionalButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +124,8 @@
 		495AB7CF213E93230022D04E /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				495AB7E3213E976C0022D04E /* cells */,
 				495AB7D0213E93410022D04E /* Profile.storyboard */,
+				495AB7E3213E976C0022D04E /* cells */,
 				495AB7DF213E94D10022D04E /* ProfileBaseController.swift */,
 				495AB7E1213E96520022D04E /* ProfileDatasource.swift */,
 				495AB7F9213EC1BB0022D04E /* UserInfo.swift */,
@@ -145,6 +149,7 @@
 		495AB7E3213E976C0022D04E /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */,
 				495AB7EA213EAC800022D04E /* ProfileButtonsItemCell.swift */,
 				495AB7EC213EAF520022D04E /* ProfileAboutInfoItemCell.swift */,
 				495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */,
@@ -159,6 +164,7 @@
 			children = (
 				495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */,
 				495AB7F5213EB8D80022D04E /* ProfileOnlineIndicatorView.swift */,
+				495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */,
 				495AB7F6213EB8D80022D04E /* ProfileOnlineIndicatorView.swift in Sources */,
 				495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */,
+				495AB7FC213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift in Sources */,
 				495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */,
 				495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */,
 				495AB7F8213EBA5C0022D04E /* UIColor+RGB.swift in Sources */,
@@ -249,6 +256,7 @@
 				495AB7F3213EB20A0022D04E /* ProfileAboutItemCell.swift in Sources */,
 				495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */,
 				495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */,
+				495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */,
 				495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */,
 				495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */,
 				495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */,

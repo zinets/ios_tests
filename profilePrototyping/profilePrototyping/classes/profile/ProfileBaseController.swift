@@ -32,9 +32,11 @@ class ProfileBaseController: UIViewController {
                           "Drink": "Always",
                           "Children": "Never"]
         
+        var item = DataSourceItem(.ProfileOwnPhotoItem)
+        items.append(item)
         
         // buttons
-        var item = DataSourceItem(.ProfileButtonsItem)
+        item = DataSourceItem(.ProfileButtonsItem)
         items.append(item)
         
         item = DataSourceItem(.ProfileAboutInfoItem)

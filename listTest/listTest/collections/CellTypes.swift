@@ -8,13 +8,13 @@ import Foundation
 enum CellType: String {
     // Profile
 //    case ProfileAboutPhotosItem - хз, не уверен еще, как будет сделан верхний блок профиля
-    case ProfileOwnPhoto            // верхнее фото в своем профиле
-    case ProfileButtonsItem    // первый блок в чужом профиле, скошенный + кнопки
+    case ProfileOwnPhotoItem        // верхнее фото в своем профиле
+    case ProfileButtonsItem         // первый блок в чужом профиле, скошенный + кнопки
     case ProfileAboutInfoItem       // блок скриннейм+возраст+локация
     case ProfileAboutSubtitleItem   // подзаголовки about, personality etc
     case ProfileAboutDescriptionItem // блок с текстом "обамне"
     case ProfileAboutItem           // значение из about - height, marital status
-    case ProfilePhotosListItem     // блок в конце профиля, если фото > 1
+    case ProfilePhotosListItem      // блок в конце профиля, если фото > 1
 }
 
 // ячейка должна уметь показать переданные ей данные
