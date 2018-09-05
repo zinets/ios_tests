@@ -19,7 +19,7 @@ class ProfileBaseController: UIViewController {
         var items = [DataSourceItem]()
         
         let userInfo: UserInfo = UserInfo()
-        userInfo.screenName = "Vovan Padavan"
+        userInfo.screenName = "QVovan Padavan"
         userInfo.age = 29
         userInfo.location = "Zaporizhzhya, Ukraine"
         userInfo.aboutDescription = "Чоткий пацан, якого люблять девки шо дньом, шо ноччю"
@@ -31,7 +31,7 @@ class ProfileBaseController: UIViewController {
                           "Smoke": "No",
                           "Drink": "Always",
                           "Children": "Never"]
-        userInfo.photos = ["userPhoto1.jpg"]
+//        userInfo.photos = ["userPhoto1.jpg"]
         
         var item = DataSourceItem(.ProfileOwnPhotoItem)
         item.payload = userInfo
