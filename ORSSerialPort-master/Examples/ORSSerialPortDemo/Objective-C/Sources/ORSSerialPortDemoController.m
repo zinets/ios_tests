@@ -66,6 +66,11 @@
 
 #pragma mark - Actions
 
+- (IBAction)testTest:(id)sender {
+
+
+}
+
 - (IBAction)send:(id)sender {
     NSDate *d = [NSDate date];
     NSTimeZone *tz = [NSTimeZone localTimeZone];
@@ -97,8 +102,13 @@
 {
 	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if ([string length] == 0) return;
-	[self.receivedDataTextView.textStorage.mutableString appendString:string];
-	[self.receivedDataTextView setNeedsDisplay:YES];
+    
+    if ([string isEqualToString:@"$screen.On"]) {
+        NSLog(@"show screensaver!");
+    } else {
+        [self.receivedDataTextView.textStorage.mutableString appendString:string];
+        [self.receivedDataTextView setNeedsDisplay:YES];
+    }
 }
 
 - (void)serialPortWasRemovedFromSystem:(ORSSerialPort *)serialPort;
