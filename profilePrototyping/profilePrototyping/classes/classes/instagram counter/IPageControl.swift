@@ -22,7 +22,7 @@ class IPageControl: UIView {
     
     private var scrollerView: UIScrollView = {
         let scroller = UIScrollView()
-        scroller.backgroundColor = UIColor.clear
+        scroller.backgroundColor = UIColor.brown
         scroller.isUserInteractionEnabled = false
         scroller.showsVerticalScrollIndicator = false
         return scroller

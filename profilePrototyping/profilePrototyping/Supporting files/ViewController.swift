@@ -18,8 +18,8 @@ class ViewController: UIViewController, IPageControlDatasource {
 //        instaCtrl.backgroundColor = UIColor.brown
 //        view.addSubview(instaCtrl)
         instaCtrl.dataSource = self
-        instaCtrl.displayCount = 5
-        instaCtrl.numberOfPages = 8
+        instaCtrl.displayCount = 6
+        instaCtrl.numberOfPages = 10
         instaCtrl.currentPage = 0
     }
     
