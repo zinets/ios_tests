@@ -19,7 +19,7 @@ class ViewController: UIViewController, IPageControlDatasource {
 //        view.addSubview(instaCtrl)
         instaCtrl.dataSource = self
         instaCtrl.displayCount = 5
-        instaCtrl.numberOfPages = 5
+        instaCtrl.numberOfPages = 8
         instaCtrl.currentPage = 0
     }
     

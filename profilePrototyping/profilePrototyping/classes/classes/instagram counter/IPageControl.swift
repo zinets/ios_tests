@@ -14,7 +14,11 @@ protocol IPageControlDatasource {
 
 class IPageControl: UIView {
     
-    var dataSource: IPageControlDatasource?
+    var dataSource: IPageControlDatasource? {
+        didSet {
+            update()
+        }
+    }
     
     private var scrollerView: UIScrollView = {
         let scroller = UIScrollView()
@@ -127,12 +131,12 @@ class IPageControl: UIView {
             
             if item.index == currentPage {
                 item.state = .active
-            } else if !canScroll {
-                item.state = .normal
             } else if item.index < 0 {
                 item.state = .none
             } else if item.index > numberOfPages - 1 {
                 item.state = .none
+            } else if !canScroll {
+                item.state = .normal
             } else if item.frame.maxX <= scrollerView.contentOffset.x {
                 item.state = .none
             } else if item.frame.minX >= scrollerView.contentOffset.x + scrollerView.bounds.size.width {
@@ -177,6 +181,8 @@ class IPageControl: UIView {
             } else {
                 scrollerView.contentInset = UIEdgeInsets.zero
             }
+            
+            setCurrentPage(currentPage, animated: false)
         }
     }
     
