@@ -8,12 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, IPageControlDatasource {
+    @IBOutlet weak var instaCtrl: IPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+//        let instaCtrl = InstagramPageControl(frame: CGRect(x: 50, y: 100, width: 50, height: 10))
+//        instaCtrl.backgroundColor = UIColor.brown
+//        view.addSubview(instaCtrl)
+        instaCtrl.dataSource = self
+        instaCtrl.displayCount = 5
+        instaCtrl.numberOfPages = 5
+        instaCtrl.currentPage = 0
     }
+    
+    @IBAction func decInstaCounter(_ sender: Any) {
+        let index = instaCtrl.currentPage - 1
+        instaCtrl.currentPage = index
+    }
+    
+    @IBAction func addInstaCounter(_ sender: Any) {
+        let index = instaCtrl.currentPage + 1
+        instaCtrl.currentPage = index
+    }    
     
     @IBAction func showProfile(_ sender: Any) {
         if let ctrl = UIStoryboard.init(name: "Profile", bundle: nil).instantiateInitialViewController() {
@@ -26,6 +44,11 @@ class ViewController: UIViewController {
     
     @IBAction func testAnimation(_ sender: UIButton) {
         
+    }
+    
+    func pageControl(_ sender: IPageControl, viewForIndex: Int) -> IPageControlItem {
+        let item = IPageControlDotItem(8, dotSize: 6, newIndex: viewForIndex)
+        return item
     }
 }
 

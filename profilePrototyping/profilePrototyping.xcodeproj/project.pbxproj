@@ -33,6 +33,8 @@
 		495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */; };
 		49823B56213FEF5E001394E6 /* ProfileItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B55213FEF5E001394E6 /* ProfileItemCell.swift */; };
 		49823B5821400C73001394E6 /* ProfileButtonsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */; };
+		49823B5B2140F48F001394E6 /* IPageControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5A2140F48F001394E6 /* IPageControlItem.swift */; };
+		49823B5D2141028F001394E6 /* IPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5C2141028F001394E6 /* IPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadowedProportionalButton.swift; sourceTree = "<group>"; };
 		49823B55213FEF5E001394E6 /* ProfileItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemCell.swift; sourceTree = "<group>"; };
 		49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsPanel.swift; sourceTree = "<group>"; };
+		49823B5A2140F48F001394E6 /* IPageControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControlItem.swift; sourceTree = "<group>"; };
+		49823B5C2141028F001394E6 /* IPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,12 +171,22 @@
 		495AB7F4213EB8B30022D04E /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				49823B5921401B13001394E6 /* instagram counter */,
 				495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */,
 				495AB7F5213EB8D80022D04E /* ProfileOnlineIndicatorView.swift */,
 				495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */,
 				49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */,
 			);
 			path = classes;
+			sourceTree = "<group>";
+		};
+		49823B5921401B13001394E6 /* instagram counter */ = {
+			isa = PBXGroup;
+			children = (
+				49823B5A2140F48F001394E6 /* IPageControlItem.swift */,
+				49823B5C2141028F001394E6 /* IPageControl.swift */,
+			);
+			path = "instagram counter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */,
+				49823B5D2141028F001394E6 /* IPageControl.swift in Sources */,
 				495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */,
 				495AB7F6213EB8D80022D04E /* ProfileOnlineIndicatorView.swift in Sources */,
 				495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */,
@@ -255,6 +270,7 @@
 				495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */,
 				495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */,
 				495AB7F8213EBA5C0022D04E /* UIColor+RGB.swift in Sources */,
+				49823B5B2140F48F001394E6 /* IPageControlItem.swift in Sources */,
 				495AB7BE213E91D00022D04E /* ViewController.swift in Sources */,
 				495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */,
 				49823B56213FEF5E001394E6 /* ProfileItemCell.swift in Sources */,
