@@ -10,7 +10,7 @@ import UIKit
 
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class ProfilePhotoScrollerView: CollectionBasedScrollerView {
-    override func layoutForCollection() -> UICollectionViewFlowLayout {
+    override func layoutForCollection() -> UICollectionViewLayout {
         return PhotoScrollerViewLayout()
     }
     

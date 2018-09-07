@@ -22,6 +22,8 @@ class CellsFactory {
             return nil
         case .ProfileTopPhotoItem: // ячейка для фото использует xib с таким именем
             return "ProfilePhotoCell"
+        case .ProfilePhotosListItem:
+            return "SmallPhotoScrollerCell"
         default:
             return cellType.rawValue
         }

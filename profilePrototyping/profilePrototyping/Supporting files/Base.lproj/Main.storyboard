@@ -54,6 +54,10 @@
                                     <constraint firstAttribute="width" constant="109" id="vvL-RJ-6bp"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A23-fE-kvC" customClass="SmallPhotosScroller" customModule="profilePrototyping" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="395" width="375" height="197"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -63,8 +67,12 @@
                             <constraint firstItem="Gal-nm-faF" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" symbolic="YES" id="XK2-tc-168"/>
                             <constraint firstItem="Gal-nm-faF" firstAttribute="leading" secondItem="13p-zB-ptP" secondAttribute="leading" id="Xd3-3r-9vV"/>
                             <constraint firstItem="ckv-D7-WIq" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" id="bOY-xw-4yY"/>
+                            <constraint firstItem="A23-fE-kvC" firstAttribute="top" secondItem="Gal-nm-faF" secondAttribute="bottom" constant="8" id="dwG-hE-2C4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ckv-D7-WIq" secondAttribute="trailing" constant="73" id="h81-zQ-Hrd"/>
                             <constraint firstAttribute="bottom" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="318" id="nY9-n9-anb"/>
+                            <constraint firstItem="A23-fE-kvC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rMC-5k-H6o"/>
+                            <constraint firstItem="A23-fE-kvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s1F-7e-liL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A23-fE-kvC" secondAttribute="bottom" constant="75" id="wEw-35-Uhc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13p-zB-ptP" secondAttribute="trailing" constant="73" id="wHq-Cd-mPW"/>
                             <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-266.5" id="zni-gr-hMs"/>
                         </constraints>
@@ -72,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="profilePhotoScroller" destination="13p-zB-ptP" id="z3v-08-mXK"/>
+                        <outlet property="smallScrollerView" destination="A23-fE-kvC" id="Muu-iG-PH6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

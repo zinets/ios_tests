@@ -11,7 +11,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     
     // MARK: must be overrided -
     
-    func layoutForCollection() -> UICollectionViewFlowLayout {
+    func layoutForCollection() -> UICollectionViewLayout {
         return UICollectionViewFlowLayout()
     }
     
@@ -62,18 +62,20 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     private lazy var internalDatasource = datasourceForCollection()
     lazy var collectionView: UICollectionView = {
         // раскладка для скролера - простой горизонтальный скроллер с ячейкой на весь контрол
-        var layout = layoutForCollection()
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.sectionInset = .zero
-        
-        var _collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        _collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        _collectionView.backgroundColor = UIColor.white
-        _collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-        _collectionView.delegate = self
-        
-        return _collectionView
+        if let layout = layoutForCollection() as? UICollectionViewFlowLayout {
+            layout.minimumLineSpacing = 0
+            layout.minimumInteritemSpacing = 0
+            layout.sectionInset = .zero
+            
+            var _collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
+            _collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            _collectionView.backgroundColor = UIColor.white
+            _collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+            _collectionView.delegate = self
+            
+            return _collectionView
+        }
+        return UICollectionView()
     }()
     
     // MARK: scrolling -

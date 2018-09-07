@@ -61,6 +61,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
     // MARK: profile photo test -
     
     @IBOutlet weak var profilePhotoScroller: ProfilePhotoScrollerView!
+    @IBOutlet weak var smallScrollerView: SmallPhotosScroller!
     
     @IBAction func reloadPhotos(_ sender: Any) {
         var photos = [DataSourceItem]()
@@ -78,6 +79,16 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         photos.append(photoItem)
         
         profilePhotoScroller.items = photos
+        
+        var smallPhotos = [DataSourceItem]()
+        for item in photos {
+            let smallItem = DataSourceItem(CellType.ProfilePhotosListItem)
+            smallItem.payload = item.payload
+            
+            smallPhotos.append(smallItem)
+        }
+        
+        smallScrollerView.items = smallPhotos
     }
     
     
