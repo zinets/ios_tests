@@ -18,115 +18,82 @@ enum ItemState {
 
 /// это "контрол", который используется в "пейджконтроле-как-у-инстаграма" для показа точечек; т.о. можно разноображивать дизайн как угодно (в датасорсе пейджера запрашивается вью для индекса и в том месте можно возвращать разные по дизайну варианты "точечки" - например "+" для страницы загрузки или |> для видео)
 class IPageControlItem: UIView {
-
-    fileprivate var itemSize: CGFloat = 0
-    fileprivate var dotSize: CGFloat = 0
     
-    fileprivate var dotView: UIView?
+    static var mediumSizeRatio: CGFloat = 0.7
     
-    var index: Int = 0
+    static var smallSizeRatio: CGFloat = 0.5
+    
+    var index: Int
+    
+    var dotColor = UIColor.lightGray {
+        didSet {
+            dotView.backgroundColor = dotColor
+        }
+    }
+    
     var state: ItemState = .normal {
         didSet {
-            self.updateDotSize(state)
+            updateDotSize(state: state)
         }
     }
-    var animationDuration: TimeInterval = 0.25
     
-    init(_ newItemSize: CGFloat, dotSize: CGFloat, newIndex: Int) {
+    var animateDuration: TimeInterval = 0.3
+    
+    init(itemSize: CGFloat, dotSize: CGFloat, index: Int) {
         
-        let x = newItemSize * CGFloat(newIndex)
-        let frame = CGRect(x: x, y: 0, width: newItemSize, height: newItemSize)
+        self.itemSize = itemSize
+        self.dotSize = dotSize
+        self.index = index
+        
+        let x = itemSize * CGFloat(index)
+        let frame = CGRect(x: x, y: 0, width: itemSize, height: itemSize)
+        
         super.init(frame: frame)
         
-        self.state = .normal
-        self.itemSize = newItemSize
-        self.dotSize = dotSize
-        self.index = newIndex
+        backgroundColor = UIColor.clear
         
-        self.backgroundColor = UIColor.clear
+        dotView.frame.size = CGSize(width: dotSize, height: dotSize)
+        dotView.center = CGPoint(x: itemSize/2, y: itemSize/2)
+        dotView.backgroundColor = dotColor
+        dotView.layer.cornerRadius = dotSize/2
+        dotView.layer.masksToBounds = true
+        
+        addSubview(dotView)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+        fatalError("init(coder:) has not been implemented")
+    }    
     
-    func updateDotSize(_ state: ItemState) {
+    // MARK: private
+    private let dotView = UIView()
+    
+    private let itemSize: CGFloat
+    
+    private let dotSize: CGFloat
+    
+    private func updateDotSize(state: ItemState) {
         
-    }
-    
-    class func dotMarkView(_ dotSize: CGFloat) -> UIView {
-        let dot2 = UIView(frame: CGRect(x: 0, y: 0, width: dotSize, height: dotSize))
-        dot2.backgroundColor = UIColor.clear
-        dot2.layer.borderColor = UIColor.white.cgColor
-        dot2.layer.borderWidth = 1;
+        var _size: CGSize
         
-        return dot2
-    }
-}
-
-class IPageControlDotItem: IPageControlItem {
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override init(_ newItemSize: CGFloat, dotSize: CGFloat, newIndex: Int) {
-        super.init(newItemSize, dotSize: dotSize, newIndex: newIndex)
-        
-        dotView = IPageControlItem.dotMarkView(dotSize)
-        dotView!.center = CGPoint(x: newItemSize / 2, y: newItemSize / 2)
-        dotView!.layer.cornerRadius = dotSize / 2
-        dotView!.layer.masksToBounds = true
-        
-        self.addSubview(dotView!)
-    }
-    
-    override func updateDotSize(_ state: ItemState) {
-        if let view = dotView {
-            var sz: CGSize
-            view.backgroundColor = UIColor.clear
-            switch state {
-            case .active:
-                sz = CGSize(width: dotSize, height: dotSize)
-                view.backgroundColor = UIColor.white
-            case .normal:
-                sz = CGSize(width: dotSize, height: dotSize)
-            case .medium:
-                sz = CGSize(width: dotSize * 0.75, height: dotSize * 0.75)
-            case .small:
-                sz = CGSize(width: dotSize * 0.5, height: dotSize * 0.5)
-            case .none:
-                sz = CGSize.zero
-            }
-            
-            var frm = view.bounds
-            
-            let ga = CAAnimationGroup()
-            ga.duration = animationDuration
-            
-            let a1 = CABasicAnimation(keyPath: "cornerRadius")
-            a1.fromValue = view.layer.cornerRadius
-            a1.toValue = sz.height / 2
-            a1.duration = ga.duration
-            
-            let a2 = CABasicAnimation(keyPath: "bounds")
-            a2.fromValue = frm
-            frm.size = sz
-            a2.toValue = frm
-            a2.duration = ga.duration
-            
-            let a3 = CABasicAnimation(keyPath: "opacity")
-            a3.fromValue = view.layer.opacity
-            view.layer.opacity = state == .none ? 0 : 1
-            a3.toValue = view.layer.opacity
-            a3.duration = ga.duration
-            
-            
-            ga.animations = [a1, a2, a3]
-            view.layer.add(ga, forKey: "ga")
-            
-            view.layer.bounds = frm
-            view.layer.cornerRadius = sz.height / 2
+        switch state {
+        case .normal, .active:
+            _size = CGSize(width: dotSize, height: dotSize)
+        case .medium:
+            _size = CGSize(width: dotSize * IPageControlItem.mediumSizeRatio, height: dotSize * IPageControlItem.mediumSizeRatio)
+        case .small:
+            _size = CGSize(
+                width: dotSize * IPageControlItem.smallSizeRatio,
+                height: dotSize * IPageControlItem.smallSizeRatio
+            )
+        case .none:
+            _size = CGSize.zero
         }
+        
+        dotView.layer.cornerRadius = _size.height / 2.0
+        
+        UIView.animate(withDuration: animateDuration, animations: { [unowned self] in
+            self.dotView.layer.bounds.size = _size
+        })
     }
 }

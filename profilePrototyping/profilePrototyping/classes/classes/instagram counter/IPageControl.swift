@@ -14,194 +14,302 @@ protocol IPageControlDatasource {
 
 class IPageControl: UIView {
     
-    var dataSource: IPageControlDatasource? {
-        didSet {
-            update()
+    // MARK: public
+    
+    public struct Config {
+        
+        public var displayCount: Int
+        public var dotSize: CGFloat
+        public var dotSpace: CGFloat
+        public var smallDotSizeRatio: CGFloat
+        public var mediumDotSizeRatio: CGFloat
+        
+        public init(displayCount: Int = 7,
+                    dotSize: CGFloat = 6.0,
+                    dotSpace: CGFloat = 4.0,
+                    smallDotSizeRatio: CGFloat = 0.5,
+                    mediumDotSizeRatio: CGFloat = 0.7) {
+            self.displayCount = displayCount
+            self.dotSize = dotSize
+            self.dotSpace = dotSpace
+            self.smallDotSizeRatio = smallDotSizeRatio
+            self.mediumDotSizeRatio = mediumDotSizeRatio
         }
     }
     
-    private var scrollerView: UIScrollView = {
-        let scroller = UIScrollView()
-        scroller.backgroundColor = UIColor.brown
-        scroller.isUserInteractionEnabled = false
-        scroller.showsVerticalScrollIndicator = false
-        return scroller
-    }()
-    private var canScroll = true
-    private var items = [IPageControlItem]()
-
-    var hidesForSinglePage = false {
-        didSet {
-            scrollerView.isHidden = numberOfPages <= 1 && hidesForSinglePage
-        }
+    // default config
+    
+    private var config = Config()
+    
+    public func setConfig(_ config: Config) {
+        
+        self.config = config
+        
+        update(currentPage: currentPage, config: config)
     }
-    var displayCount: Int = 7 {
-        didSet {
-            canScroll = numberOfPages > displayCount
-            update()
-        }
+    
+    public func setCurrentPage(at currentPage: Int, animated: Bool = false) {
+        
+        guard (currentPage < numberOfPages && currentPage >= 0) else { return }
+        guard currentPage != self.currentPage else { return }
+        
+        scrollView.layer.removeAllAnimations()
+        //        update(currentPage: currentPage, config: config)
+        updateDot(at: currentPage, animated: animated)
+        self.currentPage = currentPage
     }
-    var animateDuration: TimeInterval = 0.75
-    var numberOfPages: Int = 0 {
+    
+    public private(set) var currentPage: Int = 0
+    
+    public var numberOfPages: Int = 0 {
         didSet {
-            scrollerView.isHidden = numberOfPages <= 1 && hidesForSinglePage
-            displayCount = min(displayCount, numberOfPages)
-        }
-    }
-    var currentPage: Int = 0 {
-        didSet {
-            if (currentPage != oldValue && currentPage >= 0 && currentPage < numberOfPages) {
-                scrollerView.layer.removeAllAnimations()
-                setCurrentPage(currentPage, animated: true)
-            } else {
-                currentPage = oldValue
-            }
-        }
-    }
-    var dotSize: CGFloat = 8 {
-        didSet {
-            update()
-        }
-    }
-    var dotSpace: CGFloat = 8 {
-        didSet {
-            update()
+            scrollView.isHidden = (numberOfPages <= 1 && hidesForSinglePage)
+            config.displayCount = min(config.displayCount, numberOfPages)
+            update(currentPage: currentPage, config: config)
         }
     }
     
-    private func commonInit() {
-        hidesForSinglePage = true
+    public var pageIndicatorTintColor: UIColor = UIColor(red:0.86, green:0.86, blue:0.86, alpha:1.00) {
+        didSet {
+            updateDotColor(currentPage: currentPage)
+        }
+    }
+    
+    public var currentPageIndicatorTintColor: UIColor = UIColor(red:0.32, green:0.59, blue:0.91, alpha:1.00) {
+        didSet {
+            updateDotColor(currentPage: currentPage)
+        }
+    }
+    
+    public var animateDuration: TimeInterval = 0.3
+    
+    public var hidesForSinglePage: Bool = false {
+        didSet {
+            scrollView.isHidden = (numberOfPages <= 1 && hidesForSinglePage)
+        }
+    }
+    
+    public init() {
+        super.init(frame: .zero)
         
-        numberOfPages = 0
-        currentPage = 0
-        displayCount = 7
-        
-        dotSize = 8
-        dotSpace = 8
-        
-        scrollerView.frame = bounds
-        addSubview(scrollerView)
+        setup()
         updateViewSize()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        
+        setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        
+        setup()
+        updateViewSize()
     }
     
-    private func updateViewSize() {
-        var b = self.bounds
-        b.size = self.intrinsicContentSize
-        self.bounds = b
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        scrollView.center = CGPoint(x: bounds.width/2, y: bounds.height/2)
     }
+    
+    public override var intrinsicContentSize: CGSize {
+        return CGSize(width: itemSize * CGFloat(config.displayCount), height: itemSize)
+    }
+    
+    public func setProgress(contentOffsetX: CGFloat, pageWidth: CGFloat) {
+        let currentPage = Int(round(contentOffsetX / pageWidth))
+        setCurrentPage(at: currentPage, animated: true)
+    }
+    
+    public func updateViewSize() {
+        self.bounds.size = intrinsicContentSize
+    }
+    
+    // MARK: private
+    private let scrollView = UIScrollView()
     
     private var itemSize: CGFloat {
-        return dotSize + dotSpace
+        
+        return config.dotSize + config.dotSpace
     }
     
-    private func setCurrentPage(_ page: Int, animated: Bool) {
-        if canScroll {
-            updateDotPosition(page, animated: animated)
+    private var items: [IPageControlItem] = []
+    
+    private func setup() {
+        backgroundColor = .clear
+        
+        scrollView.backgroundColor = .clear
+        scrollView.isUserInteractionEnabled = false
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        addSubview(scrollView)
+    }
+    
+    private func update(currentPage: Int, config: Config) {
+        
+        if currentPage < config.displayCount {
+            
+            items = (-2..<(config.displayCount + 2))
+                .map { IPageControlItem(itemSize: itemSize, dotSize: config.dotSize, index: $0) }
         }
-        updateDotSize(page, animated: animated)
+        else {
+            
+            guard let firstItem = items.first else { return }
+            guard let lastItem = items.last else { return }
+            items = (firstItem.index...lastItem.index)
+                .map { IPageControlItem(itemSize: itemSize, dotSize: config.dotSize, index: $0) }
+        }
+        
+        scrollView.contentSize = .init(width: itemSize * CGFloat(numberOfPages), height: itemSize)
+        
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
+        items.forEach { scrollView.addSubview($0) }
+        
+        let size: CGSize = .init(width: itemSize * CGFloat(config.displayCount), height: itemSize)
+        let frame: CGRect = .init(origin: .zero, size: size)
+        
+        scrollView.frame = frame
+        
+        if config.displayCount < numberOfPages {
+            scrollView.contentInset = .init(top: 0, left: itemSize * 2, bottom: 0, right: itemSize * 2)
+        }
+        else {
+            scrollView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
+        }
+        
+        updateDot(at: currentPage, animated: false)
     }
     
-    private func updateDotPosition(_ position: Int, animated: Bool) {
+    private func updateDot(at currentPage: Int, animated: Bool) {
+        updateDotColor(currentPage: currentPage)
+        
+        if numberOfPages > config.displayCount {
+            updateDotPosition(currentPage: currentPage, animated: animated)
+            updateDotSize(currentPage: currentPage, animated: animated)
+        }
+    }
+    
+    private func updateDotColor(currentPage: Int) {
+        items.forEach {
+            $0.dotColor = ($0.index == currentPage) ?
+                currentPageIndicatorTintColor : pageIndicatorTintColor
+        }
+    }
+    
+    private func updateDotPosition(currentPage: Int, animated: Bool) {
+        
         let duration = animated ? animateDuration : 0
+        
         if currentPage == 0 {
-            moveScrollView(-scrollerView.contentInset.left, duration: duration)
-        } else if currentPage == numberOfPages - 1 {
-            moveScrollView(scrollerView.contentSize.width - scrollerView.bounds.size.width + scrollerView.contentInset.right, duration: duration)
-        } else if CGFloat(currentPage) * itemSize <= scrollerView.contentOffset.x + itemSize {
-            moveScrollView(scrollerView.contentOffset.x - itemSize, duration: duration)
-        } else if CGFloat(currentPage) * itemSize + itemSize >= scrollerView.contentOffset.x + scrollerView.bounds.size.width - itemSize {
-            moveScrollView(scrollerView.contentOffset.x + itemSize, duration: duration)
+            let x = -scrollView.contentInset.left
+            moveScrollViewView(x: x, duration: duration)
+        }
+        else if currentPage == numberOfPages - 1 {
+            let x = scrollView.contentSize.width - scrollView.bounds.width + scrollView.contentInset.right
+            moveScrollViewView(x: x, duration: duration)
+        }
+        else if CGFloat(currentPage) * itemSize <= scrollView.contentOffset.x + itemSize {
+            let x = scrollView.contentOffset.x - itemSize
+            moveScrollViewView(x: x, duration: duration)
+        }
+        else if CGFloat(currentPage) * itemSize + itemSize >=
+            scrollView.contentOffset.x + scrollView.bounds.width - itemSize {
+            let x = scrollView.contentOffset.x + itemSize
+            moveScrollViewView(x: x, duration: duration)
         }
     }
     
-    private func updateDotSize(_ position: Int, animated: Bool) {
+    private func updateDotSize(currentPage: Int, animated: Bool) {
+        
         let duration = animated ? animateDuration : 0
-        for item in items {
-            item.animationDuration = duration
-            
+        
+        items.forEach { item in
+            item.animateDuration = duration
             if item.index == currentPage {
-                item.state = .active
-            } else if item.index < 0 {
-                item.state = .none
-            } else if item.index > numberOfPages - 1 {
-                item.state = .none
-            } else if !canScroll {
-                item.state = .normal
-            } else if item.frame.maxX <= scrollerView.contentOffset.x {
-                item.state = .none
-            } else if item.frame.minX >= scrollerView.contentOffset.x + scrollerView.bounds.size.width {
-                item.state = .none
-            } else if item.frame.minX <= scrollerView.contentOffset.x {
-                item.state = .small
-            } else if item.frame.maxX >= scrollerView.contentOffset.x + scrollerView.bounds.size.width {
-                item.state = .small
-            } else if item.frame.minX <= scrollerView.contentOffset.x + self.itemSize {
-                item.state = .medium
-            } else if item.frame.maxX >= scrollerView.contentOffset.x + scrollerView.bounds.size.width - self.itemSize {
-                item.state = .medium
-            } else {
                 item.state = .normal
             }
+                // outside of left
+            else if item.index < 0 {
+                item.state = .none
+            }
+                // outside of right
+            else if item.index > numberOfPages - 1 {
+                item.state = .none
+            }
+                // first dot from left
+            else if item.frame.minX <= scrollView.contentOffset.x {
+                item.state = .small
+            }
+                // first dot from right
+            else if item.frame.maxX >= scrollView.contentOffset.x + scrollView.bounds.width {
+                item.state = .small
+            }
+                // second dot from left
+            else if item.frame.minX <= scrollView.contentOffset.x + itemSize {
+                item.state = .medium
+            }
+                // second dot from right
+            else if item.frame.maxX >= scrollView.contentOffset.x + scrollView.bounds.width - itemSize {
+                item.state = .medium
+            }
+            else {
+                item.state = .normal
+            }
+//            print(item.state)
         }
     }
     
-    private func update() {
-        if let ds = dataSource {
-            var arr = [IPageControlItem]()
-            for index in -2..<numberOfPages + 2 {
-                let itemView = ds.pageControl(self, viewForIndex: index)
-                arr.append(itemView)
-            }
-            items = arr
-            
-            for view in scrollerView.subviews {
-                view.removeFromSuperview()
-            }
-            scrollerView.contentSize = CGSize(width: itemSize * CGFloat(numberOfPages), height: dotSize)
-            for index in 0..<items.count {
-                scrollerView.addSubview(items[index])
-            }
-            
-            let size = CGSize(width: itemSize * CGFloat(displayCount), height: dotSize)
-            let frame = CGRect(origin: CGPoint.zero, size: size)
-            scrollerView.frame = frame
-            
-            if displayCount < numberOfPages {
-                scrollerView.contentInset = UIEdgeInsets(top: 0, left: itemSize * 2, bottom: 0, right: itemSize * 2)
-            } else {
-                scrollerView.contentInset = UIEdgeInsets.zero
-            }
-            
-            setCurrentPage(currentPage, animated: false)
+    private func moveScrollViewView(x: CGFloat, duration: TimeInterval) {
+        
+        let direction = behaviorDirection(x: x)
+        reusedView(direction: direction)
+        UIView.animate(withDuration: duration, animations: { [unowned self] in
+            self.scrollView.contentOffset.x = x
+        })
+    }
+    
+    private enum Direction {        
+        case left, right, stay
+    }
+    
+    private func behaviorDirection(x: CGFloat) -> Direction {
+        
+        switch x {
+        case let x where x > scrollView.contentOffset.x:
+            return .right
+        case let x where x < scrollView.contentOffset.x:
+            return .left
+        default:
+            return .stay
         }
     }
     
-    private func moveScrollView(_ x: CGFloat, duration: TimeInterval) {
-        UIView.animate(withDuration: duration) {
-            var pt = self.scrollerView.contentOffset
-            pt.x = x
-            self.scrollerView.contentOffset = pt
+    private func reusedView(direction: Direction) {
+        
+        guard let firstItem = items.first else { return }
+        guard let lastItem = items.last else { return }
+        
+        switch direction {
+        case .left:
+            
+            lastItem.index = firstItem.index - 1
+            lastItem.frame = CGRect(x: CGFloat(lastItem.index) * itemSize, y: 0, width: itemSize, height: itemSize)
+            items.insert(lastItem, at: 0)
+            items.removeLast()
+            
+        case .right:
+            
+            firstItem.index = lastItem.index + 1
+            firstItem.frame = CGRect(x: CGFloat(firstItem.index) * itemSize, y: 0, width: itemSize, height: itemSize)
+            items.insert(firstItem, at: items.count)
+            items.removeFirst()
+            
+        case .stay:
+            
+            break
         }
-    }
-    
-    // MARK: overrides -
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        scrollerView.center = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: self.itemSize * CGFloat(self.displayCount), height: self.itemSize)
     }
 }

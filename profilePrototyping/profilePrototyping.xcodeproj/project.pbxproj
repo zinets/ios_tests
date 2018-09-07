@@ -35,6 +35,7 @@
 		49823B5821400C73001394E6 /* ProfileButtonsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */; };
 		49823B5B2140F48F001394E6 /* IPageControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5A2140F48F001394E6 /* IPageControlItem.swift */; };
 		49823B5D2141028F001394E6 /* IPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5C2141028F001394E6 /* IPageControl.swift */; };
+		49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64A42142434C007011F4 /* Magnolia Script.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsPanel.swift; sourceTree = "<group>"; };
 		49823B5A2140F48F001394E6 /* IPageControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControlItem.swift; sourceTree = "<group>"; };
 		49823B5C2141028F001394E6 /* IPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControl.swift; sourceTree = "<group>"; };
+		49FD64A42142434C007011F4 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		495AB7CD213E92540022D04E /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				49FD64A42142434C007011F4 /* Magnolia Script.otf */,
 				495AB7BB213E91D00022D04E /* AppDelegate.swift */,
 				495AB7BD213E91D00022D04E /* ViewController.swift */,
 				495AB7BF213E91D00022D04E /* Main.storyboard */,
@@ -249,6 +252,7 @@
 			files = (
 				495AB7C6213E91D10022D04E /* LaunchScreen.storyboard in Resources */,
 				495AB7C3213E91D10022D04E /* Assets.xcassets in Resources */,
+				49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */,
 				495AB7D1213E93410022D04E /* Profile.storyboard in Resources */,
 				495AB7C1213E91D00022D04E /* Main.storyboard in Resources */,
 			);
