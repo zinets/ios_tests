@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController/*, IPageControlDatasource*/ {
-//    @IBOutlet weak var instaCtrl: IPageControl!
-    @IBOutlet weak var labelWow: UILabel!
     
     var instaCtrl2: IPageControl = {
         let ctrl = IPageControl(frame: CGRect(x: 50, y: 50, width: 200, height: 10))
@@ -18,7 +16,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         ctrl.numberOfPages = 10
         return ctrl
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +30,8 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
 //        instaCtrl.numberOfPages = 10
 //        instaCtrl.currentPage = 0
         
-        view.addSubview(instaCtrl2)
         
-        labelWow.transform = CGAffineTransform(rotationAngle: 0.4)
+        
     }
     
     @IBAction func decInstaCounter(_ sender: Any) {
@@ -60,9 +57,29 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         
     }
     
-//    func pageControl(_ sender: IPageControl, viewForIndex: Int) -> IPageControlItem {
-//        let item = IPageControlDotItem(sender.dotSize, dotSize: sender.dotSize, newIndex: viewForIndex)
-//        return item
-//    }
+    
+    // MARK: profile photo test -
+    
+    @IBOutlet weak var profilePhotoScroller: ProfilePhotoScrollerView!
+    
+    @IBAction func reloadPhotos(_ sender: Any) {
+        var photos = [DataSourceItem]()
+        
+        var photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        photoItem.payload = "girl1.jpg"
+        photos.append(photoItem)
+        
+        photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        photoItem.payload = "girl2.jpg"
+        photos.append(photoItem)
+        
+        photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        photoItem.payload = "girl3.jpg"
+        photos.append(photoItem)
+        
+        profilePhotoScroller.items = photos
+    }
+    
+    
 }
 

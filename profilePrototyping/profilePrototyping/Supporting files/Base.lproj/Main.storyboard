@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Magnolia Script.otf">
-            <string>Magnolia-Script</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -24,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng9-iH-NeH">
-                                <rect key="frame" x="65.5" y="262.5" width="244" height="142"/>
+                                <rect key="frame" x="21" y="51" width="229" height="32"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.50980392159999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="244" id="FiK-Mn-US2"/>
-                                    <constraint firstAttribute="height" constant="142" id="jJd-Kf-33n"/>
+                                    <constraint firstAttribute="width" constant="229" id="FiK-Mn-US2"/>
+                                    <constraint firstAttribute="height" constant="32" id="jJd-Kf-33n"/>
                                 </constraints>
                                 <state key="normal" title="Show this fucking controller">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,72 +32,46 @@
                                     <action selector="showProfile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFE-hm-RoB"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htp-Wm-8pI">
-                                <rect key="frame" x="60" y="418" width="27" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.4672851562" blue="1" alpha="0.55305543660000001" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sby-uQ-pQG">
-                                <rect key="frame" x="111" y="426" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13p-zB-ptP" customClass="ProfilePhotoScrollerView" customModule="profilePrototyping" customModuleProvider="target">
+                                <rect key="frame" x="29" y="107" width="273" height="242"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="testAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8v1-yt-5un"/>
+                                    <outlet property="pageControl" destination="ckv-D7-WIq" id="Adx-5N-xQn"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-nm-faF">
+                                <rect key="frame" x="29" y="357" width="43" height="30"/>
+                                <state key="normal" title="reload"/>
+                                <connections>
+                                    <action selector="reloadPhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTM-qf-svi"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8X-dB-qcV">
-                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-D7-WIq" customClass="OneWayPageControl" customModule="profilePrototyping" customModuleProvider="target">
+                                <rect key="frame" x="193" y="357" width="109" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="9w6-NX-YNd"/>
+                                    <constraint firstAttribute="height" constant="29" id="ihZ-Wt-cqB"/>
+                                    <constraint firstAttribute="width" constant="109" id="vvL-RJ-6bp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-OZ-2xr">
-                                <rect key="frame" x="40" y="86" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;&lt;"/>
-                                <connections>
-                                    <action selector="decInstaCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H4h-no-orn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cF-cU-LAv">
-                                <rect key="frame" x="211" y="86" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&gt;&gt;"/>
-                                <connections>
-                                    <action selector="addInstaCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gvn-Lk-IQB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got a " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-yJ-7RL">
-                                <rect key="frame" x="34" y="163" width="148" height="40"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cool! Wow!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPr-pA-w41">
-                                <rect key="frame" x="182" y="154.5" width="206" height="57"/>
-                                <fontDescription key="fontDescription" name="Magnolia-Script" family="Magnolia Script" pointSize="40"/>
-                                <color key="textColor" red="0.4823529411764706" green="0.19215686274509805" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="v8X-dB-qcV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3O0-pc-NUx"/>
-                            <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7hz-oI-k4A"/>
-                            <constraint firstItem="v8X-dB-qcV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="If8-Zt-6eR"/>
-                            <constraint firstItem="v8X-dB-qcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="N28-1T-6St"/>
-                            <constraint firstItem="CPr-pA-w41" firstAttribute="centerY" secondItem="Ikk-yJ-7RL" secondAttribute="centerY" id="grs-n0-RqS"/>
-                            <constraint firstItem="Ikk-yJ-7RL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="qPf-p3-fVs"/>
-                            <constraint firstItem="CPr-pA-w41" firstAttribute="leading" secondItem="Ikk-yJ-7RL" secondAttribute="trailing" id="rfI-oH-JAT"/>
-                            <constraint firstItem="Ikk-yJ-7RL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="143" id="yld-AX-Skj"/>
-                            <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zni-gr-hMs"/>
+                            <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-52" id="7hz-oI-k4A"/>
+                            <constraint firstItem="13p-zB-ptP" firstAttribute="top" secondItem="Ng9-iH-NeH" secondAttribute="bottom" constant="24" id="W6g-6S-8Xu"/>
+                            <constraint firstItem="13p-zB-ptP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="Wz5-vO-JWE"/>
+                            <constraint firstItem="Gal-nm-faF" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" symbolic="YES" id="XK2-tc-168"/>
+                            <constraint firstItem="Gal-nm-faF" firstAttribute="leading" secondItem="13p-zB-ptP" secondAttribute="leading" id="Xd3-3r-9vV"/>
+                            <constraint firstItem="ckv-D7-WIq" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" id="bOY-xw-4yY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ckv-D7-WIq" secondAttribute="trailing" constant="73" id="h81-zQ-Hrd"/>
+                            <constraint firstAttribute="bottom" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="318" id="nY9-n9-anb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13p-zB-ptP" secondAttribute="trailing" constant="73" id="wHq-Cd-mPW"/>
+                            <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-266.5" id="zni-gr-hMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="labelWow" destination="CPr-pA-w41" id="BUx-OW-bs4"/>
-                        <outlet property="testView" destination="htp-Wm-8pI" id="6OD-zK-7vk"/>
+                        <outlet property="profilePhotoScroller" destination="13p-zB-ptP" id="z3v-08-mXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
