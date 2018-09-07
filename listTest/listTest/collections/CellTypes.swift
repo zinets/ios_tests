@@ -7,7 +7,7 @@ import Foundation
 // т.к. тип от String, то rawValue == написанию энума и это будет использовано для регистрации ячеек
 enum CellType: String {
     // Profile
-//    case ProfileAboutPhotosItem - хз, не уверен еще, как будет сделан верхний блок профиля
+    case ProfileTopPhotoItem        // фото в листалке (большой) фото профиля
     case ProfileOwnPhotoItem        // верхнее фото в своем профиле
     case ProfileButtonsItem         // первый блок в чужом профиле, скошенный + кнопки
     case ProfileAboutInfoItem       // блок скриннейм+возраст+локация
