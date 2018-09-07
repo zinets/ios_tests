@@ -14,6 +14,7 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
     let profileDatasource = ProfileDatasource()
     
     @IBOutlet weak var shadeView: UIView!
+    @IBOutlet weak var photoView: UIImageView!
     
     
     override func viewDidLoad() {
@@ -81,6 +82,14 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
         
         if offset > 0 {
             shadeView.alpha = offset
+            photoView.transform = CGAffineTransform.identity
+        } else {
+            shadeView.alpha = 0
+            let downOffset = min(1, (-scrollView.contentOffset.y + scrollView.contentInset.top) / 100)
+            let magicConst: CGFloat = 0.5 // на сториборде фрейм картинки = 1.5 ширины контроллера
+            let scale:CGFloat = 1 / (magicConst * downOffset + 1)
+            photoView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            scrollView.alpha = downOffset < 1 ? 1 : 0
         }
     }
 }

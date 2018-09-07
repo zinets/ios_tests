@@ -36,7 +36,26 @@
 		49823B5B2140F48F001394E6 /* IPageControlItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5A2140F48F001394E6 /* IPageControlItem.swift */; };
 		49823B5D2141028F001394E6 /* IPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5C2141028F001394E6 /* IPageControl.swift */; };
 		49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64A42142434C007011F4 /* Magnolia Script.otf */; };
+		49FD64A921428952007011F4 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A721428952007011F4 /* MD5.framework */; };
+		49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A821428952007011F4 /* TNURLImageView.framework */; };
+		49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A721428952007011F4 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A821428952007011F4 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49FD64AF21428962007011F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */,
+				49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +89,8 @@
 		49823B5A2140F48F001394E6 /* IPageControlItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControlItem.swift; sourceTree = "<group>"; };
 		49823B5C2141028F001394E6 /* IPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControl.swift; sourceTree = "<group>"; };
 		49FD64A42142434C007011F4 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
+		49FD64A721428952007011F4 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
+		49FD64A821428952007011F4 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FD64A921428952007011F4 /* MD5.framework in Frameworks */,
+				49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +125,7 @@
 		495AB7BA213E91D00022D04E /* profilePrototyping */ = {
 			isa = PBXGroup;
 			children = (
+				49FD64A621428952007011F4 /* Frameworks */,
 				495AB7CE213E92F10022D04E /* classes */,
 				495AB7CD213E92540022D04E /* Supporting files */,
 			);
@@ -192,6 +216,15 @@
 			path = "instagram counter";
 			sourceTree = "<group>";
 		};
+		49FD64A621428952007011F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49FD64A721428952007011F4 /* MD5.framework */,
+				49FD64A821428952007011F4 /* TNURLImageView.framework */,
+			);
+			path = Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,6 +235,7 @@
 				495AB7B4213E91D00022D04E /* Sources */,
 				495AB7B5213E91D00022D04E /* Frameworks */,
 				495AB7B6213E91D00022D04E /* Resources */,
+				49FD64AF21428962007011F4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,6 +468,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/profilePrototyping/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -453,6 +491,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/profilePrototyping/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,0 +1,6 @@
+framework module TNURLImageView {
+  umbrella header "TNURLImageView.h"
+
+  export *
+  module * { export * }
+}

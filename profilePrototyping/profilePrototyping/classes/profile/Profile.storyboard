@@ -21,17 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpo-Qn-pJK">
-                                <rect key="frame" x="-94" y="0.0" width="563" height="563"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Fpo-Qn-pJK" secondAttribute="height" id="Jan-Bd-yNh"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZQ-v1-Sx3">
+                                <rect key="frame" x="-0.5" y="10" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Fpo-Qn-pJK">
+                                <rect key="frame" x="-94" y="0.0" width="563" height="720"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lht-Hk-rfp">
-                                <rect key="frame" x="-94.5" y="0.0" width="563" height="563"/>
+                                <rect key="frame" x="-94.5" y="0.0" width="563" height="720"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49111729452054792" colorSpace="calibratedRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-U6-5j7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-U6-5j7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -300,21 +301,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2ZQ-v1-Sx3" firstAttribute="height" secondItem="Eds-TS-PuH" secondAttribute="height" id="2pZ-YN-c3k"/>
                             <constraint firstItem="lht-Hk-rfp" firstAttribute="centerY" secondItem="Fpo-Qn-pJK" secondAttribute="centerY" id="8dh-oa-eVo"/>
                             <constraint firstItem="Fpo-Qn-pJK" firstAttribute="centerX" secondItem="Eds-TS-PuH" secondAttribute="centerX" id="A8J-9v-4Ed"/>
                             <constraint firstItem="lht-Hk-rfp" firstAttribute="centerX" secondItem="Fpo-Qn-pJK" secondAttribute="centerX" id="DH5-Ow-bke"/>
                             <constraint firstItem="08j-bK-h7s" firstAttribute="bottom" secondItem="Mc2-U6-5j7" secondAttribute="bottom" id="Ltm-p6-bib"/>
                             <constraint firstItem="Mc2-U6-5j7" firstAttribute="leading" secondItem="08j-bK-h7s" secondAttribute="leading" id="O6q-cs-b1u"/>
+                            <constraint firstItem="2ZQ-v1-Sx3" firstAttribute="width" secondItem="Eds-TS-PuH" secondAttribute="width" id="OGi-Xs-4FS"/>
                             <constraint firstItem="Fpo-Qn-pJK" firstAttribute="width" secondItem="Eds-TS-PuH" secondAttribute="width" multiplier="1.5" id="bpW-kB-uGT"/>
+                            <constraint firstItem="2ZQ-v1-Sx3" firstAttribute="centerY" secondItem="08j-bK-h7s" secondAttribute="centerY" id="eNt-2n-V9v"/>
                             <constraint firstItem="Mc2-U6-5j7" firstAttribute="top" secondItem="Eds-TS-PuH" secondAttribute="top" id="foC-nk-YUS"/>
                             <constraint firstItem="lht-Hk-rfp" firstAttribute="height" secondItem="Fpo-Qn-pJK" secondAttribute="height" id="kSb-xC-YCC"/>
                             <constraint firstItem="08j-bK-h7s" firstAttribute="trailing" secondItem="Mc2-U6-5j7" secondAttribute="trailing" id="ktL-kr-GSw"/>
+                            <constraint firstItem="2ZQ-v1-Sx3" firstAttribute="centerX" secondItem="08j-bK-h7s" secondAttribute="centerX" id="m3d-TF-ZPF"/>
                             <constraint firstItem="Fpo-Qn-pJK" firstAttribute="top" secondItem="Eds-TS-PuH" secondAttribute="top" id="mWG-4b-Gy0"/>
                             <constraint firstItem="lht-Hk-rfp" firstAttribute="width" secondItem="Fpo-Qn-pJK" secondAttribute="width" id="unJ-og-MHP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="08j-bK-h7s"/>
                     </view>
                     <connections>
+                        <outlet property="photoView" destination="Fpo-Qn-pJK" id="fP6-2u-oMR"/>
                         <outlet property="shadeView" destination="lht-Hk-rfp" id="Bpt-ow-g5M"/>
                         <outlet property="tableView" destination="Mc2-U6-5j7" id="plz-jB-Xfk"/>
                     </connections>
