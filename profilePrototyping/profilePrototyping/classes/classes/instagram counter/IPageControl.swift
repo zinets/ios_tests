@@ -1,9 +1,5 @@
 //
-//  InstagramPageControl.swift
-//  profilePrototyping
-//
-//  Created by Victor Zinets on 9/6/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
+//  IPageControl.swift
 //
 
 import UIKit
@@ -12,7 +8,7 @@ protocol IPageControlDatasource {
     func pageControl(_ sender: IPageControl, viewForIndex: Int) -> IPageControlItem
 }
 
-class IPageControl: UIView {
+class IPageControl: UIView, PageControlProto {
     
     // MARK: public
     
@@ -61,6 +57,14 @@ class IPageControl: UIView {
     
     public private(set) var currentPage: Int = 0
     
+    public var pageIndex: Int {
+        set {
+            setCurrentPage(at: newValue, animated: true)
+        }
+        get {
+            return currentPage
+        }
+    }
     public var numberOfPages: Int = 0 {
         didSet {
             scrollView.isHidden = (numberOfPages <= 1 && hidesForSinglePage)

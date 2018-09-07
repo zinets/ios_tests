@@ -1,9 +1,5 @@
 //
 //  ItemView.swift
-//  profilePrototyping
-//
-//  Created by Victor Zinets on 9/6/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit

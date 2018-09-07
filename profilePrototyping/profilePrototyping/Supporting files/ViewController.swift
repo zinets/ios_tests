@@ -35,12 +35,12 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
     }
     
     @IBAction func decInstaCounter(_ sender: Any) {
-        let index = instaCtrl2.currentPage - 1
+        let index = instaCtrl2.pageIndex - 1
         instaCtrl2.setCurrentPage(at: index)
     }
     
     @IBAction func addInstaCounter(_ sender: Any) {
-        let index = instaCtrl2.currentPage + 1
+        let index = instaCtrl2.pageIndex + 1
         instaCtrl2.setCurrentPage(at: index)
     }
     

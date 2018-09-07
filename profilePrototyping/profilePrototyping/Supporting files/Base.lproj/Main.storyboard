@@ -46,7 +46,7 @@
                                     <action selector="reloadPhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTM-qf-svi"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-D7-WIq" customClass="OneWayPageControl" customModule="profilePrototyping" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckv-D7-WIq" customClass="IPageControl" customModule="profilePrototyping" customModuleProvider="target">
                                 <rect key="frame" x="193" y="357" width="109" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
