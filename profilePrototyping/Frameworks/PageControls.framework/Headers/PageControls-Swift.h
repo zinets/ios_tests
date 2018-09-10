@@ -189,12 +189,15 @@ SWIFT_PROTOCOL("_TtP12PageControls19PageControlProtocol_")
 @property (nonatomic) NSInteger pageIndex;
 @end
 
+@class UIColor;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12PageControls15DotsPageControl")
 @interface DotsPageControl : UIView <PageControlProtocol>
 @property (nonatomic) NSInteger numberOfPages;
 @property (nonatomic) NSInteger pageIndex;
+@property (nonatomic, strong) UIColor * _Nonnull activeDotColor;
+@property (nonatomic, strong) UIColor * _Nonnull dotColor;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
@@ -202,17 +205,16 @@ SWIFT_CLASS("_TtC12PageControls15DotsPageControl")
 - (void)prepareForInterfaceBuilder;
 @end
 
-@class UIColor;
 
 SWIFT_CLASS("_TtC12PageControls17OneWayPageControl")
 @interface OneWayPageControl : UIView <PageControlProtocol>
 /// у неактивных точек одинаковый цвет, но есть отличия
 @property (nonatomic, strong) UIColor * _Nonnull dotColor;
 @property (nonatomic, strong) UIColor * _Nonnull activeDotColor;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic) NSInteger numberOfPages;
 @property (nonatomic) NSInteger pageIndex;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) CGSize intrinsicContentSize;
 - (CGSize)sizeThatFits:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
 - (void)prepareForInterfaceBuilder;

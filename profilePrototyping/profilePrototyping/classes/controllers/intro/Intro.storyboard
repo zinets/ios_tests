@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mam-0Y-hGN" customClass="IPageControl" customModule="profilePrototyping" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mam-0Y-hGN" customClass="OneWayPageControl" customModule="PageControls">
                                 <rect key="frame" x="67" y="537" width="240" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrH-qy-Ctk" customClass="IntroScrollView" customModule="profilePrototyping" customModuleProvider="target">
@@ -51,9 +50,12 @@
                             <constraint firstItem="0m3-U9-utw" firstAttribute="bottom" secondItem="EIR-9z-YVP" secondAttribute="bottom" constant="17" id="5a8-Cz-kqX"/>
                             <constraint firstItem="0m3-U9-utw" firstAttribute="trailing" secondItem="xrH-qy-Ctk" secondAttribute="trailing" constant="16" id="BGK-vI-Sbo"/>
                             <constraint firstItem="xrH-qy-Ctk" firstAttribute="top" secondItem="0m3-U9-utw" secondAttribute="top" constant="25" id="BPe-sR-rUR"/>
+                            <constraint firstItem="3eO-b3-Vcz" firstAttribute="top" secondItem="mam-0Y-hGN" secondAttribute="bottom" constant="10" id="HhJ-Zl-R5B"/>
                             <constraint firstItem="3eO-b3-Vcz" firstAttribute="top" secondItem="xrH-qy-Ctk" secondAttribute="bottom" constant="86" id="KQb-0g-rry"/>
                             <constraint firstItem="EIR-9z-YVP" firstAttribute="top" secondItem="3eO-b3-Vcz" secondAttribute="bottom" constant="17" id="Lkq-Jj-zt3"/>
+                            <constraint firstItem="mam-0Y-hGN" firstAttribute="centerX" secondItem="ClN-nj-EPG" secondAttribute="centerX" id="Mep-pn-N31"/>
                             <constraint firstItem="EIR-9z-YVP" firstAttribute="leading" secondItem="0m3-U9-utw" secondAttribute="leading" constant="16" id="QzO-AC-EV5"/>
+                            <constraint firstItem="mam-0Y-hGN" firstAttribute="top" secondItem="xrH-qy-Ctk" secondAttribute="bottom" constant="58" id="Ua8-wX-rKX"/>
                             <constraint firstItem="3eO-b3-Vcz" firstAttribute="leading" secondItem="0m3-U9-utw" secondAttribute="leading" constant="16" id="are-s4-3H9"/>
                             <constraint firstItem="0m3-U9-utw" firstAttribute="trailing" secondItem="EIR-9z-YVP" secondAttribute="trailing" constant="16" id="ysH-5A-blv"/>
                             <constraint firstItem="0m3-U9-utw" firstAttribute="trailing" secondItem="3eO-b3-Vcz" secondAttribute="trailing" constant="16" id="zK4-4T-ELa"/>

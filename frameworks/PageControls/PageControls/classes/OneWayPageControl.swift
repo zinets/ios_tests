@@ -8,8 +8,32 @@
 
 import UIKit
 
-@IBDesignable
-open class OneWayPageControl: UIView, PageControlProtocol {
+@IBDesignable open class OneWayPageControl: UIView, PageControlProtocol {
+    
+    // MARK: inspectables -
+    
+    /// у неактивных точек одинаковый цвет, но есть отличия
+    @IBInspectable open var dotColor: UIColor = .green {
+        didSet {
+            updateProperties()
+        }
+    }
+    @IBInspectable open var activeDotColor: UIColor = .magenta {
+        didSet {
+            updateProperties()
+        }
+    }
+    
+    @IBInspectable open var numberOfPages: Int = 0 {
+        didSet {
+            updateProperties()
+        }
+    }
+    @IBInspectable open var pageIndex: Int = 0 {
+        didSet {
+            updateProperties()
+        }
+    }
     
     /// пусть размер всегда квадратный
     public var dotSize: CGFloat = 6 {
@@ -22,19 +46,6 @@ open class OneWayPageControl: UIView, PageControlProtocol {
     
     /// расстояние между точками
     public var dotSpace: CGFloat = 6 {
-        didSet {
-            updateProperties()
-        }
-    }
-    /// у неактивных точек одинаковый цвет, но есть отличия
-    @IBInspectable
-    public var dotColor: UIColor = .green {
-        didSet {
-            updateProperties()
-        }
-    }
-    @IBInspectable
-    public var activeDotColor: UIColor = .magenta {
         didSet {
             updateProperties()
         }
@@ -69,20 +80,6 @@ open class OneWayPageControl: UIView, PageControlProtocol {
         self.layer.addSublayer(activeDotLayer)
     }
     
-    // MARK: proto -
-    @IBInspectable
-    open var numberOfPages: Int = 0 {
-        didSet {
-            updateProperties()
-        }
-    }
-    @IBInspectable
-    open var pageIndex: Int = 0 {
-        didSet {
-            updateProperties()
-        }
-    }
-
     // MARK: layout -
     
     private func updateProperties() {

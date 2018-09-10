@@ -8,21 +8,28 @@
 
 import UIKit
 
-@IBDesignable
-open class DotsPageControl: UIView, PageControlProtocol {
+@IBDesignable open class DotsPageControl: UIView, PageControlProtocol {
     
-    @IBInspectable
-    public var numberOfPages: Int = 0 {
+    // MARK: inspectables -
+    @IBInspectable open var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
-    @IBInspectable
-    public var pageIndex: Int = 0 {
+    @IBInspectable open var pageIndex: Int = 0 {
         didSet {
             updateProperties()
         }
     }
+    @IBInspectable open var activeDotColor: UIColor = UIColor.white
+    @IBInspectable open var dotColor: UIColor = UIColor.white.withAlphaComponent(0.5) {
+        didSet {
+            updateProperties()
+        }
+    }
+
+    // MARK: -
+    
     public var dotSize = CGSize(width: 6, height: 6) {
         didSet {
             updateProperties()
@@ -33,16 +40,7 @@ open class DotsPageControl: UIView, PageControlProtocol {
             updateProperties()
         }
     }
-    
-    @IBInspectable
-    public var activeDotColor: UIColor = UIColor.white
-    
-    @IBInspectable
-    public var dotColor: UIColor = UIColor.white.withAlphaComponent(0.5) {
-        didSet {
-            updateProperties()
-        }
-    }
+   
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

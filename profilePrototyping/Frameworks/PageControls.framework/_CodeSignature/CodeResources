@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PageControls-Swift.h</key>
 		<data>
-		KVPPGgwDIyUY/57fnivZb3E4Zi4=
+		czzQMBCBXcSs956HHCIismcIw6Q=
 		</data>
 		<key>Headers/PageControls.h</key>
 		<data>
@@ -18,19 +18,19 @@
 		</data>
 		<key>Modules/PageControls.swiftmodule/i386.swiftdoc</key>
 		<data>
-		4Z6FjWRG3sELYsWF8Ju9XErTsqs=
+		ypO9T3jGKpQqUWZl/gQd3j/4zIY=
 		</data>
 		<key>Modules/PageControls.swiftmodule/i386.swiftmodule</key>
 		<data>
-		CJmdpX3e7cWMAFsEPj3gaIDts3c=
+		Yo/j+6TcCqefk9KMUmB6waQbjMY=
 		</data>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		4zOFv7UFJ/sStigAP9h6fgm4rDc=
+		4+RPiM9Jk3/MnR8idw3eZgnrvUg=
 		</data>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		vzp5ifoBgtgXqWWkvHl6Wqxgqyg=
+		u+JVvzvQBkc1vyDDUD3dS9DuP0A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KVPPGgwDIyUY/57fnivZb3E4Zi4=
+			czzQMBCBXcSs956HHCIismcIw6Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			y6kW2iPBdfGTRU/LO3Ix6Hy+jVrGc4mNOK0QwaRthzE=
+			YptY6RvsdOQK618sSuSFX6f2zXNuKYMLPGW7lDcRC8w=
 			</data>
 		</dict>
 		<key>Headers/PageControls.h</key>
@@ -65,44 +65,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4Z6FjWRG3sELYsWF8Ju9XErTsqs=
+			ypO9T3jGKpQqUWZl/gQd3j/4zIY=
 			</data>
 			<key>hash2</key>
 			<data>
-			JgO/iAH+fI7z/lZXM3inI1Ts6l+MUmecc6FC9txE5IY=
+			72AWCjiEMbKo3V8vG8SRCcN/49kaxAu8aC4zWPo8yRI=
 			</data>
 		</dict>
 		<key>Modules/PageControls.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CJmdpX3e7cWMAFsEPj3gaIDts3c=
+			Yo/j+6TcCqefk9KMUmB6waQbjMY=
 			</data>
 			<key>hash2</key>
 			<data>
-			T4CHb+dQbLAEG/gdDjsKQedSOltHafsidZsbLmtFK08=
+			oP+vP+VWILW1H879byccC2MpC6cVIveR6UugaNfp6mk=
 			</data>
 		</dict>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4zOFv7UFJ/sStigAP9h6fgm4rDc=
+			4+RPiM9Jk3/MnR8idw3eZgnrvUg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ovxb3QSG5vPptO5ccEUrzI13lVn5g8IOYqv5YZTWX/k=
+			F8DWk1Sg1thGhuo7LKo7vVq8kvgxUM5CMp+E/eNWYdg=
 			</data>
 		</dict>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vzp5ifoBgtgXqWWkvHl6Wqxgqyg=
+			u+JVvzvQBkc1vyDDUD3dS9DuP0A=
 			</data>
 			<key>hash2</key>
 			<data>
-			BMR+l9kw2wFVE2nOspDyzg0pZQjkGS5vbHJ4gtDFJno=
+			foa3Nk92g33xbd+hAwj9BnKTUg6spFyF7M/I3uo/Eyk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
