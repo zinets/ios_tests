@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
 		495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BB213E91D00022D04E /* AppDelegate.swift */; };
 		495AB7BE213E91D00022D04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BD213E91D00022D04E /* ViewController.swift */; };
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		495AB7C6213E91D10022D04E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7C4213E91D10022D04E /* LaunchScreen.storyboard */; };
 		495AB7D1213E93410022D04E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7D0213E93410022D04E /* Profile.storyboard */; };
 		495AB7D4213E93900022D04E /* SectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D3213E93900022D04E /* SectionDatasource.swift */; };
-		495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D5213E939D0022D04E /* CellTypes.swift */; };
 		495AB7D8213E93A10022D04E /* CellsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D7213E93A10022D04E /* CellsFactory.swift */; };
 		495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7D9213E93A70022D04E /* DataSourceItem.swift */; };
 		495AB7DC213E93AC0022D04E /* TableSectionDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */; };
@@ -49,7 +49,6 @@
 		49FD64C52142978A007011F4 /* CollectionBasedScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD64C42142978A007011F4 /* CollectionBasedScrollerView.swift */; };
 		49FD64C7214297BC007011F4 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD64C6214297BC007011F4 /* PageControl.swift */; };
 		49FD64CA21429B96007011F4 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */; };
-		49FD64CB21429B96007011F4 /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64C921429B96007011F4 /* ProfilePhotoCell.xib */; };
 		49FD64CF21429DC8007011F4 /* girl1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64CC21429DC7007011F4 /* girl1.jpg */; };
 		49FD64D021429DC8007011F4 /* girl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64CD21429DC7007011F4 /* girl2.jpg */; };
 		49FD64D121429DC8007011F4 /* girl3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64CE21429DC8007011F4 /* girl3.jpg */; };
@@ -72,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495AB7BB213E91D00022D04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495AB7BD213E91D00022D04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,12 +80,11 @@
 		495AB7C5213E91D10022D04E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		495AB7C7213E91D10022D04E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		495AB7D0213E93410022D04E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		495AB7D3213E93900022D04E /* SectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/SectionDatasource.swift"; sourceTree = "<group>"; };
-		495AB7D5213E939D0022D04E /* CellTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellTypes.swift; path = ../../../../listTest/listTest/collections/CellTypes.swift; sourceTree = "<group>"; };
-		495AB7D7213E93A10022D04E /* CellsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellsFactory.swift; path = ../../../../listTest/listTest/collections/CellsFactory.swift; sourceTree = "<group>"; };
-		495AB7D9213E93A70022D04E /* DataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSourceItem.swift; path = "../../../../listTest/listTest/collections/data sources/DataSourceItem.swift"; sourceTree = "<group>"; };
-		495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/tables/TableSectionDatasource.swift"; sourceTree = "<group>"; };
-		495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSectionDatasource.swift; path = "../../../../listTest/listTest/collections/data sources/collections/CollectionSectionDatasource.swift"; sourceTree = "<group>"; };
+		495AB7D3213E93900022D04E /* SectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDatasource.swift; sourceTree = "<group>"; };
+		495AB7D7213E93A10022D04E /* CellsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellsFactory.swift; sourceTree = "<group>"; };
+		495AB7D9213E93A70022D04E /* DataSourceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceItem.swift; sourceTree = "<group>"; };
+		495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionDatasource.swift; sourceTree = "<group>"; };
+		495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSectionDatasource.swift; sourceTree = "<group>"; };
 		495AB7DF213E94D10022D04E /* ProfileBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBaseController.swift; sourceTree = "<group>"; };
 		495AB7E1213E96520022D04E /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
 		495AB7EA213EAC800022D04E /* ProfileButtonsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsItemCell.swift; sourceTree = "<group>"; };
@@ -111,10 +110,9 @@
 		49FD64A42142434C007011F4 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
 		49FD64A721428952007011F4 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
 		49FD64A821428952007011F4 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
-		49FD64C42142978A007011F4 /* CollectionBasedScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionBasedScrollerView.swift; path = "profilePrototyping/classes/classes/photo scroller/CollectionBasedScrollerView.swift"; sourceTree = SOURCE_ROOT; };
+		49FD64C42142978A007011F4 /* CollectionBasedScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionBasedScrollerView.swift; path = "profilePrototyping/classes/base collection classes/controls/CollectionBasedScrollerView.swift"; sourceTree = SOURCE_ROOT; };
 		49FD64C6214297BC007011F4 /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
-		49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilePhotoCell.swift; path = "profilePrototyping/classes/classes/photo scroller/full frame scroller for profile/ProfilePhotoCell.swift"; sourceTree = SOURCE_ROOT; };
-		49FD64C921429B96007011F4 /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfilePhotoCell.xib; path = "profilePrototyping/classes/classes/photo scroller/full frame scroller for profile/ProfilePhotoCell.xib"; sourceTree = SOURCE_ROOT; };
+		49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilePhotoCell.swift; path = "profilePrototyping/classes/classes/photo scroller/full frame scroller for profile/cell/ProfilePhotoCell.swift"; sourceTree = SOURCE_ROOT; };
 		49FD64CC21429DC7007011F4 /* girl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl1.jpg; sourceTree = "<group>"; };
 		49FD64CD21429DC7007011F4 /* girl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl2.jpg; sourceTree = "<group>"; };
 		49FD64CE21429DC8007011F4 /* girl3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl3.jpg; sourceTree = "<group>"; };
@@ -134,6 +132,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4937484121465FE00014A7BC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */,
+				49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		4937484221465FFC0014A7BC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */,
+				49374843214660240014A7BC /* ProfilePhotoCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		49374845214660A80014A7BC /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				49FD64C42142978A007011F4 /* CollectionBasedScrollerView.swift */,
+			);
+			path = controls;
+			sourceTree = "<group>";
+		};
+		49374846214660B20014A7BC /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7D7213E93A10022D04E /* CellsFactory.swift */,
+				495AB7D9213E93A70022D04E /* DataSourceItem.swift */,
+				495AB7D3213E93900022D04E /* SectionDatasource.swift */,
+				495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */,
+				495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */,
+			);
+			path = datasource;
+			sourceTree = "<group>";
+		};
 		495AB7AF213E91D00022D04E = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				495AB7F4213EB8B30022D04E /* classes */,
-				495AB7D2213E937D0022D04E /* data sources */,
+				495AB7D2213E937D0022D04E /* base collection classes */,
 				495AB7CF213E93230022D04E /* profile */,
 			);
 			path = classes;
@@ -200,17 +236,13 @@
 			path = profile;
 			sourceTree = "<group>";
 		};
-		495AB7D2213E937D0022D04E /* data sources */ = {
+		495AB7D2213E937D0022D04E /* base collection classes */ = {
 			isa = PBXGroup;
 			children = (
-				495AB7D5213E939D0022D04E /* CellTypes.swift */,
-				495AB7D7213E93A10022D04E /* CellsFactory.swift */,
-				495AB7D9213E93A70022D04E /* DataSourceItem.swift */,
-				495AB7D3213E93900022D04E /* SectionDatasource.swift */,
-				495AB7DB213E93AC0022D04E /* TableSectionDatasource.swift */,
-				495AB7DD213E93B20022D04E /* CollectionSectionDatasource.swift */,
+				49374846214660B20014A7BC /* datasource */,
+				49374845214660A80014A7BC /* controls */,
 			);
-			path = "data sources";
+			path = "base collection classes";
 			sourceTree = "<group>";
 		};
 		495AB7E3213E976C0022D04E /* cells */ = {
@@ -250,8 +282,7 @@
 		49804B092142B7FF00D5DC3C /* full frame scroller for profile */ = {
 			isa = PBXGroup;
 			children = (
-				49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */,
-				49FD64C921429B96007011F4 /* ProfilePhotoCell.xib */,
+				4937484221465FFC0014A7BC /* cell */,
 				49FD64D22142A5A9007011F4 /* ProfilePhotoScrollerView.swift */,
 				49C58A1D2146465B0063B096 /* ProfilePhotosCellsFactory.swift */,
 			);
@@ -261,9 +292,8 @@
 		49804B0A2142B8FE00D5DC3C /* small photos scroller */ = {
 			isa = PBXGroup;
 			children = (
+				4937484121465FE00014A7BC /* cell */,
 				49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */,
-				49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */,
-				49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */,
 				49C58A1B214646340063B096 /* SmallPhotosCellsFactory.swift */,
 			);
 			path = "small photos scroller";
@@ -294,7 +324,6 @@
 			children = (
 				49804B0A2142B8FE00D5DC3C /* small photos scroller */,
 				49804B092142B7FF00D5DC3C /* full frame scroller for profile */,
-				49FD64C42142978A007011F4 /* CollectionBasedScrollerView.swift */,
 			);
 			path = "photo scroller";
 			sourceTree = "<group>";
@@ -360,9 +389,9 @@
 			files = (
 				49FD64D021429DC8007011F4 /* girl2.jpg in Resources */,
 				49FD64D121429DC8007011F4 /* girl3.jpg in Resources */,
-				49FD64CB21429B96007011F4 /* ProfilePhotoCell.xib in Resources */,
 				495AB7C6213E91D10022D04E /* LaunchScreen.storyboard in Resources */,
 				495AB7C3213E91D10022D04E /* Assets.xcassets in Resources */,
+				49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */,
 				49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */,
 				49FD64CF21429DC8007011F4 /* girl1.jpg in Resources */,
 				495AB7D1213E93410022D04E /* Profile.storyboard in Resources */,
@@ -406,7 +435,6 @@
 				495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */,
 				49C58A1C214646340063B096 /* SmallPhotosCellsFactory.swift in Sources */,
 				495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */,
-				495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */,
 				495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */,
 				495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */,
 				49823B5821400C73001394E6 /* ProfileButtonsPanel.swift in Sources */,
