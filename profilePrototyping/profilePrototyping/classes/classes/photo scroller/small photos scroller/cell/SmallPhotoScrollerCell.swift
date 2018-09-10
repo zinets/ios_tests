@@ -17,6 +17,7 @@ class SmallPhotoScrollerCell: UICollectionViewCell, DataAwareCell {
         super.awakeFromNib()
         
         imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
     }
 
     func fillWithData(_ data: DataSourceItem) {

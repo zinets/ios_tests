@@ -11,16 +11,29 @@ import CollectionControls
 
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class SmallPhotosScroller: CollectionBasedScrollerView {
+    
+    override open func commonInit() {
+        super.commonInit()
+        
+        self.paginating = false
+        self.oneElementPaginating = false
+    }
+    
     override open func datasourceForCollection() -> CollectionSectionDatasource {
         return SmallPhotosDatasource()
     }
     
     override open func layoutForCollection() -> UICollectionViewLayout {
-        let layout = super.layoutForCollection()
-        
-//        layout.itemSize = CGSize(width: 100, height: 100)
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumLineSpacing = 10
         
         return layout
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth: CGFloat = collectionView.numberOfItems(inSection: 0) > 2 ? 130 : 270;
+        return CGSize(width: cellWidth, height: self.bounds.size.height)
     }
 }
 

@@ -87,6 +87,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
             smallPhotos.append(smallItem)
         }
         
+        smallPhotos.remove(at: 0)
         smallScrollerView.items = smallPhotos
     }
     

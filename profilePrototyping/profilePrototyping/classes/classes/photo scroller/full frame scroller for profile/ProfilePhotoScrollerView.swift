@@ -11,6 +11,14 @@ import CollectionControls
 
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class ProfilePhotoScrollerView: CollectionBasedScrollerView {
+    
+    override open func commonInit() {
+        super.commonInit()
+        
+        self.paginating = true
+        self.oneElementPaginating = true
+    }
+    
     override func layoutForCollection() -> UICollectionViewLayout {
         return PhotoScrollerViewLayout()
     }

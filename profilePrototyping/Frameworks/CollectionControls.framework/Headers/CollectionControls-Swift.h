@@ -191,7 +191,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @protocol PageControlProtocol;
 
 SWIFT_CLASS("_TtC18CollectionControls27CollectionBasedScrollerView")
-@interface CollectionBasedScrollerView : UIView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
+@interface CollectionBasedScrollerView : UIView <UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (void)layoutSubviews;

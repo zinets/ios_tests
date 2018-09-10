@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/CollectionControls-Swift.h</key>
 		<data>
-		aBMdvOkkiTxX6PPSbgTrc8CArvU=
+		eIpsz6DmtugJz7qBsnD4lDcYK9M=
 		</data>
 		<key>Headers/CollectionControls.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/CollectionControls.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		1zWMEfzb3qN1WZWUvoHqdBS6k8c=
+		u1tvyu5O/Fj6j8jN64FZJ0ySHY8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,11 +35,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aBMdvOkkiTxX6PPSbgTrc8CArvU=
+			eIpsz6DmtugJz7qBsnD4lDcYK9M=
 			</data>
 			<key>hash2</key>
 			<data>
-			w8sjj8AkQ7kehpjDPnPENWmD2Ud5QnXuhh2K3XO2gTo=
+			QhrD7uGHz9k2HX43ZhvPehHqbsrgsfVKHejnm/n+z6U=
 			</data>
 		</dict>
 		<key>Headers/CollectionControls.h</key>
@@ -68,11 +68,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1zWMEfzb3qN1WZWUvoHqdBS6k8c=
+			u1tvyu5O/Fj6j8jN64FZJ0ySHY8=
 			</data>
 			<key>hash2</key>
 			<data>
-			9jua42f85O+zH+5W1OdysEHLY9eenKyFP8QAkxSvC5Y=
+			h9/WUkqrA6IkQWihWX1jYNPRXPHK+oycmX38tuQQCoc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

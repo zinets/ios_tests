@@ -8,12 +8,18 @@ import PageControls
 // база для скроления чего-нибудь, использующего коллекцию; сама по себе работать не должна: нужно создать свой датасорс (который определяет ячейки, которые используются для коллекции; и который заполняет ячейки данными, но там все автоматизировано уже) и возвращать его в перегруженной функции datasourceForCollection
 // если нужна спец.раскладка - нужно ее создать и вернуть в layoutForCollection
 
-open class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+open class CollectionBasedScrollerView: UIView, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     // MARK: must be overrided -
     
     open func layoutForCollection() -> UICollectionViewLayout {
-        return UICollectionViewFlowLayout()
+        // раскладка для скролера - простой горизонтальный скроллер с ячейкой на весь контрол
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = .zero
+        
+        return layout
     }
     
     open func datasourceForCollection() -> CollectionSectionDatasource! {
@@ -38,7 +44,7 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGest
         commonInit()
     }
     
-    private func commonInit() {
+    open func commonInit() {
         internalDatasource.collectionView = collectionView
         internalDatasource.onNumberOfItemsChanged = {
             if let ctrl = self.pageControl {
@@ -62,29 +68,22 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGest
     
     private lazy var internalDatasource = datasourceForCollection()!
     lazy public var collectionView: UICollectionView = {
-        // раскладка для скролера - простой горизонтальный скроллер с ячейкой на весь контрол
-        if let layout = layoutForCollection() as? UICollectionViewFlowLayout {
-            layout.minimumLineSpacing = 0
-            layout.minimumInteritemSpacing = 0
-            layout.sectionInset = .zero
-            
-            var _collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-            _collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            _collectionView.backgroundColor = UIColor.white
-            _collectionView.decelerationRate = UIScrollViewDecelerationRateFast
-            _collectionView.delegate = self
-            
-            return _collectionView
-        }
-        return UICollectionView()
+        let layout = layoutForCollection()
+        var _collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        _collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        _collectionView.backgroundColor = UIColor.white
+        _collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        _collectionView.delegate = self
+        
+        return _collectionView
     }()
     
     // MARK: scrolling -
     
     /// выравнивать ли ячейки
-    public var paginating = true
+    public var paginating = false
     /// ограничить прокрутку одним элементов за раз
-    public var oneElementPaginating = true
+    public var oneElementPaginating = false
     /// бесконечная прокрутка
     public var endlessScrolling = false
     /// направление прокрутки
