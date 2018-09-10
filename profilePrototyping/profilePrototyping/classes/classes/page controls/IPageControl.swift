@@ -3,12 +3,13 @@
 //
 
 import UIKit
+import PageControls
 
 protocol IPageControlDatasource {
     func pageControl(_ sender: IPageControl, viewForIndex: Int) -> IPageControlItem
 }
 
-class IPageControl: UIView, PageControlProto {
+class IPageControl: UIView, PageControlProtocol {
     
     // MARK: public
     

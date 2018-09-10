@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import PageControls
 
-@IBDesignable class OneWayPageControl: UIView, PageControlProto {
+@IBDesignable class OneWayPageControl: UIView, PageControlProtocol {
     
     /// пусть размер всегда квадратный
     var dotSize: CGFloat = 6 {
