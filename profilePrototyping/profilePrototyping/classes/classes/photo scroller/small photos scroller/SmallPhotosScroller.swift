@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import CollectionControls
 
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class SmallPhotosScroller: CollectionBasedScrollerView {
-    override func datasourceForCollection() -> CollectionSectionDatasource {
+    override open func datasourceForCollection() -> CollectionSectionDatasource {
         return SmallPhotosDatasource()
     }
     
-    override func layoutForCollection() -> UICollectionViewLayout {
+    override open func layoutForCollection() -> UICollectionViewLayout {
         let layout = super.layoutForCollection()
         
 //        layout.itemSize = CGSize(width: 100, height: 100)

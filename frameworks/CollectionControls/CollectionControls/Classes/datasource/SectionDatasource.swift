@@ -4,10 +4,10 @@
 
 import UIKit
 
-class SectionDatasource: NSObject {
-    var internalItems = [DataSourceItem]()
+open class SectionDatasource: NSObject {
+    public var internalItems = [DataSourceItem]()
     
-    var supportedCellTypes: [CellType] {
+    open var supportedCellTypes: [CellType] {
         get {
             return []
         }
@@ -17,7 +17,7 @@ class SectionDatasource: NSObject {
     var toInsert = Set<Int>()
     var toUpdate = Set<Int>()
     
-    var items:[DataSourceItem] {
+    open var items:[DataSourceItem] {
         get {
             return internalItems;
         }
@@ -31,7 +31,7 @@ class SectionDatasource: NSObject {
         }
     }
     
-    var onNumberOfItemsChanged: (() -> ())?
+    public var onNumberOfItemsChanged: (() -> ())?
     
     func objectsEqual(obj1: AnyHashable, obj2: AnyHashable) -> Bool {
         return obj1 == obj2
@@ -156,12 +156,12 @@ class SectionDatasource: NSObject {
     // для регистрации xib-ом возвращаем имя файла с дизайном
     // исключение для ячеек, которые описываются в сториборде; т.е. если ячейка в сториборде - не вертаем имя ниб-а, ячейка уже зарегистрирована
     // поэтому результат опциональный
-    func cellNibFor(_ cellType: CellType) -> String? {
+    open func cellNibFor(_ cellType: CellType) -> String? {
         return nil
     }
     
     // вовзращаем reuseCellId для ячейки указанного типа
-    func cellIdFor(_ cellType: CellType) -> String {
+    open func cellIdFor(_ cellType: CellType) -> String {
         return cellType
     }
 }

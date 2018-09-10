@@ -4,9 +4,9 @@
 
 import UIKit
 
-class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
+open class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     var section: Int = 0
-    var tableView: UITableView? {
+    public var tableView: UITableView? {
         didSet {
             if let table = tableView {
                 table.dataSource = self
@@ -21,7 +21,7 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
         }
     }
     
-    override var items: [DataSourceItem] {
+    override open var items: [DataSourceItem] {
         get {
             return super.items
         }
@@ -59,11 +59,11 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     
     // MARK: tableview support -
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = items[indexPath.item]
         let cellId = cellIdFor(data.itemType)
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DataAwareCell {

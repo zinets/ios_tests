@@ -8,6 +8,7 @@
 
 import UIKit
 import TNURLImageView
+import CollectionControls
 
 class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
 

@@ -4,7 +4,7 @@
 
 import UIKit
 
-typealias CellType = String
+public typealias CellType = String
 
 // т.к. тип от String, то rawValue == написанию энума и это будет использовано для регистрации ячеек
 //enum CellType: String {
@@ -20,15 +20,15 @@ typealias CellType = String
 //}
 
 // ячейка должна уметь показать переданные ей данные
-protocol DataAwareCell {
+public protocol DataAwareCell {
     func fillWithData(_ data: DataSourceItem)
 }
 
-class DataSourceItem: Equatable, Hashable {
+public class DataSourceItem: Equatable, Hashable {
     let itemType: CellType
-    var payload: AnyHashable?
+    public var payload: AnyHashable?
     
-    required init(_ itemType: CellType) {
+    required public init(_ itemType: CellType) {
         self.itemType = itemType
     }
     
@@ -46,7 +46,7 @@ class DataSourceItem: Equatable, Hashable {
         return lhs.payload == rhs.payload
     }
     
-    var hashValue: Int {
+    public var hashValue: Int {
         if let value = payload {
             // хз как тут надо будет сделать в итого
             return itemType.hashValue ^ value.hashValue

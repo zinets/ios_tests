@@ -4,9 +4,9 @@
 
 import UIKit
 
-class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSource {
+open class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSource {
     var section: Int = 0
-    var collectionView: UICollectionView? {
+    public var collectionView: UICollectionView? {
         didSet {
             if let collection = collectionView {
                 collection.dataSource = self
@@ -23,7 +23,7 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
     
     // MARK: overrides -
     
-    override var items:[DataSourceItem] {
+    override open var items:[DataSourceItem] {
         get {
             return super.items
         }
@@ -62,11 +62,11 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
     
     // MARK: collection support -
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = items[indexPath.item]
         let cellId = cellIdFor(data.itemType)
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? DataAwareCell {

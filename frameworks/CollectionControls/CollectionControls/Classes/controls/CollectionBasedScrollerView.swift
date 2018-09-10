@@ -4,35 +4,40 @@
 
 import UIKit
 
+@objc protocol PageControlProto {
+    var numberOfPages: Int { get set }
+    var pageIndex: Int { get set }
+}
+
 // база для скроления чего-нибудь, использующего коллекцию; сама по себе работать не должна: нужно создать свой датасорс (который определяет ячейки, которые используются для коллекции; и который заполняет ячейки данными, но там все автоматизировано уже) и возвращать его в перегруженной функции datasourceForCollection
 // если нужна спец.раскладка - нужно ее создать и вернуть в layoutForCollection
 
-class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+open class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     // MARK: must be overrided -
     
-    func layoutForCollection() -> UICollectionViewLayout {
+    open func layoutForCollection() -> UICollectionViewLayout {
         return UICollectionViewFlowLayout()
     }
     
-    func datasourceForCollection() -> CollectionSectionDatasource! {
+    open func datasourceForCollection() -> CollectionSectionDatasource! {
         return nil
     }
     
     // MARK: properties -
     
-    var autoScrollInterval: TimeInterval = 4
+    public var autoScrollInterval: TimeInterval = 4
     private var scrollTimer: Timer?
     private var tapRecognizer: UITapGestureRecognizer?
     
     // MARK: init
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -52,7 +57,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     
     // MARK: overrides -
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -60,7 +65,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     // MARK: collection -
     
     private lazy var internalDatasource = datasourceForCollection()!
-    lazy var collectionView: UICollectionView = {
+    lazy public var collectionView: UICollectionView = {
         // раскладка для скролера - простой горизонтальный скроллер с ячейкой на весь контрол
         if let layout = layoutForCollection() as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 0
@@ -81,13 +86,13 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     // MARK: scrolling -
     
     /// выравнивать ли ячейки
-    var paginating = true
+    public var paginating = true
     /// ограничить прокрутку одним элементов за раз
-    var oneElementPaginating = true
+    public var oneElementPaginating = true
     /// бесконечная прокрутка
-    var endlessScrolling = false
+    public var endlessScrolling = false
     /// направление прокрутки
-    var scrollDirection: UICollectionViewScrollDirection = .horizontal {
+    public var scrollDirection: UICollectionViewScrollDirection = .horizontal {
         didSet {
             if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 layout.scrollDirection = scrollDirection
@@ -96,7 +101,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         }
     }
     /// автоскролл
-    var autoScroll = false {
+    public var autoScroll = false {
         didSet {
             if autoScroll != oldValue {
                 recreateScrollingTimer()
@@ -104,8 +109,8 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         }
     }
     /// tap to scroll - тап по краю картинки (скажем, на расстоянии ХХ от края) вызывает прокрутку
-    var tapToScrollArea: CGFloat = 50
-    var tapToScroll = false {
+    public var tapToScrollArea: CGFloat = 50
+    public var tapToScroll = false {
         willSet {
             if newValue {
                 if tapRecognizer == nil {
@@ -173,7 +178,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         }
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         var res = false
         
         guard tapToScroll && internalDatasource.items.count > 2 else {
@@ -196,11 +201,11 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     
     // MARK: scroller delegate -
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         destroyScrollTimer()
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if paginating {
             if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 var targetOffset = targetContentOffset.pointee
@@ -233,7 +238,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         recreateScrollingTimer()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if endlessScrolling && !scrollView.isDecelerating {
             let horizontalScrolling = scrollDirection == .horizontal
             let minValue: CGFloat = 0
@@ -264,7 +269,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         }
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             let horizontalScrolling = scrollDirection == .horizontal
             let pageWidth = horizontalScrolling ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing)
@@ -339,7 +344,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     // MARK: datasource -
     
     // в массив с данными передаем структуру из типа (фото-ячейка) и ссылки на картинку (локальное имя для начала)
-    var items: [DataSourceItem] {
+    public var items: [DataSourceItem] {
         get {
             return internalDatasource.items
         }
@@ -349,7 +354,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         }
     }
     
-    var itemIndex: Int? {
+    public var itemIndex: Int? {
         get {
             if !endlessScrolling && internalDatasource.items.count > 1 {
                 

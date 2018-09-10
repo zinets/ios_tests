@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CollectionControls
 
 class ViewController: UIViewController/*, IPageControlDatasource*/ {
     

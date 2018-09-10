@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CollectionControls
 
 class ProfileAboutSubtitleItemCell: UITableViewCell, DataAwareCell {
 

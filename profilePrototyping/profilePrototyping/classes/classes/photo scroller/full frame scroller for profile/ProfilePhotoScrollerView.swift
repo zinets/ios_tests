@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CollectionControls
 
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class ProfilePhotoScrollerView: CollectionBasedScrollerView {
