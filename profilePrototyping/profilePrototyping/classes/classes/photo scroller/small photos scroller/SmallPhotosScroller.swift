@@ -25,6 +25,6 @@ class SmallPhotosScroller: CollectionBasedScrollerView {
 
 private class SmallPhotosDatasource: CollectionSectionDatasource {
     override var supportedCellTypes: [CellType] {
-        return [.ProfilePhotosListItem]
+        return ["ProfilePhotosListItem"]
     }
 }

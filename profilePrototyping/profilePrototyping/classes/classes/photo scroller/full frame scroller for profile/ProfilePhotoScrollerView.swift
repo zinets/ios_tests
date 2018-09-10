@@ -32,7 +32,7 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
 // поддерживается один тип ячеек, из ксиба, cellId в ксибе для ячейки должен быть указан как "ProfileTopPhotoItem"
 private class PhotosDatasource: CollectionSectionDatasource {
     override var supportedCellTypes: [CellType] {
-        return [.ProfileTopPhotoItem]
+        return ["ProfileTopPhotoItem"]
     }
 }
 

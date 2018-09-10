@@ -39,32 +39,32 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
                           "Children": "Never"]
 //        userInfo.photos = ["userPhoto1.jpg"]
         
-        var item = DataSourceItem(.ProfileOwnPhotoItem)
+        var item = DataSourceItem("ProfileOwnPhotoItem")
         item.payload = userInfo
 //        items.append(item)
         
         // buttons
-        item = DataSourceItem(.ProfileButtonsItem)
+        item = DataSourceItem("ProfileButtonsItem")
         items.append(item)
         
-        item = DataSourceItem(.ProfileAboutInfoItem)
+        item = DataSourceItem("ProfileAboutInfoItem")
         item.payload = userInfo
         items.append(item)
         
-        item = DataSourceItem(.ProfileAboutSubtitleItem)
+        item = DataSourceItem("ProfileAboutSubtitleItem")
         item.payload = "About"
         items.append(item)
         
-        item = DataSourceItem(.ProfileAboutDescriptionItem)
+        item = DataSourceItem("ProfileAboutDescriptionItem")
         item.payload = userInfo
         items.append(item)
         
-        item = DataSourceItem(.ProfileAboutSubtitleItem)
+        item = DataSourceItem("ProfileAboutSubtitleItem")
         item.payload = "Personality"
         items.append(item)
         
         for (a, b) in userInfo.about {
-            item = DataSourceItem(.ProfileAboutItem)            
+            item = DataSourceItem("ProfileAboutItem")            
             item.payload = UserInfoAboutItem.init(a, value: b)
             items.append(item)
         }

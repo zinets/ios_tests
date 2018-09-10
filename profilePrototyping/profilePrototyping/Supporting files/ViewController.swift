@@ -66,15 +66,15 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
     @IBAction func reloadPhotos(_ sender: Any) {
         var photos = [DataSourceItem]()
         
-        var photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        var photoItem = DataSourceItem("ProfileTopPhotoItem")
         photoItem.payload = "girl1.jpg"
         photos.append(photoItem)
         
-        photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        photoItem = DataSourceItem("ProfileTopPhotoItem")
         photoItem.payload = "girl2.jpg"
         photos.append(photoItem)
         
-        photoItem = DataSourceItem(CellType.ProfileTopPhotoItem)
+        photoItem = DataSourceItem("ProfileTopPhotoItem")
         photoItem.payload = "girl3.jpg"
         photos.append(photoItem)
         
@@ -82,7 +82,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         
         var smallPhotos = [DataSourceItem]()
         for item in photos {
-            let smallItem = DataSourceItem(CellType.ProfilePhotosListItem)
+            let smallItem = DataSourceItem("ProfilePhotosListItem")
             smallItem.payload = item.payload
             
             smallPhotos.append(smallItem)
