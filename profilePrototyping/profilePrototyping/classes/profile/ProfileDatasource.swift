@@ -19,5 +19,9 @@ class ProfileDatasource: TableSectionDatasource {
                 "ProfileAboutItem"]
     }
     
-    
+
+    // этот метод не реализован, т.к. диз всех ячеек в сториборде
+//    open func cellNibFor(_ cellType: CellType) -> String?
+    // этот метод не реализован, т.к. reuseCellId совпадает с типом ячейки, а это реализуется в базовом классе
+//    open func cellIdFor(_ cellType: CellType) -> String
 }
