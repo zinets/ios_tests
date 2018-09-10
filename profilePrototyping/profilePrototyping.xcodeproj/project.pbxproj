@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
-		49374868214670FB0014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748632146709A0014A7BC /* CollectionControls.framework */; };
-		49374869214670FB0014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748632146709A0014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4937486F21467B450014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4937486C21467AFA0014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4937487121467B600014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937486C21467AFA0014A7BC /* CollectionControls.framework */; };
 		495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BB213E91D00022D04E /* AppDelegate.swift */; };
 		495AB7BE213E91D00022D04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BD213E91D00022D04E /* ViewController.swift */; };
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
@@ -48,30 +48,6 @@
 		49FD64D32142A5A9007011F4 /* ProfilePhotoScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD64D22142A5A9007011F4 /* ProfilePhotoScrollerView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		493748622146709A0014A7BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 15D759CB214662DF0046F936;
-			remoteInfo = CollectionControls;
-		};
-		49374865214670D80014A7BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 15D759CA214662DF0046F936;
-			remoteInfo = CollectionControls;
-		};
-		4937486A214670FB0014A7BC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 15D759CA214662DF0046F936;
-			remoteInfo = CollectionControls;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		49FD64AF21428962007011F4 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -80,7 +56,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */,
-				49374869214670FB0014A7BC /* CollectionControls.framework in Embed Frameworks */,
+				4937486F21467B450014A7BC /* CollectionControls.framework in Embed Frameworks */,
 				49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -90,7 +66,7 @@
 
 /* Begin PBXFileReference section */
 		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
-		4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
+		4937486C21467AFA0014A7BC /* CollectionControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CollectionControls.framework; sourceTree = "<group>"; };
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495AB7BB213E91D00022D04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495AB7BD213E91D00022D04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4937487121467B600014A7BC /* CollectionControls.framework in Frameworks */,
 				49FD64A921428952007011F4 /* MD5.framework in Frameworks */,
-				49374868214670FB0014A7BC /* CollectionControls.framework in Frameworks */,
 				49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,20 +137,19 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
-		4937485F2146709A0014A7BC /* Products */ = {
+		4937487021467B600014A7BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				493748632146709A0014A7BC /* CollectionControls.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		495AB7AF213E91D00022D04E = {
 			isa = PBXGroup;
 			children = (
-				4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */,
 				495AB7BA213E91D00022D04E /* profilePrototyping */,
 				495AB7B9213E91D00022D04E /* Products */,
+				4937487021467B600014A7BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,6 +275,7 @@
 		49FD64A621428952007011F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4937486C21467AFA0014A7BC /* CollectionControls.framework */,
 				49FD64A721428952007011F4 /* MD5.framework */,
 				49FD64A821428952007011F4 /* TNURLImageView.framework */,
 			);
@@ -330,8 +306,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				49374866214670D80014A7BC /* PBXTargetDependency */,
-				4937486B214670FB0014A7BC /* PBXTargetDependency */,
 			);
 			name = profilePrototyping;
 			productName = profilePrototyping;
@@ -364,28 +338,12 @@
 			mainGroup = 495AB7AF213E91D00022D04E;
 			productRefGroup = 495AB7B9213E91D00022D04E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 4937485F2146709A0014A7BC /* Products */;
-					ProjectRef = 4937485E2146709A0014A7BC /* CollectionControls.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				495AB7B7213E91D00022D04E /* profilePrototyping */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		493748632146709A0014A7BC /* CollectionControls.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CollectionControls.framework;
-			remoteRef = 493748622146709A0014A7BC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		495AB7B6213E91D00022D04E /* Resources */ = {
@@ -439,19 +397,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		49374866214670D80014A7BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CollectionControls;
-			targetProxy = 49374865214670D80014A7BC /* PBXContainerItemProxy */;
-		};
-		4937486B214670FB0014A7BC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CollectionControls;
-			targetProxy = 4937486A214670FB0014A7BC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		495AB7BF213E91D00022D04E /* Main.storyboard */ = {
