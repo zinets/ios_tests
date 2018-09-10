@@ -11,7 +11,7 @@ import UIKit
 class ProfileBaseController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    let profileDatasource = ProfileDatasource(ProfileCellsFactory())
+    let profileDatasource = ProfileDatasource()
     
     @IBOutlet weak var shadeView: UIView!
     @IBOutlet weak var photoView: UIImageView!

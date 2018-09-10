@@ -15,7 +15,7 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     }
     
     override func datasourceForCollection() -> CollectionSectionDatasource {
-        return PhotosDatasource(ProfilePhotosCellsFactory())
+        return PhotosDatasource()
     }
 
     // MARK: animated bounds changing -
@@ -33,6 +33,15 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
 private class PhotosDatasource: CollectionSectionDatasource {
     override var supportedCellTypes: [CellType] {
         return ["ProfileTopPhotoItem"]
+    }
+    
+    override func cellNibFor(_ cellType: CellType) -> String? {
+        switch cellType {
+        case "ProfileTopPhotoItem": // ячейка для фото использует xib с таким именем
+            return "ProfilePhotoCell"
+        default:
+            return super.cellNibFor(cellType)
+        }
     }
 }
 

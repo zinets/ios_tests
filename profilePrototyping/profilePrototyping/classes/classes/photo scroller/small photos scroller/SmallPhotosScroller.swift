@@ -11,7 +11,7 @@ import UIKit
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class SmallPhotosScroller: CollectionBasedScrollerView {
     override func datasourceForCollection() -> CollectionSectionDatasource {
-        return SmallPhotosDatasource(SmallPhotosCellsFactory())
+        return SmallPhotosDatasource()
     }
     
     override func layoutForCollection() -> UICollectionViewLayout {
@@ -24,7 +24,17 @@ class SmallPhotosScroller: CollectionBasedScrollerView {
 }
 
 private class SmallPhotosDatasource: CollectionSectionDatasource {
+    
     override var supportedCellTypes: [CellType] {
         return ["PortraitProfilePhotoItem"]
+    }
+    
+    override func cellNibFor(_ cellType: CellType) -> String? {
+        switch cellType {
+        case "PortraitProfilePhotoItem":
+            return "SmallPhotoScrollerCell"
+        default:
+            return super.cellNibFor(cellType)
+        }
     }
 }

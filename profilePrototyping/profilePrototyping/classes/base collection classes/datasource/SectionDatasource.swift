@@ -5,18 +5,12 @@
 import UIKit
 
 class SectionDatasource: NSObject {
-    var cellsFactory: CellsFactory!    
-    
     var internalItems = [DataSourceItem]()
+    
     var supportedCellTypes: [CellType] {
         get {
             return []
         }
-    }
-    
-    init(_ factory: CellsFactory) {
-        super.init()
-        self.cellsFactory = factory
     }
     
     var toRemove = Set<Int>()
@@ -152,5 +146,22 @@ class SectionDatasource: NSObject {
             items = data
             UIView.setAnimationsEnabled(true)
         }
+    }
+    
+    // MARK: cells registration -
+    
+    // для регистрации кодом возвращаем класс для ячейки указанного типа
+    //  func cellClassFor(_ cellType: CellType) -> AnyClass {}
+    
+    // для регистрации xib-ом возвращаем имя файла с дизайном
+    // исключение для ячеек, которые описываются в сториборде; т.е. если ячейка в сториборде - не вертаем имя ниб-а, ячейка уже зарегистрирована
+    // поэтому результат опциональный
+    func cellNibFor(_ cellType: CellType) -> String? {
+        return nil
+    }
+    
+    // вовзращаем reuseCellId для ячейки указанного типа
+    func cellIdFor(_ cellType: CellType) -> String {
+        return cellType
     }
 }

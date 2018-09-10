@@ -12,8 +12,8 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
                 table.dataSource = self
                 
                 for cellType in supportedCellTypes {
-                    let cellId = self.cellsFactory.cellIdFor(cellType)
-                    if let cellNib = self.cellsFactory.cellNibFor(cellType) {
+                    let cellId = self.cellIdFor(cellType)
+                    if let cellNib = self.cellNibFor(cellType) {
                         table.register(UINib(nibName: cellNib, bundle: nil), forCellReuseIdentifier: cellId)
                     }
                 }
@@ -65,7 +65,7 @@ class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = items[indexPath.item]
-        let cellId = cellsFactory.cellIdFor(data.itemType)
+        let cellId = cellIdFor(data.itemType)
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DataAwareCell {
             cell.fillWithData(data)
             return cell as! UITableViewCell
