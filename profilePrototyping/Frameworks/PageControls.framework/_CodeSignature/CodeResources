@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/PageControls.swiftmodule/i386.swiftmodule</key>
 		<data>
-		1j/hvoId4dFOwe7Y6u1Uh/3Ye5Q=
+		CJmdpX3e7cWMAFsEPj3gaIDts3c=
 		</data>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ElhYyAO202i8VHXKHIR6uysL8Y8=
+		vzp5ifoBgtgXqWWkvHl6Wqxgqyg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1j/hvoId4dFOwe7Y6u1Uh/3Ye5Q=
+			CJmdpX3e7cWMAFsEPj3gaIDts3c=
 			</data>
 			<key>hash2</key>
 			<data>
-			lNptXGYwR/SQfbIOAlpThKRbZarGNQTZBWTCZfuvm5M=
+			T4CHb+dQbLAEG/gdDjsKQedSOltHafsidZsbLmtFK08=
 			</data>
 		</dict>
 		<key>Modules/PageControls.swiftmodule/x86_64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ElhYyAO202i8VHXKHIR6uysL8Y8=
+			vzp5ifoBgtgXqWWkvHl6Wqxgqyg=
 			</data>
 			<key>hash2</key>
 			<data>
-			CglWGBCr/6Qn0CaxeREqH0oozQtgEx+yo+US1X15ae0=
+			BMR+l9kw2wFVE2nOspDyzg0pZQjkGS5vbHJ4gtDFJno=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

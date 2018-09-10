@@ -8,14 +8,17 @@
 
 import UIKit
 
+@IBDesignable
 open class DotsPageControl: UIView, PageControlProtocol {
     
-    open var numberOfPages: Int = 0 {
+    @IBInspectable
+    public var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
-    open var pageIndex: Int = 0 {
+    @IBInspectable
+    public var pageIndex: Int = 0 {
         didSet {
             updateProperties()
         }
@@ -30,8 +33,12 @@ open class DotsPageControl: UIView, PageControlProtocol {
             updateProperties()
         }
     }
-    public var activeDotColor = UIColor.white
-    public var dotColor = UIColor.white.withAlphaComponent(0.5) {
+    
+    @IBInspectable
+    public var activeDotColor: UIColor = UIColor.white
+    
+    @IBInspectable
+    public var dotColor: UIColor = UIColor.white.withAlphaComponent(0.5) {
         didSet {
             updateProperties()
         }

@@ -20,7 +20,7 @@ class IntroScrollView: CollectionBasedScrollerView {
         
         return layout
     }
-    
+  
 }
 
 // у интро-вью может быть 2 варианта ячеек

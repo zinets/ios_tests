@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 open class OneWayPageControl: UIView, PageControlProtocol {
     
     /// пусть размер всегда квадратный
@@ -26,12 +27,14 @@ open class OneWayPageControl: UIView, PageControlProtocol {
         }
     }
     /// у неактивных точек одинаковый цвет, но есть отличия
-    @IBInspectable public var dotColor: UIColor = .green {
+    @IBInspectable
+    public var dotColor: UIColor = .green {
         didSet {
             updateProperties()
         }
     }
-    @IBInspectable public var activeDotColor: UIColor = .magenta {
+    @IBInspectable
+    public var activeDotColor: UIColor = .magenta {
         didSet {
             updateProperties()
         }
@@ -67,12 +70,13 @@ open class OneWayPageControl: UIView, PageControlProtocol {
     }
     
     // MARK: proto -
-    
+    @IBInspectable
     open var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
+    @IBInspectable
     open var pageIndex: Int = 0 {
         didSet {
             updateProperties()
