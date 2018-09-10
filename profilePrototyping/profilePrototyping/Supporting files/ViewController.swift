@@ -44,6 +44,12 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         
     }
     
+    @IBAction func showIntro(_ sender: Any) {
+        if let ctrl = UIStoryboard.init(name: "Intro", bundle: nil).instantiateInitialViewController() {
+            self.show(ctrl, sender: nil)
+        }
+    }
+    
     @IBOutlet weak var testView: UIView!
     
     @IBAction func testAnimation(_ sender: UIButton) {
