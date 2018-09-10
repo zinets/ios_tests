@@ -12,8 +12,8 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
                 collection.dataSource = self
                 
                 for cellType in supportedCellTypes {
-                    let cellId = CellsFactory.cellIdFor(cellType)
-                    if let cellNib = CellsFactory.cellNibFor(cellType) {
+                    let cellId = self.cellsFactory.cellIdFor(cellType)
+                    if let cellNib = self.cellsFactory.cellNibFor(cellType) {
                         collection.register(UINib(nibName: cellNib, bundle: nil), forCellWithReuseIdentifier: cellId)
                     }
                 }
@@ -68,7 +68,7 @@ class CollectionSectionDatasource : SectionDatasource, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = items[indexPath.item]
-        let cellId = CellsFactory.cellIdFor(data.itemType)
+        let cellId = cellsFactory.cellIdFor(data.itemType)
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? DataAwareCell {
             cell.fillWithData(data)            
             return cell as! UICollectionViewCell

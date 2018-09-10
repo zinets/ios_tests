@@ -5,11 +5,18 @@
 import UIKit
 
 class SectionDatasource: NSObject {
+    var cellsFactory: CellsFactory!    
+    
     var internalItems = [DataSourceItem]()
     var supportedCellTypes: [CellType] {
         get {
             return []
         }
+    }
+    
+    init(_ factory: CellsFactory) {
+        super.init()
+        self.cellsFactory = factory
     }
     
     var toRemove = Set<Int>()

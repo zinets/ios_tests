@@ -15,8 +15,8 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
         return UICollectionViewFlowLayout()
     }
     
-    func datasourceForCollection() -> CollectionSectionDatasource {
-        return CollectionSectionDatasource()
+    func datasourceForCollection() -> CollectionSectionDatasource! {
+        return nil
     }
     
     // MARK: properties -
@@ -59,7 +59,7 @@ class CollectionBasedScrollerView: UIView, UICollectionViewDelegate, UIGestureRe
     
     // MARK: collection -
     
-    private lazy var internalDatasource = datasourceForCollection()
+    private lazy var internalDatasource = datasourceForCollection()!
     lazy var collectionView: UICollectionView = {
         // раскладка для скролера - простой горизонтальный скроллер с ячейкой на весь контрол
         if let layout = layoutForCollection() as? UICollectionViewFlowLayout {

@@ -35,9 +35,12 @@
 		49804B0C2142BCEC00D5DC3C /* SmallPhotosScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */; };
 		49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */; };
 		49804B102142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */; };
+		49804B12214638E900D5DC3C /* ProfileCellsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B11214638E900D5DC3C /* ProfileCellsFactory.swift */; };
 		49823B56213FEF5E001394E6 /* ProfileItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B55213FEF5E001394E6 /* ProfileItemCell.swift */; };
 		49823B5821400C73001394E6 /* ProfileButtonsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */; };
 		49823B5D2141028F001394E6 /* IPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49823B5C2141028F001394E6 /* IPageControl.swift */; };
+		49C58A1C214646340063B096 /* SmallPhotosCellsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C58A1B214646340063B096 /* SmallPhotosCellsFactory.swift */; };
+		49C58A1E2146465B0063B096 /* ProfilePhotosCellsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C58A1D2146465B0063B096 /* ProfilePhotosCellsFactory.swift */; };
 		49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64A42142434C007011F4 /* Magnolia Script.otf */; };
 		49FD64A921428952007011F4 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A721428952007011F4 /* MD5.framework */; };
 		49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A821428952007011F4 /* TNURLImageView.framework */; };
@@ -99,9 +102,12 @@
 		49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotosScroller.swift; sourceTree = "<group>"; };
 		49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotoScrollerCell.swift; sourceTree = "<group>"; };
 		49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallPhotoScrollerCell.xib; sourceTree = "<group>"; };
+		49804B11214638E900D5DC3C /* ProfileCellsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellsFactory.swift; sourceTree = "<group>"; };
 		49823B55213FEF5E001394E6 /* ProfileItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemCell.swift; sourceTree = "<group>"; };
 		49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsPanel.swift; sourceTree = "<group>"; };
 		49823B5C2141028F001394E6 /* IPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPageControl.swift; sourceTree = "<group>"; };
+		49C58A1B214646340063B096 /* SmallPhotosCellsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotosCellsFactory.swift; sourceTree = "<group>"; };
+		49C58A1D2146465B0063B096 /* ProfilePhotosCellsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCellsFactory.swift; sourceTree = "<group>"; };
 		49FD64A42142434C007011F4 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
 		49FD64A721428952007011F4 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
 		49FD64A821428952007011F4 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
@@ -186,8 +192,9 @@
 			children = (
 				495AB7D0213E93410022D04E /* Profile.storyboard */,
 				495AB7E3213E976C0022D04E /* cells */,
-				495AB7DF213E94D10022D04E /* ProfileBaseController.swift */,
+				49804B11214638E900D5DC3C /* ProfileCellsFactory.swift */,
 				495AB7E1213E96520022D04E /* ProfileDatasource.swift */,
+				495AB7DF213E94D10022D04E /* ProfileBaseController.swift */,
 				495AB7F9213EC1BB0022D04E /* UserInfo.swift */,
 			);
 			path = profile;
@@ -249,6 +256,7 @@
 				49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */,
 				49FD64C921429B96007011F4 /* ProfilePhotoCell.xib */,
 				49FD64D22142A5A9007011F4 /* ProfilePhotoScrollerView.swift */,
+				49C58A1D2146465B0063B096 /* ProfilePhotosCellsFactory.swift */,
 			);
 			path = "full frame scroller for profile";
 			sourceTree = "<group>";
@@ -259,6 +267,7 @@
 				49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */,
 				49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */,
 				49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */,
+				49C58A1B214646340063B096 /* SmallPhotosCellsFactory.swift */,
 			);
 			path = "small photos scroller";
 			sourceTree = "<group>";
@@ -361,9 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49804B12214638E900D5DC3C /* ProfileCellsFactory.swift in Sources */,
 				495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */,
 				49804B072142AEEC00D5DC3C /* OneWayPageControl.swift in Sources */,
 				49FD64C52142978A007011F4 /* CollectionBasedScrollerView.swift in Sources */,
+				49C58A1E2146465B0063B096 /* ProfilePhotosCellsFactory.swift in Sources */,
 				49823B5D2141028F001394E6 /* IPageControl.swift in Sources */,
 				49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */,
 				495AB7DE213E93B20022D04E /* CollectionSectionDatasource.swift in Sources */,
@@ -385,6 +396,7 @@
 				495AB7F3213EB20A0022D04E /* ProfileAboutItemCell.swift in Sources */,
 				495AB7E0213E94D10022D04E /* ProfileBaseController.swift in Sources */,
 				495AB7EF213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift in Sources */,
+				49C58A1C214646340063B096 /* SmallPhotosCellsFactory.swift in Sources */,
 				495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */,
 				495AB7D6213E939D0022D04E /* CellTypes.swift in Sources */,
 				495AB7DA213E93A70022D04E /* DataSourceItem.swift in Sources */,

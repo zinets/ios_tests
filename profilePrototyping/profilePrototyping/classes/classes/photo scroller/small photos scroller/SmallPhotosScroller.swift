@@ -11,7 +11,7 @@ import UIKit
 /// конкретный скроллер конкретных вещей - фотографий юзера
 class SmallPhotosScroller: CollectionBasedScrollerView {
     override func datasourceForCollection() -> CollectionSectionDatasource {
-        return SmallPhotosDatasource()
+        return SmallPhotosDatasource(SmallPhotosCellsFactory())
     }
     
     override func layoutForCollection() -> UICollectionViewLayout {

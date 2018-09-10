@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileDatasource: TableSectionDatasource {
-
+    
     override var supportedCellTypes: [CellType] {
         return ["ProfileButtonsItem",
                 "ProfileAboutInfoItem",

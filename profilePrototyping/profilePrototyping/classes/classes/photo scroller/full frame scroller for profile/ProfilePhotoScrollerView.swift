@@ -15,7 +15,7 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     }
     
     override func datasourceForCollection() -> CollectionSectionDatasource {
-        return PhotosDatasource()
+        return PhotosDatasource(ProfilePhotosCellsFactory())
     }
 
     // MARK: animated bounds changing -
