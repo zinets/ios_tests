@@ -1,54 +1,49 @@
 //
-//  PageControl.swift
-//  yaScroller2
+//  DotsPageControl.swift
+//  PageControls
 //
-//  Created by Victor Zinets on 8/31/18.
+//  Created by Victor Zinets on 9/10/18.
 //  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit
 
-@objc protocol PageControlProto {
-    var numberOfPages: Int { get set }
-    var pageIndex: Int { get set }
-}
-
 @IBDesignable
-class PageControl: UIView, PageControlProto {
-
-    var numberOfPages: Int = 0 {
+open class DotsPageControl: UIView, PageControlProtocol {
+    
+    public var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
-    var pageIndex: Int = 0 {
+    public var pageIndex: Int = 0 {
         didSet {
             updateProperties()
         }
     }
-    var dotSize = CGSize(width: 6, height: 6) {
+    public var dotSize = CGSize(width: 6, height: 6) {
         didSet {
             updateProperties()
         }
     }
-    var dotSpace: CGFloat = 10.0 {
+    public var dotSpace: CGFloat = 10.0 {
         didSet {
             updateProperties()
         }
     }
-    var activeDotColor = UIColor.white
-    var dotColor = UIColor.white.withAlphaComponent(0.5) {
+    public var activeDotColor = UIColor.white
+    public var dotColor = UIColor.white.withAlphaComponent(0.5) {
         didSet {
             updateProperties()
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -85,12 +80,12 @@ class PageControl: UIView, PageControlProto {
             activeDotLayer.isHidden = true
             replicatorLayer.isHidden = true
         }
-        self.invalidateIntrinsicContentSize()        
+        self.invalidateIntrinsicContentSize()
     }
-
+    
     // MARK: layout -
     
-    override var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         get {
             let height = dotSize.height
             let width = CGFloat(numberOfPages) * (dotSize.width + dotSpace) - dotSpace
@@ -98,16 +93,16 @@ class PageControl: UIView, PageControlProto {
         }
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return self.intrinsicContentSize
     }
     
-    override func prepareForInterfaceBuilder() {
+    override open func prepareForInterfaceBuilder() {
         // тут задаются начальные значения для контрола, помещенного в IB
         super.prepareForInterfaceBuilder()
         
         numberOfPages = 5
         pageIndex = 0
     }
-
+    
 }
