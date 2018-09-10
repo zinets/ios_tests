@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
+		493748AD21468BB20014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; };
+		493748AE21468BB20014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		493748AF21468BB20014A7BC /* PageControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748AA21468BA40014A7BC /* PageControls.framework */; };
+		493748B021468BB20014A7BC /* PageControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748AA21468BA40014A7BC /* PageControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BB213E91D00022D04E /* AppDelegate.swift */; };
 		495AB7BE213E91D00022D04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BD213E91D00022D04E /* ViewController.swift */; };
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
@@ -52,7 +56,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */,
+				493748AE21468BB20014A7BC /* CollectionControls.framework in Embed Frameworks */,
 				49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */,
+				493748B021468BB20014A7BC /* PageControls.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
+		493748A921468BA40014A7BC /* CollectionControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CollectionControls.framework; sourceTree = "<group>"; };
+		493748AA21468BA40014A7BC /* PageControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PageControls.framework; sourceTree = "<group>"; };
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495AB7BB213E91D00022D04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495AB7BD213E91D00022D04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +111,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FD64A921428952007011F4 /* MD5.framework in Frameworks */,
+				493748AD21468BB20014A7BC /* CollectionControls.framework in Frameworks */,
 				49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */,
+				493748AF21468BB20014A7BC /* PageControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +266,8 @@
 		49FD64A621428952007011F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				493748A921468BA40014A7BC /* CollectionControls.framework */,
+				493748AA21468BA40014A7BC /* PageControls.framework */,
 				49FD64A721428952007011F4 /* MD5.framework */,
 				49FD64A821428952007011F4 /* TNURLImageView.framework */,
 			);

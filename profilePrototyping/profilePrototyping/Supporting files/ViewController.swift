@@ -25,12 +25,6 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dotsPageControl = OneWayPageControl(frame: CGRect(x: 10, y: 30, width: 100, height: 10))
-        dotsPageControl.numberOfPages = 7
-        dotsPageControl.pageIndex = 2
-        self.view.addSubview(dotsPageControl)
-        
-        
     }
     
     @IBAction func decInstaCounter(_ sender: Any) {

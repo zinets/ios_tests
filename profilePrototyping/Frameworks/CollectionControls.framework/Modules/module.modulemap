@@ -1,0 +1,11 @@
+framework module CollectionControls {
+  umbrella header "CollectionControls.h"
+
+  export *
+  module * { export * }
+}
+
+module CollectionControls.Swift {
+    header "CollectionControls-Swift.h"
+    requires objc
+}
