@@ -19,11 +19,6 @@ typealias CellType = String
 //    case ProfilePhotosListItem      // блок в конце профиля, если фото > 1
 //}
 
-// ячейка должна уметь показать переданные ей данные
-protocol DataAwareCell {
-    func fillWithData(_ data: DataSourceItem)
-}
-
 class CellsFactory {
     // для регистрации кодом возвращаем класс для ячейки указанного типа
     //  func cellClassFor(_ cellType: CellType) -> AnyClass {}

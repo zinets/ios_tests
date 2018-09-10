@@ -12,7 +12,7 @@ class SmallPhotosCellsFactory: CellsFactory {
 
     override func cellNibFor(_ cellType: CellType) -> String? {
         switch cellType {
-        case "ProfilePhotosListItem": 
+        case "PortraitProfilePhotoItem": 
             return "SmallPhotoScrollerCell"
         default:
             return super.cellNibFor(cellType)

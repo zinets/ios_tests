@@ -4,6 +4,11 @@
 
 import UIKit
 
+// ячейка должна уметь показать переданные ей данные
+protocol DataAwareCell {
+    func fillWithData(_ data: DataSourceItem)
+}
+
 class DataSourceItem: Equatable, Hashable {
     let itemType: CellType
     var payload: AnyHashable?

@@ -82,7 +82,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         
         var smallPhotos = [DataSourceItem]()
         for item in photos {
-            let smallItem = DataSourceItem("ProfilePhotosListItem")
+            let smallItem = DataSourceItem("PortraitProfilePhotoItem")
             smallItem.payload = item.payload
             
             smallPhotos.append(smallItem)
