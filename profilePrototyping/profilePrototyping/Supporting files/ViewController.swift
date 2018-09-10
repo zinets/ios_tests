@@ -8,6 +8,7 @@
 
 import UIKit
 import CollectionControls
+import PageControls
 
 class ViewController: UIViewController/*, IPageControlDatasource*/ {
     
@@ -18,6 +19,8 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         return ctrl
     }()
 
+    @IBOutlet weak var dotsPageControl: DotsPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

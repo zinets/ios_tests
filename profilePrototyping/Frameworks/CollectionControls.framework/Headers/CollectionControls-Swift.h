@@ -188,6 +188,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class UIGestureRecognizer;
 @class UITouch;
 @class UIScrollView;
+@protocol PageControlProtocol;
 
 SWIFT_CLASS("_TtC18CollectionControls27CollectionBasedScrollerView")
 @interface CollectionBasedScrollerView : UIView <UICollectionViewDelegate, UIGestureRecognizerDelegate>
@@ -199,6 +200,7 @@ SWIFT_CLASS("_TtC18CollectionControls27CollectionBasedScrollerView")
 - (void)scrollViewWillEndDragging:(UIScrollView * _Nonnull)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(CGPoint * _Nonnull)targetContentOffset;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+@property (nonatomic, weak) IBOutlet id <PageControlProtocol> _Null_unspecified pageControl;
 @end
 
 
