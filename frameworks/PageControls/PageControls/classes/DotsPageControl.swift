@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 open class DotsPageControl: UIView, PageControlProtocol {
     
     open var numberOfPages: Int = 0 {
@@ -38,7 +37,7 @@ open class DotsPageControl: UIView, PageControlProtocol {
         }
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }

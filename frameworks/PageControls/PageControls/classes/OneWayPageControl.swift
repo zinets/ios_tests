@@ -7,43 +7,42 @@
 //
 
 import UIKit
-import PageControls
 
-@IBDesignable class OneWayPageControl: UIView, PageControlProtocol {
+open class OneWayPageControl: UIView, PageControlProtocol {
     
     /// пусть размер всегда квадратный
-    var dotSize: CGFloat = 6 {
+    public var dotSize: CGFloat = 6 {
         didSet {
             updateProperties()
         }
     }
-    let dotLineWidth: CGFloat = 1
-    let activeDotLineWidth: CGFloat = 3
+    public let dotLineWidth: CGFloat = 1
+    public let activeDotLineWidth: CGFloat = 3
     
     /// расстояние между точками
-    var dotSpace: CGFloat = 6 {
+    public var dotSpace: CGFloat = 6 {
         didSet {
             updateProperties()
         }
     }
     /// у неактивных точек одинаковый цвет, но есть отличия
-    @IBInspectable var dotColor: UIColor = .green {
+    @IBInspectable public var dotColor: UIColor = .green {
         didSet {
             updateProperties()
         }
     }
-    @IBInspectable var activeDotColor: UIColor = .magenta {
+    @IBInspectable public var activeDotColor: UIColor = .magenta {
         didSet {
             updateProperties()
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         commonInit()
     }
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         commonInit()
@@ -69,12 +68,12 @@ import PageControls
     
     // MARK: proto -
     
-    var numberOfPages: Int = 0 {
+    open var numberOfPages: Int = 0 {
         didSet {
             updateProperties()
         }
     }
-    var pageIndex: Int = 0 {
+    open var pageIndex: Int = 0 {
         didSet {
             updateProperties()
         }
@@ -122,7 +121,7 @@ import PageControls
         self.invalidateIntrinsicContentSize()
     }
  
-    override var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         get {
             let height = dotSize
             let width = CGFloat(numberOfPages) * (dotSize + dotSpace) - dotSpace
@@ -130,11 +129,11 @@ import PageControls
         }
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return self.intrinsicContentSize
     }
     
-    override func prepareForInterfaceBuilder() {
+    override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
         numberOfPages = 7

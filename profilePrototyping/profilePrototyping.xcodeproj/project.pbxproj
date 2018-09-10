@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
-		4937486F21467B450014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4937486C21467AFA0014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4937487121467B600014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937486C21467AFA0014A7BC /* CollectionControls.framework */; };
-		4937488E21467F090014A7BC /* PageControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937488C21467EFC0014A7BC /* PageControls.framework */; };
-		4937488F21467F090014A7BC /* PageControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4937488C21467EFC0014A7BC /* PageControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BB213E91D00022D04E /* AppDelegate.swift */; };
 		495AB7BE213E91D00022D04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BD213E91D00022D04E /* ViewController.swift */; };
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
@@ -30,7 +26,6 @@
 		495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F9213EC1BB0022D04E /* UserInfo.swift */; };
 		495AB7FC213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */; };
 		495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */; };
-		49804B072142AEEC00D5DC3C /* OneWayPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B062142AEEC00D5DC3C /* OneWayPageControl.swift */; };
 		49804B0C2142BCEC00D5DC3C /* SmallPhotosScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */; };
 		49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */; };
 		49804B102142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */; };
@@ -57,9 +52,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */,
-				4937486F21467B450014A7BC /* CollectionControls.framework in Embed Frameworks */,
 				49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */,
-				4937488F21467F090014A7BC /* PageControls.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,8 +61,6 @@
 
 /* Begin PBXFileReference section */
 		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
-		4937486C21467AFA0014A7BC /* CollectionControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CollectionControls.framework; sourceTree = "<group>"; };
-		4937488C21467EFC0014A7BC /* PageControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PageControls.framework; sourceTree = "<group>"; };
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495AB7BB213E91D00022D04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495AB7BD213E91D00022D04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +81,6 @@
 		495AB7F9213EC1BB0022D04E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOwnPhotoItemCell.swift; sourceTree = "<group>"; };
 		495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadowedProportionalButton.swift; sourceTree = "<group>"; };
-		49804B062142AEEC00D5DC3C /* OneWayPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneWayPageControl.swift; sourceTree = "<group>"; };
 		49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotosScroller.swift; sourceTree = "<group>"; };
 		49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotoScrollerCell.swift; sourceTree = "<group>"; };
 		49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallPhotoScrollerCell.xib; sourceTree = "<group>"; };
@@ -112,10 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4937487121467B600014A7BC /* CollectionControls.framework in Frameworks */,
 				49FD64A921428952007011F4 /* MD5.framework in Frameworks */,
 				49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */,
-				4937488E21467F090014A7BC /* PageControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				49823B5C2141028F001394E6 /* IPageControl.swift */,
-				49804B062142AEEC00D5DC3C /* OneWayPageControl.swift */,
 			);
 			path = "page controls";
 			sourceTree = "<group>";
@@ -269,8 +256,6 @@
 		49FD64A621428952007011F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4937488C21467EFC0014A7BC /* PageControls.framework */,
-				4937486C21467AFA0014A7BC /* CollectionControls.framework */,
 				49FD64A721428952007011F4 /* MD5.framework */,
 				49FD64A821428952007011F4 /* TNURLImageView.framework */,
 			);
@@ -366,7 +351,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				495AB7E2213E96520022D04E /* ProfileDatasource.swift in Sources */,
-				49804B072142AEEC00D5DC3C /* OneWayPageControl.swift in Sources */,
 				49823B5D2141028F001394E6 /* IPageControl.swift in Sources */,
 				49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */,
 				495AB7F6213EB8D80022D04E /* ProfileOnlineIndicatorView.swift in Sources */,

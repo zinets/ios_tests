@@ -10,6 +10,7 @@
 		4937488121467D4D0014A7BC /* PageControls.h in Headers */ = {isa = PBXBuildFile; fileRef = 4937487F21467D4D0014A7BC /* PageControls.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4937488921467D8F0014A7BC /* PageControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937488821467D8F0014A7BC /* PageControlProtocol.swift */; };
 		4937488B21467DC90014A7BC /* DotsPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937488A21467DC90014A7BC /* DotsPageControl.swift */; };
+		493748A82146865C0014A7BC /* OneWayPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493748A72146865C0014A7BC /* OneWayPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		4937488021467D4D0014A7BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4937488821467D8F0014A7BC /* PageControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlProtocol.swift; sourceTree = "<group>"; };
 		4937488A21467DC90014A7BC /* DotsPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsPageControl.swift; sourceTree = "<group>"; };
+		493748A72146865C0014A7BC /* OneWayPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneWayPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				4937488821467D8F0014A7BC /* PageControlProtocol.swift */,
 				4937488A21467DC90014A7BC /* DotsPageControl.swift */,
+				493748A72146865C0014A7BC /* OneWayPageControl.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				4937488B21467DC90014A7BC /* DotsPageControl.swift in Sources */,
 				4937488921467D8F0014A7BC /* PageControlProtocol.swift in Sources */,
+				493748A82146865C0014A7BC /* OneWayPageControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

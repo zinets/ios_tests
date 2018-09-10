@@ -36,7 +36,7 @@
                                 <rect key="frame" x="29" y="107" width="273" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="pageControl" destination="RpC-Vs-urV" id="EmC-XT-au1"/>
+                                    <outlet property="pageControl" destination="4vf-lj-JLv" id="B7Y-KM-7UP"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gal-nm-faF">
@@ -58,30 +58,40 @@
                                 <rect key="frame" x="0.0" y="395" width="375" height="197"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpC-Vs-urV" customClass="DotsPageControl">
-                                <rect key="frame" x="193" y="375" width="109" height="12"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao7-yG-Gxe" customClass="DotsPageControl" customModule="PageControls">
+                                <rect key="frame" x="78" y="356" width="109" height="10"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="cBO-LG-4QJ"/>
+                                    <constraint firstAttribute="width" constant="109" id="HBR-xe-eDk"/>
+                                    <constraint firstAttribute="height" constant="10" id="x1t-Up-TjZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vf-lj-JLv" customClass="OneWayPageControl" customModule="PageControls">
+                                <rect key="frame" x="78" y="370" width="109" height="10"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="iW4-ap-KXR"/>
+                                    <constraint firstAttribute="width" constant="109" id="nbq-1r-DrB"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="RpC-Vs-urV" firstAttribute="width" secondItem="ckv-D7-WIq" secondAttribute="width" id="1XV-Fw-hbd"/>
+                            <constraint firstItem="ao7-yG-Gxe" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="7" id="5d6-Gm-3hI"/>
                             <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-52" id="7hz-oI-k4A"/>
-                            <constraint firstItem="RpC-Vs-urV" firstAttribute="top" secondItem="ckv-D7-WIq" secondAttribute="bottom" constant="3" id="OwE-jh-Y1q"/>
+                            <constraint firstItem="4vf-lj-JLv" firstAttribute="leading" secondItem="Gal-nm-faF" secondAttribute="trailing" constant="6" id="EiE-Zf-WHn"/>
+                            <constraint firstItem="ao7-yG-Gxe" firstAttribute="leading" secondItem="Gal-nm-faF" secondAttribute="trailing" constant="6" id="Hnr-RU-Br3"/>
                             <constraint firstItem="13p-zB-ptP" firstAttribute="top" secondItem="Ng9-iH-NeH" secondAttribute="bottom" constant="24" id="W6g-6S-8Xu"/>
                             <constraint firstItem="13p-zB-ptP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="29" id="Wz5-vO-JWE"/>
                             <constraint firstItem="Gal-nm-faF" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" symbolic="YES" id="XK2-tc-168"/>
                             <constraint firstItem="Gal-nm-faF" firstAttribute="leading" secondItem="13p-zB-ptP" secondAttribute="leading" id="Xd3-3r-9vV"/>
-                            <constraint firstItem="RpC-Vs-urV" firstAttribute="centerX" secondItem="ckv-D7-WIq" secondAttribute="centerX" id="b5h-J9-6WP"/>
                             <constraint firstItem="ckv-D7-WIq" firstAttribute="top" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="8" id="bOY-xw-4yY"/>
                             <constraint firstItem="A23-fE-kvC" firstAttribute="top" secondItem="Gal-nm-faF" secondAttribute="bottom" constant="8" id="dwG-hE-2C4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ckv-D7-WIq" secondAttribute="trailing" constant="73" id="h81-zQ-Hrd"/>
                             <constraint firstAttribute="bottom" secondItem="13p-zB-ptP" secondAttribute="bottom" constant="318" id="nY9-n9-anb"/>
                             <constraint firstItem="A23-fE-kvC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rMC-5k-H6o"/>
                             <constraint firstItem="A23-fE-kvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s1F-7e-liL"/>
+                            <constraint firstItem="4vf-lj-JLv" firstAttribute="top" secondItem="ao7-yG-Gxe" secondAttribute="bottom" constant="4" id="thd-pN-pwA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A23-fE-kvC" secondAttribute="bottom" constant="75" id="wEw-35-Uhc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13p-zB-ptP" secondAttribute="trailing" constant="73" id="wHq-Cd-mPW"/>
                             <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-266.5" id="zni-gr-hMs"/>
@@ -89,7 +99,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="dotsPageControl" destination="RpC-Vs-urV" id="UF3-b6-QgT"/>
                         <outlet property="profilePhotoScroller" destination="13p-zB-ptP" id="z3v-08-mXK"/>
                         <outlet property="smallScrollerView" destination="A23-fE-kvC" id="Muu-iG-PH6"/>
                     </connections>

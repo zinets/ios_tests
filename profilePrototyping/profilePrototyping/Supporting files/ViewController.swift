@@ -19,21 +19,16 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         return ctrl
     }()
 
-    @IBOutlet weak var dotsPageControl: DotsPageControl!
+    @IBOutlet weak var testPageControl: DotsPageControl!
+    //    @IBOutlet weak var dotsPageControl: OneWayPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let instaCtrl = InstagramPageControl(frame: CGRect(x: 50, y: 100, width: 50, height: 10))
-//        instaCtrl.backgroundColor = UIColor.brown
-//        view.addSubview(instaCtrl)        
-//        instaCtrl.dotSize = 20
-//
-//        instaCtrl.dataSource = self
-//        instaCtrl.displayCount = 6
-//        instaCtrl.numberOfPages = 10
-//        instaCtrl.currentPage = 0
-        
+        let dotsPageControl = OneWayPageControl(frame: CGRect(x: 10, y: 30, width: 100, height: 10))
+        dotsPageControl.numberOfPages = 7
+        dotsPageControl.pageIndex = 2
+        self.view.addSubview(dotsPageControl)
         
         
     }
