@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A23-fE-kvC" customClass="SmallPhotosScroller" customModule="profilePrototyping" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="395" width="375" height="197"/>
+                                <rect key="frame" x="0.0" y="395" width="375" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ao7-yG-Gxe" customClass="DotsPageControl" customModule="PageControls">
@@ -66,8 +66,8 @@
                                     <constraint firstAttribute="width" constant="109" id="nbq-1r-DrB"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-eC-Kz1">
-                                <rect key="frame" x="151.5" y="617" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9c-eC-Kz1">
+                                <rect key="frame" x="151" y="629" width="72" height="30"/>
                                 <state key="normal" title="show intro"/>
                                 <connections>
                                     <action selector="showIntro:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ElX-dC-KRI"/>
@@ -91,7 +91,7 @@
                             <constraint firstItem="A23-fE-kvC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rMC-5k-H6o"/>
                             <constraint firstItem="A23-fE-kvC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s1F-7e-liL"/>
                             <constraint firstItem="4vf-lj-JLv" firstAttribute="top" secondItem="ao7-yG-Gxe" secondAttribute="bottom" constant="4" id="thd-pN-pwA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A23-fE-kvC" secondAttribute="bottom" constant="75" id="wEw-35-Uhc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A23-fE-kvC" secondAttribute="bottom" constant="40" id="wEw-35-Uhc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13p-zB-ptP" secondAttribute="trailing" constant="73" id="wHq-Cd-mPW"/>
                             <constraint firstItem="Ng9-iH-NeH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-266.5" id="zni-gr-hMs"/>
                         </constraints>

@@ -87,7 +87,16 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
             smallPhotos.append(smallItem)
         }
         
-        smallPhotos.remove(at: 0)
+//        smallPhotos.remove(at: 0)
+        
+        photoItem = DataSourceItem("PortraitProfilePhotoItem")
+        photoItem.payload = "girl4.jpg"
+        smallPhotos.append(photoItem)
+        
+        photoItem = DataSourceItem("PortraitProfilePhotoItem")
+        photoItem.payload = "girl5.jpg"
+        smallPhotos.append(photoItem)
+        
         smallScrollerView.items = smallPhotos
     }
     
