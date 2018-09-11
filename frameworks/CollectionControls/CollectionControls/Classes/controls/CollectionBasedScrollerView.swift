@@ -196,17 +196,22 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegateFlowLayo
     
     // MARK: scroller delegate -
     
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+    
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         destroyScrollTimer()
     }
     
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if paginating {
             if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 var targetOffset = targetContentOffset.pointee
                 let horizontalScrolling = scrollDirection == .horizontal
                 let proposedOffset = horizontalScrolling ? targetOffset.x : targetOffset.y
-                let pageWidth = horizontalScrolling ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing)
+                let cellSize = self.collectionView(scrollView as! UICollectionView, layout: layout, sizeForItemAt:IndexPath(item: 0, section: 0))
+                let pageWidth = horizontalScrolling ? cellSize.width + layout.minimumInteritemSpacing : cellSize.height + layout.minimumLineSpacing
                 let vel = horizontalScrolling ? velocity.x : velocity.y
                 let offset = horizontalScrolling ? scrollView.contentOffset.x : scrollView.contentOffset.y
                 
@@ -233,7 +238,7 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegateFlowLayo
         recreateScrollingTimer()
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if endlessScrolling && !scrollView.isDecelerating {
             let horizontalScrolling = scrollDirection == .horizontal
             let minValue: CGFloat = 0
@@ -264,10 +269,11 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegateFlowLayo
         }
     }
     
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if paginating, let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             let horizontalScrolling = scrollDirection == .horizontal
-            let pageWidth = horizontalScrolling ? (layout.itemSize.width + layout.minimumInteritemSpacing) : (layout.itemSize.height + layout.minimumLineSpacing)
+            let cellSize = self.collectionView(scrollView as! UICollectionView, layout: layout, sizeForItemAt:IndexPath(item: 0, section: 0)) // держим в уме, что все ячейки одинаковые, так что можно ориентироваться на ячейку 0:0
+            let pageWidth = horizontalScrolling ? cellSize.width + layout.minimumInteritemSpacing : cellSize.height + layout.minimumLineSpacing
             let offset = horizontalScrolling ? scrollView.contentOffset.x : scrollView.contentOffset.y
             let pageIndex = Int((offset + pageWidth / 2) / pageWidth)
             var pt = scrollView.contentOffset
