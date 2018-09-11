@@ -71,7 +71,9 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
         }
         
         item = DataSourceItem("ProfilePortraitPhotoItem")
-        item.payload = ["girl1.jpg", "girl2.jpg", "girl3.jpg", "girl4.jpg", "girl5.jpg"]// as? AnyHashable
+        
+        let a: NSArray = ["girl1.jpg", "girl2.jpg"]
+        item.payload = a
         items.append(item)
         
         profileDatasource.items = items

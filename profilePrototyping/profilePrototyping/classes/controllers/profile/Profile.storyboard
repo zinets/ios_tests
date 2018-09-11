@@ -293,34 +293,37 @@
                                             <outlet property="valueLabel" destination="SwG-0s-Wfr" id="e46-ha-jfE"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfilePortraitPhotoItem" rowHeight="194" id="u7L-mj-I75" customClass="ProfilePortraitPhotoItemCell" customModule="profilePrototyping" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1030" width="375" height="194"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfilePortraitPhotoItem" rowHeight="207" id="u7L-mj-I75" customClass="ProfilePortraitPhotoItemCell" customModule="profilePrototyping" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1030" width="375" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u7L-mj-I75" id="wxL-eL-tTB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnN-Xw-bIB">
-                                                    <rect key="frame" x="16" y="0.0" width="73" height="27"/>
+                                                    <rect key="frame" x="16" y="0.0" width="73" height="26"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-oE-VvC">
-                                                    <rect key="frame" x="102" y="-8" width="11" height="43"/>
+                                                    <rect key="frame" x="102" y="-8.5" width="11" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
                                                     <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUA-ox-UHM">
-                                                    <rect key="frame" x="124" y="-3.5" width="33.5" height="34"/>
+                                                    <rect key="frame" x="124" y="-4" width="33.5" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBj-tf-LdP" userLabel="photos list" customClass="SmallPhotosScroller" customModule="profilePrototyping" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="47" width="375" height="146.5"/>
+                                                    <rect key="frame" x="0.0" y="46" width="375" height="144"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="144" id="avm-wG-RPR"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -328,7 +331,7 @@
                                                 <constraint firstItem="vnN-Xw-bIB" firstAttribute="leading" secondItem="wxL-eL-tTB" secondAttribute="leading" constant="16" id="EZL-UT-pOk"/>
                                                 <constraint firstItem="yUA-ox-UHM" firstAttribute="centerY" secondItem="ozd-oE-VvC" secondAttribute="centerY" id="JBd-hH-lQk"/>
                                                 <constraint firstItem="vnN-Xw-bIB" firstAttribute="top" secondItem="wxL-eL-tTB" secondAttribute="top" id="TuB-o1-JQc"/>
-                                                <constraint firstAttribute="bottom" secondItem="PBj-tf-LdP" secondAttribute="bottom" id="Yaa-E1-1PX"/>
+                                                <constraint firstAttribute="bottom" secondItem="PBj-tf-LdP" secondAttribute="bottom" constant="16" id="Yaa-E1-1PX"/>
                                                 <constraint firstAttribute="trailing" secondItem="PBj-tf-LdP" secondAttribute="trailing" id="ix0-Zc-dAG"/>
                                                 <constraint firstItem="yUA-ox-UHM" firstAttribute="leading" secondItem="ozd-oE-VvC" secondAttribute="trailing" constant="11" id="lKr-Lr-uVC"/>
                                                 <constraint firstItem="ozd-oE-VvC" firstAttribute="centerY" secondItem="vnN-Xw-bIB" secondAttribute="centerY" id="vF5-5N-7Za"/>
@@ -338,6 +341,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="photoScrollerHeight" destination="avm-wG-RPR" id="ROu-Ey-0AS"/>
                                             <outlet property="photosCountLabel" destination="yUA-ox-UHM" id="dMh-UC-ajs"/>
                                             <outlet property="portraitScrollerView" destination="PBj-tf-LdP" id="6Qx-1u-QLp"/>
                                         </connections>
