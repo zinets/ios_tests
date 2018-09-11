@@ -159,6 +159,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		49105E582147BFEE001482B0 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		4937484121465FE00014A7BC /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +301,7 @@
 		495AB7F4213EB8B30022D04E /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				49105E582147BFEE001482B0 /* extensions */,
 				49C58A1F21464CDD0063B096 /* controls */,
 				49804B082142B79000D5DC3C /* page controls */,
 				49FD64BB2142972A007011F4 /* photo scroller */,
@@ -329,7 +338,6 @@
 		49C58A1F21464CDD0063B096 /* controls */ = {
 			isa = PBXGroup;
 			children = (
-				495AB7F7213EBA5C0022D04E /* UIColor+RGB.swift */,
 				495AB7F5213EB8D80022D04E /* ProfileOnlineIndicatorView.swift */,
 				495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */,
 				49823B5721400C73001394E6 /* ProfileButtonsPanel.swift */,
