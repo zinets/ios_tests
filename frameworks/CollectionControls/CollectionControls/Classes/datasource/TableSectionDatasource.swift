@@ -26,6 +26,10 @@ open class TableSectionDatasource : SectionDatasource, UITableViewDataSource {
             return super.items
         }
         set (newItems){
+            if let table = tableView {
+                table.layoutIfNeeded() // см комент для коллекции 
+            }
+            
             super.items = newItems
             
             if let table = tableView {

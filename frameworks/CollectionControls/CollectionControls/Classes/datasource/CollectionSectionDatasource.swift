@@ -24,12 +24,14 @@ open class CollectionSectionDatasource : SectionDatasource, UICollectionViewData
     // MARK: overrides -
     
     override open var items:[DataSourceItem] {
-        get {
-            return super.items
+        // очень хочется думать, что это поможет пофикисть странные ошибки, когда данные присваиваются в пустой датасорс и тут же все падает с как обычно "вставка 3 записи, было 3, должно быть 3, бла-бла"; как так получается, что делается присваивание массива с вычислением разницы, а потом вдруг данные уже есть? если делается раскладка в интерфейсе, то в performBatch... внутри где-то запрашиваются ячейки (или как минимум numberOfItemsAt.. для вычисления высоты сожет и -> датасорс перед вставкой/удалением элементов уже "знает" другие значения)
+        // но если перед вставкой обновить раскладку, то есть хорошие шансы, что такого не будет
+        willSet {
+            if let collection = collectionView {
+                collection.layoutIfNeeded()
+            }
         }
-        set (newItems) {
-            super.items = newItems
-            
+        didSet {
             if let collection = collectionView {
                 collection.performBatchUpdates({
                     if (toRemove.count > 0) {
