@@ -9,10 +9,11 @@
 import UIKit
 import CollectionControls
 
-class ProfileAboutDescriptionItemCell: UITableViewCell, DataAwareCell{
+class ProfileAboutDescriptionItemCell: ProfileItemCell {
 
     @IBOutlet weak var descriptionLabel: UILabel!
-    func fillWithData(_ data: DataSourceItem) {
+    
+    override func fillWithData(_ data: DataSourceItem) {
         if let userInfo = data.payload as? UserInfo {
             descriptionLabel.text = userInfo.aboutDescription
         }

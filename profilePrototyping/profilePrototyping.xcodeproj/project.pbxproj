@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		49105E542147B045001482B0 /* girl4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49105E522147B044001482B0 /* girl4.jpg */; };
 		49105E552147B045001482B0 /* girl5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49105E532147B045001482B0 /* girl5.jpg */; };
+		49105E572147B753001482B0 /* ProfilePortraitPhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49105E562147B753001482B0 /* ProfilePortraitPhotoItemCell.swift */; };
 		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
 		493748AD21468BB20014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; };
 		493748AE21468BB20014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -88,6 +89,7 @@
 		49105E4C2147892D001482B0 /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
 		49105E522147B044001482B0 /* girl4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl4.jpg; sourceTree = "<group>"; };
 		49105E532147B045001482B0 /* girl5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl5.jpg; sourceTree = "<group>"; };
+		49105E562147B753001482B0 /* ProfilePortraitPhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePortraitPhotoItemCell.swift; sourceTree = "<group>"; };
 		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
 		493748A921468BA40014A7BC /* CollectionControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CollectionControls.framework; sourceTree = "<group>"; };
 		493748AA21468BA40014A7BC /* PageControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PageControls.framework; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				495AB7EE213EB0950022D04E /* ProfileAboutSubtitleItemCell.swift */,
 				495AB7F0213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift */,
 				495AB7F2213EB20A0022D04E /* ProfileAboutItemCell.swift */,
+				49105E562147B753001482B0 /* ProfilePortraitPhotoItemCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */,
 				493748B621468E990014A7BC /* IntroViewController.swift in Sources */,
 				49823B5821400C73001394E6 /* ProfileButtonsPanel.swift in Sources */,
+				49105E572147B753001482B0 /* ProfilePortraitPhotoItemCell.swift in Sources */,
 				495AB7F1213EB1380022D04E /* ProfileAboutDescriptionItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

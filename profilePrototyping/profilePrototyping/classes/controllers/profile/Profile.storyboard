@@ -212,11 +212,11 @@
                                         <rect key="frame" x="0.0" y="898" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t0Y-UC-2l6" id="MRh-SR-7Bq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsI-JB-30I">
-                                                    <rect key="frame" x="16" y="0.0" width="64" height="35.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="64" height="35"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -237,11 +237,11 @@
                                         <rect key="frame" x="0.0" y="942" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yWr-b9-62L" id="17i-OP-YNS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a 29 years old Shortie (just under 5 foot). Looking for passion and romance, lots of laughs and good conversation." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcz-xB-ZaM">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="19.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="19"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -262,11 +262,11 @@
                                         <rect key="frame" x="0.0" y="986" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HGC-DW-tPq" id="T4q-va-WEF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2R-bl-NMA">
-                                                    <rect key="frame" x="16" y="0.0" width="187.5" height="19"/>
+                                                    <rect key="frame" x="16" y="0.0" width="187.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -291,6 +291,55 @@
                                         <connections>
                                             <outlet property="propertyLabel" destination="j2R-bl-NMA" id="YQU-yz-S6h"/>
                                             <outlet property="valueLabel" destination="SwG-0s-Wfr" id="e46-ha-jfE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfilePortraitPhotoItem" rowHeight="194" id="u7L-mj-I75" customClass="ProfilePortraitPhotoItemCell" customModule="profilePrototyping" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1030" width="375" height="194"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u7L-mj-I75" id="wxL-eL-tTB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnN-Xw-bIB">
+                                                    <rect key="frame" x="16" y="0.0" width="73" height="27"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-oE-VvC">
+                                                    <rect key="frame" x="102" y="-8" width="11" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                                    <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUA-ox-UHM">
+                                                    <rect key="frame" x="124" y="-3.5" width="33.5" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PBj-tf-LdP" userLabel="photos list" customClass="SmallPhotosScroller" customModule="profilePrototyping" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="47" width="375" height="146.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PBj-tf-LdP" firstAttribute="top" secondItem="vnN-Xw-bIB" secondAttribute="bottom" constant="20" id="408-F7-lTw"/>
+                                                <constraint firstItem="vnN-Xw-bIB" firstAttribute="leading" secondItem="wxL-eL-tTB" secondAttribute="leading" constant="16" id="EZL-UT-pOk"/>
+                                                <constraint firstItem="yUA-ox-UHM" firstAttribute="centerY" secondItem="ozd-oE-VvC" secondAttribute="centerY" id="JBd-hH-lQk"/>
+                                                <constraint firstItem="vnN-Xw-bIB" firstAttribute="top" secondItem="wxL-eL-tTB" secondAttribute="top" id="TuB-o1-JQc"/>
+                                                <constraint firstAttribute="bottom" secondItem="PBj-tf-LdP" secondAttribute="bottom" id="Yaa-E1-1PX"/>
+                                                <constraint firstAttribute="trailing" secondItem="PBj-tf-LdP" secondAttribute="trailing" id="ix0-Zc-dAG"/>
+                                                <constraint firstItem="yUA-ox-UHM" firstAttribute="leading" secondItem="ozd-oE-VvC" secondAttribute="trailing" constant="11" id="lKr-Lr-uVC"/>
+                                                <constraint firstItem="ozd-oE-VvC" firstAttribute="centerY" secondItem="vnN-Xw-bIB" secondAttribute="centerY" id="vF5-5N-7Za"/>
+                                                <constraint firstItem="ozd-oE-VvC" firstAttribute="leading" secondItem="vnN-Xw-bIB" secondAttribute="trailing" constant="13" id="vhN-3R-F6m"/>
+                                                <constraint firstItem="PBj-tf-LdP" firstAttribute="leading" secondItem="wxL-eL-tTB" secondAttribute="leading" id="yJZ-BT-rfs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="photosCountLabel" destination="yUA-ox-UHM" id="dMh-UC-ajs"/>
+                                            <outlet property="portraitScrollerView" destination="PBj-tf-LdP" id="6Qx-1u-QLp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -327,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zh-cQ-tql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383.75" y="-203.87323943661971"/>
+            <point key="canvasLocation" x="1383.2" y="-204.64767616191907"/>
         </scene>
     </scenes>
     <resources>

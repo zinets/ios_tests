@@ -16,7 +16,8 @@ class ProfileDatasource: TableSectionDatasource {
                 "ProfileAboutInfoItem",
                 "ProfileAboutSubtitleItem",
                 "ProfileAboutDescriptionItem",
-                "ProfileAboutItem"]
+                "ProfileAboutItem",
+                "ProfilePortraitPhotoItem"]
     }
     
 

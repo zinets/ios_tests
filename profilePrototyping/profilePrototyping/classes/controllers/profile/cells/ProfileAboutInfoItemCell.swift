@@ -9,13 +9,14 @@
 import UIKit
 import CollectionControls
 
-class ProfileAboutInfoItemCell: UITableViewCell, DataAwareCell {
+class ProfileAboutInfoItemCell: ProfileItemCell {
 
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var onlineIndicatorView: ProfileOnlineIndicatorView!
-    func fillWithData(_ data: DataSourceItem) {
+    
+    override func fillWithData(_ data: DataSourceItem) {
         if let userInfo = data.payload as? UserInfo {
             screenNameLabel.text = userInfo.screenName
             ageLabel.text = String(userInfo.age)

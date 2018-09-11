@@ -70,7 +70,9 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
             items.append(item)
         }
         
-        
+        item = DataSourceItem("ProfilePortraitPhotoItem")
+        item.payload = ["girl1.jpg", "girl2.jpg", "girl3.jpg", "girl4.jpg", "girl5.jpg"]// as? AnyHashable
+        items.append(item)
         
         profileDatasource.items = items
         profileDatasource.tableView = self.tableView
