@@ -59,16 +59,27 @@
 	return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    if (self.serialPort.isOpen) {
+        [self.serialPort close];
+    }
+    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Actions
 
 - (IBAction)testTest:(id)sender {
-
-
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+    NSURL *url = [NSURL fileURLWithPath:[workspace fullPathForApplication:@"screensaver"]];
+    if (url) {
+    
+    
+    NSError *error = nil;
+    NSArray *arguments = @[];
+    [workspace launchApplicationAtURL:url options:0 configuration:[NSDictionary dictionaryWithObject:arguments forKey:NSWorkspaceLaunchConfigurationArguments] error:&error];
+    //Handle error
+    }
 }
 
 - (IBAction)send:(id)sender {
@@ -103,8 +114,9 @@
 	NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	if ([string length] == 0) return;
     
-    if ([string isEqualToString:@"$screen.On"]) {
+    if ([@"screenOff\r\n" isEqualToString:string]) {
         NSLog(@"show screensaver!");
+        [self testTest:nil];
     } else {
         [self.receivedDataTextView.textStorage.mutableString appendString:string];
         [self.receivedDataTextView setNeedsDisplay:YES];
