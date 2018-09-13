@@ -7,6 +7,14 @@ import UIKit
 class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     private var imageView = UIImageView()
+//    private lazy var dblTapGesture: UITapGestureRecognizer = {
+//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(dblTapAction(_:)))
+//        recognizer.numberOfTapsRequired = 2
+//        recognizer.isEnabled = false
+//
+//        return recognizer
+//    }()
+    
     var zoomEnabled = false {
         didSet {
             scalesForZooming()
@@ -30,9 +38,13 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     var image: UIImage? {
         willSet {
             imageView.removeFromSuperview()
+//            dblTapGesture.isEnabled = false
         }
         didSet {
             imageView = UIImageView(image: image)
+            imageView.isUserInteractionEnabled = true
+//            imageView.addGestureRecognizer(dblTapGesture)
+//            dblTapGesture.isEnabled = true
             self.addSubview(imageView)
 
             scalesForZooming()
@@ -135,4 +147,13 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         
         self.contentOffset = offset
     }
+    
+    // MARK: dbl tap to zoom -
+
+//    @objc func dblTapAction(_ sender: Any) {
+//        if zoomEnabled {
+//            zoomScale = minimumZoomScale
+//        }
+//    }
+    
 }
