@@ -7,6 +7,11 @@ import UIKit
 class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     private var imageView = UIImageView()
+    var zoomEnabled = false {
+        didSet {
+            scalesForZooming()
+        }
+    }
     
     private func commonInit() {
         self.delegate = self
@@ -68,7 +73,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             let minScale = min(scaleX, scaleY)
             
             self.minimumZoomScale = minScale
-            self.maximumZoomScale = 1
+            self.maximumZoomScale = zoomEnabled ? 1 : minScale
             self.zoomScale = minScale
             
             centerViewForZooming()

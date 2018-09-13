@@ -9,7 +9,33 @@
 import UIKit
 import CollectionControls
 
-/// конкретный скроллер конкретных вещей - фотографий юзера
+/// раскладка использует кастомный класс атрибутов для передачи в ячейку типа отображения фото - fit или fill, и параметр zoomEnabled
+class PhotoLayoutAttributes : UICollectionViewLayoutAttributes {
+    var contentMode: UIViewContentMode = .scaleAspectFill
+    var zoomEnabled: Bool = false
+    
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let attrs = super.copy(with: zone) as! PhotoLayoutAttributes
+        attrs.contentMode = contentMode
+        attrs.zoomEnabled = zoomEnabled
+        return attrs
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let obj = object as? PhotoLayoutAttributes {
+            if obj.contentMode != contentMode ||
+                obj.zoomEnabled != zoomEnabled {
+                return false
+            } else {
+                return super.isEqual(object)
+            }
+        } else {
+            return false
+        }
+    }
+}
+
+/// конкретный скроллер конкретных вещей - фотографий юзера; с зумом
 class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     
     override open func commonInit() {
@@ -20,7 +46,9 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     }
     
     override func layoutForCollection() -> UICollectionViewLayout {
-        return PhotoScrollerViewLayout()
+        let layout = PhotoScrollerViewLayout()
+        layout.zoomEnabled = true
+        return layout
     }
     
     override func datasourceForCollection() -> CollectionSectionDatasource {
@@ -33,6 +61,14 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
         didSet {
             if let layout = collectionView.collectionViewLayout as? PhotoScrollerViewLayout {
                 layout.contentMode = contentMode
+            }
+        }
+    }
+    
+    var zoomEnabled: Bool = false {
+        didSet {
+            if let layout = collectionView.collectionViewLayout as? PhotoScrollerViewLayout {
+                layout.zoomEnabled = zoomEnabled
             }
         }
     }
@@ -50,29 +86,6 @@ private class PhotosDatasource: CollectionSectionDatasource {
             return "ProfilePhotoCell"
         default:
             return super.cellNibFor(cellType)
-        }
-    }
-}
-
-/// раскладка использует кастомный класс атрибутов для передачи в ячейку типа отображения фото - fit или fill
-private class PhotoLayoutAttributes : UICollectionViewLayoutAttributes {
-    var contentMode: UIViewContentMode = .scaleAspectFill
-    
-    override func copy(with zone: NSZone? = nil) -> Any {
-        let attrs = super.copy(with: zone) as! PhotoLayoutAttributes
-        attrs.contentMode = contentMode
-        return attrs
-    }
-    
-    override func isEqual(_ object: Any?) -> Bool {
-        if let obj = object as? PhotoLayoutAttributes {
-            if obj.contentMode != contentMode {
-                return false
-            } else {
-                return super.isEqual(object)
-            }
-        } else {
-            return false
         }
     }
 }
@@ -125,9 +138,15 @@ private class PhotoScrollerViewLayout : UICollectionViewFlowLayout {
         }
     }
     
-    // MARK: contentMode -
+    // MARK: custom properties -
     
     var contentMode: UIViewContentMode = .scaleAspectFill {
+        didSet {
+            invalidateLayout()
+        }
+    }
+    
+    var zoomEnabled: Bool = false {
         didSet {
             invalidateLayout()
         }
@@ -140,6 +159,7 @@ private class PhotoScrollerViewLayout : UICollectionViewFlowLayout {
             for obj in attributes {
                 if let attrs = obj as? PhotoLayoutAttributes {
                     attrs.contentMode = contentMode
+                    attrs.zoomEnabled = zoomEnabled
                 }
             }
             return attributes
@@ -151,6 +171,7 @@ private class PhotoScrollerViewLayout : UICollectionViewFlowLayout {
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         if let attrs = super.layoutAttributesForItem(at: indexPath) as? PhotoLayoutAttributes {
             attrs.contentMode = contentMode
+            attrs.zoomEnabled = zoomEnabled
             return attrs
         }
         return nil
