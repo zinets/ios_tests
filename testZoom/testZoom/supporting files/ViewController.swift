@@ -26,34 +26,18 @@ class ViewController: UIViewController {
     @IBAction func resizeZoomer(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         UIView.animate(withDuration: 0.5) {
-           
+        
             
             if sender.isSelected {
                 let newFrame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 106)
-                self.restoreStatesForRotation(in: newFrame)
-                
+                self.scrollView.frame = newFrame
             } else {
                 let newFrame = CGRect(x: 16, y: 106, width: self.view.bounds.size.width - 2 * 16, height: self.view.bounds.size.height - 2 * 106)
-                
-                self.restoreStatesForRotation(in: newFrame)
+                self.scrollView.frame = newFrame
             }
             
         }
     }
-    
-    func restoreStatesForRotation(in bounds: CGRect) {
-        
-        let restorePoint = scrollView.pointToCenter()
-        let restoreScale = scrollView.scaleToRestoreAfterRotation()
-        scrollView.frame = bounds
-        scrollView.scalesForZooming()
-        scrollView.restoreCenterPoint(to: restorePoint, oldScale: restoreScale)
-    }
-    
-    
-    
-    
-    
     
 }
 

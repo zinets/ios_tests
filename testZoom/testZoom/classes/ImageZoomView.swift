@@ -41,15 +41,19 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         print("\(#function)")
     }
     
-    override var frame: CGRect {
-        didSet {
-            print("\(#function)")
-        }
-    }
     
-    override var bounds: CGRect {
+    
+    var restorePoint: CGPoint!
+    var restoreScale: CGFloat!
+    
+    override var frame: CGRect {
+        willSet {
+            restorePoint = self.pointToCenter()
+            restoreScale = self.scaleToRestoreAfterRotation()
+        }
         didSet {
-            print("\(#function)")
+            self.scalesForZooming()
+            self.restoreCenterPoint(to: restorePoint, oldScale: restoreScale)
         }
     }
     
@@ -63,7 +67,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         centerViewForZooming()
     }
     
-    func scalesForZooming() {
+    private func scalesForZooming() {
         if let image = image {
             self.contentSize = image.size
             
@@ -97,12 +101,12 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         imageView.frame = contentFrame
     }
     
-    func pointToCenter() -> CGPoint {
+    private func pointToCenter() -> CGPoint {
         let boundsCenter = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         return self.convert(boundsCenter, to: imageView)
     }
 
-    func scaleToRestoreAfterRotation() -> CGFloat {
+    private func scaleToRestoreAfterRotation() -> CGFloat {
         var contentScale = self.zoomScale
         if contentScale <= self.minimumZoomScale + CGFloat.ulpOfOne {
             contentScale = 0
@@ -110,17 +114,17 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         return contentScale
     }
     
-    func maximumContentOffset() -> CGPoint {
+    private func maximumContentOffset() -> CGPoint {
         let contentSize = self.contentSize
         let boundSize = self.bounds.size
         return CGPoint(x: contentSize.width - boundSize.width, y: contentSize.height - boundSize.height)
     }
     
-    func minimumContentOffset() -> CGPoint {
+    private func minimumContentOffset() -> CGPoint {
         return CGPoint.zero
     }
     
-    func restoreCenterPoint(to oldCenter: CGPoint, oldScale: CGFloat) {
+    private func restoreCenterPoint(to oldCenter: CGPoint, oldScale: CGFloat) {
         self.zoomScale = min(self.maximumZoomScale, max(self.minimumZoomScale, oldScale))
         
         let boundsCenter = self.convert(oldCenter, from: imageView)
