@@ -19,18 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="309" height="325"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBV-Fe-I6Z" customClass="ImageZoomView" customModule="profilePrototyping" customModuleProvider="target">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBV-Fe-I6Z" customClass="ImageZoomView" customModule="profilePrototyping" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="309" height="325"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.28627450980000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </subviews>
             </view>
-            <constraints>
-                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DUK-ho-OpO"/>
-                <constraint firstAttribute="bottom" secondItem="EBV-Fe-I6Z" secondAttribute="bottom" id="Gvd-Ko-ysw"/>
-                <constraint firstAttribute="trailing" secondItem="EBV-Fe-I6Z" secondAttribute="trailing" id="gik-WN-AZb"/>
-                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lt0-a5-k1Y"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="309" height="325"/>
             <connections>

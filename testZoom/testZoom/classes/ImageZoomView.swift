@@ -1,9 +1,5 @@
 //
 //  ImageZoomView.swift
-//  testZoom
-//
-//  Created by Victor Zinets on 9/13/18.
-//  Copyright © 2018 Victor Zinets. All rights reserved.
 //
 
 import UIKit
@@ -13,10 +9,6 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     private var imageView = UIImageView()
     
     private func commonInit() {
-        imageView.frame = CGRect(origin: CGPoint.zero, size: self.bounds.size)
-        imageView.isUserInteractionEnabled = true
-        self.addSubview(imageView)
-        
         self.delegate = self
     }
     
@@ -25,31 +17,31 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         commonInit()
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
     var image: UIImage? {
+        willSet {
+            imageView.removeFromSuperview()
+        }
         didSet {
-            imageView.image = image
-            imageView.frame = CGRect(origin: CGPoint.zero, size: image!.size)
-            imageView.contentMode = UIViewContentMode.center
-            
+            imageView = UIImageView(image: image)
+            self.addSubview(imageView)
+
             scalesForZooming()
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        print("\(#function)")
-    }
-    
-    
-    
     var restorePoint: CGPoint!
     var restoreScale: CGFloat!
+    
     
     override var frame: CGRect {
         willSet {
             restorePoint = self.pointToCenter()
-            restoreScale = self.scaleToRestoreAfterRotation()
+            restoreScale = self.scaleToRestore()
         }
         didSet {
             self.scalesForZooming()
@@ -106,7 +98,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         return self.convert(boundsCenter, to: imageView)
     }
 
-    private func scaleToRestoreAfterRotation() -> CGFloat {
+    private func scaleToRestore() -> CGFloat {
         var contentScale = self.zoomScale
         if contentScale <= self.minimumZoomScale + CGFloat.ulpOfOne {
             contentScale = 0
@@ -117,7 +109,8 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     private func maximumContentOffset() -> CGPoint {
         let contentSize = self.contentSize
         let boundSize = self.bounds.size
-        return CGPoint(x: contentSize.width - boundSize.width, y: contentSize.height - boundSize.height)
+        return CGPoint(x: contentSize.width - boundSize.width,
+                       y: contentSize.height - boundSize.height)
     }
     
     private func minimumContentOffset() -> CGPoint {
@@ -128,7 +121,8 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         self.zoomScale = min(self.maximumZoomScale, max(self.minimumZoomScale, oldScale))
         
         let boundsCenter = self.convert(oldCenter, from: imageView)
-        var offset = CGPoint(x: boundsCenter.x - self.bounds.size.width/2.0, y: boundsCenter.y - self.bounds.size.height/2.0)
+        var offset = CGPoint(x: boundsCenter.x - self.bounds.size.width/2.0,
+                             y: boundsCenter.y - self.bounds.size.height/2.0)
         let maxOffset = self.maximumContentOffset()
         let minOffset = self.minimumContentOffset()
         offset.x = max(minOffset.x, min(maxOffset.x, offset.x))
