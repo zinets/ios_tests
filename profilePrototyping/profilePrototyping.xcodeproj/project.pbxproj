@@ -22,6 +22,8 @@
 		493748BD2146917A0014A7BC /* IntroPage0Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493748BB2146917A0014A7BC /* IntroPage0Cell.xib */; };
 		493748C02146918E0014A7BC /* IntroPageXCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493748BE2146918E0014A7BC /* IntroPageXCell.swift */; };
 		493748C12146918E0014A7BC /* IntroPageXCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493748BF2146918E0014A7BC /* IntroPageXCell.xib */; };
+		4949852E214A6101005C3ABB /* ZoomTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949852D214A6101005C3ABB /* ZoomTestController.swift */; };
+		4949853C214A6EC0005C3ABB /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4949853B214A6EC0005C3ABB /* ImageZoomView.swift */; };
 		495AB7BC213E91D00022D04E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BB213E91D00022D04E /* AppDelegate.swift */; };
 		495AB7BE213E91D00022D04E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7BD213E91D00022D04E /* ViewController.swift */; };
 		495AB7C1213E91D00022D04E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495AB7BF213E91D00022D04E /* Main.storyboard */; };
@@ -100,6 +102,8 @@
 		493748BB2146917A0014A7BC /* IntroPage0Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroPage0Cell.xib; sourceTree = "<group>"; };
 		493748BE2146918E0014A7BC /* IntroPageXCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageXCell.swift; sourceTree = "<group>"; };
 		493748BF2146918E0014A7BC /* IntroPageXCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroPageXCell.xib; sourceTree = "<group>"; };
+		4949852D214A6101005C3ABB /* ZoomTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTestController.swift; sourceTree = "<group>"; };
+		4949853B214A6EC0005C3ABB /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageZoomView.swift; path = ../../../../testZoom/testZoom/classes/ImageZoomView.swift; sourceTree = "<group>"; };
 		495AB7B8213E91D00022D04E /* profilePrototyping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profilePrototyping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495AB7BB213E91D00022D04E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		495AB7BD213E91D00022D04E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,15 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		49498530214A61F5005C3ABB /* zoom test */ = {
+			isa = PBXGroup;
+			children = (
+				4949853B214A6EC0005C3ABB /* ImageZoomView.swift */,
+				4949852D214A6101005C3ABB /* ZoomTestController.swift */,
+			);
+			path = "zoom test";
+			sourceTree = "<group>";
+		};
 		495AB7AF213E91D00022D04E = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +280,7 @@
 			children = (
 				493748B121468E5C0014A7BC /* controllers */,
 				495AB7F4213EB8B30022D04E /* classes */,
+				49498530214A61F5005C3ABB /* zoom test */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -470,8 +484,10 @@
 				493748B8214690E00014A7BC /* IntroScrollView.swift in Sources */,
 				49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */,
 				495AB7F6213EB8D80022D04E /* ProfileOnlineIndicatorView.swift in Sources */,
+				4949853C214A6EC0005C3ABB /* ImageZoomView.swift in Sources */,
 				49FD64CA21429B96007011F4 /* ProfilePhotoCell.swift in Sources */,
 				495AB7FC213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift in Sources */,
+				4949852E214A6101005C3ABB /* ZoomTestController.swift in Sources */,
 				49FD64D32142A5A9007011F4 /* ProfilePhotoScrollerView.swift in Sources */,
 				495AB7ED213EAF520022D04E /* ProfileAboutInfoItemCell.swift in Sources */,
 				495AB7F8213EBA5C0022D04E /* UIColor+RGB.swift in Sources */,

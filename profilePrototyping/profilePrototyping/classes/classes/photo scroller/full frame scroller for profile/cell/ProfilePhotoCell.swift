@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import TNURLImageView
 import CollectionControls
 
 class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
 
-    @IBOutlet weak var imageView: TNImageView!
+    @IBOutlet weak var imageView: ImageZoomView!
 
     func fillWithData(_ data: DataSourceItem) {
         if let imageName = data.payload as? String {

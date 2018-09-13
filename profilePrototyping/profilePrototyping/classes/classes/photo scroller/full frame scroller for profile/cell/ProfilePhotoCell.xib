@@ -19,21 +19,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="309" height="325"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8D4-ub-3jJ" customClass="TNImageView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBV-Fe-I6Z" customClass="ImageZoomView" customModule="profilePrototyping" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="309" height="325"/>
-                    </imageView>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.28627450980000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="8D4-ub-3jJ" secondAttribute="bottom" id="13n-q9-pdZ"/>
-                <constraint firstAttribute="trailing" secondItem="8D4-ub-3jJ" secondAttribute="trailing" id="6cz-bf-cp9"/>
-                <constraint firstItem="8D4-ub-3jJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LAR-Vi-NQ0"/>
-                <constraint firstItem="8D4-ub-3jJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vYW-lK-W9z"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DUK-ho-OpO"/>
+                <constraint firstAttribute="bottom" secondItem="EBV-Fe-I6Z" secondAttribute="bottom" id="Gvd-Ko-ysw"/>
+                <constraint firstAttribute="trailing" secondItem="EBV-Fe-I6Z" secondAttribute="trailing" id="gik-WN-AZb"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lt0-a5-k1Y"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="309" height="325"/>
             <connections>
-                <outlet property="imageView" destination="8D4-ub-3jJ" id="qrA-U8-ffH"/>
+                <outlet property="imageView" destination="EBV-Fe-I6Z" id="uJK-3D-3G7"/>
             </connections>
             <point key="canvasLocation" x="163.5" y="191.5"/>
         </collectionViewCell>

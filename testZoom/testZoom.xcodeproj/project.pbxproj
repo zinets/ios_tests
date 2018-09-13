@@ -13,7 +13,7 @@
 		49105F9B214A3B3E001482B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49105F9A214A3B3E001482B0 /* Assets.xcassets */; };
 		49105F9E214A3B3E001482B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49105F9C214A3B3E001482B0 /* LaunchScreen.storyboard */; };
 		49105FA8214A3FCD001482B0 /* zoomTest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49105FA7214A3FCD001482B0 /* zoomTest.jpg */; };
-		49105FAA214A4402001482B0 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49105FA9214A4402001482B0 /* ImageZoomView.swift */; };
+		49498536214A6E50005C3ABB /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49498535214A6E50005C3ABB /* ImageZoomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		49105F9D214A3B3E001482B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49105F9F214A3B3E001482B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49105FA7214A3FCD001482B0 /* zoomTest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zoomTest.jpg; sourceTree = "<group>"; };
-		49105FA9214A4402001482B0 /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		49498535214A6E50005C3ABB /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 		49105FA5214A3B4D001482B0 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				49105FA9214A4402001482B0 /* ImageZoomView.swift */,
+				49498535214A6E50005C3ABB /* ImageZoomView.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -159,8 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49105F96214A3B3D001482B0 /* ViewController.swift in Sources */,
+				49498536214A6E50005C3ABB /* ImageZoomView.swift in Sources */,
 				49105F94214A3B3D001482B0 /* AppDelegate.swift in Sources */,
-				49105FAA214A4402001482B0 /* ImageZoomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
