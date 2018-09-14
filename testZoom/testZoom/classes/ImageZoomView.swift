@@ -44,6 +44,7 @@ import UIKit
  */
 
 class ImageZoomView: UIScrollView, UIScrollViewDelegate {
+    var index: Int = 0
     
     var zoomEnabled = false
     private var viewToZoom = UIImageView()
@@ -61,7 +62,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
         }
     }
     
-    var topAlignedAspectFill: Bool = false {
+    var topAlignedAspectFill: Bool = true {
         didSet {
             scalesForZooming()
         }
@@ -152,7 +153,9 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     private func scalesForZooming() {
         if let image = image {
             self.contentSize = image.size
-            
+            if index == 2 {
+                print("stop")
+            }
             let scaleX = self.bounds.size.width / self.contentSize.width
             let scaleY = self.bounds.size.height / self.contentSize.height
             let scaleToFit = min(scaleX, scaleY)
@@ -182,11 +185,11 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             contentFrame.origin.y = (boundsSize.height - contentFrame.size.height) / 2
         } else {
             contentFrame.origin.y = 0
-            if contentMode == .scaleAspectFill && topAlignedAspectFill {
+//            if contentMode == .scaleAspectFill && topAlignedAspectFill {
                 contentOffset.y = 0
-            } else {
-                contentOffset.y = (contentFrame.size.height - boundsSize.height) / 2
-            }
+//            } else {
+//                contentOffset.y = (contentFrame.size.height - boundsSize.height) / 2
+//            }
         }
 
         viewToZoom.frame = contentFrame

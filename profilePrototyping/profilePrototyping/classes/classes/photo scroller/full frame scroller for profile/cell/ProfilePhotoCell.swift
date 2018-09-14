@@ -12,7 +12,8 @@ import CollectionControls
 class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
 
     @IBOutlet weak var imageView: ImageZoomView!
-
+    @IBOutlet weak var label: UILabel!
+    
     func fillWithData(_ data: DataSourceItem) {
         imageView.topAlignedAspectFill = true
         if let imageName = data.payload as? String {
@@ -25,6 +26,10 @@ class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
         if let attrs = layoutAttributes as? ProfilePhotoScrollerLayoutAttributes {
             imageView.contentMode = attrs.contentMode
             imageView.zoomEnabled = attrs.zoomEnabled
+            
+            imageView.index = attrs.indexPath.item
+            label.text = String(imageView.index)
         }
+        
     }
 }

@@ -22,19 +22,28 @@
                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EBV-Fe-I6Z" customClass="ImageZoomView" customModule="profilePrototyping" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="423" height="149"/>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-pb-qxX">
+                        <rect key="frame" x="16" y="16" width="15" height="27"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="WA4-pb-qxX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="3T0-TT-aM2"/>
                 <constraint firstItem="EBV-Fe-I6Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FTC-0E-GS1"/>
                 <constraint firstAttribute="trailing" secondItem="EBV-Fe-I6Z" secondAttribute="trailing" id="GOF-3C-ASg"/>
                 <constraint firstItem="EBV-Fe-I6Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NJ7-bl-vJ3"/>
+                <constraint firstItem="WA4-pb-qxX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="dxJ-uO-bnY"/>
                 <constraint firstAttribute="bottom" secondItem="EBV-Fe-I6Z" secondAttribute="bottom" id="rSr-yL-SJx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="423" height="149"/>
             <connections>
                 <outlet property="imageView" destination="EBV-Fe-I6Z" id="uJK-3D-3G7"/>
+                <outlet property="label" destination="WA4-pb-qxX" id="J7m-LC-R7d"/>
             </connections>
             <point key="canvasLocation" x="220.5" y="103.5"/>
         </collectionViewCell>

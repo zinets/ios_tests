@@ -33,13 +33,17 @@ class ZoomTestController: UIViewController {
         photoItem.payload = "girl2.jpg"
         photos.append(photoItem)
         
-                photoItem = DataSourceItem("ProfileTopPhotoItem")
-                photoItem.payload = "girl1.jpg"
-                photos.append(photoItem)
+        photoItem = DataSourceItem("ProfileTopPhotoItem")
+        photoItem.payload = "girl1.jpg"
+        photos.append(photoItem)
         
-                photoItem = DataSourceItem("ProfileTopPhotoItem")
-                photoItem.payload = "girl3.jpg"
-                photos.append(photoItem)
+        photoItem = DataSourceItem("ProfileTopPhotoItem")
+        photoItem.payload = "girl3.jpg"
+        photos.append(photoItem)
+        
+        photoItem = DataSourceItem("ProfileTopPhotoItem")
+        photoItem.payload = "girl5.jpg"
+        photos.append(photoItem)
         
         photoScroller.items = photos
         
@@ -52,7 +56,7 @@ class ZoomTestController: UIViewController {
         let image = photoScroller.curImage()
         let fakeImageView = ImageZoomView(frame: photoScroller.frame)
         fakeImageView.image = image
-        fakeImageView.topAlignedAspectFill = true
+//        fakeImageView.topAlignedAspectFill = true
         fakeImageView.contentMode = photoScroller.contentMode
         photoScroller.superview?.addSubview(fakeImageView)
         
