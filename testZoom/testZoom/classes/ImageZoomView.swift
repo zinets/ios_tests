@@ -56,14 +56,20 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     var zoomEnabled = false {
         didSet {
-//            scalesForZooming()
             if let pinchRecognizer = self.pinchGestureRecognizer {
                 pinchRecognizer.isEnabled = zoomEnabled
             }
+            self.panGestureRecognizer.isEnabled = zoomEnabled            
         }
     }
     
     override open var contentMode: UIViewContentMode {
+        didSet {
+            scalesForZooming()
+        }
+    }
+    
+    var topAlignedAspectFill: Bool = false {
         didSet {
             scalesForZooming()
         }
@@ -149,9 +155,9 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             let scaleToFit = min(scaleX, scaleY)
             let scaleToFill = max(scaleX, scaleY)
             
-            self.minimumZoomScale = scaleToFit
+            self.minimumZoomScale = self.contentMode == .scaleAspectFill ? scaleToFill : scaleToFit
             self.maximumZoomScale = 1
-            self.zoomScale = self.contentMode == .scaleAspectFill ? scaleToFill : scaleToFit
+            self.zoomScale = self.minimumZoomScale
             
             centerViewForZooming()
         }
@@ -160,19 +166,28 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     private func centerViewForZooming() {
         let boundsSize = self.bounds.size
         var contentFrame = viewToZoom.frame
+        var contentOffset = CGPoint.zero
         
         if contentFrame.size.width < boundsSize.width {
             contentFrame.origin.x = (boundsSize.width - contentFrame.size.width) / 2
         } else {
             contentFrame.origin.x = 0
+            contentOffset.x = (contentFrame.size.width - boundsSize.width) / 2
         }
+        
         if contentFrame.size.height < boundsSize.height {
             contentFrame.origin.y = (boundsSize.height - contentFrame.size.height) / 2
         } else {
             contentFrame.origin.y = 0
+            if contentMode == .scaleAspectFill && topAlignedAspectFill {
+                contentOffset.y = 0
+            } else {
+                contentOffset.y = (contentFrame.size.height - boundsSize.height) / 2
+            }
         }
-        
+
         viewToZoom.frame = contentFrame
+        self.contentOffset = contentOffset
     }
     
     private func pointToCenter() -> CGPoint {
