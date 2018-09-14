@@ -45,6 +45,7 @@ import UIKit
 
 class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
+    var zoomEnabled = false
     private var viewToZoom = UIImageView()
 //    private lazy var dblTapGesture: UITapGestureRecognizer = {
 //        let recognizer = UITapGestureRecognizer(target: self, action: #selector(dblTapAction(_:)))
@@ -53,15 +54,6 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
 //
 //        return recognizer
 //    }()
-    
-    var zoomEnabled = false {
-        didSet {
-            if let pinchRecognizer = self.pinchGestureRecognizer {
-                pinchRecognizer.isEnabled = zoomEnabled
-            }
-            self.panGestureRecognizer.isEnabled = zoomEnabled            
-        }
-    }
     
     override open var contentMode: UIViewContentMode {
         didSet {
@@ -100,7 +92,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
 //            imageView.addGestureRecognizer(dblTapGesture)
 //            dblTapGesture.isEnabled = true
             self.addSubview(viewToZoom)
-
+            
             scalesForZooming()
         }
     }
@@ -137,6 +129,17 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     }
     
     // MARK: zoooming -
+    
+    // это самый пока работающий способ - отключать зум для контрола; немного хак, т.к. явно нигде не говорится, что этот класс (наследник от скролВью) - делегат для своих скролеров; но override работает без вопросов
+    override public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer is UIPinchGestureRecognizer {
+            return zoomEnabled
+        }
+        if gestureRecognizer is UIPanGestureRecognizer {
+            return zoomEnabled
+        }
+        return true
+    }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return viewToZoom
