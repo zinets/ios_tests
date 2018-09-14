@@ -20,7 +20,8 @@ class ZoomTestController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        self.photoScroller.contentMode = .scaleAspectFill
+        self.photoScroller.zoomEnabled = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -29,11 +30,11 @@ class ZoomTestController: UIViewController {
         var photos = [DataSourceItem]()
         
         var photoItem = DataSourceItem("ProfileTopPhotoItem")
-        photoItem.payload = "girl1.jpg"
+        photoItem.payload = "girl2.jpg"
         photos.append(photoItem)
         
                 photoItem = DataSourceItem("ProfileTopPhotoItem")
-                photoItem.payload = "girl2.jpg"
+                photoItem.payload = "girl1.jpg"
                 photos.append(photoItem)
         
                 photoItem = DataSourceItem("ProfileTopPhotoItem")
@@ -48,14 +49,18 @@ class ZoomTestController: UIViewController {
     @IBAction func fsZoomView(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
-        UIView.animate(withDuration: 0.7) {
+//        UIView.animate(withDuration: 0.7) {
             if sender.isSelected {
                 self.zoomViewHeightConstraint.constant = 16
+                self.view.layoutIfNeeded()
+                self.photoScroller.contentMode = .scaleAspectFit
             } else {
                 self.zoomViewHeightConstraint.constant = 230
+                self.view.layoutIfNeeded()
+                self.photoScroller.contentMode = .scaleAspectFill
             }
             
-            self.view .layoutIfNeeded()
-        }
+        
+//        }
     }
 }

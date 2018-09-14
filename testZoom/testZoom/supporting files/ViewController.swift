@@ -23,10 +23,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loadImage(_ sender: Any) {
-        let image = UIImage(named: "zoomTest.jpg")
-        scrollView.image = image
         scrollView.zoomEnabled = false
         scrollView.contentMode = .scaleAspectFill
+        
+        let image = UIImage(named: "zoomTest.jpg")
+        scrollView.image = image
     }
     
     @IBAction func resizeZoomer(_ sender: UIButton) {

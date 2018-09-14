@@ -56,7 +56,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     var zoomEnabled = false {
         didSet {
-            scalesForZooming()
+//            scalesForZooming()
             if let pinchRecognizer = self.pinchGestureRecognizer {
                 pinchRecognizer.isEnabled = zoomEnabled
             }
