@@ -14,6 +14,8 @@
 		49105F9E214A3B3E001482B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49105F9C214A3B3E001482B0 /* LaunchScreen.storyboard */; };
 		49105FA8214A3FCD001482B0 /* zoomTest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49105FA7214A3FCD001482B0 /* zoomTest.jpg */; };
 		49498536214A6E50005C3ABB /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49498535214A6E50005C3ABB /* ImageZoomView.swift */; };
+		49F627E7214BA37300CF788C /* zoomTest2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49F627E6214BA37300CF788C /* zoomTest2.jpg */; };
+		49F627E9214BA37E00CF788C /* zoomTest3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49F627E8214BA37E00CF788C /* zoomTest3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		49105F9F214A3B3E001482B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49105FA7214A3FCD001482B0 /* zoomTest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zoomTest.jpg; sourceTree = "<group>"; };
 		49498535214A6E50005C3ABB /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		49F627E6214BA37300CF788C /* zoomTest2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zoomTest2.jpg; sourceTree = "<group>"; };
+		49F627E8214BA37E00CF788C /* zoomTest3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zoomTest3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				49105F93214A3B3D001482B0 /* AppDelegate.swift */,
 				49105F95214A3B3D001482B0 /* ViewController.swift */,
 				49105FA7214A3FCD001482B0 /* zoomTest.jpg */,
+				49F627E6214BA37300CF788C /* zoomTest2.jpg */,
+				49F627E8214BA37E00CF788C /* zoomTest3.jpg */,
 				49105F97214A3B3D001482B0 /* Main.storyboard */,
 				49105F9A214A3B3E001482B0 /* Assets.xcassets */,
 				49105F9C214A3B3E001482B0 /* LaunchScreen.storyboard */,
@@ -146,6 +152,8 @@
 			files = (
 				49105FA8214A3FCD001482B0 /* zoomTest.jpg in Resources */,
 				49105F9E214A3B3E001482B0 /* LaunchScreen.storyboard in Resources */,
+				49F627E9214BA37E00CF788C /* zoomTest3.jpg in Resources */,
+				49F627E7214BA37300CF788C /* zoomTest2.jpg in Resources */,
 				49105F9B214A3B3E001482B0 /* Assets.xcassets in Resources */,
 				49105F99214A3B3D001482B0 /* Main.storyboard in Resources */,
 			);

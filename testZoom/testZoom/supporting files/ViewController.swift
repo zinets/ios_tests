@@ -25,8 +25,9 @@ class ViewController: UIViewController {
     @IBAction func loadImage(_ sender: Any) {
         scrollView.zoomEnabled = false
         scrollView.contentMode = .scaleAspectFill
+        scrollView.topAlignedAspectFill = true
         
-        let image = UIImage(named: "zoomTest.jpg")
+        let image = UIImage(named: "zoomTest2.jpg")
         scrollView.image = image
     }
     
@@ -36,24 +37,25 @@ class ViewController: UIViewController {
         
             
             if sender.isSelected {
-//                let newFrame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - 106)
-//                self.scrollView.frame = newFrame
-                self.heightC.constant = 600
-                self.leftC.constant = 0
-                self.rightC.constant = 0
-                
-                self.view.layoutIfNeeded()
+                let newFrame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 600)
+                self.scrollView.frame = newFrame
+
+//                self.heightC.constant = 600
+//                self.leftC.constant = 0
+//                self.rightC.constant = 0
+//
+//                self.view.layoutIfNeeded()
                 self.scrollView.contentMode = .scaleAspectFit
             } else {
-//                let newFrame = CGRect(x: 16, y: 106, width: self.view.bounds.size.width - 2 * 16, height: self.view.bounds.size.height - 2 * 106)
-//                self.scrollView.frame = newFrame
+                let newFrame = CGRect(x: 40, y: 20, width: self.view.bounds.size.width - 80, height: 250)
+                self.scrollView.frame = newFrame
                 
-                self.heightC.constant = 250
-                self.leftC.constant = 40
-                self.rightC.constant = 40
-                
-                
-                self.view.layoutIfNeeded()
+//                self.heightC.constant = 250
+//                self.leftC.constant = 40
+//                self.rightC.constant = 40
+//
+//
+//                self.view.layoutIfNeeded()
                 self.scrollView.contentMode = .scaleAspectFill
                 
             }
