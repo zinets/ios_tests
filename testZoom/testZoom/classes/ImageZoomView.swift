@@ -57,6 +57,9 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     var zoomEnabled = false {
         didSet {
             scalesForZooming()
+            if let pinchRecognizer = self.pinchGestureRecognizer {
+                pinchRecognizer.isEnabled = zoomEnabled
+            }
         }
     }
     
@@ -147,7 +150,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             let scaleToFill = max(scaleX, scaleY)
             
             self.minimumZoomScale = scaleToFit
-            self.maximumZoomScale = zoomEnabled ? 1 : scaleToFit
+            self.maximumZoomScale = 1
             self.zoomScale = self.contentMode == .scaleAspectFill ? scaleToFill : scaleToFit
             
             centerViewForZooming()
