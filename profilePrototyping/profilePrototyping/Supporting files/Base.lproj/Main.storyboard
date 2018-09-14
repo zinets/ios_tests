@@ -117,6 +117,9 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="l8l-P4-pCj" customClass="ProfilePhotoScrollerView" customModule="profilePrototyping" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.50980392159999999" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="p8x-rb-eQL"/>
+                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWe-0f-27y">
                                 <rect key="frame" x="134" y="626" width="106" height="30"/>
@@ -129,7 +132,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OWe-0f-27y" firstAttribute="centerX" secondItem="v1B-BV-bmD" secondAttribute="centerX" id="DiN-uL-brC"/>
-                            <constraint firstItem="OWe-0f-27y" firstAttribute="top" secondItem="l8l-P4-pCj" secondAttribute="bottom" constant="231" id="KDk-nn-H9S"/>
                             <constraint firstItem="l8l-P4-pCj" firstAttribute="leading" secondItem="Zay-3F-YPf" secondAttribute="leading" id="Lvk-sf-dSk"/>
                             <constraint firstItem="Zay-3F-YPf" firstAttribute="bottom" secondItem="OWe-0f-27y" secondAttribute="bottom" constant="11" id="eJw-Bc-0hS"/>
                             <constraint firstItem="l8l-P4-pCj" firstAttribute="trailing" secondItem="Zay-3F-YPf" secondAttribute="trailing" id="mKA-Bt-NgF"/>
@@ -139,7 +141,7 @@
                     </view>
                     <connections>
                         <outlet property="photoScroller" destination="l8l-P4-pCj" id="ULs-3k-Kmv"/>
-                        <outlet property="zoomViewHeightConstraint" destination="KDk-nn-H9S" id="jNX-92-kyg"/>
+                        <outlet property="zoomViewHeightConstraint" destination="p8x-rb-eQL" id="w3p-Iz-oWt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoF-Ac-gXA" userLabel="First Responder" sceneMemberID="firstResponder"/>

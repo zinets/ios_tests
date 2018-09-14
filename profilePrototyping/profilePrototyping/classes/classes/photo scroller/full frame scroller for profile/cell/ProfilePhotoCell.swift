@@ -14,6 +14,7 @@ class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
     @IBOutlet weak var imageView: ImageZoomView!
 
     func fillWithData(_ data: DataSourceItem) {
+        imageView.topAlignedAspectFill = true
         if let imageName = data.payload as? String {
             imageView.image = UIImage(named: imageName)
         }
@@ -21,7 +22,7 @@ class ProfilePhotoCell: UICollectionViewCell, DataAwareCell {
 
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        if let attrs = layoutAttributes as? PhotoLayoutAttributes {
+        if let attrs = layoutAttributes as? ProfilePhotoScrollerLayoutAttributes {
             imageView.contentMode = attrs.contentMode
             imageView.zoomEnabled = attrs.zoomEnabled
         }

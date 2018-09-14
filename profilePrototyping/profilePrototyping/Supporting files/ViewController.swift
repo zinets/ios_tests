@@ -75,7 +75,7 @@ class ViewController: UIViewController/*, IPageControlDatasource*/ {
         
         photoItem = DataSourceItem("ProfileTopPhotoItem")
         photoItem.payload = "girl3.jpg"
-        photos.append(photoItem)
+//        photos.append(photoItem)
         
         profilePhotoScroller.items = photos
         
