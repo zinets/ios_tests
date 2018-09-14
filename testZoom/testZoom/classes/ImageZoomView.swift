@@ -4,9 +4,48 @@
 
 import UIKit
 
+/* контрол для просмотра с зумом картинок
+ 
+ usage - загрузка картинки
+ 
+ @IBAction func loadImage(_ sender: Any) {
+    let image = UIImage(named: "zoomTest.jpg")
+    // контрол лежит на вью с констрейнтами на все стороны
+ 
+    scrollView.image = image
+    scrollView.zoomEnabled = true
+    // загрузили картинку и заполнили ею контент - типичный вариант - ячейки поиска, ячейки в профиле, т.к. картинка без полос
+    scrollView.contentMode = .scaleAspectFill
+ }
+ 
+ ресайз контрола - с анимацией и изменением типа заполнения с "залить" на "вписать" - например видим квадратный контрол с фото, после увеличения на весь экран картинка "вписывается" в контрол, чтобы полностью показаться, при этом возможно появления полос
+ 
+    sender.isSelected = !sender.isSelected
+    UIView.animate(withDuration: 0.5) {
+ 
+        if sender.isSelected {  // "фулскрин"
+            self.heightC.constant = 600
+            self.leftC.constant = 0
+            self.rightC.constant = 0
+
+            self.view.layoutIfNeeded()
+            self.scrollView.contentMode = .scaleAspectFit
+        } else {                // отдельный контрол
+            self.heightC.constant = 250
+            self.leftC.constant = 40
+            self.rightC.constant = 40
+
+            self.view.layoutIfNeeded()
+            self.scrollView.contentMode = .scaleAspectFill
+        }
+    }
+ 
+ можно раскомментировать фичу изменение зума до "показать все" по 2му тапу
+ */
+
 class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
-    private var imageView = UIImageView()
+    private var viewToZoom = UIImageView()
 //    private lazy var dblTapGesture: UITapGestureRecognizer = {
 //        let recognizer = UITapGestureRecognizer(target: self, action: #selector(dblTapAction(_:)))
 //        recognizer.numberOfTapsRequired = 2
@@ -16,6 +55,12 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
 //    }()
     
     var zoomEnabled = false {
+        didSet {
+            scalesForZooming()
+        }
+    }
+    
+    override open var contentMode: UIViewContentMode {
         didSet {
             scalesForZooming()
         }
@@ -37,24 +82,24 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     var image: UIImage? {
         willSet {
-            imageView.removeFromSuperview()
+            viewToZoom.removeFromSuperview()
 //            dblTapGesture.isEnabled = false
         }
         didSet {
-            imageView = UIImageView(image: image)
-            imageView.isUserInteractionEnabled = true
+            viewToZoom = UIImageView(image: image)
+            viewToZoom.isUserInteractionEnabled = true
 //            imageView.addGestureRecognizer(dblTapGesture)
 //            dblTapGesture.isEnabled = true
-            self.addSubview(imageView)
+            self.addSubview(viewToZoom)
 
             scalesForZooming()
         }
     }
     
-    var restorePoint: CGPoint!
-    var restoreScale: CGFloat!
+    private var restorePoint: CGPoint!
+    private var restoreScale: CGFloat!
     
-    
+    // todo - без этого оверрайда можно обойтись, если меняем размеры в коде? имхо нет
     override var frame: CGRect {
         willSet {
             restorePoint = self.pointToCenter()
@@ -65,11 +110,27 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             self.restoreCenterPoint(to: restorePoint, oldScale: restoreScale)
         }
     }
+
+    // изменение bounds срабатывает при изменении констрейнтов - но оно же срабатывает при зуме/скроле, поэтому это не тот случай.. хотя..
+    override var bounds: CGRect {
+        willSet {
+            if newValue.size != bounds.size {
+                restorePoint = self.pointToCenter()
+                restoreScale = self.scaleToRestore()
+            }
+        }
+        didSet {
+            if oldValue.size != bounds.size {
+                self.scalesForZooming()
+                self.restoreCenterPoint(to: restorePoint, oldScale: restoreScale)
+            }
+        }
+    }
     
     // MARK: zoooming -
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return imageView
+        return viewToZoom
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
@@ -82,11 +143,12 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             
             let scaleX = self.bounds.size.width / self.contentSize.width
             let scaleY = self.bounds.size.height / self.contentSize.height
-            let minScale = min(scaleX, scaleY)
+            let scaleToFit = min(scaleX, scaleY)
+            let scaleToFill = max(scaleX, scaleY)
             
-            self.minimumZoomScale = minScale
-            self.maximumZoomScale = zoomEnabled ? 1 : minScale
-            self.zoomScale = minScale
+            self.minimumZoomScale = scaleToFit
+            self.maximumZoomScale = zoomEnabled ? 1 : scaleToFit
+            self.zoomScale = self.contentMode == .scaleAspectFill ? scaleToFill : scaleToFit
             
             centerViewForZooming()
         }
@@ -94,7 +156,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     
     private func centerViewForZooming() {
         let boundsSize = self.bounds.size
-        var contentFrame = imageView.frame
+        var contentFrame = viewToZoom.frame
         
         if contentFrame.size.width < boundsSize.width {
             contentFrame.origin.x = (boundsSize.width - contentFrame.size.width) / 2
@@ -107,12 +169,12 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             contentFrame.origin.y = 0
         }
         
-        imageView.frame = contentFrame
+        viewToZoom.frame = contentFrame
     }
     
     private func pointToCenter() -> CGPoint {
         let boundsCenter = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        return self.convert(boundsCenter, to: imageView)
+        return self.convert(boundsCenter, to: viewToZoom)
     }
 
     private func scaleToRestore() -> CGFloat {
@@ -137,7 +199,7 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
     private func restoreCenterPoint(to oldCenter: CGPoint, oldScale: CGFloat) {
         self.zoomScale = min(self.maximumZoomScale, max(self.minimumZoomScale, oldScale))
         
-        let boundsCenter = self.convert(oldCenter, from: imageView)
+        let boundsCenter = self.convert(oldCenter, from: viewToZoom)
         var offset = CGPoint(x: boundsCenter.x - self.bounds.size.width/2.0,
                              y: boundsCenter.y - self.bounds.size.height/2.0)
         let maxOffset = self.maximumContentOffset()
@@ -157,3 +219,4 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
 //    }
     
 }
+
