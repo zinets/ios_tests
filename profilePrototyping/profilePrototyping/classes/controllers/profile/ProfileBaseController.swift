@@ -15,14 +15,22 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
     let profileDatasource = ProfileDatasource()
     
     @IBOutlet weak var shadeView: UIView!
-    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var photoScroller: ImageZoomView!
+    @IBOutlet weak var photoScrollerHeight: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         shadeView.alpha = 0
-
+        
+        
+        photoScroller.image = UIImage(named: "photo")
+        photoScroller.zoomEnabled = true
+        photoScroller.contentMode = .scaleAspectFill
+        
+        
+        
         var items = [DataSourceItem]()
         
         let userInfo: UserInfo = UserInfo()
@@ -87,13 +95,16 @@ class ProfileBaseController: UIViewController, UITableViewDelegate {
         
         if offset > 0 {
             shadeView.alpha = offset
-            photoView.transform = CGAffineTransform.identity
+            photoScrollerHeight.constant = 300
         } else {
             shadeView.alpha = 0
+            
+            photoScrollerHeight.constant = 300 + -scrollView.contentOffset.y
+            
             let downOffset = min(1, (-scrollView.contentOffset.y + scrollView.contentInset.top) / 100)
             let magicConst: CGFloat = 0.5 // на сториборде фрейм картинки = 1.5 ширины контроллера
             let scale:CGFloat = 1 / (magicConst * downOffset + 1)
-            photoView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            
             scrollView.alpha = downOffset < 1 ? 1 : 0
         }
     }

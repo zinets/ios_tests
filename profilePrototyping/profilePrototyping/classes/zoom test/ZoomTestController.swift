@@ -14,6 +14,8 @@ class ZoomTestController: UIViewController {
     
     @IBOutlet weak var photoScroller: ProfilePhotoScrollerView!
     @IBOutlet weak var zoomView: ImageZoomView!
+    @IBOutlet weak var zoomViewHeightConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,4 +45,17 @@ class ZoomTestController: UIViewController {
 //        zoomView.image = UIImage(named: "girl1.jpg")
     }
 
+    @IBAction func fsZoomView(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        UIView.animate(withDuration: 0.7) {
+            if sender.isSelected {
+                self.zoomViewHeightConstraint.constant = 16
+            } else {
+                self.zoomViewHeightConstraint.constant = 230
+            }
+            
+            self.view .layoutIfNeeded()
+        }
+    }
 }

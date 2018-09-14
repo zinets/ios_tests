@@ -48,6 +48,7 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     override func layoutForCollection() -> UICollectionViewLayout {
         let layout = PhotoScrollerViewLayout()
         layout.zoomEnabled = true
+        layout.contentMode = self.contentMode
         return layout
     }
     

@@ -52,9 +52,7 @@ open class CollectionBasedScrollerView: UIView, UICollectionViewDelegateFlowLayo
             }
         }
         scrollDirection = .horizontal
-        addSubview(collectionView)
-        
-        contentMode = .scaleAspectFill
+        addSubview(collectionView)        
     }
     
     // MARK: overrides -
