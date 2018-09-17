@@ -19,7 +19,6 @@ class ZoomTestController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.photoScroller.contentMode = .scaleAspectFill
         
     }
