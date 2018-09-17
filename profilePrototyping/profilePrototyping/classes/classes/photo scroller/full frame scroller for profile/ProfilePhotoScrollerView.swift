@@ -61,25 +61,21 @@ class ProfilePhotoScrollerView: CollectionBasedScrollerView {
     
     func cloneImageView() -> ImageZoomView? {
         if let cell = self.collectionView.visibleCells.first as? ProfilePhotoCell {
-            let clone = ImageZoomView(frame: cell.imageView.frame)
             
+            let frame = self.superview!.convert(cell.imageView.frame, from: self)
+            let clone = ImageZoomView(frame: frame)
             
             clone.minimumZoomScale = cell.imageView.minimumZoomScale
             clone.maximumZoomScale = cell.imageView.maximumZoomScale
-            clone.zoomScale = cell.imageView.zoomScale
-            
             
             clone.contentSize = cell.imageView.contentSize
-            clone.contentOffset = cell.imageView.contentOffset
             clone.contentInset = cell.imageView.contentInset
             
             clone.contentMode = cell.imageView.contentMode
             clone.image = cell.imageView.image
             
-            
-            
-            
-            
+            clone.zoomScale = cell.imageView.zoomScale
+            clone.contentOffset = cell.imageView.contentOffset
             return clone
         }
         
