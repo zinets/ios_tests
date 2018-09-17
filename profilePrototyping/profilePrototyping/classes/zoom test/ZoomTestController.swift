@@ -53,42 +53,45 @@ class ZoomTestController: UIViewController {
     @IBAction func fsZoomView(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
-        let image = photoScroller.curImage()
-        let fakeImageView = ImageZoomView(frame: photoScroller.frame)
-        fakeImageView.image = image
+//        let image = photoScroller.curImage()
+//        let fakeImageView = ImageZoomView(frame: photoScroller.frame)
+//        fakeImageView.image = image
 //        fakeImageView.topAlignedAspectFill = true
-        fakeImageView.contentMode = photoScroller.contentMode
-        photoScroller.superview?.addSubview(fakeImageView)
-        
-        fakeImageView.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0)
-        let heightConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.height, multiplier: 1, constant: 0)
-        
-        self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
-    
+//        fakeImageView.contentMode = photoScroller.contentMode
         
         
-        
-        photoScroller.isHidden = true
-
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            let newHeight: CGFloat = sender.isSelected ? 600 : 375
-            self.zoomViewHeightConstraint.constant = newHeight
-            self.view.layoutIfNeeded()
-            self.photoScroller.contentMode = sender.isSelected ? .scaleAspectFit : .scaleAspectFill
+        if let fakeImageView = photoScroller.cloneImageView() {            
+            let frame = self.view.convert(fakeImageView.frame, from: photoScroller)
+            fakeImageView.frame = frame
+            photoScroller.superview?.addSubview(fakeImageView)
             
-            fakeImageView.contentMode = self.photoScroller.contentMode
+            fakeImageView.translatesAutoresizingMaskIntoConstraints = false
+            let horizontalConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+            let verticalConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0)
+            let heightConstraint = NSLayoutConstraint(item: fakeImageView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: photoScroller, attribute: NSLayoutAttribute.height, multiplier: 1, constant: 0)
             
-        }) { (finished) in
+            self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
             
-        
-        
             
-            self.photoScroller.isHidden = false
-            fakeImageView.removeFromSuperview()
+            
+            
+            photoScroller.isHidden = true
+            
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                let newHeight: CGFloat = sender.isSelected ? 600 : 375
+                self.zoomViewHeightConstraint.constant = newHeight
+                self.view.layoutIfNeeded()
+                self.photoScroller.contentMode = sender.isSelected ? .scaleAspectFit : .scaleAspectFill
+                
+                fakeImageView.contentMode = self.photoScroller.contentMode
+                
+            }) { (finished) in
+                
+                self.photoScroller.isHidden = false
+                fakeImageView.removeFromSuperview()
+            }
         }
        
         self.photoScroller.zoomEnabled = sender.isSelected

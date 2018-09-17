@@ -33,11 +33,11 @@
             <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="WA4-pb-qxX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="3T0-TT-aM2"/>
-                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FTC-0E-GS1"/>
-                <constraint firstAttribute="trailing" secondItem="EBV-Fe-I6Z" secondAttribute="trailing" id="GOF-3C-ASg"/>
-                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="NJ7-bl-vJ3"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5jb-DA-Bs6"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="5va-U7-0tD"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="OrG-hZ-IuR"/>
+                <constraint firstItem="EBV-Fe-I6Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WNI-eL-gyX"/>
                 <constraint firstItem="WA4-pb-qxX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="dxJ-uO-bnY"/>
-                <constraint firstAttribute="bottom" secondItem="EBV-Fe-I6Z" secondAttribute="bottom" id="rSr-yL-SJx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="423" height="149"/>
