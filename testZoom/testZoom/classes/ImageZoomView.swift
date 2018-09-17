@@ -122,7 +122,10 @@ class ImageZoomView: UIScrollView, UIScrollViewDelegate {
             }
         }
         didSet {
-            if oldValue.size != bounds.size {
+            // это очень странный код, которого не должно быть, потому что не должно быть ситуации для этого кода; факт в том, что по y всегда должно быть 0, но иногда это не так, так что попробую такой финт
+            if bounds.origin.y != 0 && topAlignedAspectFill {
+                bounds = CGRect(origin: CGPoint(x: bounds.origin.x, y: 0), size: bounds.size)
+            } else if oldValue.size != bounds.size {
                 self.scalesForZooming()
                 self.restoreCenterPoint(to: restorePoint, oldScale: restoreScale)
             }
