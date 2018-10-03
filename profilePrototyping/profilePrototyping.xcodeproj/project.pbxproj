@@ -11,10 +11,6 @@
 		49105E552147B045001482B0 /* girl5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49105E532147B045001482B0 /* girl5.jpg */; };
 		49105E572147B753001482B0 /* ProfilePortraitPhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49105E562147B753001482B0 /* ProfilePortraitPhotoItemCell.swift */; };
 		49374844214660240014A7BC /* ProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49374843214660240014A7BC /* ProfilePhotoCell.xib */; };
-		493748AD21468BB20014A7BC /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; };
-		493748AE21468BB20014A7BC /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748A921468BA40014A7BC /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		493748AF21468BB20014A7BC /* PageControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493748AA21468BA40014A7BC /* PageControls.framework */; };
-		493748B021468BB20014A7BC /* PageControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 493748AA21468BA40014A7BC /* PageControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		493748B421468E850014A7BC /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493748B321468E850014A7BC /* Intro.storyboard */; };
 		493748B621468E990014A7BC /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493748B521468E990014A7BC /* IntroViewController.swift */; };
 		493748B8214690E00014A7BC /* IntroScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493748B7214690E00014A7BC /* IntroScrollView.swift */; };
@@ -42,6 +38,10 @@
 		495AB7FA213EC1BB0022D04E /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7F9213EC1BB0022D04E /* UserInfo.swift */; };
 		495AB7FC213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */; };
 		495AB7FE213FA9BE0022D04E /* CircleShadowedProportionalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */; };
+		4971EFA12155299000D58EFF /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4971EF972155297600D58EFF /* CollectionControls.framework */; };
+		4971EFA22155299000D58EFF /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4971EF972155297600D58EFF /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4971EFA52155299800D58EFF /* PageControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4971EF9E2155297C00D58EFF /* PageControls.framework */; };
+		4971EFA62155299800D58EFF /* PageControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4971EF9E2155297C00D58EFF /* PageControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49804B0C2142BCEC00D5DC3C /* SmallPhotosScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */; };
 		49804B0F2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */; };
 		49804B102142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */; };
@@ -52,10 +52,6 @@
 		49F62816214BCE0600CF788C /* ProfilePhotoScrollerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F62815214BCE0600CF788C /* ProfilePhotoScrollerLayout.swift */; };
 		49F62818214BCE7500CF788C /* ProfilePhotoScrollerLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F62817214BCE7500CF788C /* ProfilePhotoScrollerLayoutAttributes.swift */; };
 		49FD64A52142434C007011F4 /* Magnolia Script.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64A42142434C007011F4 /* Magnolia Script.otf */; };
-		49FD64A921428952007011F4 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A721428952007011F4 /* MD5.framework */; };
-		49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A821428952007011F4 /* TNURLImageView.framework */; };
-		49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A721428952007011F4 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD64A821428952007011F4 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49FD64CA21429B96007011F4 /* ProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */; };
 		49FD64CF21429DC8007011F4 /* girl1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64CC21429DC7007011F4 /* girl1.jpg */; };
 		49FD64D021429DC8007011F4 /* girl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49FD64CD21429DC7007011F4 /* girl2.jpg */; };
@@ -64,12 +60,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		49105E502147892D001482B0 /* PBXContainerItemProxy */ = {
+		4971EF8A2155296400D58EFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 49105E4C2147892D001482B0 /* CollectionControls.xcodeproj */;
+			containerPortal = 4971EF862155296400D58EFF /* MD5.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3AB8D142113309D00B36816;
+			remoteInfo = MD5;
+		};
+		4971EF902155296F00D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF8C2155296F00D58EFF /* TNURLImageView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3D232E620AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
+		4971EF962155297600D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF922155297600D58EFF /* CollectionControls.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 15D759CB214662DF0046F936;
 			remoteInfo = CollectionControls;
+		};
+		4971EF9D2155297C00D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF982155297C00D58EFF /* PageControls.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4937487C21467D4D0014A7BC;
+			remoteInfo = PageControls;
+		};
+		4971EF9F2155297C00D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF982155297C00D58EFF /* PageControls.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49105E2E21469E36001482B0;
+			remoteInfo = pageControlTesting;
+		};
+		4971EFA32155299000D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF922155297600D58EFF /* CollectionControls.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 15D759CA214662DF0046F936;
+			remoteInfo = CollectionControls;
+		};
+		4971EFA72155299800D58EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4971EF982155297C00D58EFF /* PageControls.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4937487B21467D4D0014A7BC;
+			remoteInfo = PageControls;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -80,10 +118,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				49FD64AC21428961007011F4 /* MD5.framework in Embed Frameworks */,
-				493748AE21468BB20014A7BC /* CollectionControls.framework in Embed Frameworks */,
-				49FD64AE21428961007011F4 /* TNURLImageView.framework in Embed Frameworks */,
-				493748B021468BB20014A7BC /* PageControls.framework in Embed Frameworks */,
+				4971EFA22155299000D58EFF /* CollectionControls.framework in Embed Frameworks */,
+				4971EFA62155299800D58EFF /* PageControls.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,13 +127,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		49105E4C2147892D001482B0 /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
 		49105E522147B044001482B0 /* girl4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl4.jpg; sourceTree = "<group>"; };
 		49105E532147B045001482B0 /* girl5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl5.jpg; sourceTree = "<group>"; };
 		49105E562147B753001482B0 /* ProfilePortraitPhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePortraitPhotoItemCell.swift; sourceTree = "<group>"; };
 		49374843214660240014A7BC /* ProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfilePhotoCell.xib; sourceTree = "<group>"; };
-		493748A921468BA40014A7BC /* CollectionControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CollectionControls.framework; sourceTree = "<group>"; };
-		493748AA21468BA40014A7BC /* PageControls.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PageControls.framework; sourceTree = "<group>"; };
 		493748B321468E850014A7BC /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		493748B521468E990014A7BC /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		493748B7214690E00014A7BC /* IntroScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScrollView.swift; sourceTree = "<group>"; };
@@ -127,6 +160,10 @@
 		495AB7F9213EC1BB0022D04E /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		495AB7FB213FA3B40022D04E /* ProfileOwnPhotoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOwnPhotoItemCell.swift; sourceTree = "<group>"; };
 		495AB7FD213FA9BE0022D04E /* CircleShadowedProportionalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShadowedProportionalButton.swift; sourceTree = "<group>"; };
+		4971EF862155296400D58EFF /* MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MD5.xcodeproj; path = ../../ios_tn/trunk/Frameworks/MD5/MD5.xcodeproj; sourceTree = "<group>"; };
+		4971EF8C2155296F00D58EFF /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../ios_tn/trunk/Frameworks/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
+		4971EF922155297600D58EFF /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../../ios_tn/trunk/Frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
+		4971EF982155297C00D58EFF /* PageControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PageControls.xcodeproj; path = ../../ios_tn/trunk/Frameworks/PageControls/PageControls.xcodeproj; sourceTree = "<group>"; };
 		49804B0B2142BCEC00D5DC3C /* SmallPhotosScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotosScroller.swift; sourceTree = "<group>"; };
 		49804B0D2142BE0D00D5DC3C /* SmallPhotoScrollerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPhotoScrollerCell.swift; sourceTree = "<group>"; };
 		49804B0E2142BE0D00D5DC3C /* SmallPhotoScrollerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallPhotoScrollerCell.xib; sourceTree = "<group>"; };
@@ -137,8 +174,6 @@
 		49F62815214BCE0600CF788C /* ProfilePhotoScrollerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoScrollerLayout.swift; sourceTree = "<group>"; };
 		49F62817214BCE7500CF788C /* ProfilePhotoScrollerLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoScrollerLayoutAttributes.swift; sourceTree = "<group>"; };
 		49FD64A42142434C007011F4 /* Magnolia Script.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Magnolia Script.otf"; sourceTree = "<group>"; };
-		49FD64A721428952007011F4 /* MD5.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MD5.framework; sourceTree = "<group>"; };
-		49FD64A821428952007011F4 /* TNURLImageView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TNURLImageView.framework; sourceTree = "<group>"; };
 		49FD64C821429B96007011F4 /* ProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfilePhotoCell.swift; path = "profilePrototyping/classes/classes/photo scroller/full frame scroller for profile/cell/ProfilePhotoCell.swift"; sourceTree = SOURCE_ROOT; };
 		49FD64CC21429DC7007011F4 /* girl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl1.jpg; sourceTree = "<group>"; };
 		49FD64CD21429DC7007011F4 /* girl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl2.jpg; sourceTree = "<group>"; };
@@ -151,24 +186,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49FD64A921428952007011F4 /* MD5.framework in Frameworks */,
-				493748AD21468BB20014A7BC /* CollectionControls.framework in Frameworks */,
-				49FD64AA21428952007011F4 /* TNURLImageView.framework in Frameworks */,
-				493748AF21468BB20014A7BC /* PageControls.framework in Frameworks */,
+				4971EFA12155299000D58EFF /* CollectionControls.framework in Frameworks */,
+				4971EFA52155299800D58EFF /* PageControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		49105E4D2147892D001482B0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				49105E512147892D001482B0 /* CollectionControls.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		49105E582147BFEE001482B0 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +263,10 @@
 		495AB7AF213E91D00022D04E = {
 			isa = PBXGroup;
 			children = (
-				49105E4C2147892D001482B0 /* CollectionControls.xcodeproj */,
+				4971EF982155297C00D58EFF /* PageControls.xcodeproj */,
+				4971EF922155297600D58EFF /* CollectionControls.xcodeproj */,
+				4971EF8C2155296F00D58EFF /* TNURLImageView.xcodeproj */,
+				4971EF862155296400D58EFF /* MD5.xcodeproj */,
 				495AB7BA213E91D00022D04E /* profilePrototyping */,
 				495AB7B9213E91D00022D04E /* Products */,
 			);
@@ -329,6 +357,39 @@
 			path = classes;
 			sourceTree = "<group>";
 		};
+		4971EF872155296400D58EFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4971EF8B2155296400D58EFF /* MD5.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4971EF8D2155296F00D58EFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4971EF912155296F00D58EFF /* TNURLImageView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4971EF932155297600D58EFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4971EF972155297600D58EFF /* CollectionControls.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4971EF992155297C00D58EFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4971EF9E2155297C00D58EFF /* PageControls.framework */,
+				4971EFA02155297C00D58EFF /* pageControlTesting.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		49804B082142B79000D5DC3C /* page controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,10 +432,6 @@
 		49FD64A621428952007011F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				493748A921468BA40014A7BC /* CollectionControls.framework */,
-				493748AA21468BA40014A7BC /* PageControls.framework */,
-				49FD64A721428952007011F4 /* MD5.framework */,
-				49FD64A821428952007011F4 /* TNURLImageView.framework */,
 			);
 			path = Frameworks;
 			sourceTree = SOURCE_ROOT;
@@ -403,6 +460,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4971EFA42155299000D58EFF /* PBXTargetDependency */,
+				4971EFA82155299800D58EFF /* PBXTargetDependency */,
 			);
 			name = profilePrototyping;
 			productName = profilePrototyping;
@@ -437,8 +496,20 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 49105E4D2147892D001482B0 /* Products */;
-					ProjectRef = 49105E4C2147892D001482B0 /* CollectionControls.xcodeproj */;
+					ProductGroup = 4971EF932155297600D58EFF /* Products */;
+					ProjectRef = 4971EF922155297600D58EFF /* CollectionControls.xcodeproj */;
+				},
+				{
+					ProductGroup = 4971EF872155296400D58EFF /* Products */;
+					ProjectRef = 4971EF862155296400D58EFF /* MD5.xcodeproj */;
+				},
+				{
+					ProductGroup = 4971EF992155297C00D58EFF /* Products */;
+					ProjectRef = 4971EF982155297C00D58EFF /* PageControls.xcodeproj */;
+				},
+				{
+					ProductGroup = 4971EF8D2155296F00D58EFF /* Products */;
+					ProjectRef = 4971EF8C2155296F00D58EFF /* TNURLImageView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -449,11 +520,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		49105E512147892D001482B0 /* CollectionControls.framework */ = {
+		4971EF8B2155296400D58EFF /* MD5.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MD5.framework;
+			remoteRef = 4971EF8A2155296400D58EFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4971EF912155296F00D58EFF /* TNURLImageView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TNURLImageView.framework;
+			remoteRef = 4971EF902155296F00D58EFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4971EF972155297600D58EFF /* CollectionControls.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CollectionControls.framework;
-			remoteRef = 49105E502147892D001482B0 /* PBXContainerItemProxy */;
+			remoteRef = 4971EF962155297600D58EFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4971EF9E2155297C00D58EFF /* PageControls.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PageControls.framework;
+			remoteRef = 4971EF9D2155297C00D58EFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4971EFA02155297C00D58EFF /* pageControlTesting.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = pageControlTesting.app;
+			remoteRef = 4971EF9F2155297C00D58EFF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -523,6 +622,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4971EFA42155299000D58EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CollectionControls;
+			targetProxy = 4971EFA32155299000D58EFF /* PBXContainerItemProxy */;
+		};
+		4971EFA82155299800D58EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PageControls;
+			targetProxy = 4971EFA72155299800D58EFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		495AB7BF213E91D00022D04E /* Main.storyboard */ = {
