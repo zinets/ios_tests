@@ -12,7 +12,7 @@ class AnimatedGradientPanel: UIView {
 
     private lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        
+        layer.drawsAsynchronously = true
         for color in self.colors {
             if let _ = layer.colors {
                 layer.colors!.append(color.cgColor)
@@ -26,20 +26,38 @@ class AnimatedGradientPanel: UIView {
     
     var colors: [UIColor] {
         willSet {
-            let animation = CABasicAnimation(keyPath: "colors")
-            animation.fromValue = colors
-            var newColors = [CGColor]()
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = 5
+            animationGroup.isRemovedOnCompletion = false
+            animationGroup.fillMode = kCAFillModeForwards
             
+            let animation1 = CABasicAnimation(keyPath: "colors")
+            animation1.duration = animationGroup.duration
+
+            var newColors = [CGColor]()
             for color in newValue {
                 newColors.append(color.cgColor)
             }
+            animation1.toValue = newColors
+
+//            animation1.isRemovedOnCompletion = false
+//            animation1.fillMode = kCAFillModeForwards
             
-            animation.toValue = newColors
-            animation.duration = 5
-            animation.isRemovedOnCompletion = false
-            animation.fillMode = kCAFillModeForwards
+            let animation2 = CABasicAnimation(keyPath: "startPoint")
+            animation2.duration = animationGroup.duration
+            animation2.toValue = CGPoint(x: CGFloat.random(in: 0...1), y: 0)
+//            animation2.isRemovedOnCompletion = false
+//            animation2.fillMode = kCAFillModeForwards
             
-            self.gradientLayer.add(animation, forKey: "colors")
+            let animation3 = CABasicAnimation(keyPath: "endPoint")
+            animation3.duration = animationGroup.duration
+            animation3.toValue = CGPoint(x: CGFloat.random(in: 0...1), y: 1)
+//            animation3.isRemovedOnCompletion = false
+//            animation3.fillMode = kCAFillModeForwards
+            
+            animationGroup.animations = [animation1, animation2, animation3]
+            
+            self.gradientLayer.add(animationGroup, forKey: "gradientAnimation")
         }
     }
     
