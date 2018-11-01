@@ -21,4 +21,9 @@
     [_msgs addObject:message];
 }
 
+- (void)addRandomElement {
+    NSString *str = [NSString stringWithFormat:@"new item %@", [NSDate date]];
+    [self addMessage:str];
+}
+
 @end

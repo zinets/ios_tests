@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
    
     var dataSource = [ObjClassModel]()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         for section in 0...3 {
@@ -40,6 +41,17 @@ class ViewController: UIViewController, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    // MARK: actions -
+    
+    @IBAction func reloadtable(_ sender: Any) {
+        tableView.reloadData()
+    }
+    
+    @IBAction func addRandom(_ sender: Any) {
+        let sectionObject = dataSource.randomElement()
+        sectionObject!.addRandomElement()
     }
     
 }

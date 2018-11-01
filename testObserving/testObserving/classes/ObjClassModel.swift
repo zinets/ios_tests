@@ -26,4 +26,8 @@ class ObjClassModel {
     func caption() -> String {
         return internalData.caption
     }
+    
+    func addRandomElement() {
+        internalData.addRandomElement()
+    }
 }

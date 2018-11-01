@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *conversationDate;
 
 - (void)addMessage:(NSString *)message;
+- (void)addRandomElement;
 @end
 
 NS_ASSUME_NONNULL_END
