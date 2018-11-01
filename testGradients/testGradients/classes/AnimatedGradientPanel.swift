@@ -13,6 +13,8 @@ class AnimatedGradientPanel: UIView {
     private lazy var gradientLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
         layer.drawsAsynchronously = true
+        layer.endPoint = CGPoint.zero
+        layer.startPoint = CGPoint(x: 1, y: 1)
         for color in self.colors {
             if let _ = layer.colors {
                 layer.colors!.append(color.cgColor)
@@ -45,13 +47,13 @@ class AnimatedGradientPanel: UIView {
             
             let animation2 = CABasicAnimation(keyPath: "startPoint")
             animation2.duration = animationGroup.duration
-            animation2.toValue = CGPoint(x: CGFloat.random(in: 0...1), y: 0)
+            animation2.toValue = CGPoint(x: CGFloat.random(in: 0...0.5), y: 0)
 //            animation2.isRemovedOnCompletion = false
 //            animation2.fillMode = kCAFillModeForwards
             
             let animation3 = CABasicAnimation(keyPath: "endPoint")
             animation3.duration = animationGroup.duration
-            animation3.toValue = CGPoint(x: CGFloat.random(in: 0...1), y: 1)
+            animation3.toValue = CGPoint(x: CGFloat.random(in: 0.5...1), y: 1)
 //            animation3.isRemovedOnCompletion = false
 //            animation3.fillMode = kCAFillModeForwards
             
