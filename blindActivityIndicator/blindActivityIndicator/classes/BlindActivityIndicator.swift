@@ -26,19 +26,40 @@ extension UIColor {
     }
 }
 
+@IBDesignable
 class BlindActivityIndicator: UIView {
-
-    let radius: CGFloat = 35
+    
     let numberOfDots: Int = 7
     let updateTime: TimeInterval = 3.5 // время за которое точка обойдет круг
     
     let activeColors = [ UIColor(rgb: 0xe95871).cgColor, UIColor(rgb: 0xf98252).cgColor ]
     let inactiveColors = [ UIColor(rgb: 0x525A68).cgColor, UIColor(rgb: 0x525A68).cgColor ]
     
+    @IBInspectable
+    var dotRadius: CGFloat = 16 {
+        didSet {
+            dotLayer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: dotRadius, height: dotRadius))
+            dotLayer.cornerRadius = dotRadius / 2;
+            _update()
+        }
+    }
+    
+    @IBInspectable
+    var radius: CGFloat = 35 {
+        didSet {
+            _update()
+        }
+    }
+    
+    private func _update() {
+        let w = (radius + dotRadius) * 2
+        replicantLayer.frame.size = CGSize(width: w, height: w)
+        dotLayer.position = CGPoint(x: w / 2 + radius + dotRadius / 2, y: w / 2)
+        
+        self.invalidateIntrinsicContentSize()
+    }
+    
     lazy private var dotLayer: CAGradientLayer = {
-        
-        let dotRadius: CGFloat = 16
-        
         let layer = CAGradientLayer()
         layer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: dotRadius, height: dotRadius))
         layer.cornerRadius = dotRadius / 2;
@@ -47,9 +68,29 @@ class BlindActivityIndicator: UIView {
         return layer
     }()
     
+    lazy private var replicantLayer: CAReplicatorLayer = {
+        let layer = CAReplicatorLayer()
+        let w = (radius + dotRadius) * 2
+        layer.frame.size = CGSize(width: w, height: w)
+        
+        dotLayer.position = CGPoint(x: w / 2 + radius + dotRadius / 2, y: w / 2)
+        layer.addSublayer(dotLayer)
+        
+        layer.instanceCount = numberOfDots
+        
+        var transform = CATransform3DIdentity
+//        transform = CATransform3DTranslate(transform, radius, 0, 0) // дублирование элементов по кругу делается не сдвигом и поворотом - хотя так тоже можно, но траектория непредсказуемая в смысле боундса контрола, а начальным расположением элемента со сдвигом относительно центра и поворотами
+        transform = CATransform3DRotate(transform, 2 * CGFloat.pi / CGFloat(numberOfDots), 0, 0, 1)
+        layer.instanceTransform = transform
+        
+        layer.instanceDelay = updateTime / Double(numberOfDots)
+        
+        return layer
+    }()
+    
     private func commonInit() {
-        self.backgroundColor = UIColor.clear
-        self.layer.addSublayer(dotLayer)
+        self.backgroundColor = UIColor.clear       
+        self.layer.addSublayer(replicantLayer)
     }
     
     override init(frame: CGRect) {
@@ -60,6 +101,11 @@ class BlindActivityIndicator: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.replicantLayer.position = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
     }
     
     // MARK: actions -
@@ -83,5 +129,12 @@ class BlindActivityIndicator: UIView {
     
     func stopAnimation() {
         self.dotLayer.removeAllAnimations()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let w = (radius + dotRadius) * 2
+        let sz = CGSize(width: w, height: w)
+        
+        return sz
     }
 }
