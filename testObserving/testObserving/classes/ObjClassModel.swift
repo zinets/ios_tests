@@ -9,7 +9,8 @@
 import UIKit
 
 class ObjClassModel {
-    var internalData: ObjClass!
+    @objc dynamic var internalData: ObjClass!
+    private var token: NSKeyValueObservation?
     
     init(with objClass: ObjClass) {
         self.internalData = objClass
