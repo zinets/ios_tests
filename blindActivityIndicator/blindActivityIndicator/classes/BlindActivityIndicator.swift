@@ -28,24 +28,26 @@ extension UIColor {
 
 @IBDesignable
 class BlindActivityIndicator: UIView {
-    
-    let numberOfDots: Int = 7
-    let updateTime: TimeInterval = 3.5 // время за которое точка обойдет круг
-    
+
     let activeColors = [ UIColor(rgb: 0xe95871).cgColor, UIColor(rgb: 0xf98252).cgColor ]
     let inactiveColors = [ UIColor(rgb: 0x525A68).cgColor, UIColor(rgb: 0x525A68).cgColor ]
+
+    let numberOfDots: Int = 4
     
     @IBInspectable
-    var dotRadius: CGFloat = 16 {
+    var updateTime: TimeInterval = 3.5 // время за которое точка обойдет круг
+    
+    @IBInspectable
+    var dotRadius: CGFloat = 10 {
         didSet {
-            dotLayer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: dotRadius, height: dotRadius))
-            dotLayer.cornerRadius = dotRadius / 2;
+            dotLayer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 2 * dotRadius, height: 2 * dotRadius))
+            dotLayer.cornerRadius = dotRadius;
             _update()
         }
     }
     
     @IBInspectable
-    var radius: CGFloat = 35 {
+    var radius: CGFloat = 40 {
         didSet {
             _update()
         }
@@ -54,15 +56,15 @@ class BlindActivityIndicator: UIView {
     private func _update() {
         let w = (radius + dotRadius) * 2
         replicantLayer.frame.size = CGSize(width: w, height: w)
-        dotLayer.position = CGPoint(x: w / 2 + radius + dotRadius / 2, y: w / 2)
+        dotLayer.position = CGPoint(x: w / 2 + radius, y: w / 2)
         
         self.invalidateIntrinsicContentSize()
     }
     
     lazy private var dotLayer: CAGradientLayer = {
         let layer = CAGradientLayer()
-        layer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: dotRadius, height: dotRadius))
-        layer.cornerRadius = dotRadius / 2;
+        layer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 2 * dotRadius, height: 2 * dotRadius))
+        layer.cornerRadius = dotRadius;
         layer.colors = inactiveColors
         
         return layer
@@ -73,7 +75,7 @@ class BlindActivityIndicator: UIView {
         let w = (radius + dotRadius) * 2
         layer.frame.size = CGSize(width: w, height: w)
         
-        dotLayer.position = CGPoint(x: w / 2 + radius + dotRadius / 2, y: w / 2)
+        dotLayer.position = CGPoint(x: w / 2 + radius + dotRadius, y: w / 2)
         layer.addSublayer(dotLayer)
         
         layer.instanceCount = numberOfDots
@@ -85,12 +87,18 @@ class BlindActivityIndicator: UIView {
         
         layer.instanceDelay = updateTime / Double(numberOfDots)
         
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.red.cgColor
+        
         return layer
     }()
     
     private func commonInit() {
-        self.backgroundColor = UIColor.clear       
+        self.backgroundColor = UIColor.yellow
         self.layer.addSublayer(replicantLayer)
+        
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor.white.cgColor
     }
     
     override init(frame: CGRect) {
@@ -134,7 +142,14 @@ class BlindActivityIndicator: UIView {
     override var intrinsicContentSize: CGSize {
         let w = (radius + dotRadius) * 2
         let sz = CGSize(width: w, height: w)
-        
+
         return sz
+        
+//        return replicantLayer.bounds.size
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        self.dotRadius = 8
+        self.radius = 30
     }
 }
