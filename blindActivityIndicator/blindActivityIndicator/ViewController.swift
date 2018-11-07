@@ -12,9 +12,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: BlindActivityIndicator!
     @IBOutlet weak var activityIndicator2: BlindActivityIndicator2!
+    @IBOutlet weak var remainingCounter: BlindRemainingView!
+    var avatarView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        avatarView = UIImageView(image: UIImage(named: "img"))
+        self.remainingCounter.embeddedView = avatarView
     }
 
     @IBAction func startAnimation(_ sender: Any) {

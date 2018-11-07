@@ -32,13 +32,18 @@
                                     <action selector="stopAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ctm-em-lc4"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AC7-Va-W5s" customClass="BlindActivityIndicator" customModule="blindActivityIndicator" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AC7-Va-W5s" customClass="BlindActivityIndicator" customModule="blindActivityIndicator" customModuleProvider="target">
                                 <rect key="frame" x="37" y="46" width="66" height="66"/>
                                 <color key="backgroundColor" red="1" green="0.61324398349999998" blue="0.16924160299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-eR-3dn" customClass="BlindActivityIndicator2">
-                                <rect key="frame" x="154.5" y="308" width="66" height="66"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-eR-3dn" customClass="BlindActivityIndicator2">
+                                <rect key="frame" x="111" y="46" width="66" height="66"/>
                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-kO-CdI" customClass="BlindRemainingView">
+                                <rect key="frame" x="117" y="295" width="204" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.56939288389999998" blue="0.5685883317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14089396595954895" green="0.16542217135429382" blue="0.20134624838829041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,17 +51,18 @@
                             <constraint firstItem="Jv4-9e-Ldc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FDc-E3-JZc"/>
                             <constraint firstItem="AC7-Va-W5s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="FIg-fw-2W4"/>
                             <constraint firstItem="AC7-Va-W5s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="FXD-VX-uHB"/>
-                            <constraint firstItem="vxm-eR-3dn" firstAttribute="top" secondItem="krB-yI-BbC" secondAttribute="bottom" constant="85" id="a5O-Zt-abs"/>
-                            <constraint firstItem="vxm-eR-3dn" firstAttribute="centerX" secondItem="krB-yI-BbC" secondAttribute="centerX" id="efP-I9-sK7"/>
+                            <constraint firstItem="vxm-eR-3dn" firstAttribute="leading" secondItem="AC7-Va-W5s" secondAttribute="trailing" constant="8" symbolic="YES" id="c5K-qs-p5L"/>
                             <constraint firstItem="krB-yI-BbC" firstAttribute="centerX" secondItem="Jv4-9e-Ldc" secondAttribute="centerX" id="n3U-DR-PJ2"/>
                             <constraint firstItem="krB-yI-BbC" firstAttribute="top" secondItem="Jv4-9e-Ldc" secondAttribute="bottom" constant="8" id="rnu-dg-Kd5"/>
                             <constraint firstItem="Jv4-9e-Ldc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="135" id="s2Y-lz-8uU"/>
+                            <constraint firstItem="vxm-eR-3dn" firstAttribute="top" secondItem="AC7-Va-W5s" secondAttribute="top" id="vDg-VV-FaZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="AC7-Va-W5s" id="uQz-b8-a3L"/>
                         <outlet property="activityIndicator2" destination="vxm-eR-3dn" id="UV0-Od-O2Y"/>
+                        <outlet property="remainingCounter" destination="pOa-kO-CdI" id="C2X-VE-5wS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

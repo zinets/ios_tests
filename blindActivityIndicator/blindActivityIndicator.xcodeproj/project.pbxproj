@@ -14,6 +14,7 @@
 		49C8CB612191B927004B7981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C8CB5F2191B927004B7981 /* LaunchScreen.storyboard */; };
 		49C8CB6A2191BA78004B7981 /* BlindActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8CB692191BA78004B7981 /* BlindActivityIndicator.swift */; };
 		49D2D7C22192F12E00A3FBFF /* BlindActivityIndicator2.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */; };
+		49D2D7C52193110700A3FBFF /* BlindRemainingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7C42193110700A3FBFF /* BlindRemainingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		49D2D7BF2192F12D00A3FBFF /* blindActivityIndicator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blindActivityIndicator-Bridging-Header.h"; sourceTree = "<group>"; };
 		49D2D7C02192F12E00A3FBFF /* BlindActivityIndicator2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindActivityIndicator2.h; sourceTree = "<group>"; };
 		49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindActivityIndicator2.m; sourceTree = "<group>"; };
+		49D2D7C32193110700A3FBFF /* BlindRemainingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindRemainingView.h; sourceTree = "<group>"; };
+		49D2D7C42193110700A3FBFF /* BlindRemainingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindRemainingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +77,12 @@
 		49C8CB682191BA2E004B7981 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				49D2D7BF2192F12D00A3FBFF /* blindActivityIndicator-Bridging-Header.h */,
 				49C8CB692191BA78004B7981 /* BlindActivityIndicator.swift */,
 				49D2D7C02192F12E00A3FBFF /* BlindActivityIndicator2.h */,
 				49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */,
-				49D2D7BF2192F12D00A3FBFF /* blindActivityIndicator-Bridging-Header.h */,
+				49D2D7C32193110700A3FBFF /* BlindRemainingView.h */,
+				49D2D7C42193110700A3FBFF /* BlindRemainingView.m */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D2D7C52193110700A3FBFF /* BlindRemainingView.m in Sources */,
 				49C8CB592191B923004B7981 /* ViewController.swift in Sources */,
 				49D2D7C22192F12E00A3FBFF /* BlindActivityIndicator2.m in Sources */,
 				49C8CB6A2191BA78004B7981 /* BlindActivityIndicator.swift in Sources */,
