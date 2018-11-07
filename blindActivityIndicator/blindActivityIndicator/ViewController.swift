@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startAnimation(_ sender: Any) {
-        activityIndicator.startAnimation()
+        activityIndicator.startAnimation()        
     }
     
     @IBAction func stopAnimation(_ sender: Any) {

@@ -29,16 +29,20 @@ extension UIColor {
 @IBDesignable
 class BlindActivityIndicator: UIView {
 
-    let activeColors = [ UIColor(rgb: 0xe95871).cgColor, UIColor(rgb: 0xf98252).cgColor ]
-    let inactiveColors = [ UIColor(rgb: 0x525A68).cgColor, UIColor(rgb: 0x525A68).cgColor ]
-
-    let numberOfDots: Int = 4
-    
-    @IBInspectable
+    var activeColors   = [ UIColor(rgb: 0xe95871).cgColor, UIColor(rgb: 0xf98252).cgColor ]
+    var inactiveColors = [ UIColor(rgb: 0x525A68).cgColor, UIColor(rgb: 0x525A68).cgColor ]
     var updateTime: TimeInterval = 3.5 // время за которое точка обойдет круг
     
     @IBInspectable
-    var dotRadius: CGFloat = 10 {
+    var numberOfDots: Int = 7 {
+        didSet {
+            _updateReplicator()
+            _update()
+        }
+    }
+    
+    @IBInspectable /// радиус (!) точки
+    var dotRadius: CGFloat = 8 {
         didSet {
             dotLayer.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 2 * dotRadius, height: 2 * dotRadius))
             dotLayer.cornerRadius = dotRadius;
@@ -46,8 +50,8 @@ class BlindActivityIndicator: UIView {
         }
     }
     
-    @IBInspectable
-    var radius: CGFloat = 40 {
+    @IBInspectable /// расстояние от центра контрола до центра каждой точки; т.е. до края контрола надо еще учитывать радиус точки
+    var radius: CGFloat = 25 {
         didSet {
             _update()
         }
@@ -70,6 +74,15 @@ class BlindActivityIndicator: UIView {
         return layer
     }()
     
+    private func _updateReplicator() {
+        replicantLayer.instanceCount = numberOfDots
+        var transform = CATransform3DIdentity
+        transform = CATransform3DRotate(transform, 2 * CGFloat.pi / CGFloat(numberOfDots), 0, 0, 1)
+        replicantLayer.instanceTransform = transform
+        
+        replicantLayer.instanceDelay = updateTime / Double(numberOfDots)
+    }
+    
     lazy private var replicantLayer: CAReplicatorLayer = {
         let layer = CAReplicatorLayer()
         let w = (radius + dotRadius) * 2
@@ -87,16 +100,16 @@ class BlindActivityIndicator: UIView {
         
         layer.instanceDelay = updateTime / Double(numberOfDots)
         
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.red.cgColor
+//        layer.borderWidth = 1
+//        layer.borderColor = UIColor.red.cgColor
         
         return layer
     }()
     
     private func commonInit() {
-        self.backgroundColor = UIColor.yellow
         self.layer.addSublayer(replicantLayer)
         
+        _update()
 //        self.layer.borderWidth = 1
 //        self.layer.borderColor = UIColor.white.cgColor
     }
@@ -118,6 +131,8 @@ class BlindActivityIndicator: UIView {
     
     // MARK: actions -
     func startAnimation() {
+        guard self.dotLayer.animationKeys() == nil else { return }
+        
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = updateTime;
         animationGroup.repeatCount = .infinity
@@ -144,12 +159,11 @@ class BlindActivityIndicator: UIView {
         let sz = CGSize(width: w, height: w)
 
         return sz
-        
-//        return replicantLayer.bounds.size
     }
     
-    override func prepareForInterfaceBuilder() {
-        self.dotRadius = 8
-        self.radius = 30
-    }
+//    override func prepareForInterfaceBuilder() {
+//    почему закоментировано; что если этот метод перегружен, то в ибилдере можно менять inspectable свойства, но визуально они там не меняются и всегда будут использоваться заданные в этом методе значения
+//        self.dotRadius = 8
+//        self.radius = 50
+//    }
 }
