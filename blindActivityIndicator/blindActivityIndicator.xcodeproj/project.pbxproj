@@ -13,6 +13,7 @@
 		49C8CB5E2191B927004B7981 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C8CB5D2191B927004B7981 /* Assets.xcassets */; };
 		49C8CB612191B927004B7981 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C8CB5F2191B927004B7981 /* LaunchScreen.storyboard */; };
 		49C8CB6A2191BA78004B7981 /* BlindActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8CB692191BA78004B7981 /* BlindActivityIndicator.swift */; };
+		49D2D7C22192F12E00A3FBFF /* BlindActivityIndicator2.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		49C8CB602191B927004B7981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49C8CB622191B927004B7981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C8CB692191BA78004B7981 /* BlindActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindActivityIndicator.swift; sourceTree = "<group>"; };
+		49D2D7BF2192F12D00A3FBFF /* blindActivityIndicator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blindActivityIndicator-Bridging-Header.h"; sourceTree = "<group>"; };
+		49D2D7C02192F12E00A3FBFF /* BlindActivityIndicator2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindActivityIndicator2.h; sourceTree = "<group>"; };
+		49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindActivityIndicator2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				49C8CB692191BA78004B7981 /* BlindActivityIndicator.swift */,
+				49D2D7C02192F12E00A3FBFF /* BlindActivityIndicator2.h */,
+				49D2D7C12192F12E00A3FBFF /* BlindActivityIndicator2.m */,
+				49D2D7BF2192F12D00A3FBFF /* blindActivityIndicator-Bridging-Header.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 				TargetAttributes = {
 					49C8CB522191B923004B7981 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -147,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C8CB592191B923004B7981 /* ViewController.swift in Sources */,
+				49D2D7C22192F12E00A3FBFF /* BlindActivityIndicator2.m in Sources */,
 				49C8CB6A2191BA78004B7981 /* BlindActivityIndicator.swift in Sources */,
 				49C8CB572191B923004B7981 /* AppDelegate.swift in Sources */,
 			);
@@ -294,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = blindActivityIndicator/Info.plist;
@@ -304,6 +314,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.blindActivityIndicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "blindActivityIndicator/classes/blindActivityIndicator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,6 +325,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = blindActivityIndicator/Info.plist;
@@ -323,6 +336,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = zinets.blindActivityIndicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "blindActivityIndicator/classes/blindActivityIndicator-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
