@@ -11,6 +11,7 @@
 @interface BlindRemainingView ()
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) CAShapeLayer *lineLayer;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation BlindRemainingView
@@ -62,8 +63,14 @@
     return  _timeLabel;
 }
 
+- (void)setOverallTime:(NSTimeInterval)overallTime {
+    _overallTime = MAX(0, overallTime);
+    [self updateRemaining];
+}
+
 -(void)setRemainingTime:(NSTimeInterval)remainingTime {
-    _timeLabel.text = self.formattedRemainingTime;
+    _remainingTime = MIN(remainingTime, self.overallTime);
+    [self updateRemaining];
 }
 
 -(CAShapeLayer *)lineLayer {
@@ -109,8 +116,41 @@
     self.embeddedView.clipsToBounds = YES;
 }
 
+- (void)updateRemaining{
+    CGFloat k = _overallTime == 0 ? 0 : (_remainingTime / _overallTime);    
+//    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+//    anim.duration = 1;
+//    anim.toValue = @(k);
+//    [self.lineLayer addAnimation:anim forKey:@"1"];
+    self.lineLayer.strokeEnd = k;
+    
+    _timeLabel.text = self.formattedRemainingTime;
+}
+
 -(NSString *)formattedRemainingTime {
     return @"00:00";
+}
+
+#pragma mark - timer
+
+- (void)stopTimer {
+    [self.timer invalidate];
+    _timer = nil;
+}
+
+- (void)startTimer {
+    if (!_timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)timerFired:(NSTimer *)sender {
+    if (--self.remainingTime == 0) {
+        [self stopTimer];
+        if ([self.delegate respondsToSelector:@selector(remainingDidEnd:)]) {
+            [self.delegate remainingDidEnd:self];
+        }
+    }    
 }
 
 @end

@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol BlindRemainingViewDelegate <NSObject>
+@required
+- (void)remainingDidEnd:(id)sender;
+@end
+
 @interface BlindRemainingView : UIView
 @property (nonatomic) NSTimeInterval remainingTime;
 @property (nonatomic) NSTimeInterval overallTime;
@@ -21,6 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *lineColor;
 
 @property (nonatomic, weak) UIView *embeddedView;
+@property (nonatomic, weak) IBOutlet id<BlindRemainingViewDelegate> delegate;
+
+- (void)stopTimer;
+- (void)startTimer;
 
 @end
 
