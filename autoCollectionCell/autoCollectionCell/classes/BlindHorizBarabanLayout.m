@@ -40,4 +40,27 @@
     }
 }
 
+#pragma mark - дотяжка
+
+//-(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+//    return YES;
+//}
+
+- (UICollectionViewLayoutAttributes *)closestTo:(CGFloat)x {
+    UICollectionViewLayoutAttributes *attr;
+    attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]];
+    return attr;
+}
+
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
+    CGFloat halfWidth = self.collectionView.bounds.size.width / 2;
+    CGFloat newCenter = proposedContentOffset.x + halfWidth;
+    UICollectionViewLayoutAttributes *attr = [self closestTo:newCenter];
+    if (attr) {
+        return (CGPoint){attr.center.x - halfWidth, proposedContentOffset.y};
+    } else {
+        return [super targetContentOffsetForProposedContentOffset:proposedContentOffset];
+    }
+}
+
 @end

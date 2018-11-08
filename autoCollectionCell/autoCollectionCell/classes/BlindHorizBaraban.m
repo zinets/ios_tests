@@ -10,7 +10,7 @@
 #import "BlindHorizBarabanLayout.h"
 #import "BlindHorizBarabanCell.h"
 
-@interface BlindHorizBaraban() <UICollectionViewDataSource>
+@interface BlindHorizBaraban() <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UILabel *headerLabel;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
@@ -84,6 +84,7 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
         
         [_collectionView registerNib:[UINib nibWithNibName:СellId bundle:nil] forCellWithReuseIdentifier:СellId];
         _collectionView.dataSource = self;
+        _collectionView.delegate = self;
     }
     return _collectionView;
 }
