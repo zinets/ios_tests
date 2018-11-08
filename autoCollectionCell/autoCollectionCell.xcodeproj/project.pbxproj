@@ -13,7 +13,7 @@
 		4972BAFA21943F28006EF4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4972BAF921943F28006EF4BB /* Assets.xcassets */; };
 		4972BAFD21943F28006EF4BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4972BAFB21943F28006EF4BB /* LaunchScreen.storyboard */; };
 		4972BB052194408E006EF4BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972BB042194408E006EF4BB /* CollectionViewCell.swift */; };
-		4972BB08219445D7006EF4BB /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4972BB07219445D7006EF4BB /* CollectionViewCell.xib */; };
+		4972BB0E21944841006EF4BB /* BlindHorizBaraban.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,9 @@
 		4972BAFC21943F28006EF4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4972BAFE21943F29006EF4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4972BB042194408E006EF4BB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		4972BB07219445D7006EF4BB /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "autoCollectionCell-Bridging-Header.h"; sourceTree = "<group>"; };
+		4972BB0C21944841006EF4BB /* BlindHorizBaraban.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindHorizBaraban.h; sourceTree = "<group>"; };
+		4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindHorizBaraban.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				4972BAF221943F24006EF4BB /* AppDelegate.swift */,
+				4972BB042194408E006EF4BB /* CollectionViewCell.swift */,
 				4972BAF421943F24006EF4BB /* ViewController.swift */,
 				4972BAF621943F24006EF4BB /* Main.storyboard */,
 				4972BAF921943F28006EF4BB /* Assets.xcassets */,
@@ -72,8 +75,9 @@
 		4972BB0621944552006EF4BB /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				4972BB042194408E006EF4BB /* CollectionViewCell.swift */,
-				4972BB07219445D7006EF4BB /* CollectionViewCell.xib */,
+				4972BB0C21944841006EF4BB /* BlindHorizBaraban.h */,
+				4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */,
+				4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -110,6 +114,7 @@
 				TargetAttributes = {
 					4972BAEE21943F24006EF4BB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -138,7 +143,6 @@
 			files = (
 				4972BAFD21943F28006EF4BB /* LaunchScreen.storyboard in Resources */,
 				4972BAFA21943F28006EF4BB /* Assets.xcassets in Resources */,
-				4972BB08219445D7006EF4BB /* CollectionViewCell.xib in Resources */,
 				4972BAF821943F24006EF4BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +156,7 @@
 			files = (
 				4972BAF521943F24006EF4BB /* ViewController.swift in Sources */,
 				4972BAF321943F24006EF4BB /* AppDelegate.swift in Sources */,
+				4972BB0E21944841006EF4BB /* BlindHorizBaraban.m in Sources */,
 				4972BB052194408E006EF4BB /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = autoCollectionCell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,6 +312,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tn.autoCollectionCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "autoCollectionCell/classes/autoCollectionCell-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -315,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = autoCollectionCell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -323,6 +332,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tn.autoCollectionCell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "autoCollectionCell/classes/autoCollectionCell-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
