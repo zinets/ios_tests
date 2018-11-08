@@ -41,49 +41,50 @@
                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-kO-CdI" customClass="BlindRemainingView">
-                                <rect key="frame" x="42" y="231" width="204" height="195"/>
+                                <rect key="frame" x="42" y="231" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="204" id="ILt-0W-LBy"/>
-                                    <constraint firstAttribute="height" constant="195" id="X27-mU-d6m"/>
+                                    <constraint firstAttribute="width" constant="100" id="ILt-0W-LBy"/>
+                                    <constraint firstAttribute="height" constant="100" id="X27-mU-d6m"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.48627450979999998" green="0.18823529410000001" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.1803921568627451" green="0.9137254901960784" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="textRemainVisible" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="m3Z-7F-jZS"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-dE-abb">
-                                <rect key="frame" x="42" y="434" width="32" height="30"/>
+                                <rect key="frame" x="42" y="339" width="32" height="30"/>
                                 <state key="normal" title="start"/>
                                 <connections>
                                     <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uqK-JD-P8Q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4C-J9-YRr">
-                                <rect key="frame" x="88" y="434" width="31" height="30"/>
+                                <rect key="frame" x="88" y="339" width="31" height="30"/>
                                 <state key="normal" title="stop"/>
                                 <connections>
                                     <action selector="tickTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rjk-oy-AIc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-6W-ZQJ">
-                                <rect key="frame" x="42" y="463" width="35" height="30"/>
+                                <rect key="frame" x="42" y="368" width="35" height="30"/>
                                 <state key="normal" title="reset"/>
                                 <connections>
                                     <action selector="resetTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exo-fn-lD4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1V-2U-SiR">
-                                <rect key="frame" x="88" y="463" width="42" height="30"/>
+                                <rect key="frame" x="88" y="368" width="42" height="30"/>
                                 <state key="normal" title="pause"/>
                                 <connections>
                                     <action selector="pauseTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6aB-vD-rUE"/>

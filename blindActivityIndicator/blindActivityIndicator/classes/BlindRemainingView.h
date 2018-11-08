@@ -26,7 +26,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIColor *lineColor;
 
 @property (nonatomic, weak) UIView *embeddedView;
-@property (nonatomic) BOOL textRemainVisible;
+@property (nonatomic) IBInspectable BOOL textRemainVisible;
 @property (nonatomic, weak) IBOutlet id<BlindRemainingViewDelegate> delegate;
 
 - (void)stopTimer;
