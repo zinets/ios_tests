@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     let sampleData = [ "чистый White", "светлый Red", "Black", "бледный Yellow", " грязный Purple" ]
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var barabanView: BlindHorizBaraban!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,9 @@ class ViewController: UIViewController {
             let w = collectionView.frame.width - 20
             flowLayout.estimatedItemSize = CGSize(width: w, height: 40)
         }
+        
+        barabanView.headerText = "fuck u asshole"
+        barabanView.items = sampleData
     }
 }
 

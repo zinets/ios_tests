@@ -60,11 +60,17 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="9sT-yj-BnF"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcE-o8-aKh" customClass="BlindHorizBaraban">
+                                <rect key="frame" x="16" y="87" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="barabanView" destination="fcE-o8-aKh" id="MkD-uZ-Ek1"/>
                         <outlet property="collectionView" destination="hb9-53-Lba" id="uE3-BO-3dG"/>
                     </connections>
                 </viewController>

@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BlindHorizBaraban : UIView
+@property (nonatomic, strong) UIColor *headerTextColor;
+@property (nonatomic, strong) NSString *headerText;
+
+@property (nonatomic, strong) NSArray <NSString *> *items;
 
 @end
 

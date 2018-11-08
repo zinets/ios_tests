@@ -80,9 +80,9 @@
 		4972BB0621944552006EF4BB /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */,
 				4972BB0C21944841006EF4BB /* BlindHorizBaraban.h */,
 				4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */,
-				4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */,
 				4972BB14219448B2006EF4BB /* BlindHorizBarabanCell.h */,
 				4972BB15219448B2006EF4BB /* BlindHorizBarabanCell.m */,
 				4972BB16219448B2006EF4BB /* BlindHorizBarabanCell.xib */,
