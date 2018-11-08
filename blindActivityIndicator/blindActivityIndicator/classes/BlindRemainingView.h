@@ -15,20 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)remainingDidEnd:(id)sender;
 @end
 
+IB_DESIGNABLE
 @interface BlindRemainingView : UIView
-@property (nonatomic) NSTimeInterval remainingTime;
 @property (nonatomic) NSTimeInterval overallTime;
 
 /// ширина опоясывающей линии
-@property (nonatomic) CGFloat lineWidth;
+@property (nonatomic) IBInspectable CGFloat lineWidth;
 /// отступ от линии до контента; т.е. размер контента меньше размера контрола с каждой стороны на lineWidth + lineSpace
-@property (nonatomic) CGFloat lineSpace;
-@property (nonatomic, strong) UIColor *lineColor;
+@property (nonatomic) IBInspectable CGFloat lineSpace;
+@property (nonatomic, strong) IBInspectable UIColor *lineColor;
 
 @property (nonatomic, weak) UIView *embeddedView;
+@property (nonatomic) BOOL textRemainVisible;
 @property (nonatomic, weak) IBOutlet id<BlindRemainingViewDelegate> delegate;
 
 - (void)stopTimer;
+- (void)pauseTimer;
 - (void)startTimer;
 
 @end

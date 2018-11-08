@@ -27,6 +27,8 @@ class ViewController: UIViewController, BlindRemainingViewDelegate {
         
         avatarView = UIImageView(image: UIImage(named: "img"))
         self.remainingCounter.embeddedView = avatarView
+        self.remainingCounter.overallTime = 5 * 60
+        
     }
 
     @IBAction func startAnimation(_ sender: Any) {
@@ -39,13 +41,17 @@ class ViewController: UIViewController, BlindRemainingViewDelegate {
         activityIndicator2.stopAnimation()
     }
     @IBAction func resetTime(_ sender: Any) {
-        remainTime = 20
-        remainingCounter.remainingTime = remainTime
-        remainingCounter.startTimer()
+        remainingCounter.overallTime = 45
     }
     @IBAction func tickTime(_ sender: Any) {
-        remainTime -= 1
-        remainingCounter.remainingTime = remainTime
+        remainingCounter.stopTimer()
+    }
+    
+    @IBAction func startTimer(_ sender: Any) {
+        remainingCounter.startTimer()
+    }
+    @IBAction func pauseTimer(_ sender: Any) {
+        remainingCounter.pauseTimer()
     }
 }
 

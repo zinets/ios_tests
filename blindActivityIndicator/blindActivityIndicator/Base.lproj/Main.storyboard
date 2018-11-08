@@ -42,27 +42,51 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOa-kO-CdI" customClass="BlindRemainingView">
                                 <rect key="frame" x="42" y="231" width="204" height="195"/>
-                                <color key="backgroundColor" red="1" green="0.56939288389999998" blue="0.5685883317" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="204" id="ILt-0W-LBy"/>
                                     <constraint firstAttribute="height" constant="195" id="X27-mU-d6m"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.48627450979999998" green="0.18823529410000001" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineSpace">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="m3Z-7F-jZS"/>
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-dE-abb">
-                                <rect key="frame" x="42" y="434" width="35" height="30"/>
-                                <state key="normal" title="reset"/>
+                                <rect key="frame" x="42" y="434" width="32" height="30"/>
+                                <state key="normal" title="start"/>
                                 <connections>
-                                    <action selector="resetTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w91-XG-nus"/>
+                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uqK-JD-P8Q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4C-J9-YRr">
-                                <rect key="frame" x="91" y="434" width="30" height="30"/>
-                                <state key="normal" title="tick"/>
+                                <rect key="frame" x="88" y="434" width="31" height="30"/>
+                                <state key="normal" title="stop"/>
                                 <connections>
                                     <action selector="tickTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rjk-oy-AIc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-6W-ZQJ">
+                                <rect key="frame" x="42" y="463" width="35" height="30"/>
+                                <state key="normal" title="reset"/>
+                                <connections>
+                                    <action selector="resetTime:" destination="BYZ-38-t0r" eventType="touchUpInside" id="exo-fn-lD4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1V-2U-SiR">
+                                <rect key="frame" x="88" y="463" width="42" height="30"/>
+                                <state key="normal" title="pause"/>
+                                <connections>
+                                    <action selector="pauseTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6aB-vD-rUE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,15 +97,19 @@
                             <constraint firstItem="AC7-Va-W5s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="FIg-fw-2W4"/>
                             <constraint firstItem="AC7-Va-W5s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="FXD-VX-uHB"/>
                             <constraint firstItem="Xqq-dE-abb" firstAttribute="leading" secondItem="pOa-kO-CdI" secondAttribute="leading" id="GSU-No-l5b"/>
+                            <constraint firstItem="B1V-2U-SiR" firstAttribute="centerY" secondItem="RZd-6W-ZQJ" secondAttribute="centerY" id="HNi-Od-NR5"/>
+                            <constraint firstItem="RZd-6W-ZQJ" firstAttribute="top" secondItem="Xqq-dE-abb" secondAttribute="bottom" constant="-1" id="SvR-Ni-lv1"/>
                             <constraint firstItem="vxm-eR-3dn" firstAttribute="leading" secondItem="AC7-Va-W5s" secondAttribute="trailing" constant="8" symbolic="YES" id="c5K-qs-p5L"/>
                             <constraint firstItem="pOa-kO-CdI" firstAttribute="leading" secondItem="krB-yI-BbC" secondAttribute="leading" constant="-95" id="cUQ-z0-ZzV"/>
                             <constraint firstItem="D4C-J9-YRr" firstAttribute="centerY" secondItem="Xqq-dE-abb" secondAttribute="centerY" id="jXc-0J-amA"/>
                             <constraint firstItem="krB-yI-BbC" firstAttribute="centerX" secondItem="Jv4-9e-Ldc" secondAttribute="centerX" id="n3U-DR-PJ2"/>
+                            <constraint firstItem="RZd-6W-ZQJ" firstAttribute="leading" secondItem="Xqq-dE-abb" secondAttribute="leading" id="rP9-Gm-Ck2"/>
                             <constraint firstItem="krB-yI-BbC" firstAttribute="top" secondItem="Jv4-9e-Ldc" secondAttribute="bottom" constant="8" id="rnu-dg-Kd5"/>
                             <constraint firstItem="Jv4-9e-Ldc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="135" id="s2Y-lz-8uU"/>
                             <constraint firstItem="vxm-eR-3dn" firstAttribute="top" secondItem="AC7-Va-W5s" secondAttribute="top" id="vDg-VV-FaZ"/>
                             <constraint firstItem="D4C-J9-YRr" firstAttribute="leading" secondItem="Xqq-dE-abb" secondAttribute="trailing" constant="14" id="yOh-pD-cIE"/>
                             <constraint firstItem="Xqq-dE-abb" firstAttribute="top" secondItem="pOa-kO-CdI" secondAttribute="bottom" constant="8" id="yYz-g7-tha"/>
+                            <constraint firstItem="B1V-2U-SiR" firstAttribute="leading" secondItem="RZd-6W-ZQJ" secondAttribute="trailing" constant="11" id="z0s-1G-wow"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

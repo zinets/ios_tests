@@ -9,6 +9,8 @@
 #import "BlindRemainingView.h"
 
 @interface BlindRemainingView ()
+@property (nonatomic) NSTimeInterval remainingTime;
+
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) CAShapeLayer *lineLayer;
 @property (nonatomic, strong) NSTimer *timer;
@@ -22,7 +24,7 @@
     _overallTime = 5 * 60;
     _lineWidth = 4;
     _lineSpace = 3;
-    _lineColor = [UIColor redColor];
+    _lineColor = [UIColor greenColor];
     
     [self.layer addSublayer:self.lineLayer];
     [self setNeedsLayout];
@@ -65,12 +67,17 @@
 
 - (void)setOverallTime:(NSTimeInterval)overallTime {
     _overallTime = MAX(0, overallTime);
-    [self updateRemaining];
+    self.remainingTime = _overallTime;
 }
 
 -(void)setRemainingTime:(NSTimeInterval)remainingTime {
     _remainingTime = MIN(remainingTime, self.overallTime);
     [self updateRemaining];
+}
+
+-(void)setTextRemainVisible:(BOOL)textRemainVisible {
+    _textRemainVisible = textRemainVisible;
+    self.timeLabel.hidden = !_textRemainVisible;
 }
 
 -(CAShapeLayer *)lineLayer {
@@ -99,6 +106,16 @@
     [self setNeedsLayout];
 }
 
+-(void)setLineColor:(UIColor *)lineColor {
+    _lineColor = lineColor;
+    _lineLayer.strokeColor = _lineColor.CGColor;
+}
+
+-(void)setLineWidth:(CGFloat)lineWidth {
+    _lineWidth = lineWidth;
+    _lineLayer.lineWidth = _lineWidth;
+}
+
 #pragma mark - internal
 
 - (void)updateLineLayer {
@@ -118,22 +135,35 @@
 
 - (void)updateRemaining{
     CGFloat k = _overallTime == 0 ? 0 : (_remainingTime / _overallTime);    
-//    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-//    anim.duration = 1;
-//    anim.toValue = @(k);
-//    [self.lineLayer addAnimation:anim forKey:@"1"];
     self.lineLayer.strokeEnd = k;
-    
-    _timeLabel.text = self.formattedRemainingTime;
+    if (self.textRemainVisible) {
+        _timeLabel.text = self.formattedRemainingTime;
+    }
 }
 
 -(NSString *)formattedRemainingTime {
-    return @"00:00";
+    NSInteger ti = (NSInteger)self.remainingTime;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    NSString *time = nil;
+    if (hours > 0) {
+        time = [NSString stringWithFormat:@"%02li:%02li:%02li", (long)hours, (long)minutes, (long)seconds];
+    } else {
+        time = [NSString stringWithFormat:@"%02li:%02li", (long)minutes, (long)seconds];
+    }
+    return time;
 }
 
 #pragma mark - timer
 
 - (void)stopTimer {
+    [self.timer invalidate];
+    _timer = nil;
+    _remainingTime = self.overallTime;
+}
+
+- (void)pauseTimer {
     [self.timer invalidate];
     _timer = nil;
 }
@@ -151,6 +181,24 @@
             [self.delegate remainingDidEnd:self];
         }
     }    
+}
+
+#pragma mark -
+
+- (void)prepareForInterfaceBuilder {
+    [super prepareForInterfaceBuilder];
+    
+    self.overallTime = 40;
+    self.remainingTime = 25;
+    
+    UILabel *fakeView = [UILabel new];
+    fakeView.backgroundColor = [UIColor greenColor];
+    fakeView.numberOfLines = 0;
+    fakeView.textAlignment = NSTextAlignmentCenter;
+    fakeView.text = @"Embedded \n\n\n view";
+    self.embeddedView = fakeView;
+    
+    self.timeLabel.text = @"05:57";
 }
 
 @end

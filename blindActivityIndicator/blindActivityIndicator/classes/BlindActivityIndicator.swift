@@ -162,6 +162,7 @@ class BlindActivityIndicator: UIView {
     }
     
 //    override func prepareForInterfaceBuilder() {
+//      super.prepareForInterfaceBuilder()
 //    почему закоментировано; что если этот метод перегружен, то в ибилдере можно менять inspectable свойства, но визуально они там не меняются и всегда будут использоваться заданные в этом методе значения
 //        self.dotRadius = 8
 //        self.radius = 50
