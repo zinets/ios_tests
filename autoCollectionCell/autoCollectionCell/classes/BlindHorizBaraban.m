@@ -17,12 +17,25 @@
 @implementation BlindHorizBaraban
 
 static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса ячейки
-static CGFloat const collectionHeight = 22;
-static CGFloat const additionalSpace = 7; // расстояние между хедером и коллекцией
+
+#define headerHeight 22
+#define additionalSpace 7 // расстояние между хедером и коллекцией
+#define collectionHeight 22
 
 - (void)commonInit {
+//    self.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self addSubview:self.headerLabel];
+    [self.headerLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
+    [self.headerLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+    [self.headerLabel.topAnchor constraintEqualToAnchor:self.topAnchor].active = YES;
+    [self.headerLabel.heightAnchor constraintEqualToConstant:headerHeight].active = YES;
+    
     [self addSubview:self.collectionView];
+    [self.collectionView.topAnchor constraintEqualToAnchor:self.headerLabel.bottomAnchor constant:additionalSpace].active = YES;
+    [self.collectionView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
+    [self.collectionView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+    [self.collectionView.heightAnchor constraintEqualToConstant:collectionHeight].active = YES;
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -44,10 +57,9 @@ static CGFloat const additionalSpace = 7; // расстояние между х�
 
 -(UILabel *)headerLabel {
     if (!_headerLabel) {
-        _headerLabel = [[UILabel alloc] initWithFrame:(CGRect){0, 0, self.bounds.size.width, 22}];
-        _headerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _headerLabel = [UILabel new];
+        _headerLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _headerLabel.textAlignment = NSTextAlignmentCenter;
-        _headerLabel.backgroundColor = [UIColor yellowColor];
     }
     return _headerLabel;
 }
@@ -58,10 +70,17 @@ static CGFloat const additionalSpace = 7; // расстояние между х�
         layout.estimatedItemSize = (CGSize){100, collectionHeight};
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:(CGRect){0, self.headerLabel.bounds.size.height + additionalSpace, self.bounds.size.width, collectionHeight}
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
                                              collectionViewLayout:layout];
-        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
-        _collectionView.backgroundColor = [UIColor redColor];
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        _collectionView.contentInset = (UIEdgeInsets){0, 10, 0, 10};
+        
+        
         
         [_collectionView registerNib:[UINib nibWithNibName:СellId bundle:nil] forCellWithReuseIdentifier:СellId];
         _collectionView.dataSource = self;
@@ -72,6 +91,11 @@ static CGFloat const additionalSpace = 7; // расстояние между х�
 -(void)setHeaderTextColor:(UIColor *)headerTextColor {
     _headerTextColor = headerTextColor;
     self.headerLabel.textColor = _headerTextColor;
+}
+
+-(void)setHeaderText:(NSString *)headerText {
+    _headerText = headerText;
+    self.headerLabel.text = _headerText;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -91,12 +115,17 @@ static CGFloat const additionalSpace = 7; // расстояние между х�
 -(void)prepareForInterfaceBuilder {
     [super prepareForInterfaceBuilder];
     self.headerText = @"Sample header text";
-    self.items = @[ @"чистый White", @"светлый Red", @"Black", @"бледный Yellow", @"грязный Purple"];
+    
+    // на время редактирования в IB делаем видимыми границы контрола/ов
+    self.headerLabel.backgroundColor = [UIColor grayColor];
+    self.collectionView.backgroundColor = [UIColor grayColor];
+    self.layer.borderColor = [UIColor greenColor].CGColor;
+    self.layer.borderWidth = 1;
 }
 
 -(CGSize)intrinsicContentSize {
     CGSize sz = self.bounds.size;
-    sz.height = self.headerLabel.bounds.size.height + additionalSpace + collectionHeight;
+    sz.height = headerHeight + additionalSpace + collectionHeight;
     return sz;
 }
 
