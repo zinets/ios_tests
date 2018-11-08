@@ -25,17 +25,18 @@
     if (self.collectionView) {
         UIEdgeInsets ei = self.collectionView.contentInset;
         NSInteger numberOfCells = [self.collectionView numberOfItemsInSection:0];
-        if (numberOfCells > 1) {
+        if (numberOfCells > 0) {
             UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
             CGFloat inset = (self.collectionView.bounds.size.width - attr.size.width) / 2;
             ei.left = inset;
-            
-            attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:numberOfCells - 1 inSection:0]];
-            inset = (self.collectionView.bounds.size.width - attr.size.width) / 2;
-            ei.right = inset;
-            
-            self.collectionView.contentInset = ei;
         }
+        if (numberOfCells > 1) {
+            UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:numberOfCells - 1 inSection:0]];
+            CGFloat inset = (self.collectionView.bounds.size.width - attr.size.width) / 2;
+            ei.right = inset;
+        }
+        
+        self.collectionView.contentInset = ei;
     }
 }
 

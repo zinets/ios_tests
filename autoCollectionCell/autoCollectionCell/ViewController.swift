@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let sampleData = [ "чистый White", "светлый Red", "Black", "бледный Yellow", "грязный Purple" ]
+    let sampleData = [ "чистый White" , "светлый Red", "Black", "бледный Yellow", "грязный Purple" ]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var barabanView: BlindHorizBaraban!
     
