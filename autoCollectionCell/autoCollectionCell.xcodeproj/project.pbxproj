@@ -14,6 +14,8 @@
 		4972BAFD21943F28006EF4BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4972BAFB21943F28006EF4BB /* LaunchScreen.storyboard */; };
 		4972BB052194408E006EF4BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972BB042194408E006EF4BB /* CollectionViewCell.swift */; };
 		4972BB0E21944841006EF4BB /* BlindHorizBaraban.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */; };
+		4972BB17219448B2006EF4BB /* BlindHorizBarabanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972BB15219448B2006EF4BB /* BlindHorizBarabanCell.m */; };
+		4972BB18219448B2006EF4BB /* BlindHorizBarabanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4972BB16219448B2006EF4BB /* BlindHorizBarabanCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,9 @@
 		4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "autoCollectionCell-Bridging-Header.h"; sourceTree = "<group>"; };
 		4972BB0C21944841006EF4BB /* BlindHorizBaraban.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindHorizBaraban.h; sourceTree = "<group>"; };
 		4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindHorizBaraban.m; sourceTree = "<group>"; };
+		4972BB14219448B2006EF4BB /* BlindHorizBarabanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlindHorizBarabanCell.h; sourceTree = "<group>"; };
+		4972BB15219448B2006EF4BB /* BlindHorizBarabanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlindHorizBarabanCell.m; sourceTree = "<group>"; };
+		4972BB16219448B2006EF4BB /* BlindHorizBarabanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlindHorizBarabanCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,9 @@
 				4972BB0C21944841006EF4BB /* BlindHorizBaraban.h */,
 				4972BB0D21944841006EF4BB /* BlindHorizBaraban.m */,
 				4972BB0B21944840006EF4BB /* autoCollectionCell-Bridging-Header.h */,
+				4972BB14219448B2006EF4BB /* BlindHorizBarabanCell.h */,
+				4972BB15219448B2006EF4BB /* BlindHorizBarabanCell.m */,
+				4972BB16219448B2006EF4BB /* BlindHorizBarabanCell.xib */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 			files = (
 				4972BAFD21943F28006EF4BB /* LaunchScreen.storyboard in Resources */,
 				4972BAFA21943F28006EF4BB /* Assets.xcassets in Resources */,
+				4972BB18219448B2006EF4BB /* BlindHorizBarabanCell.xib in Resources */,
 				4972BAF821943F24006EF4BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +165,7 @@
 			files = (
 				4972BAF521943F24006EF4BB /* ViewController.swift in Sources */,
 				4972BAF321943F24006EF4BB /* AppDelegate.swift in Sources */,
+				4972BB17219448B2006EF4BB /* BlindHorizBarabanCell.m in Sources */,
 				4972BB0E21944841006EF4BB /* BlindHorizBaraban.m in Sources */,
 				4972BB052194408E006EF4BB /* CollectionViewCell.swift in Sources */,
 			);
