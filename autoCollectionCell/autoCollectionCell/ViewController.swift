@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let sampleData = [ "чистый White", "светлый Red", "Black", "бледный Yellow", " грязный Purple" ]
+    let sampleData = [ "чистый White", "светлый Red", "Black", "бледный Yellow", "грязный Purple" ]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var barabanView: BlindHorizBaraban!
     
@@ -34,14 +34,10 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell {
-            
             cell.textLabel.text = sampleData[indexPath.item]
-            
             return cell
         }
         return UICollectionViewCell()
     }
-    
-    
 }
 

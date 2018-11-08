@@ -7,6 +7,7 @@
 //
 
 #import "BlindHorizBaraban.h"
+#import "BlindHorizBarabanLayout.h"
 #import "BlindHorizBarabanCell.h"
 
 @interface BlindHorizBaraban() <UICollectionViewDataSource>
@@ -66,10 +67,9 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
 
 -(UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout =[UICollectionViewFlowLayout new];
+        BlindHorizBarabanLayout *layout =[BlindHorizBarabanLayout new];
         layout.estimatedItemSize = (CGSize){100, collectionHeight};
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        
+                
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
                                              collectionViewLayout:layout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -78,8 +78,8 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
         if (@available(iOS 11.0, *)) {
             _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-        _collectionView.contentInset = (UIEdgeInsets){0, 10, 0, 10};
-        
+        _collectionView.contentInset = (UIEdgeInsets){0, 0, 0, 0};
+        _collectionView.showsHorizontalScrollIndicator = NO;
         
         
         [_collectionView registerNib:[UINib nibWithNibName:СellId bundle:nil] forCellWithReuseIdentifier:СellId];
