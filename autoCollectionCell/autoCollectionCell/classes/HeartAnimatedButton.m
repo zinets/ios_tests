@@ -70,13 +70,17 @@
 }
 
 - (void)addAnimation:(UIImage *)activeImage withHighlighting:(BOOL)hliting {
+    
     for (int attempt = 0; attempt < _maxNumberOfRaisingElements; attempt++) {
-        
         CGFloat const floatingTime = 2;
         
         ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
         layerActiveHeart.frame = self.bounds;
         layerActiveHeart.contents = (id)activeImage.CGImage;
+        if (attempt % 2 == 1) { // миррорингую - контрол типа универсальный, но делаем конкретно с ладошками и чтоб это были левые и правые ладошки
+            layerActiveHeart.doubleSided = YES;
+            layerActiveHeart.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+        }
         layerActiveHeart.opacity = 0;
         [self.layer addSublayer:layerActiveHeart];
         
@@ -123,7 +127,6 @@
         
         [ga setValue:layerActiveHeart forKey:@"layer"];
         [layerActiveHeart addAnimation:ga forKey:nil];
-        
     }
 }
 
