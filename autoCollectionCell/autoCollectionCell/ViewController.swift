@@ -34,6 +34,11 @@ class ViewController: UIViewController {
         testCollection.dataSource = self.testDataSource
         
         testButton.addTarget(self, action: #selector(select(sender:)), for: UIControl.Event.touchUpInside)
+        
+        
+        testCollection.addSubview(testButton)
+        testButton.frame = CGRect(x: 30, y: 350, width: 44, height: 44)
+        
     }
    
     @IBAction func select(sender: UIButton) {

@@ -3,7 +3,7 @@
 // Copyright (c) 2017 TogetherN. All rights reserved.
 //
 
-#import "HeartAnimatedButton.h"
+#import "RaisingParticleAnimatedButton.h"
 
 @interface ActiveHeartLayer : CALayer
 @end
