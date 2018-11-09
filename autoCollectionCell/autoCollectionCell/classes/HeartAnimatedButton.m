@@ -70,13 +70,17 @@
 }
 
 - (void)addAnimation:(UIImage *)activeImage withHighlighting:(BOOL)hliting {
+    
     for (int attempt = 0; attempt < _maxNumberOfRaisingElements; attempt++) {
-        
         CGFloat const floatingTime = 2;
-        
+        BOOL mirrored = attempt % 2 == 1;
         ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
         layerActiveHeart.frame = self.bounds;
         layerActiveHeart.contents = (id)activeImage.CGImage;
+        if (mirrored) { // миррорингую - контрол типа универсальный, но делаем конкретно с ладошками и чтоб это были левые и правые ладошки
+            layerActiveHeart.doubleSided = YES;
+            layerActiveHeart.transform = CATransform3DMakeRotation(M_PI, 0, 1, 0);
+        }
         layerActiveHeart.opacity = 0;
         [self.layer addSublayer:layerActiveHeart];
         
@@ -90,8 +94,8 @@
             opacityAnimation.values =   @[@0, @1,      @1,    @0];
             
             CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-            scaleAnimation.keyTimes = @[@0,      @(0.5), @(0.8), @1];
-            scaleAnimation.values =   @[@(0.25), @(0.5), @(0.9), @1];
+            scaleAnimation.keyTimes = @[@0, @(0.5), @1];
+            scaleAnimation.values =   @[@(0.5), @(0.9), @1];
             
             CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
             positionAnimation.keyTimes = @[@0, @(0.1), @(0.25), @1];
@@ -102,10 +106,12 @@
                 UIBezierPath *path = [UIBezierPath bezierPath];
                 CGPoint beginPoint = layerHeart.bounds.origin;
                 CGPoint endPoint = (CGPoint) {beginPoint.x, beginPoint.y - _maxHeightOfRaising};
-                CGFloat controlSpread = arc4random_uniform(50);
-                CGPoint control1 = (CGPoint) {beginPoint.x + (controlSpread - 25), beginPoint.y - _maxHeightOfRaising * .25};
-                controlSpread = arc4random_uniform(100);
-                CGPoint control2 = (CGPoint) {beginPoint.x + (controlSpread - 50), beginPoint.y - _maxHeightOfRaising * .75};
+                CGFloat controlSpread = arc4random_uniform(25);
+                if (mirrored) { controlSpread = -controlSpread; }
+                CGPoint control1 = (CGPoint) {beginPoint.x - controlSpread, beginPoint.y - _maxHeightOfRaising * .25};
+                controlSpread = arc4random_uniform(50);
+                if (mirrored) { controlSpread = -controlSpread; }
+                CGPoint control2 = (CGPoint) {beginPoint.x - controlSpread, beginPoint.y - _maxHeightOfRaising * .75};
                 [path moveToPoint:beginPoint];
                 [path addCurveToPoint:endPoint controlPoint1:control1 controlPoint2:control2];
                 
@@ -123,7 +129,6 @@
         
         [ga setValue:layerActiveHeart forKey:@"layer"];
         [layerActiveHeart addAnimation:ga forKey:nil];
-        
     }
 }
 
