@@ -8,14 +8,14 @@
 @interface ActiveHeartLayer : CALayer
 @end
 
-@interface HeartAnimatedButton () {
+@interface RaisingParticleAnimatedButton () {
     CALayer *layerHeart;
     UIImage *highlightedImage;
     UIImage *selectedImage;
 }
 @end
 
-@implementation HeartAnimatedButton
+@implementation RaisingParticleAnimatedButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -29,11 +29,14 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         [self commonInit];
+        highlightedImage = [self imageForState:(UIControlStateHighlighted)];
+        selectedImage = [self imageForState:(UIControlStateSelected)];
     }
     return self;
 }
 - (void)commonInit {
     _maxHeightOfRaising = 100;
+    _maxNumberOfRaisingElements = 6;
     [self addTarget:self action:@selector(onTapCompleted:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -66,73 +69,62 @@
     [self addAnimation:highlightedImage withHighlighting:self.selected];
 }
 
-- (void)addAnimation:(UIImage *)activeImage withHighlighting:(BOOL)hliting{
-    CGFloat const hliteTime = .4;
-    CGFloat const floatingTime = 2;
-
-    if (!layerHeart) {
-        layerHeart = [CALayer layer];
-        layerHeart.frame = self.bounds;
-        layerHeart.contents = (id)highlightedImage.CGImage;
-        layerHeart.opacity = 0;
-        [self.layer addSublayer:layerHeart];
-    }
-
-    if (hliting) {
-        CAKeyframeAnimation *heartDisapearing = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-        heartDisapearing.values = @[@1, @1, @0];
-        heartDisapearing.keyTimes = @[@0, @(0.9), @1];
-        heartDisapearing.duration = hliteTime;
-
-        [layerHeart addAnimation:heartDisapearing forKey:@"1"];
-    }
-
-    ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
-    layerActiveHeart.frame = self.bounds;
-    layerActiveHeart.contents = (id)activeImage.CGImage;
-    layerActiveHeart.opacity = 0;
-    [self.layer addSublayer:layerActiveHeart];
-
-    // 8шаговая много ходов очка
-    CAAnimationGroup *ga = [CAAnimationGroup animation];
-    ga.duration = floatingTime; {
-        CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
-        opacityAnimation.keyTimes = @[@0, @(0.05), @(.8), @1];
-        opacityAnimation.values =   @[@0, @1,      @1,    @0];
-
-        CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-        scaleAnimation.keyTimes = @[@0,      @(0.5), @(0.8), @1];
-        scaleAnimation.values =   @[@(0.25), @(0.5), @(0.9), @1];
-
-        CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
-        positionAnimation.keyTimes = @[@0, @(0.1), @(0.25), @1];
-        positionAnimation.values =   @[@0, @0,     @(-20),  @(-100)];
-        positionAnimation.additive = YES;
-
-        CAKeyframeAnimation *positionAnimation2 = [CAKeyframeAnimation animationWithKeyPath:@"position"]; {
-            UIBezierPath *path = [UIBezierPath bezierPath];
-            CGPoint beginPoint = layerHeart.bounds.origin;
-            CGPoint endPoint = (CGPoint) {beginPoint.x, beginPoint.y - _maxHeightOfRaising};
-            CGFloat controlSpread = arc4random_uniform(50);
-            CGPoint control1 = (CGPoint) {beginPoint.x + (controlSpread - 25), beginPoint.y - _maxHeightOfRaising * .25};
-            controlSpread = arc4random_uniform(100);
-            CGPoint control2 = (CGPoint) {beginPoint.x + (controlSpread - 50), beginPoint.y - _maxHeightOfRaising * .75};
-            [path moveToPoint:beginPoint];
-            [path addCurveToPoint:endPoint controlPoint1:control1 controlPoint2:control2];
-
-            positionAnimation2.path = path.CGPath;
+- (void)addAnimation:(UIImage *)activeImage withHighlighting:(BOOL)hliting {
+    for (int attempt = 0; attempt < _maxNumberOfRaisingElements; attempt++) {
+        
+        CGFloat const floatingTime = 2;
+        
+        ActiveHeartLayer *layerActiveHeart = [ActiveHeartLayer layer];
+        layerActiveHeart.frame = self.bounds;
+        layerActiveHeart.contents = (id)activeImage.CGImage;
+        layerActiveHeart.opacity = 0;
+        [self.layer addSublayer:layerActiveHeart];
+        
+        // 8шаговая много ходов очка
+        CAAnimationGroup *ga = [CAAnimationGroup animation];
+        ga.beginTime = CACurrentMediaTime() + attempt * 0.5;
+        
+        ga.duration = floatingTime; {
+            CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+            opacityAnimation.keyTimes = @[@0, @(0.05), @(.8), @1];
+            opacityAnimation.values =   @[@0, @1,      @1,    @0];
+            
+            CAKeyframeAnimation *scaleAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+            scaleAnimation.keyTimes = @[@0,      @(0.5), @(0.8), @1];
+            scaleAnimation.values =   @[@(0.25), @(0.5), @(0.9), @1];
+            
+            CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+            positionAnimation.keyTimes = @[@0, @(0.1), @(0.25), @1];
+            positionAnimation.values =   @[@0, @0,     @(-20),  @(-100)];
+            positionAnimation.additive = YES;
+            
+            CAKeyframeAnimation *positionAnimation2 = [CAKeyframeAnimation animationWithKeyPath:@"position"]; {
+                UIBezierPath *path = [UIBezierPath bezierPath];
+                CGPoint beginPoint = layerHeart.bounds.origin;
+                CGPoint endPoint = (CGPoint) {beginPoint.x, beginPoint.y - _maxHeightOfRaising};
+                CGFloat controlSpread = arc4random_uniform(50);
+                CGPoint control1 = (CGPoint) {beginPoint.x + (controlSpread - 25), beginPoint.y - _maxHeightOfRaising * .25};
+                controlSpread = arc4random_uniform(100);
+                CGPoint control2 = (CGPoint) {beginPoint.x + (controlSpread - 50), beginPoint.y - _maxHeightOfRaising * .75};
+                [path moveToPoint:beginPoint];
+                [path addCurveToPoint:endPoint controlPoint1:control1 controlPoint2:control2];
+                
+                positionAnimation2.path = path.CGPath;
+            }
+            positionAnimation2.additive = YES;
+            positionAnimation2.calculationMode = kCAAnimationPaced;
+            
+            ga.animations = @[
+                              opacityAnimation,
+                              scaleAnimation,
+                              positionAnimation2,
+                              ];
         }
-        positionAnimation2.additive = YES;
-        positionAnimation2.calculationMode = kCAAnimationPaced;
-
-        ga.animations = @[
-                opacityAnimation,
-                scaleAnimation,
-                positionAnimation2,
-        ];
+        
+        [ga setValue:layerActiveHeart forKey:@"layer"];
+        [layerActiveHeart addAnimation:ga forKey:nil];
+        
     }
-
-    [layerActiveHeart addAnimation:ga forKey:@"2"];
 }
 
 @end
@@ -155,7 +147,9 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
-        [self removeFromSuperlayer];
+//        [self removeFromSuperlayer];
+        CALayer *layer = [anim valueForKey:@"layer"];
+        [layer removeFromSuperlayer];
     }
 }
 

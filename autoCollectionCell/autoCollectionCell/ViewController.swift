@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let sampleData = [ "чистый White" , "светлый Red", "Black", "бледный Yellow", "грязный Purple" ]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var barabanView: BlindHorizBaraban!
+    @IBOutlet weak var testButton: RaisingParticleAnimatedButton!
     
     let testDataSource: TestDataSource = {
         return TestDataSource()
@@ -31,6 +32,12 @@ class ViewController: UIViewController {
         barabanView.items = sampleData
         
         testCollection.dataSource = self.testDataSource
+        
+        testButton.addTarget(self, action: #selector(select(sender:)), for: UIControl.Event.touchUpInside)
+    }
+   
+    @IBAction func select(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
 }
 
@@ -46,6 +53,9 @@ extension ViewController: UICollectionViewDataSource {
         }
         return UICollectionViewCell()
     }
+    
+    
+    
 }
 
 
