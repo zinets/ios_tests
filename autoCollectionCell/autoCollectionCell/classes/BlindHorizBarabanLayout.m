@@ -23,6 +23,7 @@
     [super prepareLayout];
     
     if (self.collectionView) {
+        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
         UIEdgeInsets ei = self.collectionView.contentInset;
         NSInteger numberOfCells = [self.collectionView numberOfItemsInSection:0];
         if (numberOfCells > 0) {
@@ -42,13 +43,18 @@
 
 #pragma mark - дотяжка
 
-//-(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-//    return YES;
-//}
-
 - (UICollectionViewLayoutAttributes *)closestTo:(CGFloat)x {
-    UICollectionViewLayoutAttributes *attr;
-    attr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]];
+    UICollectionViewLayoutAttributes *attr = nil;
+    CGFloat const w = self.collectionView.bounds.size.width;
+    CGFloat const h = self.collectionView.bounds.size.height;
+    CGRect rect = (CGRect){x - w, 0, w, h};
+    NSArray <UICollectionViewLayoutAttributes *> *attrs = [self layoutAttributesForElementsInRect:rect];
+    for (UICollectionViewLayoutAttributes *obj in attrs) {    
+        if (ABS(obj.center.x - x) < ABS(attr.center.x - x)) {
+            attr = obj;
+        }
+    }
+    
     return attr;
 }
 
