@@ -10,9 +10,14 @@
 #import "BlindHorizBarabanLayout.h"
 #import "BlindHorizBarabanCell.h"
 
-@interface BlindHorizBaraban() <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+#import "GradientPanel.h"
+
+@interface BlindHorizBaraban() <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
+}
 @property (nonatomic, strong) UILabel *headerLabel;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) GradientPanel *leftShadow;
+@property (nonatomic, strong) GradientPanel *rightShadow;
 @end
 
 @implementation BlindHorizBaraban
@@ -24,8 +29,6 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
 #define collectionHeight 22
 
 - (void)commonInit {
-//    self.translatesAutoresizingMaskIntoConstraints = NO;
-    
     [self addSubview:self.headerLabel];
     [self.headerLabel.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
     [self.headerLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
@@ -37,6 +40,18 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
     [self.collectionView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor].active = YES;
     [self.collectionView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
     [self.collectionView.heightAnchor constraintEqualToConstant:collectionHeight].active = YES;
+    
+    [self addSubview:self.leftShadow];
+    [self.leftShadow.leadingAnchor constraintEqualToAnchor:self.headerLabel.leadingAnchor].active = YES;
+    [self.leftShadow.topAnchor constraintEqualToAnchor:self.headerLabel.topAnchor].active = YES;
+    [self.leftShadow.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:0.4].active = YES;
+    [self.leftShadow.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:1].active = YES;
+    
+    [self addSubview:self.rightShadow];
+    [self.rightShadow.topAnchor constraintEqualToAnchor:self.headerLabel.topAnchor].active = YES;
+    [self.rightShadow.trailingAnchor constraintEqualToAnchor:self.trailingAnchor].active = YES;
+    [self.rightShadow.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:0.4].active = YES;
+    [self.rightShadow.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:1].active = YES;
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -99,6 +114,32 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
     self.headerLabel.text = _headerText;
 }
 
+-(GradientPanel *)leftShadow {
+    if (!_leftShadow) {
+        _leftShadow = [GradientPanel new];
+        _leftShadow.translatesAutoresizingMaskIntoConstraints = NO;
+        _leftShadow.startPoint = (CGPoint){0, 0};
+        _leftShadow.endPoint = (CGPoint){1, 0};
+    }
+    return _leftShadow;
+}
+
+-(GradientPanel *)rightShadow {
+    if (!_rightShadow) {
+        _rightShadow = [GradientPanel new];
+        _rightShadow.translatesAutoresizingMaskIntoConstraints = NO;
+        _rightShadow.startPoint = (CGPoint){1, 0};
+        _rightShadow.endPoint = (CGPoint){0, 0};
+    }
+    return _rightShadow;
+}
+
+-(void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    self.rightShadow.colors = @[ self.backgroundColor, [self.backgroundColor colorWithAlphaComponent:0] ];
+    self.leftShadow.colors = @[ self.backgroundColor, [self.backgroundColor colorWithAlphaComponent:0] ];
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -109,6 +150,15 @@ static NSString *СellId = @"BlindHorizBarabanCell"; // имя/id класса �
     BlindHorizBarabanCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:СellId forIndexPath:indexPath];
     cell.cellTextLabel.text = self.items[indexPath.item];
     return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:(UICollectionViewScrollPositionCenteredHorizontally) animated:YES];
+    if ([self.delegate respondsToSelector:@selector(baraban:didSelectItemAt:)]) {
+        [self.delegate baraban:self didSelectItemAt:indexPath.item];
+    }
 }
 
 #pragma mark - IB

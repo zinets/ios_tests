@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var barabanView: BlindHorizBaraban!
     
+    let testDataSource: TestDataSource = {
+        return TestDataSource()
+    }()
+    @IBOutlet weak var testCollection: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,8 @@ class ViewController: UIViewController {
         
         barabanView.headerText = "fuck u asshole"
         barabanView.items = sampleData
+        
+        testCollection.dataSource = self.testDataSource
     }
 }
 
@@ -40,4 +47,5 @@ extension ViewController: UICollectionViewDataSource {
         return UICollectionViewCell()
     }
 }
+
 

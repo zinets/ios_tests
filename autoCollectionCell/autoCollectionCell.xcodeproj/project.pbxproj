@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4961B49E2195746F0045F81D /* GradientPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4961B49C2195746F0045F81D /* GradientPanel.m */; };
+		4961B4C32195B5FD0045F81D /* TestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961B4C22195B5FD0045F81D /* TestDataSource.swift */; };
 		4972BAF321943F24006EF4BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972BAF221943F24006EF4BB /* AppDelegate.swift */; };
 		4972BAF521943F24006EF4BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972BAF421943F24006EF4BB /* ViewController.swift */; };
 		4972BAF821943F24006EF4BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4972BAF621943F24006EF4BB /* Main.storyboard */; };
@@ -20,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4961B49C2195746F0045F81D /* GradientPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientPanel.m; path = ../../../ios_tn/trunk/Frameworks/MUIControls/MUIControls/Classes/GradientPanel.m; sourceTree = "<group>"; };
+		4961B49D2195746F0045F81D /* GradientPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientPanel.h; path = ../../../ios_tn/trunk/Frameworks/MUIControls/MUIControls/Classes/GradientPanel.h; sourceTree = "<group>"; };
+		4961B4C22195B5FD0045F81D /* TestDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataSource.swift; sourceTree = "<group>"; };
 		4972BAEF21943F24006EF4BB /* autoCollectionCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autoCollectionCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4972BAF221943F24006EF4BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4972BAF421943F24006EF4BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +80,10 @@
 				4972BAF921943F28006EF4BB /* Assets.xcassets */,
 				4972BAFB21943F28006EF4BB /* LaunchScreen.storyboard */,
 				4972BAFE21943F29006EF4BB /* Info.plist */,
+				4961B49D2195746F0045F81D /* GradientPanel.h */,
+				4961B49C2195746F0045F81D /* GradientPanel.m */,
 				4972BB0621944552006EF4BB /* classes */,
+				4961B4C22195B5FD0045F81D /* TestDataSource.swift */,
 			);
 			path = autoCollectionCell;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 			files = (
 				4972BAF521943F24006EF4BB /* ViewController.swift in Sources */,
 				4972BAF321943F24006EF4BB /* AppDelegate.swift in Sources */,
+				4961B4C32195B5FD0045F81D /* TestDataSource.swift in Sources */,
+				4961B49E2195746F0045F81D /* GradientPanel.m in Sources */,
 				4972BB1B21947E26006EF4BB /* BlindHorizBarabanLayout.m in Sources */,
 				4972BB17219448B2006EF4BB /* BlindHorizBarabanCell.m in Sources */,
 				4972BB0E21944841006EF4BB /* BlindHorizBaraban.m in Sources */,
