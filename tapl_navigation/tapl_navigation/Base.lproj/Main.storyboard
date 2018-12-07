@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.45645774490000002" green="0.36740506319999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="mrG-ll-hBi" kind="relationship" relationship="rootViewController" id="zgZ-bC-9N8"/>
@@ -27,14 +28,14 @@
             </objects>
             <point key="canvasLocation" x="-1129" y="-70"/>
         </scene>
-        <!--View Controller-->
+        <!--Tappl View Controller-->
         <scene sceneID="C7M-tv-Jy4">
             <objects>
-                <viewController id="mrG-ll-hBi" sceneMemberID="viewController">
+                <viewController id="mrG-ll-hBi" customClass="TapplViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yt9-7Y-hbK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9EU-Do-beZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="938-An-IGL">
@@ -73,7 +74,7 @@
                                     <state key="normal" image="iconActivity"/>
                                     <state key="highlighted" image="iconActivityActive"/>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-kV-iKL">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-kV-iKL" userLabel="profile">
                                     <rect key="frame" x="309" y="5" width="34" height="34"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="34" id="ItZ-cN-iad"/>
@@ -83,7 +84,6 @@
                                     <state key="highlighted" image="iconMessangerActive"/>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.45645774490000002" green="0.36740506319999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="ikJ-Rp-ZHQ" firstAttribute="centerX" secondItem="Q72-Yl-y6z" secondAttribute="centerX" id="26Z-qA-4Mz"/>
                                 <constraint firstItem="ikJ-Rp-ZHQ" firstAttribute="leading" secondItem="FOw-MW-THS" secondAttribute="trailing" constant="32" id="79L-ut-7M0"/>
@@ -122,7 +122,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.92762138063325672" blue="0.25634736058566954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Eut-9U-4kf"/>
                     </view>
                 </viewController>

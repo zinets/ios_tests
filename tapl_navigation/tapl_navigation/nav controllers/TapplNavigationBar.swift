@@ -8,17 +8,19 @@
 
 import UIKit
 
+// кастомный навбар нужен для а) настройки внешнего вида (отключение разделительной линии и полупрозрачности) и б) сохранения навбар итемов при пушах/попах
+
 class TapplNavigationBar: UINavigationBar {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.backgroundColor = .red
+        
         commonInit()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .yellow
+        
         commonInit()
     }
     
@@ -30,8 +32,5 @@ class TapplNavigationBar: UINavigationBar {
     override func pushItem(_ item: UINavigationItem, animated: Bool) {
 
     }
-    
-    
-  
     
 }
