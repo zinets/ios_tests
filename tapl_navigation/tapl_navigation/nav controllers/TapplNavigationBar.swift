@@ -30,6 +30,8 @@ class TapplNavigationBar: UINavigationBar {
     override func pushItem(_ item: UINavigationItem, animated: Bool) {
 
     }
+    
+    
   
     
 }
