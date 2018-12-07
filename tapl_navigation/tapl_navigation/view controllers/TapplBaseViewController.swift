@@ -8,9 +8,13 @@
 
 import UIKit
 
-class TapplViewController: UIViewController {
+class TapplBaseViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func loadView() {
+        view = TapplBaseView()
     }
 }
