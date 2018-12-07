@@ -12,6 +12,8 @@
 		492EA73121BA56B500F52A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492EA72F21BA56B500F52A66 /* Main.storyboard */; };
 		492EA73321BA56B700F52A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492EA73221BA56B700F52A66 /* Assets.xcassets */; };
 		492EA73621BA56B700F52A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492EA73421BA56B700F52A66 /* LaunchScreen.storyboard */; };
+		492EA74221BA6FEF00F52A66 /* TapplNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EA74121BA6FEF00F52A66 /* TapplNavigationBar.swift */; };
+		492EA74421BA8C7B00F52A66 /* TapplViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EA74321BA8C7B00F52A66 /* TapplViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		492EA73221BA56B700F52A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		492EA73521BA56B700F52A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		492EA73721BA56B700F52A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		492EA74121BA6FEF00F52A66 /* TapplNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplNavigationBar.swift; sourceTree = "<group>"; };
+		492EA74321BA8C7B00F52A66 /* TapplViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		492EA72A21BA56B500F52A66 /* tapl_navigation */ = {
 			isa = PBXGroup;
 			children = (
+				492EA73E21BA5B2D00F52A66 /* nav controllers */,
+				492EA73D21BA5B0D00F52A66 /* view controllers */,
 				492EA72B21BA56B500F52A66 /* AppDelegate.swift */,
 				492EA72D21BA56B500F52A66 /* ViewController.swift */,
 				492EA72F21BA56B500F52A66 /* Main.storyboard */,
@@ -62,6 +68,22 @@
 				492EA73721BA56B700F52A66 /* Info.plist */,
 			);
 			path = tapl_navigation;
+			sourceTree = "<group>";
+		};
+		492EA73D21BA5B0D00F52A66 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				492EA74321BA8C7B00F52A66 /* TapplViewController.swift */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		492EA73E21BA5B2D00F52A66 /* nav controllers */ = {
+			isa = PBXGroup;
+			children = (
+				492EA74121BA6FEF00F52A66 /* TapplNavigationBar.swift */,
+			);
+			path = "nav controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492EA74421BA8C7B00F52A66 /* TapplViewController.swift in Sources */,
 				492EA72E21BA56B500F52A66 /* ViewController.swift in Sources */,
 				492EA72C21BA56B500F52A66 /* AppDelegate.swift in Sources */,
+				492EA74221BA6FEF00F52A66 /* TapplNavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
