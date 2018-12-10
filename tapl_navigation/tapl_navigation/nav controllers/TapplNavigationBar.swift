@@ -41,6 +41,8 @@ extension TapplNavigationBar: UINavigationControllerDelegate {
         switch operation {
         case .push:
             return TapplPushAnimator()
+        case .pop:
+            return TapplPopAnimator()
         default:
             return nil
         }

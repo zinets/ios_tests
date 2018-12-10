@@ -16,19 +16,25 @@ class TapplBaseViewController: UIViewController {
     }
     
     private var underliedLayer: TapplBaseViewLayer = {
-        let layer = TapplBaseViewLayer()
+        let layer = TapplBaseViewLayer()        
         return layer
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.prepareView()
         
-        underliedLayer.frame = self.view.bounds
-        self.view.layer.insertSublayer(underliedLayer, at: 0)        
+//        underliedLayer.frame = self.view.bounds
+//        self.view.layer.insertSublayer(underliedLayer, at: 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        let additionalSpace: CGFloat = 8
+        view.frame.origin.y += additionalSpace
+        view.frame.size.height -= additionalSpace
+        
         underliedLayer.frame = self.view.bounds
     }
     
