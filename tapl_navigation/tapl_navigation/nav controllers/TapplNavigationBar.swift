@@ -30,7 +30,19 @@ class TapplNavigationBar: UINavigationBar {
     }
     
     override func pushItem(_ item: UINavigationItem, animated: Bool) {
-
+        // do nothing
     }
     
+}
+
+extension TapplNavigationBar: UINavigationControllerDelegate {
+    
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .push:
+            return TapplPushAnimator()
+        default:
+            return nil
+        }
+    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4904E96D21BE40D700AA4673 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4904E96C21BE40D700AA4673 /* UIColor+Helpers.swift */; };
+		4904E97021BE5B6600AA4673 /* TaplNavigationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4904E96F21BE5B6600AA4673 /* TaplNavigationAnimation.swift */; };
 		492EA72C21BA56B500F52A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EA72B21BA56B500F52A66 /* AppDelegate.swift */; };
 		492EA72E21BA56B500F52A66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EA72D21BA56B500F52A66 /* ViewController.swift */; };
 		492EA73121BA56B500F52A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492EA72F21BA56B500F52A66 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4904E96C21BE40D700AA4673 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		4904E96F21BE5B6600AA4673 /* TaplNavigationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaplNavigationAnimation.swift; sourceTree = "<group>"; };
 		492EA72821BA56B500F52A66 /* tapl_navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tapl_navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EA72B21BA56B500F52A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		492EA72D21BA56B500F52A66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4904E96E21BE5A9C00AA4673 /* animators */ = {
+			isa = PBXGroup;
+			children = (
+				4904E96F21BE5B6600AA4673 /* TaplNavigationAnimation.swift */,
+			);
+			path = animators;
+			sourceTree = "<group>";
+		};
 		492EA71F21BA56B500F52A66 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +72,10 @@
 		492EA72A21BA56B500F52A66 /* tapl_navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4904E96C21BE40D700AA4673 /* UIColor+Helpers.swift */,
 				492EA73E21BA5B2D00F52A66 /* nav controllers */,
 				492EA73D21BA5B0D00F52A66 /* view controllers */,
+				4904E96E21BE5A9C00AA4673 /* animators */,
 				492EA72B21BA56B500F52A66 /* AppDelegate.swift */,
 				492EA72D21BA56B500F52A66 /* ViewController.swift */,
 				492EA72F21BA56B500F52A66 /* Main.storyboard */,
@@ -161,8 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				492EA74421BA8C7B00F52A66 /* TapplBaseViewController.swift in Sources */,
+				4904E96D21BE40D700AA4673 /* UIColor+Helpers.swift in Sources */,
 				492EA74621BABD3100F52A66 /* TapplBaseView.swift in Sources */,
 				492EA72E21BA56B500F52A66 /* ViewController.swift in Sources */,
+				4904E97021BE5B6600AA4673 /* TaplNavigationAnimation.swift in Sources */,
 				492EA72C21BA56B500F52A66 /* AppDelegate.swift in Sources */,
 				492EA74221BA6FEF00F52A66 /* TapplNavigationBar.swift in Sources */,
 			);

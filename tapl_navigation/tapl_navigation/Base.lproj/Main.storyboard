@@ -21,6 +21,7 @@
                         <color key="barTintColor" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="delegate" destination="UDC-ih-wN2" id="yUb-WV-8Vu"/>
                         <segue destination="mrG-ll-hBi" kind="relationship" relationship="rootViewController" id="zgZ-bC-9N8"/>
                     </connections>
                 </navigationController>
@@ -44,7 +45,7 @@
                             <rect key="frame" x="28" y="0.0" width="359" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-MW-THS" userLabel="search">
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-MW-THS" userLabel="search">
                                     <rect key="frame" x="108.5" y="9" width="26" height="26"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="26" id="CnZ-mO-WeJ"/>
@@ -52,8 +53,11 @@
                                     </constraints>
                                     <state key="normal" image="iconSearch"/>
                                     <state key="highlighted" image="iconSearchActive"/>
+                                    <connections>
+                                        <action selector="navButtonAction:" destination="mrG-ll-hBi" eventType="touchUpInside" id="BnH-vE-Mll"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-Rp-ZHQ" userLabel="messages">
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-Rp-ZHQ" userLabel="messages">
                                     <rect key="frame" x="166.5" y="9" width="26" height="26"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="26" id="HUA-sA-FIS"/>
@@ -62,10 +66,10 @@
                                     <state key="normal" image="iconMessanger"/>
                                     <state key="highlighted" image="iconMessangerActive"/>
                                     <connections>
-                                        <segue destination="oZe-rj-a7D" kind="show" id="5b7-42-JMP"/>
+                                        <action selector="navButtonAction:" destination="mrG-ll-hBi" eventType="touchUpInside" id="egD-r9-Nay"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-dA-MA4" userLabel="activities">
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Md-dA-MA4" userLabel="activities">
                                     <rect key="frame" x="224.5" y="9" width="26" height="26"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="26" id="0f8-rp-9XE"/>
@@ -73,8 +77,11 @@
                                     </constraints>
                                     <state key="normal" image="iconActivity"/>
                                     <state key="highlighted" image="iconActivityActive"/>
+                                    <connections>
+                                        <action selector="navButtonAction:" destination="mrG-ll-hBi" eventType="touchUpInside" id="THB-7C-iZ9"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-kV-iKL" userLabel="profile">
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-kV-iKL" userLabel="profile">
                                     <rect key="frame" x="309" y="5" width="34" height="34"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="34" id="ItZ-cN-iad"/>
@@ -82,6 +89,10 @@
                                     </constraints>
                                     <state key="normal" image="iconSearch"/>
                                     <state key="highlighted" image="iconMessangerActive"/>
+                                    <connections>
+                                        <action selector="navButtonAction:" destination="mrG-ll-hBi" eventType="touchUpInside" id="Iw5-zD-xdg"/>
+                                        <segue destination="oZe-rj-a7D" kind="show" id="uYc-us-7Cj"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
@@ -108,14 +119,15 @@
         <!--Tappl Base View Controller-->
         <scene sceneID="RCC-fB-Vmm">
             <objects>
-                <viewController id="oZe-rj-a7D" customClass="TapplBaseViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="oZe-rj-a7D" customClass="TapplBaseViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s4G-cP-FbW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-yo-t8q">
-                                <rect key="frame" x="177" y="162" width="46" height="30"/>
+                                <rect key="frame" x="83" y="162" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="backAction:" destination="oZe-rj-a7D" eventType="touchUpInside" id="tZ7-5V-TBq"/>
@@ -128,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5F-u7-srd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-70"/>
+            <point key="canvasLocation" x="466.66666666666669" y="-70.3125"/>
         </scene>
     </scenes>
     <resources>

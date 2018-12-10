@@ -12,9 +12,33 @@ class TapplBaseViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    override func loadView() {
-        view = TapplBaseView()
+    private var underliedLayer: TapplBaseViewLayer = {
+        let layer = TapplBaseViewLayer()
+        return layer
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        underliedLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(underliedLayer, at: 0)        
     }
+    
+    // MARK: navigation
+    
+    @IBAction func navButtonAction(_ sender: UIButton) {
+        switch sender.tag {
+        case 1: print("do search")
+        case 2: print("do messages")
+        case 3: print("do activities")
+        case 4: print("do profile")
+        default: break;
+        }
+    }
+    
+    
+    
 }
