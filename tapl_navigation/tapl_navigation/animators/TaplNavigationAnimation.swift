@@ -29,34 +29,36 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         transitionContext.containerView.backgroundColor = UIColor(rgb: 0xf9f8f6) // TODO: как получить цвет того бг, которыое видно в уголках? toViewController.view.backgroundColor
         transitionContext.containerView.addSubview(toViewController.view)
         
+        let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 2
+        
         var finishFrame = transitionContext.finalFrame(for: toViewController)
         finishFrame.origin.y += verticalShiftValue
         finishFrame.size.height -= verticalShiftValue
+        
         toViewController.view.frame = finishFrame
         toViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
         
-        var startFrame = transitionContext.initialFrame(for: fromViewController)
-        startFrame.origin.x = horizontalShiftValue
-        startFrame.size.width -= 2 * horizontalShiftValue
+        fromViewController.view.transform = .identity
         
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
             toViewController.view.transform = .identity
-            fromViewController.view.frame = startFrame
+            
+            let scale = (finishFrame.size.width - 2 * self.horizontalShiftValue) / finishFrame.size.width
+            let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? self.verticalShiftValue : 0))
+            
+            var transform = CGAffineTransform.identity
+            transform = transform.scaledBy(x: scale, y: scale)
+            transform = transform.translatedBy(x: 0, y: -h)
+            fromViewController.view.transform = transform
         }
-        UIView.animate(withDuration: duration, animations: toAnimate) { (finished) in
-            if let replicant = fromViewController.view.snapshotView(afterScreenUpdates: true) {
-                startFrame.origin.y = -self.verticalShiftValue
-                startFrame.size.height -= self.verticalShiftValue
-                replicant.frame = startFrame
-                replicant.tag = 73465;
-                toViewController.view.insertSubview(replicant, at: 0)
-            }
+        let toComplete: BlockToFinish = { _ in
+            fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
+        UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
     }
-    
     
 }
 
@@ -76,24 +78,21 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let fromViewController = transitionContext.viewController(forKey: .from)
         else { return }
 
-        transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
-        if let view = fromViewController.view.viewWithTag(73465) {
-            toViewController.view.frame = view.frame
-        }
+        var startFrame = transitionContext.initialFrame(for: fromViewController)
+        var finishFrame = transitionContext.finalFrame(for: toViewController)
         
-        let duration = self.transitionDuration(using: transitionContext)
-        let toAnimate: BlockToAnimate = {
-            let finishFrame = transitionContext.finalFrame(for: toViewController)
-            toViewController.view.frame = finishFrame
-            if let view = fromViewController.view.viewWithTag(73465) {
-                view.removeUnderliedView()
-            }
-            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
-        }
-        UIView.animate(withDuration: duration, animations: toAnimate) { (finished) in
+        transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+        
+        let toComplete: BlockToFinish = { _ in
+            fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
+        let duration = self.transitionDuration(using: transitionContext)
+        let toAnimate: BlockToAnimate = {
+            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
+        }
+        UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
     }
     
 }
