@@ -27,6 +27,11 @@ class TapplBaseViewController: UIViewController {
         self.view.layer.insertSublayer(underliedLayer, at: 0)        
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        underliedLayer.frame = self.view.bounds
+    }
+    
     // MARK: navigation
     
     @IBAction func navButtonAction(_ sender: UIButton) {

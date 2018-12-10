@@ -43,10 +43,9 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         UIView.animate(withDuration: duration, animations: toAnimate) { (finished) in
             if let replicant = fromViewController.view.snapshotView(afterScreenUpdates: true) {
-                let frame = fromViewController.view.convert(replicant.frame, from: replicant)
-                replicant.frame = frame
-//                toViewController.view.insertSubview(replicant, at: 0)
-                toViewController.view.addSubview(replicant)
+                startFrame.origin.y = -10
+                replicant.frame = startFrame
+                toViewController.view.insertSubview(replicant, at: 0)
             }
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

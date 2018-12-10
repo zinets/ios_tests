@@ -33,10 +33,10 @@ class TapplBaseViewLayer : CALayer {
         // TODO: hardcoded color of "shaped" layer
         layer.fillColor = UIColor.white.cgColor
         
-        layer.shadowColor = UIColor.red.cgColor
-        layer.shadowRadius = 12
-        layer.shadowOffset = CGSize(width: 0, height: -4)
-        layer.shadowOpacity = 1
+//        layer.shadowColor = UIColor.red.cgColor
+//        layer.shadowRadius = 12
+//        layer.shadowOffset = CGSize(width: 0, height: -4)
+//        layer.shadowOpacity = 1
         
         return layer
     }()
