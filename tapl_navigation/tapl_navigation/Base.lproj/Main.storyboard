@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Tappl Navigation Controller-->
         <scene sceneID="mbA-AT-9zf">
             <objects>
-                <navigationController id="xVe-ib-ijO" sceneMemberID="viewController">
+                <navigationController id="xVe-ib-ijO" customClass="TapplNavigationController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="UDC-ih-wN2" customClass="TapplNavigationBar" customModule="tapl_navigation" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,7 +32,7 @@
         <!--Tappl Base View Controller-->
         <scene sceneID="C7M-tv-Jy4">
             <objects>
-                <viewController id="mrG-ll-hBi" customClass="TapplBaseViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="mrG-ll-hBi" customClass="TapplBaseViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yt9-7Y-hbK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -53,6 +53,19 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromViewController.view.transform = transform
         }
         let toComplete: BlockToFinish = { _ in
+
+            if let navCtrl = fromViewController.navigationController as? TapplNavigationController, let replicant = fromViewController.view.snapshotView(afterScreenUpdates: true) {
+                var frame = navCtrl.view.convert(fromViewController.view.frame, from: transitionContext.containerView)
+//                frame.origin.y -= 30
+//                let view = UIView(frame: frame)
+//                view.backgroundColor = UIColor.brown
+//
+//                navCtrl.view.insertSubview(view, at: 1)
+                
+//                navCtrl.phantomView.frame = frame
+                navCtrl.phantomView.backgroundColor = UIColor.magenta
+            }
+            
             fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -77,20 +90,36 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to),
             let fromViewController = transitionContext.viewController(forKey: .from)
         else { return }
-
-        var startFrame = transitionContext.initialFrame(for: fromViewController)
+        
         var finishFrame = transitionContext.finalFrame(for: toViewController)
+        
+        let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 1
+        var startFrame = transitionContext.initialFrame(for: fromViewController)
+        
+        if stackHasUnderlayingView {
+            finishFrame.origin.y += self.verticalShiftValue
+            toViewController.view.frame = finishFrame
+        }
+        
+        let scale = (finishFrame.size.width - 2 * self.horizontalShiftValue) / finishFrame.size.width
+        let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? self.verticalShiftValue : 0))
+        
+        var transform = CGAffineTransform.identity
+        transform = transform.scaledBy(x: scale, y: scale)
+        transform = transform.translatedBy(x: 0, y: -h)
+        toViewController.view.transform = transform
         
         transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         
+        let duration = self.transitionDuration(using: transitionContext)
+        let toAnimate: BlockToAnimate = {
+            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
+            toViewController.view.transform = .identity
+        }
         let toComplete: BlockToFinish = { _ in
             fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        }
-        let duration = self.transitionDuration(using: transitionContext)
-        let toAnimate: BlockToAnimate = {
-            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
     }

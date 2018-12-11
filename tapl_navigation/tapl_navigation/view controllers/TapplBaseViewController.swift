@@ -15,11 +15,6 @@ class TapplBaseViewController: UIViewController {
 //        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    private var underliedLayer: TapplBaseViewLayer = {
-        let layer = TapplBaseViewLayer()        
-        return layer
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.prepareView()
@@ -34,8 +29,6 @@ class TapplBaseViewController: UIViewController {
         let additionalSpace: CGFloat = 8
         view.frame.origin.y += additionalSpace
         view.frame.size.height -= additionalSpace
-        
-        underliedLayer.frame = self.view.bounds
     }
     
     // MARK: navigation
