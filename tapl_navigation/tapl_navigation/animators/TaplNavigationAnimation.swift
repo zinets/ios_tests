@@ -25,8 +25,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to),
             let fromViewController = transitionContext.viewController(forKey: .from)
         else { return }
-        
-        transitionContext.containerView.backgroundColor = UIColor(rgb: 0xf9f8f6) // TODO: как получить цвет того бг, которыое видно в уголках? toViewController.view.backgroundColor
+       
         transitionContext.containerView.addSubview(toViewController.view)
         
         let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 2

@@ -13,10 +13,22 @@ class TapplBaseView: UIView {
     override class var layerClass: AnyClass {
         return TapplBaseViewLayer.self
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        self.backgroundColor = UIColor.clear
+    }
 
 }
 
 class TapplBaseViewLayer: CAShapeLayer {
+    
+    private let clipLayer = CAShapeLayer()
+    private let shadowLayer = CALayer()
     
     override init() {
         super.init()
@@ -34,19 +46,29 @@ class TapplBaseViewLayer: CAShapeLayer {
     }
     
     private func commonInit() {
-        self.shadowOpacity = 1
-        self.shadowColor = UIColor.red.cgColor
-        self.shadowRadius = 4
-        self.shadowOffset = CGSize(width: 0, height: -4)
+        self.masksToBounds = false
         
-        self.fillColor = UIColor.white.cgColor
+        shadowLayer.shadowRadius = 3
+        shadowLayer.shadowOpacity = 0.5
+        shadowLayer.shadowOffset = CGSize(width: 0, height: -4)
+        self.addSublayer(shadowLayer)
+        
+        clipLayer.masksToBounds = true
+        clipLayer.fillColor = UIColor.white.cgColor
+        shadowLayer.addSublayer(clipLayer)
     }
+    
     
     override var bounds: CGRect {
         didSet {
             if !bounds.isEmpty {
                 let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
-                self.path = path.cgPath
+                
+                clipLayer.frame = bounds
+                clipLayer.path = path.cgPath
+                
+                shadowLayer.frame = bounds
+                
             }
         }
     }
