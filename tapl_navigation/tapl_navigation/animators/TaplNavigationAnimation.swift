@@ -62,8 +62,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 //
 //                navCtrl.view.insertSubview(view, at: 1)
                 
-//                navCtrl.phantomView.frame = frame
-                navCtrl.phantomView.backgroundColor = UIColor.magenta
+//                navCtrl.phantomView.frame = frame                
             }
             
             fromViewController.view.transform = .identity

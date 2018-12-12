@@ -8,27 +8,27 @@
 
 import UIKit
 
-extension UIView {
+class TapplBaseView: UIView {
     
-    func prepareView () {
-        UIApplication.shared.keyWindow?.backgroundColor = self.backgroundColor
-        self.backgroundColor = .white
-        
-        // TODO: это херня, т.к. скругление будет и снизу
-        self.layer.cornerRadius = 30
-        self.layer.borderWidth = 1
-        
-//        self.layer.shadowColor = UIColor(rgb: 0xeeece8).cgColor
-//        self.layer.shadowOpacity = 1
-//        self.layer.shadowOffset = CGSize(width: 0, height: -4)
-//
-//        self.clipsToBounds = false
-//        self.layer.masksToBounds = false
-        
-//        let maskLayer = CAShapeLayer()
-//        maskLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
-//
-//        self.layer.mask = maskLayer
+    override class var layerClass: AnyClass {
+        return TapplBaseViewLayer.self
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    private func commonInit () {
+        self.layer.cornerRadius = 20
     }
 }
 
+class TapplBaseViewLayer: CAShapeLayer {
+    
+}
