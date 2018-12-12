@@ -19,21 +19,39 @@ class TapplBaseView: UIView {
         commonInit()
     }
     
+    private let contentView: UIView = {
+        let view = UIView(frame: CGRect.zero)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    
+        view.clipsToBounds = true
+    
+        view.backgroundColor = UIColor.gray
+    
+        return view
+    }()
+    
     private func commonInit() {
         self.backgroundColor = UIColor.clear
-        
-        let contentView = UIView(frame: self.bounds)
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        contentView.layer.cornerRadius = 50
-        contentView.clipsToBounds = true
-        
-        contentView.backgroundColor = UIColor.gray
+       
+       // preparing content site
+        contentView.frame = self.bounds
         self.addSubview(contentView)
-        
         for view in self.subviews {
             if view != contentView {
                 contentView.addSubview(view)
             }
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if !self.bounds.isEmpty {
+            let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
+            let maskLayer = CAShapeLayer()
+            maskLayer.path = maskPath.cgPath
+            
+            contentView.layer.mask = maskLayer
         }
     }
 

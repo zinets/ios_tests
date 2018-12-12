@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" id="938-An-IGL">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q72-Yl-y6z">
-                            <rect key="frame" x="28" y="0.0" width="359" height="44"/>
+                            <rect key="frame" x="27.5" y="0.0" width="359" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-MW-THS" userLabel="search">
@@ -132,10 +132,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-yo-t8q">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-yo-t8q">
                                 <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.45645774490000002" green="0.36740506319999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1cO-nm-eeH"/>
+                                    <constraint firstAttribute="width" constant="140" id="PGg-qw-QWI"/>
+                                </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -145,6 +148,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97643274068832397" green="0.97246271371841431" blue="0.96424978971481323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IHg-yo-t8q" firstAttribute="top" secondItem="Eut-9U-4kf" secondAttribute="top" id="1Fs-aV-ZnZ"/>
+                            <constraint firstItem="IHg-yo-t8q" firstAttribute="leading" secondItem="Eut-9U-4kf" secondAttribute="leading" id="AFQ-C8-qhp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Eut-9U-4kf"/>
                     </view>
                 </viewController>
