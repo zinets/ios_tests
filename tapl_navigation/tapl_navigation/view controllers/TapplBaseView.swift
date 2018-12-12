@@ -10,6 +10,7 @@ import UIKit
 
 class TapplBaseView: UIView {
     
+    private var inited = false // механика подмены супервью при добавлении должна работать после добавления content view
     override class var layerClass: AnyClass {
         return TapplBaseViewLayer.self
     }
@@ -18,19 +19,6 @@ class TapplBaseView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
-    private let contentView: UIView = {
-        let view = UIView(frame: CGRect.zero)
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        // iOS 11+ !!
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.layer.cornerRadius = 50
-        view.clipsToBounds = true
-    
-        view.backgroundColor = UIColor.gray
-    
-        return view
-    }()
     
     private func commonInit() {
         self.backgroundColor = UIColor.clear
@@ -43,19 +31,54 @@ class TapplBaseView: UIView {
                 contentView.addSubview(view)
             }
         }
+        inited = true
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // content site
+    private let contentView: UIView = {
+        let view = UIView(frame: CGRect.zero)
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        // iOS 11+ !!
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.cornerRadius = 50
+        view.clipsToBounds = true
         
-        if !self.bounds.isEmpty {
-//            let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
-//            let maskLayer = CAShapeLayer()
-//            maskLayer.path = maskPath.cgPath
-//
-//            contentView.layer.mask = maskLayer
-            
+        view.backgroundColor = UIColor.gray
+        
+        return view
+    }()
+    
+    // если каким-то образом в рунтайме будут добавляться вью, то их нужно добавлять на всю контента - авось это сработает
+    override func addSubview(_ view: UIView) {
+        guard inited, view != contentView else {
+            super.addSubview(view)
+            return
         }
+        contentView.addSubview(view)
+    }
+    
+    override func insertSubview(_ view: UIView, at index: Int) {
+        guard inited, view != contentView else {
+            super.addSubview(view)
+            return
+        }
+        contentView.insertSubview(view, at: index)
+    }
+    
+    override func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView) {
+        guard inited, view != contentView else {
+            super.addSubview(view)
+            return
+        }
+        contentView.insertSubview(view, aboveSubview: siblingSubview)
+    }
+    
+    override func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView) {
+        guard inited, view != contentView else {
+            super.addSubview(view)
+            return
+        }
+        contentView.insertSubview(view, belowSubview: siblingSubview)
     }
 
 }
