@@ -21,6 +21,20 @@ class TapplBaseView: UIView {
     
     private func commonInit() {
         self.backgroundColor = UIColor.clear
+        
+        let contentView = UIView(frame: self.bounds)
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.layer.cornerRadius = 50
+        contentView.clipsToBounds = true
+        
+        contentView.backgroundColor = UIColor.gray
+        self.addSubview(contentView)
+        
+        for view in self.subviews {
+            if view != contentView {
+                contentView.addSubview(view)
+            }
+        }
     }
 
 }
