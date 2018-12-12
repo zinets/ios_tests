@@ -9,6 +9,8 @@
 import UIKit
 
 class TapplBaseView: UIView {
+
+    static let cornerRadius: CGFloat = 50
     
     private var inited = false // механика подмены супервью при добавлении должна работать после добавления content view
     override class var layerClass: AnyClass {
@@ -40,11 +42,9 @@ class TapplBaseView: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         // iOS 11+ !!
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        view.layer.cornerRadius = 50
+        view.layer.cornerRadius = TapplBaseView.cornerRadius
         view.clipsToBounds = true
-        
-        view.backgroundColor = UIColor.gray
-        
+//        view.backgroundColor = UIColor.gray
         return view
     }()
     
@@ -107,8 +107,9 @@ class TapplBaseViewLayer: CAShapeLayer {
         self.masksToBounds = false
         
         shadowLayer.shadowRadius = 3
-        shadowLayer.shadowOpacity = 0.5
+        shadowLayer.shadowOpacity = 1
         shadowLayer.shadowOffset = CGSize(width: 0, height: -4)
+        shadowLayer.shadowColor = UIColor(rgb: 0xeeece8).cgColor
         self.addSublayer(shadowLayer)
         
         clipLayer.masksToBounds = true
@@ -116,11 +117,10 @@ class TapplBaseViewLayer: CAShapeLayer {
         shadowLayer.addSublayer(clipLayer)
     }
     
-    
     override var bounds: CGRect {
         didSet {
             if !bounds.isEmpty {
-                let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
+                let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: TapplBaseView.cornerRadius, height: TapplBaseView.cornerRadius))
                 
                 clipLayer.frame = bounds
                 clipLayer.path = path.cgPath

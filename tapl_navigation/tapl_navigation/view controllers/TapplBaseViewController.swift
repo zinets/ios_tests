@@ -23,7 +23,7 @@ class TapplBaseViewController: UIViewController {
         
         let v = UIView(frame: CGRect(x: 0, y: self.view.frame.origin.y, width: 414, height: 20))
         v.backgroundColor = .magenta
-        self.view.superview?.insertSubview(v, belowSubview: self.view)
+//        self.view.superview?.insertSubview(v, belowSubview: self.view)
     }
     
     override func viewDidLayoutSubviews() {

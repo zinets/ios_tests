@@ -11,10 +11,10 @@ import UIKit
 typealias BlockToAnimate = () -> ()
 typealias BlockToFinish = (Bool) -> ()
 
+let verticalShiftValue: CGFloat = 10.0
+let horizontalShiftValue: CGFloat = 20.0
+
 class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
-    let verticalShiftValue: CGFloat = 10.0
-    let horizontalShiftValue: CGFloat = 20.0
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
@@ -43,8 +43,8 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toAnimate: BlockToAnimate = {
             toViewController.view.transform = .identity
             
-            let scale = (finishFrame.size.width - 2 * self.horizontalShiftValue) / finishFrame.size.width
-            let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? self.verticalShiftValue : 0))
+            let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
+            let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))
             
             var transform = CGAffineTransform.identity
             transform = transform.scaledBy(x: scale, y: scale)
@@ -76,9 +76,6 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let verticalShiftValue: CGFloat = 10.0
-    let horizontalShiftValue: CGFloat = 20.0
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
@@ -95,12 +92,12 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         var startFrame = transitionContext.initialFrame(for: fromViewController)
         
         if stackHasUnderlayingView {
-            finishFrame.origin.y += self.verticalShiftValue
+            finishFrame.origin.y += verticalShiftValue
             toViewController.view.frame = finishFrame
         }
         
-        let scale = (finishFrame.size.width - 2 * self.horizontalShiftValue) / finishFrame.size.width
-        let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? self.verticalShiftValue : 0))
+        let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
+        let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))
         
         var transform = CGAffineTransform.identity
         transform = transform.scaledBy(x: scale, y: scale)

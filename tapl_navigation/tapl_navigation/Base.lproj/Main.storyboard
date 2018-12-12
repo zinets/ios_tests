@@ -37,14 +37,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-SW-LDd">
-                                <rect key="frame" x="9" y="0.0" width="142" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-SW-LDd">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MeL-SW-LDd" secondAttribute="height" multiplier="1:1" id="azq-hA-GLe"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97643274068832397" green="0.97246271371841431" blue="0.96424978971481323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MeL-SW-LDd" firstAttribute="width" secondItem="yt9-7Y-hbK" secondAttribute="width" multiplier="100/414" id="IBf-Pg-GOA"/>
+                            <constraint firstItem="MeL-SW-LDd" firstAttribute="leading" secondItem="9EU-Do-beZ" secondAttribute="leading" id="JL9-ha-T3v"/>
+                            <constraint firstItem="MeL-SW-LDd" firstAttribute="top" secondItem="9EU-Do-beZ" secondAttribute="top" id="xRQ-qq-kQe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9EU-Do-beZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="938-An-IGL">
