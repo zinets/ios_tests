@@ -33,13 +33,13 @@ class TapplBaseViewLayer: CAShapeLayer {
         commonInit()
     }
     
-    private func commonInit() {        
+    private func commonInit() {
         self.shadowOpacity = 1
         self.shadowColor = UIColor.red.cgColor
         self.shadowRadius = 4
         self.shadowOffset = CGSize(width: 0, height: -4)
         
-        self.fillColor = UIColor.darkGray.cgColor
+        self.fillColor = UIColor.white.cgColor
     }
     
     override var bounds: CGRect {

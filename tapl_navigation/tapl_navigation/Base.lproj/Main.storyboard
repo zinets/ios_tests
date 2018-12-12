@@ -36,12 +36,20 @@
                     <view key="view" contentMode="scaleToFill" id="yt9-7Y-hbK" customClass="TapplBaseView" customModule="tapl_navigation" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-SW-LDd">
+                                <rect key="frame" x="9" y="0.0" width="142" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9EU-Do-beZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="938-An-IGL">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q72-Yl-y6z">
-                            <rect key="frame" x="28" y="0.0" width="359" height="44"/>
+                            <rect key="frame" x="27.5" y="0.0" width="359" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOw-MW-THS" userLabel="search">
@@ -113,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhV-H0-Ecc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-352" y="-70"/>
+            <point key="canvasLocation" x="-352.17391304347831" y="-70.3125"/>
         </scene>
         <!--Tappl Base View Controller-->
         <scene sceneID="RCC-fB-Vmm">
@@ -124,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-yo-t8q">
-                                <rect key="frame" x="83" y="162" width="140" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
