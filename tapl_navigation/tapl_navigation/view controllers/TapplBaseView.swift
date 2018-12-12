@@ -22,7 +22,9 @@ class TapplBaseView: UIView {
     private let contentView: UIView = {
         let view = UIView(frame: CGRect.zero)
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
+        // iOS 11+ !!
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.cornerRadius = 50
         view.clipsToBounds = true
     
         view.backgroundColor = UIColor.gray
@@ -47,11 +49,12 @@ class TapplBaseView: UIView {
         super.layoutSubviews()
         
         if !self.bounds.isEmpty {
-            let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = maskPath.cgPath
+//            let maskPath = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 50, height: 50))
+//            let maskLayer = CAShapeLayer()
+//            maskLayer.path = maskPath.cgPath
+//
+//            contentView.layer.mask = maskLayer
             
-            contentView.layer.mask = maskLayer
         }
     }
 
