@@ -36,7 +36,6 @@
                     <view key="view" contentMode="scaleToFill" id="yt9-7Y-hbK" customClass="TapplBaseView" customModule="tapl_navigation" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9EU-Do-beZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="938-An-IGL">
@@ -134,7 +133,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97643274068832397" green="0.97246271371841431" blue="0.96424978971481323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Eut-9U-4kf"/>
                     </view>
                 </viewController>

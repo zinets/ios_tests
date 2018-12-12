@@ -12,42 +12,11 @@ class TapplBaseViewController: UIViewController {
     
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-//        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.prepareView()
-        
-//        underliedLayer.frame = self.view.bounds
-//        self.view.layer.insertSublayer(underliedLayer, at: 0)
     }
-    
-//    override func loadView() {
-//
-//        let bundle = Bundle(for: type(of: self))
-//        if let nibName = self.nibName {
-//            let nib = UINib(nibName: nibName, bundle: bundle)
-//            view = nib.instantiate(withOwner: self, options: nil).first as? TapplBaseView
-//        } else {
-//            view = TapplBaseView(frame: CGRect.zero)
-//        }
-
-        
-        
-        
-//        if let nibName = self.nibName {
-//
-//            view = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? TapplBaseView
-//            //Bundle(for: type(of: self)).loadNibNamed(nibName, owner: self, options: nil)?.first as? TapplBaseView
-//
-//        } else {
-//            view = TapplBaseView(frame: CGRect.zero)
-//        }
-////        super.loadView()
-////        print("\(view)")
-//    }
-
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
