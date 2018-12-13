@@ -13,7 +13,7 @@ class TapplNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        .backgroundColor = UIColor(rgb: 0xf9f8f6) // TODO: как получить цвет того бг,
+        // .backgroundColor = UIColor(rgb: 0xf9f8f6) // TODO: как получить цвет того бг,
         self.view.backgroundColor = UIColor(rgb: 0xf9f8f6)
     }
 

@@ -22,8 +22,8 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let toViewController = transitionContext.viewController(forKey: .to),
-            let fromViewController = transitionContext.viewController(forKey: .from)
+            let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
+            let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
         else { return }
        
         transitionContext.containerView.addSubview(toViewController.view)
@@ -41,6 +41,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
+            fromViewController.underlayingView?.alpha = 0
             toViewController.view.transform = .identity
             
             let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
@@ -54,14 +55,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toComplete: BlockToFinish = { _ in
 
             if let navCtrl = fromViewController.navigationController as? TapplNavigationController, let replicant = fromViewController.view.snapshotView(afterScreenUpdates: true) {
-                var frame = navCtrl.view.convert(fromViewController.view.frame, from: transitionContext.containerView)
-//                frame.origin.y -= 30
-//                let view = UIView(frame: frame)
-//                view.backgroundColor = UIColor.brown
-//
-//                navCtrl.view.insertSubview(view, at: 1)
-                
-//                navCtrl.phantomView.frame = frame                
+                toViewController.underlayingView = replicant
             }
             
             fromViewController.view.transform = .identity
@@ -82,8 +76,8 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let toViewController = transitionContext.viewController(forKey: .to),
-            let fromViewController = transitionContext.viewController(forKey: .from)
+            let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
+            let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
         else { return }
         
         var finishFrame = transitionContext.finalFrame(for: toViewController)
@@ -95,6 +89,8 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             finishFrame.origin.y += verticalShiftValue
             toViewController.view.frame = finishFrame
         }
+        
+        fromViewController.underlayingView?.alpha = 0
         
         let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
         let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))

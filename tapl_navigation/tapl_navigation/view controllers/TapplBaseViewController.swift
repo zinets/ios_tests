@@ -10,6 +10,21 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
+    /// призрак предыдущего контроллера
+    var underlayingView: UIView? {
+        willSet {
+            underlayingView?.removeFromSuperview()
+        }
+        didSet {
+//            let v = UIView(frame: CGRect(x: 0, y: self.view.frame.origin.y, width: 414, height: 20))
+//            v.backgroundColor = .magenta
+            if underlayingView != nil {
+                underlayingView!.frame.origin = CGPoint.zero
+                self.view.superview?.insertSubview(underlayingView!, belowSubview: self.view)
+            }
+        }
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -20,10 +35,6 @@ class TapplBaseViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let v = UIView(frame: CGRect(x: 0, y: self.view.frame.origin.y, width: 414, height: 20))
-        v.backgroundColor = .magenta
-//        self.view.superview?.insertSubview(v, belowSubview: self.view)
     }
     
     override func viewDidLayoutSubviews() {
