@@ -129,8 +129,7 @@ class TapplBaseViewLayer: CAShapeLayer {
     }
     
     override init(layer: Any) {
-        super.init(layer: layer)
-        commonInit()
+        super.init(layer: layer)        
     }
     
     required init?(coder aDecoder: NSCoder) {

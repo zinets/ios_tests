@@ -76,7 +76,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
-    
+        
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
@@ -113,7 +113,9 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.view.transform = .identity
-            
+            if transitionContext.transitionWasCancelled {
+                fromViewController.underlayingView?.alpha = 1
+            }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
@@ -145,7 +147,6 @@ class TapplInteractiveAnimator: UIPercentDrivenInteractiveTransition {
     @objc private func handleBackGesture(_ gesture : UIScreenEdgePanGestureRecognizer) {
         let viewTranslation = gesture.translation(in: gesture.view?.superview)
         let progress = viewTranslation.y / self.controller.view.frame.height
-        print("progress = \(progress)")
         
         switch gesture.state {
         case .began:
