@@ -24,6 +24,20 @@ class TapplBaseViewController: UIViewController {
             }
         }
     }
+    /// ручка для таскания контроллера по экрану
+    var handleIsVisible: Bool {
+        set {
+            if let v = self.view as? TapplBaseView {
+                v.handleView.isHidden = !newValue
+            }
+        }
+        get {
+            if let v = self.view as? TapplBaseView {
+                return !v.handleView.isHidden
+            }
+            return false
+        }
+    }
     
     var underlayingViewImage: UIImage? {
         if let view = self.view as? TapplBaseView {

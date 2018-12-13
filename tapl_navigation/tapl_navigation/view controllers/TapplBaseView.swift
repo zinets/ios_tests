@@ -11,6 +11,16 @@ import UIKit
 class TapplBaseView: UIView {
 
     static let cornerRadius: CGFloat = 50
+    var handleView: UIView = {
+        // TODO: очевидно нужно сделать его больше для удобного захвата, но визуально - чтоб как в дизе
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        view.layer.cornerRadius = 2
+        view.isHidden = true
+        
+        return view
+    }()
     
     private var inited = false // механика подмены супервью при добавлении должна работать после добавления content view
     override class var layerClass: AnyClass {
@@ -25,7 +35,7 @@ class TapplBaseView: UIView {
     private func commonInit() {
         self.backgroundColor = UIColor.clear
        
-       // preparing content site
+        // preparing content site
         contentView.frame = self.bounds
         self.addSubview(contentView)
         for view in self.subviews {
@@ -33,6 +43,13 @@ class TapplBaseView: UIView {
                 contentView.addSubview(view)
             }
         }
+        
+        self.addSubview(handleView)
+        handleView.widthAnchor.constraint(equalToConstant: 46).isActive = true
+        handleView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
+        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        
         inited = true
     }
     

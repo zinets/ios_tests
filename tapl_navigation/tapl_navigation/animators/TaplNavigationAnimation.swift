@@ -34,6 +34,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         finishFrame.origin.y += verticalShiftValue
         finishFrame.size.height -= verticalShiftValue
         
+        toViewController.handleIsVisible = true
         toViewController.view.frame = finishFrame
         toViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
         
@@ -42,6 +43,8 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
             fromViewController.underlayingView?.alpha = 0
+            fromViewController.handleIsVisible = false
+            
             toViewController.view.transform = .identity
             
             let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
@@ -53,7 +56,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromViewController.view.transform = transform
         }
         let toComplete: BlockToFinish = { _ in
-
+            
             let iv = UIImageView(image: fromViewController.underlayingViewImage)
             iv.transform = fromViewController.view.transform
             iv.frame = fromViewController.view.frame
@@ -83,11 +86,11 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         var finishFrame = transitionContext.finalFrame(for: toViewController)
         
         let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 1
-        var startFrame = transitionContext.initialFrame(for: fromViewController)
         
         if stackHasUnderlayingView {
             finishFrame.origin.y += verticalShiftValue
             toViewController.view.frame = finishFrame
+            toViewController.handleIsVisible = true
         }
         
         fromViewController.underlayingView?.alpha = 0
@@ -104,7 +107,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
-            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
+            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
             toViewController.view.transform = .identity
             toViewController.underlayingView?.alpha = 1
         }
