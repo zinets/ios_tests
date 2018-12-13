@@ -12,6 +12,8 @@ import UIKit
 
 class TapplNavigationBar: UINavigationBar {
     
+    private var interactiveAnimator: TapplInteractiveAnimator?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -38,11 +40,17 @@ extension TapplNavigationBar: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
+            self.interactiveAnimator = TapplInteractiveAnimator(attachTo: toVC)
             return TapplPushAnimator()
         case .pop:
             return TapplPopAnimator()
         default:
             return nil
         }
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let ia = interactiveAnimator else { return nil }
+        return ia.transitionInProgress ? interactiveAnimator : nil
     }
 }

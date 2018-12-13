@@ -25,6 +25,13 @@ class TapplBaseViewController: UIViewController {
         }
     }
     /// ручка для таскания контроллера по экрану
+    var handleForBackGesture: UIView? {
+        if let v = self.view as? TapplBaseView {
+            return v.handleView
+        }
+        return nil
+    }
+    
     var handleIsVisible: Bool {
         set {
             if let v = self.view as? TapplBaseView {

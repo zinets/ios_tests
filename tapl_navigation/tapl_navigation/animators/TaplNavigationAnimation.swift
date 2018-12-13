@@ -120,3 +120,53 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
 }
+
+class TapplInteractiveAnimator: UIPercentDrivenInteractiveTransition {
+    
+    var controller : TapplBaseViewController
+    var shouldCompleteTransition = false
+    var transitionInProgress = false
+    
+    init?(attachTo viewController: UIViewController) {
+        if let ctrl = viewController as? TapplBaseViewController, let handleView = ctrl.handleForBackGesture {
+            self.controller = ctrl
+            super.init()
+            setupBackGesture(view: handleView)
+        } else {
+            return nil
+        }
+    }
+    
+    private func setupBackGesture(view : UIView) {
+        let swipeBackGesture = UIPanGestureRecognizer(target: self, action: #selector(handleBackGesture(_:)))
+        view.addGestureRecognizer(swipeBackGesture)
+    }
+    
+    @objc private func handleBackGesture(_ gesture : UIScreenEdgePanGestureRecognizer) {
+        let viewTranslation = gesture.translation(in: gesture.view?.superview)
+        let progress = viewTranslation.y / self.controller.view.frame.height
+        print("progress = \(progress)")
+        
+        switch gesture.state {
+        case .began:
+            transitionInProgress = true
+            controller.navigationController!.popViewController(animated: true)
+            break
+        case .changed:
+            shouldCompleteTransition = progress > 0.5
+            update(progress)
+            break
+        case .cancelled:
+            transitionInProgress = false
+            cancel()
+            break
+        case .ended:
+            transitionInProgress = false
+            shouldCompleteTransition ? finish() : cancel()
+            break
+        default:
+            return
+        }
+    }
+    
+}

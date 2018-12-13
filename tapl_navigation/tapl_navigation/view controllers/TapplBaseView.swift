@@ -11,18 +11,10 @@ import UIKit
 class TapplBaseView: UIView {
 
     static let cornerRadius: CGFloat = 50
-    var handleView: UIView = {
-        // TODO: очевидно нужно сделать его больше для удобного захвата, но визуально - чтоб как в дизе
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        view.layer.cornerRadius = 2
-        view.isHidden = true
-        
-        return view
-    }()
+    var handleView: UIView!
     
     private var inited = false // механика подмены супервью при добавлении должна работать после добавления content view
+
     override class var layerClass: AnyClass {
         return TapplBaseViewLayer.self
     }
@@ -30,6 +22,30 @@ class TapplBaseView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    private func addHandle () {
+        handleView = UIView()
+        handleView.translatesAutoresizingMaskIntoConstraints = false
+        handleView.backgroundColor = UIColor.clear
+        handleView.isHidden = true
+        
+        self.addSubview(handleView)
+        handleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        handleView.heightAnchor.constraint(equalToConstant: 3 * 4).isActive = true
+        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        
+        let grayView = UIView()
+        grayView.translatesAutoresizingMaskIntoConstraints = false
+        grayView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        grayView.layer.cornerRadius = 2
+        
+        handleView.addSubview(grayView)
+        grayView.widthAnchor.constraint(equalToConstant: 46).isActive = true
+        grayView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        grayView.centerXAnchor.constraint(equalTo: handleView.centerXAnchor).isActive = true
+        grayView.centerYAnchor.constraint(equalTo: handleView.centerYAnchor).isActive = true
     }
     
     private func commonInit() {
@@ -43,13 +59,7 @@ class TapplBaseView: UIView {
                 contentView.addSubview(view)
             }
         }
-        
-        self.addSubview(handleView)
-        handleView.widthAnchor.constraint(equalToConstant: 46).isActive = true
-        handleView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
-        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
-        
+        addHandle()
         inited = true
     }
     
@@ -150,8 +160,7 @@ class TapplBaseViewLayer: CAShapeLayer {
                 clipLayer.frame = bounds
                 clipLayer.path = path.cgPath
                 
-                shadowLayer.frame = bounds
-                
+                shadowLayer.frame = bounds                
             }
         }
     }
