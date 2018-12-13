@@ -80,6 +80,14 @@ class TapplBaseView: UIView {
         }
         contentView.insertSubview(view, belowSubview: siblingSubview)
     }
+    
+    var underlayingViewImage: UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
 
 }
 
@@ -130,4 +138,5 @@ class TapplBaseViewLayer: CAShapeLayer {
             }
         }
     }
+    
 }

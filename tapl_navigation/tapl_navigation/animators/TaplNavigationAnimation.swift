@@ -54,10 +54,10 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         let toComplete: BlockToFinish = { _ in
 
-            if let navCtrl = fromViewController.navigationController as? TapplNavigationController, let replicant = fromViewController.view.snapshotView(afterScreenUpdates: true) {
-                toViewController.underlayingView = replicant
-            }
-            
+            let iv = UIImageView(image: fromViewController.underlayingViewImage)
+            iv.transform = fromViewController.view.transform
+            iv.frame = fromViewController.view.frame
+            toViewController.underlayingView = iv
             fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -106,6 +106,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toAnimate: BlockToAnimate = {
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
             toViewController.view.transform = .identity
+            toViewController.underlayingView?.alpha = 1
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.view.transform = .identity

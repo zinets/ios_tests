@@ -10,19 +10,26 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
+    private let additionalSpaceFromTop: CGFloat = 8
+    
     /// призрак предыдущего контроллера
     var underlayingView: UIView? {
         willSet {
             underlayingView?.removeFromSuperview()
         }
         didSet {
-//            let v = UIView(frame: CGRect(x: 0, y: self.view.frame.origin.y, width: 414, height: 20))
-//            v.backgroundColor = .magenta
             if underlayingView != nil {
-                underlayingView!.frame.origin = CGPoint.zero
+//                underlayingView!.frame.origin.y += 64 + additionalSpaceFromTop
                 self.view.superview?.insertSubview(underlayingView!, belowSubview: self.view)
             }
         }
+    }
+    
+    var underlayingViewImage: UIImage? {
+        if let view = self.view as? TapplBaseView {
+            return view.underlayingViewImage
+        }
+        return nil
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -40,9 +47,9 @@ class TapplBaseViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let additionalSpace: CGFloat = 8
-        view.frame.origin.y += additionalSpace
-        view.frame.size.height -= additionalSpace
+        
+        view.frame.origin.y += additionalSpaceFromTop
+        view.frame.size.height -= additionalSpaceFromTop
     }
     
     // MARK: navigation
