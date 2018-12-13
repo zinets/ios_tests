@@ -13,12 +13,12 @@ class TapplBaseView: UIView {
     static let cornerRadius: CGFloat = 50
     var handleView: UIView!
     
+    private let clipLayer = CAShapeLayer()
+    private let shadowLayer = CALayer()
+    
+    
     private var inited = false // механика подмены супервью при добавлении должна работать после добавления content view
 
-    override class var layerClass: AnyClass {
-        return TapplBaseViewLayer.self
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -50,6 +50,18 @@ class TapplBaseView: UIView {
     
     private func commonInit() {
         self.backgroundColor = UIColor.clear
+        
+        // layer preparing
+        self.layer.masksToBounds = false
+        shadowLayer.shadowRadius = 3
+        shadowLayer.shadowOpacity = 1
+        shadowLayer.shadowOffset = CGSize(width: 0, height: -4)
+        shadowLayer.shadowColor = UIColor(rgb: 0xeeece8).cgColor
+        self.layer.addSublayer(shadowLayer)
+        
+        clipLayer.masksToBounds = true
+        clipLayer.fillColor = UIColor.white.cgColor
+        shadowLayer.addSublayer(clipLayer)
        
         // preparing content site
         contentView.frame = self.bounds
@@ -115,10 +127,24 @@ class TapplBaseView: UIView {
         UIGraphicsEndImageContext()
         return image
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if !bounds.isEmpty {
+            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: TapplBaseView.cornerRadius, height: TapplBaseView.cornerRadius))
+            
+            clipLayer.frame = bounds
+            clipLayer.path = path.cgPath
+            
+            shadowLayer.frame = bounds
+        }
+
+    }
 
 }
 
-class TapplBaseViewLayer: CAShapeLayer {
+class TapplBaseViewLayer: CALayer {
     
     private let clipLayer = CAShapeLayer()
     private let shadowLayer = CALayer()
@@ -160,7 +186,7 @@ class TapplBaseViewLayer: CAShapeLayer {
                 clipLayer.frame = bounds
                 clipLayer.path = path.cgPath
                 
-                shadowLayer.frame = bounds                
+                shadowLayer.frame = bounds
             }
         }
     }
