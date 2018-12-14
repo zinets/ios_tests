@@ -11,7 +11,8 @@ import UIKit
 class TapplBaseViewController: UIViewController {
     
     private let additionalSpaceFromTop: CGFloat = 8
-    
+    var interactiveAnimator: TapplInteractiveAnimator?
+        
     /// призрак предыдущего контроллера
     var underlayingView: UIView? {
         willSet {

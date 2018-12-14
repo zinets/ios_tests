@@ -73,6 +73,8 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    var poppingController: TapplBaseViewController?
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }
@@ -82,7 +84,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
         else { return }
-        
+               
         var finishFrame = transitionContext.finalFrame(for: toViewController)
         
         let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 1

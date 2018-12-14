@@ -11,9 +11,7 @@ import UIKit
 // кастомный навбар нужен для а) настройки внешнего вида (отключение разделительной линии и полупрозрачности) и б) сохранения навбар итемов при пушах/попах
 
 class TapplNavigationBar: UINavigationBar {
-    
-    private var interactiveAnimator: TapplInteractiveAnimator?
-    
+        
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -40,17 +38,28 @@ extension TapplNavigationBar: UINavigationControllerDelegate {
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            self.interactiveAnimator = TapplInteractiveAnimator(attachTo: toVC)
+            if let ctrl = toVC as? TapplBaseViewController {
+                ctrl.interactiveAnimator = TapplInteractiveAnimator(attachTo: toVC)
+            }
             return TapplPushAnimator()
         case .pop:
-            return TapplPopAnimator()
+            let popAnimator = TapplPopAnimator()
+            popAnimator.poppingController = fromVC as? TapplBaseViewController
+            return popAnimator
         default:
             return nil
         }
     }
     
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        guard let ia = interactiveAnimator else { return nil }
-        return ia.transitionInProgress ? interactiveAnimator : nil
+        
+        guard
+            let animator = animationController as? TapplPopAnimator,
+            let ctrl = animator.poppingController,
+            let ia = ctrl.interactiveAnimator
+        else {
+            return nil
+        }
+         return ia.transitionInProgress ? ia : nil
     }
 }
