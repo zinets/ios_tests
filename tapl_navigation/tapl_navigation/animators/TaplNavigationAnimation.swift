@@ -96,6 +96,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         fromViewController.underlayingView?.alpha = 0
         
         let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
+        print("\(scale)")
         let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))
         
         var transform = CGAffineTransform.identity
