@@ -91,6 +91,11 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.transform = fromViewController.underlayingView!.transform
         toViewController.view.frame = fromViewController.underlayingView!.frame
         
+        let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 1
+        if stackHasUnderlayingView {
+            toViewController.handleIsVisible = true
+        }
+        
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
@@ -103,7 +108,8 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
             if transitionContext.transitionWasCancelled {
                 fromViewController.underlayingView?.alpha = 1
-                
+            } else {
+                fromViewController.underlayingView = nil
             }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
