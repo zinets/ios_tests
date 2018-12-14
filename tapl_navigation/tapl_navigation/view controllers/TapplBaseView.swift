@@ -31,10 +31,17 @@ class TapplBaseView: UIView {
         handleView.isHidden = true
         
         self.addSubview(handleView)
-        handleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        handleView.heightAnchor.constraint(equalToConstant: 3 * 4).isActive = true
-        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        // модно, стильно, молодежно!
+        NSLayoutConstraint.activate([
+            handleView.widthAnchor.constraint(equalToConstant: 200),
+            handleView.heightAnchor.constraint(equalToConstant: 3 * 4),
+            handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
+        ])
+//        handleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+//        handleView.heightAnchor.constraint(equalToConstant: 3 * 4).isActive = true
+//        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+//        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
         
         let grayView = UIView()
         grayView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,10 +49,12 @@ class TapplBaseView: UIView {
         grayView.layer.cornerRadius = 2
         
         handleView.addSubview(grayView)
-        grayView.widthAnchor.constraint(equalToConstant: 46).isActive = true
-        grayView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        grayView.centerXAnchor.constraint(equalTo: handleView.centerXAnchor).isActive = true
-        grayView.centerYAnchor.constraint(equalTo: handleView.centerYAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            grayView.widthAnchor.constraint(equalToConstant: 46),
+            grayView.heightAnchor.constraint(equalToConstant: 4),
+            grayView.centerXAnchor.constraint(equalTo: handleView.centerXAnchor),
+            grayView.centerYAnchor.constraint(equalTo: handleView.centerYAnchor),
+        ])
     }
     
     private func commonInit() {

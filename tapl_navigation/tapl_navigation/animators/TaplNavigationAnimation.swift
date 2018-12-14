@@ -11,7 +11,7 @@ import UIKit
 typealias BlockToAnimate = () -> ()
 typealias BlockToFinish = (Bool) -> ()
 
-let verticalShiftValue: CGFloat = 10.0
+let verticalShiftValue: CGFloat = 10
 let horizontalShiftValue: CGFloat = 20.0
 
 class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -25,47 +25,47 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
         else { return }
-       
+        
         transitionContext.containerView.addSubview(toViewController.view)
+        let duration = self.transitionDuration(using: transitionContext)
+        
+        // to view
+        let y: CGFloat = 72 + verticalShiftValue
+        var toViewFinishFrame = transitionContext.finalFrame(for: toViewController)
+        toViewController.additionalSpaceFromTop = y
+        toViewController.handleIsVisible = true
+        toViewFinishFrame.origin.y = y
+        toViewFinishFrame.size.height = UIScreen.main.bounds.size.height - y
+        
+        toViewController.view.transform = CGAffineTransform(translationX: 0, y: toViewFinishFrame.size.height)
+        
+        // from view
+        let fromViewFinishFrame = fromViewController.view.frame
+        let scale = (fromViewFinishFrame.size.width - 2 * horizontalShiftValue) / fromViewFinishFrame.size.width
+        var transform = CGAffineTransform.identity
+        transform = transform.scaledBy(x: scale, y: scale)
         
         let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 2
+        let h = ceil((fromViewFinishFrame.size.height - fromViewFinishFrame.size.height * scale) / 2) + (stackHasUnderlayingView ? verticalShiftValue : 0)
+        transform = transform.translatedBy(x: 0, y: -h)
         
-        var finishFrame = transitionContext.finalFrame(for: toViewController)
-        finishFrame.origin.y += verticalShiftValue
-        finishFrame.size.height -= verticalShiftValue
-        
-        toViewController.handleIsVisible = true
-        toViewController.view.frame = finishFrame
-        toViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
-        
-        fromViewController.view.transform = .identity
-        
-        let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
-            fromViewController.underlayingView?.alpha = 0
-            fromViewController.handleIsVisible = false
-            
             toViewController.view.transform = .identity
             
-            let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
-            let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))
-            
-            var transform = CGAffineTransform.identity
-            transform = transform.scaledBy(x: scale, y: scale)
-            transform = transform.translatedBy(x: 0, y: -h)
+            fromViewController.handleIsVisible = false
+            fromViewController.underlayingView?.alpha = 0
             fromViewController.view.transform = transform
         }
         let toComplete: BlockToFinish = { _ in
-            
             let iv = UIImageView(image: fromViewController.underlayingViewImage)
             iv.transform = fromViewController.view.transform
             iv.frame = fromViewController.view.frame
             toViewController.underlayingView = iv
-            fromViewController.view.transform = .identity
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
+        
     }
     
 }
@@ -84,40 +84,26 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
         else { return }
-               
-        var finishFrame = transitionContext.finalFrame(for: toViewController)
-        
-        let stackHasUnderlayingView = fromViewController.navigationController!.viewControllers.count > 1
-        
-        if stackHasUnderlayingView {
-            finishFrame.origin.y += verticalShiftValue
-            toViewController.view.frame = finishFrame
-            toViewController.handleIsVisible = true
-        }
-        
-        fromViewController.underlayingView?.alpha = 0
-        
-        let scale = (finishFrame.size.width - 2 * horizontalShiftValue) / finishFrame.size.width
-        print("\(scale)")
-        let h = ceil((finishFrame.size.height - finishFrame.size.height * scale) / 2 + (stackHasUnderlayingView ? verticalShiftValue : 0))
-        
-        var transform = CGAffineTransform.identity
-        transform = transform.scaledBy(x: scale, y: scale)
-        transform = transform.translatedBy(x: 0, y: -h)
-        toViewController.view.transform = transform
         
         transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
+
+        let finishFrame = transitionContext.initialFrame(for: fromViewController)
+        toViewController.view.transform = fromViewController.underlayingView!.transform
+        toViewController.view.frame = fromViewController.underlayingView!.frame
         
         let duration = self.transitionDuration(using: transitionContext)
         let toAnimate: BlockToAnimate = {
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
+            
             toViewController.view.transform = .identity
             toViewController.underlayingView?.alpha = 1
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.view.transform = .identity
+            
             if transitionContext.transitionWasCancelled {
                 fromViewController.underlayingView?.alpha = 1
+                
             }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }

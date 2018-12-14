@@ -10,7 +10,7 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
-    private let additionalSpaceFromTop: CGFloat = 8
+    var additionalSpaceFromTop: CGFloat = 72 // абсолютный топ, не additional! по дизу 72
     var interactiveAnimator: TapplInteractiveAnimator?
         
     /// призрак предыдущего контроллера
@@ -20,7 +20,6 @@ class TapplBaseViewController: UIViewController {
         }
         didSet {
             if underlayingView != nil {
-//                underlayingView!.frame.origin.y += 64 + additionalSpaceFromTop
                 self.view.superview?.insertSubview(underlayingView!, belowSubview: self.view)
             }
         }
@@ -70,8 +69,8 @@ class TapplBaseViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         
-        view.frame.origin.y += additionalSpaceFromTop
-        view.frame.size.height -= additionalSpaceFromTop
+        view.frame.origin.y = additionalSpaceFromTop
+        view.frame.size.height = UIScreen.main.bounds.size.height - additionalSpaceFromTop
     }
     
     // MARK: navigation
