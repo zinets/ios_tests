@@ -70,7 +70,6 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
 }
 
-
 class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     var poppingController: TapplBaseViewController?

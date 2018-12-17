@@ -72,9 +72,21 @@ class TapplBaseViewController: UIViewController {
     
     @IBAction func navButtonAction(_ sender: UIButton) {
         switch sender.tag {
-        case 1: print("do search")
-        case 2: print("do messages")
-        case 3: print("do activities")
+        case 1:
+            print("do search")
+            if let tabBar = self.navigationController?.tabBarController {
+                tabBar.selectedIndex = 0
+            }
+        case 2:
+            print("do messages")
+            if let tabBar = self.navigationController?.tabBarController {
+                tabBar.selectedIndex = 1
+            }
+        case 3:
+            print("do activities")
+            if let tabBar = self.navigationController?.tabBarController {
+                tabBar.selectedIndex = 2
+            }
         case 4: print("do profile")
         default: break;
         }
