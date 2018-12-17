@@ -8,10 +8,8 @@
 
 import UIKit
 
-@IBDesignable
 class TapplNavigationController: UINavigationController {
-    @IBInspectable
-    var rootControllerOrder: Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
