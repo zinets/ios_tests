@@ -21,7 +21,6 @@
                         <color key="barTintColor" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <outlet property="delegate" destination="UDC-ih-wN2" id="yUb-WV-8Vu"/>
                         <segue destination="mrG-ll-hBi" kind="relationship" relationship="rootViewController" id="zgZ-bC-9N8"/>
                     </connections>
                 </navigationController>
