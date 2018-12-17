@@ -188,8 +188,7 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let fromIndex = tabbarCtrl.viewControllers?.firstIndex(of: fromViewController)
         let toIndex = tabbarCtrl.viewControllers?.firstIndex(of: toViewController)
         
-        let directionRight = toIndex! > fromIndex! //toViewController.rootControllerOrder > fromViewController.rootControllerOrder
-        
+        let directionRight = toIndex! > fromIndex!
         let underLayingView = (toViewController.topViewController as? TapplBaseViewController)?.underlayingView
         
         transitionContext.containerView.addSubview(toViewController.view)

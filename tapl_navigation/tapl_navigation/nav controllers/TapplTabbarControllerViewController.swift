@@ -21,6 +21,24 @@ class TapplTabbarControllerViewController: UITabBarController {
         self.tabBar.transform = CGAffineTransform(translationX: 0, y: self.tabBar.bounds.size.height)
     }
     
+    // вызывается при ините таббара где-то внутри..
+    override var selectedViewController: UIViewController? {
+        didSet {
+            setupPanRecognizer()
+        }
+    }
+    // вызывается при переключении после тапа по кнопке..
+    override var selectedIndex: Int {
+        didSet {
+            setupPanRecognizer()
+        }
+    }
+    
+    // и надо панрекогнайзер надо подключить в вью контроллера, который теперь сверху
+    private func setupPanRecognizer() {
+        
+    }
+    
 }
 
 // Mark: custom animation
