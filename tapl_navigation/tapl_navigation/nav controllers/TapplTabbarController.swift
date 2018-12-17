@@ -1,5 +1,5 @@
 //
-//  TapplTabbarControllerViewController.swift
+//  TapplTabbarController.swift
 //  tapl_navigation
 //
 //  Created by Victor Zinets on 12/17/18.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TapplTabbarControllerViewController: UITabBarController {
+class TapplTabbarController: UITabBarController {
+    
+    private var interactiveAnimator = TapplSwitchInteractiveAnimator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +38,16 @@ class TapplTabbarControllerViewController: UITabBarController {
     
     // и надо панрекогнайзер надо подключить в вью контроллера, который теперь сверху
     private func setupPanRecognizer() {
+        interactiveAnimator.setupSwitchGesture(viewController: selectedViewController)
         
     }
+  
     
 }
 
-// Mark: custom animation
+// MARK: - custom animation
 
-extension TapplTabbarControllerViewController: UITabBarControllerDelegate {
-    
+extension TapplTabbarController: UITabBarControllerDelegate {
     
     public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return nil

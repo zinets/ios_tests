@@ -411,7 +411,7 @@
                     <navigationItem key="navigationItem" id="CzX-vF-7sO">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IBt-Gz-gdX">
-                            <rect key="frame" x="28" y="0.0" width="359" height="44"/>
+                            <rect key="frame" x="27.5" y="0.0" width="359" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEK-Ie-twH" userLabel="search">
@@ -521,10 +521,10 @@
             </objects>
             <point key="canvasLocation" x="2263.768115942029" y="-814.28571428571422"/>
         </scene>
-        <!--Tappl Tabbar Controller View Controller-->
+        <!--Tappl Tabbar Controller-->
         <scene sceneID="nSh-gi-Hee">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fyM-We-ewQ" customClass="TapplTabbarControllerViewController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fyM-We-ewQ" customClass="TapplTabbarController" customModule="tapl_navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="de2-66-oAh">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

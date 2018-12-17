@@ -26,7 +26,7 @@ extension TapplNavigationController: UINavigationControllerDelegate {
         switch operation {
         case .push:
             if let ctrl = toVC as? TapplBaseViewController {
-                ctrl.interactiveAnimator = TapplInteractiveAnimator(attachTo: toVC)
+                ctrl.interactiveAnimator = TapplPopInteractiveAnimator(attachTo: toVC)
             }
             return TapplPushAnimator()
         case .pop:

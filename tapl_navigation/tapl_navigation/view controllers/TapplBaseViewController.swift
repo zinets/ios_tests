@@ -11,7 +11,7 @@ import UIKit
 class TapplBaseViewController: UIViewController {
     
     var additionalSpaceFromTop: CGFloat = 72 // абсолютный топ, не additional! по дизу 72
-    var interactiveAnimator: TapplInteractiveAnimator?
+    var interactiveAnimator: TapplPopInteractiveAnimator?
             
     /// призрак предыдущего контроллера
     var underlayingView: UIView? {
