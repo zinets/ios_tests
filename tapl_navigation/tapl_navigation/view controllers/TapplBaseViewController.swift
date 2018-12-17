@@ -53,10 +53,6 @@ class TapplBaseViewController: UIViewController {
         return nil
     }
     
-    @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -66,8 +62,7 @@ class TapplBaseViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
+        super.viewDidLayoutSubviews()        
         
         view.frame.origin.y = additionalSpaceFromTop
         view.frame.size.height = UIScreen.main.bounds.size.height - additionalSpaceFromTop
@@ -85,6 +80,8 @@ class TapplBaseViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func backAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }

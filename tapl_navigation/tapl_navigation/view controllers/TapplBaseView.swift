@@ -80,11 +80,11 @@ class TapplBaseView: UIView {
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.layer.cornerRadius = TapplBaseView.cornerRadius
         view.clipsToBounds = true
-//        view.backgroundColor = UIColor.gray
         return view
     }()
     
     // если каким-то образом в рунтайме будут добавляться вью, то их нужно добавлять на всю контента - авось это сработает
+    // #warning особо не тестировалось.. от слова "вообще"
     override func addSubview(_ view: UIView) {
         guard inited, view != contentView else {
             super.addSubview(view)
@@ -117,6 +117,7 @@ class TapplBaseView: UIView {
         contentView.insertSubview(view, belowSubview: siblingSubview)
     }
     
+    /// делаем имидж из того, что есть
     var underlayingViewImage: UIImage? {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
         self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
