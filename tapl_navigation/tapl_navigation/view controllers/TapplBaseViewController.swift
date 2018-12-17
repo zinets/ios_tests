@@ -12,7 +12,7 @@ class TapplBaseViewController: UIViewController {
     
     var additionalSpaceFromTop: CGFloat = 72 // абсолютный топ, не additional! по дизу 72
     var interactiveAnimator: TapplInteractiveAnimator?
-        
+            
     /// призрак предыдущего контроллера
     var underlayingView: UIView? {
         willSet {

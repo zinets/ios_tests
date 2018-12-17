@@ -167,3 +167,36 @@ class TapplInteractiveAnimator: UIPercentDrivenInteractiveTransition {
     }
     
 }
+
+class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+   
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard
+            let toViewController = transitionContext.viewController(forKey: .to) as? TapplNavigationController,
+            let fromViewController = transitionContext.viewController(forKey: .from) as? TapplNavigationController
+            else { return }
+        
+        transitionContext.containerView.addSubview(toViewController.view)
+        let duration = self.transitionDuration(using: transitionContext)
+        let startFrame = transitionContext.initialFrame(for: fromViewController)
+        let finishFrame = transitionContext.finalFrame(for: toViewController)
+        
+        toViewController.view.transform = CGAffineTransform(translationX: finishFrame.size.width, y: 0)
+        let toAnimate: BlockToAnimate = {
+            toViewController.view.transform = .identity
+            fromViewController.view.transform = CGAffineTransform(translationX: -startFrame.size.width, y: 0)
+        }
+        let toComplete: BlockToFinish = { _ in
+            fromViewController.view.transform = .identity
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+        UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
+        
+    }
+
+}
