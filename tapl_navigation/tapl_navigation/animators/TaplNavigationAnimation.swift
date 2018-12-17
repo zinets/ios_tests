@@ -181,15 +181,17 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             let fromViewController = transitionContext.viewController(forKey: .from) as? TapplNavigationController
             else { return }
         
+        let directionRight = toViewController.rootControllerOrder > fromViewController.rootControllerOrder
+        
         transitionContext.containerView.addSubview(toViewController.view)
         let duration = self.transitionDuration(using: transitionContext)
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         let finishFrame = transitionContext.finalFrame(for: toViewController)
         
-        toViewController.view.transform = CGAffineTransform(translationX: finishFrame.size.width, y: 0)
+        toViewController.view.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
         let toAnimate: BlockToAnimate = {
             toViewController.view.transform = .identity
-            fromViewController.view.transform = CGAffineTransform(translationX: -startFrame.size.width, y: 0)
+            fromViewController.view.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width, y: 0)
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.view.transform = .identity
