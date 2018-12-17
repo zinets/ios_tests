@@ -178,27 +178,40 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         guard
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplNavigationController,
-            let fromViewController = transitionContext.viewController(forKey: .from) as? TapplNavigationController
-            else { return }
+            let fromViewController = transitionContext.viewController(forKey: .from) as? TapplNavigationController,
+            
+            let fromView = fromViewController.topViewController?.view.snapshotView(afterScreenUpdates: true),
+            let toView = toViewController.topViewController?.view as? TapplBaseView
+        else { return }
         
         let directionRight = toViewController.rootControllerOrder > fromViewController.rootControllerOrder
+        let underLayingView = (toViewController.topViewController as? TapplBaseViewController)?.underlayingView
         
         transitionContext.containerView.addSubview(toViewController.view)
+        fromView.frame = fromViewController.topViewController!.view.frame
+        transitionContext.containerView.addSubview(fromView)
+
         let duration = self.transitionDuration(using: transitionContext)
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         let finishFrame = transitionContext.finalFrame(for: toViewController)
+
+        toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+        let storedTransform = underLayingView?.transform
+        if let transform = storedTransform {
+            underLayingView?.transform = transform.translatedBy(x: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+        }
         
-        toViewController.view.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
         let toAnimate: BlockToAnimate = {
-            toViewController.view.transform = .identity
-            fromViewController.view.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width, y: 0)
+            toView.transform = .identity
+            if let transform = storedTransform {
+                underLayingView?.transform = transform
+            }
+            fromView.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width, y: 0)
         }
         let toComplete: BlockToFinish = { _ in
-            fromViewController.view.transform = .identity
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
-        
     }
 
 }

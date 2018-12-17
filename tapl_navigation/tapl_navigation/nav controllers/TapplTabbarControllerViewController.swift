@@ -33,13 +33,10 @@ extension TapplTabbarControllerViewController: UITabBarControllerDelegate {
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        guard
-//            let fromController = fromVC as? TapplNavigationController,
-//            let toController = toVC as? TapplNavigationController
-//        else { return nil }
-        
-        // как определить в какую сторону едем??
-        
+        guard
+            let _ = fromVC as? TapplNavigationController,
+            let _ = toVC as? TapplNavigationController
+        else { return nil }
         
         return TapplSwitchAnimator()
     }
