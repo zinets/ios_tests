@@ -10,6 +10,12 @@ import UIKit
 
 class TapplNavigationController: UINavigationController {
 
+    var panInteractiveRecognizer: UIPanGestureRecognizer? {
+        didSet {
+            view.addGestureRecognizer(panInteractiveRecognizer!)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self

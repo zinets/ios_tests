@@ -224,7 +224,7 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 
 }
 
-class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition {
+class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition, UIGestureRecognizerDelegate {
 
     private var panRecognizer: UIPanGestureRecognizer?
     private var controller : UIViewController!
@@ -232,25 +232,31 @@ class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition {
     var transitionInProgress = false
     
     func setupSwitchGesture(viewController: UIViewController?) {
-        guard viewController != controller else { return }
+        guard
+            viewController != controller,
+            viewController is TapplNavigationController
+        else { return }
         
-        if let recognizer = panRecognizer {
-//            controller.view.removeGestureRecognizer(recognizer)
+        controller = viewController
+        
+        if let ctrl = controller as? TapplNavigationController, ctrl.panInteractiveRecognizer == nil {
+            let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+            ctrl.panInteractiveRecognizer = recognizer
         }
         
-        panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
-        controller = viewController
-        controller.view.addGestureRecognizer(panRecognizer!)
     }
     
     private var toRightSwipe = false
     @objc func onPan(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: sender.view)
         let velosity = sender.velocity(in: sender.view)
         
         switch sender.state {
         case .began:
-            // TODO: отмена свайпа?
+            if abs(velosity.x) < abs(velosity.y) {
+                transitionInProgress = false
+                return
+            }
+            
             toRightSwipe = velosity.x > 0 // уменьшаем индекс
             transitionInProgress = true
             
@@ -260,19 +266,29 @@ class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition {
             } else if !toRightSwipe && tabbarCtrl.selectedIndex < tabbarCtrl.viewControllers!.count - 1 {
                 tabbarCtrl.selectedIndex += 1
             }
-        case .changed:
-            let translationValue = min(0.99, max(0, abs(translation.x / UIScreen.main.bounds.size.width)))
-            print("\(translationValue)")
-            shouldCompleteTransition = translationValue > 0.5
-            update(translationValue)
-        case .cancelled:
-            transitionInProgress = false
-            cancel()
+            // простой вариант - не возюкаем по экрану, а работаем как swipe - куда махнул пальцем, туда и переключимся, без варианта отменить (потому что я плохо понимаю механику отмены - что-то идет не так, а что - разбираться особо некогда)
+//        case .changed:
+//            let translationValue = min(0.99, max(0, abs(translation.x / UIScreen.main.bounds.size.width)))
+//            print("\(translationValue)")
+//            shouldCompleteTransition = translationValue > 0.5
+//            update(translationValue)
+//        case .cancelled:
+//            transitionInProgress = false
+//            cancel()
         case .ended:
-            transitionInProgress = false
-            shouldCompleteTransition ? finish() : cancel()
+            if transitionInProgress {
+                transitionInProgress = false
+                finish()
+                //shouldCompleteTransition ? finish() : cancel()
+            }
         default:
             break
         }
+    }
+    
+    // MARK: - gesture
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
     }
 }
