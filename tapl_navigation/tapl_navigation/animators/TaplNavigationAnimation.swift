@@ -213,6 +213,10 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromView.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width, y: 0)
         }
         let toComplete: BlockToFinish = { _ in
+            if transitionContext.transitionWasCancelled {
+                fromView.transform = .identity
+                toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+            }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
@@ -225,13 +229,13 @@ class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition {
     private var panRecognizer: UIPanGestureRecognizer?
     private var controller : UIViewController!
     private var shouldCompleteTransition = false
-    var interactionInProgress = false
+    var transitionInProgress = false
     
     func setupSwitchGesture(viewController: UIViewController?) {
         guard viewController != controller else { return }
         
         if let recognizer = panRecognizer {
-            controller.view.removeGestureRecognizer(recognizer)
+//            controller.view.removeGestureRecognizer(recognizer)
         }
         
         panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
@@ -243,18 +247,30 @@ class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition {
     @objc func onPan(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: sender.view)
         let velosity = sender.velocity(in: sender.view)
+        
         switch sender.state {
         case .began:
             // TODO: отмена свайпа?
-            toRightSwipe = velosity.x > 0
+            toRightSwipe = velosity.x > 0 // уменьшаем индекс
+            transitionInProgress = true
             
             let tabbarCtrl = controller.tabBarController!
             if toRightSwipe && tabbarCtrl.selectedIndex > 0 {
-                tabbarCtrl.selectedIndex += 1
-            } else if !toRightSwipe && tabbarCtrl.selectedIndex < tabbarCtrl.viewControllers!.count - 1 {
                 tabbarCtrl.selectedIndex -= 1
+            } else if !toRightSwipe && tabbarCtrl.selectedIndex < tabbarCtrl.viewControllers!.count - 1 {
+                tabbarCtrl.selectedIndex += 1
             }
-            
+        case .changed:
+            let translationValue = min(0.99, max(0, abs(translation.x / UIScreen.main.bounds.size.width)))
+            print("\(translationValue)")
+            shouldCompleteTransition = translationValue > 0.5
+            update(translationValue)
+        case .cancelled:
+            transitionInProgress = false
+            cancel()
+        case .ended:
+            transitionInProgress = false
+            shouldCompleteTransition ? finish() : cancel()
         default:
             break
         }

@@ -50,7 +50,7 @@ class TapplTabbarController: UITabBarController {
 extension TapplTabbarController: UITabBarControllerDelegate {
     
     public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        return interactiveAnimator.transitionInProgress ? interactiveAnimator : nil
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
