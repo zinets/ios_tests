@@ -15,6 +15,10 @@ class TapplBaseViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.layer.cornerRadius = 40
+        self.view.layer.shadowRadius = 10
+        self.view.layer.shadowOpacity = 0.2
+        self.view.layer.shadowColor = UIColor.black.cgColor
         
     }
 
