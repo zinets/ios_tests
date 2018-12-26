@@ -214,14 +214,25 @@
                                     <action selector="back:" destination="1gB-vU-jbn" eventType="touchUpInside" id="JNS-rD-aFX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RvY-Jj-kkH">
+                                <rect key="frame" x="184.5" y="51" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="RvY-Jj-kkH" firstAttribute="centerX" secondItem="0aa-Zx-hmL" secondAttribute="centerX" id="9R0-9f-XtK"/>
+                            <constraint firstItem="RvY-Jj-kkH" firstAttribute="top" secondItem="ru9-Vb-10b" secondAttribute="top" constant="7" id="Bzi-EM-Z6p"/>
                             <constraint firstItem="3yq-KD-IAt" firstAttribute="leading" secondItem="ru9-Vb-10b" secondAttribute="leading" constant="30" id="l60-pA-4CW"/>
                             <constraint firstItem="3yq-KD-IAt" firstAttribute="top" secondItem="ru9-Vb-10b" secondAttribute="top" constant="45" id="ngX-kE-mql"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ru9-Vb-10b"/>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="RvY-Jj-kkH" id="oNL-jL-Yle"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEC-XN-XNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
