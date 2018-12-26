@@ -9,10 +9,12 @@
 import UIKit
 
 class TapplPresentationController: UIPresentationController {
+    
+    private var firstView: UIView?
 
     // это фрейм вью, которое показывается на экран; вернем его "правильный размер", т.е. с отступом сверху - тогда аниматор получит "финишный" размер с учетом этого отступа
     override var frameOfPresentedViewInContainerView: CGRect {
-        let top: CGFloat = 10
+        let top: CGFloat = 10 + 20 + 4
         let x: CGFloat = 0
         let height = containerView!.bounds.height - top
         let width = containerView!.bounds.width
@@ -28,4 +30,31 @@ class TapplPresentationController: UIPresentationController {
 //        frame.size.width -= 40
 //        presentedView?.frame = frame
 //    }
+    
+    override func presentationTransitionDidEnd(_ completed: Bool) {
+        let presented = self.presentedViewController
+        let presenting = self.presentingViewController
+        let view = self.presentingViewController.view
+        
+        if firstView == nil && presenting.presentingViewController == nil {
+            firstView = view!.snapshotView(afterScreenUpdates: true)
+            firstView?.frame.origin.y = -39 // 39???
+            
+            containerView?.insertSubview(firstView!, at: 0)
+            
+            guard let coordinator = presentedViewController.transitionCoordinator else {
+                return
+            }
+            coordinator.animate(alongsideTransition: { (_) in
+            
+            }) { (_) in
+                
+            }
+            
+        }
+        
+        print("completed \(completed)")
+        
+    }
+    
 }

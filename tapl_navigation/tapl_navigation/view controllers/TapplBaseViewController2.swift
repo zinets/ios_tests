@@ -32,8 +32,11 @@ class TapplBaseViewController2: UIViewController {
 
 
     @IBAction func openNew(_ sender: Any) {
-        guard let ctrl = storyboard?.instantiateInitialViewController() as? TapplBaseViewController2 else {
-            fatalError("Could not instantiate controller from Storyboard")
+//        guard let ctrl = storyboard?.instantiateInitialViewController() as? TapplBaseViewController2 else {
+//            fatalError("Could not instantiate controller from Storyboard")
+//        }
+        guard let ctrl = storyboard?.instantiateViewController(withIdentifier: "BrownID") as? TapplBaseViewController2 else {
+              fatalError("Could not instantiate controller from Storyboard")
         }
         
         ctrl.transitioningDelegate = ctrlTransitioningDelegate

@@ -41,14 +41,16 @@ class TapplPresentationPushAnimator:  NSObject, UIViewControllerAnimatedTransiti
         var toFrame = transitionContext.finalFrame(for: toViewController)
         toViewController.view.frame = toFrame
         toViewController.view.transform = CGAffineTransform(translationX: 0, y: toFrame.size.height)
-        
+       
         toFrame = transitionContext.finalFrame(for: toViewController)
-        toFrame.origin = CGPoint(x: 20, y: 0)
+        toFrame.origin = CGPoint(x: 20, y: 20 + 4)
         toFrame.size.width -= 20 * 2
         
         let toAnimate: BlockToAnimate = {
             toViewController.view.transform = .identity
-            fromViewController.view.frame = toFrame
+            if fromViewController.presentingViewController != nil {
+                fromViewController.view.frame = toFrame
+            }
         }
         let toComplete: BlockToFinish = { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -81,7 +83,7 @@ class TapplPresentationPopAnimator:  NSObject, UIViewControllerAnimatedTransitio
         
         var toFrame = fromFrame
         if toViewController.presentingViewController == nil {
-            toFrame.origin.y = 0
+            toFrame = transitionContext.finalFrame(for: toViewController)
         }
         
         UIView.animate(withDuration: animationDuration, animations: {
