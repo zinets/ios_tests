@@ -31,19 +31,20 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         // старый контроллер, начало
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         // старый контроллер, конечное положение
-        var finishFrameFromView = CGRect(x: 20, y: 4, width: screenFrame.size.width - 40, height: screenFrame.size.height - 4)
+        let finishFrameFromView = CGRect(x: 20, y: 4, width: screenFrame.size.width - 40, height: screenFrame.size.height - 4)
         fromViewController.view.frame = startFrame
         
-        
-        
-        
-        
+        // fake view
+        let fakeView = UIView(frame: CGRect(x: 20, y: 4, width: screenFrame.size.width - 40, height: 100))
+        fakeView.layer.cornerRadius = 12
+        fakeView.backgroundColor = TapplMagic.previousControllerColor
+        fakeView.alpha = 0
+        fakeView.frame = startFrame
+        toViewController.shadowedView = fakeView
+        toViewController.view.superview?.insertSubview(fakeView, belowSubview: toViewController.view)
         
         var finishFrame = transitionContext.finalFrame(for: toViewController)
         finishFrame.origin.y = 20
-        
-        
-        
         toViewController.view.frame = finishFrame
         toViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
         
@@ -52,8 +53,12 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
             fromViewController.view.frame = finishFrameFromView
             fromViewController.view.alpha = 0
+            fakeView.frame = finishFrameFromView
+            fakeView.alpha = 1
         }
         let toComplete: BlockToFinish = { _ in
+            
+            
             fromViewController.view.alpha = 1
             fromViewController.view.transform = .identity
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
@@ -91,6 +96,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
         }
         let toComplete: BlockToFinish = { _ in
+            fromViewController.shadowedView = nil // TODO а проверить - может отменится поп?
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)

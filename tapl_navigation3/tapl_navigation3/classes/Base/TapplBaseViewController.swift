@@ -10,7 +10,13 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
-    private let cornerRadius: CGFloat = 16
+    var shadowedView: UIView? {
+        willSet {
+            if let view = shadowedView {
+                view.removeFromSuperview()
+            }
+        }
+    }
 
     var shadowIsVisible: Bool = false {
         didSet {
@@ -30,7 +36,7 @@ class TapplBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.layer.cornerRadius = cornerRadius
+        self.view.layer.cornerRadius = TapplMagic.viewControllerCornerRadius
         self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         self.view.layer.shadowRadius = 10
@@ -46,8 +52,9 @@ class TapplBaseViewController: UIViewController {
     }
     
     @IBAction func push(_ sender: Any) {
-        let ctrl = UIStoryboard(name: "TapplSearch", bundle: nil).instantiateViewController(withIdentifier: "WhiteCtrl")
-        myCtrl.pushController(ctrl, navController: self.navigationController!)
+        if let ctrl = UIStoryboard(name: "TapplSearch", bundle: nil).instantiateViewController(withIdentifier: "WhiteCtrl") as? TapplBaseViewController {
+            myCtrl.pushController(ctrl, navController: self.navigationController!)
+        }
     }
     
     

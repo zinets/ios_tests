@@ -14,17 +14,18 @@ class TapplNavigator: UIViewController {
     
 
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
+    @IBOutlet weak var tabbarView: UIView!
     
     private var isNavbarVisible: Bool = true {
         didSet {
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
-                self.navbarHeight.constant = self.isNavbarVisible ? 52 : 0
+                self.navbarHeight.constant = self.isNavbarVisible ? TapplMagic.navigationBarHeight : 0
+                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
                 self.view.layoutIfNeeded()
             }
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,14 @@ class TapplNavigator: UIViewController {
         myCtrl = self
     }
     
-    func pushController(_ ctrl: UIViewController, navController: UINavigationController) {
+    func pushController(_ ctrl: TapplBaseViewController, navController: UINavigationController) {
         isNavbarVisible = false
+        ctrl.shadowIsVisible = false
+        
         navController.pushViewController(ctrl, animated: true)
         
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
-            self.view.backgroundColor = TapplMagic.mainBackgroundColor2
+            self.view.backgroundColor = TapplMagic.darkBackgroundColor
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
@@ -45,6 +48,7 @@ class TapplNavigator: UIViewController {
     func popController(_ ctrl: UIViewController) {
         ctrl.navigationController?.popViewController(animated: true)
         isNavbarVisible = ctrl.navigationController?.viewControllers.count == 1
+        
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
             self.view.backgroundColor = TapplMagic.mainBackgroundColor
             self.setNeedsStatusBarAppearanceUpdate()

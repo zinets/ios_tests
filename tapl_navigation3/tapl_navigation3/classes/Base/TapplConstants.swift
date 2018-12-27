@@ -10,8 +10,15 @@ import UIKit
 
 struct TapplMagic {
     static let navigationAnimationDuration: TimeInterval = 0.4
+    static let navigationBarHeight: CGFloat = 52
+    
     /// сероватый, почти белый фон фона, поверх которого белые контроллеры (цвет статусбара, навбара)
     static let mainBackgroundColor = UIColor(rgb: 0xf9f8f6)
     /// черный фон, когда что-то запушилось
-    static let mainBackgroundColor2 = UIColor.black
+    static let darkBackgroundColor = UIColor.black
+    /// темный серый фон "как бы нижнего" контроллера
+    static let previousControllerColor = UIColor.magenta //UIColor(rgb: 0x333333)
+    
+    /// скругление углов контроллеров
+    static let viewControllerCornerRadius: CGFloat = 16
 }

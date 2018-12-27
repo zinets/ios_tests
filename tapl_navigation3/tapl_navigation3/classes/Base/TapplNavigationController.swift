@@ -14,8 +14,6 @@ class TapplNavigationController: UINavigationController {
         super.viewDidLoad()
         self.delegate = self
                 
-        self.view.backgroundColor = TapplMagic.mainBackgroundColor
-        
         // включение тени (здесь и в таббар контроллере)
         for v in self.view.subviews {
             print("view: \(v)")

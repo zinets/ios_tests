@@ -198,6 +198,7 @@
                     </view>
                     <connections>
                         <outlet property="navbarHeight" destination="cxc-nK-fcg" id="GaY-tz-gTp"/>
+                        <outlet property="tabbarView" destination="jvs-s3-fHB" id="XBl-Kl-aHz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQw-5Y-fSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
