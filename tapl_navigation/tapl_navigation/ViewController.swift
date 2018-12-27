@@ -20,6 +20,5 @@ class ViewController: TapplBaseViewController, UITableViewDataSource {
         return cell
     }
 
-
 }
 

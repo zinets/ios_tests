@@ -14,6 +14,15 @@ class TapplTabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.clipsToBounds = false
+        
+        for v in self.view.subviews {
+            print("view: \(v)")
+            if v.clipsToBounds {
+                v.clipsToBounds = false
+            }
+        }
+        
         self.delegate = self
     }
    
@@ -41,8 +50,7 @@ class TapplTabbarController: UITabBarController {
         interactiveAnimator.setupSwitchGesture(viewController: selectedViewController)
         
     }
-  
-    
+        
 }
 
 // MARK: - custom animation
@@ -59,7 +67,7 @@ extension TapplTabbarController: UITabBarControllerDelegate {
             let _ = toVC as? TapplNavigationController
         else { return nil }
         
-        return TapplSwitchAnimator()
+        return TapplSwitchAnimator2()
     }
     
 }

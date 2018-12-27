@@ -31,30 +31,30 @@ class TapplPresentationController: UIPresentationController {
 //        presentedView?.frame = frame
 //    }
     
-    override func presentationTransitionDidEnd(_ completed: Bool) {
-        let presented = self.presentedViewController
-        let presenting = self.presentingViewController
-        let view = self.presentingViewController.view
-        
-        if firstView == nil && presenting.presentingViewController == nil {
-            firstView = view!.snapshotView(afterScreenUpdates: true)
-            firstView?.frame.origin.y = -39 // 39???
-            
-            containerView?.insertSubview(firstView!, at: 0)
-            
-            guard let coordinator = presentedViewController.transitionCoordinator else {
-                return
-            }
-            coordinator.animate(alongsideTransition: { (_) in
-            
-            }) { (_) in
-                
-            }
-            
-        }
-        
-        print("completed \(completed)")
-        
-    }
+//    override func presentationTransitionDidEnd(_ completed: Bool) {
+//        let presented = self.presentedViewController
+//        let presenting = self.presentingViewController
+//        let view = self.presentingViewController.view
+//        
+//        if firstView == nil && presenting.presentingViewController == nil {
+//            firstView = view!.snapshotView(afterScreenUpdates: true)
+//            firstView?.frame.origin.y = -39 // 39???
+//            
+//            containerView?.insertSubview(firstView!, at: 0)
+//            
+//            guard let coordinator = presentedViewController.transitionCoordinator else {
+//                return
+//            }
+//            coordinator.animate(alongsideTransition: { (_) in
+//            
+//            }) { (_) in
+//                
+//            }
+//            
+//        }
+//        
+//        print("completed \(completed)")
+//        
+//    }
     
 }

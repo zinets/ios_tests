@@ -20,6 +20,7 @@
 		492EA74621BABD3100F52A66 /* TapplBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EA74521BABD3100F52A66 /* TapplBaseView.swift */; };
 		4936BCD221C79FA70073B86B /* TapplTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936BCD121C79FA70073B86B /* TapplTabbarController.swift */; };
 		4936BCFD21C943740073B86B /* Storyboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4936BCFC21C943740073B86B /* Storyboard1.storyboard */; };
+		49540D1921D4CCD8007B153D /* TapplMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D1821D4CCD8007B153D /* TapplMainViewController.swift */; };
 		497FE65821CBDD3A00D5E2BA /* TapplBaseViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FE65721CBDD3900D5E2BA /* TapplBaseViewController2.swift */; };
 		497FE65C21CBDEBB00D5E2BA /* TapplPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FE65B21CBDEBB00D5E2BA /* TapplPresentationController.swift */; };
 		497FE65E21CBDED600D5E2BA /* TapplPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497FE65D21CBDED600D5E2BA /* TapplPresentationDelegate.swift */; };
@@ -41,6 +42,7 @@
 		492EA74521BABD3100F52A66 /* TapplBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplBaseView.swift; sourceTree = "<group>"; };
 		4936BCD121C79FA70073B86B /* TapplTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplTabbarController.swift; sourceTree = "<group>"; };
 		4936BCFC21C943740073B86B /* Storyboard1.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard1.storyboard; sourceTree = "<group>"; };
+		49540D1821D4CCD8007B153D /* TapplMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplMainViewController.swift; sourceTree = "<group>"; };
 		497FE65721CBDD3900D5E2BA /* TapplBaseViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplBaseViewController2.swift; sourceTree = "<group>"; };
 		497FE65B21CBDEBB00D5E2BA /* TapplPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplPresentationController.swift; sourceTree = "<group>"; };
 		497FE65D21CBDED600D5E2BA /* TapplPresentationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplPresentationDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				497FE65721CBDD3900D5E2BA /* TapplBaseViewController2.swift */,
 				497FE65B21CBDEBB00D5E2BA /* TapplPresentationController.swift */,
 				497FE65D21CBDED600D5E2BA /* TapplPresentationDelegate.swift */,
+				49540D1821D4CCD8007B153D /* TapplMainViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				492EA74221BA6FEF00F52A66 /* TapplNavigationBar.swift in Sources */,
 				497FE65E21CBDED600D5E2BA /* TapplPresentationDelegate.swift in Sources */,
 				4904E97221BFBC6A00AA4673 /* TapplNavigationController.swift in Sources */,
+				49540D1921D4CCD8007B153D /* TapplMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
