@@ -13,7 +13,7 @@
         <!--Search controller-->
         <scene sceneID="73o-pQ-8mg">
             <objects>
-                <navigationController navigationBarHidden="YES" id="eya-fv-9Y8" userLabel="Search controller" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="eya-fv-9Y8" userLabel="Search controller" customClass="TapplNavigationController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="F7c-IW-hjZ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -57,7 +57,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="FnH-vI-Zwb" kind="show" id="rOT-r1-3QI"/>
+                                    <action selector="push:" destination="OWx-kd-X92" eventType="touchUpInside" id="F8r-0a-i1n"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="это сирч" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-G3-e9g">
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1096.8" y="-283.80809595202402"/>
         </scene>
-        <!--View Controller-->
+        <!--Tappl Base View Controller-->
         <scene sceneID="NSc-R2-bru">
             <objects>
-                <viewController id="FnH-vI-Zwb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WhiteCtrl" id="FnH-vI-Zwb" customClass="TapplBaseViewController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mrk-zc-7VU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,11 +99,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-9u-4ZN">
-                                <rect key="frame" x="58" y="71" width="30" height="30"/>
+                                <rect key="frame" x="42" y="61" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;&lt;&lt;"/>
+                                <state key="normal" title="астанавись, назад!!"/>
                                 <connections>
-                                    <action selector="backAction:" destination="FnH-vI-Zwb" eventType="touchUpInside" id="NqJ-Ix-GKJ"/>
+                                    <action selector="backAction:" destination="FnH-vI-Zwb" eventType="touchUpInside" id="3U9-T9-YoY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-jx-zwv">
+                                <rect key="frame" x="117" y="99" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="пушь исчо!!"/>
+                                <connections>
+                                    <action selector="push:" destination="FnH-vI-Zwb" eventType="touchUpInside" id="JaR-kI-vfV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3G-Ie-du9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018" y="-353"/>
+            <point key="canvasLocation" x="1814" y="-374"/>
         </scene>
     </scenes>
 </document>

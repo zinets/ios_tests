@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tappl Navigator-->
         <scene sceneID="H9I-Ca-a8a">
             <objects>
-                <viewController id="xPP-nd-b9H" sceneMemberID="viewController">
+                <viewController id="xPP-nd-b9H" customClass="TapplNavigator" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uGW-4f-Och">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-s3-fHB" userLabel="tabbar">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-s3-fHB" userLabel="tabbar">
                                 <rect key="frame" x="0.0" y="44" width="414" height="52"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8j-oo-NRg" userLabel="search">
@@ -62,9 +62,6 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" red="0.97643274069999997" green="0.97246271370000004" blue="0.96424978969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -142,11 +139,6 @@
                                             <constraint firstAttribute="width" constant="34" id="dLN-eh-oBW"/>
                                             <constraint firstAttribute="height" constant="34" id="r7v-FX-gKn"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="17"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFK-YA-hYU">
                                         <rect key="frame" x="16" y="10" width="32" height="32"/>
@@ -155,14 +147,6 @@
                                             <constraint firstAttribute="width" constant="32" id="0y0-Ob-MJi"/>
                                             <constraint firstAttribute="height" constant="32" id="Wmt-v4-D58"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="16"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-Jw-ber">
                                         <rect key="frame" x="53" y="18" width="8.5" height="16"/>
@@ -171,7 +155,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.97643274068832397" green="0.97246271371841431" blue="0.96424978971481323" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="kZF-7X-2IP" firstAttribute="centerY" secondItem="7an-NI-Zik" secondAttribute="centerY" id="0uN-Ac-tAZ"/>
                                     <constraint firstItem="7an-NI-Zik" firstAttribute="centerX" secondItem="jvs-s3-fHB" secondAttribute="centerX" id="75e-Lm-LkY"/>
@@ -200,7 +184,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="0.45645774490000002" green="0.36740506319999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97254901960784312" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="f3O-Cv-pza" secondAttribute="trailing" id="LZh-bm-swV"/>
                             <constraint firstItem="f3O-Cv-pza" firstAttribute="top" secondItem="jvs-s3-fHB" secondAttribute="bottom" id="PjU-vj-yQJ"/>
@@ -212,6 +196,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5jI-8S-PaX"/>
                     </view>
+                    <connections>
+                        <outlet property="navbarHeight" destination="cxc-nK-fcg" id="GaY-tz-gTp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQw-5Y-fSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,7 +207,8 @@
         <!--Tappl Tabbar Controller-->
         <scene sceneID="hJu-ds-0j5">
             <objects>
-                <tabBarController id="jgB-o5-AAh" customClass="TapplTabbarController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="jgB-o5-AAh" customClass="TapplTabbarController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4o4-fH-bpC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

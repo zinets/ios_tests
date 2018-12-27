@@ -13,13 +13,23 @@ class TapplTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // включение тени (здесб и в навконтроллере!)
+        for v in self.view.subviews {
+            if v.clipsToBounds {
+                v.clipsToBounds = false
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         // для того чтобы таббар не просто скрылся, а и не влиял на автолаяуты, нужно в сториборде у таббара убрать галочку transfucent
-        self.tabBar.transform = CGAffineTransform(translationX: 0, y: self.tabBar.bounds.size.height)
+//        self.tabBar.transform = CGAffineTransform(translationX: 0, y: self.tabBar.bounds.size.height)
+        // или
+//        self.tabBar.frame.origin.y += self.tabBar.frame.size.height
+//        self.tabBar.frame.size.height = 0
+        // НО! все равно не работает
     }
 
 }

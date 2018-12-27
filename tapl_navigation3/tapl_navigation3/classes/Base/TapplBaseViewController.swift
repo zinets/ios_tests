@@ -41,6 +41,14 @@ class TapplBaseViewController: UIViewController {
         self.shadowIsVisible = true
     }
     
-
-
+    @IBAction func backAction(_ sender: Any) {
+       myCtrl.popController(self)
+    }
+    
+    @IBAction func push(_ sender: Any) {
+        let ctrl = UIStoryboard(name: "TapplSearch", bundle: nil).instantiateViewController(withIdentifier: "WhiteCtrl")
+        myCtrl.pushController(ctrl, navController: self.navigationController!)
+    }
+    
+    
 }
