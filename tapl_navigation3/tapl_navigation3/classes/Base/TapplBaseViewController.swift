@@ -18,6 +18,9 @@ class TapplBaseViewController: UIViewController {
             }
         }
     }
+    // место таскания для возврата на пред. контроллер
+    var handleView: UIView!
+    
     // тень вокруг окна, нужна только для "корневого" контроллера
     var shadowIsVisible: Bool = false {
         didSet {
@@ -42,6 +45,41 @@ class TapplBaseViewController: UIViewController {
         self.view.layer.shadowOpacity = 0.0
         self.view.layer.shadowOffset = CGSize(width: 0, height: -4)
         self.view.layer.shadowColor = TapplMagic.controllerShadowColor.cgColor
+        
+        self.addHandle()
+    }
+    
+    private func addHandle () {
+        handleView = UIView()
+        handleView.translatesAutoresizingMaskIntoConstraints = false
+        handleView.backgroundColor = UIColor.red
+        handleView.isHidden = false
+        
+        self.view.addSubview(handleView)
+        // модно, стильно, молодежно!
+        NSLayoutConstraint.activate([
+            handleView.widthAnchor.constraint(equalToConstant: 200),
+            handleView.heightAnchor.constraint(equalToConstant: 3 * 4),
+            handleView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+            handleView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
+            ])
+        //        handleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        //        handleView.heightAnchor.constraint(equalToConstant: 3 * 4).isActive = true
+        //        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        //        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
+        
+        let grayView = UIView()
+        grayView.translatesAutoresizingMaskIntoConstraints = false
+        grayView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        grayView.layer.cornerRadius = 2
+        
+        handleView.addSubview(grayView)
+        NSLayoutConstraint.activate([
+            grayView.widthAnchor.constraint(equalToConstant: 46),
+            grayView.heightAnchor.constraint(equalToConstant: 4),
+            grayView.centerXAnchor.constraint(equalTo: handleView.centerXAnchor),
+            grayView.centerYAnchor.constraint(equalTo: handleView.centerYAnchor),
+            ])
     }
     
     override func viewDidLoad() {

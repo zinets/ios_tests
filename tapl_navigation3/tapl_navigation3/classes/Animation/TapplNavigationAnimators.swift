@@ -58,12 +58,13 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.transform = .identity
             
             fromViewController.view.frame = finishFrameFromView
+            fromViewController.view.layoutIfNeeded()
+            
             fromViewController.view.alpha = 0
             fakeView.frame = finishFrameFromView
             fakeView.alpha = 1
         }
         let toComplete: BlockToFinish = { _ in
-            
             
             fromViewController.view.alpha = 1
             fromViewController.view.transform = .identity
@@ -108,6 +109,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.transform = .identity
         let toAnimate: BlockToAnimate = {
             toViewController.view.frame = finishFrameToView
+            toViewController.view.layoutIfNeeded()
             toViewController.view.alpha = 1
             
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
