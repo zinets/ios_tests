@@ -43,6 +43,8 @@ class TapplNavigator: UIViewController {
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
             self.view.backgroundColor = self.bgColor()
             self.setNeedsStatusBarAppearanceUpdate()
+            
+            ctrl.isHandleViewVisible = true
         }
     }
     
@@ -53,6 +55,10 @@ class TapplNavigator: UIViewController {
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
             self.view.backgroundColor = self.bgColor()
             self.setNeedsStatusBarAppearanceUpdate()
+            
+            if let tappleCtrl = ctrl as? TapplBaseViewController {
+                tappleCtrl.isHandleViewVisible = !self.isNavbarVisible
+            }
         }
     }
     

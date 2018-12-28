@@ -18,8 +18,14 @@ class TapplBaseViewController: UIViewController {
             }
         }
     }
+    
     // место таскания для возврата на пред. контроллер
-    var handleView: UIView!
+    private var handleView: UIView!
+    var isHandleViewVisible: Bool = false {
+        didSet {
+            handleView.isHidden = !isHandleViewVisible
+        }
+    }
     
     // тень вокруг окна, нужна только для "корневого" контроллера
     var shadowIsVisible: Bool = false {
@@ -52,21 +58,17 @@ class TapplBaseViewController: UIViewController {
     private func addHandle () {
         handleView = UIView()
         handleView.translatesAutoresizingMaskIntoConstraints = false
-        handleView.backgroundColor = UIColor.red
-        handleView.isHidden = false
+        handleView.backgroundColor = UIColor.clear
+        handleView.isHidden = true
         
         self.view.addSubview(handleView)
         // модно, стильно, молодежно!
         NSLayoutConstraint.activate([
-            handleView.widthAnchor.constraint(equalToConstant: 200),
-            handleView.heightAnchor.constraint(equalToConstant: 3 * 4),
+            handleView.widthAnchor.constraint(equalToConstant: 300),
+            handleView.heightAnchor.constraint(equalToConstant: TapplMagic.viewControllerCornerRadius),
             handleView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
             handleView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
             ])
-        //        handleView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        //        handleView.heightAnchor.constraint(equalToConstant: 3 * 4).isActive = true
-        //        handleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        //        handleView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0).isActive = true
         
         let grayView = UIView()
         grayView.translatesAutoresizingMaskIntoConstraints = false

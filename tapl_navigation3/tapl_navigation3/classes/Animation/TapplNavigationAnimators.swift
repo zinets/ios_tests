@@ -64,8 +64,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fakeView.frame = finishFrameFromView
             fakeView.alpha = 1
         }
-        let toComplete: BlockToFinish = { _ in
-            
+        let toComplete: BlockToFinish = { _ in            
             fromViewController.view.alpha = 1
             fromViewController.view.transform = .identity
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
