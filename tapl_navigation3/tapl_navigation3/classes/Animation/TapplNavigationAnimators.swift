@@ -84,7 +84,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         guard
             let toViewController = transitionContext.viewController(forKey: .to) as? TapplBaseViewController,
             let fromViewController = transitionContext.viewController(forKey: .from) as? TapplBaseViewController
-            else { return }
+        else { return }
         
         transitionContext.containerView.clipsToBounds = false
         
@@ -109,8 +109,9 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toAnimate: BlockToAnimate = {
             toViewController.view.frame = finishFrameToView
             toViewController.view.alpha = 1
-        
+            
             fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
+            fromViewController.shadowedView?.alpha = 0
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.shadowedView = nil // TODO а проверить - может отменится поп?
