@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="119f5f82-355a-452d-a2f4-2ea4fe83d44a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tapl_navigation3/classes/Animation/TapplNavigationAnimators.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tapl_navigation3/classes/Base/TapplNavigationController.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tapl_navigation3/classes/Base/TapplNavigator.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tapl_navigation3.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/tapl_navigation3.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tapl_navigation3/classes/Base/TapplBaseViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/tapl_navigation3/classes/Base/TapplBaseViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tapl_navigation3/classes/UI/TapplSearch.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/tapl_navigation3/classes/UI/TapplSearch.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tapl_navigation3/classes/UI/TapplTabbar.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/tapl_navigation3/classes/UI/TapplTabbar.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tapl_navigation3/classes/tabbar/TapplTabbarController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/tapl_navigation3/classes/tabbar/TapplTabbarController.swift" afterDir="false" />
-    </list>
+    <list default="true" id="119f5f82-355a-452d-a2f4-2ea4fe83d44a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +69,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />

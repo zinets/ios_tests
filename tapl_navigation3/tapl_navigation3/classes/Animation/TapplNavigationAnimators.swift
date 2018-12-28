@@ -31,12 +31,18 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         // старый контроллер, начало
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         // старый контроллер, конечное положение
-        let finishFrameFromView = CGRect(x: 20, y: 4, width: screenFrame.size.width - 40, height: screenFrame.size.height - 4)
+        let finishFrameFromView = CGRect(x: TapplMagic.viewControllerPushedOffset,
+                                         y: TapplMagic.previousControllerTopOffset,
+                                         width: screenFrame.size.width - 2 * TapplMagic.viewControllerPushedOffset,
+                                         height: screenFrame.size.height - TapplMagic.previousControllerTopOffset)
         fromViewController.view.frame = startFrame
         
         // fake view
-        let fakeView = UIView(frame: CGRect(x: 20, y: 4, width: screenFrame.size.width - 40, height: 100))
-        fakeView.layer.cornerRadius = 12
+        let fakeView = UIView(frame: CGRect(x: TapplMagic.viewControllerPushedOffset,
+                                            y: TapplMagic.previousControllerTopOffset,
+                                            width: screenFrame.size.width - 2 * TapplMagic.viewControllerPushedOffset,
+                                            height: 100)) // от фонаря высота, все равно не видно
+        fakeView.layer.cornerRadius = TapplMagic.fakeControllerCornerRadius
         fakeView.backgroundColor = TapplMagic.previousControllerColor
         fakeView.alpha = 0
         fakeView.frame = startFrame
@@ -44,7 +50,7 @@ class TapplPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         toViewController.view.superview?.insertSubview(fakeView, belowSubview: toViewController.view)
         
         var finishFrame = transitionContext.finalFrame(for: toViewController)
-        finishFrame.origin.y = 20
+        finishFrame.origin.y = TapplMagic.currentControllerTopOffset
         toViewController.view.frame = finishFrame
         toViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
         
@@ -85,15 +91,26 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         transitionContext.containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         let duration = self.transitionDuration(using: transitionContext)
         
-        let startFrame = transitionContext.initialFrame(for: fromViewController)
-        let finishFrame = transitionContext.finalFrame(for: toViewController)
+        let screenFrame = UIScreen.main.bounds
+        let startFrameToView = CGRect(x: TapplMagic.viewControllerPushedOffset,
+                                         y: TapplMagic.previousControllerTopOffset,
+                                         width: screenFrame.size.width - 2 * TapplMagic.viewControllerPushedOffset,
+                                         height: screenFrame.size.height - TapplMagic.previousControllerTopOffset)
+        var finishFrameToView = transitionContext.finalFrame(for: toViewController)
+        finishFrameToView.origin.y = TapplMagic.currentControllerTopOffset // ИЛИ 52 для самого 1го
         
+        toViewController.view.frame = startFrameToView
+        toViewController.view.alpha = 0
+        
+        let startFrame = transitionContext.initialFrame(for: fromViewController)
         fromViewController.view.frame = startFrame
-        toViewController.view.frame = finishFrame
         
         toViewController.view.transform = .identity
         let toAnimate: BlockToAnimate = {
-            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: finishFrame.size.height)
+            toViewController.view.frame = finishFrameToView
+            toViewController.view.alpha = 1
+        
+            fromViewController.view.transform = CGAffineTransform(translationX: 0, y: startFrame.size.height)
         }
         let toComplete: BlockToFinish = { _ in
             fromViewController.shadowedView = nil // TODO а проверить - может отменится поп?

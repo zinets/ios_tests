@@ -21,4 +21,11 @@ struct TapplMagic {
     
     /// скругление углов контроллеров
     static let viewControllerCornerRadius: CGFloat = 16
+    /// скругление как-бы нижнего контроллера
+    static let fakeControllerCornerRadius: CGFloat = 10
+    /// уменьшение ширины при пуше
+    static let viewControllerPushedOffset: CGFloat = 20
+    /// после пуша пред. контроллер замирает за 4 пк до статусбара, текущий - за 16 (ну или что там дизеры напридумают
+    static let previousControllerTopOffset: CGFloat = 4
+    static let currentControllerTopOffset: CGFloat = 16
 }

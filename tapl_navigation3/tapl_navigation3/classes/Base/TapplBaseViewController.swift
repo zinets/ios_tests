@@ -10,6 +10,7 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
+    // призрак предыдущего контроллера
     var shadowedView: UIView? {
         willSet {
             if let view = shadowedView {
@@ -17,7 +18,7 @@ class TapplBaseViewController: UIViewController {
             }
         }
     }
-
+    // тень вокруг окна, нужна только для "корневого" контроллера
     var shadowIsVisible: Bool = false {
         didSet {
             let animation = CABasicAnimation(keyPath: "shadowOpacity")
@@ -33,9 +34,7 @@ class TapplBaseViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    private func setupAppearance() {
         self.view.layer.cornerRadius = TapplMagic.viewControllerCornerRadius
         self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
@@ -43,6 +42,11 @@ class TapplBaseViewController: UIViewController {
         self.view.layer.shadowOpacity = 0.0
         self.view.layer.shadowOffset = CGSize(width: 0, height: -4)
         self.view.layer.shadowColor = UIColor.red.cgColor
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupAppearance()
         
         self.shadowIsVisible = true
     }

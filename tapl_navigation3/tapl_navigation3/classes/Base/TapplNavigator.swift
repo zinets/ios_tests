@@ -19,9 +19,10 @@ class TapplNavigator: UIViewController {
     private var isNavbarVisible: Bool = true {
         didSet {
             self.view.layoutIfNeeded()
+            self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
             UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
                 self.navbarHeight.constant = self.isNavbarVisible ? TapplMagic.navigationBarHeight : 0
-                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
+//                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
                 self.view.layoutIfNeeded()
             }
         }
@@ -40,7 +41,7 @@ class TapplNavigator: UIViewController {
         navController.pushViewController(ctrl, animated: true)
         
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
-            self.view.backgroundColor = TapplMagic.darkBackgroundColor
+            self.view.backgroundColor = self.bgColor()
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
@@ -50,9 +51,13 @@ class TapplNavigator: UIViewController {
         isNavbarVisible = ctrl.navigationController?.viewControllers.count == 1
         
         UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
-            self.view.backgroundColor = TapplMagic.mainBackgroundColor
+            self.view.backgroundColor = self.bgColor()
             self.setNeedsStatusBarAppearanceUpdate()
         }
+    }
+    
+    private func bgColor() -> UIColor {
+        return isNavbarVisible ? TapplMagic.mainBackgroundColor : TapplMagic.darkBackgroundColor
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
