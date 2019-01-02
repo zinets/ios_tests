@@ -114,14 +114,26 @@
                                     <action selector="push:" destination="FnH-vI-Zwb" eventType="touchUpInside" id="JaR-kI-vfV"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPV-O1-dqA">
+                                <rect key="frame" x="176" y="650" width="198" height="16"/>
+                                <color key="backgroundColor" red="0.98948663469999998" green="0.28019067650000001" blue="0.1173506007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="3cC-e5-XUn"/>
+                                    <constraint firstAttribute="height" constant="16" id="GmY-SK-4tn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GPV-O1-dqA" firstAttribute="trailing" secondItem="AXt-6s-SZZ" secondAttribute="trailing" constant="-1" id="OeP-md-geI"/>
+                            <constraint firstItem="GPV-O1-dqA" firstAttribute="bottom" secondItem="AXt-6s-SZZ" secondAttribute="bottom" constant="-1" id="j1p-xQ-Pj8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AXt-6s-SZZ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3G-Ie-du9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="-374"/>
+            <point key="canvasLocation" x="1813.5999999999999" y="-374.66266866566718"/>
         </scene>
     </scenes>
 </document>
