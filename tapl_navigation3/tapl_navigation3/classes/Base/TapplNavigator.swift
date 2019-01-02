@@ -16,15 +16,16 @@ class TapplNavigator: UIViewController {
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
     @IBOutlet weak var tabbarView: UIView!
     
-    private var isNavbarVisible: Bool = true {
+    var isNavbarVisible: Bool = true {
         didSet {
             self.view.layoutIfNeeded()
             self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
             UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
                 self.navbarHeight.constant = self.isNavbarVisible ? TapplMagic.navigationBarHeight : 0
 //                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
+                self.view.backgroundColor = self.bgColor()
                 self.view.layoutIfNeeded()
-            }
+            }            
         }
     }
     

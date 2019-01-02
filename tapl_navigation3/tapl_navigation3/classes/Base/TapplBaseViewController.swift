@@ -133,22 +133,21 @@ extension TapplBaseViewController: UINavigationControllerDelegate {
         switch gesture.state {
         case .began:
             self.interactionController = UIPercentDrivenInteractiveTransition()
-//            self.navigationController!.popViewController(animated: true)
-            myCtrl.popController(self)
+            self.navigationController!.popViewController(animated: true)
+            myCtrl.isNavbarVisible = self.navigationController?.viewControllers.count == 1
+//            myCtrl.popController(self)
             break
         case .changed:
             self.interactionController?.update(progress)
             break
-        case .cancelled:
-            self.interactionController?.cancel()
-            break
-        case .ended:
+        case .cancelled, .ended:
             let velocity = gesture.velocity(in: gesture.view)
             
-            if progress > 0.5 || velocity.y > 0 {
+            if progress > 0.5 || velocity.y > 0 || gesture.state == .cancelled {
                 self.interactionController?.finish()
             } else {
                 self.interactionController?.cancel()
+                myCtrl.isNavbarVisible = false
             }
             self.interactionController = nil
             break

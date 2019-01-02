@@ -97,10 +97,9 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                          width: screenFrame.size.width - 2 * TapplMagic.viewControllerPushedOffset,
                                          height: screenFrame.size.height - TapplMagic.previousControllerTopOffset)
         var finishFrameToView = transitionContext.finalFrame(for: toViewController)
-        if let navCtrl = toViewController.navigationController {
-            if navCtrl.viewControllers.count > 1 {
-                finishFrameToView.origin.y = TapplMagic.currentControllerTopOffset
-            }
+        if let navCtrl = toViewController.navigationController,
+            navCtrl.viewControllers.count > 1 {
+            finishFrameToView.origin.y = TapplMagic.currentControllerTopOffset            
         } else {
             finishFrameToView.origin.y = 0
         }
@@ -121,7 +120,12 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromViewController.shadowedView?.alpha = 0
         }
         let toComplete: BlockToFinish = { _ in
-            fromViewController.shadowedView = nil // TODO а проверить - может отменится поп?
+            if !transitionContext.transitionWasCancelled {
+                fromViewController.shadowedView = nil
+            } else {
+                fromViewController.shadowedView?.alpha = 1
+            }
+            
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
