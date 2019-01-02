@@ -129,13 +129,15 @@ extension TapplBaseViewController: UINavigationControllerDelegate {
     @objc private func handleBackGesture(_ gesture : UIPanGestureRecognizer) {
         let viewTranslation = gesture.translation(in: gesture.view?.superview)
         let progress = viewTranslation.y / self.view.frame.height
-        
+
         switch gesture.state {
         case .began:
-            self.interactionController = UIPercentDrivenInteractiveTransition()
-            self.navigationController!.popViewController(animated: true)
-            myCtrl.isNavbarVisible = self.navigationController?.viewControllers.count == 1
-//            myCtrl.popController(self)
+            if let navCtrl = self.navigationController {
+                self.interactionController = UIPercentDrivenInteractiveTransition()
+                navCtrl.popViewController(animated: true)
+                myCtrl.isNavbarVisible = self.navigationController?.viewControllers.count == 1
+                //            myCtrl.popController(self)
+            }
             break
         case .changed:
             self.interactionController?.update(progress)
@@ -150,6 +152,7 @@ extension TapplBaseViewController: UINavigationControllerDelegate {
                 myCtrl.isNavbarVisible = false
             }
             self.interactionController = nil
+            
             break
         default:
             return
