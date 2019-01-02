@@ -198,6 +198,7 @@
                     </view>
                     <connections>
                         <outlet property="navbarHeight" destination="cxc-nK-fcg" id="GaY-tz-gTp"/>
+                        <outlet property="tabbarTop" destination="iFI-oV-UXG" id="Idd-Dx-sNh"/>
                         <outlet property="tabbarView" destination="jvs-s3-fHB" id="XBl-Kl-aHz"/>
                     </connections>
                 </viewController>
