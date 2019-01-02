@@ -71,8 +71,6 @@ class TapplNavigator: UIViewController {
             return self.isNavbarVisible ? UIStatusBarStyle.default : UIStatusBarStyle.lightContent
         }
     }
-    
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
+ 
 }
+

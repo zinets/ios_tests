@@ -45,7 +45,7 @@ class TapplBaseViewController: UIViewController {
     
     private func setupAppearance() {
         self.view.layer.cornerRadius = TapplMagic.viewControllerCornerRadius
-        self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        self.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // iOS11+
         
         self.view.layer.shadowRadius = 10
         self.view.layer.shadowOpacity = 0.0
@@ -84,22 +84,94 @@ class TapplBaseViewController: UIViewController {
             ])
     }
     
+    var handleForBackGesture: UIView? {
+        return self.handleView
+    }
+    
+    private var interactionController: UIPercentDrivenInteractiveTransition?
+    private func setupRecognizing() {
+        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleBackGesture(_:)))
+        self.handleView.addGestureRecognizer(panRecognizer)
+    }
+    
+    // MARK: -
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAppearance()
+        self.setupRecognizing()
         
         self.shadowIsVisible = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.delegate = self
     }
     
     @IBAction func backAction(_ sender: Any) {
        myCtrl.popController(self)
     }
     
+    // test push
     @IBAction func push(_ sender: Any) {
         if let ctrl = UIStoryboard(name: "TapplSearch", bundle: nil).instantiateViewController(withIdentifier: "WhiteCtrl") as? TapplBaseViewController {
             myCtrl.pushController(ctrl, navController: self.navigationController!)
         }
     }
     
+    
+}
+
+extension TapplBaseViewController: UINavigationControllerDelegate {
+    
+    @objc private func handleBackGesture(_ gesture : UIPanGestureRecognizer) {
+        let viewTranslation = gesture.translation(in: gesture.view?.superview)
+        let progress = viewTranslation.y / self.view.frame.height
+        
+        switch gesture.state {
+        case .began:
+            self.interactionController = UIPercentDrivenInteractiveTransition()
+//            self.navigationController!.popViewController(animated: true)
+            myCtrl.popController(self)
+            break
+        case .changed:
+            self.interactionController?.update(progress)
+            break
+        case .cancelled:
+            self.interactionController?.cancel()
+            break
+        case .ended:
+            let velocity = gesture.velocity(in: gesture.view)
+            
+            if progress > 0.5 || velocity.y > 0 {
+                self.interactionController?.finish()
+            } else {
+                self.interactionController?.cancel()
+            }
+            self.interactionController = nil
+            break
+        default:
+            return
+        }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
+        -> UIViewControllerInteractiveTransitioning? {
+            return self.interactionController
+    }
+    
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .push:
+            return TapplPushAnimator()
+        case .pop:
+            return TapplPopAnimator()
+        default:
+            return nil
+        }
+    }
     
 }
