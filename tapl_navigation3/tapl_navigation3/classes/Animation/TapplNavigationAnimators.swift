@@ -97,7 +97,13 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                          width: screenFrame.size.width - 2 * TapplMagic.viewControllerPushedOffset,
                                          height: screenFrame.size.height - TapplMagic.previousControllerTopOffset)
         var finishFrameToView = transitionContext.finalFrame(for: toViewController)
-        finishFrameToView.origin.y = TapplMagic.currentControllerTopOffset // ИЛИ 52 для самого 1го
+        if let navCtrl = toViewController.navigationController {
+            if navCtrl.viewControllers.count > 1 {
+                finishFrameToView.origin.y = TapplMagic.currentControllerTopOffset
+            }
+        } else {
+            finishFrameToView.origin.y = 0
+        }
         
         toViewController.view.frame = startFrameToView
         toViewController.view.alpha = 0
@@ -122,47 +128,3 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
 }
 
-class TapplPopInteractiveAnimator: UIPercentDrivenInteractiveTransition {
-
-    var shouldCompleteTransition = false
-    var transitionInProgress = false
-    private weak var controller: TapplBaseViewController!
-    
-    init?(with viewController: UIViewController) {
-        if let ctrl = viewController as? TapplBaseViewController, let handleView = ctrl.handleForBackGesture {
-            self.controller = ctrl
-            super.init()
-            let swipeBackGesture = UIPanGestureRecognizer(target: self, action: #selector(handleBackGesture(_:)))
-            handleView.addGestureRecognizer(swipeBackGesture)
-        } else {
-            return nil
-        }
-    }
-    
-    @objc private func handleBackGesture(_ gesture : UIPanGestureRecognizer) {
-        let viewTranslation = gesture.translation(in: gesture.view?.superview)
-        let progress = viewTranslation.y / self.controller.view.frame.height
-        
-        switch gesture.state {
-        case .began:
-            transitionInProgress = true
-            controller.navigationController!.popViewController(animated: true)
-            break
-        case .changed:
-            shouldCompleteTransition = progress > 0.5
-            update(progress)
-            break
-        case .cancelled:
-            transitionInProgress = false
-            cancel()
-            break
-        case .ended:
-            transitionInProgress = false
-            shouldCompleteTransition ? finish() : cancel()
-            break
-        default:
-            return
-        }
-    }
-    
-}
