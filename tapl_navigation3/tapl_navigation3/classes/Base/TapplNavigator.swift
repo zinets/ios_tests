@@ -14,15 +14,15 @@ class TapplNavigator: UIViewController {
     
 
     @IBOutlet weak var navbarHeight: NSLayoutConstraint!
-    @IBOutlet weak var tabbarView: UIView!
+    @IBOutlet weak var tabbarTop: NSLayoutConstraint!
+    @IBOutlet private weak var tabbarView: UIView!
     
     var isNavbarVisible: Bool = true {
         didSet {
             self.view.layoutIfNeeded()
-            self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
             UIView.animate(withDuration: TapplMagic.navigationAnimationDuration) {
-                self.navbarHeight.constant = self.isNavbarVisible ? TapplMagic.navigationBarHeight : 0
-//                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
+                self.tabbarTop.constant = self.isNavbarVisible ? 0 : -TapplMagic.navigationBarHeight
+                self.tabbarView.alpha = self.isNavbarVisible ? 1 : 0
                 self.view.backgroundColor = self.bgColor()
                 self.view.layoutIfNeeded()
             }            
@@ -31,7 +31,7 @@ class TapplNavigator: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // я хз, хак конем :)
         myCtrl = self
     }
     
