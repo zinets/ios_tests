@@ -10,6 +10,8 @@ import UIKit
 
 class TapplBaseViewController: UIViewController {
     
+    private var navBarVisible = false
+    
     // призрак предыдущего контроллера
     var shadowedView: UIView? {
         willSet {
@@ -94,6 +96,40 @@ class TapplBaseViewController: UIViewController {
         self.handleView.addGestureRecognizer(panRecognizer)
     }
     
+    @objc private func handleBackGesture(_ gesture : UIPanGestureRecognizer) {
+        let viewTranslation = gesture.translation(in: gesture.view?.superview)
+        let progress = viewTranslation.y / self.view.frame.height
+        
+        switch gesture.state {
+        case .began:
+            if let navCtrl = self.navigationController {
+                self.interactionController = UIPercentDrivenInteractiveTransition()
+                navCtrl.popViewController(animated: true)
+                self.navBarVisible = self.navigationController?.viewControllers.count == 1
+            }
+            break
+        case .changed:
+            self.interactionController?.update(progress)
+            
+            break
+        case .cancelled, .ended:
+            let velocity = gesture.velocity(in: gesture.view)
+            
+            if (progress > 0.5 || velocity.y > 0 ) && gesture.state != .cancelled {
+                self.interactionController?.finish() // порядок определяет правильный конечный фрейм при pop-е в конревой контроллер
+                myCtrl.isNavbarVisible = self.navBarVisible
+            } else {
+                self.interactionController?.cancel()
+                myCtrl.isNavbarVisible = false
+            }
+            self.interactionController = nil
+            
+            break
+        default:
+            return
+        }
+    }
+    
     // MARK: -
     
     override func viewDidLoad() {
@@ -125,39 +161,6 @@ class TapplBaseViewController: UIViewController {
 }
 
 extension TapplBaseViewController: UINavigationControllerDelegate {
-    
-    @objc private func handleBackGesture(_ gesture : UIPanGestureRecognizer) {
-        let viewTranslation = gesture.translation(in: gesture.view?.superview)
-        let progress = viewTranslation.y / self.view.frame.height
-
-        switch gesture.state {
-        case .began:
-            if let navCtrl = self.navigationController {
-                self.interactionController = UIPercentDrivenInteractiveTransition()
-                navCtrl.popViewController(animated: true)
-                myCtrl.isNavbarVisible = self.navigationController?.viewControllers.count == 1
-                //            myCtrl.popController(self)
-            }
-            break
-        case .changed:
-            self.interactionController?.update(progress)
-            break
-        case .cancelled, .ended:
-            let velocity = gesture.velocity(in: gesture.view)
-            
-            if progress > 0.5 || velocity.y > 0 || gesture.state == .cancelled {
-                self.interactionController?.finish()
-            } else {
-                self.interactionController?.cancel()
-                myCtrl.isNavbarVisible = false
-            }
-            self.interactionController = nil
-            
-            break
-        default:
-            return
-        }
-    }
     
     func navigationController(_ navigationController: UINavigationController,
                               interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)

@@ -13,9 +13,10 @@ var myCtrl: TapplNavigator!
 class TapplNavigator: UIViewController {
     
 
-    @IBOutlet weak var navbarHeight: NSLayoutConstraint!
-    @IBOutlet weak var tabbarTop: NSLayoutConstraint!
+    @IBOutlet private weak var navbarHeight: NSLayoutConstraint!
+    @IBOutlet private weak var tabbarTop: NSLayoutConstraint!
     @IBOutlet private weak var tabbarView: UIView!
+    @IBOutlet private weak var contentView: UIView!
     
     var isNavbarVisible: Bool = true {
         didSet {
