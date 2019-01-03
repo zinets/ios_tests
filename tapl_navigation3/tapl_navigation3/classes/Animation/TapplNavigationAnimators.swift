@@ -132,3 +132,50 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
 }
 
+class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.4
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard
+            let toViewController = transitionContext.viewController(forKey: .to),
+            let fromViewController = transitionContext.viewController(forKey: .from),
+            let tabbarCtrl = fromViewController.tabBarController,
+            let fromView = fromViewController.view,
+            let toView = toViewController.view
+            else { return }
+        
+        let fromIndex = tabbarCtrl.viewControllers?.firstIndex(of: fromViewController)
+        let toIndex = tabbarCtrl.viewControllers?.firstIndex(of: toViewController)
+        
+        let directionRight = toIndex! > fromIndex!
+        
+        transitionContext.containerView.addSubview(fromView)
+        transitionContext.containerView.addSubview(toView)
+        
+        let duration = self.transitionDuration(using: transitionContext)
+        let startFrame = transitionContext.initialFrame(for: fromViewController)
+        let finishFrame = transitionContext.finalFrame(for: toViewController)
+        
+        fromView.frame = startFrame
+        toView.frame = finishFrame
+        toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+        
+        let toAnimate: BlockToAnimate = {
+            fromView.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width / 2, y: 0)
+            toView.transform = .identity
+        }
+        let toComplete: BlockToFinish = { _ in
+            if transitionContext.transitionWasCancelled {
+                toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+            }
+            fromView.transform = .identity
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+        UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
+    }
+    
+}
