@@ -135,7 +135,7 @@ class TapplPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.4
+        return TapplMagic.navigationAnimationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -157,25 +157,98 @@ class TapplSwitchAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         transitionContext.containerView.addSubview(toView)
         
         let duration = self.transitionDuration(using: transitionContext)
-        let startFrame = transitionContext.initialFrame(for: fromViewController)
-        let finishFrame = transitionContext.finalFrame(for: toViewController)
+        let startFrameFromVC = transitionContext.initialFrame(for: fromViewController)
+        let width = startFrameFromVC.size.width
+        let finishFrameFromVC = startFrameFromVC.offsetBy(dx: (directionRight ? -width / 3 : width / 3), dy: 0)
         
-        fromView.frame = startFrame
-        toView.frame = finishFrame
-        toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+        let finishFrameToVC = transitionContext.finalFrame(for: toViewController)
+        let startFrameToVC = finishFrameToVC.offsetBy(dx: (directionRight ? width : -width), dy: 0)
+        
+        
+        fromView.frame = startFrameFromVC
+        toView.frame = startFrameToVC
         
         let toAnimate: BlockToAnimate = {
-            fromView.transform = CGAffineTransform(translationX: (directionRight ? -1 : 1) * startFrame.size.width / 2, y: 0)
-            toView.transform = .identity
+            fromView.frame = finishFrameFromVC
+            toView.frame = finishFrameToVC
         }
         let toComplete: BlockToFinish = { _ in
             if transitionContext.transitionWasCancelled {
-                toView.transform = CGAffineTransform(translationX: (directionRight ? 1 : -1) * finishFrame.size.width, y: 0)
+                fromView.frame = startFrameFromVC
+                toView.frame = startFrameToVC
             }
-            fromView.transform = .identity
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, animations: toAnimate, completion: toComplete)
     }
     
+}
+
+class TapplSwitchInteractiveAnimator: UIPercentDrivenInteractiveTransition, UIGestureRecognizerDelegate {
+    
+    private var panRecognizer: UIPanGestureRecognizer?
+    private var controller : UIViewController!
+    private var shouldCompleteTransition = false
+    var transitionInProgress = false
+    
+    func setupSwitchGesture(viewController: UIViewController?) {
+        guard
+            viewController != controller,
+            viewController is TapplNavigationController
+            else { return }
+        
+        controller = viewController
+        
+        if let ctrl = controller as? TapplNavigationController, ctrl.panInteractiveRecognizer == nil {
+            let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+            ctrl.panInteractiveRecognizer = recognizer
+        }
+        
+    }
+    
+    private var toRightSwipe = false
+    @objc func onPan(_ sender: UIPanGestureRecognizer) {
+        let velosity = sender.velocity(in: sender.view)
+        let translation = sender.translation(in: sender.view)
+        
+        switch sender.state {
+        case .began:
+            if abs(velosity.x) < abs(velosity.y) {
+                transitionInProgress = false
+                return
+            }
+            
+            toRightSwipe = velosity.x > 0 // уменьшаем индекс
+            transitionInProgress = true
+            // вдруг кто-то сделает таббар с 1м табом? самсебе доктор..
+            let tabbarCtrl = controller.tabBarController!
+            if toRightSwipe && tabbarCtrl.selectedIndex > 0 {
+                tabbarCtrl.selectedIndex -= 1
+            } else if !toRightSwipe && tabbarCtrl.selectedIndex < tabbarCtrl.viewControllers!.count - 1 {
+                tabbarCtrl.selectedIndex += 1
+            }
+        case .changed:
+            let translationValue = min(0.99, max(0, abs(translation.x / UIScreen.main.bounds.size.width)))
+            print("\(translationValue)")
+            shouldCompleteTransition = translationValue > 0.5
+            update(translationValue)
+        case .cancelled:
+            transitionInProgress = false
+            cancel()
+        case .ended:
+            if transitionInProgress {
+                transitionInProgress = false
+                
+                shouldCompleteTransition ? finish() : cancel()
+            }
+        default:
+            break
+        }
+    }
+    
+    // MARK: - gesture
+    
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 }

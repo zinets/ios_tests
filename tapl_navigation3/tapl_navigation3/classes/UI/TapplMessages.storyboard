@@ -13,7 +13,7 @@
         <!--Search controller-->
         <scene sceneID="KHQ-AN-4X9">
             <objects>
-                <navigationController navigationBarHidden="YES" id="Pcb-Co-GlZ" userLabel="Search controller" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="Pcb-Co-GlZ" userLabel="Search controller" customClass="TapplNavigationController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="nQa-SD-CKl"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>

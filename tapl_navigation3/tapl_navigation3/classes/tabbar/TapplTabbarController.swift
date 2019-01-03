@@ -10,6 +10,9 @@ import UIKit
 
 class TapplTabbarController: UITabBarController {
     
+    private var interactiveAnimator = TapplSwitchInteractiveAnimator()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,21 +37,39 @@ class TapplTabbarController: UITabBarController {
         // НО! все равно не работает
     }
     
+    // вызывается при ините таббара где-то внутри..
+    override var selectedViewController: UIViewController? {
+        didSet {
+            setupPanRecognizer()
+        }
+    }
+    // вызывается при переключении после тапа по кнопке..
+    override var selectedIndex: Int {
+        didSet {
+            setupPanRecognizer()
+        }
+    }
+    
+    // и надо панрекогнайзер надо подключить в вью контроллера, который теперь сверху
+    private func setupPanRecognizer() {
+        interactiveAnimator.setupSwitchGesture(viewController: selectedViewController)
+        
+    }
+    
 
 }
 
 extension TapplTabbarController: UITabBarControllerDelegate {
     
     public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        return interactiveAnimator.transitionInProgress ? interactiveAnimator : nil
-        return nil
+        return interactiveAnimator.transitionInProgress ? interactiveAnimator : nil
     }
     
     public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        guard
-//            let _ = fromVC as? TapplNavigationController,
-//            let _ = toVC as? TapplNavigationController
-//            else { return nil }
+        guard
+            let _ = fromVC as? TapplNavigationController,
+            let _ = toVC as? TapplNavigationController
+            else { return nil }
         
         return TapplSwitchAnimator()
     }
