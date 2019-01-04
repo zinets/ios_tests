@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49449D7D21DF30300023C4DC /* TapplPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49449D7C21DF30300023C4DC /* TapplPageController.swift */; };
 		49540D3921D4DA57007B153D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D3821D4DA57007B153D /* AppDelegate.swift */; };
 		49540D3B21D4DA57007B153D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D3A21D4DA57007B153D /* ViewController.swift */; };
 		49540D3E21D4DA57007B153D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49540D3C21D4DA57007B153D /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49449D7C21DF30300023C4DC /* TapplPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplPageController.swift; sourceTree = "<group>"; };
 		49540D3521D4DA57007B153D /* tapl_navigation3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tapl_navigation3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49540D3821D4DA57007B153D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49540D3A21D4DA57007B153D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				49540D5621D4DC04007B153D /* TapplBaseViewController.swift */,
 				49540D5E21D4E0AF007B153D /* TapplNavigationController.swift */,
 				49540D6621D4EDC1007B153D /* TapplNavigator.swift */,
+				49449D7C21DF30300023C4DC /* TapplPageController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				49540D3B21D4DA57007B153D /* ViewController.swift in Sources */,
 				49540D5721D4DC04007B153D /* TapplBaseViewController.swift in Sources */,
 				49540D3921D4DA57007B153D /* AppDelegate.swift in Sources */,
+				49449D7D21DF30300023C4DC /* TapplPageController.swift in Sources */,
 				49540D5A21D4DD98007B153D /* TapplTabbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

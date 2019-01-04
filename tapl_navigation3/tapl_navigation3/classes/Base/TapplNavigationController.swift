@@ -10,7 +10,7 @@ import UIKit
 
 class TapplNavigationController: UINavigationController {
 
-    var panInteractiveRecognizer: UIPanGestureRecognizer? {        
+    var panInteractiveRecognizer: UIPanGestureRecognizer? {
         didSet {
             view.addGestureRecognizer(panInteractiveRecognizer!)
         }
@@ -20,8 +20,7 @@ class TapplNavigationController: UINavigationController {
         super.viewDidLoad()
         
         // включение тени (здесь и в таббар контроллере)
-        for v in self.view.subviews {
-            print("view: \(v)")
+        for v in self.view.subviews {            
             if v.clipsToBounds {
                 v.clipsToBounds = false
             }

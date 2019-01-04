@@ -11,8 +11,7 @@ import UIKit
 class TapplTabbarController: UITabBarController {
     
     private var interactiveAnimator = TapplSwitchInteractiveAnimator()
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +71,10 @@ extension TapplTabbarController: UITabBarControllerDelegate {
             else { return nil }
         
         return TapplSwitchAnimator()
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("\(viewController)")
     }
     
 }

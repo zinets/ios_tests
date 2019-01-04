@@ -147,14 +147,25 @@ class TapplBaseViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-       myCtrl.popController(self)
+        if myCtrl != nil {
+            myCtrl.popController(self)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     // test push
     @IBAction func push(_ sender: Any) {
         if let ctrl = UIStoryboard(name: "TapplSearch", bundle: nil).instantiateViewController(withIdentifier: "WhiteCtrl") as? TapplBaseViewController {
-            myCtrl.pushController(ctrl, navController: self.navigationController!)
+            
+            if myCtrl != nil {
+                myCtrl.pushController(ctrl, navController: self.navigationController!)
+            } else {
+                self.navigationController?.pushViewController(ctrl, animated: true)
+            }
         }
+        
+        
     }
     
     
