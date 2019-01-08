@@ -24,6 +24,8 @@ class TapplPageController: UIPageViewController {
         super.viewDidLoad()
 
         self.dataSource = self
+        self.delegate = self
+        
         if let ctrl = orderedViewControllers.first {
             setViewControllers([ctrl], direction: .forward, animated: true, completion: nil)
         }
@@ -38,7 +40,7 @@ extension TapplPageController: UIPageViewControllerDataSource {
         guard let ctrlIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
-      
+      return nil
         let previousIndex = ctrlIndex - 1
         
         guard previousIndex >= 0 else {
@@ -56,6 +58,7 @@ extension TapplPageController: UIPageViewControllerDataSource {
         guard let ctrlIndex = orderedViewControllers.firstIndex(of: viewController) else {
             return nil
         }
+        return nil
         let nextIndex = ctrlIndex + 1
         let orderedViewControllersCount = orderedViewControllers.count
         
@@ -71,3 +74,9 @@ extension TapplPageController: UIPageViewControllerDataSource {
     }
 }
 
+extension TapplPageController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        setViewControllers([orderedViewControllers[0]], direction: .forward, animated: false, completion: nil)
+    }
+}

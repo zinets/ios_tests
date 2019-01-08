@@ -25,6 +25,7 @@
 		49540D6321D4E1BD007B153D /* TapplNavigationAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6221D4E1BD007B153D /* TapplNavigationAnimators.swift */; };
 		49540D6721D4EDC1007B153D /* TapplNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6621D4EDC1007B153D /* TapplNavigator.swift */; };
 		49540D6921D50F1B007B153D /* TapplConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6821D50F1B007B153D /* TapplConstants.swift */; };
+		49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0373921E4791B00C20700 /* HeartIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		49540D6221D4E1BD007B153D /* TapplNavigationAnimators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplNavigationAnimators.swift; sourceTree = "<group>"; };
 		49540D6621D4EDC1007B153D /* TapplNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplNavigator.swift; sourceTree = "<group>"; };
 		49540D6821D50F1B007B153D /* TapplConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplConstants.swift; sourceTree = "<group>"; };
+		49A0373921E4791B00C20700 /* HeartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				49540D5521D4DBCB007B153D /* Base */,
 				49540D5421D4DAF2007B153D /* UI */,
 				49540D5821D4DD6D007B153D /* tabbar */,
+				49A0373921E4791B00C20700 /* HeartIndicatorView.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				49540D6721D4EDC1007B153D /* TapplNavigator.swift in Sources */,
 				49540D3B21D4DA57007B153D /* ViewController.swift in Sources */,
 				49540D5721D4DC04007B153D /* TapplBaseViewController.swift in Sources */,
+				49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */,
 				49540D3921D4DA57007B153D /* AppDelegate.swift in Sources */,
 				49449D7D21DF30300023C4DC /* TapplPageController.swift in Sources */,
 				49540D5A21D4DD98007B153D /* TapplTabbarController.swift in Sources */,

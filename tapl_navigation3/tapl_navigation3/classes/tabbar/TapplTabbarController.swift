@@ -29,7 +29,7 @@ class TapplTabbarController: UITabBarController {
         super.viewDidAppear(animated)
         
         // для того чтобы таббар не просто скрылся, а и не влиял на автолаяуты, нужно в сториборде у таббара убрать галочку transfucent
-//        self.tabBar.transform = CGAffineTransform(translationX: 0, y: self.tabBar.bounds.size.height / 2)
+        self.tabBar.transform = CGAffineTransform(translationX: 0, y: self.tabBar.bounds.size.height / 2)
         // или
 //        self.tabBar.frame.origin.y += self.tabBar.frame.size.height / 2
 //        self.tabBar.frame.size.height = 0

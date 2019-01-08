@@ -18,7 +18,7 @@ struct TapplMagic {
     static let darkBackgroundColor                  = UIColor.black
     /// темный серый фон "как бы нижнего" контроллера
     static let previousControllerColor              = UIColor(rgb: 0x333333)
-    static let controllerShadowColor                = UIColor(rgb: 0xeeece8)
+    static let controllerShadowColor                = UIColor.red //UIColor(rgb: 0xeeece8)
     
     /// скругление углов контроллеров
     static let viewControllerCornerRadius: CGFloat  = 16

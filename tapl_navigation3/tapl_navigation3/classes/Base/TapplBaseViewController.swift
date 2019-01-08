@@ -151,6 +151,7 @@ class TapplBaseViewController: UIViewController {
             myCtrl.popController(self)
         } else {
             self.navigationController?.popViewController(animated: true)
+//            ctrl.isHandleViewVisible = self.navigationController?.viewControllers.count > 1
         }
     }
     
@@ -161,14 +162,12 @@ class TapplBaseViewController: UIViewController {
             if myCtrl != nil {
                 myCtrl.pushController(ctrl, navController: self.navigationController!)
             } else {
+                ctrl.shadowIsVisible = false
+                ctrl.isHandleViewVisible = true
                 self.navigationController?.pushViewController(ctrl, animated: true)
             }
         }
-        
-        
     }
-    
-    
 }
 
 extension TapplBaseViewController: UINavigationControllerDelegate {

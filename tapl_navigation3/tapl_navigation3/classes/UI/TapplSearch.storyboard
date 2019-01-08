@@ -13,7 +13,8 @@
         <!--Search controller-->
         <scene sceneID="73o-pQ-8mg">
             <objects>
-                <navigationController storyboardIdentifier="SearchCtrlID" navigationBarHidden="YES" id="eya-fv-9Y8" userLabel="Search controller" customClass="TapplNavigationController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchCtrlID" extendedLayoutIncludesOpaqueBars="YES" navigationBarHidden="YES" id="eya-fv-9Y8" userLabel="Search controller" customClass="TapplNavigationController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Item" id="F7c-IW-hjZ"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -52,9 +53,8 @@
                                     <constraint firstAttribute="width" constant="50" id="wfw-7q-6iw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-mi-grn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-mi-grn">
                                 <rect key="frame" x="101" y="187" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="push:" destination="OWx-kd-X92" eventType="touchUpInside" id="F8r-0a-i1n"/>
@@ -67,11 +67,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="89" placeholderIntrinsicHeight="32" translatesAutoresizingMaskIntoConstraints="NO" id="yxB-xR-ls4" customClass="HeartIndicatorView" customModule="tapl_navigation3" customModuleProvider="target">
+                                <rect key="frame" x="200" y="39" width="89" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.47971057890000002" blue="0.9994164109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="k6n-zq-fxP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yxB-xR-ls4" firstAttribute="top" secondItem="jhd-Vp-pZE" secondAttribute="top" constant="19" id="7Gi-ug-IFa"/>
+                            <constraint firstItem="Zdl-mi-grn" firstAttribute="leading" secondItem="jhd-Vp-pZE" secondAttribute="leading" constant="101" id="7t5-hR-sIY"/>
                             <constraint firstItem="GMK-hf-gDd" firstAttribute="leading" secondItem="jhd-Vp-pZE" secondAttribute="leading" constant="10" id="90g-UE-Jah"/>
+                            <constraint firstItem="jhd-Vp-pZE" firstAttribute="trailing" secondItem="yxB-xR-ls4" secondAttribute="trailing" constant="31" id="H9U-jg-qdb"/>
                             <constraint firstItem="5pm-D5-dej" firstAttribute="trailing" secondItem="jhd-Vp-pZE" secondAttribute="trailing" id="XL2-D3-6h0"/>
+                            <constraint firstItem="Zdl-mi-grn" firstAttribute="top" secondItem="jhd-Vp-pZE" secondAttribute="top" constant="167" id="jUk-l8-qaM"/>
                             <constraint firstItem="GMK-hf-gDd" firstAttribute="top" secondItem="jhd-Vp-pZE" secondAttribute="top" constant="10" id="oQh-Pw-Q0Y"/>
                             <constraint firstItem="5pm-D5-dej" firstAttribute="bottom" secondItem="jhd-Vp-pZE" secondAttribute="bottom" id="zZY-AG-sc2"/>
                         </constraints>
@@ -81,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QW1-PH-v0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096.8" y="-283.80809595202402"/>
+            <point key="canvasLocation" x="1095" y="-284.15492957746477"/>
         </scene>
         <!--Tappl Base View Controller-->
         <scene sceneID="NSc-R2-bru">
