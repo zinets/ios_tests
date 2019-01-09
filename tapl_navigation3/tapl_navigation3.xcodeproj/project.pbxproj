@@ -26,7 +26,22 @@
 		49540D6721D4EDC1007B153D /* TapplNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6621D4EDC1007B153D /* TapplNavigator.swift */; };
 		49540D6921D50F1B007B153D /* TapplConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6821D50F1B007B153D /* TapplConstants.swift */; };
 		49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0373921E4791B00C20700 /* HeartIndicatorView.swift */; };
+		49A0382221E63D2D00C20700 /* infinite users.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0382121E63D2D00C20700 /* infinite users.xcassets */; };
+		49A0382421E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49A0382021E63C5900C20700 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		49449D7C21DF30300023C4DC /* TapplPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplPageController.swift; sourceTree = "<group>"; };
@@ -50,6 +65,8 @@
 		49540D6621D4EDC1007B153D /* TapplNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplNavigator.swift; sourceTree = "<group>"; };
 		49540D6821D50F1B007B153D /* TapplConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplConstants.swift; sourceTree = "<group>"; };
 		49A0373921E4791B00C20700 /* HeartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartIndicatorView.swift; sourceTree = "<group>"; };
+		49A0382121E63D2D00C20700 /* infinite users.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "infinite users.xcassets"; sourceTree = "<group>"; };
+		49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplInfiniteOnboardingScroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +109,7 @@
 		49540D4A21D4DA63007B153D /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				49A0381821E63BDB00C20700 /* infinite scroller */,
 				49540D5D21D4E05D007B153D /* Animation */,
 				49540D5521D4DBCB007B153D /* Base */,
 				49540D5421D4DAF2007B153D /* UI */,
@@ -154,6 +172,15 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		49A0381821E63BDB00C20700 /* infinite scroller */ = {
+			isa = PBXGroup;
+			children = (
+				49A0382121E63D2D00C20700 /* infinite users.xcassets */,
+				49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */,
+			);
+			path = "infinite scroller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +191,7 @@
 				49540D3121D4DA57007B153D /* Sources */,
 				49540D3221D4DA57007B153D /* Frameworks */,
 				49540D3321D4DA57007B153D /* Resources */,
+				49A0382021E63C5900C20700 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +247,7 @@
 				49540D4F21D4DAC8007B153D /* TapplTabbar.storyboard in Resources */,
 				49540D4021D4DA59007B153D /* Assets.xcassets in Resources */,
 				49540D5321D4DAE3007B153D /* TapplMessages.storyboard in Resources */,
+				49A0382221E63D2D00C20700 /* infinite users.xcassets in Resources */,
 				49540D3E21D4DA57007B153D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +267,7 @@
 				49540D3B21D4DA57007B153D /* ViewController.swift in Sources */,
 				49540D5721D4DC04007B153D /* TapplBaseViewController.swift in Sources */,
 				49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */,
+				49A0382421E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift in Sources */,
 				49540D3921D4DA57007B153D /* AppDelegate.swift in Sources */,
 				49449D7D21DF30300023C4DC /* TapplPageController.swift in Sources */,
 				49540D5A21D4DD98007B153D /* TapplTabbarController.swift in Sources */,
@@ -385,6 +415,7 @@
 		49540D4821D4DA59007B153D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA7JUF7GUE;
@@ -404,6 +435,7 @@
 		49540D4921D4DA59007B153D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GA7JUF7GUE;
