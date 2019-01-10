@@ -175,8 +175,8 @@
 		49A0381821E63BDB00C20700 /* infinite scroller */ = {
 			isa = PBXGroup;
 			children = (
-				49A0382121E63D2D00C20700 /* infinite users.xcassets */,
 				49A0382321E63D5D00C20700 /* TapplInfiniteOnboarding.swift */,
+				49A0382121E63D2D00C20700 /* infinite users.xcassets */,
 			);
 			path = "infinite scroller";
 			sourceTree = "<group>";

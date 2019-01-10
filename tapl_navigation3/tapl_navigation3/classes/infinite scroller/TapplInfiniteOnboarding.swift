@@ -12,17 +12,22 @@ import UIKit
 
 class TapplAnimatedOnboardingBgView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.commonInit()
-    }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        self.commonInit()
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.commonInit()
+//    }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
-    }
-    
+    private var site: UIView?
     private func commonInit() {
+        if site != nil {
+            site!.removeFromSuperview()
+        }
+        
         let angle: CGFloat = 50 // по дизу наклон движущихся полос
         let rad = angle * .pi / 180.0
         let size = self.bounds.size
@@ -35,11 +40,11 @@ class TapplAnimatedOnboardingBgView: UIView {
         let h = H * cosA + W * sinA
         let w = H * sinA + W * cosA
         
-        let site = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
-        site.backgroundColor = .black
-        site.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-        site.transform = CGAffineTransform(rotationAngle: rad)
-        self.addSubview(site)
+        site = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
+        site!.backgroundColor = .black
+        site!.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        site!.transform = CGAffineTransform(rotationAngle: rad)
+        self.addSubview(site!)
         
         self.clipsToBounds = true
         
@@ -48,12 +53,17 @@ class TapplAnimatedOnboardingBgView: UIView {
         while x < w {
             let frame = CGRect(x: x, y: 0, width: TapplInfiniteOnboardingScroller.cellSize.width, height: h)
             let scroller = TapplInfiniteOnboardingScroller(frame: frame)
-            site.addSubview(scroller)
+            site!.addSubview(scroller)
             scroller.startAnimation(direction)
             
             x += TapplInfiniteOnboardingScroller.cellSize.width + TapplInfiniteOnboardingScroller.cellSpacing
             direction = !direction
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        commonInit()
     }
 }
 
@@ -86,7 +96,7 @@ private class FaceGenerator {
     }
 }
 
-private class TapplInfiniteOnboardingScroller: UIView {
+class TapplInfiniteOnboardingScroller: UIView {
     
     private static let cellsCount = 5
     private static let cellId = "InfiniteCellID"
