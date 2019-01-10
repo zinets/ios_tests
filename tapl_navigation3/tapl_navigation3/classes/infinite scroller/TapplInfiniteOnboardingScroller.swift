@@ -17,10 +17,23 @@ import UIKit
 /// 15 фоточек/картинок, отобранных дизайнерами, скролятся вертикально бесконечно; таких скроллеров будет несколько, из них образуется контрол с встречно ползущими полосами из фоток
 class TapplInfiniteOnboardingScroller: UIView {
     
-    static let cellsCount = 6
-    static let cellId = "InfiniteCellID"
-    static let cellSpacing: CGFloat = 8
-    static let cellSize = CGSize(width: 98, height: 148)
+    private static let cellsCount = 6
+    private static let cellId = "InfiniteCellID"
+    private static let cellSpacing: CGFloat = 8
+    private static let cellSize = CGSize(width: 98, height: 148)
+    
+    private var reverseDirection = false
+    private var timer: Timer?
+    func startAnimation(_ reverseDirection: Bool = false) {
+        self.reverseDirection = reverseDirection
+        timer = Timer.scheduledTimer(timeInterval: 1.0 / Double(stepsCount), target: self, selector: #selector(scrollCollection), userInfo: nil, repeats: true)
+    }
+    
+    func stopAnimation() {
+        if let _ = timer {
+            timer!.invalidate()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +45,7 @@ class TapplInfiniteOnboardingScroller: UIView {
         self.commonSetup()
     }
     
-    var dataSource: [String] = []
+    fileprivate var dataSource: [String] = []
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -59,6 +72,15 @@ class TapplInfiniteOnboardingScroller: UIView {
     
     private func commonSetup() {
         self.addSubview(self.collectionView)
+        self.startAnimation()
+    }
+    
+    private let stepsCount = 48
+    private let stepInPix: CGFloat = 0.2
+    @objc private func scrollCollection() {
+        var pt = self.collectionView.contentOffset
+        pt.y = self.reverseDirection ? (pt.y - stepInPix) : (pt.y + stepInPix)
+        self.collectionView.contentOffset = pt
     }
 
 }
