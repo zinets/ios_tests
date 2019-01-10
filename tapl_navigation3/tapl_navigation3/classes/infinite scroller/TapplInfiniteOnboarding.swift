@@ -8,12 +8,6 @@
 
 import UIKit
 
-//extension Int {
-//    func format(f: String) -> String {
-//        return String(format: "%\(f)d", self)
-//    }
-//}
-
 /// 15 (?) фоточек/картинок, отобранных дизайнерами, скролятся вертикально бесконечно; таких скроллеров будет несколько, из них образуется контрол с встречно ползущими полосами из фоток
 
 class TapplAnimatedOnboardingBgView: UIView {
@@ -29,7 +23,7 @@ class TapplAnimatedOnboardingBgView: UIView {
     }
     
     private func commonInit() {
-        let angle: CGFloat = 25 // по дизу наклон движущихся полос
+        let angle: CGFloat = 50 // по дизу наклон движущихся полос
         let rad = angle * .pi / 180.0
         let size = self.bounds.size
         let W = size.width
@@ -42,13 +36,24 @@ class TapplAnimatedOnboardingBgView: UIView {
         let w = H * sinA + W * cosA
         
         let site = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
-        site.backgroundColor = .clear
-        site.layer.borderWidth = 1
+        site.backgroundColor = .black
         site.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         site.transform = CGAffineTransform(rotationAngle: rad)
         self.addSubview(site)
         
         self.clipsToBounds = true
+        
+        var x: CGFloat = -30
+        var direction = false
+        while x < w {
+            let frame = CGRect(x: x, y: 0, width: TapplInfiniteOnboardingScroller.cellSize.width, height: h)
+            let scroller = TapplInfiniteOnboardingScroller(frame: frame)
+            site.addSubview(scroller)
+            scroller.startAnimation(direction)
+            
+            x += TapplInfiniteOnboardingScroller.cellSize.width + TapplInfiniteOnboardingScroller.cellSpacing
+            direction = !direction
+        }
     }
 }
 
@@ -81,12 +86,12 @@ private class FaceGenerator {
     }
 }
 
-class TapplInfiniteOnboardingScroller: UIView {
+private class TapplInfiniteOnboardingScroller: UIView {
     
     private static let cellsCount = 5
     private static let cellId = "InfiniteCellID"
-    private static let cellSpacing: CGFloat = 8
-    private static let cellSize = CGSize(width: 98, height: 148)
+    static let cellSpacing: CGFloat = 8
+    static let cellSize = CGSize(width: 98, height: 148)
     
     private var reverseDirection = false
     private var timer: Timer?
@@ -144,7 +149,7 @@ class TapplInfiniteOnboardingScroller: UIView {
     private func commonSetup() {
         self.addSubview(self.collectionView)
         
-        self.startAnimation()
+//        self.startAnimation()
     }
     
     private let stepsCount = 20
