@@ -27,7 +27,7 @@
 		49540D6921D50F1B007B153D /* TapplConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49540D6821D50F1B007B153D /* TapplConstants.swift */; };
 		49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0373921E4791B00C20700 /* HeartIndicatorView.swift */; };
 		49A0382221E63D2D00C20700 /* infinite users.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49A0382121E63D2D00C20700 /* infinite users.xcassets */; };
-		49A0382421E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */; };
+		49A0382421E63D5D00C20700 /* TapplInfiniteOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A0382321E63D5D00C20700 /* TapplInfiniteOnboarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,7 +66,7 @@
 		49540D6821D50F1B007B153D /* TapplConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplConstants.swift; sourceTree = "<group>"; };
 		49A0373921E4791B00C20700 /* HeartIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartIndicatorView.swift; sourceTree = "<group>"; };
 		49A0382121E63D2D00C20700 /* infinite users.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "infinite users.xcassets"; sourceTree = "<group>"; };
-		49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplInfiniteOnboardingScroller.swift; sourceTree = "<group>"; };
+		49A0382321E63D5D00C20700 /* TapplInfiniteOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplInfiniteOnboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				49A0382121E63D2D00C20700 /* infinite users.xcassets */,
-				49A0382321E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift */,
+				49A0382321E63D5D00C20700 /* TapplInfiniteOnboarding.swift */,
 			);
 			path = "infinite scroller";
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				49540D3B21D4DA57007B153D /* ViewController.swift in Sources */,
 				49540D5721D4DC04007B153D /* TapplBaseViewController.swift in Sources */,
 				49A0373A21E4791B00C20700 /* HeartIndicatorView.swift in Sources */,
-				49A0382421E63D5D00C20700 /* TapplInfiniteOnboardingScroller.swift in Sources */,
+				49A0382421E63D5D00C20700 /* TapplInfiniteOnboarding.swift in Sources */,
 				49540D3921D4DA57007B153D /* AppDelegate.swift in Sources */,
 				49449D7D21DF30300023C4DC /* TapplPageController.swift in Sources */,
 				49540D5A21D4DD98007B153D /* TapplTabbarController.swift in Sources */,

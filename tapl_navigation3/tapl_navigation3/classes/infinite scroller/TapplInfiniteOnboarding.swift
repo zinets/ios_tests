@@ -14,10 +14,76 @@ import UIKit
 //    }
 //}
 
-/// 15 фоточек/картинок, отобранных дизайнерами, скролятся вертикально бесконечно; таких скроллеров будет несколько, из них образуется контрол с встречно ползущими полосами из фоток
+/// 15 (?) фоточек/картинок, отобранных дизайнерами, скролятся вертикально бесконечно; таких скроллеров будет несколько, из них образуется контрол с встречно ползущими полосами из фоток
+
+class TapplAnimatedOnboardingBgView: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.commonInit()
+    }
+    
+    private func commonInit() {
+        let angle: CGFloat = 25 // по дизу наклон движущихся полос
+        let rad = angle * .pi / 180.0
+        let size = self.bounds.size
+        let W = size.width
+        let H = size.height
+        
+        let cosA = cos(rad)
+        let sinA = sin(rad)
+        
+        let h = H * cosA + W * sinA
+        let w = H * sinA + W * cosA
+        
+        let site = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
+        site.backgroundColor = .clear
+        site.layer.borderWidth = 1
+        site.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        site.transform = CGAffineTransform(rotationAngle: rad)
+        self.addSubview(site)
+        
+        self.clipsToBounds = true
+    }
+}
+
+private class FaceGenerator {
+    private static let maxCount = 22
+    private static var currentIndex: Int = 0
+    private static var data: [String] = {
+        var temp: [String] = []
+        var data: [String] = []
+        
+        for i in 1...maxCount {
+            temp.append(String(format: "%02d", i))
+        }
+        
+        while temp.count > 0 {
+            let randomIndex = Int.random(in: 0..<temp.count)
+            data.append(temp[randomIndex])
+            temp.remove(at: randomIndex)
+        }
+        return data
+    }()
+    
+    static func getFace() -> String {
+        let fn = data[currentIndex]
+        currentIndex += 1
+        if currentIndex >= maxCount {
+            currentIndex = 0
+        }
+        return fn
+    }
+}
+
 class TapplInfiniteOnboardingScroller: UIView {
     
-    private static let cellsCount = 6
+    private static let cellsCount = 5
     private static let cellId = "InfiniteCellID"
     private static let cellSpacing: CGFloat = 8
     private static let cellSize = CGSize(width: 98, height: 148)
@@ -25,8 +91,14 @@ class TapplInfiniteOnboardingScroller: UIView {
     private var reverseDirection = false
     private var timer: Timer?
     func startAnimation(_ reverseDirection: Bool = false) {
+        collectionView.reloadData()
+        let offset = CGFloat.random(in: 0..<(TapplInfiniteOnboardingScroller.cellSize.height * 2))
+        collectionView.contentOffset = CGPoint(x: 0, y: offset)
+        
         self.reverseDirection = reverseDirection
         timer = Timer.scheduledTimer(timeInterval: 1.0 / Double(stepsCount), target: self, selector: #selector(scrollCollection), userInfo: nil, repeats: true)
+//        let displayLink = CADisplayLink(target: self, selector: #selector(scrollCollection))
+//        displayLink.add(to: .current, forMode: .default)
     }
     
     func stopAnimation() {
@@ -54,7 +126,7 @@ class TapplInfiniteOnboardingScroller: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         for i in 1...TapplInfiniteOnboardingScroller.cellsCount {
-            dataSource.append(String(format: "%02d", i))
+            dataSource.append(FaceGenerator.getFace())
         }
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -64,18 +136,18 @@ class TapplInfiniteOnboardingScroller: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-//        collectionView.isScrollEnabled = false
-        
+        collectionView.isScrollEnabled = false
         
         return collectionView
     }()
     
     private func commonSetup() {
         self.addSubview(self.collectionView)
+        
         self.startAnimation()
     }
     
-    private let stepsCount = 48
+    private let stepsCount = 20
     private let stepInPix: CGFloat = 0.2
     @objc private func scrollCollection() {
         var pt = self.collectionView.contentOffset
@@ -108,6 +180,10 @@ extension TapplInfiniteOnboardingScroller: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard
+            collectionView.contentSize.height > 0
+            else { return }
+        
         let minOffset: CGFloat = 0
         let maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height
         var pt = scrollView.contentOffset

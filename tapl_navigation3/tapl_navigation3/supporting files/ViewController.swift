@@ -8,13 +8,41 @@
 
 import UIKit
 
+extension CGFloat {
+    func inRads() -> CGFloat {
+        return self * .pi / 180.0
+    }
+}
+
+extension Int {
+    func inRads() -> CGFloat {
+        return CGFloat(self) * .pi / 180.0
+    }
+}
+
+
+
 class ViewController: UIViewController {
 
+    @IBOutlet var subScrollers: [TapplInfiniteOnboardingScroller]!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        infiniteScrollersSite.transform = CGAffineTransform(rotationAngle: 50.inRads())
     }
 
+    @IBOutlet weak var infiniteScrollersSite: UIView!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        var direction = false
+        for scroller in subScrollers {
+            scroller.startAnimation(direction)
+            direction = !direction
+        }
+    }
 
 }
 

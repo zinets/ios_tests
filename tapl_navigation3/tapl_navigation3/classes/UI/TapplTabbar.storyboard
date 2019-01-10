@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xPP-nd-b9H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5fl-4X-yrs">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -236,6 +236,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rai-bi-TB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1258" y="417"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iv3-Lj-f2R">
+            <objects>
+                <viewController id="Ppn-5Q-3vY" customClass="ViewController" customModule="tapl_navigation3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Itp-OK-iQ6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaM-n3-prO">
+                                <rect key="frame" x="0.0" y="227.5" width="414" height="441"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cU1-KK-jdy" customClass="TapplInfiniteOnboardingScroller" customModule="tapl_navigation3" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="98" height="441"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="nUQ-VD-j8i"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGB-i7-ea7" customClass="TapplInfiniteOnboardingScroller" customModule="tapl_navigation3" customModuleProvider="target">
+                                        <rect key="frame" x="106" y="0.0" width="98" height="441"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="cM4-on-h44"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2G-e7-mSc" customClass="TapplInfiniteOnboardingScroller" customModule="tapl_navigation3" customModuleProvider="target">
+                                        <rect key="frame" x="212" y="0.0" width="98" height="441"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="sce-E2-yKq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8L-r7-0It" customClass="TapplInfiniteOnboardingScroller" customModule="tapl_navigation3" customModuleProvider="target">
+                                        <rect key="frame" x="318" y="0.0" width="98" height="441"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="Iz7-N6-0bu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cU1-KK-jdy" firstAttribute="leading" secondItem="oaM-n3-prO" secondAttribute="leading" id="30f-I2-oX4"/>
+                                    <constraint firstItem="a8L-r7-0It" firstAttribute="top" secondItem="oaM-n3-prO" secondAttribute="top" id="4R5-p2-ffC"/>
+                                    <constraint firstItem="a8L-r7-0It" firstAttribute="leading" secondItem="v2G-e7-mSc" secondAttribute="trailing" constant="8" id="Co8-qR-3aP"/>
+                                    <constraint firstAttribute="bottom" secondItem="a8L-r7-0It" secondAttribute="bottom" id="ES1-i5-hSy"/>
+                                    <constraint firstItem="v2G-e7-mSc" firstAttribute="top" secondItem="oaM-n3-prO" secondAttribute="top" id="G5z-00-pc9"/>
+                                    <constraint firstAttribute="width" constant="414" id="Jqg-bR-vxV"/>
+                                    <constraint firstAttribute="height" constant="441" id="OnO-N8-ctg"/>
+                                    <constraint firstItem="cU1-KK-jdy" firstAttribute="top" secondItem="oaM-n3-prO" secondAttribute="top" id="Q83-9A-FCZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="wGB-i7-ea7" secondAttribute="bottom" id="XJ6-An-5Mj"/>
+                                    <constraint firstItem="wGB-i7-ea7" firstAttribute="top" secondItem="oaM-n3-prO" secondAttribute="top" id="gXJ-vU-YDh"/>
+                                    <constraint firstAttribute="bottom" secondItem="v2G-e7-mSc" secondAttribute="bottom" id="kPb-zX-agL"/>
+                                    <constraint firstItem="v2G-e7-mSc" firstAttribute="leading" secondItem="wGB-i7-ea7" secondAttribute="trailing" constant="8" id="ogR-jj-hAp"/>
+                                    <constraint firstItem="wGB-i7-ea7" firstAttribute="leading" secondItem="cU1-KK-jdy" secondAttribute="trailing" constant="8" id="qng-Hh-mzr"/>
+                                    <constraint firstAttribute="bottom" secondItem="cU1-KK-jdy" secondAttribute="bottom" id="uC0-LR-2H3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oaM-n3-prO" firstAttribute="centerX" secondItem="Itp-OK-iQ6" secondAttribute="centerX" id="HvT-zb-HBr"/>
+                            <constraint firstItem="oaM-n3-prO" firstAttribute="centerY" secondItem="Itp-OK-iQ6" secondAttribute="centerY" id="joZ-92-W1W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BrQ-U9-vuz"/>
+                    </view>
+                    <connections>
+                        <outlet property="infiniteScrollersSite" destination="oaM-n3-prO" id="274-lt-JmV"/>
+                        <outletCollection property="subScrollers" destination="cU1-KK-jdy" collectionClass="NSMutableArray" id="nmI-4m-mhd"/>
+                        <outletCollection property="subScrollers" destination="wGB-i7-ea7" collectionClass="NSMutableArray" id="ebO-eu-H3Z"/>
+                        <outletCollection property="subScrollers" destination="v2G-e7-mSc" collectionClass="NSMutableArray" id="4yh-1d-nor"/>
+                        <outletCollection property="subScrollers" destination="a8L-r7-0It" collectionClass="NSMutableArray" id="sCt-bs-chr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vaP-Rk-2Xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3876.811594202899" y="1224.1071428571429"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xC5-6x-asT">
+            <objects>
+                <viewController id="5fl-4X-yrs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yO1-Sw-bwf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="67W-VK-cbv" customClass="TapplAnimatedOnboardingBgView" customModule="tapl_navigation3" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="323" width="414" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="5Ws-xQ-U46"/>
+                                    <constraint firstAttribute="width" constant="414" id="v76-N4-Sqf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="67W-VK-cbv" firstAttribute="centerY" secondItem="yO1-Sw-bwf" secondAttribute="centerY" id="5s7-2P-b1L"/>
+                            <constraint firstItem="67W-VK-cbv" firstAttribute="centerX" secondItem="yO1-Sw-bwf" secondAttribute="centerX" id="5zd-s1-KIh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JA7-Ht-YjJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2aT-ZS-CiA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3636.2318840579715" y="1946.6517857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ozr-bC-3Aa">
