@@ -24,25 +24,29 @@ extension Int {
 
 class ViewController: UIViewController {
 
-    @IBOutlet var subScrollers: [TapplInfiniteOnboardingScroller]!
-    
-    
+    @IBOutlet weak var infiniteScroller: TapplAnimatedOnboardingBgView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        infiniteScrollersSite.transform = CGAffineTransform(rotationAngle: 50.inRads())
+   
     }
 
-    @IBOutlet weak var infiniteScrollersSite: UIView!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var direction = false
-        for scroller in subScrollers {
-            scroller.startAnimation(direction)
-            direction = !direction
-        }
+        
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+   
+    @IBAction func startAnimation(_ sender: Any) {
+        infiniteScroller.startAnimation()
+    }
+    
+    @IBAction func stopAnim(_ sender: Any) {
+        infiniteScroller.stopAnimation()
+    }
 }
 

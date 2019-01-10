@@ -16,7 +16,7 @@ class TapplAnimatedOnboardingBgView: UIView {
 //        super.init(frame: frame)
 //        self.commonInit()
 //    }
-//    
+//
 //    required init?(coder aDecoder: NSCoder) {
 //        super.init(coder: aDecoder)
 //        self.commonInit()
@@ -54,8 +54,7 @@ class TapplAnimatedOnboardingBgView: UIView {
             let frame = CGRect(x: x, y: 0, width: TapplInfiniteOnboardingScroller.cellSize.width, height: h)
             let scroller = TapplInfiniteOnboardingScroller(frame: frame)
             site!.addSubview(scroller)
-            scroller.startAnimation(direction)
-            
+                        
             x += TapplInfiniteOnboardingScroller.cellSize.width + TapplInfiniteOnboardingScroller.cellSpacing
             direction = !direction
         }
@@ -64,6 +63,49 @@ class TapplAnimatedOnboardingBgView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         commonInit()
+    }
+    
+    private var timer: Timer?
+    func startAnimation() {
+        guard timer == nil else {
+            return
+        }
+        
+        for view in self.site!.subviews {
+            if let scroller = view as? TapplInfiniteOnboardingScroller {
+                let collectionView = scroller.collectionView
+                var pt = collectionView.contentOffset
+                pt.y = CGFloat.random(in: 0..<TapplInfiniteOnboardingScroller.cellSize.height)
+                collectionView.contentOffset = pt
+            }
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1 / Double(stepsCount), target: self, selector: #selector(scrollCollection), userInfo: nil, repeats: true)
+    }
+    
+    func stopAnimation() {
+        if let _ = timer {
+            timer!.invalidate()
+            timer = nil
+        }
+    }
+    
+    private let stepsCount = 30
+    private let stepInPix: CGFloat = 0.2
+    @objc private func scrollCollection() {
+        var direction = false
+        for view in self.site!.subviews {
+            if let scroller = view as? TapplInfiniteOnboardingScroller {
+                let collectionView = scroller.collectionView
+                var pt = collectionView.contentOffset
+                pt.y += (direction ? 1 : -1) * stepInPix
+                collectionView.contentOffset = pt
+            }
+            direction = !direction
+        }
+//        var pt = self.collectionView.contentOffset
+//        pt.y = self.reverseDirection ? (pt.y - stepInPix) : (pt.y + stepInPix)
+//        self.collectionView.contentOffset = pt
     }
 }
 
@@ -103,25 +145,6 @@ class TapplInfiniteOnboardingScroller: UIView {
     static let cellSpacing: CGFloat = 8
     static let cellSize = CGSize(width: 98, height: 148)
     
-    private var reverseDirection = false
-    private var timer: Timer?
-    func startAnimation(_ reverseDirection: Bool = false) {
-        collectionView.reloadData()
-        let offset = CGFloat.random(in: 0..<(TapplInfiniteOnboardingScroller.cellSize.height * 2))
-        collectionView.contentOffset = CGPoint(x: 0, y: offset)
-        
-        self.reverseDirection = reverseDirection
-        timer = Timer.scheduledTimer(timeInterval: 1.0 / Double(stepsCount), target: self, selector: #selector(scrollCollection), userInfo: nil, repeats: true)
-//        let displayLink = CADisplayLink(target: self, selector: #selector(scrollCollection))
-//        displayLink.add(to: .current, forMode: .default)
-    }
-    
-    func stopAnimation() {
-        if let _ = timer {
-            timer!.invalidate()
-        }
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonSetup()
@@ -162,13 +185,7 @@ class TapplInfiniteOnboardingScroller: UIView {
 //        self.startAnimation()
     }
     
-    private let stepsCount = 20
-    private let stepInPix: CGFloat = 0.2
-    @objc private func scrollCollection() {
-        var pt = self.collectionView.contentOffset
-        pt.y = self.reverseDirection ? (pt.y - stepInPix) : (pt.y + stepInPix)
-        self.collectionView.contentOffset = pt
-    }
+
 
 }
 
