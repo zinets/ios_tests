@@ -12,15 +12,15 @@ import UIKit
 
 class TapplAnimatedOnboardingBgView: UIView {
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        self.commonInit()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self.commonInit()
-//    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.commonInit()
+    }
     
     private var site: UIView?
     private func commonInit() {
@@ -41,7 +41,7 @@ class TapplAnimatedOnboardingBgView: UIView {
         let w = H * sinA + W * cosA
         
         site = UIView(frame: CGRect(x: 0, y: 0, width: w, height: h))
-        site!.backgroundColor = .black
+        site!.backgroundColor = .red
         site!.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         site!.transform = CGAffineTransform(rotationAngle: rad)
         self.addSubview(site!)
@@ -60,11 +60,11 @@ class TapplAnimatedOnboardingBgView: UIView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        commonInit()
-    }
-    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        commonInit()
+//    }
+//
     private var timer: Timer?
     func startAnimation() {
         guard timer == nil else {

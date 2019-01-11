@@ -48,5 +48,9 @@ class ViewController: UIViewController {
     @IBAction func stopAnim(_ sender: Any) {
         infiniteScroller.stopAnimation()
     }
+    
+    @IBAction func sliderChange(_ sender: UISlider) {
+        self.view.transform = CGAffineTransform(scaleX: CGFloat(sender.value), y: CGFloat(sender.value))
+    }
 }
 
