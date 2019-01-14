@@ -42,6 +42,10 @@ class ViewController2: UIViewController {
     @IBOutlet weak var testView2: TappleHeartBaseControl!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        testView2.layoutIfNeeded()
+        
+    }
+    
+    @IBAction func testButton(_ sender: Any) {
+        
     }
 }
