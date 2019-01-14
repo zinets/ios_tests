@@ -30,3 +30,18 @@ class ViewController: UIViewController {
     }
 }
 
+
+
+
+class ViewController2: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBOutlet weak var testView2: TappleHeartBaseControl!
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        testView2.layoutIfNeeded()
+    }
+}

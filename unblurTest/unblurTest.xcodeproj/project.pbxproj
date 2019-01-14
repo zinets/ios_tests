@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4934C11621EC6B5F00ABE55F /* TappleHeartBaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934C11521EC6B5F00ABE55F /* TappleHeartBaseControl.swift */; };
 		49AA8E2D21E8868D009895DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA8E2C21E8868D009895DA /* AppDelegate.swift */; };
 		49AA8E2F21E8868D009895DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA8E2E21E8868D009895DA /* ViewController.swift */; };
 		49AA8E3221E8868D009895DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AA8E3021E8868D009895DA /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4934C11521EC6B5F00ABE55F /* TappleHeartBaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappleHeartBaseControl.swift; sourceTree = "<group>"; };
 		49AA8E2921E8868D009895DA /* unblurTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unblurTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AA8E2C21E8868D009895DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49AA8E2E21E8868D009895DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				49AA8E4821E8B03A009895DA /* UIImage+ImageEffects.h */,
 				49AA8E4721E8B039009895DA /* UIImage+ImageEffects.m */,
 				49AA8E4221E89EA1009895DA /* TapplBlurredImageView.swift */,
+				4934C11521EC6B5F00ABE55F /* TappleHeartBaseControl.swift */,
 			);
 			path = classes;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				49AA8E4521E8ADC8009895DA /* UIImageView+Blur.swift in Sources */,
 				49AA8E2D21E8868D009895DA /* AppDelegate.swift in Sources */,
 				49AA8E4321E89EA1009895DA /* TapplBlurredImageView.swift in Sources */,
+				4934C11621EC6B5F00ABE55F /* TappleHeartBaseControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
