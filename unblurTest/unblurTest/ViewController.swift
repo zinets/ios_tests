@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var blurredView: TapplBlurredImageView!
+    @IBOutlet weak var blurredView2: TapplBlurredView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,9 @@ class ViewController: UIViewController {
     }
     @IBAction func load2(_ sender: Any) {
         blurredView.image = UIImage(named: "moloko.jpg")
+    }
+    @IBAction func update(_ sender: Any) {
+        blurredView2.update()
     }
 }
 
