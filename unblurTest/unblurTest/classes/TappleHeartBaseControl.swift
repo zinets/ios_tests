@@ -26,8 +26,16 @@ class TappleHeartBaseControl: UIView {
         return view
     }()
     
+    private let coloredView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     func commonInit() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+        // 1й слой - одноцветное сердце
         self.addSubview(shapeView)
         
         // 1й слой - это форма жопки; куча ограничителей: 1) центрирование по гориз. и вертикали 2) отступы по краям >= 0 чтобы не вылезать за края контрола 3) с приоритетом 750 равенство ширины и высоты контролу - чтобы фрейм контрола-жопки по одной стороне совпадал с шириной или высотой самого контрола 4) соотношение сторон из картинки жопки - 300:252
@@ -55,11 +63,24 @@ class TappleHeartBaseControl: UIView {
             widthC, heightC,
         ])
         
+        // 2й слой - вью с выверенными размерами и позицией, в котором будет контент
         self.addSubview(contentView)
         centerXC = contentView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
         centerYC = contentView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
         widthC = contentView.widthAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 200.0 / 295.0)
         heightC = contentView.heightAnchor.constraint(equalTo: shapeView.heightAnchor, multiplier: 128.0 / 210.0)
+        NSLayoutConstraint.activate([
+            centerXC, centerYC,
+            widthC, heightC,
+        ])
+        
+        // 3й слой - цветные элементы поверх текста если нужно
+        self.addSubview(coloredView)
+        coloredView.image = UIImage(named: "blueHearts")
+        centerXC = coloredView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
+        centerYC = coloredView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
+        widthC = coloredView.widthAnchor.constraint(equalTo: shapeView.widthAnchor)
+        heightC = coloredView.heightAnchor.constraint(equalTo: shapeView.heightAnchor)
         NSLayoutConstraint.activate([
             centerXC, centerYC,
             widthC, heightC,
