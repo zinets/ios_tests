@@ -9,13 +9,13 @@
 import UIKit
 
 class TappleHeartBaseControl: UIView {
-
+    
     private let shapeView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "heartShape"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        
+        imageView.backgroundColor = UIColor.clear
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -33,6 +33,17 @@ class TappleHeartBaseControl: UIView {
         
         return imageView
     }()
+    
+    private let heartMaskView: UIImageView = {
+         return UIImageView(image: UIImage(named: "heartShape"))
+    }()
+    
+    var heartImage: String = "" {
+        didSet {
+            let image = UIImage(named: heartImage)
+            self.coloredView.image = image
+        }
+    }
     
     func commonInit() {
         // 1й слой - одноцветное сердце
@@ -64,7 +75,7 @@ class TappleHeartBaseControl: UIView {
         ])
         
         // 2й слой - вью с выверенными размерами и позицией, в котором будет контент
-        self.addSubview(contentView)
+        shapeView.addSubview(contentView) // внутри shapeView - чтобы отслеживать размер!
         centerXC = contentView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
         centerYC = contentView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
         widthC = contentView.widthAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 200.0 / 295.0)
@@ -76,7 +87,7 @@ class TappleHeartBaseControl: UIView {
         
         // 3й слой - цветные элементы поверх текста если нужно
         self.addSubview(coloredView)
-        coloredView.image = UIImage(named: "blueHearts")
+        self.heartImage = "blueHearts"
         centerXC = coloredView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
         centerYC = coloredView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
         widthC = coloredView.widthAnchor.constraint(equalTo: shapeView.widthAnchor)
@@ -85,6 +96,8 @@ class TappleHeartBaseControl: UIView {
             centerXC, centerYC,
             widthC, heightC,
         ])
+        
+        self.mask = heartMaskView
     }
     
     override init(frame: CGRect) {
@@ -95,6 +108,12 @@ class TappleHeartBaseControl: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        heartMaskView.frame = shapeView.frame
     }
 
 }
