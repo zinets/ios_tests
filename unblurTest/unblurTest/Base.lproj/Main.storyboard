@@ -180,31 +180,41 @@
                                     <constraint firstAttribute="width" secondItem="0oS-FM-UKo" secondAttribute="height" multiplier="300/252" id="q0L-wR-pf4"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Hi beauty. You are so beautiful like my ываыва ываыва ыа ываыва ываыва ываываа 123123" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-dG-CPw">
-                                <rect key="frame" x="87.5" y="92" width="200" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Hi beauty. You are so beautiful like my ываыва ываыва ыа" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-dG-CPw">
+                                <rect key="frame" x="87.5" y="108.5" width="200" height="95"/>
                                 <color key="backgroundColor" red="0.98948663469999998" green="0.28019067650000001" blue="0.1173506007" alpha="0.25327354753521125" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh6-KU-kqM">
-                                <rect key="frame" x="20" y="442" width="335" height="200"/>
+                                <rect key="frame" x="20" y="242" width="335" height="400"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartShape" translatesAutoresizingMaskIntoConstraints="NO" id="3Xi-tA-Mks">
-                                        <rect key="frame" x="48.5" y="0.0" width="238" height="200"/>
+                                        <rect key="frame" x="0.0" y="59.5" width="335" height="281"/>
                                         <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3Xi-tA-Mks" secondAttribute="height" multiplier="300/252" id="0h2-aq-ZHD"/>
                                         </constraints>
                                     </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hi beauty. You sd sdfs sds sd" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cfq-jy-ll6">
+                                        <rect key="frame" x="54" y="118" width="227" height="164"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98985868690000001" green="0.43564763670000001" blue="0.33016541599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="width" secondItem="wh6-KU-kqM" secondAttribute="width" priority="750" id="3bc-Zn-buG"/>
+                                    <constraint firstItem="cfq-jy-ll6" firstAttribute="centerY" secondItem="3Xi-tA-Mks" secondAttribute="centerY" id="4Pc-i3-Gxa"/>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="height" secondItem="wh6-KU-kqM" secondAttribute="height" priority="740" id="BWs-OH-tyD"/>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="centerX" secondItem="wh6-KU-kqM" secondAttribute="centerX" id="DFl-6H-66c"/>
+                                    <constraint firstItem="cfq-jy-ll6" firstAttribute="centerX" secondItem="3Xi-tA-Mks" secondAttribute="centerX" id="N5o-3k-YBc"/>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="centerY" secondItem="wh6-KU-kqM" secondAttribute="centerY" id="Z9z-CA-5cI"/>
-                                    <constraint firstAttribute="height" constant="200" id="kkj-aU-A6i"/>
+                                    <constraint firstItem="cfq-jy-ll6" firstAttribute="width" secondItem="3Xi-tA-Mks" secondAttribute="width" multiplier="200/295" id="atQ-wh-wbE"/>
+                                    <constraint firstItem="cfq-jy-ll6" firstAttribute="height" secondItem="3Xi-tA-Mks" secondAttribute="height" multiplier="128/220" id="fJH-xy-qU4"/>
+                                    <constraint firstAttribute="height" constant="400" id="kkj-aU-A6i"/>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wh6-KU-kqM" secondAttribute="top" id="q88-dy-LYY"/>
                                     <constraint firstItem="3Xi-tA-Mks" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wh6-KU-kqM" secondAttribute="leading" id="u46-pV-XIg"/>
                                 </constraints>

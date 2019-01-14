@@ -16,9 +16,14 @@ class TappleHeartBaseControl: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-//        imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: NSLayoutConstraint.Axis.horizontal)
-//        imageView.setContentHuggingPriority(UILayoutPriority(rawValue: 251), for: NSLayoutConstraint.Axis.vertical)
         return imageView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     func commonInit() {
@@ -27,17 +32,17 @@ class TappleHeartBaseControl: UIView {
         
         // 1й слой - это форма жопки; куча ограничителей: 1) центрирование по гориз. и вертикали 2) отступы по краям >= 0 чтобы не вылезать за края контрола 3) с приоритетом 750 равенство ширины и высоты контролу - чтобы фрейм контрола-жопки по одной стороне совпадал с шириной или высотой самого контрола 4) соотношение сторон из картинки жопки - 300:252
         
-        let centerXC = shapeView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        let centerYC = shapeView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        var centerXC = shapeView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        var centerYC = shapeView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         
         let leadingC = shapeView.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor)
-        let trailingC = shapeView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         let topC = shapeView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor)
+        let trailingC = shapeView.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor)
         let bottomC = shapeView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor)
         
-        let widthC = shapeView.widthAnchor.constraint(equalTo: self.widthAnchor)
+        var widthC = shapeView.widthAnchor.constraint(equalTo: self.widthAnchor)
         widthC.priority = UILayoutPriority.init(749)
-        let heightC = shapeView.heightAnchor.constraint(equalTo: self.heightAnchor)
+        var heightC = shapeView.heightAnchor.constraint(equalTo: self.heightAnchor)
         heightC.priority = UILayoutPriority.init(748)
 
         let ratioC = shapeView.heightAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 252.0 / 300.0)
@@ -45,14 +50,19 @@ class TappleHeartBaseControl: UIView {
         
         NSLayoutConstraint.activate([
             ratioC,
-            trailingC,
-            topC,
-            leadingC,
-            bottomC,
-            centerXC,
-            centerYC,
-            widthC,
-            heightC,
+            trailingC, topC, leadingC, bottomC,
+            centerXC, centerYC,
+            widthC, heightC,
+        ])
+        
+        self.addSubview(contentView)
+        centerXC = contentView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
+        centerYC = contentView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
+        widthC = contentView.widthAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 200.0 / 295.0)
+        heightC = contentView.heightAnchor.constraint(equalTo: shapeView.heightAnchor, multiplier: 128.0 / 210.0)
+        NSLayoutConstraint.activate([
+            centerXC, centerYC,
+            widthC, heightC,
         ])
     }
     
