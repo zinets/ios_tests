@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bZz-14-Lc8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -178,17 +178,28 @@ heart cards</string>
                                     <outlet property="contentView" destination="VZt-PV-Jjp" id="6u0-64-9Sf"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-cX-5AH" customClass="TappleHeartTextControl" customModule="unblurTest" customModuleProvider="target">
+                                <rect key="frame" x="37" y="287" width="301" height="218"/>
+                                <color key="backgroundColor" red="1" green="0.77127879860000004" blue="0.255854845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="301" id="OQc-Wi-pZ0"/>
+                                    <constraint firstAttribute="height" constant="218" id="saB-Wa-932"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5yR-cX-5AH" firstAttribute="top" secondItem="hNL-Yx-w10" secondAttribute="bottom" constant="29" id="32N-dJ-EVY"/>
                             <constraint firstItem="cYn-5a-FpM" firstAttribute="leading" secondItem="YSl-EA-0Dv" secondAttribute="leading" constant="16" id="5Kb-12-xPY"/>
                             <constraint firstItem="hNL-Yx-w10" firstAttribute="leading" secondItem="YSl-EA-0Dv" secondAttribute="leading" constant="30" id="GcY-tT-xxg"/>
                             <constraint firstItem="YSl-EA-0Dv" firstAttribute="bottom" secondItem="cYn-5a-FpM" secondAttribute="bottom" constant="20" id="ISN-7g-hVs"/>
+                            <constraint firstItem="5yR-cX-5AH" firstAttribute="centerX" secondItem="I2G-g0-0U9" secondAttribute="centerX" id="OQj-MX-CNt"/>
                             <constraint firstItem="hNL-Yx-w10" firstAttribute="top" secondItem="YSl-EA-0Dv" secondAttribute="top" constant="20" id="dkU-0s-iYY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YSl-EA-0Dv"/>
                     </view>
                     <connections>
+                        <outlet property="blurredHeart" destination="5yR-cX-5AH" id="D0k-P5-GDh"/>
                         <outlet property="testView2" destination="hNL-Yx-w10" id="NUJ-gG-BWH"/>
                     </connections>
                 </viewController>

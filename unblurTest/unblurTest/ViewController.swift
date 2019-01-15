@@ -193,6 +193,7 @@ class ViewController2: UIViewController {
     }
     
     @IBOutlet weak var testView2: TappleHeartBaseControl!
+    @IBOutlet weak var blurredHeart: TappleHeartTextControl!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -200,6 +201,6 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func testButton(_ sender: Any) {
-        
+        blurredHeart.update()
     }
 }

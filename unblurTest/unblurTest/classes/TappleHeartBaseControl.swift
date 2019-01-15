@@ -8,6 +8,34 @@
 
 import UIKit
 
+enum HeartTheme {
+    case sand // все желтенькое
+    case postCard // открыточка
+    case pureRed // тупо красное
+    case blossom // в цветочках
+    case streamer // куски серпантина
+    case skyBlue // синева
+}
+
+func heartParams(_ theme: HeartTheme) -> (Int, String) {
+    switch theme {
+    case .sand:
+        return (0xffc541, "sandHeart")
+    case .postCard:
+        return (0xffffff, "postHeart")
+    case .blossom:
+        return (0xfcf9ea, "blossomHeart")
+    case .streamer:
+        return (0x41413f, "streamerHeart")
+    case .skyBlue:
+        return (0x6eb4ce, "blueHeart")
+//    case .pureRed:
+//         fallthrough
+    default:
+        return (1, "")
+    }
+}
+
 //@IBDesignable
 class TappleHeartBaseControl: UIView {
     
@@ -56,7 +84,7 @@ class TappleHeartBaseControl: UIView {
         }
     }
     
-    func commonInit() {
+    fileprivate func commonInit() {
         // 1й слой - одноцветное сердце
         self.addSubview(shapeView)
         
@@ -111,16 +139,6 @@ class TappleHeartBaseControl: UIView {
         
         self.mask = heartMaskView
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        commonInit()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        commonInit()
-//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -147,4 +165,52 @@ class TappleHeartBaseControl: UIView {
 //    }
    
    
+}
+
+// просто выводит текст
+class TappleHeartTextControl: TappleHeartBaseControl {
+    
+    private var textLabel: UILabel = {
+        let label = UILabel()
+        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.text = "I'm going to assume the GPS conection I have on my current OmnibusF4 Pro and NG HAL will stay the same with this firmware version. What about the built in current sensor? "
+        
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }()
+    
+    private var blurredView: TapplBlurredView = {
+        let view = TapplBlurredView()
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return view
+    }()
+    
+    override func commonInit() {
+        super.commonInit()
+        contentView.isUserInteractionEnabled = true
+        
+        textLabel.frame = contentView.bounds
+        contentView.addSubview(textLabel)
+        blurredView.frame = contentView.bounds
+        contentView.addSubview(blurredView)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+    }
+    
+    func update() {
+        blurredView.update()
+    }
+    
+    override var backgroundColor: UIColor? {
+        didSet {
+            textLabel.backgroundColor = backgroundColor
+        }
+    }
 }
