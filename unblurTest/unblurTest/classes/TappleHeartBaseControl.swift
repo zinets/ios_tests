@@ -223,7 +223,7 @@ class TappleHeartTextControl: TappleHeartBaseControl {
     }
     
     func update() {
-        blurredView.update()
+        blurredView.update()    
     }
     
     override var backgroundColor: UIColor? {

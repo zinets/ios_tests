@@ -47,7 +47,15 @@ class TapplBlurredView: UIView {
         blurredImageView.image = image.resize4()?.applyBlur(1)
         
         self.blurredImageView.isHidden = false
+        blurred = true
     }
+    
+    private func clear() {
+        blurredImageView.image = nil
+        blurred = false
+    }
+    
+    private var blurred = false
     
     // MARK: - touches
     
@@ -72,23 +80,35 @@ class TapplBlurredView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
+        guard let touch = touches.first, blurred else {
             return
         }
         lastPoint = touch.location(in: self)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
+        guard let touch = touches.first, blurred else {
             return
         }
         let currentPoint = touch.location(in: self)
         drawLine(from: lastPoint, to: currentPoint)
-        lastPoint = currentPoint
+        lastPoint = currentPoint        
+    }
+    
+    private func isClearedEnough() -> Bool {
+        return true
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard blurred else {
+            return
+        }
         drawLine(from: lastPoint, to: lastPoint)
+        
+        // check - may be enough?
+        if isClearedEnough() {
+            self.clear()
+        }
     }
     
 }
