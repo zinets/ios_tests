@@ -42,7 +42,7 @@ class TapplBlurredView: UIView {
         
         let renderer = UIGraphicsImageRenderer(bounds: self.frame)
         let image = renderer.image { (ctx) in
-            superView.drawHierarchy(in: superView.frame, afterScreenUpdates: true)
+            superView.drawHierarchy(in: superView.bounds, afterScreenUpdates: true)
         }
         blurredImageView.image = image.resize4()?.applyBlur(1)
         
@@ -53,7 +53,7 @@ class TapplBlurredView: UIView {
     
     var lastPoint = CGPoint.zero
     private func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
-        UIGraphicsBeginImageContext(self.frame.size)
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
         guard let ctx = UIGraphicsGetCurrentContext() else {
             return
         }
@@ -67,7 +67,7 @@ class TapplBlurredView: UIView {
         
         ctx.setStrokeColor(UIColor.clear.cgColor)
         ctx.strokePath()
-        blurredImageView.image = UIGraphicsGetImageFromCurrentImageContext() //?.resize4()?.applyBlur(10)
+        blurredImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
     
