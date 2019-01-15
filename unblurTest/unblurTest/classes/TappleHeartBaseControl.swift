@@ -20,7 +20,7 @@ class TappleHeartBaseControl: UIView {
         return view
     }()
     
-    @IBOutlet var contentView: UIView!       = {
+    @IBOutlet var contentView: UIView! = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
@@ -88,6 +88,7 @@ class TappleHeartBaseControl: UIView {
         // 2й слой - вью с выверенными размерами и позицией, в котором будет контент
         shapeView.addSubview(contentView) // внутри shapeView - чтобы отслеживать размер!
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .clear
         centerXC = contentView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
         centerYC = contentView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
         widthC = contentView.widthAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 200.0 / 295.0)
