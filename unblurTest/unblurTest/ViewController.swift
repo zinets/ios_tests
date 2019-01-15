@@ -28,6 +28,16 @@ class ViewController: UIViewController {
     @IBAction func update(_ sender: Any) {
         blurredView2.update()
     }
+    
+    
+    
+    @IBOutlet weak var blurredTextView: TapplBlurredView!
+    
+    @IBAction func update2(_ sender: Any) {        
+        blurredTextView.update()
+    }
+    
+    
 }
 
 

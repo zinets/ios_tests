@@ -20,7 +20,7 @@ class TappleHeartBaseControl: UIView {
         return view
     }()
     
-    fileprivate let contentView: UIView = {
+    @IBOutlet var contentView: UIView!       = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .clear
@@ -87,6 +87,7 @@ class TappleHeartBaseControl: UIView {
         
         // 2й слой - вью с выверенными размерами и позицией, в котором будет контент
         shapeView.addSubview(contentView) // внутри shapeView - чтобы отслеживать размер!
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         centerXC = contentView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
         centerYC = contentView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
         widthC = contentView.widthAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 200.0 / 295.0)
@@ -110,13 +111,19 @@ class TappleHeartBaseControl: UIView {
         self.mask = heartMaskView
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        commonInit()
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        commonInit()
+//    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         commonInit()
     }
     
@@ -125,13 +132,18 @@ class TappleHeartBaseControl: UIView {
         
         heartMaskView.frame = shapeView.frame
         coloredView.frame = shapeView.frame // может быть так точнее совпадает обрезанный маской фон и накладываемый сверху декор?.. чем ресайз лайоутами
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
         
-        self.backgroundColor = UIColor.yellow
-        self.heartImage = "blueHearts"
+        self.layoutIfNeeded()
     }
 
+
+//    было бы хорошо, но х*й вам - в ib нихера не отрисовывается
+//    override func prepareForInterfaceBuilder() {
+//        super.prepareForInterfaceBuilder()
+//
+//        self.backgroundColor = UIColor.yellow
+//        self.heartImage = "blueHearts"
+//    }
+   
+   
 }

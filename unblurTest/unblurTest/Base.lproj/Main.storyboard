@@ -47,7 +47,7 @@
                                     <action selector="load2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j3M-az-Rly"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HlZ-cU-q8p" customClass="TapplBlurredView" customModule="unblurTest" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HlZ-cU-q8p" userLabel="TapplBlurredView" customClass="TapplBlurredView" customModule="unblurTest" customModuleProvider="target">
                                 <rect key="frame" x="63" y="437" width="277" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -120,11 +120,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNL-Yx-w10" customClass="TappleHeartBaseControl" customModule="unblurTest" customModuleProvider="target">
-                                <rect key="frame" x="30" y="40" width="215" height="156"/>
+                                <rect key="frame" x="30" y="40" width="301" height="497"/>
                                 <color key="backgroundColor" red="1" green="0.77127879858016968" blue="0.25585484504699707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="215" id="XOh-GV-1NW"/>
-                                    <constraint firstAttribute="height" constant="156" id="j46-R0-Im4"/>
+                                    <constraint firstAttribute="width" constant="301" id="XOh-GV-1NW"/>
+                                    <constraint firstAttribute="height" constant="497" id="j46-R0-Im4"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -142,8 +142,27 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mwq-vr-zn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Tzw-1h-ksN">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Йя креветко" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qu-XG-gis">
+                            <rect key="frame" x="71" y="53.5" width="98.5" height="21"/>
+                            <color key="backgroundColor" red="1" green="0.77127879860000004" blue="0.255854845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="4qu-XG-gis" firstAttribute="centerX" secondItem="Tzw-1h-ksN" secondAttribute="centerX" id="Fkk-cD-QED"/>
+                        <constraint firstItem="4qu-XG-gis" firstAttribute="centerY" secondItem="Tzw-1h-ksN" secondAttribute="centerY" id="jLC-SA-0R3"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="9Z3-fi-h6r"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-732" y="817.24137931034488"/>
+            <point key="canvasLocation" x="-599.20000000000005" y="824.43778110944538"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X8w-RG-ZIg">
@@ -162,8 +181,45 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6Z-4C-uOm">
                                 <rect key="frame" x="87.5" y="100" width="200" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1 label2 label3 label4 label5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ko-fi-Tt0">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSQ-NV-tCw" customClass="TapplBlurredView" customModule="unblurTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="iSQ-NV-tCw" firstAttribute="top" secondItem="D6Z-4C-uOm" secondAttribute="top" id="GNp-8J-Y3Z"/>
+                                    <constraint firstItem="iSQ-NV-tCw" firstAttribute="leading" secondItem="D6Z-4C-uOm" secondAttribute="leading" id="Iar-zW-dyX"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Ko-fi-Tt0" secondAttribute="trailing" id="Jyi-9F-Got"/>
+                                    <constraint firstItem="2Ko-fi-Tt0" firstAttribute="leading" secondItem="D6Z-4C-uOm" secondAttribute="leading" id="YKU-ey-Hkt"/>
+                                    <constraint firstAttribute="bottom" secondItem="iSQ-NV-tCw" secondAttribute="bottom" id="bfL-Ed-ORI"/>
+                                    <constraint firstItem="2Ko-fi-Tt0" firstAttribute="top" secondItem="D6Z-4C-uOm" secondAttribute="top" id="bfb-6n-lAw"/>
+                                    <constraint firstAttribute="trailing" secondItem="iSQ-NV-tCw" secondAttribute="trailing" id="jUL-nR-DTb"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Ko-fi-Tt0" secondAttribute="bottom" id="mU7-48-2CW"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCb-Ms-FbH">
+                                <rect key="frame" x="40" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="update2:" destination="NDn-yL-s1k" eventType="touchUpInside" id="4eL-Gr-ila"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartShape" translatesAutoresizingMaskIntoConstraints="NO" id="hix-C3-pgs">
+                                <rect key="frame" x="37.5" y="479" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="VZl-g7-2x4"/>
+                                    <constraint firstAttribute="height" constant="150" id="bUr-o9-RIJ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -172,16 +228,21 @@
                             <constraint firstItem="0oS-FM-UKo" firstAttribute="leading" secondItem="EkE-tB-TYC" secondAttribute="leading" constant="40" id="Abx-8p-alS"/>
                             <constraint firstItem="EkE-tB-TYC" firstAttribute="trailing" secondItem="0oS-FM-UKo" secondAttribute="trailing" constant="40" id="JP8-GV-hgb"/>
                             <constraint firstItem="D6Z-4C-uOm" firstAttribute="centerX" secondItem="0oS-FM-UKo" secondAttribute="centerX" id="WVo-qV-EdC"/>
+                            <constraint firstItem="EkE-tB-TYC" firstAttribute="bottom" secondItem="hix-C3-pgs" secondAttribute="bottom" constant="38" id="ZuO-u6-1Qv"/>
+                            <constraint firstItem="hix-C3-pgs" firstAttribute="centerX" secondItem="p2x-vj-6IW" secondAttribute="centerX" id="f9H-pn-gTx"/>
                             <constraint firstItem="0oS-FM-UKo" firstAttribute="centerX" secondItem="p2x-vj-6IW" secondAttribute="centerX" id="vzy-4M-CC1"/>
                             <constraint firstItem="0oS-FM-UKo" firstAttribute="top" secondItem="EkE-tB-TYC" secondAttribute="top" constant="20" id="xqE-Dp-HpY"/>
                             <constraint firstItem="D6Z-4C-uOm" firstAttribute="centerY" secondItem="0oS-FM-UKo" secondAttribute="centerY" id="xub-5g-yNo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EkE-tB-TYC"/>
                     </view>
+                    <connections>
+                        <outlet property="blurredTextView" destination="iSQ-NV-tCw" id="OXb-h2-JBs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lz1-c7-q3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.40000000000001" y="819.94002998500753"/>
+            <point key="canvasLocation" x="137" y="824"/>
         </scene>
     </scenes>
     <resources>
