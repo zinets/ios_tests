@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4934C11621EC6B5F00ABE55F /* TappleHeartBaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934C11521EC6B5F00ABE55F /* TappleHeartBaseControl.swift */; };
+		4951D15A21EE1B8300DE7EC0 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D15921EE1B8300DE7EC0 /* UIColor+Helpers.swift */; };
 		49AA8E2D21E8868D009895DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA8E2C21E8868D009895DA /* AppDelegate.swift */; };
 		49AA8E2F21E8868D009895DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AA8E2E21E8868D009895DA /* ViewController.swift */; };
 		49AA8E3221E8868D009895DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AA8E3021E8868D009895DA /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		4934C11521EC6B5F00ABE55F /* TappleHeartBaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappleHeartBaseControl.swift; sourceTree = "<group>"; };
+		4951D15921EE1B8300DE7EC0 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		49AA8E2921E8868D009895DA /* unblurTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unblurTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AA8E2C21E8868D009895DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49AA8E2E21E8868D009895DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		49AA8E2B21E8868D009895DA /* unblurTest */ = {
 			isa = PBXGroup;
 			children = (
+				4951D15921EE1B8300DE7EC0 /* UIColor+Helpers.swift */,
 				49AA8E4C21E8C8D7009895DA /* classes */,
 				49AA8E4A21E8B331009895DA /* brush.png */,
 				49AA8E4021E89D64009895DA /* moloko.jpg */,
@@ -174,6 +177,7 @@
 			files = (
 				49AA8E2F21E8868D009895DA /* ViewController.swift in Sources */,
 				49AA8E4921E8B03A009895DA /* UIImage+ImageEffects.m in Sources */,
+				4951D15A21EE1B8300DE7EC0 /* UIColor+Helpers.swift in Sources */,
 				49AA8E4521E8ADC8009895DA /* UIImageView+Blur.swift in Sources */,
 				49AA8E2D21E8868D009895DA /* AppDelegate.swift in Sources */,
 				49AA8E4321E89EA1009895DA /* TapplBlurredImageView.swift in Sources */,

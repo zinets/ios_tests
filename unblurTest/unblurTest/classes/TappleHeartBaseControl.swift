@@ -17,27 +17,36 @@ enum HeartTheme {
     case skyBlue // синева
 }
 
-func heartParams(_ theme: HeartTheme) -> (Int, String) {
+func heartParams(_ theme: HeartTheme) -> (Int, Int, String) {
+    // цвет фона, цвет шрифта, оформление-картинка
     switch theme {
     case .sand:
-        return (0xffc541, "sandHeart")
+        return (0xffc541, 0x005a7d, "sandHeart")
     case .postCard:
-        return (0xffffff, "postHeart")
+        return (0xffffff, 0x000000, "postHeart")
     case .blossom:
-        return (0xfcf9ea, "blossomHeart")
+        return (0xfcf9ea, 0x6c5451, "blossomHeart")
     case .streamer:
-        return (0x41413f, "streamerHeart")
+        return (0x41413f, 0xffffff, "streamerHeart")
     case .skyBlue:
-        return (0x6eb4ce, "blueHeart")
+        return (0x6eb4ce, 0xffffff, "blueHeart")
 //    case .pureRed:
 //         fallthrough
     default:
-        return (1, "")
+        return (0xfc6f54, 0xffffff, "")
     }
 }
 
 //@IBDesignable
 class TappleHeartBaseControl: UIView {
+    
+    var theme: HeartTheme = .pureRed {
+        didSet {
+            let (bgColor, _, imageName) = heartParams(theme)
+            self.backgroundColor = UIColor(rgb: bgColor)
+            self.heartImage = imageName
+        }
+    }
     
     private let shapeView: UIView = {
         let view = UIView()
@@ -138,6 +147,8 @@ class TappleHeartBaseControl: UIView {
 //        ])
         
         self.mask = heartMaskView
+        
+        self.theme = .sand
     }
 
     override func awakeFromNib() {
@@ -181,6 +192,13 @@ class TappleHeartTextControl: TappleHeartBaseControl {
         
         return label
     }()
+    
+    override var theme: HeartTheme {
+        didSet {
+            let (_, fontColor, _) = heartParams(theme)
+            textLabel.textColor = UIColor(rgb: fontColor)
+        }
+    }
     
     private var blurredView: TapplBlurredView = {
         let view = TapplBlurredView()
