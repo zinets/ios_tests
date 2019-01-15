@@ -43,6 +43,7 @@ class ViewController2: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        testView2.heartImage = "yellowHeart"
     }
     
     @IBAction func testButton(_ sender: Any) {

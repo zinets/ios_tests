@@ -8,27 +8,29 @@
 
 import UIKit
 
+//@IBDesignable
 class TappleHeartBaseControl: UIView {
     
-    private let shapeView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "heartShape"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = UIColor.clear
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    private let contentView: UIView = {
+    private let shapeView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
+        view.contentMode = .scaleAspectFit
+        view.backgroundColor = UIColor.black
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    fileprivate let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
         return view
     }()
     
     private let coloredView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -42,6 +44,15 @@ class TappleHeartBaseControl: UIView {
         didSet {
             let image = UIImage(named: heartImage)
             self.coloredView.image = image
+        }
+    }
+    override var backgroundColor: UIColor? {
+        set {
+            shapeView.backgroundColor = newValue
+            super.backgroundColor = .clear
+        }
+        get {
+            return shapeView.backgroundColor
         }
     }
     
@@ -64,7 +75,7 @@ class TappleHeartBaseControl: UIView {
         var heightC = shapeView.heightAnchor.constraint(equalTo: self.heightAnchor)
         heightC.priority = UILayoutPriority.init(748)
 
-        let ratioC = shapeView.heightAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 252.0 / 300.0)
+        let ratioC = shapeView.heightAnchor.constraint(equalTo: shapeView.widthAnchor, multiplier: 252.0 / 299.0)
         ratioC.priority = UILayoutPriority.required
         
         NSLayoutConstraint.activate([
@@ -87,15 +98,14 @@ class TappleHeartBaseControl: UIView {
         
         // 3й слой - цветные элементы поверх текста если нужно
         self.addSubview(coloredView)
-        self.heartImage = "blueHearts"
-        centerXC = coloredView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
-        centerYC = coloredView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
-        widthC = coloredView.widthAnchor.constraint(equalTo: shapeView.widthAnchor)
-        heightC = coloredView.heightAnchor.constraint(equalTo: shapeView.heightAnchor)
-        NSLayoutConstraint.activate([
-            centerXC, centerYC,
-            widthC, heightC,
-        ])
+//        centerXC = coloredView.centerXAnchor.constraint(equalTo: shapeView.centerXAnchor)
+//        centerYC = coloredView.centerYAnchor.constraint(equalTo: shapeView.centerYAnchor)
+//        widthC = coloredView.widthAnchor.constraint(equalTo: shapeView.widthAnchor)
+//        heightC = coloredView.heightAnchor.constraint(equalTo: shapeView.heightAnchor)
+//        NSLayoutConstraint.activate([
+//            centerXC, centerYC,
+//            widthC, heightC,
+//        ])
         
         self.mask = heartMaskView
     }
@@ -114,6 +124,14 @@ class TappleHeartBaseControl: UIView {
         super.layoutSubviews()
         
         heartMaskView.frame = shapeView.frame
+        coloredView.frame = shapeView.frame // может быть так точнее совпадает обрезанный маской фон и накладываемый сверху декор?.. чем ресайз лайоутами
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        
+        self.backgroundColor = UIColor.yellow
+        self.heartImage = "blueHearts"
     }
 
 }
