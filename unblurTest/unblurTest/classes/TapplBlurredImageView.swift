@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol TapplBlurredViewDelegate: NSObjectProtocol {
+    func senderCompletedUnblur( _ sender: TapplBlurredView)
+}
+
 class TapplBlurredView: UIView {
+    
+    weak var delegate: TapplBlurredViewDelegate?
  
     private var blurredImageView: UIImageView!
     override init(frame: CGRect) {
@@ -71,11 +77,12 @@ class TapplBlurredView: UIView {
         ctx.addLine(to: toPoint)
         ctx.setLineCap(.round)
         ctx.setBlendMode(.clear)
-        ctx.setLineWidth(50)
+        ctx.setLineWidth(25)
         
         ctx.setStrokeColor(UIColor.clear.cgColor)
         ctx.strokePath()
-        blurredImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        blurredImageView.image = image
         UIGraphicsEndImageContext()
     }
     
@@ -92,11 +99,36 @@ class TapplBlurredView: UIView {
         }
         let currentPoint = touch.location(in: self)
         drawLine(from: lastPoint, to: currentPoint)
-        lastPoint = currentPoint        
+        lastPoint = currentPoint
     }
     
     private func isClearedEnough() -> Bool {
-        return true
+        if let image = blurredImageView.image,
+            let cgImage = image.cgImage,
+            let dataProvider = cgImage.dataProvider,
+            let pixelData = dataProvider.data {
+            
+            let len = CFDataGetLength(pixelData)
+            let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+            let numOfPixels = len / 4 // если в натуре там rgb
+            
+            let limitToBeCleared = numOfPixels / 2
+            var cleared = 0
+            
+            for x in 0..<numOfPixels {
+                let pixelInfo = x * 4
+                
+                if data[pixelInfo + 3] == 0 {
+                    cleared += 1
+                }
+                
+                if cleared >= limitToBeCleared {
+                    return true
+                }
+            }
+            
+        }
+        return false
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,6 +140,9 @@ class TapplBlurredView: UIView {
         // check - may be enough?
         if isClearedEnough() {
             self.clear()
+            if let delegate = delegate {
+                delegate.senderCompletedUnblur(self)
+            }
         }
     }
     
