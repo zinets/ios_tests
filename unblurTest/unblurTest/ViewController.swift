@@ -203,4 +203,22 @@ class ViewController2: UIViewController {
     @IBAction func testButton(_ sender: Any) {
         blurredHeart.update()
     }
+    
+    @IBOutlet weak var image1234: UIImageView!
+    
+    
+    @IBAction func onimage(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        let a = CATransition()
+        a.duration = 0.5
+        a.type = .fade
+        self.image1234.layer.add(a, forKey: "1")
+        
+        self.image1234.isHighlighted = sender.isSelected
+        
+        
+    }
+    
+    
 }

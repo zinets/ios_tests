@@ -186,6 +186,18 @@ heart cards</string>
                                     <constraint firstAttribute="height" constant="218" id="saB-Wa-932"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="postHeart" highlightedImage="blossomHeart" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8lL-Ht-X0M">
+                                <rect key="frame" x="121" y="513" width="175" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fck-H8-jf4">
+                                <rect key="frame" x="30" y="545" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onimage:" destination="bZz-14-Lc8" eventType="touchUpInside" id="gji-1X-lLK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -200,6 +212,7 @@ heart cards</string>
                     </view>
                     <connections>
                         <outlet property="blurredHeart" destination="5yR-cX-5AH" id="D0k-P5-GDh"/>
+                        <outlet property="image1234" destination="8lL-Ht-X0M" id="01T-r1-qWU"/>
                         <outlet property="testView2" destination="hNL-Yx-w10" id="NUJ-gG-BWH"/>
                     </connections>
                 </viewController>
@@ -289,6 +302,8 @@ heart cards</string>
         </scene>
     </scenes>
     <resources>
+        <image name="blossomHeart" width="300" height="252"/>
         <image name="heartShape" width="299" height="252"/>
+        <image name="postHeart" width="299" height="252"/>
     </resources>
 </document>
