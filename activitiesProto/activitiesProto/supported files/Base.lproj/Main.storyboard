@@ -34,12 +34,29 @@
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCK-TU-KVe">
+                                <rect key="frame" x="76" y="176" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="set on 1"/>
+                                <connections>
+                                    <action selector="setOn1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LA2-e4-oHO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azz-VR-4nU">
+                                <rect key="frame" x="163" y="176" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="remove on 1"/>
+                                <connections>
+                                    <action selector="clearOn1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zMi-St-CPH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="segmentedControl" destination="Ju1-CU-PZ5" id="4Pd-eS-Seu"/>
+                        <outlet property="segmentedControl2" destination="wBA-zk-Ib6" id="OJh-RO-9wr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

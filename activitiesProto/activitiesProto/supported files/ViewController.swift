@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+   
+    @IBOutlet weak var segmentedControl2: TapplActivitiesSegmentedControl!
     
     func commonInit() {
         
@@ -38,6 +40,17 @@ class ViewController: UIViewController {
         let image = UIImage().colored(with: UIColor(rgb: 0xededec), size: CGSize(width: 1, height: 1))
         segmentedControl.setDividerImage(image, forLeftSegmentState: UIControl.State.normal, rightSegmentState: UIControl.State.normal, barMetrics: UIBarMetrics.default)
     }
+    
+    @IBAction func setOn1(_ sender: Any) {
+        segmentedControl2.setSegmentActivityIndicator(0, newValue: true)
+        segmentedControl2.setSegmentActivityIndicator(1, newValue: false)
+    }
+    
+    @IBAction func clearOn1(_ sender: Any) {
+        segmentedControl2.setSegmentActivityIndicator(0, newValue: false)
+        segmentedControl2.setSegmentActivityIndicator(1, newValue: true)
+    }
+    
     
 }
 
