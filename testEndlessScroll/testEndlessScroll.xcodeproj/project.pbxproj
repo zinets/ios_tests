@@ -17,7 +17,6 @@
 		D62A6814DF8CEEE9AC7CD6A2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62A6ABDDEFCF6F081C30BF0 /* Info.plist */; };
 		D62A69D0538EB9C6623BE0FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D62A6056A076243335B6DFD1 /* Main.storyboard */; };
 		D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A60F44CD6CD042039D92A /* main.m */; };
-		D62A6AF9CB73460CED7B3348 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62A6686919D5BA97A3575AB /* Info.plist */; };
 		D62A6B234927FD5E36900F19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A68F44F55C17E659D83FE /* ViewController.m */; };
 		D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A65293AFBC80909CAC617 /* AppDelegate.m */; };
 		D62A6ECBD506688B797EF25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B93DEE84A5FA0C8ADE7 /* Assets.xcassets */; };
@@ -284,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D62A6ECBD506688B797EF25F /* Assets.xcassets in Resources */,
-				D62A6AF9CB73460CED7B3348 /* Info.plist in Resources */,
 				D62A680D9CF77961E55452BE /* LaunchScreen.storyboard in Resources */,
 				D62A69D0538EB9C6623BE0FF /* Main.storyboard in Resources */,
 			);
