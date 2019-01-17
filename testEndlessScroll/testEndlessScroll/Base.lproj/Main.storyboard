@@ -129,20 +129,20 @@
                                                         <constraint firstAttribute="height" constant="68" id="ir6-q5-Xmz"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melania" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-UG-2N2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Melania" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-UG-2N2">
                                                     <rect key="frame" x="150.5" y="88" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want conversation with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-GD-yke">
-                                                    <rect key="frame" x="82" y="116" width="211" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Want conversation with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-GD-yke">
+                                                    <rect key="frame" x="82" y="116" width="211" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="UTf-fV-NyM">
-                                                    <rect key="frame" x="38" y="156" width="299" height="252"/>
+                                                    <rect key="frame" x="51" y="155.5" width="273" height="230.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UTf-fV-NyM" secondAttribute="height" multiplier="299:252" id="FX2-et-a80"/>
                                                     </constraints>
@@ -152,13 +152,13 @@
                                         <constraints>
                                             <constraint firstItem="RVH-GD-yke" firstAttribute="top" secondItem="oTw-UG-2N2" secondAttribute="bottom" constant="4" id="60h-ex-73e"/>
                                             <constraint firstItem="oTw-UG-2N2" firstAttribute="top" secondItem="nK8-oO-jBO" secondAttribute="bottom" constant="20" id="MYG-iw-HX5"/>
-                                            <constraint firstAttribute="trailing" secondItem="UTf-fV-NyM" secondAttribute="trailing" constant="38" id="OnR-QW-4hh"/>
                                             <constraint firstItem="nK8-oO-jBO" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="Ous-Zq-AKJ"/>
                                             <constraint firstItem="RVH-GD-yke" firstAttribute="centerX" secondItem="oTw-UG-2N2" secondAttribute="centerX" id="Qny-Ce-BK1"/>
                                             <constraint firstItem="nK8-oO-jBO" firstAttribute="top" secondItem="ddo-G9-Q4G" secondAttribute="top" id="Vtd-cc-3xG"/>
                                             <constraint firstItem="UTf-fV-NyM" firstAttribute="top" secondItem="RVH-GD-yke" secondAttribute="bottom" constant="19" id="Xgj-do-ch5"/>
                                             <constraint firstItem="oTw-UG-2N2" firstAttribute="centerX" secondItem="nK8-oO-jBO" secondAttribute="centerX" id="eKN-CJ-BQS"/>
-                                            <constraint firstItem="UTf-fV-NyM" firstAttribute="leading" secondItem="ddo-G9-Q4G" secondAttribute="leading" constant="38" id="vzU-HN-hhp"/>
+                                            <constraint firstAttribute="bottom" secondItem="UTf-fV-NyM" secondAttribute="bottom" id="gSw-Gx-me7"/>
+                                            <constraint firstItem="UTf-fV-NyM" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="rts-i7-a1G"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="avatarView" destination="nK8-oO-jBO" id="9aM-cx-PJ7"/>
@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAK-zZ-hCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="852.3238380809596"/>
+            <point key="canvasLocation" x="420" y="823"/>
         </scene>
     </scenes>
     <resources>
