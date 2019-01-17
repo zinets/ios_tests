@@ -114,7 +114,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TapplRequestsListCellCollectionViewCell" id="ddo-G9-Q4G" customClass="TapplRequestsListCellCollectionViewCell" customModule="testEndlessScroll" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TapplRequestsListCellCollectionViewCell" id="ddo-G9-Q4G" customClass="TapplRequestsListCell" customModule="testEndlessScroll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -122,26 +122,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_0" translatesAutoresizingMaskIntoConstraints="NO" id="nK8-oO-jBO">
-                                                    <rect key="frame" x="154" y="0.0" width="68" height="68"/>
+                                                    <rect key="frame" x="153.5" y="0.0" width="68" height="68"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="68" id="QhL-ZD-RGN"/>
                                                         <constraint firstAttribute="height" constant="68" id="ir6-q5-Xmz"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Melania" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-UG-2N2">
-                                                    <rect key="frame" x="151" y="88" width="74" height="24"/>
+                                                    <rect key="frame" x="150.5" y="88" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Want conversation with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-GD-yke">
-                                                    <rect key="frame" x="82.5" y="116" width="211" height="20.5"/>
+                                                    <rect key="frame" x="82" y="116" width="211" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="UTf-fV-NyM">
-                                                    <rect key="frame" x="37" y="155.5" width="302" height="254.5"/>
+                                                    <rect key="frame" x="36.5" y="155.5" width="302" height="254.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UTf-fV-NyM" secondAttribute="height" multiplier="299:252" id="FX2-et-a80"/>
                                                     </constraints>
@@ -162,6 +162,8 @@
                                         <size key="customSize" width="375" height="410"/>
                                         <connections>
                                             <outlet property="avatarView" destination="nK8-oO-jBO" id="9aM-cx-PJ7"/>
+                                            <outlet property="heartControl" destination="UTf-fV-NyM" id="SNb-fo-xEb"/>
+                                            <outlet property="screennameLabel" destination="oTw-UG-2N2" id="n71-v5-RGT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
