@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="908" y="44"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller2-->
         <scene sceneID="NWH-4F-mVe">
             <objects>
-                <viewController id="HbW-QE-66k" sceneMemberID="viewController">
+                <viewController id="HbW-QE-66k" customClass="ViewController2" customModule="testEndlessScroll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sce-d3-K7g"/>
                         <viewControllerLayoutGuide type="bottom" id="Vkv-6z-ccU"/>
@@ -168,6 +168,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-9j-nqq">
+                                <rect key="frame" x="42" y="494" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetScroller:" destination="HbW-QE-66k" eventType="touchUpInside" id="sIy-Tb-8yd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -177,6 +185,9 @@
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="top" secondItem="sce-d3-K7g" secondAttribute="bottom" constant="40" id="z4S-fL-BNe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tapplRequestsScroller" destination="Z6K-Rh-E3r" id="mWz-dj-frv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAK-zZ-hCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

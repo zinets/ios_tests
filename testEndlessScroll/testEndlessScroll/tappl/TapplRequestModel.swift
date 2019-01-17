@@ -9,5 +9,7 @@
 import UIKit
 
 class TapplRequestModel: NSObject {
-
+    var screenName: String = ""
+    var heartControlDesign: Int = 0
+    
 }

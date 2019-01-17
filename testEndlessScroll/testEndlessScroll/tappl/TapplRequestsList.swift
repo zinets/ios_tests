@@ -31,19 +31,28 @@ class TapplRequestsList: UICollectionView {
     }
     
     @objc private func swipeToLeftAction(_ sender: UISwipeGestureRecognizer) {
-        self.scrollOneUser(true)
+        self.selectedIndex += 1
     }
     @objc private func swipeToRightAction(_ sender: UISwipeGestureRecognizer) {
-        self.scrollOneUser(false)
-    }
-    private func scrollOneUser(_ toLeft: Bool) {
-        var pt = self.contentOffset
-        self.setContentOffset(CGPoint(x: pt.x + (cellWidth + cellSpacing) * (toLeft ? 1 : -1), y: 0), animated: true)
+        self.selectedIndex -= 1
     }
     
     var selectedIndex: Int = 0 {
+        
         didSet {
+            if selectedIndex < 0 {
+                selectedIndex = 0
+            } else if selectedIndex >= 4 {
+                selectedIndex = 3
+            }
             
+            let offset = CGFloat(selectedIndex) * (cellWidth + cellSpacing)
+            
+            UIView.animate(withDuration: 0.45, delay: 0, options: [.curveEaseOut], animations: {
+                self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+            }) { (_) in
+                
+            }
         }
     }
 

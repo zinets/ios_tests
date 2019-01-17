@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testEndlessScroll/tappl/TapplRequestsListCell.swift"
-            timestampString = "569419709.599005"
+            timestampString = "569422042.19797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "centerPos"
             landmarkType = "24">
          </BreakpointContent>
