@@ -31,6 +31,7 @@
             [bigBlock.layer addSublayer:gradientLayer];
         }
         [self.contentView addSubview:bigBlock];
+        self.layer.borderWidth = 2;
     }
     return self;
 }

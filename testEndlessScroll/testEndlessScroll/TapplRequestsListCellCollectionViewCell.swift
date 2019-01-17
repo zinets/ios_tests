@@ -10,4 +10,6 @@ import UIKit
 
 class TapplRequestsListCellCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var avatarView: UIImageView!
+    
 }

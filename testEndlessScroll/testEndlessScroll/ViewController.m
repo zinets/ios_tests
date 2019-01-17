@@ -40,7 +40,7 @@
                     [UIColor darkGrayColor]
             ]];
 
-    [self.view addSubview:self.collectionView];
+//    [self.view addSubview:self.collectionView];
 }
 
 
@@ -59,6 +59,8 @@
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+        
+        
     }
     return _collectionView;
 }

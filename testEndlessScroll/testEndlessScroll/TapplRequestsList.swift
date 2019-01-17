@@ -8,14 +8,23 @@
 
 import UIKit
 
-class TapplRequestsList: UIView {
+class TapplRequestsList: UICollectionView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+
+
+}
+
+extension TapplRequestsList: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        return UICollectionViewCell()
+    }
+    
+    
 }
