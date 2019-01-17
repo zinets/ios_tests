@@ -10,6 +10,7 @@
 		417568C9019332838056627D /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */; };
 		4951D27C21F07F8300DE7EC0 /* TapplRequestsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */; };
 		4951D27E21F084F200DE7EC0 /* TapplRequestsListCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27D21F084F200DE7EC0 /* TapplRequestsListCellCollectionViewCell.swift */; };
+		4951D28021F08A5800DE7EC0 /* TapplRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
@@ -27,6 +28,7 @@
 		4951D27A21F07F8300DE7EC0 /* testEndlessScroll-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testEndlessScroll-Bridging-Header.h"; sourceTree = "<group>"; };
 		4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsList.swift; sourceTree = "<group>"; };
 		4951D27D21F084F200DE7EC0 /* TapplRequestsListCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsListCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestModel.swift; sourceTree = "<group>"; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
@@ -59,11 +61,12 @@
 		4951D27921F07E8600DE7EC0 /* synchronized collection */ = {
 			isa = PBXGroup;
 			children = (
-				4951D27A21F07F8300DE7EC0 /* testEndlessScroll-Bridging-Header.h */,
 				4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */,
 				4951D27D21F084F200DE7EC0 /* TapplRequestsListCellCollectionViewCell.swift */,
+				4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */,
 			);
 			name = "synchronized collection";
+			path = tappl;
 			sourceTree = "<group>";
 		};
 		49C49A8920A564C1000158A5 /* endless scroller */ = {
@@ -90,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				D62A6056A076243335B6DFD1 /* Main.storyboard */,
+				4951D27A21F07F8300DE7EC0 /* testEndlessScroll-Bridging-Header.h */,
 				4951D27921F07E8600DE7EC0 /* synchronized collection */,
 				D62A64606A8656FF1AD97945 /* Supporting Files */,
 				D62A698F65E06F92F28BA113 /* ViewController.h */,
@@ -200,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E7448720A586C100C4507E /* HexView.m in Sources */,
+				4951D28021F08A5800DE7EC0 /* TapplRequestModel.swift in Sources */,
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
 				4951D27C21F07F8300DE7EC0 /* TapplRequestsList.swift in Sources */,

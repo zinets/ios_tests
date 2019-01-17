@@ -104,12 +104,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z6K-Rh-E3r" customClass="TapplRequestsList" customModule="testEndlessScroll" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z6K-Rh-E3r" customClass="TapplRequestsList" customModule="testEndlessScroll" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="60" width="375" height="410"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23077717419999999" green="0.34785306449999998" blue="0.59614431859999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j4c-7V-ySr">
-                                    <size key="itemSize" width="375" height="410"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R8A-zY-XFI">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -123,26 +122,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_0" translatesAutoresizingMaskIntoConstraints="NO" id="nK8-oO-jBO">
-                                                    <rect key="frame" x="153.5" y="0.0" width="68" height="68"/>
+                                                    <rect key="frame" x="154" y="0.0" width="68" height="68"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="68" id="QhL-ZD-RGN"/>
                                                         <constraint firstAttribute="height" constant="68" id="ir6-q5-Xmz"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Melania" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-UG-2N2">
-                                                    <rect key="frame" x="150.5" y="88" width="74" height="24"/>
+                                                    <rect key="frame" x="151" y="88" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Want conversation with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-GD-yke">
-                                                    <rect key="frame" x="82" y="116" width="211" height="20.5"/>
+                                                    <rect key="frame" x="82.5" y="116" width="211" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="UTf-fV-NyM">
-                                                    <rect key="frame" x="51" y="155.5" width="273" height="230.5"/>
+                                                    <rect key="frame" x="37" y="155.5" width="302" height="254.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UTf-fV-NyM" secondAttribute="height" multiplier="299:252" id="FX2-et-a80"/>
                                                     </constraints>
@@ -160,6 +159,7 @@
                                             <constraint firstAttribute="bottom" secondItem="UTf-fV-NyM" secondAttribute="bottom" id="gSw-Gx-me7"/>
                                             <constraint firstItem="UTf-fV-NyM" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="rts-i7-a1G"/>
                                         </constraints>
+                                        <size key="customSize" width="375" height="410"/>
                                         <connections>
                                             <outlet property="avatarView" destination="nK8-oO-jBO" id="9aM-cx-PJ7"/>
                                         </connections>
@@ -168,11 +168,17 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z6K-Rh-E3r" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leading" id="Any-ba-2Ho"/>
+                            <constraint firstAttribute="trailing" secondItem="Z6K-Rh-E3r" secondAttribute="trailing" id="nZc-fu-GWI"/>
+                            <constraint firstItem="Vkv-6z-ccU" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="197" id="xci-dr-WDr"/>
+                            <constraint firstItem="Z6K-Rh-E3r" firstAttribute="top" secondItem="sce-d3-K7g" secondAttribute="bottom" constant="40" id="z4S-fL-BNe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAK-zZ-hCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="823"/>
+            <point key="canvasLocation" x="420" y="822.63868065967017"/>
         </scene>
     </scenes>
     <resources>
