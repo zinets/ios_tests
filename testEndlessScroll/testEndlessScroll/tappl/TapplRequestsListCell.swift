@@ -34,9 +34,13 @@ class TapplRequestsListCell: UICollectionViewCell {
             let empiricShiftValue = CGFloat(414.0 * 1.74)
             heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * centerPos, y: 0)
             
-            let alpha = 1 - abs(centerPos)
-            UIView.animate(withDuration: 0.2) {
-                self.overlayView.alpha = alpha == 1 ? 1 : 0
+            let alpha: CGFloat = (1 - abs(centerPos)) == 1 ? 1 : 0
+            UIView.animate(withDuration: 0.5) {
+                self.overlayView.alpha = alpha
+                
+                self.screennameLabel.alpha = alpha
+                self.screennameLabel.transform = CGAffineTransform(translationX: 100 * self.centerPos, y: 0)
+                
             }
         }
     }

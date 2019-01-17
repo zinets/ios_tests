@@ -76,6 +76,10 @@ extension TapplRequestsList: UICollectionViewDataSource, UICollectionViewDelegat
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.item
+    }
+    
     // MARK: - appearance
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
