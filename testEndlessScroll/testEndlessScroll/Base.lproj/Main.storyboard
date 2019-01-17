@@ -105,24 +105,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z6K-Rh-E3r" customClass="TapplRequestsList" customModule="testEndlessScroll" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="60" width="375" height="410"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="414"/>
                                 <color key="backgroundColor" red="0.23077717419999999" green="0.34785306449999998" blue="0.59614431859999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R8A-zY-XFI">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kuy-bt-dLK">
+                                    <size key="itemSize" width="375" height="410"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="TapplRequestsListCellCollectionViewCell" id="ddo-G9-Q4G" customClass="TapplRequestsListCell" customModule="testEndlessScroll" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
+                                        <rect key="frame" x="0.0" y="2" width="375" height="410"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBA-el-nC8">
+                                                    <rect key="frame" x="149.5" y="0.0" width="76" height="76"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_0" translatesAutoresizingMaskIntoConstraints="NO" id="nK8-oO-jBO">
-                                                    <rect key="frame" x="153.5" y="0.0" width="68" height="68"/>
+                                                    <rect key="frame" x="153.5" y="4" width="68" height="68"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="68" id="QhL-ZD-RGN"/>
                                                         <constraint firstAttribute="height" constant="68" id="ir6-q5-Xmz"/>
@@ -150,19 +154,24 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="RVH-GD-yke" firstAttribute="top" secondItem="oTw-UG-2N2" secondAttribute="bottom" constant="4" id="60h-ex-73e"/>
-                                            <constraint firstItem="oTw-UG-2N2" firstAttribute="top" secondItem="nK8-oO-jBO" secondAttribute="bottom" constant="20" id="MYG-iw-HX5"/>
+                                            <constraint firstItem="qBA-el-nC8" firstAttribute="height" secondItem="nK8-oO-jBO" secondAttribute="height" constant="8" id="L3y-EQ-crF"/>
+                                            <constraint firstItem="oTw-UG-2N2" firstAttribute="top" secondItem="nK8-oO-jBO" secondAttribute="bottom" constant="16" id="MYG-iw-HX5"/>
                                             <constraint firstItem="nK8-oO-jBO" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="Ous-Zq-AKJ"/>
                                             <constraint firstItem="RVH-GD-yke" firstAttribute="centerX" secondItem="oTw-UG-2N2" secondAttribute="centerX" id="Qny-Ce-BK1"/>
-                                            <constraint firstItem="nK8-oO-jBO" firstAttribute="top" secondItem="ddo-G9-Q4G" secondAttribute="top" id="Vtd-cc-3xG"/>
+                                            <constraint firstItem="nK8-oO-jBO" firstAttribute="top" secondItem="ddo-G9-Q4G" secondAttribute="top" constant="4" id="Vtd-cc-3xG"/>
                                             <constraint firstItem="UTf-fV-NyM" firstAttribute="top" secondItem="RVH-GD-yke" secondAttribute="bottom" constant="19" id="Xgj-do-ch5"/>
+                                            <constraint firstItem="qBA-el-nC8" firstAttribute="centerX" secondItem="nK8-oO-jBO" secondAttribute="centerX" id="dko-Tl-DDY"/>
                                             <constraint firstItem="oTw-UG-2N2" firstAttribute="centerX" secondItem="nK8-oO-jBO" secondAttribute="centerX" id="eKN-CJ-BQS"/>
                                             <constraint firstAttribute="bottom" secondItem="UTf-fV-NyM" secondAttribute="bottom" id="gSw-Gx-me7"/>
+                                            <constraint firstItem="qBA-el-nC8" firstAttribute="width" secondItem="nK8-oO-jBO" secondAttribute="width" constant="8" id="pKG-b3-bEG"/>
                                             <constraint firstItem="UTf-fV-NyM" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="rts-i7-a1G"/>
+                                            <constraint firstItem="qBA-el-nC8" firstAttribute="centerY" secondItem="nK8-oO-jBO" secondAttribute="centerY" id="wLs-TH-ebx"/>
                                         </constraints>
                                         <size key="customSize" width="375" height="410"/>
                                         <connections>
                                             <outlet property="avatarView" destination="nK8-oO-jBO" id="9aM-cx-PJ7"/>
                                             <outlet property="heartControl" destination="UTf-fV-NyM" id="SNb-fo-xEb"/>
+                                            <outlet property="overlayView" destination="qBA-el-nC8" id="QmX-RV-R5Z"/>
                                             <outlet property="screennameLabel" destination="oTw-UG-2N2" id="n71-v5-RGT"/>
                                         </connections>
                                     </collectionViewCell>
@@ -181,7 +190,7 @@
                         <constraints>
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leading" id="Any-ba-2Ho"/>
                             <constraint firstAttribute="trailing" secondItem="Z6K-Rh-E3r" secondAttribute="trailing" id="nZc-fu-GWI"/>
-                            <constraint firstItem="Vkv-6z-ccU" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="197" id="xci-dr-WDr"/>
+                            <constraint firstItem="Vkv-6z-ccU" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="193" id="xci-dr-WDr"/>
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="top" secondItem="sce-d3-K7g" secondAttribute="bottom" constant="40" id="z4S-fL-BNe"/>
                         </constraints>
                     </view>

@@ -15,7 +15,7 @@ class TapplRequestsList: UICollectionView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+                
         self.dataSource = self
         self.delegate = self
         
@@ -48,7 +48,7 @@ class TapplRequestsList: UICollectionView {
             
             let offset = CGFloat(selectedIndex) * (cellWidth + cellSpacing)
             
-            UIView.animate(withDuration: 0.45, delay: 0, options: [.curveEaseOut], animations: {
+            UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseOut], animations: {
                 self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
             }) { (_) in
                 
@@ -91,7 +91,7 @@ extension TapplRequestsList: UICollectionViewDataSource, UICollectionViewDelegat
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return cellSpacing
     }
-    
+       
     // MARK: - scrolling
     
     private func cellPos(_ cell: UICollectionViewCell) -> CGFloat {
