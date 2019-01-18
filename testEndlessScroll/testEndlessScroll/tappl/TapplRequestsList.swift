@@ -65,17 +65,7 @@ class TapplRequestsList: UICollectionView {
 }
 
 extension TapplRequestsList: /*UICollectionViewDataSource,*/ UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TapplRequestsListCellCollectionViewCell", for: indexPath)
-        
-        return cell
-    }
-    
+       
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let tappleRequestCell = cell as? TapplRequestsListCell {
             tappleRequestCell.centerPos = self.cellPos(cell)

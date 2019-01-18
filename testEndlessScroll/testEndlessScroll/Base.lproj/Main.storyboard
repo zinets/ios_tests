@@ -191,15 +191,24 @@
                                     <action selector="reloadScroller:" destination="HbW-QE-66k" eventType="touchUpInside" id="TjW-I2-4Np"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q07-HE-hz9">
+                                <rect key="frame" x="190" y="494" width="114" height="30"/>
+                                <state key="normal" title="remove selected"/>
+                                <connections>
+                                    <action selector="deleteSelected:" destination="HbW-QE-66k" eventType="touchUpInside" id="Lh3-bp-D1F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EYJ-6P-GW0" firstAttribute="leading" secondItem="Ch1-9j-nqq" secondAttribute="trailing" constant="20" id="33R-sD-5cx"/>
                             <constraint firstItem="Ch1-9j-nqq" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="20" id="8lj-7T-i43"/>
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leading" id="Any-ba-2Ho"/>
+                            <constraint firstItem="q07-HE-hz9" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="20" id="Csd-TQ-G6q"/>
                             <constraint firstItem="EYJ-6P-GW0" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="20" id="Im8-ib-Wiq"/>
                             <constraint firstItem="Ch1-9j-nqq" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leadingMargin" constant="26" id="j2E-Nx-dvY"/>
                             <constraint firstAttribute="trailing" secondItem="Z6K-Rh-E3r" secondAttribute="trailing" id="nZc-fu-GWI"/>
+                            <constraint firstItem="q07-HE-hz9" firstAttribute="leading" secondItem="EYJ-6P-GW0" secondAttribute="trailing" constant="17" id="p6M-sh-Yhi"/>
                             <constraint firstItem="Vkv-6z-ccU" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="193" id="xci-dr-WDr"/>
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="top" secondItem="sce-d3-K7g" secondAttribute="bottom" constant="40" id="z4S-fL-BNe"/>
                         </constraints>

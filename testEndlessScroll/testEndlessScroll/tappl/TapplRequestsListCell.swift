@@ -28,8 +28,9 @@ class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        screennameLabel.alpha = 0
-        overlayView.alpha = 0
+//        screennameLabel.alpha = 0
+//        overlayView.alpha = 0
+        self.centerPos = 0
     }
     
     // MARK: - appearance
@@ -49,15 +50,18 @@ class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
     var centerPos: CGFloat = 0 {
         didSet {
             let empiricShiftValue = CGFloat(414.0 * 1.74)
-            heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * centerPos, y: 0)
+            let alpha: CGFloat = 1 - abs(centerPos)
             
-            let alpha: CGFloat = (1 - abs(centerPos)) == 1 ? 1 : 0
-            UIView.animate(withDuration: 0.5) {
-                self.overlayView.alpha = alpha
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
+                self.overlayView.alpha = alpha == 1 ? 1 : 0
                 self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
                 
-                self.screennameLabel.alpha = alpha
+                self.screennameLabel.alpha = alpha == 1 ? 1 : 0
                 self.screennameLabel.transform = CGAffineTransform(translationX: 100 * self.centerPos, y: 0)
+                
+                self.heartControl.alpha = alpha > 0.3 ? 1 : 0
+                self.heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * self.centerPos, y: 0)
+            }) { (_) in
                 
             }
         }

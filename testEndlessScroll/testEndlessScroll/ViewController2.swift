@@ -33,5 +33,8 @@ class ViewController2: UIViewController {
         tapplRequestsScroller.data = data
     }
     
-
+    @IBAction func deleteSelected(_ sender: Any) {
+        tapplRequestsScroller.data.remove(at: tapplRequestsScroller.selectedIndex)
+    }
+    
 }
