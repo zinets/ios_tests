@@ -138,14 +138,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Want conversation with you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-GD-yke">
-                                                    <rect key="frame" x="82" y="116" width="211" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.46666666666666667" green="0.46666666666666667" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_0" translatesAutoresizingMaskIntoConstraints="NO" id="UTf-fV-NyM">
-                                                    <rect key="frame" x="36.5" y="155.5" width="302" height="254.5"/>
+                                                    <rect key="frame" x="36" y="155" width="303" height="255"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UTf-fV-NyM" secondAttribute="height" multiplier="299:252" id="FX2-et-a80"/>
                                                     </constraints>
@@ -153,16 +147,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="RVH-GD-yke" firstAttribute="top" secondItem="oTw-UG-2N2" secondAttribute="bottom" constant="4" id="60h-ex-73e"/>
                                             <constraint firstItem="qBA-el-nC8" firstAttribute="height" secondItem="nK8-oO-jBO" secondAttribute="height" constant="8" id="L3y-EQ-crF"/>
                                             <constraint firstItem="oTw-UG-2N2" firstAttribute="top" secondItem="nK8-oO-jBO" secondAttribute="bottom" constant="16" id="MYG-iw-HX5"/>
                                             <constraint firstItem="nK8-oO-jBO" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="Ous-Zq-AKJ"/>
-                                            <constraint firstItem="RVH-GD-yke" firstAttribute="centerX" secondItem="oTw-UG-2N2" secondAttribute="centerX" id="Qny-Ce-BK1"/>
                                             <constraint firstItem="nK8-oO-jBO" firstAttribute="top" secondItem="ddo-G9-Q4G" secondAttribute="top" constant="4" id="Vtd-cc-3xG"/>
-                                            <constraint firstItem="UTf-fV-NyM" firstAttribute="top" secondItem="RVH-GD-yke" secondAttribute="bottom" constant="19" id="Xgj-do-ch5"/>
                                             <constraint firstItem="qBA-el-nC8" firstAttribute="centerX" secondItem="nK8-oO-jBO" secondAttribute="centerX" id="dko-Tl-DDY"/>
                                             <constraint firstItem="oTw-UG-2N2" firstAttribute="centerX" secondItem="nK8-oO-jBO" secondAttribute="centerX" id="eKN-CJ-BQS"/>
                                             <constraint firstAttribute="bottom" secondItem="UTf-fV-NyM" secondAttribute="bottom" id="gSw-Gx-me7"/>
+                                            <constraint firstItem="UTf-fV-NyM" firstAttribute="top" secondItem="nK8-oO-jBO" secondAttribute="bottom" constant="83" id="kU2-Ea-TXL"/>
                                             <constraint firstItem="qBA-el-nC8" firstAttribute="width" secondItem="nK8-oO-jBO" secondAttribute="width" constant="8" id="pKG-b3-bEG"/>
                                             <constraint firstItem="UTf-fV-NyM" firstAttribute="centerX" secondItem="ddo-G9-Q4G" secondAttribute="centerX" id="rts-i7-a1G"/>
                                             <constraint firstItem="qBA-el-nC8" firstAttribute="centerY" secondItem="nK8-oO-jBO" secondAttribute="centerY" id="wLs-TH-ebx"/>
