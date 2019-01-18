@@ -82,7 +82,7 @@ class TapplRequestsList: UICollectionView {
         let label = UILabel()
         label.backgroundColor = .clear
         label.isHidden = true        
-        label.text = "123"
+        label.text = ""
         label.sizeToFit()
         
         return label
@@ -105,6 +105,7 @@ class TapplRequestsList: UICollectionView {
         
         internalDataSource.onDataUpdated = { (newCount: Int) in
             self.viewMode = newCount == 0 ? .placeholder : .normal
+            self.scrollViewDidScroll(self)
         }
         
         self.isScrollEnabled = false
@@ -140,6 +141,10 @@ class TapplRequestsList: UICollectionView {
             
             let offset = CGFloat(selectedIndex!) * (cellWidth + cellSpacing)
             self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+            
+            if let cell = self.cellForItem(at: IndexPath(item: index, section: 0)) as? TapplRequestsListCell {
+                cell.setCenterPos(self.cellPos(cell), animated: true)
+            }
             
             decorationLabel.isHidden = false
         }

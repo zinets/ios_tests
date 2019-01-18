@@ -22,7 +22,7 @@ class ViewController2: UIViewController {
     
     @IBAction func reloadScroller(_ sender: Any) {
         var data: [TapplRequestsListDatasourceItem] = []
-        for x in 0..<6 {
+        for x in 0..<3 {
             let screenName = "name \(x)" // used as payload
             let item = TapplRequestsListDatasourceItem("TapplRequestCellId", payload: screenName)
             
