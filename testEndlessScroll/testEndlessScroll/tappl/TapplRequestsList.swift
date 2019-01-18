@@ -23,6 +23,19 @@ class TapplRequestsList: UICollectionView {
         }
     }
     
+    func removeSelected() {
+        guard let index = self.selectedIndex else { return }
+        
+        self.data.remove(at: index)
+        let maxIndex = self.data.count - 1
+        
+        if maxIndex >= 0 {
+            selectedIndex = nil
+        } else {
+            selectedIndex = min(index, maxIndex)
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.delegate = self
@@ -40,19 +53,23 @@ class TapplRequestsList: UICollectionView {
     }
     
     @objc private func swipeToLeftAction(_ sender: UISwipeGestureRecognizer) {
-        self.selectedIndex += 1
+        guard let index = self.selectedIndex else { return }
+        self.selectedIndex = index + 1
     }
     @objc private func swipeToRightAction(_ sender: UISwipeGestureRecognizer) {
-        self.selectedIndex -= 1
+        guard let index = self.selectedIndex else { return }
+        self.selectedIndex = index - 1
     }
     
-    var selectedIndex: Int = 0 {
-        
+    var selectedIndex: Int? = 0 {
         didSet {
+            guard let index = selectedIndex else {
+                return
+            }
             let maxCount = internalDataSource.items.count - 1
-            selectedIndex = max(0, min(selectedIndex, maxCount))
+            selectedIndex = max(0, min(index, maxCount))
             
-            let offset = CGFloat(selectedIndex) * (cellWidth + cellSpacing)
+            let offset = CGFloat(selectedIndex!) * (cellWidth + cellSpacing)
             
             UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseOut], animations: {
                 self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
