@@ -52,7 +52,7 @@ class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
             let empiricShiftValue = CGFloat(414.0 * 1.74)
             let alpha: CGFloat = 1 - abs(centerPos)
             
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut], animations: {
                 self.overlayView.alpha = alpha == 1 ? 1 : 0
                 self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
                 
