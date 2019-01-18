@@ -12,12 +12,21 @@ class TapplRequestsList: UICollectionView {
 
     private let cellWidth: CGFloat = 68
     private let cellSpacing: CGFloat = 14
+    private let internalDataSource = TapplRequestsListDatasource()
+    
+    var data: [RequestsListDatasourceItem] {
+        set {
+            internalDataSource.items = newValue
+        }
+        get {
+            return internalDataSource.items as! [RequestsListDatasourceItem]
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-                
-        self.dataSource = self
         self.delegate = self
+        internalDataSource.collectionView = self
         
         self.isScrollEnabled = false
         
@@ -40,11 +49,8 @@ class TapplRequestsList: UICollectionView {
     var selectedIndex: Int = 0 {
         
         didSet {
-            if selectedIndex < 0 {
-                selectedIndex = 0
-            } else if selectedIndex >= 4 {
-                selectedIndex = 3
-            }
+            let maxCount = internalDataSource.items.count - 1
+            selectedIndex = max(0, min(selectedIndex, maxCount))
             
             let offset = CGFloat(selectedIndex) * (cellWidth + cellSpacing)
             
@@ -58,7 +64,7 @@ class TapplRequestsList: UICollectionView {
 
 }
 
-extension TapplRequestsList: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TapplRequestsList: /*UICollectionViewDataSource,*/ UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4

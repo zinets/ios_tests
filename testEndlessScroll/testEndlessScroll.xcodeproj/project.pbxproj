@@ -10,10 +10,10 @@
 		417568C9019332838056627D /* UIColor+MUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */; };
 		4951D27C21F07F8300DE7EC0 /* TapplRequestsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */; };
 		4951D27E21F084F200DE7EC0 /* TapplRequestsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27D21F084F200DE7EC0 /* TapplRequestsListCell.swift */; };
-		4951D28021F08A5800DE7EC0 /* TapplRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */; };
 		4951D28221F0A92F00DE7EC0 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D28121F0A92F00DE7EC0 /* ViewController2.swift */; };
 		4951D29B21F1A7E000DE7EC0 /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; };
 		4951D29C21F1A7E000DE7EC0 /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4951D2AA21F1B5F000DE7EC0 /* TapplRequestsListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D2A921F1B5EF00DE7EC0 /* TapplRequestsListDatasource.swift */; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
@@ -62,9 +62,9 @@
 		4951D27A21F07F8300DE7EC0 /* testEndlessScroll-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testEndlessScroll-Bridging-Header.h"; sourceTree = "<group>"; };
 		4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsList.swift; sourceTree = "<group>"; };
 		4951D27D21F084F200DE7EC0 /* TapplRequestsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsListCell.swift; sourceTree = "<group>"; };
-		4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestModel.swift; sourceTree = "<group>"; };
 		4951D28121F0A92F00DE7EC0 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../../tn_ios/trunk/Frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
+		4951D2A921F1B5EF00DE7EC0 /* TapplRequestsListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsListDatasource.swift; sourceTree = "<group>"; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		4951D27921F07E8600DE7EC0 /* synchronized collection */ = {
 			isa = PBXGroup;
 			children = (
+				4951D2A921F1B5EF00DE7EC0 /* TapplRequestsListDatasource.swift */,
 				4951D27B21F07F8300DE7EC0 /* TapplRequestsList.swift */,
 				4951D27D21F084F200DE7EC0 /* TapplRequestsListCell.swift */,
-				4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */,
 			);
 			name = "synchronized collection";
 			path = tappl;
@@ -137,6 +137,7 @@
 		D62A617603F2F84B4C7E6442 /* testEndlessScroll */ = {
 			isa = PBXGroup;
 			children = (
+				D62A6B93DEE84A5FA0C8ADE7 /* Assets.xcassets */,
 				D62A6056A076243335B6DFD1 /* Main.storyboard */,
 				4951D27A21F07F8300DE7EC0 /* testEndlessScroll-Bridging-Header.h */,
 				4951D27921F07E8600DE7EC0 /* synchronized collection */,
@@ -154,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				D62A60F44CD6CD042039D92A /* main.m */,
-				D62A6B93DEE84A5FA0C8ADE7 /* Assets.xcassets */,
 				D62A6686919D5BA97A3575AB /* Info.plist */,
 				D62A6F72A806CA715352A04B /* LaunchScreen.storyboard */,
 				D62A65293AFBC80909CAC617 /* AppDelegate.m */,
@@ -270,13 +270,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49E7448720A586C100C4507E /* HexView.m in Sources */,
-				4951D28021F08A5800DE7EC0 /* TapplRequestModel.swift in Sources */,
 				D62A6A20AAD8B5AB7C427D56 /* main.m in Sources */,
 				D62A6B234927FD5E36900F19 /* ViewController.m in Sources */,
 				4951D28221F0A92F00DE7EC0 /* ViewController2.swift in Sources */,
 				4951D27C21F07F8300DE7EC0 /* TapplRequestsList.swift in Sources */,
 				49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */,
 				4951D27E21F084F200DE7EC0 /* TapplRequestsListCell.swift in Sources */,
+				4951D2AA21F1B5F000DE7EC0 /* TapplRequestsListDatasource.swift in Sources */,
 				D62A6E4E7D41BE356627AB5C /* AppDelegate.m in Sources */,
 				D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */,
 				417568C9019332838056627D /* UIColor+MUIColor.m in Sources */,

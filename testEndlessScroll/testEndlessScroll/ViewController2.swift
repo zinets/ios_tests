@@ -21,7 +21,16 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func reloadScroller(_ sender: Any) {
-        tapplRequestsScroller.reloadData()
+        var data: [RequestsListDatasourceItem] = []
+        for x in 0..<6 {
+            let item = RequestsListDatasourceItem("TapplRequestCellId", payload: nil)
+            
+            item.screenName = "name \(x)"
+            item.imageName = "image_\(x)"
+            item.heartName = "heart_\(Int.random(in: 0..<3))"
+            data.append(item)
+        }
+        tapplRequestsScroller.data = data
     }
     
 

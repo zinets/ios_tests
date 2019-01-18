@@ -7,8 +7,18 @@
 //
 
 import UIKit
+import CollectionControls
 
-class TapplRequestsListCell: UICollectionViewCell {
+class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
+    
+    func fillWithData(_ data: DataSourceItem) {
+        if let requestData = data as? RequestsListDatasourceItem {
+            screennameLabel.text = requestData.screenName
+            avatarView.image = UIImage(named: requestData.imageName)
+            heartControl.image = UIImage(named: requestData.heartName)
+        }
+        
+    }
     
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
@@ -19,6 +29,7 @@ class TapplRequestsListCell: UICollectionViewCell {
         super.awakeFromNib()
         
         screennameLabel.alpha = 0
+        overlayView.alpha = 0
     }
     
     // MARK: - appearance
