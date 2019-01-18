@@ -28,9 +28,7 @@ class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        screennameLabel.alpha = 0
-//        overlayView.alpha = 0
-        self.centerPos = 0
+        self.setCenterPos(1)
     }
     
     // MARK: - appearance
@@ -47,24 +45,42 @@ class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
         
     }
     
-    var centerPos: CGFloat = 0 {
-        didSet {
-            let empiricShiftValue = CGFloat(414.0 * 1.74)
-            let alpha: CGFloat = 1 - abs(centerPos)
+    func setCenterPos(_ centerPos: CGFloat, animated: Bool = false) {
+        let empiricShiftValue = CGFloat(414.0 * 1.74)
+        let alpha: CGFloat = 1 - abs(centerPos)
+        
+        UIView.animate(withDuration: animated ? 0.3 : 0.0, delay: 0.0, options: [.curveEaseOut], animations: {
+            self.overlayView.alpha = alpha == 1 ? 1 : 0
+            self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut], animations: {
-                self.overlayView.alpha = alpha == 1 ? 1 : 0
-                self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
-                
-                self.screennameLabel.alpha = alpha == 1 ? 1 : 0
-                self.screennameLabel.transform = CGAffineTransform(translationX: 100 * self.centerPos, y: 0)
-                
-                self.heartControl.alpha = alpha > 0.3 ? 1 : 0
-                self.heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * self.centerPos, y: 0)
-            }) { (_) in
-                
-            }
+            self.screennameLabel.alpha = alpha == 1 ? 1 : 0
+            self.screennameLabel.transform = CGAffineTransform(translationX: 100 * centerPos, y: 0)
+            
+            self.heartControl.alpha = alpha > 0.3 ? 1 : 0
+            self.heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * centerPos, y: 0)
+        }) { (_) in
+            
         }
     }
+    
+//    var centerPos: CGFloat = 1 {
+//        didSet {
+//            let empiricShiftValue = CGFloat(414.0 * 1.74)
+//            let alpha: CGFloat = 1 - abs(centerPos)
+//
+////            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseOut], animations: {
+//                self.overlayView.alpha = alpha == 1 ? 1 : 0
+//                self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
+//
+//                self.screennameLabel.alpha = alpha == 1 ? 1 : 0
+//                self.screennameLabel.transform = CGAffineTransform(translationX: 100 * self.centerPos, y: 0)
+//
+//                self.heartControl.alpha = alpha > 0.3 ? 1 : 0
+//                self.heartControl.transform = CGAffineTransform(translationX: empiricShiftValue * self.centerPos, y: 0)
+////            }) { (_) in
+////
+////            }
+//        }
+//    }
 }
 

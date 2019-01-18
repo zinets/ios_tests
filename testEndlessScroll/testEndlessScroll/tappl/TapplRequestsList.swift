@@ -156,7 +156,7 @@ extension TapplRequestsList: UICollectionViewDelegateFlowLayout {
        
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let tappleRequestCell = cell as? TapplRequestsListCell {
-            tappleRequestCell.centerPos = self.cellPos(cell)
+            tappleRequestCell.setCenterPos(self.cellPos(cell))
         }
     }
     
@@ -194,7 +194,7 @@ extension TapplRequestsList: UICollectionViewDelegateFlowLayout {
         
         for cell in self.visibleCells {
             if let c = cell as? TapplRequestsListCell {
-                c.centerPos = self.cellPos(cell)
+                c.setCenterPos(self.cellPos(cell), animated: true)
             }
         }
         
