@@ -9,14 +9,27 @@
 import UIKit
 import CollectionControls
 
-class RequestsListDatasourceItem: DataSourceItem {
+class TapplRequestsListDatasourceItem: DataSourceItem {
     var screenName: String = ""
     var imageName: String = ""
     var heartName: String = ""
 }
 
 class TapplRequestsListDatasource: CollectionSectionDatasource {
+    
     override var supportedCellTypes: [CellType] {
-        return ["TapplRequestCellId"]
+        return [
+            "TapplRequestCellId",
+            "TapplRequestPlaceholderId"
+        ]
+    }
+    
+    var onDataUpdated: ((Int) -> Void)?
+    override var items: [DataSourceItem] {
+        didSet {
+            if let onDataUpdated = self.onDataUpdated {
+                onDataUpdated(items.count)
+            }
+        }
     }
 }

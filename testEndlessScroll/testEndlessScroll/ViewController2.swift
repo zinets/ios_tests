@@ -21,10 +21,10 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func reloadScroller(_ sender: Any) {
-        var data: [RequestsListDatasourceItem] = []
+        var data: [TapplRequestsListDatasourceItem] = []
         for x in 0..<6 {
             let screenName = "name \(x)" // used as payload
-            let item = RequestsListDatasourceItem("TapplRequestCellId", payload: screenName)
+            let item = TapplRequestsListDatasourceItem("TapplRequestCellId", payload: screenName)
             
             item.screenName = screenName
             item.imageName = "image_\(x)"

@@ -12,7 +12,7 @@ import CollectionControls
 class TapplRequestsListCell: UICollectionViewCell, DataAwareCell {
     
     func fillWithData(_ data: DataSourceItem) {
-        if let requestData = data as? RequestsListDatasourceItem {
+        if let requestData = data as? TapplRequestsListDatasourceItem {
             screennameLabel.text = requestData.screenName
             avatarView.image = UIImage(named: requestData.imageName)
             heartControl.image = UIImage(named: requestData.heartName)

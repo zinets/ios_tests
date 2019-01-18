@@ -10,16 +10,57 @@ import UIKit
 
 class TapplRequestsList: UICollectionView {
 
-    private let cellWidth: CGFloat = 68
+    private var cellWidth: CGFloat {
+        get {
+            var w: CGFloat = 68
+            if let mode = viewMode {
+                if mode == .placeholder {
+                    w = self.bounds.size.width
+                }
+            }
+            return w
+        }
+    }
     private let cellSpacing: CGFloat = 14
-    private let internalDataSource = TapplRequestsListDatasource()
     
-    var data: [RequestsListDatasourceItem] {
+    private let internalDataSource = TapplRequestsListDatasource()
+    private let placeholderDataSource: TapplRequestsListDatasource = {
+        let dataSource = TapplRequestsListDatasource()
+        let onlyItem = TapplRequestsListDatasourceItem("TapplRequestPlaceholderId", payload: nil)
+        dataSource.items = [onlyItem]
+        return dataSource
+    }()
+    
+    enum ViewMode {
+        case normal
+        case placeholder
+    }
+    
+    var data: [TapplRequestsListDatasourceItem] {
         set {
             internalDataSource.items = newValue
         }
         get {
-            return internalDataSource.items as! [RequestsListDatasourceItem]
+            return internalDataSource.items as! [TapplRequestsListDatasourceItem]
+        }
+    }
+    
+    var viewMode: ViewMode? {
+        didSet {
+            guard viewMode != nil, viewMode != oldValue else { return }
+            switch viewMode! {
+            case .normal:
+                placeholderDataSource.collectionView = nil
+                internalDataSource.collectionView = self
+                
+                self.selectedIndex = 0
+            case .placeholder:
+                internalDataSource.collectionView = nil
+                placeholderDataSource.collectionView = self
+                
+                self.reloadData()
+                self.selectedIndex = nil
+            }
         }
     }
     
@@ -29,7 +70,7 @@ class TapplRequestsList: UICollectionView {
         self.data.remove(at: index)
         let maxIndex = self.data.count - 1
         
-        if maxIndex >= 0 {
+        if maxIndex < 0 {
             selectedIndex = nil
         } else {
             selectedIndex = min(index, maxIndex)
@@ -39,7 +80,10 @@ class TapplRequestsList: UICollectionView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.delegate = self
-        internalDataSource.collectionView = self
+        
+        internalDataSource.onDataUpdated = { (newCount: Int) in
+            self.viewMode = newCount == 0 ? .placeholder : .normal
+        }
         
         self.isScrollEnabled = false
         
@@ -70,18 +114,12 @@ class TapplRequestsList: UICollectionView {
             selectedIndex = max(0, min(index, maxCount))
             
             let offset = CGFloat(selectedIndex!) * (cellWidth + cellSpacing)
-            
-            UIView.animate(withDuration: 0.75, delay: 0, options: [.curveEaseOut], animations: {
-                self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
-            }) { (_) in
-                
-            }
+            self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)            
         }
     }
-
 }
 
-extension TapplRequestsList: /*UICollectionViewDataSource,*/ UICollectionViewDelegateFlowLayout {
+extension TapplRequestsList: UICollectionViewDelegateFlowLayout {
        
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let tappleRequestCell = cell as? TapplRequestsListCell {
@@ -90,14 +128,15 @@ extension TapplRequestsList: /*UICollectionViewDataSource,*/ UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedIndex = indexPath.item
+        if let mode = viewMode, mode == .normal {
+            self.selectedIndex = indexPath.item
+        }
     }
     
     // MARK: - appearance
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sz = CGSize(width: cellWidth, height: collectionView.bounds.size.height)
-        return sz
+        return CGSize(width: cellWidth, height: collectionView.bounds.size.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -119,7 +158,6 @@ extension TapplRequestsList: /*UICollectionViewDataSource,*/ UICollectionViewDel
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         
         for cell in self.visibleCells {
             if let c = cell as? TapplRequestsListCell {

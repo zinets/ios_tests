@@ -167,12 +167,47 @@
                                             <outlet property="screennameLabel" destination="oTw-UG-2N2" id="n71-v5-RGT"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TapplRequestPlaceholderId" id="LSs-9M-EYC">
+                                        <rect key="frame" x="385" y="2" width="375" height="410"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="410"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requestsPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="hy4-bf-1Xb">
+                                                    <rect key="frame" x="107.5" y="38" width="160" height="222"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Это, йо бро" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-0M-u5x">
+                                                    <rect key="frame" x="132" y="284" width="111" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тут нихуя нету, мы не вкурсе почему" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="him-aN-T8D">
+                                                    <rect key="frame" x="39.5" y="312" width="296.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="hy4-bf-1Xb" firstAttribute="centerY" secondItem="LSs-9M-EYC" secondAttribute="centerY" constant="-40" id="8Ww-VQ-aPf"/>
+                                            <constraint firstItem="LeM-0M-u5x" firstAttribute="centerX" secondItem="hy4-bf-1Xb" secondAttribute="centerX" id="9Dm-ho-Wfd"/>
+                                            <constraint firstItem="him-aN-T8D" firstAttribute="top" secondItem="LeM-0M-u5x" secondAttribute="bottom" constant="4" id="HBa-6H-iHz"/>
+                                            <constraint firstItem="hy4-bf-1Xb" firstAttribute="centerX" secondItem="LSs-9M-EYC" secondAttribute="centerX" id="gKJ-aM-DDw"/>
+                                            <constraint firstItem="LeM-0M-u5x" firstAttribute="top" secondItem="hy4-bf-1Xb" secondAttribute="bottom" constant="24" id="jcr-Ip-icA"/>
+                                            <constraint firstItem="him-aN-T8D" firstAttribute="centerX" secondItem="LeM-0M-u5x" secondAttribute="centerX" id="zPM-o3-q78"/>
+                                        </constraints>
+                                        <size key="customSize" width="375" height="410"/>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want conversation with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6p-GY-COJ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want conversation with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6p-GY-COJ">
                                 <rect key="frame" x="82.5" y="180" width="210.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-9j-nqq">
@@ -219,11 +254,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAK-zZ-hCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="822.63868065967017"/>
+            <point key="canvasLocation" x="-945" y="699"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart_0" width="300" height="252"/>
         <image name="image_0" width="400" height="400"/>
+        <image name="requestsPlaceholder" width="160" height="222"/>
     </resources>
 </document>
