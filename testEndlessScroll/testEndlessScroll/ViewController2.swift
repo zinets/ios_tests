@@ -23,9 +23,10 @@ class ViewController2: UIViewController {
     @IBAction func reloadScroller(_ sender: Any) {
         var data: [RequestsListDatasourceItem] = []
         for x in 0..<6 {
-            let item = RequestsListDatasourceItem("TapplRequestCellId", payload: nil)
+            let screenName = "name \(x)" // used as payload
+            let item = RequestsListDatasourceItem("TapplRequestCellId", payload: screenName)
             
-            item.screenName = "name \(x)"
+            item.screenName = screenName
             item.imageName = "image_\(x)"
             item.heartName = "heart_\(Int.random(in: 0..<3))"
             data.append(item)
@@ -34,7 +35,9 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func deleteSelected(_ sender: Any) {
-        tapplRequestsScroller.data.remove(at: tapplRequestsScroller.selectedIndex)
+//        let selectedIndex = tapplRequestsScroller.selectedIndex
+//        tapplRequestsScroller.data.remove(at: selectedIndex)
+        tapplRequestsScroller.removeSelected()
     }
     
 }
