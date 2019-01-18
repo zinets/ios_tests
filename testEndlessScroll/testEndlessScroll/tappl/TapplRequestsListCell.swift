@@ -14,6 +14,12 @@ class TapplRequestsListCell: UICollectionViewCell {
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var screennameLabel: UILabel!
     @IBOutlet weak var heartControl: UIImageView!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        screennameLabel.alpha = 0
+    }
     
     // MARK: - appearance
     
@@ -37,6 +43,7 @@ class TapplRequestsListCell: UICollectionViewCell {
             let alpha: CGFloat = (1 - abs(centerPos)) == 1 ? 1 : 0
             UIView.animate(withDuration: 0.5) {
                 self.overlayView.alpha = alpha
+                self.overlayView.transform = alpha == 1 ? .identity : CGAffineTransform(scaleX: 0.3, y: 0.3)
                 
                 self.screennameLabel.alpha = alpha
                 self.screennameLabel.transform = CGAffineTransform(translationX: 100 * self.centerPos, y: 0)

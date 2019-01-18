@@ -20,6 +20,9 @@ class ViewController2: UIViewController {
         tapplRequestsScroller.selectedIndex = 0
     }
     
-
+    @IBAction func reloadScroller(_ sender: Any) {
+        tapplRequestsScroller.reloadData()
+    }
+    
 
 }

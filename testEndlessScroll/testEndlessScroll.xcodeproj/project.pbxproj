@@ -12,6 +12,8 @@
 		4951D27E21F084F200DE7EC0 /* TapplRequestsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27D21F084F200DE7EC0 /* TapplRequestsListCell.swift */; };
 		4951D28021F08A5800DE7EC0 /* TapplRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */; };
 		4951D28221F0A92F00DE7EC0 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D28121F0A92F00DE7EC0 /* ViewController2.swift */; };
+		4951D29B21F1A7E000DE7EC0 /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; };
+		4951D29C21F1A7E000DE7EC0 /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
@@ -23,6 +25,37 @@
 		D62A6ECBD506688B797EF25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D62A6B93DEE84A5FA0C8ADE7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4951D29921F1A7CD00DE7EC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15D759CB214662DF0046F936;
+			remoteInfo = CollectionControls;
+		};
+		4951D29D21F1A7E000DE7EC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 15D759CA214662DF0046F936;
+			remoteInfo = CollectionControls;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4951D29F21F1A7E000DE7EC0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4951D29C21F1A7E000DE7EC0 /* CollectionControls.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		41756773C399085B9B1D42CA /* UIColor+MUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MUIColor.h"; sourceTree = "<group>"; };
 		41756BE73C5A4AD94718FD8B /* UIColor+MUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MUIColor.m"; sourceTree = "<group>"; };
@@ -31,6 +64,7 @@
 		4951D27D21F084F200DE7EC0 /* TapplRequestsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsListCell.swift; sourceTree = "<group>"; };
 		4951D27F21F08A5800DE7EC0 /* TapplRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestModel.swift; sourceTree = "<group>"; };
 		4951D28121F0A92F00DE7EC0 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../../tn_ios/trunk/Frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
@@ -54,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4951D29B21F1A7E000DE7EC0 /* CollectionControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +104,14 @@
 			);
 			name = "synchronized collection";
 			path = tappl;
+			sourceTree = "<group>";
+		};
+		4951D29621F1A7CD00DE7EC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		49C49A8920A564C1000158A5 /* endless scroller */ = {
@@ -125,6 +168,7 @@
 		D62A67243EABF55DFDDFCF31 = {
 			isa = PBXGroup;
 			children = (
+				4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */,
 				D62A6EF95D3EF4DB673CA51C /* Products */,
 				D62A617603F2F84B4C7E6442 /* testEndlessScroll */,
 			);
@@ -148,10 +192,12 @@
 				D62A631311A6667FF16AE487 /* Sources */,
 				D62A6AD006E0D010B1835E2C /* Frameworks */,
 				D62A66BDB738687089A92D1B /* Resources */,
+				4951D29F21F1A7E000DE7EC0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4951D29E21F1A7E000DE7EC0 /* PBXTargetDependency */,
 			);
 			name = testEndlessScroll;
 			productName = testEndlessScroll;
@@ -182,12 +228,28 @@
 			mainGroup = D62A67243EABF55DFDDFCF31;
 			productRefGroup = D62A6EF95D3EF4DB673CA51C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4951D29621F1A7CD00DE7EC0 /* Products */;
+					ProjectRef = 4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D62A6643F11A830173C38652 /* testEndlessScroll */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CollectionControls.framework;
+			remoteRef = 4951D29921F1A7CD00DE7EC0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D62A66BDB738687089A92D1B /* Resources */ = {
@@ -223,6 +285,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4951D29E21F1A7E000DE7EC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CollectionControls;
+			targetProxy = 4951D29D21F1A7E000DE7EC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		D62A6056A076243335B6DFD1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -246,6 +316,7 @@
 		D62A608DE6C6D03AEC5070AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = GA7JUF7GUE;
@@ -303,6 +374,7 @@
 		D62A671C5133BE9948A0C187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = GA7JUF7GUE;
