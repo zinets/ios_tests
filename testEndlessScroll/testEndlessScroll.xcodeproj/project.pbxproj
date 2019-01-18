@@ -14,6 +14,8 @@
 		4951D29B21F1A7E000DE7EC0 /* CollectionControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; };
 		4951D29C21F1A7E000DE7EC0 /* CollectionControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4951D2AA21F1B5F000DE7EC0 /* TapplRequestsListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4951D2A921F1B5EF00DE7EC0 /* TapplRequestsListDatasource.swift */; };
+		4951D2D621F1CFCF00DE7EC0 /* PageControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D2D521F1CFCF00DE7EC0 /* PageControls.framework */; };
+		4951D2D721F1CFDD00DE7EC0 /* PageControls.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4951D2D521F1CFCF00DE7EC0 /* PageControls.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49C49A8D20A56B26000158A5 /* HexagonCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C49A8C20A56B26000158A5 /* HexagonCalculator.m */; };
 		49E7448720A586C100C4507E /* HexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7448620A586C100C4507E /* HexView.m */; };
 		D62A602FF380D06110A84B82 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62A6FB42404898D1D99B564 /* CollectionViewCell.m */; };
@@ -49,6 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4951D2D721F1CFDD00DE7EC0 /* PageControls.framework in Embed Frameworks */,
 				4951D29C21F1A7E000DE7EC0 /* CollectionControls.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -65,6 +68,7 @@
 		4951D28121F0A92F00DE7EC0 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionControls.xcodeproj; path = ../../tn_ios/trunk/Frameworks/CollectionControls/CollectionControls.xcodeproj; sourceTree = "<group>"; };
 		4951D2A921F1B5EF00DE7EC0 /* TapplRequestsListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapplRequestsListDatasource.swift; sourceTree = "<group>"; };
+		4951D2D521F1CFCF00DE7EC0 /* PageControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PageControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C49A8B20A56B26000158A5 /* HexagonCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexagonCalculator.h; path = "hexagon collection/HexagonCalculator.h"; sourceTree = "<group>"; };
 		49C49A8C20A56B26000158A5 /* HexagonCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HexagonCalculator.m; path = "hexagon collection/HexagonCalculator.m"; sourceTree = "<group>"; };
 		49E7448520A586C100C4507E /* HexView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HexView.h; path = "hexagon collection/HexView.h"; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4951D2D621F1CFCF00DE7EC0 /* PageControls.framework in Frameworks */,
 				4951D29B21F1A7E000DE7EC0 /* CollectionControls.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +117,14 @@
 				4951D29A21F1A7CD00DE7EC0 /* CollectionControls.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4951D2D421F1CFCF00DE7EC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4951D2D521F1CFCF00DE7EC0 /* PageControls.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		49C49A8920A564C1000158A5 /* endless scroller */ = {
@@ -171,6 +184,7 @@
 				4951D29521F1A7CD00DE7EC0 /* CollectionControls.xcodeproj */,
 				D62A6EF95D3EF4DB673CA51C /* Products */,
 				D62A617603F2F84B4C7E6442 /* testEndlessScroll */,
+				4951D2D421F1CFCF00DE7EC0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
