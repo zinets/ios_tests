@@ -10,6 +10,7 @@ import UIKit
 
 class TapplRequestsList: UICollectionView {
 
+    private let cellSpacing: CGFloat = 14
     private var cellWidth: CGFloat {
         get {
             var w: CGFloat = 68
@@ -21,7 +22,6 @@ class TapplRequestsList: UICollectionView {
             return w
         }
     }
-    private let cellSpacing: CGFloat = 14
     
     private let internalDataSource = TapplRequestsListDatasource()
     private let placeholderDataSource: TapplRequestsListDatasource = {
@@ -48,6 +48,7 @@ class TapplRequestsList: UICollectionView {
     var viewMode: ViewMode? {
         didSet {
             guard viewMode != nil, viewMode != oldValue else { return }
+            
             switch viewMode! {
             case .normal:
                 placeholderDataSource.collectionView = nil
@@ -77,6 +78,27 @@ class TapplRequestsList: UICollectionView {
         }
     }
     
+    private let decorationLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .clear
+        label.isHidden = true        
+        label.text = "123"
+        label.sizeToFit()
+        
+        return label
+    }()
+    @IBInspectable var additionalText: String? {
+        didSet {
+            decorationLabel.text = additionalText
+            decorationLabel.sizeToFit()
+        }
+    }
+    @IBInspectable var additionalTextColor: UIColor? {
+        didSet {
+            decorationLabel.textColor = additionalTextColor
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.delegate = self
@@ -94,6 +116,8 @@ class TapplRequestsList: UICollectionView {
         swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToRightAction(_:)))
         swipeRecognizer.direction = .right
         self.addGestureRecognizer(swipeRecognizer)
+        
+        self.addSubview(decorationLabel)
     }
     
     @objc private func swipeToLeftAction(_ sender: UISwipeGestureRecognizer) {
@@ -108,14 +132,23 @@ class TapplRequestsList: UICollectionView {
     var selectedIndex: Int? = 0 {
         didSet {
             guard let index = selectedIndex else {
+                decorationLabel.isHidden = true
                 return
             }
             let maxCount = internalDataSource.items.count - 1
             selectedIndex = max(0, min(index, maxCount))
             
             let offset = CGFloat(selectedIndex!) * (cellWidth + cellSpacing)
-            self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)            
+            self.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+            
+            decorationLabel.isHidden = false
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        decorationLabel.center = CGPoint(x: self.contentOffset.x + self.bounds.size.width / 2, y: 130)
     }
 }
 

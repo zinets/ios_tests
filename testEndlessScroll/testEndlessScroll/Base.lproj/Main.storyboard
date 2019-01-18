@@ -203,13 +203,13 @@
                                         <size key="customSize" width="375" height="410"/>
                                     </collectionViewCell>
                                 </cells>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="additionalTextColor">
+                                        <color key="value" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="additionalText" value="Want conversation with you"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want conversation with you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6p-GY-COJ">
-                                <rect key="frame" x="82.5" y="180" width="210.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch1-9j-nqq">
                                 <rect key="frame" x="42" y="494" width="68" height="30"/>
                                 <state key="normal" title="scroll to 0"/>
@@ -239,8 +239,6 @@
                             <constraint firstItem="Z6K-Rh-E3r" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leading" id="Any-ba-2Ho"/>
                             <constraint firstItem="q07-HE-hz9" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="20" id="Csd-TQ-G6q"/>
                             <constraint firstItem="EYJ-6P-GW0" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="bottom" constant="20" id="Im8-ib-Wiq"/>
-                            <constraint firstItem="U6p-GY-COJ" firstAttribute="centerX" secondItem="Z6K-Rh-E3r" secondAttribute="centerX" id="J3Y-Le-nKG"/>
-                            <constraint firstItem="U6p-GY-COJ" firstAttribute="top" secondItem="Z6K-Rh-E3r" secondAttribute="top" constant="120" id="h56-Hy-OST"/>
                             <constraint firstItem="Ch1-9j-nqq" firstAttribute="leading" secondItem="XPW-gG-i4J" secondAttribute="leadingMargin" constant="26" id="j2E-Nx-dvY"/>
                             <constraint firstAttribute="trailing" secondItem="Z6K-Rh-E3r" secondAttribute="trailing" id="nZc-fu-GWI"/>
                             <constraint firstItem="q07-HE-hz9" firstAttribute="leading" secondItem="EYJ-6P-GW0" secondAttribute="trailing" constant="17" id="p6M-sh-Yhi"/>
