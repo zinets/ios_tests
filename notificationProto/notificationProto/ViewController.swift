@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         
         self.addChild(ctrl)
         
-        let frame = CGRect(x: 0, y: 0, width: 414, height: 240)
+        let frame = CGRect(x: 0, y: 0, width: 414, height: 350)
         ctrl.view.frame = frame
         self.view.addSubview(ctrl.view)
         ctrl.didMove(toParent: self)

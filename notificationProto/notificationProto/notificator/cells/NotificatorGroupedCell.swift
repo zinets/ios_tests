@@ -1,5 +1,5 @@
 //
-//  NotificatorSingleCell.swift
+//  NotificatorGroupedCell.swift
 //  notificationProto
 //
 //  Created by Viktor Zinets on 10/3/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificatorSingleCell: UITableViewCell {
+class NotificatorGroupedCell: UITableViewCell {
 
     @IBOutlet weak var avatarView: UIImageView! {
         didSet {
@@ -23,6 +23,11 @@ class NotificatorSingleCell: UITableViewCell {
     @IBOutlet weak var notificationTextLabel: UILabel!
     @IBOutlet weak var notificationTimeLabel: UILabel!
     
+    @IBOutlet weak var counterLabel: UILabel! {
+        didSet {
+            counterLabel.text = "1488"
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

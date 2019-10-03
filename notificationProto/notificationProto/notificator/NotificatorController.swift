@@ -33,7 +33,7 @@ class NotificatorController: UIViewController {
         self.datasource.beginUpdates()
         
         self.datasource.appendSections([.main])
-        let items = ["purpleCell", "purpleCell"].map { (cellId) -> TableItem in
+        let items = ["NotificatorGroupedCell"].map { (cellId) -> TableItem in
             let item = TableItem(with: cellId)
             return item
         }
