@@ -21,6 +21,7 @@
 		695A8F322345EC74009B2FE5 /* Notificator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695A8F2B2345EC73009B2FE5 /* Notificator.storyboard */; };
 		695A8F3D2345ECE2009B2FE5 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695A8F392345ECC0009B2FE5 /* DiffAble.framework */; };
 		695A8F3E2345ECE2009B2FE5 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 695A8F392345ECC0009B2FE5 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		695A8F4123460F2A009B2FE5 /* NotificatorSingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		695A8F2A2345EC73009B2FE5 /* NotificationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
 		695A8F2B2345EC73009B2FE5 /* Notificator.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notificator.storyboard; sourceTree = "<group>"; };
 		695A8F332345ECC0009B2FE5 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
+		695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatorSingleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				695A8F242345EC73009B2FE5 /* NotificatorFooterView.xib */,
 				695A8F252345EC73009B2FE5 /* NotificatorHeaderFooterView.swift */,
 				695A8F262345EC73009B2FE5 /* NotificatorHeaderView.xib */,
+				695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				695A8F302345EC74009B2FE5 /* NotificatorController.swift in Sources */,
 				695A8F132345EB00009B2FE5 /* ViewController.swift in Sources */,
 				695A8F0F2345EB00009B2FE5 /* AppDelegate.swift in Sources */,
+				695A8F4123460F2A009B2FE5 /* NotificatorSingleCell.swift in Sources */,
 				695A8F2D2345EC74009B2FE5 /* NotificatorHeaderFooterView.swift in Sources */,
 				695A8F2F2345EC74009B2FE5 /* NotificatiorView.swift in Sources */,
 				695A8F312345EC74009B2FE5 /* NotificationItem.swift in Sources */,

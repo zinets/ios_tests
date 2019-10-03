@@ -75,6 +75,7 @@ class NotificatorController: UIViewController {
                 item.index = x
                 items.append(item)
             }
+            items.append(TableItem(with: "NotificatorSingleCell"))
             self.datasource.appendItems(items, toSection: .main)
             
             self.datasource.endUpdates()
@@ -96,7 +97,15 @@ class NotificatorController: UIViewController {
             } else {
                 frame.size.height = self.view.superview!.bounds.size.height
             }
+            
             self.view.frame = frame
+            let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
+            UIView.animate(withDuration: 0.25, animations: {
+                self.view.backgroundColor = bgColor
+            }) { (_) in
+                
+            }
+            
             
             panRecognizer?.isEnabled = compactMode
         }
