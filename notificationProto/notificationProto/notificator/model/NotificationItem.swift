@@ -8,11 +8,10 @@
 
 import DiffAble
 
-class TableItem: NSObject, Item {
+class NotificationItem: NSObject, Item {
     
     public private (set) var cellReuseId: String
-    var index: Int = 0
-    
+        
     override init() {
         fatalError()
     }
@@ -23,10 +22,10 @@ class TableItem: NSObject, Item {
     }
         
     override func isEqual(_ object: Any?) -> Bool {
-        guard let object = object as? TableItem else {
+        guard let object = object as? NotificationItem else {
             return false
         }
-        let res = object.cellReuseId == cellReuseId && object.index == index
+        let res = object.cellReuseId == cellReuseId
         
         return res
     }

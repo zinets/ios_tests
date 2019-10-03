@@ -23,7 +23,7 @@ class NotificatorSingleCell: UITableViewCell {
     @IBOutlet weak var notificationTextLabel: UILabel!
     @IBOutlet weak var notificationTimeLabel: UILabel!
     
-    
+    // MARK: overrides -
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,6 +31,10 @@ class NotificatorSingleCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(false, animated: false)
     }
 
 }

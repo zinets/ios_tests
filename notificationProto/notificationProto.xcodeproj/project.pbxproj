@@ -135,9 +135,9 @@
 		695A8F232345EC73009B2FE5 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				695A8F262345EC73009B2FE5 /* NotificatorHeaderView.xib */,
 				695A8F242345EC73009B2FE5 /* NotificatorFooterView.xib */,
 				695A8F252345EC73009B2FE5 /* NotificatorHeaderFooterView.swift */,
-				695A8F262345EC73009B2FE5 /* NotificatorHeaderView.xib */,
 				695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */,
 				695A8F4223461F42009B2FE5 /* NotificatorGroupedCell.swift */,
 			);

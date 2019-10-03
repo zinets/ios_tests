@@ -14,9 +14,11 @@ class NotificatorController: UIViewController {
     enum Sections {
         case main
     }
+    private var isHeaderVisible = false
+    private var isFooterVisible = false
     
     @IBOutlet weak var tableView: UITableView!
-    private var datasource: TableDiffAbleDatasource<Sections, TableItem>!
+    private var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
     
     private func prepareDatasource() {
         self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { (cell, item) in
@@ -33,8 +35,8 @@ class NotificatorController: UIViewController {
         self.datasource.beginUpdates()
         
         self.datasource.appendSections([.main])
-        let items = ["NotificatorGroupedCell"].map { (cellId) -> TableItem in
-            let item = TableItem(with: cellId)
+        let items = ["NotificatorGroupedCell"].map { (cellId) -> NotificationItem in
+            let item = NotificationItem(with: cellId)
             return item
         }
         self.datasource.appendItems(items, toSection: .main)
@@ -63,19 +65,17 @@ class NotificatorController: UIViewController {
         numberOfItems += 1
     }
     
-    var numberOfItems: Int = 2 {
+    var numberOfItems: Int = 5 {
         didSet {
             self.datasource.beginUpdates()
             
             self.datasource.appendSections([.main])
             
-            var items = [TableItem(with: "orangeCell"), TableItem(with: "purpleCell")]
+            var items: [NotificationItem] = []
             for x in 1..<numberOfItems {
-                let item = TableItem(with: "orangeCell")
-                item.index = x
-                items.append(item)
+                items.append(NotificationItem(with: "NotificatorSingleCell"))
             }
-            items.append(TableItem(with: "NotificatorSingleCell"))
+            
             self.datasource.appendItems(items, toSection: .main)
             
             self.datasource.endUpdates()
@@ -103,7 +103,10 @@ class NotificatorController: UIViewController {
             UIView.animate(withDuration: 0.25, animations: {
                 self.view.backgroundColor = bgColor
             }) { (_) in
-                
+//                self.isFooterVisible = !self.compactMode
+                self.isHeaderVisible = !self.compactMode
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
             }
             
             
@@ -122,21 +125,50 @@ class NotificatorController: UIViewController {
     private var isDirectionVertical: Bool?
     @objc func onPan(sender: UIPanGestureRecognizer) {
         switch sender.state {
+        case .began:
+            let pt = sender.velocity(in: sender.view)
+            isDirectionVertical = abs(pt.y) > abs(pt.x)
         case .changed:
-            let pt = sender.translation(in: self.view)
-            if isDirectionVertical == nil {
-                isDirectionVertical = abs(pt.y) > abs(pt.x)
-            }
+            let pt = sender.translation(in: sender.view)
             if isDirectionVertical! {
-                self.view.transform = CGAffineTransform(translationX: 0, y: pt.y)
+                self.view.transform = CGAffineTransform(translationX: 0, y: min(0, pt.y))
             } else {
                 self.view.transform = CGAffineTransform(translationX: pt.x, y: 0)
             }
         case .ended:
-            isDirectionVertical = nil
-            UIView.animate(withDuration: 0.1) {
-                self.view.transform = .identity
+            let pt = sender.translation(in: sender.view)
+            var translation: CGFloat
+            var velocity: CGFloat
+            
+            let maxVelocity: CGFloat = 2134
+            let maxX = self.view.bounds.width / 3
+            let maxY: CGFloat = 67.0 
+            
+            var shouldFinish: Bool
+            if isDirectionVertical! {
+                translation = abs(pt.y)
+                velocity = abs(sender.velocity(in: sender.view).y)
+                shouldFinish = translation > maxY || velocity > maxVelocity
+            } else {
+                translation = abs(pt.x)
+                velocity = abs(sender.velocity(in: sender.view).x)
+                shouldFinish = translation > maxX || velocity > maxVelocity
             }
+            
+            isDirectionVertical = nil
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                if shouldFinish {
+                    self.view.alpha = 0
+                } else {
+                    self.view.transform = .identity
+                }
+            }) { (_) in
+                if shouldFinish {
+                    self.closeAction(self)
+                }
+            }
+            
         default:
             break
         }
@@ -153,9 +185,17 @@ extension NotificatorController: UITableViewDelegate {
         self.numberOfItems += 1
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return isHeaderVisible ? UITableView.automaticDimension : 0
+    }
+        
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "Header")
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return isFooterVisible ? UITableView.automaticDimension : 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

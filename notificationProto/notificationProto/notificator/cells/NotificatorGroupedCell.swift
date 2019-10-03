@@ -29,6 +29,7 @@ class NotificatorGroupedCell: UITableViewCell {
         }
     }
     
+    // MARK: overrides -
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,4 +39,7 @@ class NotificatorGroupedCell: UITableViewCell {
         super.setSelected(false, animated: false)
     }
 
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(false, animated: false)
+    }
 }
