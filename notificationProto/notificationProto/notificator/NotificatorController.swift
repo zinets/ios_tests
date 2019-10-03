@@ -78,10 +78,32 @@ class NotificatorController: UIViewController {
             self.datasource.appendItems(items, toSection: .main)
             
             self.datasource.endUpdates()
+            
+            compactMode = false
+        }
+    }
+    
+    // MARK: appearance -
+    let compactHeight: CGFloat = 150
+    var compactMode: Bool = true {
+        didSet {
+            guard oldValue != compactMode else {
+                return
+            }
+            var frame = self.view.frame
+            if compactMode {
+                frame.size.height = compactHeight
+            } else {
+                frame.size.height = self.view.superview!.bounds.size.height
+            }
+            self.view.frame = frame
+            
+            panRecognizer?.isEnabled = compactMode
         }
     }
     
     // MARK: gestures -
+    
     private var panRecognizer: UIPanGestureRecognizer?
     private func prepareRecognizers() {
         panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(sender:)))

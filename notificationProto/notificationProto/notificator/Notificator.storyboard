@@ -11,8 +11,8 @@
         <!--Notificator Controller-->
         <scene sceneID="y1p-Rz-Kwh">
             <objects>
-                <viewController id="sTf-Y8-CJj" customClass="NotificatorController" customModule="test1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D7x-gf-Rgt" customClass="NotificatiorView" customModule="test1" customModuleProvider="target">
+                <viewController id="sTf-Y8-CJj" customClass="NotificatorController" customModule="notificationProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D7x-gf-Rgt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -76,9 +76,6 @@
                             <constraint firstItem="V1D-yA-3bp" firstAttribute="trailing" secondItem="186-xu-gNN" secondAttribute="trailing" id="ux6-EE-Phn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V1D-yA-3bp"/>
-                        <connections>
-                            <outlet property="containerView" destination="186-xu-gNN" id="D7S-cr-2sr"/>
-                        </connections>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
