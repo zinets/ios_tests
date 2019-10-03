@@ -118,7 +118,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				Base,
 			);
 			mainGroup = D62A68C7216F0CB8A5CF7D45;
 			productRefGroup = D62A6F3AB859CFC6A26D568B /* Products */;
@@ -307,6 +309,7 @@
 				D62A62C879B7607F594B8B5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
