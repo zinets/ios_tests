@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  test1
+//  notificationProto
 //
-//  Created by Viktor Zinets on 10/1/19.
+//  Created by Viktor Zinets on 10/3/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.
 //
 
@@ -22,4 +22,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

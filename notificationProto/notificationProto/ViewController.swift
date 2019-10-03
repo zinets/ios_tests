@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  test1
+//  notificationProto
 //
-//  Created by Viktor Zinets on 10/1/19.
+//  Created by Viktor Zinets on 10/3/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.
 //
 
@@ -15,13 +15,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
     @IBAction func showNotificator(_ sender: Any) {
         guard let ctrl = UIStoryboard(name: "Notificator", bundle: nil).instantiateInitialViewController() else {
             return
         }
         
-        self.addChild(ctrl)        
+        self.addChild(ctrl)
         self.view.addSubview(ctrl.view)
         ctrl.didMove(toParent: self)
     }
