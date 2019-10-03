@@ -22,24 +22,23 @@ class NotificatorController: UIViewController {
     
     private func prepareDatasource() {
         self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { (cell, item) in
-//            cell.textLabel?.text = item.modelData
+            if let cell = cell as? NotificatorGroupedCell {
+                cell.fillData(item)
+            }
         })
-//        self.datasource.onEmptyDataset = { newState in
-//            print("placeholder state:\(newState ? "visible" : "hidden")")
-//        }
         
         self.tableView.register(UINib(nibName: "NotificatorHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(UINib(nibName: "NotificatorFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
         
         // test data
         self.datasource.beginUpdates()
+
+        let item = NotificationItem(with: "NotificatorGroupedCell")
+        item.notificationText = "Danielle liked your photo"
+        item.notificationAge = "2 days ago"
         
         self.datasource.appendSections([.main])
-        let items = ["NotificatorGroupedCell"].map { (cellId) -> NotificationItem in
-            let item = NotificationItem(with: cellId)
-            return item
-        }
-        self.datasource.appendItems(items, toSection: .main)
+        self.datasource.appendItems([item], toSection: .main)
         
         self.datasource.endUpdates()
     }

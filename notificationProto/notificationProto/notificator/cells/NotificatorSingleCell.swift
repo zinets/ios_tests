@@ -37,4 +37,9 @@ class NotificatorSingleCell: UITableViewCell {
         super.setHighlighted(false, animated: false)
     }
 
+    // MARK: data -
+    func fillData(_ data: NotificationItem) {
+        self.notificationTextLabel.text = data.notificationText
+        self.notificationTimeLabel.text = data.notificationAge
+    }
 }

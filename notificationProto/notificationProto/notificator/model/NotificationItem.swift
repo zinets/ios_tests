@@ -26,7 +26,21 @@ class NotificationItem: NSObject, Item {
             return false
         }
         let res = object.cellReuseId == cellReuseId
+            && notificationText == object.notificationText
+            && notificationAge == object.notificationAge        
         
         return res
     }
+    
+    // все строчки формируются на "той" стороне
+    var notificationText: String! // TODO: attributed string
+    var notificationAge: String!
+    
+    var avatarUrl: String?
+    var placeholder: String? // имя файла для пласхолдера?
+//    var notificationType: // TODO: взять что-то из готовых типов?
+    
+    // нет смысла городить из-за вынесения одной проперти
+    var counter: Int = 2
 }
+
