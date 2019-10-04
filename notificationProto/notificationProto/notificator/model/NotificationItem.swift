@@ -65,6 +65,7 @@ class NotificationItem: NSObject, Item {
 }
 
 class NotificationGroupedItem: NotificationItem {
+    
     var counter: Int = 2
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -77,4 +78,6 @@ class NotificationGroupedItem: NotificationItem {
         
         return super.isEqual(object)
     }
+    
+    var expandAction: (() -> Void)?
 }

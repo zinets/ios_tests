@@ -19,7 +19,7 @@ class MDUKNotificatorController: NotificatorController {
         // test data
         self.datasource.beginUpdates()
 
-        let item = NotificationItem(with: "NotificatorGroupedCell")
+        let item = NotificationGroupedItem(with: "NotificatorGroupedCell")
         
         let attributedText = self.attributedStringForText(text: "Danielle liked your photo и послала тебе фото своей киски", selected: ["Danielle", "фото"])
         item.notificationText = attributedText
@@ -29,6 +29,10 @@ class MDUKNotificatorController: NotificatorController {
         item.placeholder = "notificationMalePlaceholder"
         item.avatarUrl = "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f"
         
+        item.counter = 44
+        item.expandAction = {
+            print(#function)
+        }
         
         
         self.datasource.appendSections([.main])

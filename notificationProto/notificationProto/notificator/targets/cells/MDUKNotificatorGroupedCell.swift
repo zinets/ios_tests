@@ -22,12 +22,17 @@ class MDUKNotificatorGroupedCell: MDUKNotificatorSingleCell {
     // MARK: data -
     override func fillData(_ data: NotificationItem) {
         super.fillData(data)
-        
-        counterLabel.text = String(data.counter)
+        if let data = data as? NotificationGroupedItem {
+            counterLabel.text = String(data.counter)
+            self.expandAction = data.expandAction
+        }
     }
     
     // MARK: actions -
+    var expandAction: (() -> Void)?
     @objc private func onCounterTap() {
-        print(#function)
+        if let block = self.expandAction {
+            block()
+        }
     }
 }
