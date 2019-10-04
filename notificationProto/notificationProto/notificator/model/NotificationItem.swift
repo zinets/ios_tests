@@ -62,8 +62,19 @@ class NotificationItem: NSObject, Item {
     var avatarUrl: String?
     var placeholder: String? // имя файла для пласхолдера?
     var notificationType: NotificationItemType!
-    
-    // нет смысла городить из-за вынесения одной проперти
-    var counter: Int = 2
 }
 
+class NotificationGroupedItem: NotificationItem {
+    var counter: Int = 2
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let object = object as? NotificationGroupedItem else {
+            return false
+        }
+        guard object.counter == counter else {
+            return false
+        }
+        
+        return super.isEqual(object)
+    }
+}

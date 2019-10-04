@@ -198,6 +198,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.97647058819999999" green="0.58431372550000005" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <gestureRecognizers/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="mCF-0g-a9q" secondAttribute="bottom" id="06h-JU-VMp"/>
                                                                         <constraint firstItem="mCF-0g-a9q" firstAttribute="top" secondItem="Tl5-jF-BqF" secondAttribute="top" id="RBg-1h-s2q"/>
@@ -217,6 +218,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstItem="Tl5-jF-BqF" firstAttribute="leading" secondItem="nWA-Id-fmZ" secondAttribute="trailing" constant="5" id="J7N-ib-5QJ"/>
                                                                 <constraint firstItem="ABY-Cw-hZK" firstAttribute="centerY" secondItem="yHV-Gd-kUZ" secondAttribute="centerY" id="MIq-5a-GfF"/>
@@ -321,6 +323,7 @@
                                             <outlet property="activityTypeView" destination="GgM-Kl-4Bv" id="L3p-em-uWQ"/>
                                             <outlet property="avatarView" destination="Crq-oP-wLp" id="NQQ-3U-DKJ"/>
                                             <outlet property="counterLabel" destination="mCF-0g-a9q" id="nyK-4h-99y"/>
+                                            <outlet property="counterSite" destination="yHV-Gd-kUZ" id="tYI-Ng-eKC"/>
                                             <outlet property="notificationTextLabel" destination="RHK-P1-EGw" id="GuE-VK-3wf"/>
                                             <outlet property="notificationTimeLabel" destination="H7J-Ji-JYv" id="Fd7-sQ-gJs"/>
                                         </connections>
