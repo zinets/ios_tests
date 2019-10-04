@@ -8,6 +8,30 @@
 
 import DiffAble
 
+enum NotificationItemType {
+    case visitor, video, photo, like, chat // смысла вводить свой тип мало, но для отладки/прототипа так проще
+    
+    var backgroundColor: Int {
+        switch self {
+        case .chat: return 0x2a76d3
+        case .visitor: return 0x9675ce
+        case .photo: return 0x64b5f6
+        case .video: return 0xff9802
+        case .like: return 0xf2709c
+        }
+    }
+    
+    var imageName: String {
+        switch self {
+        case .chat: return "notifChat"
+        case .visitor: return "notifVisitor"
+        case .photo: return "notifPhoto"
+        case .video: return "notifVideo"
+        case .like: return "notifLike"
+        }
+    }
+}
+
 class NotificationItem: NSObject, Item {
     
     public private (set) var cellReuseId: String
@@ -38,7 +62,7 @@ class NotificationItem: NSObject, Item {
     
     var avatarUrl: String?
     var placeholder: String? // имя файла для пласхолдера?
-//    var notificationType: // TODO: взять что-то из готовых типов?
+    var notificationType: NotificationItemType!
     
     // нет смысла городить из-за вынесения одной проперти
     var counter: Int = 2

@@ -34,8 +34,9 @@ class NotificatorController: UIViewController {
         self.datasource.beginUpdates()
 
         let item = NotificationItem(with: "NotificatorGroupedCell")
-        item.notificationText = "Danielle liked your photo"
+        item.notificationText = "Danielle liked your photo и послала тебе фото своей киски"
         item.notificationAge = "2 days ago"
+        item.notificationType = .visitor
         
         self.datasource.appendSections([.main])
         self.datasource.appendItems([item], toSection: .main)

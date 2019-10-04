@@ -41,5 +41,9 @@ class NotificatorSingleCell: UITableViewCell {
     func fillData(_ data: NotificationItem) {
         self.notificationTextLabel.text = data.notificationText
         self.notificationTimeLabel.text = data.notificationAge
+        
+        let image = UIImage(named: data.notificationType.imageName)
+        self.activityTypeView.image = image
+        self.activityTypeView.backgroundColor = .red // TODO: взять hex из notificationType
     }
 }
