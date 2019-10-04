@@ -9,19 +9,21 @@
 import UIKit
 import DiffAble
 
+// допустим это будет универсальный контроллер для показа нотификаций; предполагается, что любому дизайну хватит таблицы (?) - значит тут можно оставить работу с таблицей, создаваться будет контроллер из сториборда, в котором а) конкретный дизайн б) привязка к конкретному классу - наследнику от этого класса, в котором сделается настройка дизайна
 class NotificatorController: UIViewController {
     
     enum Sections {
         case main
     }
-    private var isHeaderVisible = false
-    private var isFooterVisible = false
+    var isHeaderVisible = false
+    var isFooterVisible = false
     
     @IBOutlet weak var tableView: UITableView!
     public private(set) var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
     
     func prepareDatasource() {
         self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { (cell, item) in
+            // TODO: сделать базовый метод заполнения ячейки cell данными из item? и в конкретном наследнике перегружать собственно полезной работой?
             if let cell = cell as? MDUKNotificatorGroupedCell {
                 cell.fillData(item)
 //            } else if let cell = cell as? NotificatorSingleCell {
@@ -67,43 +69,15 @@ class NotificatorController: UIViewController {
             
             self.datasource.endUpdates()
             
-            compactMode = false
+//            self.compactMode = false
         }
     }
     
-    // MARK: appearance -
-    let compactHeight: CGFloat = 150
-    var compactMode: Bool = true {
-        didSet {
-            guard oldValue != compactMode else {
-                return
-            }
-            var frame = self.view.frame
-            if compactMode {
-                frame.size.height = compactHeight
-            } else {
-                frame.size.height = self.view.superview!.bounds.size.height
-            }
-            
-            self.view.frame = frame
-            let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view.backgroundColor = bgColor
-            }) { (_) in
-//                self.isFooterVisible = !self.compactMode
-                self.isHeaderVisible = !self.compactMode
-                self.tableView.beginUpdates()
-                self.tableView.endUpdates()
-            }
-            
-            
-            panRecognizer?.isEnabled = compactMode
-        }
-    }
+    
     
     // MARK: gestures -
     
-    private var panRecognizer: UIPanGestureRecognizer?
+    var panRecognizer: UIPanGestureRecognizer?
     private func prepareRecognizers() {
         panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(sender:)))
         self.view.addGestureRecognizer(panRecognizer!)

@@ -37,4 +37,34 @@ class MDUKNotificatorController: NotificatorController {
         self.datasource.endUpdates()
     }
 
+    // MARK: appearance -
+        
+        let compactHeight: CGFloat = 150
+        var compactMode: Bool = true {
+            didSet {
+                guard oldValue != compactMode else {
+                    return
+                }
+                var frame = self.view.frame
+                if compactMode {
+                    frame.size.height = compactHeight
+                } else {
+                    frame.size.height = self.view.superview!.bounds.size.height
+                }
+                
+                self.view.frame = frame
+                let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view.backgroundColor = bgColor
+                }) { (_) in
+    //                self.isFooterVisible = !self.compactMode
+                    self.isHeaderVisible = !self.compactMode
+                    self.tableView.beginUpdates()
+                    self.tableView.endUpdates()
+                }
+                
+                
+                panRecognizer?.isEnabled = compactMode
+            }
+        }
 }
