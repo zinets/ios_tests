@@ -33,8 +33,7 @@ class MDUKNotificatorController: NotificatorController {
             let firstNotification = notifications.first!
             
             groupedItem.counter = notifications.count
-            groupedItem.expandAction = { [weak self] in
-                print(#function)
+            groupedItem.expandAction = { [weak self] in                
                 self?.compactMode = !self!.compactMode
             }
             groupedItem.notificationText = firstNotification.notificationText
@@ -62,6 +61,15 @@ class MDUKNotificatorController: NotificatorController {
         self.datasource.appendItems(items, toSection: .main)
         
         self.datasource.endUpdates()
+        
+        
+        
+        let cells = self.tableView.visibleCells
+        if let cell = cells.first, self.compactMode {
+            var frame = self.view.frame
+            frame.size.height = cell.bounds.height + 44 // TODO: 44 от фонаря, я не знаю как правильно определять размер в компактном состоянии
+            self.view.frame = frame
+        }
     }
 
     // MARK: appearance -
@@ -69,22 +77,22 @@ class MDUKNotificatorController: NotificatorController {
     private let compactHeight: CGFloat = 150
     private var compactMode: Bool = true {
         didSet {
-            guard oldValue != compactMode else {
-                return
-            }
             var frame = self.view.frame
             if compactMode {
                 frame.size.height = compactHeight
             } else {
                 frame.size.height = self.view.superview!.bounds.size.height
             }
-            
             self.view.frame = frame
+            
+            guard oldValue != compactMode else {
+                return
+            }
+            
             let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
             UIView.animate(withDuration: 0.25, animations: {
                 self.view.backgroundColor = bgColor
             }) { (_) in
-                //                self.isFooterVisible = !self.compactMode
                 self.isHeaderVisible = !self.compactMode
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
