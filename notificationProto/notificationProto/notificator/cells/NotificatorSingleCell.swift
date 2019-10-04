@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TNURLImageView
 
 class NotificatorSingleCell: UITableViewCell {
 
@@ -45,5 +46,16 @@ class NotificatorSingleCell: UITableViewCell {
         let image = UIImage(named: data.notificationType.imageName)
         self.activityTypeView.image = image
         self.activityTypeView.backgroundColor = .red // TODO: взять hex из notificationType
+        
+        if let placeholder = data.placeholder, let placeholderImage = UIImage(named: placeholder) {
+            self.avatarView.image = placeholderImage
+        }
+        
+        if let avatar = data.avatarUrl {
+            let source = TNRemoteResource.with(avatar)
+            TNPhotoManager.shared().loadResource(from: source) { [weak self] (image, _) in
+                self?.avatarView.image = image
+            }
+        }
     }
 }

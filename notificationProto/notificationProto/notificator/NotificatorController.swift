@@ -37,6 +37,8 @@ class NotificatorController: UIViewController {
         item.notificationText = "Danielle liked your photo и послала тебе фото своей киски"
         item.notificationAge = "2 days ago"
         item.notificationType = .visitor
+        item.placeholder = "notificationMalePlaceholder"
+        item.avatarUrl = "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f"
         
         self.datasource.appendSections([.main])
         self.datasource.appendItems([item], toSection: .main)

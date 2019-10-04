@@ -23,6 +23,8 @@
 		695A8F3E2345ECE2009B2FE5 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 695A8F392345ECC0009B2FE5 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		695A8F4123460F2A009B2FE5 /* NotificatorSingleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */; };
 		695A8F4323461F42009B2FE5 /* NotificatorGroupedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A8F4223461F42009B2FE5 /* NotificatorGroupedCell.swift */; };
+		697955562347257A003DF126 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6979555523472572003DF126 /* TNURLImageView.framework */; };
+		697955572347257A003DF126 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6979555523472572003DF126 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,13 @@
 			remoteGlobalIDString = 49B33D2223339C750003E5E3;
 			remoteInfo = DiffAbleSamples;
 		};
+		6979555423472572003DF126 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6979554E23472572003DF126 /* TNURLImageView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3D232E620AF2D9E00B66774;
+			remoteInfo = TNURLImageView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +59,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				695A8F3E2345ECE2009B2FE5 /* DiffAble.framework in Embed Frameworks */,
+				697955572347257A003DF126 /* TNURLImageView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +84,7 @@
 		695A8F332345ECC0009B2FE5 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		695A8F4023460F2A009B2FE5 /* NotificatorSingleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatorSingleCell.swift; sourceTree = "<group>"; };
 		695A8F4223461F42009B2FE5 /* NotificatorGroupedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificatorGroupedCell.swift; sourceTree = "<group>"; };
+		6979554E23472572003DF126 /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				695A8F3D2345ECE2009B2FE5 /* DiffAble.framework in Frameworks */,
+				697955562347257A003DF126 /* TNURLImageView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +103,7 @@
 		695A8F022345EB00009B2FE5 = {
 			isa = PBXGroup;
 			children = (
+				6979554E23472572003DF126 /* TNURLImageView.xcodeproj */,
 				695A8F332345ECC0009B2FE5 /* DiffAble.xcodeproj */,
 				695A8F0D2345EB00009B2FE5 /* notificationProto */,
 				695A8F0C2345EB00009B2FE5 /* Products */,
@@ -168,6 +181,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6979554F23472572003DF126 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6979555523472572003DF126 /* TNURLImageView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +241,10 @@
 					ProductGroup = 695A8F342345ECC0009B2FE5 /* Products */;
 					ProjectRef = 695A8F332345ECC0009B2FE5 /* DiffAble.xcodeproj */;
 				},
+				{
+					ProductGroup = 6979554F23472572003DF126 /* Products */;
+					ProjectRef = 6979554E23472572003DF126 /* TNURLImageView.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -241,6 +266,13 @@
 			fileType = wrapper.application;
 			path = DiffAbleSamples.app;
 			remoteRef = 695A8F3A2345ECC0009B2FE5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6979555523472572003DF126 /* TNURLImageView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TNURLImageView.framework;
+			remoteRef = 6979555423472572003DF126 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
