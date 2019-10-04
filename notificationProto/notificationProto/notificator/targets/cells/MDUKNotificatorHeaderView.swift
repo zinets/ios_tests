@@ -10,6 +10,9 @@ import UIKit
 
 class MDUKNotificatorHeaderView: UITableViewHeaderFooterView {
 
+    var clearButtonAction: (() -> Void)?
+    var lessButtonAction: (() -> Void)?
+    
     @IBOutlet weak var clearButton: UIButton! {
         didSet {
             clearButton.layer.cornerRadius = 8
@@ -22,8 +25,12 @@ class MDUKNotificatorHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    @IBAction func ert(_ sender: Any) {
-        print(sender)
+    @IBAction func ert(_ sender: UIButton) {
+        if sender == self.clearButton, let block = clearButtonAction {
+            block()
+        } else if sender == self.lessButton, let block = lessButtonAction {
+            block()
+        }        
     }
     
 }

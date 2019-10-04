@@ -105,3 +105,22 @@ class MDUKNotificatorController: NotificatorController {
     }
 
 }
+
+// MARK:  -
+
+extension MDUKNotificatorController {
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = super.tableView(tableView, viewForHeaderInSection: section)
+        if let header = header as? MDUKNotificatorHeaderView {
+            header.lessButtonAction = { [weak self] in
+                self?.compactMode = true
+            }
+            header.clearButtonAction = { [weak self] in
+                self?.closeAction(true)
+            }
+        }
+        return header
+    }
+    
+}

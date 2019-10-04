@@ -28,8 +28,20 @@ class ViewController: UIViewController {
         
         let attributedText = ctrl.attributedStringWithBoldSelection(text: "Danielle liked your photo и послала тебе фото своей киски", selected: ["Danielle", "фото"])
         
-        let item1 = NotificationData(notificationType: .photo, notificationText: attributedText, notificationAge: "5 minutes ago", avatarUrl: "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f", placeholder: "notificationMalePlaceholder")
-        let item2 = NotificationData(notificationType: .visitor, notificationText: attributedText, notificationAge: "5 minutes ago", avatarUrl: "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f", placeholder: "notificationMalePlaceholder")
+        let item1 = NotificationData(
+            notificationType: .photo,
+            notificationText: attributedText,
+            notificationAge: "5 minutes ago",
+            avatarUrl: "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f",
+            placeholder: "notificationMalePlaceholder"
+        )
+        let item2 = NotificationData(
+            notificationType: .visitor,
+            notificationText: attributedText,
+            notificationAge: "5 minutes ago",
+            avatarUrl: "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f",
+            placeholder: "notificationMalePlaceholder"
+        )
         ctrl.notifications = [item1, item2]
 
     }

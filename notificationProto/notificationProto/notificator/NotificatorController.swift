@@ -36,16 +36,28 @@ class NotificatorController: UIViewController {
         self.prepareRecognizers()
     }
     
+    deinit {
+        print(#function)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
 
     // MARK: actions -
-    @IBAction func closeAction(_ sender: Any) {
+    @IBAction func closeAction(_ animated: Bool = false) {
         
-        self.view.removeFromSuperview()
-        
+        UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
+//            self.view.transform = CGAffineTransform.init(translationX: 0, y: -500)
+            self.view.alpha = 0
+        }) { (_) in
+            self.willMove(toParent: nil)
+            self.view.removeFromSuperview()
+            
+            self.removeFromParent()
+            // но deinit не вызывается, wtf?
+        }
     }
     
     // MARK: gestures -
@@ -99,7 +111,7 @@ class NotificatorController: UIViewController {
                 }
             }) { (_) in
                 if shouldFinish {
-                    self.closeAction(self)
+                    self.closeAction(false)
                 }
             }
             
