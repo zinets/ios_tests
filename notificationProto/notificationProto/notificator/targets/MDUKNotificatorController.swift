@@ -15,30 +15,6 @@ class MDUKNotificatorController: NotificatorController {
         
         self.tableView.register(UINib(nibName: "MDUKNotificatorHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(UINib(nibName: "MDUKNotificatorFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
-        
-        // test data
-//        self.datasource.beginUpdates()
-//
-//        let item = NotificationGroupedItem(with: "NotificatorGroupedCell")
-//
-//        let attributedText = self.attributedStringForText(text: "Danielle liked your photo и послала тебе фото своей киски", selected: ["Danielle", "фото"])
-//        item.notificationText = attributedText
-//
-//        item.notificationAge = "2 days ago"
-//        item.notificationType = .visitor
-//        item.placeholder = "notificationMalePlaceholder"
-//        item.avatarUrl = "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f"
-//
-//        item.counter = 44
-//        item.expandAction = {
-//            print(#function)
-//        }
-//
-//
-//        self.datasource.appendSections([.main])
-//        self.datasource.appendItems([item], toSection: .main)
-//
-//        self.datasource.endUpdates()
     }
     
     override var notifications: [NotificationData]! {
@@ -46,42 +22,46 @@ class MDUKNotificatorController: NotificatorController {
             guard notifications.count > 0 else {
                 fatalError("Что происходит? какого хера показываем 0 нотификаций?")
             }
-            var items: [NotificationItem]
-            if self.compactMode && notifications.count > 1 { // берем первую нотификацию, показываем ее и кол-во вообще
-                let groupedItem = NotificationGroupedItem(with: "NotificatorGroupedCell")
-                let firstNotification = notifications.first!
-                
-                groupedItem.counter = notifications.count
-                groupedItem.expandAction = { [weak self] in
-                    print(#function)
-                    self?.compactMode = !self!.compactMode
-                }
-                groupedItem.notificationText = firstNotification.notificationText
-                groupedItem.notificationAge = firstNotification.notificationAge
-                groupedItem.notificationType = firstNotification.notificationType
-                groupedItem.avatarUrl = firstNotification.avatarUrl
-                groupedItem.placeholder = firstNotification.placeholder
-                
-                items = [groupedItem]
-            } else {
-                items = notifications.map({ (data) -> NotificationItem in
-                    let item = NotificationItem(with: "NotificatorSingleCell")
-                    item.notificationText = data.notificationText
-                    item.notificationAge = data.notificationAge
-                    item.notificationType = data.notificationType
-                    item.avatarUrl = data.avatarUrl
-                    item.placeholder = data.placeholder
-                    return item
-                })
-            }
-            
-            self.datasource.beginUpdates()
-            
-            self.datasource.appendSections([.main])
-            self.datasource.appendItems(items, toSection: .main)
-            
-            self.datasource.endUpdates()
+            self.updateNotifications()
         }
+    }
+    
+    private func updateNotifications() {
+        var items: [NotificationItem]
+        if self.compactMode && notifications.count > 1 { // берем первую нотификацию, показываем ее и кол-во вообще
+            let groupedItem = NotificationGroupedItem(with: "NotificatorGroupedCell")
+            let firstNotification = notifications.first!
+            
+            groupedItem.counter = notifications.count
+            groupedItem.expandAction = { [weak self] in
+                print(#function)
+                self?.compactMode = !self!.compactMode
+            }
+            groupedItem.notificationText = firstNotification.notificationText
+            groupedItem.notificationAge = firstNotification.notificationAge
+            groupedItem.notificationType = firstNotification.notificationType
+            groupedItem.avatarUrl = firstNotification.avatarUrl
+            groupedItem.placeholder = firstNotification.placeholder
+            
+            items = [groupedItem]
+        } else {
+            items = notifications.map({ (data) -> NotificationItem in
+                let item = NotificationItem(with: "NotificatorSingleCell")
+                item.notificationText = data.notificationText
+                item.notificationAge = data.notificationAge
+                item.notificationType = data.notificationType
+                item.avatarUrl = data.avatarUrl
+                item.placeholder = data.placeholder
+                return item
+            })
+        }
+        
+        self.datasource.beginUpdates()
+        
+        self.datasource.appendSections([.main])
+        self.datasource.appendItems(items, toSection: .main)
+        
+        self.datasource.endUpdates()
     }
 
     // MARK: appearance -
@@ -111,11 +91,15 @@ class MDUKNotificatorController: NotificatorController {
             }
             
             panRecognizer?.isEnabled = compactMode
+            
+            self.updateNotifications()
         }
     }
     
     override func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) -> Void {
         if let cell = cell as? MDUKNotificatorGroupedCell {
+            cell.fillData(item)
+        } else if let cell = cell as? MDUKNotificatorSingleCell {
             cell.fillData(item)
         }
     }

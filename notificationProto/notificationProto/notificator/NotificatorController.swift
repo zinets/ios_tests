@@ -141,10 +141,11 @@ extension NotificatorController: UITableViewDelegate {
    
 }
 
+
 extension NotificatorController {
     
     // TODO: вроде это относится к дизайну..
-    func attributedStringForText(text: String, selected: [String]) -> NSAttributedString {
+    func attributedStringWithBoldSelection(text: String, selected: [String]) -> NSAttributedString {
         
         let attributedString = NSMutableAttributedString(string: text)
         
