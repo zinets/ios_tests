@@ -11,65 +11,17 @@
         <!--Notificator Controller-->
         <scene sceneID="y1p-Rz-Kwh">
             <objects>
-                <viewController id="sTf-Y8-CJj" customClass="NotificatorController" customModule="notificationProto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sTf-Y8-CJj" customClass="MDUKNotificatorController" customModule="notificationProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D7x-gf-Rgt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="100" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="68" sectionFooterHeight="-1" estimatedSectionFooterHeight="64" translatesAutoresizingMaskIntoConstraints="NO" id="186-xu-gNN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="100" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="186-xu-gNN">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="purpleCell" id="XWQ-L1-u9D">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="62"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XWQ-L1-u9D" id="CGH-4g-fom">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" verticalHuggingPriority="751" verticalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="4Ee-Tb-NYp">
-                                                    <rect key="frame" x="16" y="16" width="382" height="30"/>
-                                                    <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="uhY-yW-dAw"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="4Ee-Tb-NYp" secondAttribute="bottom" constant="16" id="A0h-TR-Czm"/>
-                                                <constraint firstItem="4Ee-Tb-NYp" firstAttribute="leading" secondItem="CGH-4g-fom" secondAttribute="leading" constant="16" id="SYY-nc-awr"/>
-                                                <constraint firstItem="4Ee-Tb-NYp" firstAttribute="top" secondItem="CGH-4g-fom" secondAttribute="top" constant="16" id="fuT-Vo-Z17"/>
-                                                <constraint firstAttribute="trailing" secondItem="4Ee-Tb-NYp" secondAttribute="trailing" constant="16" id="v4Y-w6-BP8"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orangeCell" id="Tfa-NL-Joe">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="96"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tfa-NL-Joe" id="NVP-ln-grb">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-kt-SKX">
-                                                    <rect key="frame" x="8" y="8" width="398" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="W3t-xV-zCL"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="8vR-kt-SKX" secondAttribute="bottom" constant="8" id="140-hu-MdM"/>
-                                                <constraint firstAttribute="trailing" secondItem="8vR-kt-SKX" secondAttribute="trailing" constant="8" id="OaG-kW-KPJ"/>
-                                                <constraint firstItem="8vR-kt-SKX" firstAttribute="top" secondItem="NVP-ln-grb" secondAttribute="top" constant="8" id="eho-JF-RLs"/>
-                                                <constraint firstItem="8vR-kt-SKX" firstAttribute="leading" secondItem="NVP-ln-grb" secondAttribute="leading" constant="8" id="vSS-a7-A8X"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificatorSingleCell" id="95O-IB-hqR" customClass="NotificatorSingleCell" customModule="notificationProto" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="186" width="414" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificatorSingleCell" id="95O-IB-hqR" customClass="MDUKNotificatorSingleCell" customModule="notificationProto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="95O-IB-hqR" id="Z00-rS-imw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
@@ -106,7 +58,7 @@
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vpb-Ks-TI5">
                                                             <rect key="frame" x="10" y="10" width="80" height="80"/>
-                                                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="0SU-OA-dIF"/>
                                                                 <constraint firstAttribute="height" constant="80" id="sui-3e-aQk"/>
@@ -114,7 +66,7 @@
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gYK-Ce-6yL">
                                                             <rect key="frame" x="60" y="60" width="32" height="32"/>
-                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="3VU-uU-CAN"/>
                                                                 <constraint firstAttribute="height" constant="32" id="FZV-g4-zqm"/>
@@ -173,8 +125,8 @@
                                             <outlet property="notificationTimeLabel" destination="WWf-tb-Cfq" id="tYI-Uc-JJZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificatorGroupedCell" id="Eww-yD-363" customClass="NotificatorGroupedCell" customModule="notificationProto" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="294" width="414" height="188"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificatorGroupedCell" id="Eww-yD-363" customClass="MDUKNotificatorGroupedCell" customModule="notificationProto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eww-yD-363" id="FU7-gM-hVw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
@@ -209,7 +161,7 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Crq-oP-wLp" userLabel="Avatar View">
                                                             <rect key="frame" x="10" y="10" width="80" height="80"/>
-                                                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="eNN-QI-bYD"/>
                                                                 <constraint firstAttribute="height" constant="80" id="j36-dZ-LJJ"/>
@@ -217,7 +169,7 @@
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-Kl-4Bv" userLabel="Activity Type View">
                                                             <rect key="frame" x="60" y="60" width="32" height="32"/>
-                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="Esd-lM-Zps"/>
                                                                 <constraint firstAttribute="height" constant="32" id="T7u-CG-9c7"/>

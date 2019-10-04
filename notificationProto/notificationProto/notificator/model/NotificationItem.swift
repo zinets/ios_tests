@@ -57,7 +57,7 @@ class NotificationItem: NSObject, Item {
     }
     
     // все строчки формируются на "той" стороне
-    var notificationText: String! // TODO: attributed string
+    var notificationText: NSAttributedString! // TODO: attributed string
     var notificationAge: String!
     
     var avatarUrl: String?

@@ -9,7 +9,7 @@
 import UIKit
 import TNURLImageView
 
-class NotificatorSingleCell: UITableViewCell {
+class MDUKNotificatorSingleCell: UITableViewCell {
 
     @IBOutlet weak var avatarView: UIImageView! {
         didSet {
@@ -40,7 +40,7 @@ class NotificatorSingleCell: UITableViewCell {
 
     // MARK: data -
     func fillData(_ data: NotificationItem) {
-        self.notificationTextLabel.text = data.notificationText
+        self.notificationTextLabel.attributedText = data.notificationText
         self.notificationTimeLabel.text = data.notificationAge
         
         let image = UIImage(named: data.notificationType.imageName)

@@ -18,32 +18,17 @@ class NotificatorController: UIViewController {
     private var isFooterVisible = false
     
     @IBOutlet weak var tableView: UITableView!
-    private var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
+    public private(set) var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
     
-    private func prepareDatasource() {
+    func prepareDatasource() {
         self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { (cell, item) in
-            if let cell = cell as? NotificatorGroupedCell {
+            if let cell = cell as? MDUKNotificatorGroupedCell {
                 cell.fillData(item)
+//            } else if let cell = cell as? NotificatorSingleCell {
+//                cell.fillData(item)
             }
-        })
+        })       
         
-        self.tableView.register(UINib(nibName: "NotificatorHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
-        self.tableView.register(UINib(nibName: "NotificatorFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
-        
-        // test data
-        self.datasource.beginUpdates()
-
-        let item = NotificationItem(with: "NotificatorGroupedCell")
-        item.notificationText = "Danielle liked your photo и послала тебе фото своей киски"
-        item.notificationAge = "2 days ago"
-        item.notificationType = .visitor
-        item.placeholder = "notificationMalePlaceholder"
-        item.avatarUrl = "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f"
-        
-        self.datasource.appendSections([.main])
-        self.datasource.appendItems([item], toSection: .main)
-        
-        self.datasource.endUpdates()
     }
     
     override func viewDidLoad() {
@@ -205,4 +190,23 @@ extension NotificatorController: UITableViewDelegate {
         return footer
     }
    
+}
+
+extension NotificatorController {
+    
+    func attributedStringForText(text: String, selected: [String]) -> NSAttributedString {
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        let selectedAttributes: [NSAttributedString.Key : Any] = [
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold),
+        ]
+        for str in selected {
+            let range = NSRange(text.range(of: str)!, in: text)
+            attributedString.addAttributes(selectedAttributes, range: range)
+        }
+        
+        return attributedString
+    }
+    
 }

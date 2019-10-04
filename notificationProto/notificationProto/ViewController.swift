@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showNotificator(_ sender: Any) {
-        guard let ctrl = UIStoryboard(name: "Notificator", bundle: nil).instantiateInitialViewController() else {
+        guard let ctrl = UIStoryboard(name: "MDUKNotificator", bundle: nil).instantiateInitialViewController() else {
             return
         }
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificatorGroupedCell: NotificatorSingleCell {
+class MDUKNotificatorGroupedCell: MDUKNotificatorSingleCell {
     
     @IBOutlet weak var counterLabel: UILabel!
     

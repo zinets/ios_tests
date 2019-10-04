@@ -1,14 +1,14 @@
 //
-//  NotificatorHeaderView.swift
-//  test1
+//  MDUKNotificatorHeaderView.swift
+//  notificationProto
 //
-//  Created by Viktor Zinets on 10/2/19.
+//  Created by Viktor Zinets on 10/4/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.
 //
 
 import UIKit
 
-class NotificatorHeaderView: UITableViewHeaderFooterView {
+class MDUKNotificatorHeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var clearButton: UIButton! {
         didSet {
@@ -23,20 +23,6 @@ class NotificatorHeaderView: UITableViewHeaderFooterView {
     }
     
     @IBAction func ert(_ sender: Any) {
-        print(sender)
-    }
-    
-}
-
-class NotificatorFooterView: UITableViewHeaderFooterView {
-
-    @IBOutlet weak var upgradeButton: UIButton! {
-        didSet {
-            upgradeButton.layer.cornerRadius = 8
-        }
-    }
-    
-    @IBAction func dfasd(_ sender: Any) {
         print(sender)
     }
     
