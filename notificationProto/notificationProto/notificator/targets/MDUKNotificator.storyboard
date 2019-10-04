@@ -176,7 +176,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHV-Gd-kUZ" userLabel="counter site">
-                                                            <rect key="frame" x="72.5" y="120" width="249" height="48"/>
+                                                            <rect key="frame" x="77" y="120" width="240.5" height="48"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Это просто" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWA-Id-fmZ">
                                                                     <rect key="frame" x="0.0" y="14" width="94" height="20"/>
@@ -185,10 +185,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tl5-jF-BqF" userLabel="counter">
-                                                                    <rect key="frame" x="99" y="12" width="32.5" height="24"/>
+                                                                    <rect key="frame" x="99" y="12" width="24" height="24"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-0g-a9q">
-                                                                            <rect key="frame" x="6" y="0.0" width="20.5" height="24"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCF-0g-a9q">
+                                                                            <rect key="frame" x="6" y="0.0" width="12" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="24" id="47E-id-y1O"/>
                                                                             </constraints>
@@ -202,6 +202,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="bottom" secondItem="mCF-0g-a9q" secondAttribute="bottom" id="06h-JU-VMp"/>
                                                                         <constraint firstItem="mCF-0g-a9q" firstAttribute="top" secondItem="Tl5-jF-BqF" secondAttribute="top" id="RBg-1h-s2q"/>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="rXT-db-sXA"/>
                                                                         <constraint firstAttribute="trailing" secondItem="mCF-0g-a9q" secondAttribute="trailing" constant="6" id="xdz-18-pee"/>
                                                                         <constraint firstItem="mCF-0g-a9q" firstAttribute="leading" secondItem="Tl5-jF-BqF" secondAttribute="leading" constant="6" id="zff-gx-aZY"/>
                                                                     </constraints>
@@ -212,7 +213,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="хер знает кто" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABY-Cw-hZK">
-                                                                    <rect key="frame" x="136.5" y="14" width="112.5" height="20"/>
+                                                                    <rect key="frame" x="128" y="14" width="112.5" height="20"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                                                     <color key="textColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
