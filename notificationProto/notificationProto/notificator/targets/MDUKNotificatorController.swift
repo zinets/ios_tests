@@ -1,6 +1,5 @@
 //
 //  MDUKNotificatorController.swift
-//  notificationProto
 //
 //  Created by Viktor Zinets on 10/4/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.
@@ -13,15 +12,19 @@ class MDUKNotificatorController: NotificatorController {
     override func prepareDatasource() {
         super.prepareDatasource()
         
+        self.datasource.defaultInsertAnimation = .top
+        self.datasource.defaultDeleteAnimation = .top
+        self.datasource.defaultUpdateAnimation = .fade
+        
         self.tableView.register(UINib(nibName: "MDUKNotificatorHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(UINib(nibName: "MDUKNotificatorFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
     }
     
     override var notifications: [NotificationData]! {
         didSet {
-            guard notifications.count > 0 else {
-                fatalError("Что происходит? какого хера показываем 0 нотификаций?")
-            }
+//            guard notifications.count > 0 else {
+//                fatalError("Что происходит? какого хера показываем 0 нотификаций?")
+//            }
             self.updateNotifications()
         }
     }
@@ -76,6 +79,12 @@ class MDUKNotificatorController: NotificatorController {
         } else {
             self.stopTimer()
         }
+    }
+    
+    override func closeAction(_ animated: Bool = false) {
+        self.notifications = [] // ну такое, но работает; смысл в том, что убираем вью, но при этом убираем нотификации - они анимируются отдельно, в этом дизайне - уезжают вверх
+        // чото очкую, может в реальных условиях что-то пойти не так? вполне себе
+        super.closeAction(animated)
     }
 
     // MARK: appearance -

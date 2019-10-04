@@ -1,6 +1,5 @@
 //
 //  MDUKNotificatorHeaderView.swift
-//  notificationProto
 //
 //  Created by Viktor Zinets on 10/4/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.

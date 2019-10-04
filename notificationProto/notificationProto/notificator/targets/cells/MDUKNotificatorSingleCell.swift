@@ -1,6 +1,5 @@
 //
 //  NotificatorSingleCell.swift
-//  notificationProto
 //
 //  Created by Viktor Zinets on 10/3/19.
 //  Copyright © 2019 Viktor Zinets. All rights reserved.

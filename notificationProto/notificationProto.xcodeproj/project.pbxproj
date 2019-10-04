@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6935451423473A310012DF4B /* MDUKNotificatorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6935451323473A310012DF4B /* MDUKNotificatorHeaderView.swift */; };
 		6935451623473A830012DF4B /* MDUKNotificatorFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6935451523473A830012DF4B /* MDUKNotificatorFooterView.swift */; };
+		6935451D23477A920012DF4B /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6935451C23473B050012DF4B /* MD5.framework */; };
+		6935451E23477A970012DF4B /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6935451C23473B050012DF4B /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		695A8F0F2345EB00009B2FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A8F0E2345EB00009B2FE5 /* AppDelegate.swift */; };
 		695A8F132345EB00009B2FE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A8F122345EB00009B2FE5 /* ViewController.swift */; };
 		695A8F162345EB00009B2FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695A8F142345EB00009B2FE5 /* Main.storyboard */; };
@@ -66,6 +68,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6935451E23477A970012DF4B /* MD5.framework in Embed Frameworks */,
 				695A8F3E2345ECE2009B2FE5 /* DiffAble.framework in Embed Frameworks */,
 				697955572347257A003DF126 /* TNURLImageView.framework in Embed Frameworks */,
 			);
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6935451D23477A920012DF4B /* MD5.framework in Frameworks */,
 				695A8F3D2345ECE2009B2FE5 /* DiffAble.framework in Frameworks */,
 				697955562347257A003DF126 /* TNURLImageView.framework in Frameworks */,
 			);
@@ -490,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = notificationProto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -508,6 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L879VUX8U4;
 				INFOPLIST_FILE = notificationProto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
