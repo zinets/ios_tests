@@ -16,16 +16,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showNotificator(_ sender: Any) {
-        guard let ctrl = UIStoryboard(name: "MDUKNotificator", bundle: nil).instantiateInitialViewController() else {
+        guard let ctrl = UIStoryboard(name: "MDUKNotificator", bundle: nil).instantiateInitialViewController() as? NotificatorController else {
             return
         }
         
         self.addChild(ctrl)
-        
         let frame = CGRect(x: 0, y: 0, width: 414, height: 350)
         ctrl.view.frame = frame
         self.view.addSubview(ctrl.view)
         ctrl.didMove(toParent: self)
+        
+        //        let attributedText = self.attributedStringForText(text: "Danielle liked your photo и послала тебе фото своей киски", selected: ["Danielle", "фото"])
+        let item = NotificationData(notificationType: .visitor, notificationText: NSAttributedString(string: "Danielle liked your photo и послала тебе фото своей киски"), notificationAge: "5 minutes ago", avatarUrl: "https://static-s.aa-cdn.net/img/ios/1173498738/0893b85443c5b797f6926a6565142c4f", placeholder: "notificationMalePlaceholder")
+        ctrl.notifications = [item]
+
     }
     
     @IBAction func test(_ sender: Any) {

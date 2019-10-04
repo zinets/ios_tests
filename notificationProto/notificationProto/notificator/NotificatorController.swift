@@ -22,17 +22,14 @@ class NotificatorController: UIViewController {
     public private(set) var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
     
     func prepareDatasource() {
-        self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { (cell, item) in
-            // TODO: сделать базовый метод заполнения ячейки cell данными из item? и в конкретном наследнике перегружать собственно полезной работой?
-            if let cell = cell as? MDUKNotificatorGroupedCell {
-                cell.fillData(item)
-//            } else if let cell = cell as? NotificatorSingleCell {
-//                cell.fillData(item)
-            }
-        })       
-        
+        self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: prepareCell(_:_:))
     }
     
+    func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) -> Void {
+        fatalError()
+    }
+    
+    // MARK: life blah-blah-blah.. -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareDatasource()
@@ -44,36 +41,12 @@ class NotificatorController: UIViewController {
         
     }
 
+    // MARK: actions -
     @IBAction func closeAction(_ sender: Any) {
         
         self.view.removeFromSuperview()
         
     }
-        
-    @IBAction func addItem(_ sender: Any) {
-        numberOfItems += 1
-    }
-    
-    var numberOfItems: Int = 5 {
-        didSet {
-            self.datasource.beginUpdates()
-            
-            self.datasource.appendSections([.main])
-            
-            var items: [NotificationItem] = []
-            for x in 1..<numberOfItems {
-                items.append(NotificationItem(with: "NotificatorSingleCell"))
-            }
-            
-            self.datasource.appendItems(items, toSection: .main)
-            
-            self.datasource.endUpdates()
-            
-//            self.compactMode = false
-        }
-    }
-    
-    
     
     // MARK: gestures -
     
@@ -135,6 +108,8 @@ class NotificatorController: UIViewController {
         }
     }
     
+    // MARK: payload -
+    var notifications: [NotificationData]!
 }
 
 extension NotificatorController: UITableViewDelegate {
@@ -143,7 +118,7 @@ extension NotificatorController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        self.numberOfItems += 1
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -168,6 +143,7 @@ extension NotificatorController: UITableViewDelegate {
 
 extension NotificatorController {
     
+    // TODO: вроде это относится к дизайну..
     func attributedStringForText(text: String, selected: [String]) -> NSAttributedString {
         
         let attributedString = NSMutableAttributedString(string: text)

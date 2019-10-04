@@ -31,6 +31,16 @@ enum NotificationItemType {
     }
 }
 
+///  это структура для хранения данных об одной нотификации; контроллеру нужно массив из этих данных, а дальше он разберется как их показывать
+struct NotificationData {
+    var notificationType: NotificationItemType
+    var notificationText: NSAttributedString
+    var notificationAge: String
+    
+    var avatarUrl: String?
+    var placeholder: String?
+}
+
 class NotificationItem: NSObject, Item {
     
     public private (set) var cellReuseId: String
