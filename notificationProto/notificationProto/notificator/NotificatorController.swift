@@ -48,6 +48,8 @@ class NotificatorController: UIViewController {
     // MARK: actions -
     @IBAction func closeAction(_ animated: Bool = false) {
         
+        removeTimer?.invalidate()
+        
         UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
 //            self.view.transform = CGAffineTransform.init(translationX: 0, y: -500)
             self.view.alpha = 0
@@ -74,6 +76,7 @@ class NotificatorController: UIViewController {
         case .began:
             let pt = sender.velocity(in: sender.view)
             isDirectionVertical = abs(pt.y) > abs(pt.x)
+            // вот загадка: вертикальное движение начинает отслеживаться только с "группированной" ячейкой, но не с одинарной
         case .changed:
             let pt = sender.translation(in: sender.view)
             if isDirectionVertical! {
@@ -122,6 +125,24 @@ class NotificatorController: UIViewController {
     
     // MARK: payload -
     var notifications: [NotificationData]!
+    
+    // MARK: autoremove -
+    var removeTimer: Timer?
+    
+    @objc func removeTimerFired(sender: Timer) {
+        self.closeAction(true)
+    }
+    
+    func startTimer() {
+        removeTimer?.invalidate()
+        
+        let timerPeriod: TimeInterval = 5
+        removeTimer = Timer.scheduledTimer(timeInterval: timerPeriod, target: self, selector: #selector(removeTimerFired(sender:)), userInfo: nil, repeats: false)
+    }
+    
+    func stopTimer() {
+        removeTimer?.invalidate()
+    }
 }
 
 extension NotificatorController: UITableViewDelegate {

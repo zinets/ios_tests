@@ -70,6 +70,12 @@ class MDUKNotificatorController: NotificatorController {
             frame.size.height = cell.bounds.height + 44 // TODO: 44 от фонаря, я не знаю как правильно определять размер в компактном состоянии
             self.view.frame = frame
         }
+        
+        if self.compactMode {
+            self.startTimer()
+        } else {
+            self.stopTimer()
+        }
     }
 
     // MARK: appearance -
