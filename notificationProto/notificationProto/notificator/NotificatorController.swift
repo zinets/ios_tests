@@ -21,10 +21,12 @@ class NotificatorController: UIViewController {
     public private(set) var datasource: TableDiffAbleDatasource<Sections, NotificationItem>!
     
     func prepareDatasource() {
-        self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: prepareCell(_:_:))
+        self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { [weak self] (cell, item) in
+            self?.prepareCell(cell, item)
+        })
     }
     
-    func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) -> Void {
+    func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) {
         fatalError()
     }
     
@@ -50,15 +52,14 @@ class NotificatorController: UIViewController {
         removeTimer?.invalidate()
         
         UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
-//            self.view.transform = CGAffineTransform.init(translationX: 0, y: -500)
             self.view.alpha = 0
         }) { (_) in
             self.willMove(toParent: nil)
             self.view.removeFromSuperview()
-            
+
             self.removeFromParent()
-            // но deinit не вызывается, wtf?
         }
+        
     }
     
     // MARK: gestures -

@@ -119,7 +119,7 @@ class MDUKNotificatorController: NotificatorController {
         }
     }
     
-    override func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) -> Void {
+    override func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) {
         if let cell = cell as? MDUKNotificatorGroupedCell {
             cell.fillData(item)
         } else if let cell = cell as? MDUKNotificatorSingleCell {
