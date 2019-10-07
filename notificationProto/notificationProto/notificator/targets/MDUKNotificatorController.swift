@@ -15,7 +15,7 @@ class MDUKNotificatorController: NotificatorController {
         self.datasource.defaultInsertAnimation = .top
         self.datasource.defaultDeleteAnimation = .top
         self.datasource.defaultUpdateAnimation = .fade
-        
+                
         self.tableView.register(UINib(nibName: "MDUKNotificatorHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Header")
         self.tableView.register(UINib(nibName: "MDUKNotificatorFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "Footer")
     }
@@ -70,7 +70,8 @@ class MDUKNotificatorController: NotificatorController {
         let cells = self.tableView.visibleCells
         if let cell = cells.first, self.compactMode {
             var frame = self.view.frame
-            frame.size.height = cell.bounds.height + 44 // TODO: 44 от фонаря, я не знаю как правильно определять размер в компактном состоянии
+            self.compactHeight = cell.bounds.height + 44 // TODO: 44 от фонаря, я не знаю как правильно определять размер в компактном состоянии
+            frame.size.height = self.compactHeight!
             self.view.frame = frame
         }
         
@@ -89,33 +90,76 @@ class MDUKNotificatorController: NotificatorController {
 
     // MARK: appearance -
     
-    private let compactHeight: CGFloat = 150
+    private var compactHeight: CGFloat?
     private var compactMode: Bool = true {
         didSet {
-            var frame = self.view.frame
-            if compactMode {
-                frame.size.height = compactHeight
-            } else {
-                frame.size.height = self.view.superview!.bounds.size.height
-            }
-            self.view.frame = frame
-            
-            guard oldValue != compactMode else {
-                return
-            }
-            
             let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
-            UIView.animate(withDuration: 0.25, animations: {
-                self.view.backgroundColor = bgColor
-            }) { (_) in
-                self.isHeaderVisible = !self.compactMode
-                self.tableView.beginUpdates()
-                self.tableView.endUpdates()
-            }
-            
             panRecognizer?.isEnabled = compactMode
             
-            self.updateNotifications()
+            if !compactMode {
+                // раскрываем: 1) без анимации фрейм на весь экран, 2) анимированно цвет в полупрозрачный черный 3) после анимации обновить футеры и ячейки
+                var frame = self.view.frame
+                frame.size.height = self.view.superview!.bounds.size.height
+                self.view.frame = frame
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.view.backgroundColor = bgColor
+                }) { (_) in
+                    self.isHeaderVisible = !self.compactMode
+                    self.isFooterVisible = !self.compactMode
+                    
+                    self.tableView.beginUpdates()
+                    self.tableView.endUpdates()
+                    
+                    self.updateNotifications()
+                }
+            } else {
+                // скрываем: 1) обновляем ячейки, футеры 2) обновить фрейм до компактного 3) изменить цвет до прозрачного
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.isHeaderVisible = !self.compactMode
+                    self.isFooterVisible = !self.compactMode
+                    
+                    self.tableView.beginUpdates()
+                    self.tableView.endUpdates()
+                }) { (_) in
+                    self.updateNotifications()
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.view.backgroundColor = bgColor
+                    }) { (_) in
+                        
+                    }
+                }
+            }
+                
+            
+            
+            return
+//            var frame = self.view.frame
+//            if compactMode {
+//                frame.size.height = compactHeight
+//            } else {
+//                frame.size.height = self.view.superview!.bounds.size.height
+//            }
+//            self.view.frame = frame
+//
+//            guard oldValue != compactMode else {
+//                return
+//            }
+//
+//            let bgColor = !compactMode ? UIColor.black.withAlphaComponent(0.3) : .clear
+//            UIView.animate(withDuration: 0.25, animations: {
+//                self.view.backgroundColor = bgColor
+//            }) { (_) in
+//                self.isHeaderVisible = !self.compactMode
+//                self.isFooterVisible = !self.compactMode
+//
+//                self.tableView.beginUpdates()
+//                self.tableView.endUpdates()
+//            }
+//
+//            panRecognizer?.isEnabled = compactMode
+//
+//            self.updateNotifications()
         }
     }
     
