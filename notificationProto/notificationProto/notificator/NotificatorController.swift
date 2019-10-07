@@ -24,6 +24,8 @@ class NotificatorController: UIViewController {
         self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: { [weak self] (cell, item) in
             self?.prepareCell(cell, item)
         })
+        
+//        self.datasource = TableDiffAbleDatasource(tableView: self.tableView, cellConfigurator: self.prepareCell(_:_:))
     }
     
     func prepareCell(_ cell: UITableViewCell, _ item: NotificationItem) {
