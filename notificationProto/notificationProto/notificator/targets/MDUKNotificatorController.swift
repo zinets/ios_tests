@@ -190,4 +190,12 @@ extension MDUKNotificatorController {
         return header
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return isHeaderVisible ? 68 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return isFooterVisible ? 64 : 0
+    }
+    
 }

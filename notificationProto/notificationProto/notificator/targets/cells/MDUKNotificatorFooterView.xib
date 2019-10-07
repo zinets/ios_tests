@@ -18,7 +18,7 @@
                     <rect key="frame" x="10" y="8" width="632" height="48"/>
                     <color key="backgroundColor" red="0.2982143759727478" green="0.68511396646499634" blue="0.31290969252586365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="48" id="N08-Xg-Qhn"/>
+                        <constraint firstAttribute="height" constant="48" id="tl9-9g-cvt"/>
                     </constraints>
                     <state key="normal" title="Button">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,10 +29,9 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="fA1-6T-sse" firstAttribute="top" secondItem="C4j-sF-tGB" secondAttribute="top" constant="8" id="9mj-yf-cWk"/>
-                <constraint firstItem="fA1-6T-sse" firstAttribute="leading" secondItem="chH-b9-Dkw" secondAttribute="leading" constant="10" id="Dip-GR-FPK"/>
-                <constraint firstItem="chH-b9-Dkw" firstAttribute="trailing" secondItem="fA1-6T-sse" secondAttribute="trailing" constant="10" id="Htm-Rf-PGC"/>
-                <constraint firstAttribute="bottom" secondItem="fA1-6T-sse" secondAttribute="bottom" constant="8" id="jj1-Jf-FIm"/>
+                <constraint firstItem="chH-b9-Dkw" firstAttribute="trailing" secondItem="fA1-6T-sse" secondAttribute="trailing" constant="10" id="Fwm-vZ-Gtk"/>
+                <constraint firstItem="fA1-6T-sse" firstAttribute="leading" secondItem="chH-b9-Dkw" secondAttribute="leading" constant="10" id="Z5k-wV-V3c"/>
+                <constraint firstItem="fA1-6T-sse" firstAttribute="top" secondItem="C4j-sF-tGB" secondAttribute="top" constant="8" id="lnO-Jf-5NM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="chH-b9-Dkw"/>

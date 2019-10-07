@@ -18,7 +18,7 @@
                     <rect key="frame" x="10" y="24" width="243.5" height="36"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="36" id="DmS-Gp-P6e"/>
+                        <constraint firstAttribute="height" constant="36" id="Gzd-b1-ygo"/>
                     </constraints>
                     <state key="normal" title="clear all">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,6 +30,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVk-eC-FpU">
                     <rect key="frame" x="261.5" y="24" width="243.5" height="36"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="daa-Nj-vTb"/>
+                    </constraints>
                     <state key="normal" title="show less">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -39,14 +42,12 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="hVk-eC-FpU" secondAttribute="bottom" constant="8" id="B1y-Wj-lcG"/>
-                <constraint firstItem="hVk-eC-FpU" firstAttribute="top" secondItem="e0R-fk-60h" secondAttribute="top" constant="24" id="GsS-MF-DqD"/>
-                <constraint firstItem="tuC-fb-xYv" firstAttribute="trailing" secondItem="hVk-eC-FpU" secondAttribute="trailing" constant="10" id="OZn-Jq-lp9"/>
-                <constraint firstItem="hVk-eC-FpU" firstAttribute="leading" secondItem="UxX-81-UJ5" secondAttribute="trailing" constant="8" id="aMt-no-fPu"/>
-                <constraint firstAttribute="bottom" secondItem="UxX-81-UJ5" secondAttribute="bottom" constant="8" id="eln-Av-IFt"/>
-                <constraint firstItem="UxX-81-UJ5" firstAttribute="width" secondItem="hVk-eC-FpU" secondAttribute="width" id="hNl-mq-ptb"/>
-                <constraint firstItem="UxX-81-UJ5" firstAttribute="leading" secondItem="tuC-fb-xYv" secondAttribute="leading" constant="10" id="hye-6F-mcZ"/>
-                <constraint firstItem="UxX-81-UJ5" firstAttribute="top" secondItem="e0R-fk-60h" secondAttribute="top" constant="24" id="nhe-lA-IAX"/>
+                <constraint firstItem="UxX-81-UJ5" firstAttribute="width" secondItem="hVk-eC-FpU" secondAttribute="width" id="MKO-LJ-Y2I"/>
+                <constraint firstItem="UxX-81-UJ5" firstAttribute="leading" secondItem="tuC-fb-xYv" secondAttribute="leading" constant="10" id="OoT-0b-rss"/>
+                <constraint firstItem="UxX-81-UJ5" firstAttribute="top" secondItem="e0R-fk-60h" secondAttribute="top" constant="24" id="SBp-GJ-hSo"/>
+                <constraint firstItem="tuC-fb-xYv" firstAttribute="trailing" secondItem="hVk-eC-FpU" secondAttribute="trailing" constant="10" id="YfL-aQ-RzW"/>
+                <constraint firstItem="hVk-eC-FpU" firstAttribute="top" secondItem="e0R-fk-60h" secondAttribute="top" constant="24" id="eDY-Rt-eFx"/>
+                <constraint firstItem="hVk-eC-FpU" firstAttribute="leading" secondItem="UxX-81-UJ5" secondAttribute="trailing" constant="8" id="ue7-eA-ndZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="tuC-fb-xYv"/>
