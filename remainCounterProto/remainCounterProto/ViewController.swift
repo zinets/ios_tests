@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var remainCounter: RemainCounterView!
+    @IBOutlet weak var remainCounter: UFDRemainCounterView!
     
     @IBAction func countChanged(_ sender: UISlider) {
         
