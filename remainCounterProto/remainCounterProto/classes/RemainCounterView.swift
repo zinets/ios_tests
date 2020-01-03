@@ -20,10 +20,27 @@ class RemainCounterView: UIView {
         self.commonInit()
     }
     
+    // MARK: public -
+    /// введенное кол-во символов
+    var count: Int = 0 {
+        didSet {
+            guard count != oldValue else { return }
+            self.updateRemain()
+        }
+    }
+    /// максимальное кол-во скажем символов, которое можно ввести
+    var maxCount: Int = 100 {
+        didSet {
+            self.updateRemain()
+        }
+    }
+    
+    
     // MARK: outlets etc -
     private var textLabel: UILabel!
     private var progressLayer: CAShapeLayer!
     
+    // MARK: internal -
     private func commonInit() {
         textLabel = UILabel()
         textLabel.text = "100"
@@ -38,6 +55,11 @@ class RemainCounterView: UIView {
             textLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 16),
             textLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 16),
         ])
+    }
+    
+    private func updateRemain() {
+        let remain = max(0, self.maxCount - self.count)
+        textLabel.text = String(remain)
     }
 
 }
