@@ -26,6 +26,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+//        cell.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
         return cell
     }
     
@@ -42,13 +43,22 @@ class TestCell: UICollectionViewCell {
             topLabel.text = String(format: "%f", attrs.progress)
             bottomLabel.text = String(format: "%d", attrs.indexPath.item)
             
-            let angle = .pi * attrs.progress
-            var transform = CATransform3DIdentity;
-            transform.m34 = -0.0015;
-            transform = CATransform3DRotate(transform, angle, 0, 1, 0)
+//            let angle = .pi * attrs.progress
+//            var transform = CATransform3DIdentity;
+//            transform.m34 = -0.0015;
+//            transform = CATransform3DRotate(transform, angle, 0, 1, 0)
+
+//            self.layer.transform = transform
+//            self.alpha = abs(attrs.progress) > 0.5 ? 0 : 1
             
-            self.layer.transform = transform
-            self.alpha = abs(attrs.progress) > 0.5 ? 0 : 1
+            let transform = CGAffineTransform(translationX: bounds.width * 0.8 * attrs.progress, y: 0)
+            let alpha = 1 - abs(attrs.progress)
+            if attrs.indexPath.item == 1 {
+                print(attrs.progress)
+            }
+            contentView.subviews.forEach { $0.transform = transform }
+            contentView.alpha = alpha
+            
         }
     }
     
