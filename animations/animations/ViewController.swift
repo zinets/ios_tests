@@ -10,17 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView! {
-        didSet {
-            let layout = CollectionViewPagingLayout()
-            collectionView.setCollectionViewLayout(layout, animated: false)
-        }
-    }
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
     }
-
 
 }
 
@@ -46,6 +41,14 @@ class TestCell: UICollectionViewCell {
         if let attrs = layoutAttributes as? CollectionViewPagingLayoutAttributes {
             topLabel.text = String(format: "%f", attrs.progress)
             bottomLabel.text = String(format: "%d", attrs.indexPath.item)
+            
+            let angle = .pi * attrs.progress
+            var transform = CATransform3DIdentity;
+            transform.m34 = -0.0015;
+            transform = CATransform3DRotate(transform, angle, 0, 1, 0)
+            
+            self.layer.transform = transform
+            self.alpha = abs(attrs.progress) > 0.5 ? 0 : 1
         }
     }
     
