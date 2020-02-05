@@ -52,7 +52,7 @@ class TestCell: UICollectionViewCell {
 //            self.alpha = abs(attrs.progress) > 0.5 ? 0 : 1
             
             let transform = CGAffineTransform(translationX: bounds.width * 0.8 * attrs.progress, y: 0)
-            let alpha = 1 - abs(attrs.progress)
+            let alpha = 1 - abs(attrs.progress) + 0.2
             if attrs.indexPath.item == 1 {
                 print(attrs.progress)
             }
