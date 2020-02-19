@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     
     @objc func swipeCard(sender: UIPanGestureRecognizer) {
-        sender.swipeView(greenView)
+        sender.swipeView()
     }
 
 }
@@ -89,7 +89,7 @@ protocol Swipeable { }
 
 extension Swipeable where Self: UIPanGestureRecognizer {
     
-    func swipeView(_ view: UIView) {
+    func swipeView() {
         
         // управление вью
 //        switch state {
@@ -106,6 +106,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
 //        }
         
         // управление слоем
+        guard let view = self.view else { return }
         let panGestureTranslation = self.translation(in: view)
         switch state {
         case .began:
