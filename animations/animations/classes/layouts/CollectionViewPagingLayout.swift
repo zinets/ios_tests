@@ -160,11 +160,12 @@ public class CollectionViewStackLayout: CollectionViewProgressiveLayout {
             }
             
             return attrs.map { (item) -> CollectionViewProgressLayoutAttributes in
-                item.frame = visibleRect
-                item.zIndex = Int(-abs(round(item.progress)))
-                item.isHidden = abs(item.progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
+                let copy = item.copy() as! CollectionViewProgressLayoutAttributes
+                copy.frame = visibleRect
+                copy.zIndex = Int(-abs(round(item.progress)))
+                copy.isHidden = abs(item.progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
                 
-                return item
+                return copy
             }
         }
 }
