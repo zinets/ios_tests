@@ -43,7 +43,7 @@ class CollectionViewProgressLayoutAttributes: UICollectionViewLayoutAttributes {
     }
 }
 
-public class CollectionViewProgressiveLayout: UICollectionViewLayout {
+public class CollectionViewProgressiveLayout: UICollectionViewFlowLayout {
     
     public override class var layoutAttributesClass: AnyClass {
         return CollectionViewProgressLayoutAttributes.self
@@ -51,7 +51,7 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
     
     // MARK: properties -
     weak var delegate: CollectionViewProgressiveLayoutDelegate?
-    var scrollDirection: UICollectionView.ScrollDirection = .horizontal {
+    override public var scrollDirection: UICollectionView.ScrollDirection {
         didSet {
             self.invalidateLayout()
         }
@@ -112,16 +112,22 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
     
     // TODO: вот тут точно разделить вычисление прогресса и фрейма (а как?.. а вот думай)
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return (0..<numberOfItems).map { (item) -> CollectionViewProgressLayoutAttributes in
-            let attrs = CollectionViewProgressLayoutAttributes(forCellWith: IndexPath(item: item, section: 0))
-            let progress = CGFloat(item) - (self.scrollDirection == .horizontal ? visibleRect.minX / visibleRect.width : visibleRect.minY / visibleRect.height)
-            attrs.frame = visibleRect
-            attrs.progress = progress
-            attrs.zIndex = Int(-abs(round(progress)))
-            attrs.isHidden = abs(progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
+        
+        guard let attrs = super.layoutAttributesForElements(in: rect) as? [CollectionViewProgressLayoutAttributes] else {
+            return nil
+        }
+        
+        return attrs.map { (item) -> CollectionViewProgressLayoutAttributes in
+            let indexPath = item.indexPath
+            let progress = CGFloat(indexPath.item) - (self.scrollDirection == .horizontal ? visibleRect.minX / visibleRect.width : visibleRect.minY / visibleRect.height)
+            item.progress = progress
             
-            return attrs
-        }        
+//            item.frame = visibleRect
+//            item.zIndex = Int(-abs(round(progress)))
+//            item.isHidden = abs(progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
+            
+            return item
+        }
     }
     
     override public func invalidateLayout() {
@@ -142,5 +148,9 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
             self.delegate?.onCurrentPageChanged(layout: self, currentPage: currentPage)
         }
     }
+    
+}
+
+public class CollectionViewStackLayout: CollectionViewProgressiveLayout {
     
 }
