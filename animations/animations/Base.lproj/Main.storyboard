@@ -68,12 +68,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Qk-ZT-Tnp" customClass="TestView" customModule="animations" customModuleProvider="target">
+                                <rect key="frame" x="128" y="695" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="7RM-MB-HjN"/>
+                                    <constraint firstAttribute="width" constant="240" id="uPZ-bW-65y"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Qk-ZT-Tnp" secondAttribute="bottom" constant="39" id="2Mo-Yx-9kh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S4a-bt-WKv" secondAttribute="trailing" constant="87" id="AR2-cr-OcU"/>
                             <constraint firstItem="S4a-bt-WKv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="RTM-Bi-llN"/>
                             <constraint firstItem="S4a-bt-WKv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="Vbi-Yz-fH7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Qk-ZT-Tnp" secondAttribute="trailing" constant="46" id="z8h-Le-rH9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

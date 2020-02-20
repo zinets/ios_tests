@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6951A4AF23FE62C500D4D6F2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6951A4AE23FE62C500D4D6F2 /* TestView.xib */; };
+		6951A4B123FE62CD00D4D6F2 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4B023FE62CD00D4D6F2 /* TestView.swift */; };
+		6951A4B423FE639B00D4D6F2 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4B323FE639B00D4D6F2 /* XibView.swift */; };
+		6951A4B723FE64B200D4D6F2 /* Swipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4B623FE64B200D4D6F2 /* Swipeable.swift */; };
 		69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */; };
 		69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */; };
 		69D8AE5423D886EA008D0D2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE5323D886EA008D0D2F /* ViewController.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6951A4AE23FE62C500D4D6F2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		6951A4B023FE62CD00D4D6F2 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		6951A4B323FE639B00D4D6F2 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		6951A4B623FE64B200D4D6F2 /* Swipeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipeable.swift; sourceTree = "<group>"; };
 		69D8AE4C23D886EA008D0D2F /* animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6951A4B223FE637E00D4D6F2 /* xib views */ = {
+			isa = PBXGroup;
+			children = (
+				6951A4B323FE639B00D4D6F2 /* XibView.swift */,
+				6951A4AE23FE62C500D4D6F2 /* TestView.xib */,
+				6951A4B023FE62CD00D4D6F2 /* TestView.swift */,
+			);
+			name = "xib views";
+			sourceTree = "<group>";
+		};
+		6951A4B523FE64A200D4D6F2 /* swipable */ = {
+			isa = PBXGroup;
+			children = (
+				6951A4B623FE64B200D4D6F2 /* Swipeable.swift */,
+			);
+			name = swipable;
+			sourceTree = "<group>";
+		};
 		69D8AE4323D886EA008D0D2F = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +109,8 @@
 		69D8AE6723D88743008D0D2F /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				6951A4B523FE64A200D4D6F2 /* swipable */,
+				6951A4B223FE637E00D4D6F2 /* xib views */,
 				69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */,
 				69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */,
 				69D8AE5323D886EA008D0D2F /* ViewController.swift */,
@@ -152,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6951A4AF23FE62C500D4D6F2 /* TestView.xib in Resources */,
 				69D8AE5C23D886EC008D0D2F /* LaunchScreen.storyboard in Resources */,
 				69D8AE5923D886EC008D0D2F /* Assets.xcassets in Resources */,
 				69D8AE5723D886EA008D0D2F /* Main.storyboard in Resources */,
@@ -166,8 +195,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				69D8AE6623D88727008D0D2F /* CollectionViewPagingLayout.swift in Sources */,
+				6951A4B123FE62CD00D4D6F2 /* TestView.swift in Sources */,
+				6951A4B723FE64B200D4D6F2 /* Swipeable.swift in Sources */,
 				69D8AE5423D886EA008D0D2F /* ViewController.swift in Sources */,
 				69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */,
+				6951A4B423FE639B00D4D6F2 /* XibView.swift in Sources */,
 				69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
