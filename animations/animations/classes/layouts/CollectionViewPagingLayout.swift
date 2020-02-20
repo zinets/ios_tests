@@ -151,21 +151,36 @@ public class CollectionViewProgressiveLayout: UICollectionViewFlowLayout {
     
 }
 
-public class CollectionViewStackLayout: CollectionViewProgressiveLayout {
+public class CollectionViewStackLayout: UICollectionViewFlowLayout {
+    
+    var numberOfVisibleCells: Int = 3
+    let sideOffset: CGFloat = 16
+    let bottomMargin: CGFloat = 16
+    let topOffset: CGFloat = 40
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-            
-            guard let attrs = super.layoutAttributesForElements(in: rect) as? [CollectionViewProgressLayoutAttributes] else {
-                return nil
-            }
-            
-            return attrs.map { (item) -> CollectionViewProgressLayoutAttributes in
-                let copy = item.copy() as! CollectionViewProgressLayoutAttributes
-                copy.frame = visibleRect
-                copy.zIndex = Int(-abs(round(item.progress)))
-                copy.isHidden = abs(item.progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
-                
-                return copy
-            }
+    
+        guard let attrs = super.layoutAttributesForElements(in: rect) else {
+            return nil
         }
+        
+        return attrs.compactMap { (attr) -> UICollectionViewLayoutAttributes? in
+            let index = attr.indexPath.item
+            guard let collection = self.collectionView,
+                index < numberOfVisibleCells else {
+                    return nil
+            }
+
+            let copy = attr.copy() as! UICollectionViewLayoutAttributes
+            copy.zIndex = -index
+                        
+            let x = sideOffset * CGFloat(index)
+            let w = collection.bounds.width - 2 * x
+            let y = topOffset * CGFloat(index)
+            let h = collection.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - index)
+            
+            copy.frame = CGRect(x: x, y: y, width: w, height: h)
+            return copy
+        }
+    }
 }

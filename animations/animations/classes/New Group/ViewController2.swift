@@ -39,7 +39,7 @@ class ViewController2: UIViewController {
         guard let layout2 = self.collectionView2.collectionViewLayout as? CollectionViewStackLayout else {
             return
         }
-        layout2.setCurrentPage(layout2.currentPage - 1, animated: true)
+//        layout2.setCurrentPage(layout2.currentPage - 1, animated: true)
     }
     
     @IBAction func scrollRight(_ sender: Any) {
@@ -51,7 +51,7 @@ class ViewController2: UIViewController {
         guard let layout2 = self.collectionView2.collectionViewLayout as? CollectionViewStackLayout else {
             return
         }
-        layout2.setCurrentPage(layout2.currentPage + 1, animated: true)
+//        layout2.setCurrentPage(layout2.currentPage + 1, animated: true)
     }
 }
 
