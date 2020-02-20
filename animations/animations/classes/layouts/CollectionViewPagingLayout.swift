@@ -4,7 +4,20 @@
 
 import UIKit
 
-public protocol CollectionViewPagingLayoutDelegate: class {
+/**
+ идеи
+ 
+ раскладка трансформирует ленту ячеек, горизонтальную или вертикальную, в собственно все такой же набор аттрибутов с дополнением - параметром progress, который показывает положение каждой ячейки относительно текущего "видимого" окна коллекции
+ 
+ т.е. все ячейки к примеру могут иметь примерно одинаковые фреймы, но параметр progress может визуально трансформировать ячейку; или ячейки могут лежать согласно flow раскладке, но параметр progress может использоваться для паралакса; прокрутка коллекции может вызывать "смахивание" ячейки или например ее вращение относительно вертикальной оси etc
+ 
+ предполагается, что размер ячейки == размеру фрейма коллекции; для простоты вычисления currentIndex
+ как варинат можно переделать на определение ячейки в геометрическом центре коллекции и возврата ее индекса
+ 
+ очевидно, что поддерживается только одна секция
+ */
+
+public protocol CollectionViewProgressiveLayoutDelegate: class {
     func onCurrentPageChanged(layout: CollectionViewProgressiveLayout, currentPage: Int)
 }
 
@@ -37,17 +50,19 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
     }
     
     // MARK: properties -
-    weak var delegate: CollectionViewPagingLayoutDelegate?
+    weak var delegate: CollectionViewProgressiveLayoutDelegate?
     var scrollDirection: UICollectionView.ScrollDirection = .horizontal {
         didSet {
             self.invalidateLayout()
         }
     }
     
+    // DONE: это справедливо только для случаев, когда стопка (т.е. все ячейки видны сразу) - сделать универсальнее
+    // нет; нам нужен гипотетический размер контента чтобы вычислять значение progress для каждой ячейки из ее положения в этом гипотетическом пространстве
     override public var collectionViewContentSize: CGSize {
         let safeAreaLeftRight = (collectionView?.safeAreaInsets.left ?? 0) + (collectionView?.safeAreaInsets.right ?? 0)
         let safeAreaTopBottom = (collectionView?.safeAreaInsets.top ?? 0) + (collectionView?.safeAreaInsets.bottom ?? 0)
-        
+        // TODO: добавить в рассчет добавленные инсеты? например для дизайна, когда первая/последняя ячейки должны быть всегда в центре, это делается инсетами сбоку..
         if self.scrollDirection == .horizontal {
             return CGSize(width: CGFloat(numberOfItems) * visibleRect.width - safeAreaLeftRight, height: visibleRect.height - safeAreaTopBottom)
         } else {
@@ -55,7 +70,7 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
         }
     }
     
-    private(set) var currentPage: Int
+    private(set) var currentPage: Int = 0
     
     private var visibleRect: CGRect {
         guard let collectionView = collectionView else {
@@ -63,21 +78,11 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
         }
         return CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
     }
-    
+        
     private var numberOfItems: Int {
         collectionView?.numberOfItems(inSection: 0) ?? 0
     }
     
-    // MARK: overrides -
-    public override init() {
-        currentPage = 0
-        super.init()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        currentPage = 0
-        super.init(coder: aDecoder)
-    }
     
     // MARK: Public functions -
     public func setCurrentPage(_ page: Int, animated: Bool = true) {
@@ -105,6 +110,7 @@ public class CollectionViewProgressiveLayout: UICollectionViewLayout {
         return true
     }
     
+    // TODO: вот тут точно разделить вычисление прогресса и фрейма (а как?.. а вот думай)
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         return (0..<numberOfItems).map { (item) -> CollectionViewProgressLayoutAttributes in
             let attrs = CollectionViewProgressLayoutAttributes(forCellWith: IndexPath(item: item, section: 0))
