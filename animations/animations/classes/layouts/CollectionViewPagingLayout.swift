@@ -72,7 +72,7 @@ public class CollectionViewProgressiveLayout: UICollectionViewFlowLayout {
     
     private(set) var currentPage: Int = 0
     
-    private var visibleRect: CGRect {
+    fileprivate var visibleRect: CGRect {
         guard let collectionView = collectionView else {
             return .zero
         }
@@ -153,4 +153,18 @@ public class CollectionViewProgressiveLayout: UICollectionViewFlowLayout {
 
 public class CollectionViewStackLayout: CollectionViewProgressiveLayout {
     
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+            
+            guard let attrs = super.layoutAttributesForElements(in: rect) as? [CollectionViewProgressLayoutAttributes] else {
+                return nil
+            }
+            
+            return attrs.map { (item) -> CollectionViewProgressLayoutAttributes in
+                item.frame = visibleRect
+                item.zIndex = Int(-abs(round(item.progress)))
+                item.isHidden = abs(item.progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
+                
+                return item
+            }
+        }
 }
