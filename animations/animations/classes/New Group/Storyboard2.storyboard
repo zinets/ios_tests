@@ -88,7 +88,7 @@
                                     <action selector="scrollRight:" destination="D1k-VS-UNG" eventType="touchUpInside" id="No1-5b-WyF"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-7b-YCZ">
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-7b-YCZ">
                                 <rect key="frame" x="50" y="493" width="314" height="335"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.59215686270000001" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CB5-cC-RNt" customClass="CollectionViewStackLayout" customModule="animations" customModuleProvider="target">
