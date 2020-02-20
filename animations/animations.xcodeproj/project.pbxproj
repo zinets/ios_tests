@@ -22,6 +22,7 @@
 		69D8AE5423D886EA008D0D2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE5323D886EA008D0D2F /* ViewController.swift */; };
 		69D8AE5923D886EC008D0D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5823D886EC008D0D2F /* Assets.xcassets */; };
 		69D8AE5C23D886EC008D0D2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5A23D886EC008D0D2F /* LaunchScreen.storyboard */; };
+		69F28A1523FEA0500057725F /* ProgressiveCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F28A1423FEA0500057725F /* ProgressiveCell1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		69D8AE5B23D886EC008D0D2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69D8AE5D23D886EC008D0D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69D8AE6523D88727008D0D2F /* CollectionViewPagingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPagingLayout.swift; sourceTree = "<group>"; };
+		69F28A1423FEA0500057725F /* ProgressiveCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressiveCell1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */,
 				6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */,
+				69F28A1423FEA0500057725F /* ProgressiveCell1.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				69D8AE5423D886EA008D0D2F /* ViewController.swift in Sources */,
 				69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */,
 				6951A4B423FE639B00D4D6F2 /* XibView.swift in Sources */,
+				69F28A1523FEA0500057725F /* ProgressiveCell1.swift in Sources */,
 				69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */,
 				6951A4BB23FE6D7800D4D6F2 /* TestView2.swift in Sources */,
 			);
