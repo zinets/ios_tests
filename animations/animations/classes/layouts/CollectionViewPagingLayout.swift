@@ -158,29 +158,49 @@ public class CollectionViewStackLayout: UICollectionViewFlowLayout {
     let bottomMargin: CGFloat = 16
     let topOffset: CGFloat = 40
     
+    // нельзя просто так взять и сказать, что размер контента == размеру коллекции - тогда коллекция не увидит смысла создавать больше 2-х ячеек (одна на экране, одна может быть появится)
+    public override var collectionViewContentSize: CGSize {
+        return self.collectionView?.bounds.size ?? .zero
+    }
+    
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     
-        guard let attrs = super.layoutAttributesForElements(in: rect) else {
-            return nil
-        }
+//        guard let attrs = super.layoutAttributesForElements(in: rect) else {
+//            return nil
+//        }
+        guard let collection = self.collectionView else { return nil }
         
-        return attrs.compactMap { (attr) -> UICollectionViewLayoutAttributes? in
-            let index = attr.indexPath.item
-            guard let collection = self.collectionView,
-                index < numberOfVisibleCells else {
-                    return nil
-            }
-
-            let copy = attr.copy() as! UICollectionViewLayoutAttributes
-            copy.zIndex = -index
-                        
+        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
+        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
+            let attrs = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: index, section: 0))
+            
+            attrs.zIndex = -index
+            
             let x = sideOffset * CGFloat(index)
             let w = collection.bounds.width - 2 * x
             let y = topOffset * CGFloat(index)
             let h = collection.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - index)
             
-            copy.frame = CGRect(x: x, y: y, width: w, height: h)
-            return copy
+            attrs.frame = CGRect(x: x, y: y, width: w, height: h)
+            return attrs
         }
+        
+//        return attrs.compactMap { (attr) -> UICollectionViewLayoutAttributes? in
+//            let index = attr.indexPath.item
+//            guard index < numberOfVisibleCells else {
+//                    return nil
+//            }
+//
+//            let copy = attr.copy() as! UICollectionViewLayoutAttributes
+//            copy.zIndex = -index
+//
+//            let x = sideOffset * CGFloat(index)
+//            let w = collection.bounds.width - 2 * x
+//            let y = topOffset * CGFloat(index)
+//            let h = collection.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - index)
+//
+//            copy.frame = CGRect(x: x, y: y, width: w, height: h)
+//            return copy
+//        }
     }
 }
