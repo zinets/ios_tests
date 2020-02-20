@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DiffAble
 
 class ViewController2: UIViewController {
 
@@ -19,15 +20,8 @@ class ViewController2: UIViewController {
     // MARK: outlets -
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
-//            collectionView.collectionViewLayout = CollectionViewProgressiveLayout()
             collectionView.dataSource = self
             collectionView.delegate = self
-        }
-    }
-    @IBOutlet weak var collectionView2: UICollectionView! {
-        didSet {
-            collectionView2.dataSource = self
-            collectionView2.delegate = self
         }
     }
     
@@ -53,6 +47,46 @@ class ViewController2: UIViewController {
         }
 //        layout2.setCurrentPage(layout2.currentPage + 1, animated: true)
     }
+    
+    
+    
+    
+    @IBOutlet weak var collectionView2: UICollectionView! {
+        didSet {
+            collectionView2.delegate = self
+        }
+    }
+    enum Sections { case first }
+    private lazy var dataSource: CollectionDiffAbleDatasource<Sections, DatasourceItem> = {
+        let ds = CollectionDiffAbleDatasource<Sections, DatasourceItem>(collectionView: self.collectionView2) { [weak self] (cell, item) in
+            if let cell = cell as? DiffAbleCell {
+                cell.configure(item)
+            }
+        }
+        return ds
+    }()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.dataSource.beginUpdates()
+        self.dataSource.appendSections([.first])
+        let items = [
+            DatasourceItem(data: "cell 0"),
+            DatasourceItem(data: "cell 1"),
+            DatasourceItem(data: "cell 2"),
+            DatasourceItem(data: "cell 3"),
+            DatasourceItem(data: "cell 4"),
+        ]
+        self.dataSource.appendItems(items, toSection: .first)
+        self.dataSource.endUpdates(false)
+    }
+    
+    
+    
+    
+    
+    
 }
 
 extension ViewController2: UICollectionViewDataSource {
@@ -71,6 +105,10 @@ extension ViewController2: UICollectionViewDataSource {
 }
 
 extension ViewController2: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size

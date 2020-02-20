@@ -23,7 +23,40 @@
 		69D8AE5923D886EC008D0D2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5823D886EC008D0D2F /* Assets.xcassets */; };
 		69D8AE5C23D886EC008D0D2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5A23D886EC008D0D2F /* LaunchScreen.storyboard */; };
 		69F28A1523FEA0500057725F /* ProgressiveCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F28A1423FEA0500057725F /* ProgressiveCell1.swift */; };
+		69F28A4323FEC0080057725F /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69F28A3F23FEC0000057725F /* DiffAble.framework */; };
+		69F28A4423FEC0080057725F /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69F28A3F23FEC0000057725F /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69F28A3E23FEC0000057725F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69F28A3923FEC0000057725F /* DiffAble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49B33D0E23339AD10003E5E3;
+			remoteInfo = DiffAble;
+		};
+		69F28A4023FEC0000057725F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69F28A3923FEC0000057725F /* DiffAble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49B33D2223339C750003E5E3;
+			remoteInfo = DiffAbleSamples;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69F28A4523FEC0090057725F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69F28A4423FEC0080057725F /* DiffAble.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6951A4AE23FE62C500D4D6F2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
@@ -44,6 +77,7 @@
 		69D8AE5D23D886EC008D0D2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69D8AE6523D88727008D0D2F /* CollectionViewPagingLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPagingLayout.swift; sourceTree = "<group>"; };
 		69F28A1423FEA0500057725F /* ProgressiveCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressiveCell1.swift; sourceTree = "<group>"; };
+		69F28A3923FEC0000057725F /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69F28A4323FEC0080057725F /* DiffAble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +127,10 @@
 		69D8AE4323D886EA008D0D2F = {
 			isa = PBXGroup;
 			children = (
+				69F28A3923FEC0000057725F /* DiffAble.xcodeproj */,
 				69D8AE4E23D886EA008D0D2F /* animations */,
 				69D8AE4D23D886EA008D0D2F /* Products */,
+				69F28A4223FEC0080057725F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +184,22 @@
 			name = "Supporting files";
 			sourceTree = "<group>";
 		};
+		69F28A3A23FEC0000057725F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69F28A3F23FEC0000057725F /* DiffAble.framework */,
+				69F28A4123FEC0000057725F /* DiffAbleSamples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69F28A4223FEC0080057725F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +210,7 @@
 				69D8AE4823D886EA008D0D2F /* Sources */,
 				69D8AE4923D886EA008D0D2F /* Frameworks */,
 				69D8AE4A23D886EA008D0D2F /* Resources */,
+				69F28A4523FEC0090057725F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,12 +247,35 @@
 			mainGroup = 69D8AE4323D886EA008D0D2F;
 			productRefGroup = 69D8AE4D23D886EA008D0D2F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 69F28A3A23FEC0000057725F /* Products */;
+					ProjectRef = 69F28A3923FEC0000057725F /* DiffAble.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				69D8AE4B23D886EA008D0D2F /* animations */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		69F28A3F23FEC0000057725F /* DiffAble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DiffAble.framework;
+			remoteRef = 69F28A3E23FEC0000057725F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		69F28A4123FEC0000057725F /* DiffAbleSamples.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DiffAbleSamples.app;
+			remoteRef = 69F28A4023FEC0000057725F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		69D8AE4A23D886EA008D0D2F /* Resources */ = {
@@ -376,6 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = animations/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = animations/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

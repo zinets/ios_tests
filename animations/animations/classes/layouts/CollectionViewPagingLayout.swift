@@ -165,16 +165,15 @@ public class CollectionViewStackLayout: UICollectionViewFlowLayout {
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
     
-//        guard let attrs = super.layoutAttributesForElements(in: rect) else {
-//            return nil
-//        }
-        guard let collection = self.collectionView else { return nil }
+        guard let collection = self.collectionView,
+            collection.numberOfSections > 0 else { return nil }
         
         let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
         return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
             let attrs = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: index, section: 0))
             
-            attrs.zIndex = -index
+            attrs.zIndex = 1000 - index
+            
             
             let x = sideOffset * CGFloat(index)
             let w = collection.bounds.width - 2 * x
@@ -183,24 +182,6 @@ public class CollectionViewStackLayout: UICollectionViewFlowLayout {
             
             attrs.frame = CGRect(x: x, y: y, width: w, height: h)
             return attrs
-        }
-        
-//        return attrs.compactMap { (attr) -> UICollectionViewLayoutAttributes? in
-//            let index = attr.indexPath.item
-//            guard index < numberOfVisibleCells else {
-//                    return nil
-//            }
-//
-//            let copy = attr.copy() as! UICollectionViewLayoutAttributes
-//            copy.zIndex = -index
-//
-//            let x = sideOffset * CGFloat(index)
-//            let w = collection.bounds.width - 2 * x
-//            let y = topOffset * CGFloat(index)
-//            let h = collection.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - index)
-//
-//            copy.frame = CGRect(x: x, y: y, width: w, height: h)
-//            return copy
-//        }
+        }        
     }
 }
