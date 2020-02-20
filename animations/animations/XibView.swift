@@ -12,7 +12,7 @@ protocol XibView where Self: UIView { }
 
 extension XibView {
     
-    func loadFromXib<T: UIView>() -> T {
+    private func loadFromXib<T: UIView>() -> T {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? T else {
@@ -21,13 +21,15 @@ extension XibView {
         return view
     }
     
-    func setupInternalView() {
+    func loadView() {
         let viewFromXib = loadFromXib()
         viewFromXib.frame = self.bounds
         viewFromXib.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.addSubview(viewFromXib)
-        // или по-новому
+        
+        // или по-новому - я не знаю пока, какой вариант более правильный или подходящий
+        
 //        viewFromXib.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
 //            viewFromXib.leftAnchor.constraint(equalTo: self.leftAnchor),

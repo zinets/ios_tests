@@ -14,11 +14,11 @@ class TestView: UIView, XibView {
     // MARK: common init routine -
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupInternalView()
+        loadView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupInternalView()
+        loadView()
     }
 }

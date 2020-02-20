@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipableInFutureView = TestView(frame: CGRect(x: 50, y: 250, width: 200, height: 100))
+        let swipableInFutureView = TestView2(frame: CGRect(x: 50, y: 250, width: 200, height: 100))
         swipableInFutureView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(swipeCard(sender:))))
         self.view.addSubview(swipableInFutureView)
     }
@@ -52,7 +52,7 @@ class TestCell: UICollectionViewCell {
     @IBOutlet weak var bottomLabel: UILabel!
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        if let attrs = layoutAttributes as? CollectionViewPagingLayoutAttributes {
+        if let attrs = layoutAttributes as? CollectionViewProgressLayoutAttributes {
             topLabel.text = String(format: "%f", attrs.progress)
             bottomLabel.text = String(format: "%d", attrs.indexPath.item)
             // ===

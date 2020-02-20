@@ -5,10 +5,11 @@
 import UIKit
 
 public protocol CollectionViewPagingLayoutDelegate: class {
-    func onCurrentPageChanged(layout: CollectionViewPagingLayout, currentPage: Int)
+    func onCurrentPageChanged(layout: CollectionViewProgressiveLayout, currentPage: Int)
 }
 
-class CollectionViewPagingLayoutAttributes: UICollectionViewLayoutAttributes {
+// аттрибуты для ячейки с поддержкой свойства progress - которое может использоваться а) для паралакса к примеру ?) для трансформаций при прокрутке
+class CollectionViewProgressLayoutAttributes: UICollectionViewLayoutAttributes {
     var progress: CGFloat = 0
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -29,10 +30,10 @@ class CollectionViewPagingLayoutAttributes: UICollectionViewLayoutAttributes {
     }
 }
 
-public class CollectionViewPagingLayout: UICollectionViewLayout {
+public class CollectionViewProgressiveLayout: UICollectionViewLayout {
     
     public override class var layoutAttributesClass: AnyClass {
-        return CollectionViewPagingLayoutAttributes.self
+        return CollectionViewProgressLayoutAttributes.self
     }
     
     // MARK: properties -
@@ -105,13 +106,13 @@ public class CollectionViewPagingLayout: UICollectionViewLayout {
     }
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return (0..<numberOfItems).map { (item) -> CollectionViewPagingLayoutAttributes in
-            let attrs = CollectionViewPagingLayoutAttributes(forCellWith: IndexPath(item: item, section: 0))
+        return (0..<numberOfItems).map { (item) -> CollectionViewProgressLayoutAttributes in
+            let attrs = CollectionViewProgressLayoutAttributes(forCellWith: IndexPath(item: item, section: 0))
             let progress = CGFloat(item) - (self.scrollDirection == .horizontal ? visibleRect.minX / visibleRect.width : visibleRect.minY / visibleRect.height)
             attrs.frame = visibleRect
             attrs.progress = progress
             attrs.zIndex = Int(-abs(round(progress)))
-            attrs.isHidden = abs(progress) > 1
+            attrs.isHidden = abs(progress) > 1 // TODO: и/или если индекс карточки > видимого кол-ва карточек
             
             return attrs
         }        

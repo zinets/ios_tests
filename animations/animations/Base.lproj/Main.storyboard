@@ -22,7 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="9sA-bi-P1S"/>
                                 </constraints>
-                                <collectionViewLayout key="collectionViewLayout" id="Iit-Lq-UMC" customClass="CollectionViewPagingLayout" customModule="animations" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Iit-Lq-UMC" customClass="CollectionViewProgressiveLayout" customModule="animations" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellId" id="Uee-5j-7aQ" customClass="TestCell" customModule="animations" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="92" height="93"/>

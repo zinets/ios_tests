@@ -54,11 +54,11 @@ extension Swipeable where Self: UIPanGestureRecognizer {
 //            delegate?.didBeginSwipe(onView: self)
         case .changed:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
-            let rotationAngle = CGFloat.pi / 4 * rotationStrength
+            let rotationAngle = CGFloat.pi / 60 * rotationStrength // фактически некий "радиус" вращения карточки
             print(rotationStrength)
             var transform = CATransform3DIdentity
             transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
-            transform = CATransform3DTranslate(transform, panGestureTranslation.x, panGestureTranslation.y, 0)
+            transform = CATransform3DTranslate(transform, panGestureTranslation.x, /* ограничение движения по одной оси panGestureTranslation.y*/0, 0)
             view.layer.transform = transform
         case .ended:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
@@ -70,6 +70,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
                 // тут анимация улетания
             } else {
 //              self.delegate?.didCancelSwipe(onView: self)
+                
                 view.layer.transform = CATransform3DIdentity
             }
         default:
