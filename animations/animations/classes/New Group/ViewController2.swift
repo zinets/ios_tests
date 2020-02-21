@@ -147,7 +147,11 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ViewController2: SwipeableDelegate {
+extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
+    
+    func someAction() {
+        print(#function)
+    }    
     
     func didBeginSwipe() {
         

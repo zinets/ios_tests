@@ -107,10 +107,19 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT4-JN-SJs">
+                                                    <rect key="frame" x="70" y="162" width="84" height="30"/>
+                                                    <state key="normal" title="some action"/>
+                                                    <connections>
+                                                        <action selector="buttonAction:" destination="ede-1G-fQF" eventType="touchUpInside" id="AZ0-ea-Xym"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="pT4-JN-SJs" firstAttribute="top" secondItem="ven-TN-vG0" secondAttribute="bottom" constant="34.5" id="5e9-oW-7eH"/>
+                                            <constraint firstItem="pT4-JN-SJs" firstAttribute="centerX" secondItem="ven-TN-vG0" secondAttribute="centerX" id="DvX-Da-oil"/>
                                             <constraint firstItem="ven-TN-vG0" firstAttribute="centerX" secondItem="ede-1G-fQF" secondAttribute="centerX" id="bIP-8V-lVG"/>
                                             <constraint firstItem="ven-TN-vG0" firstAttribute="centerY" secondItem="ede-1G-fQF" secondAttribute="centerY" id="vbx-WU-7Wb"/>
                                         </constraints>

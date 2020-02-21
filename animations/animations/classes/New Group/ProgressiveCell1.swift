@@ -54,8 +54,12 @@ protocol DiffAbleCell {
     func configure(_ item: DatasourceItem)
 }
 
+protocol LikeBookCellDelegate {
+    func someAction()
+}
+
 class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
-    weak var delegate: SwipeableDelegate?
+    weak var delegate: SwipeableDelegate? // & LikeBookCellDelegate)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -83,6 +87,12 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
     
     // MARK: outlets -
     @IBOutlet weak var label: UILabel!
+    
+    @IBAction func buttonAction(_ sender: Any) {
+        if let delegate = self.delegate as? LikeBookCellDelegate {
+            delegate.someAction()
+        }
+    }
     
     // MARK: conform -
     func configure(_ item: DatasourceItem) {
