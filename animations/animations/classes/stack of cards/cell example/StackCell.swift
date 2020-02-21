@@ -8,21 +8,26 @@
 
 import UIKit
 
+// just as example
 protocol LikeBookCellDelegate: class {
     func didSomeAction()
 }
 
 class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
 
-    weak var swipeDelegate: SwipeableDelegate?
     weak var actionDelegate: LikeBookCellDelegate?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.backgroundColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: 0.7, brightness: 1, alpha: 1)
         self.addGestureRecognizer(self.panRecognizer)
     }
+    
+    
+    // MARK: поддержка "смахивательности" -
+    // это просто ссылка на кого-то "вверху" (например контроллер), которому просигналим: что-то произошло
+    weak var swipeDelegate: SwipeableDelegate?
+    
     // не очень очевидная связка: есть протокол Swipable, которому конформит дефолтной реализацией pan recognizer; поэтому любой вью можно добавить стандартный пан рекогнайзер, все будет работать как обычно - пока в качестве селектора не передать метод из расширения - тогда жесты будут обрабатываться именно как смахивание карточки
     // красиво же
     private lazy var panRecognizer: UIPanGestureRecognizer = {
@@ -34,6 +39,13 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
         sender.swipeView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        // т.к. смахивание делается трансформом слоя, то где-то кому-то надо восстановить трансформ, почему не тут (если смахивание отменилось, трансформ восстановится в обработчике панРекогнайзера
+        self.layer.transform = CATransform3DIdentity
+    }
+    
+    // MARK: -
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
@@ -43,11 +55,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
 //        print("index \(layoutAttributes.indexPath.item), z-order \(layoutAttributes.zIndex)")
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        // т.к. смахивание делается трансформом слоя, то где-то кому-то надо восстановить трансформ, почему не тут (если смахивание отменилось, трансформ восстановится в обработчике панРекогнайзера
-        self.layer.transform = CATransform3DIdentity
-    }
+    
     
     // MARK: outlets -
     @IBOutlet weak var label: UILabel!

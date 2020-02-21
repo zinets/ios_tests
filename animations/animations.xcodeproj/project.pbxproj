@@ -98,6 +98,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		693AD98924001AC600962A20 /* stack of cards */ = {
+			isa = PBXGroup;
+			children = (
+				693AD98A24001AFA00962A20 /* cell example */,
+				6951A4B523FE64A200D4D6F2 /* swipable recognizer */,
+			);
+			path = "stack of cards";
+			sourceTree = "<group>";
+		};
+		693AD98A24001AFA00962A20 /* cell example */ = {
+			isa = PBXGroup;
+			children = (
+				693AD985240013F500962A20 /* StackCell.swift */,
+			);
+			path = "cell example";
+			sourceTree = "<group>";
+		};
 		6951A4B223FE637E00D4D6F2 /* xib views */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,13 +128,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		6951A4B523FE64A200D4D6F2 /* swipable */ = {
+		6951A4B523FE64A200D4D6F2 /* swipable recognizer */ = {
 			isa = PBXGroup;
 			children = (
 				6951A4B623FE64B200D4D6F2 /* Swipeable.swift */,
 			);
-			name = swipable;
-			path = ..;
+			name = "swipable recognizer";
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		6951A4D623FE8E3C00D4D6F2 /* New Group */ = {
@@ -127,7 +144,6 @@
 				6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */,
 				693AD9872400145A00962A20 /* TestDatasource.swift */,
 				69F28A1423FEA0500057725F /* ProgressiveCell1.swift */,
-				693AD985240013F500962A20 /* StackCell.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -162,9 +178,9 @@
 		69D8AE6323D88714008D0D2F /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				693AD98924001AC600962A20 /* stack of cards */,
 				6951A4D623FE8E3C00D4D6F2 /* New Group */,
 				6951A4B223FE637E00D4D6F2 /* xib views */,
-				6951A4B523FE64A200D4D6F2 /* swipable */,
 				69D8AE6423D8871C008D0D2F /* layouts */,
 			);
 			path = classes;

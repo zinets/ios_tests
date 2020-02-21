@@ -185,15 +185,15 @@ extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
         print(#function)
     }    
     
-    func didBeginSwipe() {
+    func didBeginSwipe(view: UIView) {
         
     }
     
-    func didChangeSwipeProgress(progress: CGFloat) {
+    func didChangeSwipeProgress(view: UIView, progress: CGFloat) {
         print(progress)
     }
     
-    func didEndSwipe(direction: SwipeDirection) {
+    func didEndSwipe(view: UIView, direction: SwipeDirection) {
         print(direction)
         if let layout = self.collectionView2.collectionViewLayout as? CollectionViewStackLayout {
             layout.removingDirection = direction.map()
@@ -201,7 +201,7 @@ extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
         self.removeTop(self)
     }
     
-    func didCancelSwipe() {
+    func didCancelSwipe(view: UIView) {
         
     }
     
