@@ -104,6 +104,10 @@ class ViewController2: UIViewController {
         self.updateStack(true)
     }
     
+    @IBAction func insertTop(_ sender: Any) {
+        users.insert("Дуня !", at: 0)
+        self.updateStack(true)
+    }
     
     
     

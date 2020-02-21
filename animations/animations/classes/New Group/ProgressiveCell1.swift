@@ -75,7 +75,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell {
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+//        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
 //        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
 //        print("index \(layoutAttributes.indexPath.item), z-order \(layoutAttributes.zIndex)")
     }

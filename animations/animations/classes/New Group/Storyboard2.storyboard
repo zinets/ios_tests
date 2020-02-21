@@ -135,10 +135,19 @@
                                     <action selector="resotreStack:" destination="D1k-VS-UNG" eventType="touchUpInside" id="XgN-wl-2Wz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GR-ci-vjF">
+                                <rect key="frame" x="184" y="808" width="40" height="30"/>
+                                <state key="normal" title="insert"/>
+                                <connections>
+                                    <action selector="insertTop:" destination="D1k-VS-UNG" eventType="touchUpInside" id="Ase-vQ-Sbe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="0GR-ci-vjF" firstAttribute="top" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="16" id="14Y-Qs-bxv"/>
                             <constraint firstItem="99K-jx-h0I" firstAttribute="top" secondItem="qIG-cf-ynm" secondAttribute="bottom" constant="28" id="ANP-r5-Hya"/>
+                            <constraint firstItem="0GR-ci-vjF" firstAttribute="leading" secondItem="ugg-s7-8Mp" secondAttribute="trailing" constant="16" id="GBD-u4-9KK"/>
                             <constraint firstItem="kT9-on-F4y" firstAttribute="top" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="16" id="IJF-Qj-dq4"/>
                             <constraint firstItem="ugg-s7-8Mp" firstAttribute="top" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="16" id="L3X-KS-gHT"/>
                             <constraint firstItem="bwh-3g-FWm" firstAttribute="trailing" secondItem="HL1-7b-YCZ" secondAttribute="trailing" constant="50" id="NxE-gZ-2tt"/>

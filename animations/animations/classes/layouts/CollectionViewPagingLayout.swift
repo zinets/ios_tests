@@ -195,21 +195,39 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         return attrs
     }
     
-    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    private var attributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]
+    
+    public override func prepare() {
+        
         guard let collection = self.collectionView,
-            collection.numberOfSections > 0 else { return nil }
+        collection.numberOfSections > 0 else { return }
+        
+        attributes.removeAll()
+        
+        let nums = collection.numberOfItems(inSection: 0)
+        (0..<nums).forEach { (index) in
+            let indexPath = IndexPath(item: index, section: 0)
+            attributes[indexPath] = self.attributesForIndex(indexPath)
+        }
+    }
+    
+    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        guard let collection = self.collectionView,
+//            collection.numberOfSections > 0 else { return nil }
         // кроме того надо ограничить количеством видимых ячеек
-        return self.attributesForIndex(indexPath)
+//        return self.attributesForIndex(indexPath)
+        return attributes[indexPath]
     }
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
-        guard let collection = self.collectionView,
-            collection.numberOfSections > 0 else { return nil }
-
-        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
-        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
-            self.attributesForIndex(IndexPath(item: index, section: 0))
-        }
+//        guard let collection = self.collectionView,
+//            collection.numberOfSections > 0 else { return nil }
+//
+//        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
+//        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
+//            self.attributesForIndex(IndexPath(item: index, section: 0))
+//        }
+        return Array(attributes.values)
     }
 }
