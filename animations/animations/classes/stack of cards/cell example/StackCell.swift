@@ -28,14 +28,14 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     // это просто ссылка на кого-то "вверху" (например контроллер), которому просигналим: что-то произошло
     weak var swipeDelegate: SwipeableDelegate?
     
-    // не очень очевидная связка: есть протокол Swipable, которому конформит дефолтной реализацией pan recognizer; поэтому любой вью можно добавить стандартный пан рекогнайзер, все будет работать как обычно - пока в качестве селектора не передать метод из расширения - тогда жесты будут обрабатываться именно как смахивание карточки
+    // не очень очевидная связка: есть протокол Swipable, которому конформит дефолтной реализацией pan recognizer; поэтому любому вью можно добавить стандартный пан рекогнайзер, все будет работать как обычно - пока в качестве селектора не передать метод из расширения - тогда жесты будут обрабатываться именно как смахивание карточки
     // красиво же
     private lazy var panRecognizer: UIPanGestureRecognizer = {
         let pr = UIPanGestureRecognizer(target: self, action: #selector(swipeCard(sender:)))
         return pr
     }()
     @objc func swipeCard(sender: UIPanGestureRecognizer) {
-        // вот это место; или своя обработка какая-то - или готовая и затюненая для смахивания карточки
+        // вот это место; или своя обработка какая-то - или готовая и затюненая для смахивания карточки, предполагающая что вью, к которому присоединен рекогнайзер - SwipeableView
         sender.swipeView()
     }
     
@@ -47,7 +47,9 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     
     // MARK: overlay -
     @IBOutlet weak var overlayView: UIView!
-    @Restriction(0...1) var overlayOpacity: CGFloat = 0 {
+    
+    @Restriction(0...1)
+    var overlayOpacity: CGFloat = 0 {
         didSet {
             self.overlayView.alpha = overlayOpacity * 2
         }

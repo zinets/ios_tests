@@ -52,9 +52,9 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
     
     private func attributesForIndex(_ indexPath: IndexPath) -> UICollectionViewLayoutAttributes {
         let attrs = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        attrs.zIndex = -indexPath.item
-        attrs.frame = self.cellSizeFor(indexPath.item)
-        attrs.isHidden = !(indexPath.item < numberOfVisibleCells)
+        attrs.zIndex = -indexPath.item // порядок карточек
+        attrs.frame = self.cellSizeFor(indexPath.item) // перспективно уходящие карточки
+        attrs.isHidden = !(indexPath.item < numberOfVisibleCells) // прячем "лишние" карточки
         return attrs
     }
     
@@ -75,28 +75,17 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
     }
     
     public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-//        guard let collection = self.collectionView,
-//            collection.numberOfSections > 0 else { return nil }
-        // кроме того надо ограничить количеством видимых ячеек
-//        return self.attributesForIndex(indexPath)
         return attributes[indexPath]
     }
     
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-
-//        guard let collection = self.collectionView,
-//            collection.numberOfSections > 0 else { return nil }
-//
-//        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
-//        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
-//            self.attributesForIndex(IndexPath(item: index, section: 0))
-//        }
         return Array(attributes.values)
     }
     
-    
     private var itemsToDelete: [IndexPath] = []
     private var itemsToInsert: [IndexPath] = []
+    
+    // TODO: тут как-то для "тонкой" настройки надо добавить механику получения начальных/удаляемых трансформов
     
     public override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
