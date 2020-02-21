@@ -100,13 +100,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="224" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-TN-vG0">
-                                                    <rect key="frame" x="91" y="106.5" width="42" height="21"/>
-                                                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT4-JN-SJs">
                                                     <rect key="frame" x="70" y="162" width="84" height="30"/>
                                                     <state key="normal" title="some action"/>
@@ -114,14 +107,21 @@
                                                         <action selector="buttonAction:" destination="ede-1G-fQF" eventType="touchUpInside" id="AZ0-ea-Xym"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-TN-vG0">
+                                                    <rect key="frame" x="91" y="212.5" width="42" height="20.5"/>
+                                                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="pT4-JN-SJs" firstAttribute="top" secondItem="ven-TN-vG0" secondAttribute="bottom" constant="34.5" id="5e9-oW-7eH"/>
-                                            <constraint firstItem="pT4-JN-SJs" firstAttribute="centerX" secondItem="ven-TN-vG0" secondAttribute="centerX" id="DvX-Da-oil"/>
-                                            <constraint firstItem="ven-TN-vG0" firstAttribute="centerX" secondItem="ede-1G-fQF" secondAttribute="centerX" id="bIP-8V-lVG"/>
-                                            <constraint firstItem="ven-TN-vG0" firstAttribute="centerY" secondItem="ede-1G-fQF" secondAttribute="centerY" id="vbx-WU-7Wb"/>
+                                            <constraint firstItem="ven-TN-vG0" firstAttribute="top" secondItem="pT4-JN-SJs" secondAttribute="bottom" constant="20.5" id="1q3-H4-l0p"/>
+                                            <constraint firstAttribute="bottom" secondItem="ven-TN-vG0" secondAttribute="bottom" constant="1" id="JFU-ds-Zm7"/>
+                                            <constraint firstItem="ven-TN-vG0" firstAttribute="centerX" secondItem="ede-1G-fQF" secondAttribute="centerX" id="Tsa-Kj-AAK"/>
+                                            <constraint firstItem="pT4-JN-SJs" firstAttribute="centerX" secondItem="ede-1G-fQF" secondAttribute="centerX" id="rj2-8z-fe0"/>
                                         </constraints>
                                         <size key="customSize" width="224" height="234"/>
                                         <connections>

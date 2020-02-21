@@ -258,6 +258,16 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         itemsToInsert.removeAll()
     }    
     
+    public override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard itemsToInsert.contains(itemIndexPath) else { return nil }
+        
+        let attrs = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
+        
+        attrs.alpha = 0
+        
+        return attrs
+    }
+    
     public override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         
         guard itemsToDelete.contains(itemIndexPath) else { return nil }

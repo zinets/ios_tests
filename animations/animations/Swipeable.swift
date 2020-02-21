@@ -36,12 +36,6 @@ extension Swipeable where Self: UIPanGestureRecognizer {
         let panGestureTranslation = self.translation(in: view)
         switch state {
         case .began:
-            let initialTouchPoint = self.location(in: view)
-            let newAnchorPoint = CGPoint(x: initialTouchPoint.x / view.bounds.width, y: initialTouchPoint.y / view.bounds.height)
-            let oldPosition = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x, y: view.bounds.size.height * view.layer.anchorPoint.y)
-            let newPosition = CGPoint(x: view.bounds.size.width * newAnchorPoint.x, y: view.bounds.size.height * newAnchorPoint.y)
-            view.layer.anchorPoint = newAnchorPoint
-            view.layer.position = CGPoint(x: view.layer.position.x - oldPosition.x + newPosition.x, y: view.layer.position.y - oldPosition.y + newPosition.y)
             view.layer.rasterizationScale = UIScreen.main.scale
             view.layer.shouldRasterize = true
             if let delegate = (view as? SwipeableView)?.swipeDelegate {
@@ -49,7 +43,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             }
         case .changed:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
-            let rotationAngle = CGFloat.pi / 60 * rotationStrength // фактически некий "радиус" вращения карточки
+            let rotationAngle = CGFloat.pi / 6 * rotationStrength // фактически некий "радиус" вращения карточки
 //            print(rotationStrength)
             var transform = CATransform3DIdentity
             transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
@@ -58,18 +52,18 @@ extension Swipeable where Self: UIPanGestureRecognizer {
         case .ended:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
             
-            view.layer.shouldRasterize = false
-            
             if abs(rotationStrength) > 0.3 {
                 if let delegate = (view as? SwipeableView)?.swipeDelegate {
                     delegate.didEndSwipe(direction: rotationStrength > 0 ? .accept : .decline)
                 }
             } else {
+                view.layer.transform = CATransform3DIdentity
                 if let delegate = (view as? SwipeableView)?.swipeDelegate {
                     delegate.didCancelSwipe()
                 }
             }
-            view.layer.transform = CATransform3DIdentity
+            view.layer.shouldRasterize = false
+
         default:
             break
         }

@@ -74,6 +74,16 @@ class ViewController2: UIViewController {
         "Люся (5)",
     ]
     
+    var podliva = [
+        "user 1",
+        "user 2",
+        "user 3",
+        "user 4",
+        "user 5",
+        "user 6",
+        "user 7",
+    ]
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.updateStack()
@@ -91,6 +101,9 @@ class ViewController2: UIViewController {
     
     @IBAction func removeTop(_ sender: Any) {
         users.remove(at: 0)
+        if users.count < 3 && !podliva.isEmpty {
+            users += podliva
+        }
         self.updateStack(true)
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -102,6 +115,15 @@ class ViewController2: UIViewController {
             "Вася (3)",
             "Зина (4)",
             "Люся (5)",
+        ]
+        podliva = [
+            "user 1",
+            "user 2",
+            "user 3",
+            "user 4",
+            "user 5",
+            "user 6",
+            "user 7",
         ]
         self.updateStack(true)
     }
