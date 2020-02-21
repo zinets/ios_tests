@@ -58,7 +58,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             print(rotationStrength)
             var transform = CATransform3DIdentity
             transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
-            transform = CATransform3DTranslate(transform, panGestureTranslation.x, /* ограничение движения по одной оси panGestureTranslation.y*/0, 0)
+            transform = CATransform3DTranslate(transform, panGestureTranslation.x, /* ограничение движения по одной оси 0 иначе panGestureTranslation.y*/panGestureTranslation.y, 0)
             view.layer.transform = transform
         case .ended:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)

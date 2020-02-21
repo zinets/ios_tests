@@ -71,9 +71,9 @@ class StackCell: UICollectionViewCell, DiffAbleCell {
     }
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
-        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
-        print("apply attributes: index \(layoutAttributes.indexPath.item), \(layoutAttributes.zIndex)")
+//        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+//        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
+        print("apply attributes: index \(layoutAttributes)")
     }
     
     // MARK: outlets -
