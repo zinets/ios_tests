@@ -23,7 +23,7 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         return self.collectionView?.bounds.size ?? .zero
     }
     
-    // to override (например чтобы пустить стопку в другую сторону или просто изменить параметры карточек стопки
+    // to override (например чтобы пустить стопку в другую сторону или просто изменить параметры карточек стопки)
     public func cellSizeFor(_ index: Int) -> CGRect {
         guard let collection = self.collectionView else {
             return .zero

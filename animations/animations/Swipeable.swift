@@ -35,26 +35,22 @@ protocol SwipeableView: class {
 @propertyWrapper // немножко понтов
 struct Restriction<V: Comparable> {
     var value: V
-    let min: V
-    let max: V
+//    let min: V
+//    let max: V
+    var range: ClosedRange<V>
     
-    init(wrappedValue: V, min: V, max: V) {
+    init(wrappedValue: V, _ range: ClosedRange<V>) {
+        precondition(range.contains(wrappedValue), "Начальное значение выходит за границы!")
         value = wrappedValue
-        self.min = min
-        self.max = max
-        assert(value >= min && value <= max)
+        self.range = range
     }
     
     var wrappedValue: V {
-        get { return value }
+        get {
+            value            
+        }
         set {
-            if newValue < min {
-                value = min
-            } else if newValue > max {
-                value = max
-            } else {
-                value = newValue
-            }
+            value = min(range.upperBound, max(newValue, range.lowerBound))
         }
     }
 }

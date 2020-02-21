@@ -47,9 +47,9 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     
     // MARK: overlay -
     @IBOutlet weak var overlayView: UIView!
-    @Restriction(min: 0, max: 1) var overlayOpacity: CGFloat = 0 {
+    @Restriction(0...1) var overlayOpacity: CGFloat = 0 {
         didSet {
-            self.overlayView.alpha = overlayOpacity
+            self.overlayView.alpha = overlayOpacity * 2
         }
     }
     
