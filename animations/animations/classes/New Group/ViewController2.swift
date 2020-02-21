@@ -81,10 +81,12 @@ class ViewController2: UIViewController {
     
     func updateStack(_ animated: Bool = false) {
         self.dataSource.beginUpdates()
+        
         self.dataSource.appendSections([.first])
         let items = users.map { DatasourceItem(data: $0) }
         self.dataSource.appendItems(items, toSection: .first)
-        self.dataSource.endUpdates(false)
+        
+        self.dataSource.endUpdates(animated)
     }
     
     @IBAction func removeTop(_ sender: Any) {

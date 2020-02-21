@@ -230,4 +230,42 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
 //        }
         return Array(attributes.values)
     }
+    
+    
+    private var itemsToDelete: [IndexPath] = []
+    private var itemsToInsert: [IndexPath] = []
+    
+    public override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
+        super.prepare(forCollectionViewUpdates: updateItems)
+        updateItems.forEach { (updatedItem) in
+            switch updatedItem.updateAction {
+            case .delete:
+                if let index = updatedItem.indexPathBeforeUpdate {
+                    itemsToDelete.append(index)
+                }
+            case .insert:
+                if let index = updatedItem.indexPathAfterUpdate {
+                    itemsToInsert.append(index)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    public override func finalizeCollectionViewUpdates() {
+        itemsToDelete.removeAll()
+        itemsToInsert.removeAll()
+    }    
+    
+    public override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        guard itemsToDelete.contains(itemIndexPath) else { return nil }
+        
+        let attrs = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
+        let transform = CATransform3DTranslate(attrs.transform3D, -300, 0, 0)
+        attrs.transform3D = transform
+        attrs.alpha = 0
+        return attrs
+    }
 }

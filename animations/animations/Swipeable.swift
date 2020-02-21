@@ -17,28 +17,6 @@ extension Swipeable where Self: UIPanGestureRecognizer {
     
     func swipeView() {
         
-        // управление вью
-//        switch state {
-//        case .changed:
-//            let translation = self.translation(in: view.superview)
-//            view.transform = transform(view: view, for: translation)
-//        case .ended:
-//            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.0, options: [], animations: {
-//                view.transform = .identity
-//            }, completion: nil)
-//
-//        default:
-//            break
-//        }
-//
-//        private func transform(view: UIView, for translation: CGPoint) -> CGAffineTransform {
-//
-//            let moveBy = CGAffineTransform(translationX: translation.x, y: translation.y)
-//            // знак определяет "центр" вращения - "-" значит центр сверху, "+" - внизу
-//            let rotation = -sin(translation.x / (view.frame.width * 4.0))
-//            return moveBy.rotated(by: rotation)
-//        }
-        
         // управление слоем
         guard let view = self.view else { return }
         let panGestureTranslation = self.translation(in: view)
@@ -58,7 +36,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
         case .changed:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
             let rotationAngle = CGFloat.pi / 60 * rotationStrength // фактически некий "радиус" вращения карточки
-            print(rotationStrength)
+//            print(rotationStrength)
             var transform = CATransform3DIdentity
             transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
             transform = CATransform3DTranslate(transform, panGestureTranslation.x, /* ограничение движения по одной оси 0 иначе panGestureTranslation.y*/panGestureTranslation.y, 0)
