@@ -105,7 +105,7 @@ class ViewController2: UIViewController {
             users += podliva
         }
         self.updateStack(true)
-        self.collectionView.collectionViewLayout.invalidateLayout()
+//        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @IBAction func resotreStack(_ sender: Any) {
@@ -170,6 +170,15 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension SwipeDirection {
+    func map() -> CollectionViewStackLayout.SwipeDirection {
+        switch self {
+        case .accept: return .right
+        case .decline: return .left
+        }
+    }
+}
+
 extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
     
     func didSomeAction() {
@@ -180,8 +189,15 @@ extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
         
     }
     
+    func didChangeSwipeProgress(progress: CGFloat) {
+        print(progress)
+    }
+    
     func didEndSwipe(direction: SwipeDirection) {
         print(direction)
+        if let layout = self.collectionView2.collectionViewLayout as? CollectionViewStackLayout {
+            layout.removingDirection = direction.map()
+        }
         self.removeTop(self)
     }
     
