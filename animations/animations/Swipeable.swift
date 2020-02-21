@@ -9,6 +9,9 @@
 import UIKit
 
 protocol Swipeable { }
+protocol SwipeableDelegate: class {
+    
+}
 
 extension Swipeable where Self: UIPanGestureRecognizer {
     
