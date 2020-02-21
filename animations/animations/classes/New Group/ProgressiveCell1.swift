@@ -59,7 +59,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: 1, brightness: 1, alpha: 1)
+        self.backgroundColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: 0.7, brightness: 1, alpha: 1)
         self.addGestureRecognizer(self.panRecognizer)
     }
     // не очень очевидная связка: есть протокол Swipable, которому конформит дефолтной реализацией pan recognizer; поэтому любой вью можно добавить стандартный пан рекогнайзер, все будет работать как обычно - пока в качестве селектора не передать метод из расширения - тогда жесты будут обрабатываться именно как смахивание карточки
@@ -76,6 +76,8 @@ class StackCell: UICollectionViewCell, DiffAbleCell {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+//        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
+//        print("index \(layoutAttributes.indexPath.item), z-order \(layoutAttributes.zIndex)")
     }
     
     // MARK: outlets -

@@ -187,10 +187,7 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         return CGRect(x: x, y: y, width: w, height: h)
     }
     
-    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        guard let collection = self.collectionView,
-            collection.numberOfSections > 0 else { return nil }
-        // кроме того надо ограничить количеством видимых ячеек
+    private func attributesForIndex(_ indexPath: IndexPath) -> UICollectionViewLayoutAttributes {
         let attrs = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         attrs.zIndex = -indexPath.item
         attrs.frame = self.cellSizeFor(indexPath.item)
@@ -198,21 +195,21 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         return attrs
     }
     
-//  я никогда толком не пойму логики - когда какие методы перегружать; вот сейчас без этого можно обойтись; но - может быть (даже скорее всего, инфа сотка) просто потому, что у нас скроллер не задействован; если бы был скролл - то вызывался бы при каждом инвалидейте именно этот метод
-//    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//
-//        guard let collection = self.collectionView,
-//            collection.numberOfSections > 0 else { return nil }
-//
-//        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
-//        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
-//            let attrs = UICollectionViewLayoutAttributes(forCellWith: IndexPath(item: index, section: 0))
-//
-//            attrs.zIndex = -index
-//
-//
-//            attrs.frame = self.cellSizeFor(index)
-//            return attrs
-//        }
-//    }
+    public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard let collection = self.collectionView,
+            collection.numberOfSections > 0 else { return nil }
+        // кроме того надо ограничить количеством видимых ячеек
+        return self.attributesForIndex(indexPath)
+    }
+    
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+
+        guard let collection = self.collectionView,
+            collection.numberOfSections > 0 else { return nil }
+
+        let nums = min(numberOfVisibleCells, collection.numberOfItems(inSection: 0))
+        return (0..<nums).map { (index) -> UICollectionViewLayoutAttributes in
+            self.attributesForIndex(IndexPath(item: index, section: 0))
+        }
+    }
 }

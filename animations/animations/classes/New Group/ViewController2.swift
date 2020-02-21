@@ -66,23 +66,43 @@ class ViewController2: UIViewController {
         return ds
     }()
     
+    var users = [
+        "Коля (1)",
+        "Петя (2)",
+        "Вася (3)",
+        "Зина (4)",
+        "Люся (5)",
+    ]
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.updateStack()
+    }
+    
+    func updateStack(_ animated: Bool = false) {
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
-        let items = [
-            DatasourceItem(data: "cell 0"),
-            DatasourceItem(data: "cell 1"),
-            DatasourceItem(data: "cell 2"),
-            DatasourceItem(data: "cell 3"),
-            DatasourceItem(data: "cell 4"),
-        ]
+        let items = users.map { DatasourceItem(data: $0) }
         self.dataSource.appendItems(items, toSection: .first)
         self.dataSource.endUpdates(false)
     }
     
+    @IBAction func removeTop(_ sender: Any) {
+        users.remove(at: 0)
+        self.updateStack(true)
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
     
+    @IBAction func resotreStack(_ sender: Any) {
+        users = [
+            "Коля (1)",
+            "Петя (2)",
+            "Вася (3)",
+            "Зина (4)",
+            "Люся (5)",
+        ]
+        self.updateStack(true)
+    }
     
     
     

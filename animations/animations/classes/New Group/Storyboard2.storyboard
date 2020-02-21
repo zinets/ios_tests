@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-7b-YCZ">
-                                <rect key="frame" x="50" y="493" width="314" height="335"/>
+                                <rect key="frame" x="50" y="493" width="314" height="299"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.59215686270000001" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="UNE-qk-8Ft" customClass="CollectionViewStackLayout" customModule="animations" customModuleProvider="target"/>
                                 <cells>
@@ -102,6 +102,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-TN-vG0">
                                                     <rect key="frame" x="91" y="106.5" width="42" height="21"/>
+                                                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -120,17 +121,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kT9-on-F4y">
+                                <rect key="frame" x="50" y="808" width="51" height="30"/>
+                                <state key="normal" title="remove"/>
+                                <connections>
+                                    <action selector="removeTop:" destination="D1k-VS-UNG" eventType="touchUpInside" id="WQ5-lp-zcc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-s7-8Mp">
+                                <rect key="frame" x="119" y="808" width="49" height="30"/>
+                                <state key="normal" title="restore"/>
+                                <connections>
+                                    <action selector="resotreStack:" destination="D1k-VS-UNG" eventType="touchUpInside" id="XgN-wl-2Wz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="99K-jx-h0I" firstAttribute="top" secondItem="qIG-cf-ynm" secondAttribute="bottom" constant="28" id="ANP-r5-Hya"/>
+                            <constraint firstItem="kT9-on-F4y" firstAttribute="top" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="16" id="IJF-Qj-dq4"/>
+                            <constraint firstItem="ugg-s7-8Mp" firstAttribute="top" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="16" id="L3X-KS-gHT"/>
                             <constraint firstItem="bwh-3g-FWm" firstAttribute="trailing" secondItem="HL1-7b-YCZ" secondAttribute="trailing" constant="50" id="NxE-gZ-2tt"/>
                             <constraint firstItem="iyO-Qg-IvK" firstAttribute="top" secondItem="qIG-cf-ynm" secondAttribute="bottom" constant="28" id="P7o-mZ-ceN"/>
                             <constraint firstItem="HL1-7b-YCZ" firstAttribute="leading" secondItem="bwh-3g-FWm" secondAttribute="leading" constant="50" id="PGJ-Dm-mPT"/>
                             <constraint firstItem="bwh-3g-FWm" firstAttribute="trailing" secondItem="qIG-cf-ynm" secondAttribute="trailing" constant="50" id="QZX-zm-1mk"/>
                             <constraint firstItem="99K-jx-h0I" firstAttribute="width" secondItem="iyO-Qg-IvK" secondAttribute="width" multiplier="0.835443" id="QgW-Ga-weJ"/>
-                            <constraint firstItem="bwh-3g-FWm" firstAttribute="bottom" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="34" id="TBx-gx-c6q"/>
+                            <constraint firstItem="kT9-on-F4y" firstAttribute="leading" secondItem="bwh-3g-FWm" secondAttribute="leading" constant="50" id="RNC-ES-x92"/>
+                            <constraint firstItem="bwh-3g-FWm" firstAttribute="bottom" secondItem="HL1-7b-YCZ" secondAttribute="bottom" constant="70" id="TBx-gx-c6q"/>
                             <constraint firstItem="bwh-3g-FWm" firstAttribute="trailing" secondItem="99K-jx-h0I" secondAttribute="trailing" constant="50" id="WNF-Hp-nKP"/>
+                            <constraint firstItem="ugg-s7-8Mp" firstAttribute="leading" secondItem="kT9-on-F4y" secondAttribute="trailing" constant="18" id="fzk-8Z-Gsr"/>
                             <constraint firstItem="HL1-7b-YCZ" firstAttribute="top" secondItem="iyO-Qg-IvK" secondAttribute="bottom" constant="41" id="kyI-Uz-ewZ"/>
                             <constraint firstItem="iyO-Qg-IvK" firstAttribute="leading" secondItem="bwh-3g-FWm" secondAttribute="leading" constant="50" id="q8W-Mk-1S6"/>
                             <constraint firstItem="qIG-cf-ynm" firstAttribute="top" secondItem="bwh-3g-FWm" secondAttribute="top" constant="50" id="sGC-5G-6yO"/>
