@@ -15,7 +15,7 @@ enum SwipeDirection {
 }
 
 protocol SwipeableDelegate: class {
-    
+
     // TODO: параметры фукций
     func didBeginSwipe()
     func didEndSwipe(direction: SwipeDirection)
@@ -23,7 +23,9 @@ protocol SwipeableDelegate: class {
 }
 
 protocol SwipeableView: class {
-    var delegate: SwipeableDelegate? { get set }
+//    associatedtype P это прикольно но ведет к переизбытку кода там, где можно обойтись
+//    var delegate: P? { get set }
+    var swipeDelegate: SwipeableDelegate? { get set }
 }
 
 extension Swipeable where Self: UIPanGestureRecognizer {
@@ -42,7 +44,7 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             view.layer.position = CGPoint(x: view.layer.position.x - oldPosition.x + newPosition.x, y: view.layer.position.y - oldPosition.y + newPosition.y)
             view.layer.rasterizationScale = UIScreen.main.scale
             view.layer.shouldRasterize = true
-            if let delegate = (view as? SwipeableView)?.delegate {
+            if let delegate = (view as? SwipeableView)?.swipeDelegate {
                 delegate.didBeginSwipe()
             }
         case .changed:
@@ -59,11 +61,11 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             view.layer.shouldRasterize = false
             
             if abs(rotationStrength) > 0.3 {
-                if let delegate = (view as? SwipeableView)?.delegate {
+                if let delegate = (view as? SwipeableView)?.swipeDelegate {
                     delegate.didEndSwipe(direction: rotationStrength > 0 ? .accept : .decline)
                 }
             } else {
-                if let delegate = (view as? SwipeableView)?.delegate {
+                if let delegate = (view as? SwipeableView)?.swipeDelegate {
                     delegate.didCancelSwipe()
                 }
             }

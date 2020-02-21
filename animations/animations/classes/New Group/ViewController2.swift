@@ -128,8 +128,9 @@ extension ViewController2: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let cell = cell as? SwipeableView {
-            cell.delegate = self
+        if let cell = cell as? StackCell {
+            cell.swipeDelegate = self
+            cell.actionDelegate = self
         }
     }
     
@@ -149,7 +150,7 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
 
 extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
     
-    func someAction() {
+    func didSomeAction() {
         print(#function)
     }    
     
