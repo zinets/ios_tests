@@ -127,6 +127,12 @@ extension ViewController2: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? SwipeableView {
+            cell.delegate = self
+        }
+    }
+    
     
 }
 
@@ -139,4 +145,22 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
+}
+
+extension ViewController2: SwipeableDelegate {
+    
+    func didBeginSwipe() {
+        
+    }
+    
+    func didEndSwipe(direction: SwipeDirection) {
+        print(direction)
+        self.removeTop(self)
+    }
+    
+    func didCancelSwipe() {
+        
+    }
+    
+    
 }

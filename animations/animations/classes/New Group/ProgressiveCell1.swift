@@ -54,7 +54,8 @@ protocol DiffAbleCell {
     func configure(_ item: DatasourceItem)
 }
 
-class StackCell: UICollectionViewCell, DiffAbleCell {
+class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
+    weak var delegate: SwipeableDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()

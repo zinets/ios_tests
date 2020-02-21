@@ -9,15 +9,27 @@
 import UIKit
 
 protocol Swipeable { }
+
+enum SwipeDirection {
+    case decline, accept // предполагая, что вправо - это принять, а влево - отменить
+}
+
 protocol SwipeableDelegate: class {
     
+    // TODO: параметры фукций
+    func didBeginSwipe()
+    func didEndSwipe(direction: SwipeDirection)
+    func didCancelSwipe()
+}
+
+protocol SwipeableView: class {
+    var delegate: SwipeableDelegate? { get set }
 }
 
 extension Swipeable where Self: UIPanGestureRecognizer {
     
     func swipeView() {
         
-        // управление слоем
         guard let view = self.view else { return }
         let panGestureTranslation = self.translation(in: view)
         switch state {
@@ -28,11 +40,11 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             let newPosition = CGPoint(x: view.bounds.size.width * newAnchorPoint.x, y: view.bounds.size.height * newAnchorPoint.y)
             view.layer.anchorPoint = newAnchorPoint
             view.layer.position = CGPoint(x: view.layer.position.x - oldPosition.x + newPosition.x, y: view.layer.position.y - oldPosition.y + newPosition.y)
-
-            
             view.layer.rasterizationScale = UIScreen.main.scale
             view.layer.shouldRasterize = true
-//            delegate?.didBeginSwipe(onView: self)
+            if let delegate = (view as? SwipeableView)?.delegate {
+                delegate.didBeginSwipe()
+            }
         case .changed:
             let rotationStrength = min(panGestureTranslation.x / view.frame.width, CGFloat.pi / 4)
             let rotationAngle = CGFloat.pi / 60 * rotationStrength // фактически некий "радиус" вращения карточки
@@ -47,13 +59,15 @@ extension Swipeable where Self: UIPanGestureRecognizer {
             view.layer.shouldRasterize = false
             
             if abs(rotationStrength) > 0.3 {
-//              self.delegate?.didEndSwipe(onView: self)
-                // тут анимация улетания
+                if let delegate = (view as? SwipeableView)?.delegate {
+                    delegate.didEndSwipe(direction: rotationStrength > 0 ? .accept : .decline)
+                }
             } else {
-//              self.delegate?.didCancelSwipe(onView: self)
-                
-                view.layer.transform = CATransform3DIdentity
+                if let delegate = (view as? SwipeableView)?.delegate {
+                    delegate.didCancelSwipe()
+                }
             }
+            view.layer.transform = CATransform3DIdentity
         default:
             break
         }
@@ -62,4 +76,6 @@ extension Swipeable where Self: UIPanGestureRecognizer {
 }
 
 extension UIPanGestureRecognizer: Swipeable { }
+
+
 
