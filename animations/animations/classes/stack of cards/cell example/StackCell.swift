@@ -13,7 +13,7 @@ protocol LikeBookCellDelegate: class {
     func didSomeAction()
 }
 
-class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
+class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedView {
 
     weak var actionDelegate: LikeBookCellDelegate?
     override func awakeFromNib() {
@@ -45,6 +45,14 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
         self.layer.transform = CATransform3DIdentity
     }
     
+    // MARK: overlay -
+    @IBOutlet weak var overlayView: UIView!
+    @Restriction(min: 0, max: 1) var overlayOpacity: CGFloat = 0 {
+        didSet {
+            self.overlayView.alpha = overlayOpacity
+        }
+    }
+    
     // MARK: -
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
@@ -71,3 +79,4 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView {
         label.text = item.data
     }
 }
+

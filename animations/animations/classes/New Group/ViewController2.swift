@@ -191,6 +191,9 @@ extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
     
     func didChangeSwipeProgress(view: UIView, progress: CGFloat) {
         print(progress)
+        if let view = view as? OverlayedView {
+            view.overlayOpacity = abs(progress)
+        }
     }
     
     func didEndSwipe(view: UIView, direction: SwipeDirection) {

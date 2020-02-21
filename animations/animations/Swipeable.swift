@@ -32,8 +32,36 @@ protocol SwipeableView: class {
     var swipeDelegate: SwipeableDelegate? { get set }
 }
 
-protocol OverlayedView: class {
+@propertyWrapper // немножко понтов
+struct Restriction<V: Comparable> {
+    var value: V
+    let min: V
+    let max: V
     
+    init(wrappedValue: V, min: V, max: V) {
+        value = wrappedValue
+        self.min = min
+        self.max = max
+        assert(value >= min && value <= max)
+    }
+    
+    var wrappedValue: V {
+        get { return value }
+        set {
+            if newValue < min {
+                value = min
+            } else if newValue > max {
+                value = max
+            } else {
+                value = newValue
+            }
+        }
+    }
+}
+
+protocol OverlayedView: class {
+    // пусть вью должно реагировать внешне на свое перемещение при смахивании; если оно конформит этому протоколу, то значит у него есть свойство, которое определяет "непрозрачность" этого дополнительного внешнего вида
+    var overlayOpacity: CGFloat { get set }
 }
 
 // тут собственно реализация слежения за движенем пальца, ничего делать не нужно, кроме может вынести более цивильно магические цифры, определяющие поведение
