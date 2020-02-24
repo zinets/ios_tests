@@ -84,6 +84,9 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func resotreStack(_ sender: Any) {
+        users = []
+        self.updateStack(false)
+        
         users = [
             "Коля (1)",
             "Петя (2)",

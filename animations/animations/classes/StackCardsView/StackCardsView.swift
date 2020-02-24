@@ -11,7 +11,11 @@ import DiffAble
 
 class StackCardsView: UICollectionView {
 
-    private var layout = StackCardsLayout()
+    private lazy var layout: StackCardsLayout = {
+        let layout = StackCardsLayout()
+        layout.delegate = self
+        return layout
+    }()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -22,6 +26,15 @@ class StackCardsView: UICollectionView {
         self.collectionViewLayout = self.layout
     }
     
+    var numberOfVisibleCells: Int {
+        get {
+            return layout.numberOfVisibleCells
+        }
+        set {
+            layout.numberOfVisibleCells = newValue
+        }
+    }
+    
     var removingDirection: SwipeDirection {
         set {
             layout.removingDirection = newValue
@@ -29,11 +42,38 @@ class StackCardsView: UICollectionView {
         get {
             return layout.removingDirection
         }
-    }
-        
+    }    
 }
 
+extension StackCardsView: StackCardsLayoutDelegate {
+    
+    func frame(for itemIndex: Int) -> CGRect {
+        let sideOffset: CGFloat = 16
+        let bottomMargin: CGFloat = 16
+        let topOffset: CGFloat = 40
+        // рассчет для дизайна, когда нижние ячейки смещаются вниз
+        /**
+         +------------+
+         |            |
+         |            |
+         |            |
+         +------------+
+          +----------+
+           +--------+
+         */
+        let x = sideOffset * CGFloat(itemIndex)
+        let w = self.bounds.width - 2 * x
+        let y = topOffset * CGFloat(itemIndex)
+        let h = self.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - itemIndex - 1)
+        
+        return CGRect(x: x, y: y, width: w, height: h)
+    }
+    
+}
 
+internal protocol StackCardsLayoutDelegate: class {
+    func frame(for itemIndex: Int) -> CGRect
+}
 
 internal class StackCardsLayout: UICollectionViewLayout {
 
@@ -43,6 +83,7 @@ internal class StackCardsLayout: UICollectionViewLayout {
         }
     }
     var removingDirection = SwipeDirection.accept
+    weak var delegate: StackCardsLayoutDelegate?
     
     // MARK: overrides -
     public override var collectionViewContentSize: CGSize {
@@ -73,36 +114,14 @@ internal class StackCardsLayout: UICollectionViewLayout {
     }
     
     // MARK: appearance -
-    private func cellSizeFor(_ index: Int) -> CGRect {
-        guard let collection = self.collectionView else {
-            return .zero
-        }
-
-        let sideOffset: CGFloat = 16
-        let bottomMargin: CGFloat = 16
-        let topOffset: CGFloat = 40
-        // рассчет для дизайна, когда нижние ячейки смещаются вниз
-        /**
-         +------------+
-         |            |
-         |            |
-         |            |
-         +------------+
-          +----------+
-           +--------+
-         */
-        let x = sideOffset * CGFloat(index)
-        let w = collection.bounds.width - 2 * x
-        let y = topOffset * CGFloat(index)
-        let h = collection.bounds.height - y - bottomMargin * CGFloat(numberOfVisibleCells - index - 1)
-        
-        return CGRect(x: x, y: y, width: w, height: h)
-    }
-    
+   
     private func attributesForIndex(_ indexPath: IndexPath) -> UICollectionViewLayoutAttributes {
+        guard let delegate = self.delegate else {
+            fatalError("Size calculator :) must be connected")
+        }
         let attrs = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         attrs.zIndex = -indexPath.item // порядок карточек
-        attrs.frame = self.cellSizeFor(indexPath.item) // перспективно уходящие карточки
+        attrs.frame = delegate.frame(for: indexPath.item) // уходящая вдаль стопка
         attrs.isHidden = !(indexPath.item < numberOfVisibleCells) // прячем "лишние" карточки
         return attrs
     }
