@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		693AD968240003FC00962A20 /* CollectionViewStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD967240003FC00962A20 /* CollectionViewStackLayout.swift */; };
 		693AD986240013F500962A20 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD985240013F500962A20 /* StackCell.swift */; };
 		693AD9882400145B00962A20 /* TestDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD9872400145A00962A20 /* TestDatasource.swift */; };
 		694CABA123FE936A007C6B7F /* CollectionViewPagingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE6523D88727008D0D2F /* CollectionViewPagingLayout.swift */; };
@@ -19,6 +18,8 @@
 		6951A4BB23FE6D7800D4D6F2 /* TestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4BA23FE6D7800D4D6F2 /* TestView2.swift */; };
 		6951A4D823FE8E4500D4D6F2 /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */; };
 		6951A4DA23FE90FB00D4D6F2 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */; };
+		6958F8492403BCAE00B283E8 /* StackCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958F8482403BCAE00B283E8 /* StackCardsView.swift */; };
+		6958F84B2403BD7A00B283E8 /* StackCardsBaseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */; };
 		6973465523FE919F00A5CA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5523D886EA008D0D2F /* Main.storyboard */; };
 		69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */; };
 		69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */; };
@@ -73,6 +74,8 @@
 		6951A4BA23FE6D7800D4D6F2 /* TestView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView2.swift; sourceTree = "<group>"; };
 		6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
 		6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		6958F8482403BCAE00B283E8 /* StackCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardsView.swift; sourceTree = "<group>"; };
+		6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardsBaseCellView.swift; sourceTree = "<group>"; };
 		69D8AE4C23D886EA008D0D2F /* animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,14 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		693AD98924001AC600962A20 /* stack of cards */ = {
+		693AD98924001AC600962A20 /* temp */ = {
 			isa = PBXGroup;
 			children = (
 				69D40E63240026FD0034D9ED /* collection layout */,
 				693AD98A24001AFA00962A20 /* cell example */,
 				6951A4B523FE64A200D4D6F2 /* swipable recognizer */,
 			);
-			path = "stack of cards";
+			path = temp;
 			sourceTree = "<group>";
 		};
 		693AD98A24001AFA00962A20 /* cell example */ = {
@@ -132,7 +135,6 @@
 		6951A4B523FE64A200D4D6F2 /* swipable recognizer */ = {
 			isa = PBXGroup;
 			children = (
-				6951A4B623FE64B200D4D6F2 /* Swipeable.swift */,
 			);
 			name = "swipable recognizer";
 			path = ../..;
@@ -147,6 +149,16 @@
 				69F28A1423FEA0500057725F /* ProgressiveCell1.swift */,
 			);
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		6958F8472403BC1A00B283E8 /* StackCardsView */ = {
+			isa = PBXGroup;
+			children = (
+				6958F8482403BCAE00B283E8 /* StackCardsView.swift */,
+				6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */,
+				6951A4B623FE64B200D4D6F2 /* Swipeable.swift */,
+			);
+			path = StackCardsView;
 			sourceTree = "<group>";
 		};
 		69D40E63240026FD0034D9ED /* collection layout */ = {
@@ -187,7 +199,8 @@
 		69D8AE6323D88714008D0D2F /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				693AD98924001AC600962A20 /* stack of cards */,
+				6958F8472403BC1A00B283E8 /* StackCardsView */,
+				693AD98924001AC600962A20 /* temp */,
 				6951A4D623FE8E3C00D4D6F2 /* New Group */,
 				6951A4B223FE637E00D4D6F2 /* xib views */,
 				69D8AE6423D8871C008D0D2F /* layouts */,
@@ -340,10 +353,11 @@
 				69D8AE5423D886EA008D0D2F /* ViewController.swift in Sources */,
 				69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */,
 				6951A4B423FE639B00D4D6F2 /* XibView.swift in Sources */,
-				693AD968240003FC00962A20 /* CollectionViewStackLayout.swift in Sources */,
 				69F28A1523FEA0500057725F /* ProgressiveCell1.swift in Sources */,
 				69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */,
 				6951A4BB23FE6D7800D4D6F2 /* TestView2.swift in Sources */,
+				6958F84B2403BD7A00B283E8 /* StackCardsBaseCellView.swift in Sources */,
+				6958F8492403BCAE00B283E8 /* StackCardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

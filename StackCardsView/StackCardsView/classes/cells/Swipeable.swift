@@ -35,8 +35,6 @@ protocol SwipeableView: class {
 @propertyWrapper // немножко понтов
 struct Restriction<V: Comparable> {
     var value: V
-//    let min: V
-//    let max: V
     var range: ClosedRange<V>
     
     init(wrappedValue: V, _ range: ClosedRange<V>) {
