@@ -89,20 +89,9 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
     
     public override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
-        updateItems.forEach { (updatedItem) in
-            switch updatedItem.updateAction {
-            case .delete:
-                if let index = updatedItem.indexPathBeforeUpdate {
-                    itemsToDelete.append(index)
-                }
-            case .insert:
-                if let index = updatedItem.indexPathAfterUpdate {
-                    itemsToInsert.append(index)
-                }
-            default:
-                break
-            }
-        }
+        
+        itemsToDelete = updateItems.filter{ $0.updateAction == .delete }.compactMap{ $0.indexPathBeforeUpdate }
+        itemsToInsert = updateItems.filter{ $0.updateAction == .insert }.compactMap{ $0.indexPathAfterUpdate }        
     }
     
     public override func finalizeCollectionViewUpdates() {
@@ -113,8 +102,8 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
     public override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         guard itemsToInsert.contains(itemIndexPath) else { return nil }
         
-        let attrs = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
-        
+//        let attrs = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
+        let attrs = self.attributesForIndex(itemIndexPath)
         attrs.alpha = 0
         
         return attrs
@@ -124,7 +113,8 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         
         guard itemsToDelete.contains(itemIndexPath) else { return nil }
         
-        let attrs = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
+//        let attrs = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)?.copy() as! UICollectionViewLayoutAttributes
+        let attrs = self.attributesForIndex(itemIndexPath)
         
         let rotationStrength: CGFloat = self.removingDirection == .left ? -0.5 : 0.5
         let rotationAngle = CGFloat.pi / 3 * rotationStrength
@@ -136,6 +126,7 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         
         attrs.transform3D = transform
         attrs.alpha = 0
+        attrs.zIndex += 1
         return attrs
     }
 }

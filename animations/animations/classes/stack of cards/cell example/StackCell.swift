@@ -58,7 +58,10 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     // MARK: -
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
+        
         self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+        
+        self.lorderLabel.text = "(\(layoutAttributes.zIndex))"
         
         // эта строчка решает проблему с визуальным порядком ячеек в стопке; но - не решает с фактическим и обработкой ивентов
 //        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
@@ -69,6 +72,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     
     // MARK: outlets -
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var lorderLabel: UILabel!
     
     @IBAction func buttonAction(_ sender: Any) {
         if let delegate = self.actionDelegate {
