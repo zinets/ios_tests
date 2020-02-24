@@ -43,6 +43,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
         super.prepareForReuse()
         // т.к. смахивание делается трансформом слоя, то где-то кому-то надо восстановить трансформ, почему не тут (если смахивание отменилось, трансформ восстановится в обработчике панРекогнайзера
         self.layer.transform = CATransform3DIdentity
+        self.overlayOpacity = 0
     }
     
     // MARK: overlay -
@@ -59,13 +60,9 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-//        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
         
-        self.lorderLabel.text = "(\(layoutAttributes.zIndex))"
-        
-        // эта строчка решает проблему с визуальным порядком ячеек в стопке; но - не решает с фактическим и обработкой ивентов
-//        self.layer.zPosition = CGFloat(layoutAttributes.zIndex)
-//        print("index \(layoutAttributes.indexPath.item), z-order \(layoutAttributes.zIndex)")
+        self.lorderLabel.text = "(\(layoutAttributes.zIndex))"        
     }
     
     
