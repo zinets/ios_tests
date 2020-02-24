@@ -112,29 +112,14 @@ class ViewController2: UIViewController {
     
 }
 
-extension ViewController2: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProgressiveCell1", for: indexPath)
-        
-        return cell
-    }
-    
+extension ViewController2: UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? StackCell {
             cell.swipeDelegate = self
             cell.actionDelegate = self
         }
     }
-    
-    
-}
-
-extension ViewController2: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
@@ -144,15 +129,6 @@ extension ViewController2: UICollectionViewDelegateFlowLayout {
         return collectionView.bounds.size
     }
 }
-
-//extension SwipeDirection {
-//    func map() -> CollectionViewStackLayout.SwipeDirection {
-//        switch self {
-//        case .accept: return .right
-//        case .decline: return .left
-//        }
-//    }
-//}
 
 extension ViewController2: SwipeableDelegate, LikeBookCellDelegate {
     

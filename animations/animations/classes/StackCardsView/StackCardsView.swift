@@ -37,10 +37,6 @@ class StackCardsView: UICollectionView {
 
 internal class StackCardsLayout: UICollectionViewLayout {
 
-//    enum SwipeDirection { // с одной стороны дублирование (в Swipeable есть по смыслу тот же энум)
-//        case left, right  // с другой универсальность
-//    }
-
     var numberOfVisibleCells: Int = 3 {
         didSet {
             invalidateLayout()

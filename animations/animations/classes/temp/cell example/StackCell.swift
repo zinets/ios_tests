@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import DiffAble
 
 // just as example
 protocol LikeBookCellDelegate: class {
     func didSomeAction()
 }
 
-class StackCell: StackCardsBaseCellView {
+class StackCell: StackCardsBaseCellView, DiffAbleCell {
 
     weak var actionDelegate: LikeBookCellDelegate?
     override func awakeFromNib() {
@@ -32,9 +33,10 @@ class StackCell: StackCardsBaseCellView {
         }
     }
     
-    // MARK: conform -
     func configure(_ item: DatasourceItem) {
         label.text = item.data
     }
 }
+
+
 

@@ -48,9 +48,3 @@ class StackCardsBaseCellView: UICollectionViewCell, SwipeableView, OverlayedView
         self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
     }
 }
-
-extension StackCardsBaseCellView: AnyDiffAbleControl {
-    func configure(_ item: AnyDiffAble) {
-        
-    }
-}
