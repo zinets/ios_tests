@@ -42,7 +42,7 @@ class StackCardsView: UICollectionView {
         get {
             return layout.removingDirection
         }
-    }    
+    }
 }
 
 extension StackCardsView: StackCardsLayoutDelegate {

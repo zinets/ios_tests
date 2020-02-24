@@ -14,7 +14,7 @@ protocol LikeBookCellDelegate: class {
     func didSomeAction()
 }
 
-class StackCell: StackCardsBaseCellView, DiffAbleCell {
+class StackCell: StackBaseCardView, StackCardControl {
 
     weak var actionDelegate: LikeBookCellDelegate?
     override func awakeFromNib() {
@@ -33,7 +33,7 @@ class StackCell: StackCardsBaseCellView, DiffAbleCell {
         }
     }
     
-    func configure(_ item: DatasourceItem) {
+    func configure(_ item: StackCardItem) {
         label.text = item.data
     }
 }

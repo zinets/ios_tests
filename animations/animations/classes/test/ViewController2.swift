@@ -16,14 +16,6 @@ class ViewController2: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    
-    struct CardModel: Item {
-        var cellReuseId = "StackCell"
-        var name: String
-        
-    }
-    
     
     @IBOutlet weak var collectionView2: StackCardsView! {
         didSet {
@@ -31,9 +23,9 @@ class ViewController2: UIViewController {
         }
     }
     enum Sections { case first }
-    private lazy var dataSource: CollectionDiffAbleDatasource<Sections, DatasourceItem> = {
-        let ds = CollectionDiffAbleDatasource<Sections, DatasourceItem>(collectionView: self.collectionView2) { [weak self] (cell, item) in
-            if let cell = cell as? DiffAbleCell {
+    private lazy var dataSource: CollectionDiffAbleDatasource<Sections, StackCardItem> = {
+        let ds = CollectionDiffAbleDatasource<Sections, StackCardItem>(collectionView: self.collectionView2) { [weak self] (cell, item) in
+            if let cell = cell as? StackCardControl {
                 cell.configure(item)
             }
         }
@@ -67,7 +59,7 @@ class ViewController2: UIViewController {
         self.dataSource.beginUpdates()
         
         self.dataSource.appendSections([.first])
-        let items = users.map { DatasourceItem(data: $0) }
+        let items = users.map { StackCardItem(data: $0) }
         self.dataSource.appendItems(items, toSection: .first)
         
         self.dataSource.endUpdates(animated)

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		693AD986240013F500962A20 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD985240013F500962A20 /* StackCell.swift */; };
-		693AD9882400145B00962A20 /* TestDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD9872400145A00962A20 /* TestDatasource.swift */; };
+		693AD9882400145B00962A20 /* StackCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693AD9872400145A00962A20 /* StackCardItem.swift */; };
 		694CABA123FE936A007C6B7F /* CollectionViewPagingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE6523D88727008D0D2F /* CollectionViewPagingLayout.swift */; };
 		6951A4AF23FE62C500D4D6F2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6951A4AE23FE62C500D4D6F2 /* TestView.xib */; };
 		6951A4B123FE62CD00D4D6F2 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4B023FE62CD00D4D6F2 /* TestView.swift */; };
@@ -19,7 +19,7 @@
 		6951A4D823FE8E4500D4D6F2 /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */; };
 		6951A4DA23FE90FB00D4D6F2 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */; };
 		6958F8492403BCAE00B283E8 /* StackCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958F8482403BCAE00B283E8 /* StackCardsView.swift */; };
-		6958F84B2403BD7A00B283E8 /* StackCardsBaseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */; };
+		6958F84B2403BD7A00B283E8 /* StackBaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6958F84A2403BD7A00B283E8 /* StackBaseCardView.swift */; };
 		6973465523FE919F00A5CA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69D8AE5523D886EA008D0D2F /* Main.storyboard */; };
 		69D8AE5023D886EA008D0D2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */; };
 		69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */; };
@@ -63,7 +63,7 @@
 
 /* Begin PBXFileReference section */
 		693AD985240013F500962A20 /* StackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
-		693AD9872400145A00962A20 /* TestDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDatasource.swift; sourceTree = "<group>"; };
+		693AD9872400145A00962A20 /* StackCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardItem.swift; sourceTree = "<group>"; };
 		6951A4AE23FE62C500D4D6F2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		6951A4B023FE62CD00D4D6F2 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		6951A4B323FE639B00D4D6F2 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
 		6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		6958F8482403BCAE00B283E8 /* StackCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardsView.swift; sourceTree = "<group>"; };
-		6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardsBaseCellView.swift; sourceTree = "<group>"; };
+		6958F84A2403BD7A00B283E8 /* StackBaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBaseCardView.swift; sourceTree = "<group>"; };
 		69D8AE4C23D886EA008D0D2F /* animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D8AE4F23D886EA008D0D2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69D8AE5123D886EA008D0D2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,22 +111,22 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		6951A4D623FE8E3C00D4D6F2 /* New Group */ = {
+		6951A4D623FE8E3C00D4D6F2 /* test */ = {
 			isa = PBXGroup;
 			children = (
 				6951A4D723FE8E4500D4D6F2 /* Storyboard2.storyboard */,
 				6951A4D923FE90FB00D4D6F2 /* ViewController2.swift */,
 				693AD985240013F500962A20 /* StackCell.swift */,
-				693AD9872400145A00962A20 /* TestDatasource.swift */,
+				693AD9872400145A00962A20 /* StackCardItem.swift */,
 			);
-			path = "New Group";
+			path = test;
 			sourceTree = "<group>";
 		};
 		6958F8472403BC1A00B283E8 /* StackCardsView */ = {
 			isa = PBXGroup;
 			children = (
 				6958F8482403BCAE00B283E8 /* StackCardsView.swift */,
-				6958F84A2403BD7A00B283E8 /* StackCardsBaseCellView.swift */,
+				6958F84A2403BD7A00B283E8 /* StackBaseCardView.swift */,
 				6951A4B623FE64B200D4D6F2 /* Swipeable.swift */,
 			);
 			path = StackCardsView;
@@ -163,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				6958F8472403BC1A00B283E8 /* StackCardsView */,
-				6951A4D623FE8E3C00D4D6F2 /* New Group */,
+				6951A4D623FE8E3C00D4D6F2 /* test */,
 				6951A4B223FE637E00D4D6F2 /* xib views */,
 				69D8AE6423D8871C008D0D2F /* layouts */,
 			);
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693AD986240013F500962A20 /* StackCell.swift in Sources */,
-				693AD9882400145B00962A20 /* TestDatasource.swift in Sources */,
+				693AD9882400145B00962A20 /* StackCardItem.swift in Sources */,
 				694CABA123FE936A007C6B7F /* CollectionViewPagingLayout.swift in Sources */,
 				6951A4B123FE62CD00D4D6F2 /* TestView.swift in Sources */,
 				6951A4DA23FE90FB00D4D6F2 /* ViewController2.swift in Sources */,
@@ -317,7 +317,7 @@
 				6951A4B423FE639B00D4D6F2 /* XibView.swift in Sources */,
 				69D8AE5223D886EA008D0D2F /* SceneDelegate.swift in Sources */,
 				6951A4BB23FE6D7800D4D6F2 /* TestView2.swift in Sources */,
-				6958F84B2403BD7A00B283E8 /* StackCardsBaseCellView.swift in Sources */,
+				6958F84B2403BD7A00B283E8 /* StackBaseCardView.swift in Sources */,
 				6958F8492403BCAE00B283E8 /* StackCardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

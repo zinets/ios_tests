@@ -9,7 +9,7 @@
 import UIKit
 import DiffAble
 
-class StackCardsBaseCellView: UICollectionViewCell, SwipeableView, OverlayedView {
+class StackBaseCardView: UICollectionViewCell, SwipeableView, OverlayedView {
     
     // MARK: SwipeableView -
     weak var swipeDelegate: SwipeableDelegate?

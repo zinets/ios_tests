@@ -8,7 +8,7 @@
 
 import DiffAble
 
-struct DatasourceItem: Item {
+struct StackCardItem: Item {
     var cellReuseId: String = "StackCell"
     var data: String
     
@@ -18,6 +18,6 @@ struct DatasourceItem: Item {
     }
 }
 
-protocol DiffAbleCell {
-    func configure(_ item: DatasourceItem)
+protocol StackCardControl {
+    func configure(_ item: StackCardItem)
 }
