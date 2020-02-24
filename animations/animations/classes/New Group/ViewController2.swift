@@ -101,11 +101,10 @@ class ViewController2: UIViewController {
     
     @IBAction func removeTop(_ sender: Any) {
         users.remove(at: 0)
-        if users.count < 3 && !podliva.isEmpty {
+        if users.count == 0 && !podliva.isEmpty {
             users += podliva
         }
         self.updateStack(true)
-//        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @IBAction func resotreStack(_ sender: Any) {

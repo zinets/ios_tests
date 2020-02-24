@@ -59,7 +59,7 @@ class StackCell: UICollectionViewCell, DiffAbleCell, SwipeableView, OverlayedVie
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
-        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
+//        self.panRecognizer.isEnabled = layoutAttributes.indexPath.item == 0
         
         self.lorderLabel.text = "(\(layoutAttributes.zIndex))"
         

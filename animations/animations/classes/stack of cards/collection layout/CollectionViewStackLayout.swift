@@ -10,7 +10,11 @@ import UIKit
 
 public class CollectionViewStackLayout: UICollectionViewLayout {
     
-    var numberOfVisibleCells: Int = 3
+    var numberOfVisibleCells: Int = 3 {
+        didSet {
+            invalidateLayout()
+        }
+    }
     enum SwipeDirection { // с одной стороны дублирование (в Swipeable есть по смыслу тот же энум)
         case left, right  // с другой универсальность
     }
@@ -22,6 +26,10 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
     public override var collectionViewContentSize: CGSize {
         return self.collectionView?.bounds.size ?? .zero
     }
+    
+//    public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+//        return true в данном случае не обызательно
+//    }
     
     // to override (например чтобы пустить стопку в другую сторону или просто изменить параметры карточек стопки)
     public func cellSizeFor(_ index: Int) -> CGRect {
@@ -129,5 +137,6 @@ public class CollectionViewStackLayout: UICollectionViewLayout {
         attrs.zIndex += 1
         return attrs
     }
+    
 }
 
