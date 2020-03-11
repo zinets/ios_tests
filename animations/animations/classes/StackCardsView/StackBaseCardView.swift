@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DiffAble
 
 class StackBaseCardView: UICollectionViewCell, SwipeableView, OverlayedView {
     

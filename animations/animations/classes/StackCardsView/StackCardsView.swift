@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DiffAble
 
 class StackCardsView: UICollectionView {
 
