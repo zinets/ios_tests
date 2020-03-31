@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		690EBB3F243333990031F82B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB3E243333990031F82B /* AppDelegate.swift */; };
 		690EBB41243333990031F82B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB40243333990031F82B /* SceneDelegate.swift */; };
-		690EBB43243333990031F82B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB42243333990031F82B /* ViewController.swift */; };
+		690EBB43243333990031F82B /* ProfileEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB42243333990031F82B /* ProfileEditController.swift */; };
 		690EBB46243333990031F82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB44243333990031F82B /* Main.storyboard */; };
 		690EBB482433339A0031F82B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB472433339A0031F82B /* Assets.xcassets */; };
 		690EBB4B2433339A0031F82B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB492433339A0031F82B /* LaunchScreen.storyboard */; };
 		690EBB5C243333B80031F82B /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; };
 		690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */; };
+		690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +54,14 @@
 		690EBB3B243333990031F82B /* protoProfileEdits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = protoProfileEdits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		690EBB3E243333990031F82B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		690EBB40243333990031F82B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		690EBB42243333990031F82B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		690EBB42243333990031F82B /* ProfileEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditController.swift; sourceTree = "<group>"; };
 		690EBB45243333990031F82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		690EBB472433339A0031F82B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690EBB4A2433339A0031F82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		690EBB4C2433339A0031F82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		690EBB52243333B10031F82B /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
+		690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditBaseCell.swift; sourceTree = "<group>"; };
+		690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditorItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,13 +97,12 @@
 		690EBB3D243333990031F82B /* protoProfileEdits */ = {
 			isa = PBXGroup;
 			children = (
-				690EBB3E243333990031F82B /* AppDelegate.swift */,
-				690EBB40243333990031F82B /* SceneDelegate.swift */,
-				690EBB42243333990031F82B /* ViewController.swift */,
+				690EBB6424333B250031F82B /* datasource */,
+				690EBB63243339450031F82B /* cells */,
+				690EBB42243333990031F82B /* ProfileEditController.swift */,
 				690EBB44243333990031F82B /* Main.storyboard */,
 				690EBB472433339A0031F82B /* Assets.xcassets */,
-				690EBB492433339A0031F82B /* LaunchScreen.storyboard */,
-				690EBB4C2433339A0031F82B /* Info.plist */,
+				690EBB5F243338EB0031F82B /* supporting files */,
 			);
 			path = protoProfileEdits;
 			sourceTree = "<group>";
@@ -118,6 +121,33 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		690EBB5F243338EB0031F82B /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				690EBB3E243333990031F82B /* AppDelegate.swift */,
+				690EBB40243333990031F82B /* SceneDelegate.swift */,
+				690EBB492433339A0031F82B /* LaunchScreen.storyboard */,
+				690EBB4C2433339A0031F82B /* Info.plist */,
+			);
+			name = "supporting files";
+			sourceTree = "<group>";
+		};
+		690EBB63243339450031F82B /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		690EBB6424333B250031F82B /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */,
+			);
+			path = datasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +245,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690EBB43243333990031F82B /* ViewController.swift in Sources */,
+				690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */,
+				690EBB43243333990031F82B /* ProfileEditController.swift in Sources */,
 				690EBB3F243333990031F82B /* AppDelegate.swift in Sources */,
 				690EBB41243333990031F82B /* SceneDelegate.swift in Sources */,
+				690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
