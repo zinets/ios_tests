@@ -8,6 +8,8 @@
 
 import DiffAble
 
+
+
 class ProfileEditController: UIViewController {
 
     override func viewDidLoad() {
@@ -48,9 +50,9 @@ class ProfileEditController: UIViewController {
         // screenName
         let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .screenName, title: "Screenname", value: "Johm")
         items.append(AnyDiffAble(screenNameItem))
-        // birth date
-        var bdateItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditDateCell", type: .bdate, title: "Birth date", value: "12.08.1971")
-        bdateItem.expanded = self.selectedItemType == .bdate
+        // user age
+        var bdateItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: .age, title: "User age", value: "39")
+        bdateItem.expanded = self.selectedItemType == .age
         items.append(AnyDiffAble(bdateItem))
         
         // gender
@@ -64,8 +66,8 @@ class ProfileEditController: UIViewController {
         items.append(AnyDiffAble(genderpickerItem))
         
         // age picker
-        var ageItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: .age, title: "Age", value: "20 - 40")
-        ageItem.expanded = self.selectedItemType == .age
+        var ageItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: .lookingAge, title: "Age", value: "20 - 40")
+        ageItem.expanded = self.selectedItemType == ageItem.type
         items.append(AnyDiffAble(ageItem))
         
         self.dataSource.beginUpdates()
@@ -85,9 +87,10 @@ extension ProfileEditController: UITableViewDelegate {
         
         self.selectedItemType = (self.selectedItemType != item.type) ? item.type : nil
         switch item.type {
-        case .screenName, .bdate, .gender, .age:
-            self.updateDatasource()
+//        case .screenName, .age, .gender, .ages:
+//            self.updateDatasource()
         default:
+            self.updateDatasource()
             tableView.deselectRow(at: indexPath, animated: false)
         }
     }

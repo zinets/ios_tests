@@ -11,7 +11,9 @@ import DiffAble
 struct CPDOwnProfileEditorItem: Item {
     
     enum EditorType {
-        case screenName, bdate, location, gender, age
+        case screenName, age, location, gender /* read only */
+        case lookingAge, lookingGender, lookingLocation
+        case smoke, drink, about
     }
     var cellReuseId: String
     var type: EditorType
@@ -21,4 +23,22 @@ struct CPDOwnProfileEditorItem: Item {
     
     var expanded: Bool = false
     var editable: Bool = true
+}
+
+extension CPDOwnProfileEditorItem.EditorType {
+    
+    var dataSource: [[String]]? {
+        switch self {
+        case .age:
+            return [(18...79).map{ String($0) }]
+        case .lookingAge:
+            let fromAge = (18...79).map{ String($0) }
+            let toAge = (18...79).map{ String($0) }
+            return [fromAge, toAge]
+        case .gender, .lookingGender:
+            return [["Man", "Woman"]]
+        default:
+            return nil
+        }
+    }
 }

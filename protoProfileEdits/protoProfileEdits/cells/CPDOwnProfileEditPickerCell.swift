@@ -26,12 +26,8 @@ class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
             self.picker.isHidden = !item.expanded
             
             switch item.type {
-            case .gender:
-                dataSource = [["Man", "Woman"]]
-            case .age:
-                let fromAge = (18...79).map{ String($0) }
-                let toAge = (18...79).map{ String($0) }
-                dataSource = [fromAge, toAge]
+            case .gender, .age, .lookingAge:
+                dataSource = item.type.dataSource
             default:
                 fatalError("Nu ty ponyal")
             }
@@ -54,10 +50,6 @@ extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSo
         return dataSource[component].count
     }
     
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return dataSource[component][row]
-//    }
-    
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let selectedColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
         let inactiveColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -67,7 +59,7 @@ extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // я предполагаю, что диапазоны "от" и "до" совпадают, иначе это сплошной геморой и отстутствие смысла от слова "полностьб"
+        // я предполагаю, что диапазоны "от" и "до" совпадают, иначе это сплошной геморой и отстутствие смысла от слова "полностью"
         if pickerView.numberOfComponents == 2 { // узкий случай выбора диапазона возрастов
             // доп. проверка/выравнивание значений в барабанах
             if component == 0 && pickerView.selectedRow(inComponent: 1) < row {
