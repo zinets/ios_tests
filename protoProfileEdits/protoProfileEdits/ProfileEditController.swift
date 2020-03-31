@@ -39,17 +39,23 @@ class ProfileEditController: UIViewController {
         return ds
     }()
     
+    //  по тапу я буду запоминать тип, при заполнении датасорца буду соотв. определять какой итем должен быть "раскрыт" (если он в принципе может быть раскрыт
+    private var selectedItemType: CPDOwnProfileEditorItem.EditorType?
+    
     private func updateDatasource() {
         var items: [AnyDiffAble] = []
         
         // screenName
         let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .screenName, title: "Screenname", value: "Johm")
         items.append(AnyDiffAble(screenNameItem))
+        // birth date
+        var bdateItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditDateCell", type: .bdate, title: "Birth date", value: "12.08.1971")
+        bdateItem.expanded = self.selectedItemType == .bdate
+        items.append(AnyDiffAble(bdateItem))
         
         // gender
         var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .gender, title: "Gender", value: "Man")
-        genderItem.editable = true
-        genderItem.expanded = true
+        genderItem.editable = false
         items.append(AnyDiffAble(genderItem))
         
         self.dataSource.beginUpdates()
@@ -66,9 +72,15 @@ extension ProfileEditController: UITableViewDelegate {
         guard let item = self.dataSource.item(for: indexPath)?.payload as? CPDOwnProfileEditorItem else {
             return
         }
+        
+        self.selectedItemType = item.type
         switch item.type {
         case .screenName:
-            break
+            self.updateDatasource()
+        case .bdate:
+            self.updateDatasource()
+        case .gender:
+            self.updateDatasource()
         default:
             tableView.deselectRow(at: indexPath, animated: false)
         }

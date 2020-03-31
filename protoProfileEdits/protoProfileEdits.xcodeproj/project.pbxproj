@@ -17,6 +17,7 @@
 		690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */; };
 		690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */; };
+		690EBB6824334A570031F82B /* CPDOwnProfileEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		690EBB52243333B10031F82B /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditBaseCell.swift; sourceTree = "<group>"; };
 		690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditorItem.swift; sourceTree = "<group>"; };
+		690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */,
+				690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				690EBB43243333990031F82B /* ProfileEditController.swift in Sources */,
 				690EBB3F243333990031F82B /* AppDelegate.swift in Sources */,
 				690EBB41243333990031F82B /* SceneDelegate.swift in Sources */,
+				690EBB6824334A570031F82B /* CPDOwnProfileEditCell.swift in Sources */,
 				690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
