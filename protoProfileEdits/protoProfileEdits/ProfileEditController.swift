@@ -73,22 +73,13 @@ class ProfileEditController: UIViewController {
     }
     
     private func updateDatasource() {
-        var items: [AnyDiffAble] = []
-        
-        // screenName
-        items.append(AnyDiffAble(self.item(for: .screenName)))
-        // user age
-        items.append(AnyDiffAble(self.item(for: .age)))
-        // gender
-        items.append(AnyDiffAble(self.item(for: .gender)))
-        // gender picker
-        items.append(AnyDiffAble(self.item(for: .lookingGender)))        
-        // age picker
-        items.append(AnyDiffAble(self.item(for: .lookingAge)))
-        
+        let items: [CPDOwnProfileEditorItem.EditorType] = [.screenName, .age, .gender,
+        .lookingGender, .lookingAge]        
+                
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
-        self.dataSource.appendItems(items, toSection: .first)
+        self.dataSource.appendItems(items.map{ AnyDiffAble(self.item(for: $0)) },
+                                    toSection: .first)
         self.dataSource.endUpdates(true)
     }
 
