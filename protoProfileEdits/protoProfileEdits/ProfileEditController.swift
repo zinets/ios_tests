@@ -14,6 +14,12 @@ class ProfileEditController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.updateDatasource()
+    }
 
     
     // MARK: datasource -
@@ -29,7 +35,16 @@ class ProfileEditController: UIViewController {
     }()
     
     private func updateDatasource() {
+        var items: [AnyDiffAble] = []
         
+        // screenName
+        let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Screenname", value: "Johm")
+        items.append(AnyDiffAble(screenNameItem))
+        
+        self.dataSource.beginUpdates()
+        self.dataSource.appendSections([.first])
+        self.dataSource.appendItems(items, toSection: .first)
+        self.dataSource.endUpdates(false)
     }
 
 }

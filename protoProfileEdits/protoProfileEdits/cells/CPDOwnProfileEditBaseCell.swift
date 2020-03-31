@@ -37,7 +37,11 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
 }
 
 class CPDOwnProfileEditCell: CPDOwnProfileEditBaseCell {
+    
     override func configure(_ item: AnyDiffAble) {
-        print(#function)
+        if let item = item.payload as? CPDOwnProfileEditorItem {
+            self.titleLabel.text = item.title
+            self.valueLabel.text = item.value
+        }
     }
 }
