@@ -26,7 +26,7 @@ class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
             self.picker.isHidden = !item.expanded
             
             switch item.type {
-            case .gender, .age, .lookingAge:
+            case .gender, .age, .lookingAge, .lookingGender:
                 dataSource = item.type.dataSource
             default:
                 fatalError("Nu ty ponyal")

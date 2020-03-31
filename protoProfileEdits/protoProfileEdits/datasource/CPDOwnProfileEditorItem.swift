@@ -22,6 +22,7 @@ struct CPDOwnProfileEditorItem: Item {
     var value: String
     
     var expanded: Bool = false
+    var expandable: Bool = true
     var editable: Bool = true
 }
 
