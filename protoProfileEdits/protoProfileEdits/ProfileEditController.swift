@@ -63,6 +63,11 @@ class ProfileEditController: UIViewController {
         genderpickerItem.expanded = self.selectedItemType == .gender
         items.append(AnyDiffAble(genderpickerItem))
         
+        // age picker
+        var ageItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: .age, title: "Age", value: "20 - 40")
+        ageItem.expanded = self.selectedItemType == .age
+        items.append(AnyDiffAble(ageItem))
+        
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
         self.dataSource.appendItems(items, toSection: .first)
@@ -80,11 +85,7 @@ extension ProfileEditController: UITableViewDelegate {
         
         self.selectedItemType = (self.selectedItemType != item.type) ? item.type : nil
         switch item.type {
-        case .screenName:
-            self.updateDatasource()
-        case .bdate:
-            self.updateDatasource()
-        case .gender:
+        case .screenName, .bdate, .gender, .age:
             self.updateDatasource()
         default:
             tableView.deselectRow(at: indexPath, animated: false)

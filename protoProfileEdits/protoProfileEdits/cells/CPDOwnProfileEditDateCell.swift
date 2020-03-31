@@ -10,26 +10,27 @@ import DiffAble
 
 class CPDOwnProfileEditDateCell: CPDOwnProfileEditBaseCell {
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker! {
+        didSet {
+            datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: UIControl.Event.valueChanged)
+        }
+    }
     
     override func configure(_ item: AnyDiffAble) {
         super.configure(item)
         
         if let item = item.payload as? CPDOwnProfileEditorItem {
             self.datePicker.isHidden = !item.expanded
+            
+            UIView.animate(withDuration: 0.2) {
+                self.disclosureView.transform = item.expanded ? .init(rotationAngle: -CGFloat.pi / 2) : .init(rotationAngle: CGFloat.pi / 2)
+            }
         }
+    }
+    
+    // MARK: actions -
+    @objc private func dateChanged(_ sender: UIDatePicker) {
+        
     }
 }
 
-class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
-    
-    @IBOutlet weak var picker: UIPickerView!
-    
-    override func configure(_ item: AnyDiffAble) {
-        super.configure(item)
-        
-        if let item = item.payload as? CPDOwnProfileEditorItem {
-            self.picker.isHidden = !item.expanded
-        }
-    }
-}
