@@ -49,16 +49,3 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
         }
     }
 }
-
-class CPDOwnProfileEditDateCell: CPDOwnProfileEditBaseCell {
-    
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    override func configure(_ item: AnyDiffAble) {
-        super.configure(item)
-        
-        if let item = item.payload as? CPDOwnProfileEditorItem {
-            self.datePicker.isHidden = !item.expanded
-        }
-    }
-}
