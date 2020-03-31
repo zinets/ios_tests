@@ -24,7 +24,12 @@ class ProfileEditController: UIViewController {
     
     // MARK: datasource -
     enum Sections { case first }
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+        }
+    }
+    
     private lazy var dataSource: TableDiffAbleDatasource<Sections, AnyDiffAble> = {
         let ds = TableDiffAbleDatasource<Sections, AnyDiffAble>(tableView: self.tableView) { (cell, item) in
             if let cell = cell as? AnyDiffAbleControl {
@@ -38,11 +43,11 @@ class ProfileEditController: UIViewController {
         var items: [AnyDiffAble] = []
         
         // screenName
-        let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Screenname", value: "Johm")
+        let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .screenName, title: "Screenname", value: "Johm")
         items.append(AnyDiffAble(screenNameItem))
         
         // gender
-        var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Gender", value: "Man")
+        var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .gender, title: "Gender", value: "Man")
         genderItem.editable = true
         genderItem.expanded = true
         items.append(AnyDiffAble(genderItem))
@@ -55,3 +60,17 @@ class ProfileEditController: UIViewController {
 
 }
 
+extension ProfileEditController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = self.dataSource.item(for: indexPath)?.payload as? CPDOwnProfileEditorItem else {
+            return
+        }
+        switch item.type {
+        case .screenName:
+            break
+        default:
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
+}

@@ -9,7 +9,12 @@
 import DiffAble
 
 struct CPDOwnProfileEditorItem: Item {
+    
+    enum EditorType {
+        case screenName, bdate, location, gender, age
+    }
     var cellReuseId: String
+    var type: EditorType
     
     var title: String
     var value: String
