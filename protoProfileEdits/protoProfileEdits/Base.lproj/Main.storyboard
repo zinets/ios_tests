@@ -90,13 +90,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-KA-JbW">
-                                                                    <rect key="frame" x="24" y="15" width="70.5" height="22"/>
+                                                                    <rect key="frame" x="24" y="15" width="70.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vuH-d7-w6n">
-                                                                    <rect key="frame" x="280" y="16" width="110" height="20.5"/>
+                                                                    <rect key="frame" x="280" y="15" width="110" height="20.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="valueLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdK-Su-49R">
                                                                             <rect key="frame" x="0.0" y="0.0" width="86" height="20.5"/>
@@ -120,7 +120,6 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="1Xd-KA-JbW" secondAttribute="bottom" constant="15" id="28e-Lz-cjH"/>
                                                                 <constraint firstItem="vuH-d7-w6n" firstAttribute="centerY" secondItem="1Xd-KA-JbW" secondAttribute="centerY" id="6Ao-fv-79Z"/>
                                                                 <constraint firstItem="znx-45-yab" firstAttribute="leading" secondItem="FJb-Qv-36g" secondAttribute="leading" constant="24" id="RIM-fo-ek0"/>
                                                                 <constraint firstAttribute="trailing" secondItem="vuH-d7-w6n" secondAttribute="trailing" constant="24" id="YYD-eM-pii"/>
@@ -184,13 +183,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEV-7X-K5c">
-                                                                    <rect key="frame" x="24" y="15" width="70.5" height="22"/>
+                                                                    <rect key="frame" x="24" y="15" width="70.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.34509803919999998" green="0.34509803919999998" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aaX-EY-E3k">
-                                                                    <rect key="frame" x="280" y="16" width="110" height="20.5"/>
+                                                                    <rect key="frame" x="280" y="15" width="110" height="20.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="valueLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXK-yi-kqT">
                                                                             <rect key="frame" x="0.0" y="0.0" width="86" height="20.5"/>
@@ -223,7 +222,6 @@
                                                                 <constraint firstAttribute="trailing" secondItem="0vs-ah-TUr" secondAttribute="trailing" constant="24" id="S4s-HC-rqM"/>
                                                                 <constraint firstAttribute="trailing" secondItem="aaX-EY-E3k" secondAttribute="trailing" constant="24" id="VA6-jE-XfA"/>
                                                                 <constraint firstItem="aaX-EY-E3k" firstAttribute="centerY" secondItem="VEV-7X-K5c" secondAttribute="centerY" id="hHf-qw-z4u"/>
-                                                                <constraint firstAttribute="bottom" secondItem="VEV-7X-K5c" secondAttribute="bottom" constant="15" id="iyw-iy-nUJ"/>
                                                             </constraints>
                                                         </view>
                                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-gw-Pi2">
