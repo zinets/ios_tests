@@ -43,7 +43,8 @@ class ProfileEditController: UIViewController {
         
         // gender
         var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Gender", value: "Man")
-        genderItem.editable = false
+        genderItem.editable = true
+        genderItem.expanded = true
         items.append(AnyDiffAble(genderItem))
         
         self.dataSource.beginUpdates()
