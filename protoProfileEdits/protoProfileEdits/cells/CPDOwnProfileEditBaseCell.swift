@@ -41,7 +41,9 @@ class CPDOwnProfileEditCell: CPDOwnProfileEditBaseCell {
     override func configure(_ item: AnyDiffAble) {
         if let item = item.payload as? CPDOwnProfileEditorItem {
             self.titleLabel.text = item.title
+            
             self.valueLabel.text = item.value
+            self.valueLabel.isEnabled = item.editable
         }
     }
 }

@@ -41,6 +41,11 @@ class ProfileEditController: UIViewController {
         let screenNameItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Screenname", value: "Johm")
         items.append(AnyDiffAble(screenNameItem))
         
+        // gender
+        var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", title: "Gender", value: "Man")
+        genderItem.editable = false
+        items.append(AnyDiffAble(genderItem))
+        
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
         self.dataSource.appendItems(items, toSection: .first)
