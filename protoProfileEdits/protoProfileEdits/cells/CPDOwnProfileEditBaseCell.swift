@@ -45,7 +45,9 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
             self.valueLabel.isEnabled = item.editable
             self.disclosureView.isHidden = !item.editable
             
-            self.disclosureView.transform = item.expanded ? .init(rotationAngle: CGFloat.pi / 2) : .identity
+            UIView.animate(withDuration: 0.2) {
+                self.disclosureView.transform = item.expanded ? .init(rotationAngle: CGFloat.pi / 2) : .identity
+            }
         }
     }
 }

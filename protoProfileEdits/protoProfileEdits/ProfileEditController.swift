@@ -54,9 +54,14 @@ class ProfileEditController: UIViewController {
         items.append(AnyDiffAble(bdateItem))
         
         // gender
-        var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .gender, title: "Gender", value: "Man")
-        genderItem.editable = false
-        items.append(AnyDiffAble(genderItem))
+//        var genderItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: .gender, title: "Gender", value: "Man")
+//        genderItem.editable = false
+//        items.append(AnyDiffAble(genderItem))
+        
+        // gender picker
+        var genderpickerItem = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: .gender, title: "Gender", value: "Man")
+        genderpickerItem.expanded = self.selectedItemType == .gender
+        items.append(AnyDiffAble(genderpickerItem))
         
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
@@ -73,7 +78,7 @@ extension ProfileEditController: UITableViewDelegate {
             return
         }
         
-        self.selectedItemType = item.type
+        self.selectedItemType = (self.selectedItemType != item.type) ? item.type : nil
         switch item.type {
         case .screenName:
             self.updateDatasource()
