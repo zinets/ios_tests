@@ -61,7 +61,7 @@ class ProfileEditController: UIViewController {
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])
         self.dataSource.appendItems(items, toSection: .first)
-        self.dataSource.endUpdates(false)
+        self.dataSource.endUpdates(true)
     }
 
 }
