@@ -67,6 +67,14 @@ class ProfileEditController: UIViewController {
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: type, title: "Age", value: "20 - 40")
             item.expanded = self.selectedItemType == type
             return item
+        case .about:
+            var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditTextCell", type: type, title: "About me", value: "100 % blah-blah-blah")
+            item.expandable = true
+            item.onDataChange = {
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            }
+            return item
         default:
             fatalError()
         }
@@ -74,7 +82,7 @@ class ProfileEditController: UIViewController {
     
     private func updateDatasource() {
         let items: [CPDOwnProfileEditorItem.EditorType] = [.screenName, .age, .gender,
-        .lookingGender, .lookingAge]        
+                                                           .lookingGender, .lookingAge, .about]
                 
         self.dataSource.beginUpdates()
         self.dataSource.appendSections([.first])

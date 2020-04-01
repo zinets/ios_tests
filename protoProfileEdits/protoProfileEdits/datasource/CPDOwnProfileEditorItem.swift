@@ -9,6 +9,14 @@
 import DiffAble
 
 struct CPDOwnProfileEditorItem: Item {
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.cellReuseId == rhs.cellReuseId
+            && lhs.type == rhs.type
+            && lhs.title == rhs.title
+            && lhs.value == rhs.value
+            && lhs.expanded == rhs.expanded
+    }    
     
     enum EditorType {
         case screenName, age, location, gender /* read only */
@@ -24,6 +32,8 @@ struct CPDOwnProfileEditorItem: Item {
     var expanded: Bool = false
     var expandable: Bool = true
     var editable: Bool = true
+    
+    var onDataChange: (() -> ())?
 }
 
 extension CPDOwnProfileEditorItem.EditorType {
