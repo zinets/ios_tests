@@ -9,7 +9,7 @@
 import DiffAble
 
 /// ячейка, которая просто ведет к экрану редактирования
-class CPDOwnProfileEditSelectorCell: CPDOwnProfileEditBaseCell {
+class OwnProfileEditorSelectorCell: OwnProfileEditorBaseCell {
     
     override func configure(_ item: AnyDiffAble) {
         super.configure(item)

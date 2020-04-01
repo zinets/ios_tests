@@ -9,7 +9,7 @@
 import UIKit
 import DiffAble
 
-class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
+class OwnProfileEditorBaseCell: UITableViewCell, AnyDiffAbleControl {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
@@ -20,15 +20,16 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(false, animated: false)
     }
-    
-    private let activeDividerColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
-    private let inactiveDividerColor = UIColor(red: 0.941, green: 0.953, blue: 0.961, alpha: 1)
-       
+           
     // MARK: outlets -
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var disclosureView: UIImageView!
     @IBOutlet weak var dividerView: UIView!
+    
+    // допустим что эти ячейки будут использоваться не только в купеде; они надизайнятся в отдельном сториборде или ксибе, но класс можео использовать общий? отличия настроить в наследнике не получится (или я тупой и не знаю как), поэтому отличия нужно сделать свойствами
+    @IBInspectable var activeDividerColor: UIColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
+    @IBInspectable var inactiveDividerColor: UIColor = UIColor(red: 0.941, green: 0.953, blue: 0.961, alpha: 1)
     
     var changeAction: ((Any?) -> ())?
     func configure(_ item: AnyDiffAble) {

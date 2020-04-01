@@ -9,7 +9,7 @@
 import DiffAble
 
 /// ячейка, которая дает выбрать значения из пикера/барабана
-class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
+class OwnProfileEditorPickerCell: OwnProfileEditorBaseCell {
     
     @IBOutlet weak var picker: UIPickerView! {
         didSet {
@@ -17,6 +17,9 @@ class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
             picker.delegate = self
         }
     }
+    /// цвет выбранной строки в пикере
+    @IBInspectable var activeTextColor: UIColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
+    @IBInspectable var inactiveTextColor: UIColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     
     fileprivate var dataSource: [[String]]!
     
@@ -47,7 +50,7 @@ class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
     
 }
 
-extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSource {
+extension  OwnProfileEditorPickerCell: UIPickerViewDelegate, UIPickerViewDataSource {
         
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return dataSource.count
@@ -58,9 +61,7 @@ extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let selectedColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
-        let inactiveColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        let color = row == pickerView.selectedRow(inComponent: component) ? selectedColor : inactiveColor
+        let color = row == pickerView.selectedRow(inComponent: component) ? activeTextColor : inactiveTextColor
         let attrString = NSAttributedString(string: dataSource[component][row], attributes: [NSAttributedString.Key.foregroundColor: color])
         return attrString
     }

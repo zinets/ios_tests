@@ -9,7 +9,7 @@
 import DiffAble
 
 /// ячейка, которая дает ввести текст
-class CPDOwnProfileEditTextCell: CPDOwnProfileEditBaseCell {
+class OwnProfileEditorTextCell: OwnProfileEditorBaseCell {
     
     @IBOutlet weak var textPlaceholderLabel: UILabel!
     @IBOutlet weak var textView: UITextView! {
@@ -42,7 +42,7 @@ class CPDOwnProfileEditTextCell: CPDOwnProfileEditBaseCell {
     }
 }
 
-extension CPDOwnProfileEditTextCell: UITextViewDelegate {
+extension OwnProfileEditorTextCell: UITextViewDelegate {
         
     func textViewDidChange(_ textView: UITextView) {
         textView.backgroundColor = textView.text.isEmpty ? .clear : .white
