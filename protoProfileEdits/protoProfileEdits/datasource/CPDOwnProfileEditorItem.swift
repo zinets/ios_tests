@@ -29,28 +29,12 @@ struct CPDOwnProfileEditorItem: Item {
     var title: String
     var value: String?
     
+    var possibleValues: [[String]]?
+    
     var expanded: Bool = false
     var expandable: Bool = true
     // засеривает значение и скрывает стрелку для нередактируемых полей
     var editable: Bool = true
     
     var onDataChange: ((Any?) -> ())?
-}
-
-extension CPDOwnProfileEditorItem.EditorType {
-    
-    var dataSource: [[String]]? {
-        switch self {
-        case .age:
-            return [(18...79).map{ String($0) }]
-        case .lookingAge:
-            let fromAge = (18...79).map{ String($0) }
-            let toAge = (18...79).map{ String($0) }
-            return [fromAge, toAge]
-        case .gender, .lookingGender:
-            return [["Man", "Woman"]]
-        default:
-            return nil
-        }
-    }
 }

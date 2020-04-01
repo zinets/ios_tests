@@ -29,12 +29,8 @@ class OwnProfileEditorPickerCell: OwnProfileEditorBaseCell {
         if let item = item.payload as? CPDOwnProfileEditorItem {
             self.picker.isHidden = !item.expanded
             
-            switch item.type {
-            case .gender, .age, .lookingAge, .lookingGender:
-                dataSource = item.type.dataSource
-            default:
-                fatalError("Nu ty ponyal")
-            }
+            dataSource = item.possibleValues
+            
             self.updateValue()
             UIView.animate(withDuration: 0.2) {
                 self.disclosureView.transform = item.expanded ? .init(rotationAngle: -CGFloat.pi / 2) : .init(rotationAngle: CGFloat.pi / 2)
@@ -43,8 +39,8 @@ class OwnProfileEditorPickerCell: OwnProfileEditorBaseCell {
     }
     
     fileprivate func updateValue() {
-        self.valueLabel.text = (0..<dataSource.count).map { (i) in
-            return dataSource[i][self.picker.selectedRow(inComponent: i)]
+        self.valueLabel.text = self.dataSource.enumerated().map {
+            dataSource[$0.offset][self.picker.selectedRow(inComponent: $0.offset)]
         }.joined(separator: " - ")
     }
     
@@ -83,5 +79,12 @@ extension  OwnProfileEditorPickerCell: UIPickerViewDelegate, UIPickerViewDataSou
         }
         pickerView.reloadComponent(component)
         self.updateValue()
+        
+        if let block = self.changeAction {
+            // из ячейки с пикером я возвращаю массив выбранных индексов
+            block(self.dataSource.enumerated().map {
+                picker.selectedRow(inComponent: $0.offset)
+            })
+        }
     }
 }

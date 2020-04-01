@@ -8,13 +8,12 @@
 
 import DiffAble
 
-
-
 class ProfileEditController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHeightChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,7 +21,25 @@ class ProfileEditController: UIViewController {
         
         self.updateDatasource()
     }
-
+    
+    // MARK: keyboard handling -
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    @objc private func keyboardHeightChange(notification: Notification) {
+        guard let userInfo = notification.userInfo as NSDictionary?,
+            let oldFrame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue,
+            let newFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+            let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+            let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt
+            else { return }
+        
+        let height = oldFrame.cgRectValue.origin.y - newFrame.cgRectValue.origin.y
+        bottomConstraint?.constant += height
+        
+        UIView.animate(withDuration: duration, delay: TimeInterval(0), options: UIView.AnimationOptions(rawValue: curve), animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
     
     // MARK: datasource -
     enum Sections { case first }
@@ -44,6 +61,9 @@ class ProfileEditController: UIViewController {
     //  по тапу я буду запоминать тип, при заполнении датасорца буду соотв. определять какой итем должен быть "раскрыт" (если он в принципе может быть раскрыт
     private var selectedItemType: CPDOwnProfileEditorItem.EditorType?
     
+    private var genderValues: [String] = ["Man", "Woman"]
+    private var agesValues: [String] = (18...78).map { String($0) }
+    
     private func item(for type: CPDOwnProfileEditorItem.EditorType) -> CPDOwnProfileEditorItem {
         switch type {
         case .screenName:
@@ -52,7 +72,15 @@ class ProfileEditController: UIViewController {
             return item
         case.age:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: type, title: "User age", value: "39")
+            item.possibleValues = [self.agesValues]
+            
             item.expanded = self.selectedItemType == item.type
+            item.onDataChange = { values in
+                guard let values = values as? [Int] else { return }
+                values.enumerated().forEach { (element) in
+                    print(element.element)
+                }
+            }
             return item
         case .gender:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditSelectorCell", type: type, title: "Gender", value: "Man")
@@ -61,18 +89,37 @@ class ProfileEditController: UIViewController {
             return item
         case .lookingGender:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: type, title: "Gender", value: "Man")
+            item.possibleValues = [self.genderValues]
+            
             item.expanded = self.selectedItemType == item.type
+            item.onDataChange = { values in
+                guard let values = values as? [Int] else { return }
+                values.enumerated().forEach { [weak self] (element) in
+                    print("selected gender: \(self?.genderValues[element.element])")
+                }
+            }
             return item
         case .lookingAge:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditPickerCell", type: type, title: "Age", value: "20 - 40")
+            item.possibleValues = [self.agesValues, self.agesValues]
+            
             item.expanded = self.selectedItemType == type
+            item.onDataChange = { [weak self] values in
+                guard let values = values as? [Int] else { return }
+                
+                let fromAge = self?.agesValues[values[0]]
+                let toAge = self?.agesValues[values[1]]
+                print("new looking for age: from \(fromAge) to \(toAge)")
+            }
             return item
         case .about:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditTextCell", type: type, title: "About me", value: "100 % blah-blah-blah")
+            
             item.expandable = true
-            item.onDataChange = { _ in
+            item.onDataChange = { (newValue) in
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
+                print(newValue as? String)
             }
             return item
         default:
