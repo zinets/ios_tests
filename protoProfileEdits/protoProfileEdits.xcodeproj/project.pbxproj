@@ -17,7 +17,7 @@
 		690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */; };
 		690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */; };
-		690EBB6824334A570031F82B /* CPDOwnProfileEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */; };
+		690EBB6824334A570031F82B /* CPDOwnProfileEditSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* CPDOwnProfileEditSelectorCell.swift */; };
 		690EBB6C243360480031F82B /* CPDOwnProfileEditPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6B243360480031F82B /* CPDOwnProfileEditPickerCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,7 @@
 		690EBB52243333B10031F82B /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditBaseCell.swift; sourceTree = "<group>"; };
 		690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditorItem.swift; sourceTree = "<group>"; };
-		690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditCell.swift; sourceTree = "<group>"; };
+		690EBB6724334A570031F82B /* CPDOwnProfileEditSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditSelectorCell.swift; sourceTree = "<group>"; };
 		690EBB6B243360480031F82B /* CPDOwnProfileEditPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditPickerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				690EBB612433393A0031F82B /* CPDOwnProfileEditBaseCell.swift */,
-				690EBB6724334A570031F82B /* CPDOwnProfileEditCell.swift */,
+				690EBB6724334A570031F82B /* CPDOwnProfileEditSelectorCell.swift */,
 				690EBB6B243360480031F82B /* CPDOwnProfileEditPickerCell.swift */,
 			);
 			path = cells;
@@ -256,7 +256,7 @@
 				690EBB3F243333990031F82B /* AppDelegate.swift in Sources */,
 				690EBB41243333990031F82B /* SceneDelegate.swift in Sources */,
 				690EBB6C243360480031F82B /* CPDOwnProfileEditPickerCell.swift in Sources */,
-				690EBB6824334A570031F82B /* CPDOwnProfileEditCell.swift in Sources */,
+				690EBB6824334A570031F82B /* CPDOwnProfileEditSelectorCell.swift in Sources */,
 				690EBB622433393A0031F82B /* CPDOwnProfileEditBaseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

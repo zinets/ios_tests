@@ -28,9 +28,7 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
     
     private let activeDividerColor = UIColor(red: 0.008, green: 0.569, blue: 0.953, alpha: 1)
     private let inactiveDividerColor = UIColor(red: 0.941, green: 0.953, blue: 0.961, alpha: 1)
-    
-    var expanded = false
-    
+       
     // MARK: outlets -
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!

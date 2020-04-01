@@ -8,6 +8,7 @@
 
 import DiffAble
 
+/// ячейка, которая дает выбрать значения из пикера/барабана
 class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
     
     @IBOutlet weak var picker: UIPickerView! {
