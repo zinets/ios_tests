@@ -30,11 +30,10 @@ class CPDOwnProfileEditBaseCell: UITableViewCell, AnyDiffAbleControl {
     @IBOutlet weak var disclosureView: UIImageView!
     @IBOutlet weak var dividerView: UIView!
     
-    var changeAction: (() -> ())?
+    var changeAction: ((Any?) -> ())?
     func configure(_ item: AnyDiffAble) {
         if let item = item.payload as? CPDOwnProfileEditorItem {
             self.titleLabel.text = item.title
-            self.valueLabel.text = item.value
             
             self.valueLabel.isEnabled = item.editable
             self.disclosureView.isHidden = !item.editable

@@ -47,7 +47,7 @@ class ProfileEditController: UIViewController {
     private func item(for type: CPDOwnProfileEditorItem.EditorType) -> CPDOwnProfileEditorItem {
         switch type {
         case .screenName:
-            var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: type, title: "Screenname", value: "Johm")
+            var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditSelectorCell", type: type, title: "Screenname", value: "Johm")
             item.expandable = false
             return item
         case.age:
@@ -55,7 +55,7 @@ class ProfileEditController: UIViewController {
             item.expanded = self.selectedItemType == item.type
             return item
         case .gender:
-            var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditCell", type: type, title: "Gender", value: "Man")
+            var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditSelectorCell", type: type, title: "Gender", value: "Man")
             item.editable = false
             item.expandable = false
             return item
@@ -70,7 +70,7 @@ class ProfileEditController: UIViewController {
         case .about:
             var item = CPDOwnProfileEditorItem(cellReuseId: "CPDOwnProfileEditTextCell", type: type, title: "About me", value: "100 % blah-blah-blah")
             item.expandable = true
-            item.onDataChange = {
+            item.onDataChange = { _ in
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
             }

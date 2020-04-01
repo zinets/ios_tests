@@ -32,11 +32,17 @@ class CPDOwnProfileEditPickerCell: CPDOwnProfileEditBaseCell {
             default:
                 fatalError("Nu ty ponyal")
             }
-            
+            self.updateValue()
             UIView.animate(withDuration: 0.2) {
                 self.disclosureView.transform = item.expanded ? .init(rotationAngle: -CGFloat.pi / 2) : .init(rotationAngle: CGFloat.pi / 2)
             }
         }
+    }
+    
+    fileprivate func updateValue() {
+        self.valueLabel.text = (0..<dataSource.count).map { (i) in
+            return dataSource[i][self.picker.selectedRow(inComponent: i)]
+        }.joined(separator: " - ")
     }
     
 }
@@ -61,7 +67,8 @@ extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // я предполагаю, что диапазоны "от" и "до" совпадают, иначе это сплошной геморой и отстутствие смысла от слова "полностью"
-        if pickerView.numberOfComponents == 2 { // узкий случай выбора диапазона возрастов
+        switch pickerView.numberOfComponents {
+        case 2:
             // доп. проверка/выравнивание значений в барабанах
             if component == 0 && pickerView.selectedRow(inComponent: 1) < row {
                 pickerView.selectRow(row, inComponent: 1, animated: true)
@@ -70,8 +77,10 @@ extension  CPDOwnProfileEditPickerCell: UIPickerViewDelegate, UIPickerViewDataSo
                 pickerView.selectRow(row, inComponent: 0, animated: true)
                 pickerView.reloadComponent(0)
             }
+        default:
+            break
         }
         pickerView.reloadComponent(component)
-        // TODO: сигналим, что значение поменялось
+        self.updateValue()
     }
 }

@@ -27,13 +27,14 @@ struct CPDOwnProfileEditorItem: Item {
     var type: EditorType
     
     var title: String
-    var value: String
+    var value: String?
     
     var expanded: Bool = false
     var expandable: Bool = true
+    // засеривает значение и скрывает стрелку для нередактируемых полей
     var editable: Bool = true
     
-    var onDataChange: (() -> ())?
+    var onDataChange: ((Any?) -> ())?
 }
 
 extension CPDOwnProfileEditorItem.EditorType {
