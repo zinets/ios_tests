@@ -32,11 +32,10 @@ class OwnProfileEditorTextCell: OwnProfileEditorBaseCell {
     
     override func configure(_ item: AnyDiffAble) {
         super.configure(item)
-        
         self.valueLabel.isHidden = true
         self.disclosureView.isHidden = true
         
-        if let item = item.payload as? CPDOwnProfileEditorItem {
+        if let item = item.payload as? CPDOwnProfileEditorTextItem {
             self.textView.text = item.value
         }
     }

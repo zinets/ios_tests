@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPDOwnProfileEditSelectorCell" id="3Ak-hx-Sbw" customClass="OwnProfileEditorSelectorCell" customModule="protoProfileEdits" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OwnProfileEditorPushCell" id="3Ak-hx-Sbw" customClass="OwnProfileEditorPushCell" customModule="protoProfileEdits" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ak-hx-Sbw" id="f9W-kq-iYk">
@@ -76,7 +76,7 @@
                                             <outlet property="valueLabel" destination="tId-rU-FWr" id="7pX-hS-LEe"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPDOwnProfileEditPickerCell" id="lQv-uh-8LC" customClass="OwnProfileEditorPickerCell" customModule="protoProfileEdits" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OwnProfileEditorPickerCell" id="lQv-uh-8LC" customClass="OwnProfileEditorPickerCell" customModule="protoProfileEdits" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="414" height="268"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lQv-uh-8LC" id="jfe-lH-eHj">
@@ -168,7 +168,7 @@
                                             <outlet property="valueLabel" destination="sXK-yi-kqT" id="26h-iU-LRD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPDOwnProfileEditTextCell" id="pap-Ff-g2k" customClass="OwnProfileEditorTextCell" customModule="protoProfileEdits" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OwnProfileEditorTextCell" id="pap-Ff-g2k" customClass="OwnProfileEditorTextCell" customModule="protoProfileEdits" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="348" width="414" height="332"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pap-Ff-g2k" id="JoK-z3-puf">

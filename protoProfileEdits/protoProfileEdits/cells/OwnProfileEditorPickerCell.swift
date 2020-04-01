@@ -26,15 +26,17 @@ class OwnProfileEditorPickerCell: OwnProfileEditorBaseCell {
     override func configure(_ item: AnyDiffAble) {
         super.configure(item)
         
-        if let item = item.payload as? CPDOwnProfileEditorItem {
+        if let item = item.payload as? OwnProfileEditorItem {
             self.picker.isHidden = !item.expanded
-            
-            dataSource = item.possibleValues
-            
-            self.updateValue()
             UIView.animate(withDuration: 0.2) {
                 self.disclosureView.transform = item.expanded ? .init(rotationAngle: -CGFloat.pi / 2) : .init(rotationAngle: CGFloat.pi / 2)
             }
+        }
+        if let item = item.payload as? OwnProfileSelectorItem {
+            self.titleLabel.text = item.title
+            
+            dataSource = item.possibleValues
+            self.updateValue()
         }
     }
     

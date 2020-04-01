@@ -17,7 +17,7 @@
 		690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		690EBB622433393A0031F82B /* OwnProfileEditorBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB612433393A0031F82B /* OwnProfileEditorBaseCell.swift */; };
 		690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */; };
-		690EBB6824334A570031F82B /* OwnProfileEditorSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* OwnProfileEditorSelectorCell.swift */; };
+		690EBB6824334A570031F82B /* OwnProfileEditorPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* OwnProfileEditorPushCell.swift */; };
 		690EBB6C243360480031F82B /* OwnProfileEditorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6B243360480031F82B /* OwnProfileEditorPickerCell.swift */; };
 		697F2740243472BB00579795 /* OwnProfileEditorTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F273F243472BB00579795 /* OwnProfileEditorTextCell.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,7 @@
 		690EBB52243333B10031F82B /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		690EBB612433393A0031F82B /* OwnProfileEditorBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorBaseCell.swift; sourceTree = "<group>"; };
 		690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditorItem.swift; sourceTree = "<group>"; };
-		690EBB6724334A570031F82B /* OwnProfileEditorSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorSelectorCell.swift; sourceTree = "<group>"; };
+		690EBB6724334A570031F82B /* OwnProfileEditorPushCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorPushCell.swift; sourceTree = "<group>"; };
 		690EBB6B243360480031F82B /* OwnProfileEditorPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorPickerCell.swift; sourceTree = "<group>"; };
 		697F273F243472BB00579795 /* OwnProfileEditorTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorTextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				690EBB612433393A0031F82B /* OwnProfileEditorBaseCell.swift */,
-				690EBB6724334A570031F82B /* OwnProfileEditorSelectorCell.swift */,
+				690EBB6724334A570031F82B /* OwnProfileEditorPushCell.swift */,
 				690EBB6B243360480031F82B /* OwnProfileEditorPickerCell.swift */,
 				697F273F243472BB00579795 /* OwnProfileEditorTextCell.swift */,
 			);
@@ -260,7 +260,7 @@
 				690EBB3F243333990031F82B /* AppDelegate.swift in Sources */,
 				690EBB41243333990031F82B /* SceneDelegate.swift in Sources */,
 				690EBB6C243360480031F82B /* OwnProfileEditorPickerCell.swift in Sources */,
-				690EBB6824334A570031F82B /* OwnProfileEditorSelectorCell.swift in Sources */,
+				690EBB6824334A570031F82B /* OwnProfileEditorPushCell.swift in Sources */,
 				690EBB622433393A0031F82B /* OwnProfileEditorBaseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,13 +33,17 @@ class OwnProfileEditorBaseCell: UITableViewCell, AnyDiffAbleControl {
     
     var changeAction: ((Any?) -> ())?
     func configure(_ item: AnyDiffAble) {
-        if let item = item.payload as? CPDOwnProfileEditorItem {
-            self.titleLabel.text = item.title
-            
+        if let item = item.payload as? OwnProfileEditableItem {
             self.valueLabel.isEnabled = item.editable
             self.disclosureView.isHidden = !item.editable
-            
+
             self.changeAction = item.onDataChange
         }
+    }
+}
+
+extension UITableViewCell {
+    static var reuseCellId: String {
+        return String.init(describing: self)
     }
 }
