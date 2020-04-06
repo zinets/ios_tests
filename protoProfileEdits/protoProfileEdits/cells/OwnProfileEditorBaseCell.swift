@@ -43,7 +43,6 @@ class OwnProfileEditorBaseCell: UITableViewCell, AnyDiffAbleControl {
 }
 
 extension UITableViewCell {
-    static var reuseCellId: String {
-        return String.init(describing: self)
-    }
+    
+    static var reuseCellId: String { String.init(describing: self) }
 }

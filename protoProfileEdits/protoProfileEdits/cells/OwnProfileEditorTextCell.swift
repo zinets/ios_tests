@@ -35,7 +35,8 @@ class OwnProfileEditorTextCell: OwnProfileEditorBaseCell {
         self.valueLabel.isHidden = true
         self.disclosureView.isHidden = true
         
-        if let item = item.payload as? CPDOwnProfileEditorTextItem {
+        if let item = item.payload as? OwnProfileEditorTextItem {
+            self.titleLabel.text = item.title
             self.textView.text = item.value
         }
     }

@@ -15,14 +15,14 @@ enum EditorType {
 }
 
 // базовые свойства ячейки редактирования профиля - тип, разворачиваемость etc
-protocol OwnProfileEditorItem {
+protocol OwnProfileEditorItem /* UserInfoExpandable */ {
     var type: EditorType { get set }
     
     var expanded: Bool { get set }
     var expandable: Bool { get set }
 }
 
-protocol OwnProfileEditableItem {
+protocol OwnProfileEditableItem /* UserInfoEditable */ {
     var editable: Bool { get set } // засеривает значение и скрывает стрелку для нередактируемых полей
     // тут прикольно было бы возвращать саму структуру, ту ее часть, которая нужна конкретному варианту (Text, Selector, MultiSelector протоколы)
     var onDataChange: ((Any?) -> ())? { get set }

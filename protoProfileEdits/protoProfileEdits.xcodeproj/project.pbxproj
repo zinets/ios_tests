@@ -13,31 +13,12 @@
 		690EBB46243333990031F82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB44243333990031F82B /* Main.storyboard */; };
 		690EBB482433339A0031F82B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB472433339A0031F82B /* Assets.xcassets */; };
 		690EBB4B2433339A0031F82B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690EBB492433339A0031F82B /* LaunchScreen.storyboard */; };
-		690EBB5C243333B80031F82B /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; };
-		690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 690EBB58243333B10031F82B /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		690EBB622433393A0031F82B /* OwnProfileEditorBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB612433393A0031F82B /* OwnProfileEditorBaseCell.swift */; };
 		690EBB6624333B5C0031F82B /* CPDOwnProfileEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */; };
 		690EBB6824334A570031F82B /* OwnProfileEditorPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6724334A570031F82B /* OwnProfileEditorPushCell.swift */; };
 		690EBB6C243360480031F82B /* OwnProfileEditorPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EBB6B243360480031F82B /* OwnProfileEditorPickerCell.swift */; };
 		697F2740243472BB00579795 /* OwnProfileEditorTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697F273F243472BB00579795 /* OwnProfileEditorTextCell.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		690EBB57243333B10031F82B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 690EBB52243333B10031F82B /* DiffAble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 49B33D0E23339AD10003E5E3;
-			remoteInfo = DiffAble;
-		};
-		690EBB59243333B10031F82B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 690EBB52243333B10031F82B /* DiffAble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 49B33D2223339C750003E5E3;
-			remoteInfo = DiffAbleSamples;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		690EBB5E243333B80031F82B /* Embed Frameworks */ = {
@@ -46,7 +27,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				690EBB5D243333B80031F82B /* DiffAble.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +42,6 @@
 		690EBB472433339A0031F82B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690EBB4A2433339A0031F82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		690EBB4C2433339A0031F82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		690EBB52243333B10031F82B /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		690EBB612433393A0031F82B /* OwnProfileEditorBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorBaseCell.swift; sourceTree = "<group>"; };
 		690EBB6524333B5C0031F82B /* CPDOwnProfileEditorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPDOwnProfileEditorItem.swift; sourceTree = "<group>"; };
 		690EBB6724334A570031F82B /* OwnProfileEditorPushCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnProfileEditorPushCell.swift; sourceTree = "<group>"; };
@@ -75,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690EBB5C243333B80031F82B /* DiffAble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +63,6 @@
 		690EBB32243333990031F82B = {
 			isa = PBXGroup;
 			children = (
-				690EBB52243333B10031F82B /* DiffAble.xcodeproj */,
 				690EBB3D243333990031F82B /* protoProfileEdits */,
 				690EBB3C243333990031F82B /* Products */,
 				690EBB5B243333B80031F82B /* Frameworks */,
@@ -111,15 +88,6 @@
 				690EBB5F243338EB0031F82B /* supporting files */,
 			);
 			path = protoProfileEdits;
-			sourceTree = "<group>";
-		};
-		690EBB53243333B10031F82B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				690EBB58243333B10031F82B /* DiffAble.framework */,
-				690EBB5A243333B10031F82B /* DiffAbleSamples.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		690EBB5B243333B80031F82B /* Frameworks */ = {
@@ -206,35 +174,12 @@
 			mainGroup = 690EBB32243333990031F82B;
 			productRefGroup = 690EBB3C243333990031F82B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 690EBB53243333B10031F82B /* Products */;
-					ProjectRef = 690EBB52243333B10031F82B /* DiffAble.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				690EBB3A243333990031F82B /* protoProfileEdits */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		690EBB58243333B10031F82B /* DiffAble.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DiffAble.framework;
-			remoteRef = 690EBB57243333B10031F82B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		690EBB5A243333B10031F82B /* DiffAbleSamples.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = DiffAbleSamples.app;
-			remoteRef = 690EBB59243333B10031F82B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		690EBB39243333990031F82B /* Resources */ = {

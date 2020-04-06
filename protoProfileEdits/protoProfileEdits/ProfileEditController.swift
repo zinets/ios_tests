@@ -50,17 +50,19 @@ class ProfileEditController: UIViewController {
     }
     
     private lazy var dataSource: TableDiffAbleDatasource<Sections, AnyDiffAble> = {
-        let ds = TableDiffAbleDatasource<Sections, AnyDiffAble>(tableView: self.tableView) { (cell, item) in
-            if let cell = cell as? AnyDiffAbleControl {
-                cell.configure(item)
-            }
+        let ds = TableDiffAbleDatasource<Sections, AnyDiffAble>(tableView: self.tableView) {
+            ($0 as! AnyDiffAbleControl).configure($1)
+//            (cell, item) in
+//            if let cell = cell as? AnyDiffAbleControl {
+//                cell.configure(item)
+//            }
         }
         return ds
     }()
     
     //  по тапу я буду запоминать тип, при заполнении датасорца буду соотв. определять какой итем должен быть "раскрыт" (если он в принципе может быть раскрыт
     private var selectedItemType: EditorType?
-    
+        
     private var genderValues: [String] = ["Man", "Woman"]
     private var agesValues: [String] = (18...78).map { String($0) }
 
