@@ -26,15 +26,40 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bnw-cq-GKv">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="Bnw-cq-GKv" customClass="TestCell1" customModule="ios13CollectionTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XQu-mg-H0A">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add_ Stories" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-U4-8SM">
+                                                    <rect key="frame" x="56" y="56" width="16" height="16"/>
+                                                    <color key="backgroundColor" red="0.16862745098039217" green="0.18431372549019609" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIF-hJ-tm8">
+                                                    <rect key="frame" x="43" y="80" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ors-U4-8SM" firstAttribute="centerY" secondItem="XQu-mg-H0A" secondAttribute="centerY" id="4Fp-22-Xy0"/>
+                                                <constraint firstItem="wIF-hJ-tm8" firstAttribute="centerX" secondItem="Ors-U4-8SM" secondAttribute="centerX" id="AsD-wV-2FI"/>
+                                                <constraint firstItem="Ors-U4-8SM" firstAttribute="centerX" secondItem="XQu-mg-H0A" secondAttribute="centerX" id="N08-3q-Xx4"/>
+                                                <constraint firstItem="wIF-hJ-tm8" firstAttribute="top" secondItem="Ors-U4-8SM" secondAttribute="bottom" constant="8" id="WGw-0Q-WTC"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.16862745100000001" green="0.1843137255" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="label" destination="wIF-hJ-tm8" id="L5B-V9-S6u"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MJN-88-4tf"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,10 +71,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="0DG-mk-eCO" id="FKW-Ud-Fn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add_ Stories" width="16" height="16"/>
+    </resources>
 </document>
