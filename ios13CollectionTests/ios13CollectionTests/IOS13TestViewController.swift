@@ -27,7 +27,7 @@ class IOS13TestViewController: UIViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 0
         let layout = UICollectionViewCompositionalLayout(sectionProvider: { (section, env) -> NSCollectionLayoutSection? in
-            let section = NSCollectionLayoutSection(group: self.groupFor(section: section))
+            let section = self.sectionFor(section: section)
             return section
         }, configuration: config)
         
@@ -36,40 +36,54 @@ class IOS13TestViewController: UIViewController {
     
     
     
-    func groupFor(section: Int) -> NSCollectionLayoutGroup {
+    func sectionFor(section: Int) -> NSCollectionLayoutSection {
         switch section {
-        case 0: return group1()
-        default: return group1()
+        case 0:
+            return section1()
+        case 1:
+            return section2()
+        default:
+            fatalError()
         }
     }
         
-    func group1() -> NSCollectionLayoutGroup {
+    func section1() -> NSCollectionLayoutSection {
         let leadingItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                                      heightDimension: .fractionalWidth(0.5))
         let leadingItem = NSCollectionLayoutItem(layoutSize: leadingItemSize)
-        leadingItem.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
         
-        let size2 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                           heightDimension: .fractionalWidth(0.5))
-        let item2 = NSCollectionLayoutItem(layoutSize: size2)
-        item2.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
-
-        let trailingItemsSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                       heightDimension: .fractionalHeight(1))
-        let trailingSubGroup = NSCollectionLayoutGroup.vertical(layoutSize: trailingItemsSize,
-                                                                subitem: item2,
-                                                                count: 2)
+        let smallSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .fractionalHeight(1))
+        let smallItem = NSCollectionLayoutItem(layoutSize: smallSize)
+        
+        let smallItemsGroup = NSCollectionLayoutGroup.vertical(layoutSize:
+            NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                   heightDimension: .fractionalHeight(1)),
+                                                               subitem: smallItem,
+                                                               count: 2)
+        
         let trailingGroup = NSCollectionLayoutGroup.horizontal(layoutSize:
             NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                    heightDimension: .fractionalHeight(1)),
-                                                               subitem: trailingSubGroup,
-                                                               count: 2)
+                                                               subitems: [smallItemsGroup])
         
-        
-        let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                          heightDimension: .fractionalWidth(0.5))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [leadingItem, trailingGroup])
-        return group
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize:
+            NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                   heightDimension: .fractionalWidth(0.5)),
+                                                       subitems: [leadingItem, trailingGroup])
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
+    func section2() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                              heightDimension: .estimated(44)) // <----- тут
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .estimated(44)) // <----- И тут !!!
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        return NSCollectionLayoutSection(group: group)
     }
 }
 
@@ -77,13 +91,15 @@ private typealias CollectionDataSource = IOS13TestViewController
 extension CollectionDataSource: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0, 1, 2:
+        case 0:
             return 5
+        case 1:
+            return 4
         default:
             return 0
         }
@@ -91,8 +107,12 @@ extension CollectionDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
-        case 0, 1, 2:
+        case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
+            
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath)
             
             return cell
         default:
