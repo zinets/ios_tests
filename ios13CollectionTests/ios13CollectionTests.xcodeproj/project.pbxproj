@@ -16,26 +16,7 @@
 		69858106247677F1005A47B6 /* TestCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69858105247677F1005A47B6 /* TestCell1.swift */; };
 		698581092476B2FD005A47B6 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698581072476B2FD005A47B6 /* SectionHeader.swift */; };
 		6985810A2476B2FD005A47B6 /* SectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698581082476B2FD005A47B6 /* SectionHeader.xib */; };
-		69EBE89024778C950039892D /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EBE88C24778C8A0039892D /* DiffAble.framework */; };
-		69EBE89124778C950039892D /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69EBE88C24778C8A0039892D /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		69EBE88B24778C8A0039892D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69EBE88624778C8A0039892D /* DiffAble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 49B33D0E23339AD10003E5E3;
-			remoteInfo = DiffAble;
-		};
-		69EBE88D24778C8A0039892D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69EBE88624778C8A0039892D /* DiffAble.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 49B33D2223339C750003E5E3;
-			remoteInfo = DiffAbleSamples;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		69EBE89224778C950039892D /* Embed Frameworks */ = {
@@ -44,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69EBE89124778C950039892D /* DiffAble.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +43,6 @@
 		69858105247677F1005A47B6 /* TestCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell1.swift; sourceTree = "<group>"; };
 		698581072476B2FD005A47B6 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		698581082476B2FD005A47B6 /* SectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeader.xib; sourceTree = "<group>"; };
-		69EBE88624778C8A0039892D /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69EBE89024778C950039892D /* DiffAble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +59,6 @@
 		696A8AC724766F5E00921460 = {
 			isa = PBXGroup;
 			children = (
-				69EBE88624778C8A0039892D /* DiffAble.xcodeproj */,
 				696A8AD224766F5F00921460 /* ios13CollectionTests */,
 				696A8AE724766FAA00921460 /* Supporting files */,
 				696A8AD124766F5F00921460 /* Products */,
@@ -119,15 +96,6 @@
 				696A8AE124766F6000921460 /* Info.plist */,
 			);
 			name = "Supporting files";
-			sourceTree = "<group>";
-		};
-		69EBE88724778C8A0039892D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				69EBE88C24778C8A0039892D /* DiffAble.framework */,
-				69EBE88E24778C8A0039892D /* DiffAbleSamples.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		69EBE88F24778C950039892D /* Frameworks */ = {
@@ -184,35 +152,12 @@
 			mainGroup = 696A8AC724766F5E00921460;
 			productRefGroup = 696A8AD124766F5F00921460 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 69EBE88724778C8A0039892D /* Products */;
-					ProjectRef = 69EBE88624778C8A0039892D /* DiffAble.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				696A8ACF24766F5F00921460 /* ios13CollectionTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		69EBE88C24778C8A0039892D /* DiffAble.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DiffAble.framework;
-			remoteRef = 69EBE88B24778C8A0039892D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		69EBE88E24778C8A0039892D /* DiffAbleSamples.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = DiffAbleSamples.app;
-			remoteRef = 69EBE88D24778C8A0039892D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		696A8ACE24766F5F00921460 /* Resources */ = {
