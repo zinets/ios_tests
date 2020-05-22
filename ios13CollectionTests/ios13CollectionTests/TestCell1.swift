@@ -16,3 +16,7 @@ class TestCell1: UICollectionViewCell {
         label.text = String(format: "%d : %d", layoutAttributes.indexPath.section, layoutAttributes.indexPath.item)
     }
 }
+
+class TestCell2: UICollectionViewCell {
+
+}

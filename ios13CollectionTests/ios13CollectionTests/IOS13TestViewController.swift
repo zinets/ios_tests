@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DiffAble
 
 class IOS13TestViewController: UIViewController {
 
@@ -123,6 +124,46 @@ class IOS13TestViewController: UIViewController {
         
         return section
     }
+    
+    // MARK: datasource -
+    private lazy var dataSource = CollectionDiffAbleDatasource<Int, AnyDiffAble>(collectionView: self.collectionView) { (cell, item) in
+    }
+    
+    func update1() {
+        dataSource.beginUpdates()
+        dataSource.appendSections([0])
+        let item = TestItem(cellReuseId: "TestCell1")
+        dataSource.appendItems([AnyDiffAble(item)], toSection: 0)
+        dataSource.endUpdates(false)
+    }
+    
+    func update2() {
+        dataSource.beginUpdates()
+        dataSource.appendSections([0, 1])
+        
+        let item = TestItem(cellReuseId: "TestCell1")
+        let items = [0,1,2,3,4].map{ _ in AnyDiffAble(item) }
+        dataSource.appendItems(items, toSection: 0)
+        
+        let item2 = TestItem(cellReuseId: "TestCell2")
+        let items2 = [0,1,2,3,4].map{ _ in AnyDiffAble(item2) }
+        dataSource.appendItems(items2, toSection: 1)
+        
+        dataSource.endUpdates(false)
+    }
+    
+    // MARK: actions -
+    @IBAction func action1(_ sender: Any) {
+        self.update1()
+    }
+    
+    @IBAction func action2(_ sender: Any) {
+        self.update2()
+    }
+}
+
+struct TestItem: Item {
+    var cellReuseId: String
 }
 
 private typealias CollectionDataSource = IOS13TestViewController
