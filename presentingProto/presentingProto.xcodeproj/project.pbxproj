@@ -35,6 +35,9 @@
 		69A15C0524C85C4500B44D23 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15C0324C85C3900B44D23 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */; };
 		69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */; };
+		69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */; };
+		69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */; };
+		69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,9 @@
 		69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenVideoCell.swift; sourceTree = "<group>"; };
 		69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPresentAnimator.swift; sourceTree = "<group>"; };
+		69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDismissAnimator.swift; sourceTree = "<group>"; };
+		69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadeDismissAnimator.swift; sourceTree = "<group>"; };
+		69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadePresentAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,11 +205,11 @@
 		69A15B4F24C8337700B44D23 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */,
 				69A15B5824C839E800B44D23 /* DismissAnimation.swift */,
 				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
 				69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */,
 				69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */,
-				69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -269,6 +275,9 @@
 			children = (
 				69A15BE824C85AE600B44D23 /* FullScreenAnimators.swift */,
 				69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */,
+				69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */,
+				69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */,
+				69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -422,6 +431,7 @@
 				69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */,
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
 				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
+				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,
 				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
 				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
 				69A15B6A24C8583B00B44D23 /* FullscreenTransition.swift in Sources */,
@@ -431,6 +441,8 @@
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
 				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
+				69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */,
+				69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */,
 				69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */,
 				69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */,
 				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,

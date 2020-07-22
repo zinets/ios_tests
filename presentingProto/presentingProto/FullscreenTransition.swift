@@ -24,7 +24,11 @@ class FullscreenTransition: NSObject, UIViewControllerTransitioningDelegate {
         return driver
     }
     
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FullScreenFadePresentAnimator()
+    }
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return FullScreenDismissAnimator() //DismissAnimation()
+        return FullScreenFadeDismissAnimator() //FullScreenDismissAnimator() //DismissAnimation()
     }
 }
