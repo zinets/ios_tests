@@ -15,7 +15,6 @@
 		69A15B4724C832C700B44D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4524C832C700B44D23 /* LaunchScreen.storyboard */; };
 		69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5024C8347E00B44D23 /* TransitionDriver.swift */; };
 		69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */; };
-		69A15B5524C8350E00B44D23 /* CGPoint+Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */; };
 		69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5624C836AA00B44D23 /* YellowController.swift */; };
 		69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5824C839E800B44D23 /* DismissAnimation.swift */; };
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
@@ -119,7 +118,6 @@
 		69A15B4824C832C700B44D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69A15B5024C8347E00B44D23 /* TransitionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
 		69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenPresentationController.swift; sourceTree = "<group>"; };
-		69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Velocity.swift"; sourceTree = "<group>"; };
 		69A15B5624C836AA00B44D23 /* YellowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowController.swift; sourceTree = "<group>"; };
 		69A15B5824C839E800B44D23 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
@@ -205,11 +203,7 @@
 		69A15B4F24C8337700B44D23 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */,
 				69A15B5824C839E800B44D23 /* DismissAnimation.swift */,
-				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
-				69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */,
-				69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -239,6 +233,8 @@
 				69A15BE524C85AE600B44D23 /* layout */,
 				69A15BE724C85AE600B44D23 /* animator */,
 				69A15BE924C85AE600B44D23 /* model */,
+				69A15C3C24C8780B00B44D23 /* presenter */,
+				69A15C3D24C8788A00B44D23 /* transitions */,
 				69A15BEC24C85AE600B44D23 /* FullScreenController.swift */,
 			);
 			path = animated;
@@ -304,6 +300,23 @@
 				69A15C0324C85C3900B44D23 /* MD5.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		69A15C3C24C8780B00B44D23 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		69A15C3D24C8788A00B44D23 /* transitions */ = {
+			isa = PBXGroup;
+			children = (
+				69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */,
+				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
+			);
+			path = transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,7 +460,6 @@
 				69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */,
 				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,
 				69A15BF124C85AE600B44D23 /* FullScreenLayout.swift in Sources */,
-				69A15B5524C8350E00B44D23 /* CGPoint+Velocity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +622,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PYTYCCS829;
 				INFOPLIST_FILE = presentingProto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +641,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PYTYCCS829;
 				INFOPLIST_FILE = presentingProto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
