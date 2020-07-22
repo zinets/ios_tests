@@ -7,10 +7,6 @@
 //
 import UIKit
 
-enum TransitionDirection {
-    case present, dismiss
-}
-
 class TransitionDriver: UIPercentDrivenInteractiveTransition {
     
     // MARK: - Linking
@@ -28,63 +24,19 @@ class TransitionDriver: UIPercentDrivenInteractiveTransition {
     // MARK: - Override
     override var wantsInteractiveStart: Bool {
         get {
-            switch direction {
-            case .present:
-                return false
-            case .dismiss:
-                let gestureIsActive = panRecognizer?.state == .began
-                return gestureIsActive
-            }
+            let gestureIsActive = panRecognizer?.state == .began
+            return gestureIsActive
         }
         
         set { }
     }
     
-    // MARK: - Direction
-    var direction: TransitionDirection = .present
-    
     @objc private func handle(recognizer r: UIPanGestureRecognizer) {
-        switch direction {
-        case .present:
-            handlePresentation(recognizer: r)
-        case .dismiss:
-            handleDismiss(recognizer: r)
-        }
-    }
-}
-
-// MARK: - Gesture Handling
-extension TransitionDriver {
-    
-    private func handlePresentation(recognizer r: UIPanGestureRecognizer) {
-        switch r.state {
-        case .began:
-            pause()
-        case .changed:
-            let increment = -r.incrementToBottom(maxTranslation: maxTranslation)
-            update(percentComplete + increment)
-            
-        case .ended, .cancelled:
-            if r.isProjectedToDownHalf(maxTranslation: maxTranslation) {
-                cancel()
-            } else {
-                finish()
-            }
-            
-        case .failed:
-            cancel()
-            
-        default:
-            break
-        }
-    }
-    
-    private func handleDismiss(recognizer r: UIPanGestureRecognizer) {
         switch r.state {
         case .began:
             pause() // Pause allows to detect isRunning
-            
-            if !isRunning {
+                        
+            if percentComplete == 0 {
                 presentedController?.dismiss(animated: true) // Start the new one
             }
         
@@ -110,10 +62,6 @@ extension TransitionDriver {
         return presentedController?.view.frame.height ?? 0
     }
     
-    /// `pause()` before call `isRunning`
-    private var isRunning: Bool {
-        return percentComplete != 0
-    }
 }
 
 private extension UIPanGestureRecognizer {

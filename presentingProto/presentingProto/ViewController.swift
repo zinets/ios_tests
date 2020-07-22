@@ -27,8 +27,7 @@ extension ViewController: UIViewControllerTransitioningDelegate {
         driver.link(to: presented)
         
         let presentationController = FullscreenPresentationController(presentedViewController: presented,
-                                                                presenting: presenting ?? source)
-        presentationController.driver = driver
+                                                                presenting: presenting ?? source)        
         return presentationController
     }
     

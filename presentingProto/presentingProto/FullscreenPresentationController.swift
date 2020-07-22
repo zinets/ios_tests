@@ -43,9 +43,7 @@ class FullscreenPresentationController: UIPresentationController {
     override func presentationTransitionDidEnd(_ completed: Bool) {
         super.presentationTransitionDidEnd(completed)
         
-        if completed {
-            driver.direction = .dismiss
-        } else {
+        if !completed {
             self.dimmedView.removeFromSuperview()
         }
     }
@@ -78,9 +76,7 @@ class FullscreenPresentationController: UIPresentationController {
             dimmedView.backgroundColor = dimmColor
         }
     }
-    
-    var driver: TransitionDriver!
-    
+        
     private func performAlongsideTransition(_ block: @escaping () -> Void) {
         guard let coordinator = self.presentedViewController.transitionCoordinator else {
             block()
