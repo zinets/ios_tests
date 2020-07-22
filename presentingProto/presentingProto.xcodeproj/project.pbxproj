@@ -17,7 +17,42 @@
 		69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */; };
 		69A15B5524C8350E00B44D23 /* CGPoint+Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */; };
 		69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5624C836AA00B44D23 /* YellowController.swift */; };
+		69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5824C839E800B44D23 /* DismissAnimation.swift */; };
+		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
+		69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69A15B5F24C83CD400B44D23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49B33D0E23339AD10003E5E3;
+			remoteInfo = DiffAble;
+		};
+		69A15B6124C83CD400B44D23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49B33D2223339C750003E5E3;
+			remoteInfo = DiffAbleSamples;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69A15B6624C83CE200B44D23 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		69A15B3724C832C500B44D23 /* presentingProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = presentingProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +67,9 @@
 		69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenPresentationController.swift; sourceTree = "<group>"; };
 		69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Velocity.swift"; sourceTree = "<group>"; };
 		69A15B5624C836AA00B44D23 /* YellowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowController.swift; sourceTree = "<group>"; };
+		69A15B5824C839E800B44D23 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
+		69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowControllerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +87,10 @@
 		69A15B2E24C832C500B44D23 = {
 			isa = PBXGroup;
 			children = (
+				69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */,
 				69A15B3924C832C500B44D23 /* presentingProto */,
 				69A15B3824C832C500B44D23 /* Products */,
+				69A15B6324C83CE200B44D23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +122,7 @@
 				69A15B4324C832C700B44D23 /* Assets.xcassets */,
 				69A15B4524C832C700B44D23 /* LaunchScreen.storyboard */,
 				69A15B4824C832C700B44D23 /* Info.plist */,
+				69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -88,11 +130,28 @@
 		69A15B4F24C8337700B44D23 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				69A15B5824C839E800B44D23 /* DismissAnimation.swift */,
 				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
 				69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */,
 				69A15B5424C8350E00B44D23 /* CGPoint+Velocity.swift */,
 			);
 			name = classes;
+			sourceTree = "<group>";
+		};
+		69A15B5B24C83CD400B44D23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69A15B6024C83CD400B44D23 /* DiffAble.framework */,
+				69A15B6224C83CD400B44D23 /* DiffAbleSamples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69A15B6324C83CE200B44D23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +164,7 @@
 				69A15B3324C832C500B44D23 /* Sources */,
 				69A15B3424C832C500B44D23 /* Frameworks */,
 				69A15B3524C832C500B44D23 /* Resources */,
+				69A15B6624C83CE200B44D23 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,12 +201,35 @@
 			mainGroup = 69A15B2E24C832C500B44D23;
 			productRefGroup = 69A15B3824C832C500B44D23 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 69A15B5B24C83CD400B44D23 /* Products */;
+					ProjectRef = 69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				69A15B3624C832C500B44D23 /* presentingProto */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		69A15B6024C83CD400B44D23 /* DiffAble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DiffAble.framework;
+			remoteRef = 69A15B5F24C83CD400B44D23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		69A15B6224C83CD400B44D23 /* DiffAbleSamples.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DiffAbleSamples.app;
+			remoteRef = 69A15B6124C83CD400B44D23 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		69A15B3524C832C500B44D23 /* Resources */ = {
@@ -171,6 +254,8 @@
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
+				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
+				69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */,
 				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,
 				69A15B5524C8350E00B44D23 /* CGPoint+Velocity.swift in Sources */,
 			);
