@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DismissAnimation: NSObject {
+class DismissAnimation: NSObject, UIViewControllerAnimatedTransitioning  {
     let duration: TimeInterval = 0.3
     
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
@@ -25,9 +25,7 @@ class DismissAnimation: NSObject {
         
         return animator
     }
-}
 
-extension DismissAnimation: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }

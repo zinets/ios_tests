@@ -11,6 +11,7 @@ import UIKit
 class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        
         let containerView = transitionContext.containerView
         
         if let toView = transitionContext.view(forKey: .to) {
@@ -25,7 +26,7 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let finalFrame = fromViewController.startFrame!
         
         let tempView = ImageZoomView(frame: startFrame)
-        tempView.backgroundColor = .black
+        tempView.backgroundColor = .clear
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
         tempView.zoomScale = fromViewController.currentZoom ?? 1
@@ -33,10 +34,9 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         fromView?.alpha = 0
         
-        let animator = UIViewPropertyAnimator(duration: FullScreenAnimationDuration, curve: UIView.AnimationCurve.easeInOut)
-        animator.addAnimations {
+        let animator = UIViewPropertyAnimator(duration: FullScreenAnimationDuration, curve: UIView.AnimationCurve.easeInOut)  {
             tempView.contentMode = .scaleAspectFill
-            tempView.backgroundColor = .white
+            tempView.backgroundColor = .clear
             tempView.frame = finalFrame
         }
         animator.addCompletion { succ in
@@ -56,7 +56,7 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         animator.startAnimation()
     }
     
-//    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-//        return self.animator(using: transitionContext)
-//    }
+    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        return self.animator(using: transitionContext)
+    }
 }
