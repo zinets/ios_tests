@@ -11,7 +11,7 @@
         <!--From controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="From controller" id="BYZ-38-t0r" customClass="ViewController" customModule="presentingProto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="From controller" id="BYZ-38-t0r" customClass="StartViewController" customModule="presentingProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,15 +23,36 @@
                                     <segue destination="mBX-ka-cjP" kind="presentation" id="e7S-BF-gVQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLl-oH-oGB">
+                                <rect key="frame" x="20" y="148" width="104" height="30"/>
+                                <state key="normal" title="show fulscreen"/>
+                                <connections>
+                                    <action selector="showFS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wz9-jo-O9B"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unnamed" translatesAutoresizingMaskIntoConstraints="NO" id="pGt-cT-PsU">
+                                <rect key="frame" x="78" y="246" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="L3U-Ie-sm4"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HLl-oH-oGB" firstAttribute="firstBaseline" secondItem="XuD-zl-yyt" secondAttribute="baseline" constant="40" id="IJG-hW-FvR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pGt-cT-PsU" secondAttribute="trailing" constant="96" id="a5t-5n-lwN"/>
                             <constraint firstItem="XuD-zl-yyt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hIn-gB-nWL"/>
                             <constraint firstItem="XuD-zl-yyt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="igO-le-Lma"/>
+                            <constraint firstItem="HLl-oH-oGB" firstAttribute="leading" secondItem="XuD-zl-yyt" secondAttribute="leading" id="pll-vX-Oas"/>
+                            <constraint firstItem="pGt-cT-PsU" firstAttribute="top" secondItem="HLl-oH-oGB" secondAttribute="bottom" constant="68" id="uMG-59-MEt"/>
+                            <constraint firstItem="pGt-cT-PsU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="78" id="xeR-i2-kIu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="zwf-Jh-sk1"/>
+                    <connections>
+                        <outlet property="startImageView" destination="pGt-cT-PsU" id="wZZ-ei-PYI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,4 +164,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="unnamed" width="512" height="326"/>
+    </resources>
 </document>
