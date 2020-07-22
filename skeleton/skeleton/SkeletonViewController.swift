@@ -12,12 +12,7 @@ class SkeletonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let animator = SkeletonAnimator()
-        animator.beginSkeletAnimation(for: self.view)
-//        Timer.scheduledTimer(withTimeInterval: 6, repeats: false) { (_) in
-//            self.removeSkeletAnimation()
-//        }
+                
     }
     
     @IBOutlet weak var label1: UILabel!
@@ -26,6 +21,13 @@ class SkeletonViewController: UIViewController {
     @IBOutlet weak var view2: UIView!
     
 
-
+    @IBAction func doAnimation(_ sender: Any) {
+        let animator = SkeletonAnimator()
+        animator.beginSkeletAnimation(for: self.view)
+//        Timer.scheduledTimer(withTimeInterval: 6, repeats: false) { (_) in
+//            animator.stopAnimation()
+//        }
+    }
+    
 }
 

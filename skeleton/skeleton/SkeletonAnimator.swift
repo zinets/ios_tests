@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SkeletonAnimator {
+class SkeletonAnimator: NSObject {
     
     private var bgLayer: CALayer!
     private var gradientLayer: CAGradientLayer!
@@ -21,20 +21,46 @@ class SkeletonAnimator {
         
         gradientLayer = self.makeGradient(view: view)
         gradientLayer.add(self.makeLocationsAnimaton(), forKey: nil)
-        view.layer.addSublayer(gradientLayer)
+        bgLayer.addSublayer(gradientLayer)
+    }
+    
+    func stopAnimation() {
+        guard bgLayer != nil,
+            gradientLayer != nil else {
+                return
+        }
+        
+        let removeAnimation = CABasicAnimation(keyPath: "opacity")
+        removeAnimation.duration = 2
+        removeAnimation.toValue = 0
+        removeAnimation.delegate = self
+        
+        bgLayer.add(removeAnimation, forKey: nil)
     }
     
     private func makeGradient(view: UIView) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor, UIColor.red.cgColor]
-        gradientLayer.startPoint = .init(x: -0.25, y: 0)
-        gradientLayer.endPoint = .init(x: 1.25, y: 1)
+        gradientLayer.startPoint = .init(x: -0.25, y: 1)
+        gradientLayer.endPoint = .init(x: 1.25, y: 0)
         gradientLayer.locations = [-0.25,-0.125, 0]
         
         gradientLayer.frame = view.bounds
-        gradientLayer.mask = self.makeSkelet(for: view)
+//        gradientLayer.mask = self.makeSkelet(for: view)
         
         return gradientLayer
+    }
+    
+    private func maskedViews(view: UIView) -> [UIView] {
+        var views: [UIView] = []
+        if view.tag == 1 {
+            views.append(view)
+        } else {
+            view.subviews.forEach { (view) in
+                views.append(contentsOf: self.maskedViews(view: view))
+            }
+        }
+        return views
     }
     
     private func makeSkelet(for view: UIView) -> CALayer {
@@ -42,17 +68,19 @@ class SkeletonAnimator {
         maskLayer.frame = view.bounds
         maskLayer.fillColor = UIColor.clear.cgColor
        
-        view.subviews.forEach { (view) in
+        let views = self.maskedViews(view: view)
+        views.forEach { (v) in
             let subPath: UIBezierPath
-            switch view {
+            let convertedFrame = v.superview!.convert(v.frame, to: view)
+            switch v {
             case is UILabel:
-                subPath = UIBezierPath(roundedRect: view.frame, cornerRadius: 7)
+                subPath = UIBezierPath(roundedRect: convertedFrame, cornerRadius: 7)
             case is UIButton:
-                subPath = UIBezierPath(roundedRect: view.frame, cornerRadius: view.frame.height / 2)
+                subPath = UIBezierPath(roundedRect: convertedFrame, cornerRadius: v.frame.height / 2)
             case is UIImageView:
-                subPath = UIBezierPath(roundedRect: view.frame, cornerRadius: view.frame.height / 2)
+                subPath = UIBezierPath(roundedRect: convertedFrame, cornerRadius: v.frame.height / 2)
             default:
-                subPath = UIBezierPath(roundedRect: view.frame, cornerRadius: 16)
+                subPath = UIBezierPath(roundedRect: convertedFrame, cornerRadius: 16)
             }
             let layer = CAShapeLayer()
             layer.path = subPath.cgPath
@@ -71,5 +99,13 @@ class SkeletonAnimator {
         gradientAnimation.repeatCount = Float.infinity
         
         return gradientAnimation
+    }
+}
+
+extension SkeletonAnimator: CAAnimationDelegate {
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        bgLayer.removeAllAnimations()
+        bgLayer.removeFromSuperlayer()
     }
 }
