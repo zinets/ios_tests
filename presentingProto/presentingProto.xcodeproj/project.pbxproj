@@ -34,6 +34,7 @@
 		69A15C0424C85C4500B44D23 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15C0324C85C3900B44D23 /* MD5.framework */; };
 		69A15C0524C85C4500B44D23 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15C0324C85C3900B44D23 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */; };
+		69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		69A15BFE24C85C3900B44D23 /* MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MD5.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/MD5/MD5.xcodeproj; sourceTree = "<group>"; };
 		69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenVideoCell.swift; sourceTree = "<group>"; };
+		69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPresentAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				69A15BE824C85AE600B44D23 /* FullScreenAnimators.swift */,
+				69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */,
 				69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */,
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
+				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
 				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
 				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
 				69A15B6A24C8583B00B44D23 /* FullscreenTransition.swift in Sources */,

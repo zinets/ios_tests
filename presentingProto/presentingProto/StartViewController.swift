@@ -32,7 +32,8 @@ class StartViewController: UIViewController {
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
         
-//        destination.transitioningDelegate = self
+        destination.transitioningDelegate = self.transition
+        destination.modalPresentationStyle = .custom
         self.present(destination, animated: true, completion: nil)
     }
     
@@ -46,10 +47,3 @@ class StartViewController: UIViewController {
         return items
     }
 }
-
-/*
-https://lh3.googleusercontent.com/proxy/_Ab3_9S2lAbwbennlpHkVKTu1rer6yKf0aUPkoKwh71y1zZvyJlNRPJ5aVm-ZNIQpDKV5OO62-G7XLLw99wN
-https://i.pinimg.com/originals/f1/6c/75/f16c750775bbfc101aec1ba53c8c0678.jpg
-https://s1.dmcdn.net/v/GP4ae1NVKdS0rpycO/x1080
-https://i1.ytimg.com/vi/0WI7En7heSA/maxresdefault.jpg
-*/

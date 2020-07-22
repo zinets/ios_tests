@@ -9,41 +9,7 @@
 import UIKit
 let FullScreenAnimationDuration: TimeInterval = 0.35
 
-class FullScreenPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return FullScreenAnimationDuration
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView
-        
-        let toView = transitionContext.view(forKey: .to)!
-        let toViewController = transitionContext.viewController(forKey: .to) as! FullScreenController
-        
-        let finalFrame = transitionContext.finalFrame(for: toViewController)
-        let startFrame = toViewController.startFrame!
-        
-        containerView.addSubview(toView)
-        toView.alpha = 0
-        
-        let tempView = ImageZoomView(frame: startFrame)
-        tempView.backgroundColor = .white
-        tempView.contentMode = .scaleAspectFill
-        tempView.image = toViewController.startImage
-        containerView.addSubview(tempView)
-        
-        UIView.animate(withDuration: FullScreenAnimationDuration, animations: {
-            tempView.contentMode = .scaleAspectFit
-            tempView.backgroundColor = .black
-            tempView.frame = finalFrame
-        }, completion: { _ in
-            tempView.removeFromSuperview()
-            toView.alpha = 1
-            transitionContext.completeTransition(true)
-        })
-    }
-}
+
 
 class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
@@ -74,14 +40,26 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         
         fromView?.alpha = 0
         
-        UIView.animate(withDuration: FullScreenAnimationDuration, animations: {
+        let animator = UIViewPropertyAnimator(duration: FullScreenAnimationDuration, curve: UIView.AnimationCurve.easeInOut)
+        animator.addAnimations {
             tempView.contentMode = .scaleAspectFill
             tempView.backgroundColor = .white
             tempView.frame = finalFrame
-        }, completion: { _ in
+        }
+        animator.addCompletion { succ in
             tempView.removeFromSuperview()
-            transitionContext.completeTransition(true)
-        })
+            transitionContext.completeTransition(succ == .end)
+        }
+//
+//        UIView.animate(withDuration: FullScreenAnimationDuration, animations: {
+//            tempView.contentMode = .scaleAspectFill
+//            tempView.backgroundColor = .white
+//            tempView.frame = finalFrame
+//        }, completion: { _ in
+//            tempView.removeFromSuperview()
+//            transitionContext.completeTransition(true)
+//        })
+        animator.startAnimation()
     }
     
 }
