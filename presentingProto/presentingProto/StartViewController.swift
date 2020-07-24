@@ -9,8 +9,7 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
-    private var transition = FullscreenTransition()
+    
     @IBOutlet weak var startImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -19,7 +18,7 @@ class StartViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.transitioningDelegate = self.transition
+//        segue.destination.transitioningDelegate = self.transition
         segue.destination.modalPresentationStyle = .custom
     }
     
@@ -32,7 +31,7 @@ class StartViewController: UIViewController {
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
         
-        destination.transitioningDelegate = self.transition
+//        destination.transitioningDelegate = self.transition
         destination.modalPresentationStyle = .custom
         self.present(destination, animated: true, completion: nil)
     }
