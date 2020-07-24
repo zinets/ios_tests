@@ -18,12 +18,17 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
         animator(using: transitionContext).startAnimation()
     }
     
-//    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-//        return animator(using: transitionContext)
-//    }
+    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        return animator(using: transitionContext)
+    }
+        
+    private var animator: UIViewImplicitlyAnimating?
     
-    private var tempView: ImageZoomView!
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        
+        if let animator = self.animator {
+            return animator
+        }
         
         let containerView = transitionContext.containerView
         
@@ -42,7 +47,7 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
         let beforeDisappearBlock = fromViewController.beforeDisappear
         let afterDisappearBlock = fromViewController.afterDisappear
         
-        tempView = ImageZoomView(frame: startFrame)
+        let tempView = ImageZoomView(frame: startFrame)
         tempView.backgroundColor = .black
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
@@ -56,14 +61,14 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
         let finalizationAnimator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn)
         
         mainAnimator.addAnimations {
-            self.tempView.contentMode = .scaleAspectFill
-            self.tempView.frame = finalFrame
-            self.tempView.backgroundColor = .clear
+            tempView.contentMode = .scaleAspectFill
+            tempView.frame = finalFrame
+            tempView.backgroundColor = .clear
             
-            self.tempView.layer.cornerRadius = cornerRadius
+            tempView.layer.cornerRadius = cornerRadius
         }
         mainAnimator.addCompletion { pos in
-            self.tempView.removeFromSuperview()
+            tempView.removeFromSuperview()
             
             beforeDisappearBlock?()
             finalizationAnimator.startAnimation()
@@ -75,6 +80,7 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(pos == .end)
         }
         
+        self.animator = mainAnimator
         return mainAnimator
     
     }
