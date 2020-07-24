@@ -23,9 +23,17 @@ import DiffAble
  
     destination.decorationView = если надо оверлей над скролером - создать вью, настроить и передать; все обработки контролов этого вью делаются в контролере, который вызывает фулскрин
  
-    destination.transitioningDelegate = destination // DONE: почему не сделать эту настройку безусловной в самом контроллере FS?
     navrouter().present(destination, animated: true, completion: nil)
-    презентим, потому что делегирование предполагает именно презент, для пуша я не пробовал и не проверял и не делал и вообще
+    презентим, потому что делегирование предполагает именно презент
+ 
+ 
+    upd
+    добавлена поддержка интерактивного ухода из фулскрина ( хз как должен выглядеть интреактивный переход В фулскрин, но технически это возмижно)
+    по умолчанию контроллер фулскрина сам себе делегат презентации, использует кастомный контроолер презентации, который делает всего навсего затенение контента при переходе в/из
+    есть свойства present/dismissAnimaor, если не задавать которые будут использованы какие-то дефолтные аниматоры
+    аниматоры ДОЛЖНЫ использовать UIProertyAnimator если нужна интерактивность; и ДОЛЖНЫ реализовывать методы animateTransition(using transitionContext: UIViewControllerContextTransitioning) и interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating
+    в в теории они могут использовать разные аниматоры, но по идее какой в этом смысл? но может и есть
+    даже точно есть: наприме анимация с возвратом в начальный фрейм; возврат по тапу делаем в начальный фрейм, интерактивный возврат - "как в ..." с упрыгиванием в начальный фрейм после отпускания пальца
 */
 
 // TODO: confirm SuppressNotifications
@@ -246,7 +254,7 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         driver.link(to: presented)
         
-        let presentationController = FullscreenPresentationController(presentedViewController: presented,presenting: presenting ?? source)
+        let presentationController = FullscreenPresentationController(presentedViewController: presented, presenting: presenting ?? source)
         return presentationController
     }
     
