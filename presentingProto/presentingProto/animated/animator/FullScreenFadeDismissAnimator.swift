@@ -1,6 +1,5 @@
 //
 //  FullScreenFadeDismissAnimator.swift
-//  presentingProto
 //
 //  Created by Viktor Zinets on 22.07.2020.
 //  Copyright © 2020 Viktor Zinets. All rights reserved.
@@ -8,7 +7,6 @@
 
 import UIKit
 
-// чото этот аниматор вообще не работает
 class FullScreenFadeDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -50,5 +48,6 @@ class FullScreenFadeDismissAnimator: NSObject, UIViewControllerAnimatedTransitio
         return animator(using: transitionContext)
     }
 }
+
 
 

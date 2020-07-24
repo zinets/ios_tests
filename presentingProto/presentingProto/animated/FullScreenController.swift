@@ -36,7 +36,9 @@ import DiffAble
     даже точно есть: наприме анимация с возвратом в начальный фрейм; возврат по тапу делаем в начальный фрейм, интерактивный возврат - "как в ..." с упрыгиванием в начальный фрейм после отпускания пальца
 */
 
-// TODO: confirm SuppressNotifications
+// TODO: confirm SuppressNotifications in extension in target
+
+// modalPresentationCapturesStatusBarAppearance - посмотреть что за х
 
 class FullScreenController: UIViewController {
 

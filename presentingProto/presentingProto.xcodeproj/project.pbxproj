@@ -36,6 +36,7 @@
 		69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */; };
 		69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */; };
 		69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */; };
+		69A15C3F24CACAD000B44D23 /* DismissAnimatorLikeFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDismissAnimator.swift; sourceTree = "<group>"; };
 		69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadeDismissAnimator.swift; sourceTree = "<group>"; };
 		69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadePresentAnimator.swift; sourceTree = "<group>"; };
+		69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimatorLikeFB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */,
 				69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */,
 				69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */,
+				69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			files = (
 				69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */,
 				69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */,
+				69A15C3F24CACAD000B44D23 /* DismissAnimatorLikeFB.swift in Sources */,
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
 				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
 				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,
