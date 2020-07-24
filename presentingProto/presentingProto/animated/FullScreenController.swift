@@ -258,7 +258,7 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        guard let animator = presentAnimator else {
+        guard let animator = dismissAnimator else {
             return FullScreenDismissAnimator()
         }
         return animator

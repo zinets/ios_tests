@@ -16,6 +16,10 @@ class FullScreenFadeDismissAnimator: NSObject, UIViewControllerAnimatedTransitio
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        animator(using: transitionContext).startAnimation()
+    }
+    
+    private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         let containerView = transitionContext.containerView
         
         if let toView = transitionContext.view(forKey: .to) {
@@ -30,13 +34,20 @@ class FullScreenFadeDismissAnimator: NSObject, UIViewControllerAnimatedTransitio
         fromView?.backgroundColor = .clear
         containerView.bringSubviewToFront(fromView!)
         
-        UIView.animate(withDuration: FullScreenAnimationDuration, animations: {
+        let animator = UIViewPropertyAnimator(duration: FullScreenAnimationDuration, curve: .easeInOut) {
             fromView?.alpha = 0
             blackView.backgroundColor = .clear
             fromView?.transform = CGAffineTransform(translationX: 0, y: (fromView?.bounds.height)!)
-        }, completion: { _ in
-            transitionContext.completeTransition(true)
-        })
+        }
+        animator.addCompletion { (pos) in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
+        
+        return animator
+    }
+    
+    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        return animator(using: transitionContext)
     }
 }
 

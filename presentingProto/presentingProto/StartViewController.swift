@@ -31,6 +31,8 @@ class StartViewController: UIViewController {
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
 //        destination.modalPresentationStyle = .custom
+        
+        destination.dismissAnimator = FullScreenFadeDismissAnimator()
         self.present(destination, animated: true, completion: nil)
     }
     
