@@ -144,14 +144,16 @@ class FullScreenController: UIViewController {
     }()
             
     // MARK: - overrides
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.modalPresentationStyle = .custom
+        self.transitioningDelegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.transitioningDelegate == nil {
-            self.transitioningDelegate = self
-        }
-        
         self.setNeedsUpdate()
-        
         if let index = self.index {
             currentIndex = index
         }

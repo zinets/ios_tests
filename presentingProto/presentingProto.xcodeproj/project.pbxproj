@@ -20,7 +20,6 @@
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
 		69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */; };
-		69A15B6A24C8583B00B44D23 /* FullscreenTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */; };
 		69A15BED24C85AE600B44D23 /* FullScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */; };
 		69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */; };
 		69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */; };
@@ -122,7 +121,6 @@
 		69A15B5824C839E800B44D23 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowControllerCell.swift; sourceTree = "<group>"; };
-		69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenTransition.swift; sourceTree = "<group>"; };
 		69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FullScreenController.storyboard; sourceTree = "<group>"; };
 		69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
 		69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenDecorationView.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		69A15C3D24C8788A00B44D23 /* transitions */ = {
 			isa = PBXGroup;
 			children = (
-				69A15B6924C8583B00B44D23 /* FullscreenTransition.swift */,
 				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
 			);
 			path = transitions;
@@ -447,7 +444,6 @@
 				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,
 				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
 				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
-				69A15B6A24C8583B00B44D23 /* FullscreenTransition.swift in Sources */,
 				69A15B3F24C832C500B44D23 /* StartViewController.swift in Sources */,
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
 				69A15BF224C85AE600B44D23 /* FullScreenAnimators.swift in Sources */,

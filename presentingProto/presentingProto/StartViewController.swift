@@ -30,9 +30,7 @@ class StartViewController: UIViewController {
         destination.startImage = startImageView.image
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
-        
-//        destination.transitioningDelegate = self.transition
-        destination.modalPresentationStyle = .custom
+//        destination.modalPresentationStyle = .custom
         self.present(destination, animated: true, completion: nil)
     }
     
