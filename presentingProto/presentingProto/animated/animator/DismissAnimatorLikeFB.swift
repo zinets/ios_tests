@@ -23,7 +23,6 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
     }
         
     private var animator: UIViewImplicitlyAnimating?
-    
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         
         if let animator = self.animator {
@@ -48,7 +47,7 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
         let afterDisappearBlock = fromViewController.afterDisappear
         
         let tempView = ImageZoomView(frame: startFrame)
-        tempView.backgroundColor = .black
+        tempView.backgroundColor = .clear
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
         tempView.zoomScale = fromViewController.currentZoom ?? 1
@@ -63,26 +62,42 @@ class DismissAnimatorLikeFB: NSObject, UIViewControllerAnimatedTransitioning {
         mainAnimator.addAnimations {
             tempView.contentMode = .scaleAspectFill
             tempView.frame = finalFrame
-            tempView.backgroundColor = .clear
+//            let t = self.transitionImageScaleFor(percentageComplete: 1 - mainAnimator.fractionComplete)
+//            tempView.transform = CGAffineTransform.identity
+//                           .scaledBy(x: t, y: t)
+            tempView.backgroundColor = .red
             
             tempView.layer.cornerRadius = cornerRadius
         }
         mainAnimator.addCompletion { pos in
-            tempView.removeFromSuperview()
-            
             beforeDisappearBlock?()
             finalizationAnimator.startAnimation()
         }
         finalizationAnimator.addAnimations {
             afterDisappearBlock?()
         }
-        finalizationAnimator.addCompletion { (pos) in
-            transitionContext.completeTransition(pos == .end)
+        finalizationAnimator.addCompletion { [weak transitionContext] (pos) in
+            guard let transitionContext = transitionContext else { fatalError() }
+            tempView.removeFromSuperview()
+            
+            if transitionContext.transitionWasCancelled {
+                fromView?.alpha = 1
+                transitionContext.cancelInteractiveTransition()
+                transitionContext.completeTransition(false)
+            } else {
+                transitionContext.finishInteractiveTransition()
+                transitionContext.completeTransition(true)                
+            }
         }
         
         self.animator = mainAnimator
-        return mainAnimator
+        return mainAnimator    
+    }
     
+    func transitionImageScaleFor(percentageComplete: CGFloat) -> CGFloat {
+        let minScale = CGFloat(0.68)
+        let result = 1 - (1 - minScale) * percentageComplete
+        return result
     }
 }
 

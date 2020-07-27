@@ -1,56 +1,85 @@
-//
-//  TransitionDriver.swift
-//  presentingProto
-//
-//  Created by Viktor Zinets on 22.07.2020.
-//  Copyright © 2020 Viktor Zinets. All rights reserved.
-//
 import UIKit
 
 class TransitionDriver: UIPercentDrivenInteractiveTransition {
-        
+    
+    var interactionInProgress = false
+    
+    private var shouldCompleteTransition = false
+    private weak var viewController: UIViewController!
+    
     func link(to controller: UIViewController) {
-        presentedController = controller
-        
-        panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handle(recognizer:)))
-        presentedController?.view.addGestureRecognizer(panRecognizer!)
+        viewController = controller
+        prepareGestureRecognizer(in: viewController.view)
     }
     
-    private weak var presentedController: UIViewController?
-    private var panRecognizer: UIPanGestureRecognizer?
+    private func prepareGestureRecognizer(in view: UIView) {
+        let gesture = //UIScreenEdgePanGestureRecognizer(target: self,
+            UIPanGestureRecognizer(target: self,
+                                   action: #selector(handleGesture(_:)))
+        //    gesture.edges = .left
+        view.addGestureRecognizer(gesture)
+    }
+    
+    @objc func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        // 1
+        let translation = gestureRecognizer.translation(in: gestureRecognizer.view!.superview!)
+        var progress = (translation.y / 200)
+        progress = CGFloat(fminf(fmaxf(Float(progress), 0.0), 1.0))
         
-    override var wantsInteractiveStart: Bool {
-        get {
-            let gestureIsActive = panRecognizer?.state == .began
-            return gestureIsActive
+        switch gestureRecognizer.state {
+            
+        // 2
+        case .began:
+            pause()
+            if percentComplete == 0 {
+                interactionInProgress = true
+                viewController.dismiss(animated: true, completion: nil)
+            }
+        // 3
+        case .changed:
+            shouldCompleteTransition = progress > 0.5
+            update(progress)
+            
+        // 4
+        case .cancelled:
+            interactionInProgress = false
+            cancel()
+            
+        // 5
+        case .ended:
+            interactionInProgress = false
+            if shouldCompleteTransition {
+                finish()
+            } else {
+                cancel()
+            }
+        default:
+            break
         }
-        
-        set { }
     }
     
     @objc private func handle(recognizer: UIPanGestureRecognizer) {
         
         guard let view = recognizer.view else { return }
-        let maxTranslation = presentedController?.view.frame.height ?? 0
+        let maxTranslation = viewController?.view.frame.height ?? 0
+        let translation = recognizer.translation(in: view).y
         
         switch recognizer.state {
         case .began:
-            pause() // Pause allows to detect isRunning
-                        
+            pause()
             if percentComplete == 0 {
-                presentedController?.dismiss(animated: true) // Start the new one
+                viewController?.dismiss(animated: true) // Start the new one
             }
         case .changed:
-            let translation = recognizer.translation(in: view).y
             recognizer.setTranslation(.zero, in: nil)
             let percentIncrement = translation / maxTranslation
-            
-            update(percentComplete + percentIncrement)
+            let value = percentComplete + percentIncrement
+            print(value)
+            update(value)
         case .ended, .cancelled:
-            let endLocation = recognizer.projectedLocation(decelerationRate: .fast)
-            let isPresentationCompleted = endLocation.y > maxTranslation / 2
-            
-            if isPresentationCompleted {
+            var progress = (translation / 200)
+            progress = CGFloat(fminf(fmaxf(Float(progress), 0.0), 1.0))
+            if progress > 0.5 {
                 finish()
             } else {
                 cancel()
@@ -61,37 +90,5 @@ class TransitionDriver: UIPercentDrivenInteractiveTransition {
             break
         }
     }
-}
-
-private extension UIPanGestureRecognizer {
     
-    func projectedLocation(decelerationRate: UIScrollView.DecelerationRate) -> CGPoint {
-        let velocityOffset = velocity(in: view).projectedOffset(decelerationRate: .normal)
-        let projectedLocation = location(in: view!) + velocityOffset
-        return projectedLocation
-    }
-}
-
-private extension CGPoint {
-    
-    func projectedOffset(decelerationRate: UIScrollView.DecelerationRate) -> CGPoint {
-        return CGPoint(x: x.projectedOffset(decelerationRate: decelerationRate),
-                       y: y.projectedOffset(decelerationRate: decelerationRate))
-    }
-}
-
-private extension CGFloat { // Velocity value
-    
-    func projectedOffset(decelerationRate: UIScrollView.DecelerationRate) -> CGFloat {
-        // Magic formula from WWDC
-        let multiplier = 1 / (1 - decelerationRate.rawValue) / 1000
-        return self * multiplier
-    }
-}
-
-private extension CGPoint {
-    
-    static func +(left: CGPoint, right: CGPoint) -> CGPoint {
-        return CGPoint(x: left.x + right.x, y: left.y + right.y)
-    }
 }

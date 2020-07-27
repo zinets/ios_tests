@@ -257,7 +257,7 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
         driver.link(to: presented)
         
         let presentationController = FullscreenPresentationController(presentedViewController: presented, presenting: presenting ?? source)
-        return presentationController
+        return nil //presentationController
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -279,7 +279,7 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return driver
+        return driver.interactionInProgress ? driver : nil
     }
 
 }

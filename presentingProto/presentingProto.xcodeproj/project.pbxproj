@@ -37,6 +37,8 @@
 		69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */; };
 		69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */; };
 		69A15C3F24CACAD000B44D23 /* DismissAnimatorLikeFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */; };
+		69E43E2024CED51C007252AC /* FlipDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */; };
+		69E43E2224CED52C007252AC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E2124CED52C007252AC /* AnimationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadeDismissAnimator.swift; sourceTree = "<group>"; };
 		69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadePresentAnimator.swift; sourceTree = "<group>"; };
 		69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimatorLikeFB.swift; sourceTree = "<group>"; };
+		69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlipDismissAnimationController.swift; path = "../../../../../../../../Downloads/GuessThePet-starter/GuessThePet/Animation controllers/FlipDismissAnimationController.swift"; sourceTree = "<group>"; };
+		69E43E2124CED52C007252AC /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationHelper.swift; path = "../../../../../../Downloads/GuessThePet-starter/GuessThePet/Helpers/AnimationHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 				69A15BDE24C85AE600B44D23 /* animated */,
 				69A15B4F24C8337700B44D23 /* classes */,
 				69A15B3E24C832C500B44D23 /* StartViewController.swift */,
+				69E43E2124CED52C007252AC /* AnimationHelper.swift */,
 				69A15B5624C836AA00B44D23 /* YellowController.swift */,
 				69A15B4024C832C500B44D23 /* Main.storyboard */,
 				69A15B4E24C8336200B44D23 /* New Group */,
@@ -275,6 +280,7 @@
 				69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */,
 				69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */,
 				69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */,
+				69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -446,12 +452,14 @@
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
 				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
 				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,
+				69E43E2224CED52C007252AC /* AnimationHelper.swift in Sources */,
 				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
 				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
 				69A15B3F24C832C500B44D23 /* StartViewController.swift in Sources */,
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
 				69A15BF224C85AE600B44D23 /* FullScreenAnimators.swift in Sources */,
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
+				69E43E2024CED51C007252AC /* FlipDismissAnimationController.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
 				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
 				69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */,

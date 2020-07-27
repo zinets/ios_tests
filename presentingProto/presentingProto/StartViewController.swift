@@ -30,9 +30,9 @@ class StartViewController: UIViewController {
         destination.startImage = startImageView.image
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
-//        destination.modalPresentationStyle = .custom
+        destination.modalPresentationStyle = .custom
         
-        destination.dismissAnimator = DismissAnimatorLikeFB()
+        destination.dismissAnimator = FlipDismissAnimationController() //DismissAnimatorLikeFB()
         self.present(destination, animated: true, completion: nil)
     }
     

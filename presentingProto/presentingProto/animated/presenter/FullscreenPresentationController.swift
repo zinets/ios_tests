@@ -7,6 +7,10 @@
 //
 import UIKit
 
+
+// МЮСЛИ:  этот презентер может же использоваться не только для фулскрина, но и для показа контроллена скажем на 1/3 экрана - суть его в полупрозрачной подложке, которая показывается сихронно с появлением/удалением модально-показываемого контроллера
+// это же полупрозрачное вью может ловить тапы "мимо" контроллера, чтобы закрывать его
+// но без понятия пока про синхронизацтю поведения этого контроллера и того, которого презентим (скорее аниматор должен быть в курсе?) - он же должен быть в курсе своего будуЮщего размера..
 class FullscreenPresentationController: UIPresentationController {
     
     override var shouldPresentInFullscreen: Bool {
@@ -19,8 +23,8 @@ class FullscreenPresentationController: UIPresentationController {
         
         // треть-скрин
 //        let bounds = containerView!.bounds
-//        let height = 300
-//        return CGRect(x: 0, y: height, width: bounds.width, height: halfHeight)
+//        let height: CGFloat = 300.0
+//        return CGRect(x: 0.0, y: height, width: bounds.width, height: height)
     }
     
     override func presentationTransitionWillBegin() {
@@ -71,7 +75,7 @@ class FullscreenPresentationController: UIPresentationController {
         
         return view
     }()
-    var dimmColor: UIColor = .black {
+    var dimmColor: UIColor = .red {
         didSet {
             dimmedView.backgroundColor = dimmColor
         }
