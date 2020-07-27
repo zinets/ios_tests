@@ -10,8 +10,10 @@ import UIKit
 
 class FullScreenPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    private let duration: TimeInterval = 0.218
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return FullScreenAnimationDuration
+        return duration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -32,7 +34,7 @@ class FullScreenPresentAnimator: NSObject, UIViewControllerAnimatedTransitioning
         tempView.image = toViewController.startImage
         containerView.addSubview(tempView)
         
-        UIView.animate(withDuration: FullScreenAnimationDuration, animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             tempView.contentMode = .scaleAspectFit
             tempView.backgroundColor = .clear
             tempView.frame = finalFrame

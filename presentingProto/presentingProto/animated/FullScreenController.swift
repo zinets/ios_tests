@@ -271,7 +271,13 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
         guard let animator = dismissAnimator else {
             return FullScreenDismissAnimator()
         }
-        return animator
+        // или же аниматор один, но есть настройка - интерактивно или как
+        if driver.interactionInProgress {
+            let animator = FullScreenInteractiveDismissAnimator()
+            return animator
+        } else {
+            return animator
+        }
     }
 
     func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {

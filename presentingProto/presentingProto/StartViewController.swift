@@ -40,7 +40,6 @@ class StartViewController: UIViewController {
         let items = [
         "https://i.pinimg.com/originals/f1/6c/75/f16c750775bbfc101aec1ba53c8c0678.jpg",
         "https://s1.dmcdn.net/v/GP4ae1NVKdS0rpycO/x1080",
-//        "https://lh3.googleusercontent.com/proxy/_Ab3_9S2lAbwbennlpHkVKTu1rer6yKf0aUPkoKwh71y1zZvyJlNRPJ5aVm-ZNIQpDKV5OO62-G7XLLw99wN",
         "https://i1.ytimg.com/vi/0WI7En7heSA/maxresdefault.jpg"].map { (url) -> FullScreenItem in
             return FullScreenItem(cellReuseId: FullScreenPhotoCell.reusableIdentifier, photoUrl: url, videoUrl: nil)
         }

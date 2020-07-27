@@ -9,14 +9,11 @@
 import UIKit
 
 class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.35
+    }
     
-    private var currentAnimator: UIViewImplicitlyAnimating?
-    private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        
-        if let animator = currentAnimator {
-            return animator
-        }
-        
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         
         let toView = transitionContext.view(forKey: .to)
@@ -32,17 +29,15 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let finalFrame = fromViewController.startFrame!
         
         let tempView = ImageZoomView(frame: startFrame)
-        tempView.backgroundColor = .clear
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
         tempView.zoomScale = fromViewController.currentZoom ?? 1
         containerView.addSubview(tempView)
         
         fromView?.alpha = 0
-        
-        let animator = UIViewPropertyAnimator(duration: FullScreenAnimationDuration, curve: UIView.AnimationCurve.easeInOut)  {
-            tempView.contentMode = .scaleAspectFill
-            tempView.backgroundColor = .clear
+                        
+        let animator = UIViewPropertyAnimator(duration: transitionDuration(using: transitionContext), curve: UIView.AnimationCurve.easeInOut)  {
+            tempView.contentMode = .scaleAspectFill            
             tempView.frame = finalFrame
         }
         animator.addCompletion { succ in
@@ -51,23 +46,9 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
                 toView?.removeFromSuperview()
                 fromView?.alpha = 1
             }
-            self.currentAnimator = nil
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
-        currentAnimator = animator
-        return animator
-    }
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return FullScreenAnimationDuration
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let animator = self.animator(using: transitionContext)
+        
         animator.startAnimation()
-    }
-    
-    func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        return self.animator(using: transitionContext)
     }
 }

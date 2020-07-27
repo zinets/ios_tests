@@ -3,13 +3,18 @@ import UIKit
 class TransitionDriver: UIPercentDrivenInteractiveTransition {
     
     var interactionInProgress = false
-    
+        
     private var shouldCompleteTransition = false
     private weak var viewController: UIViewController!
+    private var context: UIViewControllerContextTransitioning?
     
     func link(to controller: UIViewController) {
         viewController = controller
         prepareGestureRecognizer(in: viewController.view)
+    }
+    
+    override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+        self.context = transitionContext
     }
     
     private func prepareGestureRecognizer(in view: UIView) {
@@ -38,8 +43,7 @@ class TransitionDriver: UIPercentDrivenInteractiveTransition {
         // 3
         case .changed:
             shouldCompleteTransition = progress > 0.5
-            update(progress)
-            
+            update(min(0.75, progress))            
         // 4
         case .cancelled:
             interactionInProgress = false
