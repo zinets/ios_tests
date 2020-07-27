@@ -16,7 +16,6 @@
 		69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5024C8347E00B44D23 /* TransitionDriver.swift */; };
 		69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */; };
 		69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5624C836AA00B44D23 /* YellowController.swift */; };
-		69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5824C839E800B44D23 /* DismissAnimation.swift */; };
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
 		69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */; };
@@ -37,7 +36,6 @@
 		69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */; };
 		69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */; };
 		69A15C3F24CACAD000B44D23 /* DismissAnimatorLikeFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */; };
-		69E43E2024CED51C007252AC /* FlipDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */; };
 		69E43E2224CED52C007252AC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E2124CED52C007252AC /* AnimationHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,7 +119,6 @@
 		69A15B5024C8347E00B44D23 /* TransitionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
 		69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenPresentationController.swift; sourceTree = "<group>"; };
 		69A15B5624C836AA00B44D23 /* YellowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowController.swift; sourceTree = "<group>"; };
-		69A15B5824C839E800B44D23 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowControllerCell.swift; sourceTree = "<group>"; };
 		69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FullScreenController.storyboard; sourceTree = "<group>"; };
@@ -140,7 +137,6 @@
 		69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadeDismissAnimator.swift; sourceTree = "<group>"; };
 		69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadePresentAnimator.swift; sourceTree = "<group>"; };
 		69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimatorLikeFB.swift; sourceTree = "<group>"; };
-		69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlipDismissAnimationController.swift; path = "../../../../../../../../Downloads/GuessThePet-starter/GuessThePet/Animation controllers/FlipDismissAnimationController.swift"; sourceTree = "<group>"; };
 		69E43E2124CED52C007252AC /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationHelper.swift; path = "../../../../../../Downloads/GuessThePet-starter/GuessThePet/Helpers/AnimationHelper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +204,6 @@
 		69A15B4F24C8337700B44D23 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				69A15B5824C839E800B44D23 /* DismissAnimation.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -280,7 +275,6 @@
 				69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */,
 				69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */,
 				69A15C3E24CACAD000B44D23 /* DismissAnimatorLikeFB.swift */,
-				69E43E1E24CED51C007252AC /* FlipDismissAnimationController.swift */,
 			);
 			path = animator;
 			sourceTree = "<group>";
@@ -459,12 +453,10 @@
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
 				69A15BF224C85AE600B44D23 /* FullScreenAnimators.swift in Sources */,
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
-				69E43E2024CED51C007252AC /* FlipDismissAnimationController.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
 				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
 				69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */,
 				69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */,
-				69A15B5924C839E800B44D23 /* DismissAnimation.swift in Sources */,
 				69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */,
 				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,
 				69A15BF124C85AE600B44D23 /* FullScreenLayout.swift in Sources */,
@@ -632,7 +624,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PYTYCCS829;
 				INFOPLIST_FILE = presentingProto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PYTYCCS829;
 				INFOPLIST_FILE = presentingProto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

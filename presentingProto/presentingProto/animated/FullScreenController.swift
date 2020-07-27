@@ -282,6 +282,13 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
         return driver.interactionInProgress ? driver : nil
     }
 
+    /* ключевые вещи, которые я пока понял с этими транзишнами:
+     - в interactionControllerForDismissal возвращать TransitionDriver только, если реально было распознано движение - тогда вызовется метод interruptibleAnimator, а для обычного dismiss-а нужен вызов animateTransition(using transitionContext:) - а он НЕ вызовется, если профукать это условие
+     - аниматор надо создавать, хранить и вовзращать все время жизни перехода - И УДАЛЯТЬ его после!
+     - использовать для анимации вью, получаемые из transitionContext.view(forKey: .to), а не
+     transitionContext.viewController(forKey: .from).view - toView иногда может быть nil и тогда все херится в конце - анимация заканчивается пустым экраном (я хз, как получается, что toView nil - но получается
+     
+     */
 }
 
 

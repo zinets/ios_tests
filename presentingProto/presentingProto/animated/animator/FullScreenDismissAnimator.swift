@@ -49,6 +49,7 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
             tempView.removeFromSuperview()
             if transitionContext.transitionWasCancelled {
                 toView?.removeFromSuperview()
+                fromView?.alpha = 1
             }
             self.currentAnimator = nil
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
