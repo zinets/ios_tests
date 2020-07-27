@@ -75,7 +75,7 @@ class FullscreenPresentationController: UIPresentationController {
         
         return view
     }()
-    var dimmColor: UIColor = .red {
+    var dimmColor: UIColor = .black {
         didSet {
             dimmedView.backgroundColor = dimmColor
         }

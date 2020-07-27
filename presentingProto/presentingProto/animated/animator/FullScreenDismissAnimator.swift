@@ -10,12 +10,18 @@ import UIKit
 
 class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    private var currentAnimator: UIViewImplicitlyAnimating?
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
+        
+        if let animator = currentAnimator {
+            return animator
+        }
         
         let containerView = transitionContext.containerView
         
-        if let toView = transitionContext.view(forKey: .to) {
-            containerView.addSubview(toView)
+        let toView = transitionContext.view(forKey: .to)
+        if toView != nil {
+            containerView.addSubview(toView!)
         }
         
         let fromView = transitionContext.view(forKey: .from)
@@ -41,9 +47,13 @@ class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning
         }
         animator.addCompletion { succ in
             tempView.removeFromSuperview()
+            if transitionContext.transitionWasCancelled {
+                toView?.removeFromSuperview()
+            }
+            self.currentAnimator = nil
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
-        
+        currentAnimator = animator
         return animator
     }
     

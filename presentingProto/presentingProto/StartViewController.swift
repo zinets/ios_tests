@@ -32,7 +32,7 @@ class StartViewController: UIViewController {
         destination.startFrame = sourceFrame
         destination.modalPresentationStyle = .custom
         
-        destination.dismissAnimator = FlipDismissAnimationController() //DismissAnimatorLikeFB()
+        destination.dismissAnimator = FullScreenDismissAnimator() //DismissAnimatorLikeFB()
         self.present(destination, animated: true, completion: nil)
     }
     

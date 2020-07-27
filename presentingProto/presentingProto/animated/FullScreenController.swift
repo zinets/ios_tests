@@ -257,7 +257,7 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
         driver.link(to: presented)
         
         let presentationController = FullscreenPresentationController(presentedViewController: presented, presenting: presenting ?? source)
-        return nil //presentationController
+        return presentationController
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
