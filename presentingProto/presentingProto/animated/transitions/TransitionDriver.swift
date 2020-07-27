@@ -6,23 +6,12 @@ class TransitionDriver: UIPercentDrivenInteractiveTransition {
         
     private var shouldCompleteTransition = false
     private weak var viewController: UIViewController!
-    private var context: UIViewControllerContextTransitioning?
     
     func link(to controller: UIViewController) {
         viewController = controller
-        prepareGestureRecognizer(in: viewController.view)
-    }
-    
-    override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-        self.context = transitionContext
-    }
-    
-    private func prepareGestureRecognizer(in view: UIView) {
-        let gesture = //UIScreenEdgePanGestureRecognizer(target: self,
-            UIPanGestureRecognizer(target: self,
-                                   action: #selector(handleGesture(_:)))
-        //    gesture.edges = .left
-        view.addGestureRecognizer(gesture)
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
+        viewController.view.addGestureRecognizer(gesture)
     }
     
     @objc func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {

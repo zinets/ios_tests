@@ -45,13 +45,16 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
             
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    tempView.contentMode = .scaleAspectFill
-                    tempView.backgroundColor = .red
+                    tempView.backgroundColor = .clear
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.75) {
-                    tempView.frame = finalFrame
+                    let sz = finalFrame.size
+                    let orig = CGPoint(x: (startFrame.size.width - finalFrame.size.width) / 2,
+                                       y: 500)
+                    tempView.frame = CGRect(origin: orig, size: sz)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
+                    tempView.contentMode = .scaleAspectFill
                     tempView.frame = finalFrame
                 }
             }) { (_) in
