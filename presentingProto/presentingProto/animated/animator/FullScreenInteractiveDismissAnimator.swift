@@ -26,15 +26,13 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
             containerView.addSubview(toView!)
         }
         
-        let fromView = transitionContext.view(forKey: .from)
-        
         let fromViewController = transitionContext.viewController(forKey: .from) as! FullScreenController
+        let fromView = transitionContext.view(forKey: .from)
         
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         let finalFrame = fromViewController.startFrame!
         
         tempView = ImageZoomView(frame: startFrame)
-//        tempView.backgroundColor = .red
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
         tempView.zoomScale = fromViewController.currentZoom ?? 1

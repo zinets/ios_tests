@@ -13,7 +13,7 @@
 		69A15B4224C832C500B44D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4024C832C500B44D23 /* Main.storyboard */; };
 		69A15B4424C832C700B44D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4324C832C700B44D23 /* Assets.xcassets */; };
 		69A15B4724C832C700B44D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4524C832C700B44D23 /* LaunchScreen.storyboard */; };
-		69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5024C8347E00B44D23 /* TransitionDriver.swift */; };
+		69A15B5124C8347E00B44D23 /* FullscreenDismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */; };
 		69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */; };
 		69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5624C836AA00B44D23 /* YellowController.swift */; };
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
@@ -116,7 +116,7 @@
 		69A15B4324C832C700B44D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69A15B4624C832C700B44D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69A15B4824C832C700B44D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69A15B5024C8347E00B44D23 /* TransitionDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
+		69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenDismissTransition.swift; sourceTree = "<group>"; };
 		69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenPresentationController.swift; sourceTree = "<group>"; };
 		69A15B5624C836AA00B44D23 /* YellowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowController.swift; sourceTree = "<group>"; };
 		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 		69A15C3D24C8788A00B44D23 /* transitions */ = {
 			isa = PBXGroup;
 			children = (
-				69A15B5024C8347E00B44D23 /* TransitionDriver.swift */,
+				69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */,
 			);
 			path = transitions;
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */,
-				69A15B5124C8347E00B44D23 /* TransitionDriver.swift in Sources */,
+				69A15B5124C8347E00B44D23 /* FullscreenDismissTransition.swift in Sources */,
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
 				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
 				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,

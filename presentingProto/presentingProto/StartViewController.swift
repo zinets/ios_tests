@@ -24,13 +24,18 @@ class StartViewController: UIViewController {
     
     @IBAction func showFS(_ sender: Any) {
         let destination = UIStoryboard(name: "FullScreenController", bundle: nil).instantiateViewController(withIdentifier: "FullScreenController") as! FullScreenController
-        destination.getFullscreenData = { [weak self] in
+        destination.dataProvider = { [weak self] in
             return self?.fullScreenItems() ?? []
+        }
+        destination.onIndexChanged = { index, num in
+            print(index, num)
         }
         destination.startImage = startImageView.image
         let sourceFrame = self.view.window!.convert(startImageView.frame, from: startImageView.superview)
         destination.startFrame = sourceFrame
         destination.modalPresentationStyle = .custom
+        
+        destination.pageIndex = 1
         
         destination.dismissAnimator = FullScreenDismissAnimator() //DismissAnimatorLikeFB()
         self.present(destination, animated: true, completion: nil)
@@ -38,10 +43,10 @@ class StartViewController: UIViewController {
     
     private func fullScreenItems() -> [FullScreenItem] {
         let items = [
-        "https://i.pinimg.com/originals/f1/6c/75/f16c750775bbfc101aec1ba53c8c0678.jpg",
-        "https://s1.dmcdn.net/v/GP4ae1NVKdS0rpycO/x1080",
-        "https://i1.ytimg.com/vi/0WI7En7heSA/maxresdefault.jpg"].map { (url) -> FullScreenItem in
-            return FullScreenItem(cellReuseId: FullScreenPhotoCell.reusableIdentifier, photoUrl: url, videoUrl: nil)
+            "https://s1.dmcdn.net/v/GP4ae1NVKdS0rpycO/x1080",
+            "https://i.pinimg.com/originals/f1/6c/75/f16c750775bbfc101aec1ba53c8c0678.jpg",        
+            "https://i1.ytimg.com/vi/0WI7En7heSA/maxresdefault.jpg"].map { (url) -> FullScreenItem in
+                return FullScreenItem(cellReuseId: FullScreenPhotoCell.reusableIdentifier, photoUrl: url, videoUrl: nil)
         }
         return items
     }

@@ -1,6 +1,5 @@
 //
 //  FullScreenController.swift
-//  mdukProfileProto
 //
 //  Created by Victor Zinets on 8/7/19.
 //  Copyright © 2019 TN. All rights reserved.
@@ -19,7 +18,7 @@ import DiffAble
     destination.onIndexChanged = { [unowned destination, unowned self] (newIndex) in
         при прокрутке фото в фулскрине можно синхронизировать что-то с этим изменением
     }
-    destination.getFullscreenData = { нужно назначить блок, который будет возвращать итемы для показа, см. коммент ниже про "придумать лучшее название для блока"
+    destination.dataProvider = { нужно назначить блок, который будет возвращать итемы для показа
  
     destination.decorationView = если надо оверлей над скролером - создать вью, настроить и передать; все обработки контролов этого вью делаются в контролере, который вызывает фулскрин
  
@@ -32,8 +31,6 @@ import DiffAble
     по умолчанию контроллер фулскрина сам себе делегат презентации, использует кастомный контроолер презентации, который делает всего навсего затенение контента при переходе в/из
     есть свойства present/dismissAnimaor, если не задавать которые будут использованы какие-то дефолтные аниматоры
     аниматоры ДОЛЖНЫ использовать UIProertyAnimator если нужна интерактивность; и ДОЛЖНЫ реализовывать методы animateTransition(using transitionContext: UIViewControllerContextTransitioning) и interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating
-    в в теории они могут использовать разные аниматоры, но по идее какой в этом смысл? но может и есть
-    даже точно есть: наприме анимация с возвратом в начальный фрейм; возврат по тапу делаем в начальный фрейм, интерактивный возврат - "как в ..." с упрыгиванием в начальный фрейм после отпускания пальца
 */
 
 // TODO: confirm SuppressNotifications in extension in target
@@ -43,7 +40,6 @@ import DiffAble
 class FullScreenController: UIViewController {
 
     // MARK: - outlets
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     
@@ -57,18 +53,15 @@ class FullScreenController: UIViewController {
     /// аниматор может принять во внимание значение этой переменной и использовать его для скругления анимирующейся картинки
     var proposedCornerRadius: CGFloat?
     
-    // TODO: придумать лучшее название для блока
     /// смысл в том, что этот блок задается на стороне "заказчика", кода, который хочет показать свои фотки в фулскрине (профили, переписки) - они по своей и бизнес логеках создают массив из FullScreenCellItem и возвращают в этом блоке; в элементе для показа может присутствовать additionalData: AnyObject? - туда пихаем все, что нужно кастомным ячейкам для своей настройки (например userInfo для блура - показать поверх блура аватар юзера)
-    var getFullscreenData: (() -> [FullScreenItem])?
+    var dataProvider: (() -> [FullScreenItem])?
     func setNeedsUpdate() {
-        if let block = self.getFullscreenData {
+        if let block = self.dataProvider {
             let newItems = block()
             self.dataSource.beginUpdates()
             self.dataSource.appendSections([.single])
             self.dataSource.appendItems(newItems.map{ AnyDiffAble($0) }, toSection: .single)
             self.dataSource.endUpdates()
-            
-//            self.dataSource.items = block()
         }
     }
     
@@ -79,26 +72,63 @@ class FullScreenController: UIViewController {
     var beforeDisappear: (() -> Void)?
     var afterDisappear: (() -> Void)?
     
-    private var index: Int?
-    var currentIndex: Int? {
-        get {
-            guard self.isViewLoaded else {
-                return nil
-            }
-            let contentOffset = self.collectionView.contentOffset
-            return Int((contentOffset.x / self.collectionView.bounds.width).rounded())
-        }
-        set {
-            index = newValue
-            guard self.isViewLoaded, newValue != nil else {
+//    private var index: Int?
+//    var currentIndex: Int? {
+//        get {
+//            guard self.isViewLoaded else {
+//                return nil
+//            }
+//            let contentOffset = self.collectionView.contentOffset
+//            return Int((contentOffset.x / self.collectionView.bounds.width).rounded())
+//        }
+//        set {
+//            index = newValue
+//            guard self.isViewLoaded, newValue != nil else {
+//                return
+//            }
+//            // очевидно, что все похерится, если bounds коллекции поменяется; или нет? у меня же включена пажинация..
+//            let contentOffset = CGPoint(x: CGFloat(newValue!) * self.collectionView.bounds.width, y: 0)
+//            self.collectionView.setContentOffset(contentOffset, animated: false)
+//            let numberOfItems = self.dataSource.itemsCount(for: .single) //self.dataSource.items.count
+//            if let block = onIndexChanged {
+//                block(newValue!, numberOfItems)
+//            }
+//        }
+//    }
+    
+    private var pendingIndex: Int?
+    var pageIndex: Int = 0 {
+        didSet {
+            guard self.view.window != nil else {
+                pendingIndex = pageIndex
+                pageIndex = oldValue
                 return
             }
-            // очевидно, что все похерится, если bounds коллекции поменяется; или нет? у меня же включена пажинация..
-            let contentOffset = CGPoint(x: CGFloat(newValue!) * self.collectionView.bounds.width, y: 0)
+            guard oldValue != pageIndex else {
+                return
+            }
+            
+            pendingIndex = nil
+            let contentOffset = CGPoint(x: CGFloat(pageIndex) * self.collectionView.bounds.width, y: 0)
             self.collectionView.setContentOffset(contentOffset, animated: false)
-            let numberOfItems = self.dataSource.itemsCount(for: .single) //self.dataSource.items.count
-            if let block = onIndexChanged {
-                block(newValue!, numberOfItems)
+            
+            pageIndexUpdated()
+        }
+    }
+    
+    private func pageIndexUpdated() {
+        if let block = onIndexChanged {
+            block(pageIndex, self.dataSource.itemsCount(for: .single))
+        }
+    }
+    
+    private var firstAppear = true
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if firstAppear {
+            firstAppear = false
+            if let index = pendingIndex {
+                self.pageIndex = index
             }
         }
     }
@@ -164,9 +194,6 @@ class FullScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsUpdate()
-        if let index = self.index {
-            currentIndex = index
-        }
     }
     
 //    deinit {
@@ -204,11 +231,11 @@ class FullScreenController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        // внимания! код был в viewDidLayoutSubviews, но я перенес его сюда
-        let contentOffset = CGPoint(x: CGFloat(index ?? 0) * self.collectionView.bounds.width, y: 0)
-        self.collectionView.setContentOffset(contentOffset, animated: false)
-        // потому что пол-дня искал причину подергивания при скроле 1й фото
-        // код нужен и здесь вроде работает без вопросов - но мало ли
+//        // внимания! код был в viewDidLayoutSubviews, но я перенес его сюда
+//        let contentOffset = CGPoint(x: CGFloat(index ?? 0) * self.collectionView.bounds.width, y: 0)
+//        self.collectionView.setContentOffset(contentOffset, animated: false)
+//        // потому что пол-дня искал причину подергивания при скроле 1й фото
+//        // код нужен и здесь вроде работает без вопросов - но мало ли
         
         UIView.animate(withDuration: 0.25) {
             self.decorationView?.alpha = 1
@@ -247,7 +274,7 @@ class FullScreenController: UIViewController {
     var dismissAnimator: UIViewControllerAnimatedTransitioning?
     
     // а с интерактивностью я пока не хочу играться
-    private let driver = TransitionDriver()
+    private let driver = FullscreenDismissTransition()
 
 }
 
@@ -302,12 +329,8 @@ extension FullScreenController: UIViewControllerTransitioningDelegate {
 extension FullScreenController: UICollectionViewDelegateFlowLayout {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if let index = self.currentIndex {
-            let numberOfItems = self.dataSource.itemsCount(for: .single)
-            if let block = self.onIndexChanged {
-                block(index, numberOfItems)
-            }
-        }
+        self.pageIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        
 //        let index = Int((scrollView.contentOffset.y / scrollView.bounds.height).rounded())
 //        if let cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? FullScreenVideoCell {
 //            cell.play()
@@ -315,8 +338,7 @@ extension FullScreenController: UICollectionViewDelegateFlowLayout {
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        let index = Int((scrollView.contentOffset.y / scrollView.bounds.height).rounded())
-//        if let cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? FullScreenVideoCell {
+//        if let cell = self.collectionView.cellForItem(at: IndexPath(row: pageIndex, section: 0)) as? FullScreenVideoCell {
 //            cell.pause()
 //        }
     }
