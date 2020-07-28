@@ -46,16 +46,15 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
         let animator = UIViewPropertyAnimator(duration: duration, curve: UIView.AnimationCurve.easeInOut)  {
             
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
+
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.75) {
-                    let sz = finalFrame.size
-                    let orig = CGPoint(x: (startFrame.size.width - finalFrame.size.width) / 2,
-                                       y: 800)
-                    self.tempView.frame = CGRect(origin: orig, size: sz)
                 }
+
                 UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
                     self.tempView.contentMode = .scaleAspectFill
                     self.tempView.frame = finalFrame
                 }
+
             }) { (_) in
                 
             }

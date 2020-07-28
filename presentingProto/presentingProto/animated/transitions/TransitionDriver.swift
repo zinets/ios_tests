@@ -31,11 +31,17 @@ class TransitionDriver: UIPercentDrivenInteractiveTransition {
             }
         case .changed:
             shouldCompleteTransition = progress > 0.5
-            update(min(0.75, progress))
+            
+            var p = min(0.75, progress)
+            update(p)
+            p = max(0.5, 1 - p)
   
             if let view = (animator as? FullScreenInteractiveDismissAnimator)?.tempView {
-                let transform: CGAffineTransform = .identity
-                view.transform = transform.translatedBy(x: translation.x, y: 0)
+                var transform: CGAffineTransform = .identity
+                transform = transform.translatedBy(x: translation.x, y: translation.y)
+                transform = transform.scaledBy(x: p, y: p)
+                
+                view.transform = transform
             }
         case .cancelled:
             interactionInProgress = false
