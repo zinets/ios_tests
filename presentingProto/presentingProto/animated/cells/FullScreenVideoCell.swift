@@ -35,7 +35,7 @@ class FullScreenVideoCell: UICollectionViewCell, AnyDiffAbleControl {
     private var isVideoReady = false
 }
 
-extension FullScreenVideoCell: VideoPreviewProto {
+extension FullScreenVideoCell: MediaCell {
     
     func play() {
         if self.isVideoReady {

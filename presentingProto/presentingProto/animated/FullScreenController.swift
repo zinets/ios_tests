@@ -37,6 +37,12 @@ import DiffAble
 
 // modalPresentationCapturesStatusBarAppearance - посмотреть что за х
 
+// ячейка для видео должна конформить этому протоколу и уметь делать play/pause; но вообще я хз как быть в видео, оно использует хлам из какого-то другого хламного фреймворка
+protocol MediaCell {
+    func play()
+    func pause()
+}
+
 class FullScreenController: UIViewController {
 
     // MARK: - outlets
@@ -331,16 +337,15 @@ extension FullScreenController: UICollectionViewDelegateFlowLayout {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.pageIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         
-//        let index = Int((scrollView.contentOffset.y / scrollView.bounds.height).rounded())
-//        if let cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? FullScreenVideoCell {
-//            cell.play()
-//        }
+        if let cell = self.collectionView.cellForItem(at: IndexPath(row: pageIndex, section: 0)) as? MediaCell {
+            cell.play()
+        }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if let cell = self.collectionView.cellForItem(at: IndexPath(row: pageIndex, section: 0)) as? FullScreenVideoCell {
-//            cell.pause()
-//        }
+        if let cell = self.collectionView.cellForItem(at: IndexPath(row: pageIndex, section: 0)) as? MediaCell {
+            cell.pause()
+        }
     }
    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
