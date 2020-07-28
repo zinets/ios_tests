@@ -15,28 +15,25 @@
 		69A15B4224C832C500B44D23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4024C832C500B44D23 /* Main.storyboard */; };
 		69A15B4424C832C700B44D23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4324C832C700B44D23 /* Assets.xcassets */; };
 		69A15B4724C832C700B44D23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15B4524C832C700B44D23 /* LaunchScreen.storyboard */; };
-		69A15B5124C8347E00B44D23 /* FullscreenDismissTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */; };
-		69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */; };
 		69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B5624C836AA00B44D23 /* YellowController.swift */; };
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
 		69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */; };
 		69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */; };
-		69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */; };
-		69A15BF124C85AE600B44D23 /* FullScreenLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE624C85AE600B44D23 /* FullScreenLayout.swift */; };
-		69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BEB24C85AE600B44D23 /* FullScreenItem.swift */; };
-		69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BEC24C85AE600B44D23 /* FullScreenController.swift */; };
 		69A15BFC24C85C1800B44D23 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15BFB24C85C0B00B44D23 /* TNURLImageView.framework */; };
 		69A15BFD24C85C1800B44D23 /* TNURLImageView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15BFB24C85C0B00B44D23 /* TNURLImageView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15C0424C85C4500B44D23 /* MD5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15C0324C85C3900B44D23 /* MD5.framework */; };
 		69A15C0524C85C4500B44D23 /* MD5.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15C0324C85C3900B44D23 /* MD5.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */; };
-		69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */; };
-		69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */; };
-		69E43E6124CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6913751424D0397A00E73FE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6913750F24D0397A00E73FE8 /* FS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 691374C424D02FB200E73FE8;
+			remoteInfo = FS;
+		};
 		69A15B5F24C83CD400B44D23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */;
@@ -106,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		691374B424D0242D00E73FE8 /* FullScreenVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenVideoCell.xib; sourceTree = "<group>"; };
+		6913750F24D0397A00E73FE8 /* FS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FS.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/FS/FS.xcodeproj; sourceTree = "<group>"; };
 		692C752A24D0204D0037A221 /* FullScreenPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenPhotoCell.xib; sourceTree = "<group>"; };
 		69A15B3724C832C500B44D23 /* presentingProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = presentingProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A15B3A24C832C500B44D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,24 +113,13 @@
 		69A15B4324C832C700B44D23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69A15B4624C832C700B44D23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		69A15B4824C832C700B44D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenDismissTransition.swift; sourceTree = "<group>"; };
-		69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenPresentationController.swift; sourceTree = "<group>"; };
 		69A15B5624C836AA00B44D23 /* YellowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowController.swift; sourceTree = "<group>"; };
 		69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DiffAble.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/DiffAble/DiffAble.xcodeproj; sourceTree = "<group>"; };
 		69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowControllerCell.swift; sourceTree = "<group>"; };
-		69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FullScreenController.storyboard; sourceTree = "<group>"; };
 		69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
-		69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenDecorationView.swift; sourceTree = "<group>"; };
-		69A15BE624C85AE600B44D23 /* FullScreenLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenLayout.swift; sourceTree = "<group>"; };
-		69A15BEB24C85AE600B44D23 /* FullScreenItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenItem.swift; sourceTree = "<group>"; };
-		69A15BEC24C85AE600B44D23 /* FullScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenController.swift; sourceTree = "<group>"; };
 		69A15BF624C85C0B00B44D23 /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
 		69A15BFE24C85C3900B44D23 /* MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MD5.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/MD5/MD5.xcodeproj; sourceTree = "<group>"; };
-		69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenVideoCell.swift; sourceTree = "<group>"; };
-		69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPresentAnimator.swift; sourceTree = "<group>"; };
-		69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDismissAnimator.swift; sourceTree = "<group>"; };
-		69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenInteractiveDismissAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +154,14 @@
 			name = photo;
 			sourceTree = "<group>";
 		};
+		6913751024D0397A00E73FE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6913751524D0397A00E73FE8 /* FS.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		692C752C24D020900037A221 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +174,7 @@
 		69A15B2E24C832C500B44D23 = {
 			isa = PBXGroup;
 			children = (
+				6913750F24D0397A00E73FE8 /* FS.xcodeproj */,
 				69A15BFE24C85C3900B44D23 /* MD5.xcodeproj */,
 				69A15BF624C85C0B00B44D23 /* TNURLImageView.xcodeproj */,
 				69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */,
@@ -199,7 +195,6 @@
 		69A15B3924C832C500B44D23 /* presentingProto */ = {
 			isa = PBXGroup;
 			children = (
-				69A15BDE24C85AE600B44D23 /* full screen */,
 				69A15B4F24C8337700B44D23 /* classes */,
 				69A15B4024C832C500B44D23 /* Main.storyboard */,
 				69A15B4E24C8336200B44D23 /* New Group */,
@@ -246,56 +241,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		69A15BDE24C85AE600B44D23 /* full screen */ = {
-			isa = PBXGroup;
-			children = (
-				69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */,
-				69A15BE324C85AE600B44D23 /* classes */,
-				69A15BE524C85AE600B44D23 /* layout */,
-				69A15BE724C85AE600B44D23 /* animator */,
-				69A15BE924C85AE600B44D23 /* model */,
-				69A15C3C24C8780B00B44D23 /* presenter */,
-				69A15C3D24C8788A00B44D23 /* transitions */,
-				69A15BEC24C85AE600B44D23 /* FullScreenController.swift */,
-			);
-			path = "full screen";
-			sourceTree = "<group>";
-		};
-		69A15BE324C85AE600B44D23 /* classes */ = {
-			isa = PBXGroup;
-			children = (
-				69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */,
-				69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */,
-			);
-			path = classes;
-			sourceTree = "<group>";
-		};
-		69A15BE524C85AE600B44D23 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				69A15BE624C85AE600B44D23 /* FullScreenLayout.swift */,
-			);
-			path = layout;
-			sourceTree = "<group>";
-		};
-		69A15BE724C85AE600B44D23 /* animator */ = {
-			isa = PBXGroup;
-			children = (
-				69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */,
-				69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */,
-				69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */,
-			);
-			path = animator;
-			sourceTree = "<group>";
-		};
-		69A15BE924C85AE600B44D23 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				69A15BEB24C85AE600B44D23 /* FullScreenItem.swift */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		69A15BF724C85C0B00B44D23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,22 +255,6 @@
 				69A15C0324C85C3900B44D23 /* MD5.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		69A15C3C24C8780B00B44D23 /* presenter */ = {
-			isa = PBXGroup;
-			children = (
-				69A15B5224C834DB00B44D23 /* FullscreenPresentationController.swift */,
-			);
-			path = presenter;
-			sourceTree = "<group>";
-		};
-		69A15C3D24C8788A00B44D23 /* transitions */ = {
-			isa = PBXGroup;
-			children = (
-				69A15B5024C8347E00B44D23 /* FullscreenDismissTransition.swift */,
-			);
-			path = transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +313,10 @@
 					ProjectRef = 69A15B5A24C83CD400B44D23 /* DiffAble.xcodeproj */;
 				},
 				{
+					ProductGroup = 6913751024D0397A00E73FE8 /* Products */;
+					ProjectRef = 6913750F24D0397A00E73FE8 /* FS.xcodeproj */;
+				},
+				{
 					ProductGroup = 69A15BFF24C85C3900B44D23 /* Products */;
 					ProjectRef = 69A15BFE24C85C3900B44D23 /* MD5.xcodeproj */;
 				},
@@ -400,6 +333,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		6913751524D0397A00E73FE8 /* FS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FS.framework;
+			remoteRef = 6913751424D0397A00E73FE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		69A15B6024C83CD400B44D23 /* DiffAble.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -450,22 +390,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */,
-				69A15B5124C8347E00B44D23 /* FullscreenDismissTransition.swift in Sources */,
-				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
-				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
-				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
-				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
 				69A15B3F24C832C500B44D23 /* StartViewController.swift in Sources */,
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
 				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
-				69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */,
 				69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */,
-				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,
-				69E43E6124CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift in Sources */,
-				69A15BF124C85AE600B44D23 /* FullScreenLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

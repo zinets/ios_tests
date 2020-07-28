@@ -8,8 +8,9 @@
 import UIKit
 import DiffAble
 import TNURLImageView
+import FS
 
-class FullScreenPhotoCell: UICollectionViewCell, AnyDiffAbleControl {
+class FullScreenPhotoCell: UICollectionViewCell, AnyDiffAbleControl, ZoomedCell {
     
     @IBOutlet weak var imageView: ImageZoomView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
