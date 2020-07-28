@@ -10,7 +10,11 @@ import DiffAble
 
 /*  КрасивыйФулСкринКонтроллер usage:
     создать контроллер
-    let destination = UIStoryboard(name: "FullScreenController", bundle: nil).instantiateViewController(withIdentifier: "FullScreenController") as! FullScreenController
+    let destination = FullScreenController()
+ 
+    ячейки зависят от всякого хлама, поэтому должны делаться на стороне апы; пользователь должен зарегистрировать reuseId и классы/nib-ы к ним
+    destination.register(UINib(nibName: "FullScreenPhotoCell", bundle: nil), forCellWithReuseIdentifier: FullScreenPhotoCell.reusableIdentifier)
+ 
     destination.startImage = картинка, из которой переходим, берем ее например из sender
     let sourceFrame = фрейм стартовой картинки, например координаты мелкого квадратика в координатах экрана - потому что переходим в фулскрин
     destination.startFrame = sourceFrame
@@ -46,8 +50,25 @@ protocol MediaCell {
 class FullScreenController: UIViewController {
 
     // MARK: - outlets
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    private lazy var collectionView: UICollectionView = {
+        let collectionViewLayout = FullScreenLayout()
+        collectionViewLayout.scrollDirection = .horizontal
+        collectionViewLayout.minimumLineSpacing = 0
+        collectionViewLayout.minimumInteritemSpacing = 0
+        
+        let view = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
+        view.delegate = self
+        view.isPagingEnabled = true
+        
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(view)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(close(_:)))
+        view.addGestureRecognizer(tapRecognizer)
+        
+        return view
+    }()
+//    @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
     
     // договариваемся: для того, чтобы красиво перейти В фулскрин, надо передать следующие параметры перед показом
     /// стартовый фрейм, откуда переходим в ФС; при этом предполагаем, что картинка будет scaleToFill - логичнее всего, у нас ячейки в профиле/сорче/etc заполняются именно так, чтобы не было дырок по бокам
@@ -60,7 +81,11 @@ class FullScreenController: UIViewController {
     var proposedCornerRadius: CGFloat?
     
     /// смысл в том, что этот блок задается на стороне "заказчика", кода, который хочет показать свои фотки в фулскрине (профили, переписки) - они по своей и бизнес логеках создают массив из FullScreenCellItem и возвращают в этом блоке; в элементе для показа может присутствовать additionalData: AnyObject? - туда пихаем все, что нужно кастомным ячейкам для своей настройки (например userInfo для блура - показать поверх блура аватар юзера)
-    var dataProvider: (() -> [FullScreenItem])?
+    var dataProvider: (() -> [FullScreenItem])? {
+        didSet {
+            setNeedsUpdate()
+        }
+    }
     func setNeedsUpdate() {
         if let block = self.dataProvider {
             let newItems = block()
@@ -71,36 +96,20 @@ class FullScreenController: UIViewController {
         }
     }
     
+    func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(cellClass, forCellWithReuseIdentifier: identifier)
+    }
+    
+    func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
+        collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    
     // допустим контроллер будет хранить (и сам с этим ничего не делать! но це не точно теперь) блоки для "до/после показа" и "до/после возврата"
     var beforeAppear: (() -> Void)?
     var afterAppear: (() -> Void)?
     
     var beforeDisappear: (() -> Void)?
     var afterDisappear: (() -> Void)?
-    
-//    private var index: Int?
-//    var currentIndex: Int? {
-//        get {
-//            guard self.isViewLoaded else {
-//                return nil
-//            }
-//            let contentOffset = self.collectionView.contentOffset
-//            return Int((contentOffset.x / self.collectionView.bounds.width).rounded())
-//        }
-//        set {
-//            index = newValue
-//            guard self.isViewLoaded, newValue != nil else {
-//                return
-//            }
-//            // очевидно, что все похерится, если bounds коллекции поменяется; или нет? у меня же включена пажинация..
-//            let contentOffset = CGPoint(x: CGFloat(newValue!) * self.collectionView.bounds.width, y: 0)
-//            self.collectionView.setContentOffset(contentOffset, animated: false)
-//            let numberOfItems = self.dataSource.itemsCount(for: .single) //self.dataSource.items.count
-//            if let block = onIndexChanged {
-//                block(newValue!, numberOfItems)
-//            }
-//        }
-//    }
     
     private var pendingIndex: Int?
     var pageIndex: Int = 0 {
@@ -164,7 +173,6 @@ class FullScreenController: UIViewController {
         return cell.currentZoomScale
     }
     
-    // TODO: переделать на передачу 2х параметров - индекс и кол-во
     var onIndexChanged: ((Int, Int) -> Void)?
     var onFullscreenExit: (() -> Void)?
     
@@ -199,7 +207,8 @@ class FullScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setNeedsUpdate()
+        self.modalPresentationStyle = .custom
+        self.transitioningDelegate = self
     }
     
 //    deinit {
@@ -236,7 +245,7 @@ class FullScreenController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        #warning("убедицца что тут ничего не вернулось назад")
 //        // внимания! код был в viewDidLayoutSubviews, но я перенес его сюда
 //        let contentOffset = CGPoint(x: CGFloat(index ?? 0) * self.collectionView.bounds.width, y: 0)
 //        self.collectionView.setContentOffset(contentOffset, animated: false)

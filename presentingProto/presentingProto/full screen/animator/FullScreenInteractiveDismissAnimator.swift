@@ -10,6 +10,12 @@ import UIKit
 
 class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
+    private let duration: TimeInterval = 0.65
+        
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return duration
+    }
+    
     private var currentAnimator: UIViewImplicitlyAnimating?
     var tempView: ImageZoomView!
     
@@ -70,11 +76,7 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
         }
         currentAnimator = animator
         return animator
-    }
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return FullScreenAnimationDuration
-    }
+    }    
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         fatalError()

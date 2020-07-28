@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691374B524D0242D00E73FE8 /* FullScreenVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691374B424D0242D00E73FE8 /* FullScreenVideoCell.xib */; };
+		692C752B24D0204D0037A221 /* FullScreenPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692C752A24D0204D0037A221 /* FullScreenPhotoCell.xib */; };
 		69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B3A24C832C500B44D23 /* AppDelegate.swift */; };
 		69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B3C24C832C500B44D23 /* SceneDelegate.swift */; };
 		69A15B3F24C832C500B44D23 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B3E24C832C500B44D23 /* StartViewController.swift */; };
@@ -19,11 +21,9 @@
 		69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; };
 		69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15B6024C83CD400B44D23 /* DiffAble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B6724C83D4C00B44D23 /* YellowControllerCell.swift */; };
-		69A15BED24C85AE600B44D23 /* FullScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */; };
 		69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */; };
 		69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */; };
 		69A15BF124C85AE600B44D23 /* FullScreenLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE624C85AE600B44D23 /* FullScreenLayout.swift */; };
-		69A15BF224C85AE600B44D23 /* FullScreenAnimators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BE824C85AE600B44D23 /* FullScreenAnimators.swift */; };
 		69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BEB24C85AE600B44D23 /* FullScreenItem.swift */; };
 		69A15BF524C85AE600B44D23 /* FullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15BEC24C85AE600B44D23 /* FullScreenController.swift */; };
 		69A15BFC24C85C1800B44D23 /* TNURLImageView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A15BFB24C85C0B00B44D23 /* TNURLImageView.framework */; };
@@ -33,9 +33,6 @@
 		69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C0C24C85D9500B44D23 /* ImageZoomView.swift */; };
 		69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */; };
 		69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */; };
-		69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */; };
-		69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */; };
-		69E43E2224CED52C007252AC /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E2124CED52C007252AC /* AnimationHelper.swift */; };
 		69E43E6124CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +105,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		691374B424D0242D00E73FE8 /* FullScreenVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenVideoCell.xib; sourceTree = "<group>"; };
+		692C752A24D0204D0037A221 /* FullScreenPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenPhotoCell.xib; sourceTree = "<group>"; };
 		69A15B3724C832C500B44D23 /* presentingProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = presentingProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A15B3A24C832C500B44D23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69A15B3C24C832C500B44D23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +124,6 @@
 		69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoCell.swift; sourceTree = "<group>"; };
 		69A15BE424C85AE600B44D23 /* FullscreenDecorationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullscreenDecorationView.swift; sourceTree = "<group>"; };
 		69A15BE624C85AE600B44D23 /* FullScreenLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenLayout.swift; sourceTree = "<group>"; };
-		69A15BE824C85AE600B44D23 /* FullScreenAnimators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenAnimators.swift; sourceTree = "<group>"; };
 		69A15BEB24C85AE600B44D23 /* FullScreenItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenItem.swift; sourceTree = "<group>"; };
 		69A15BEC24C85AE600B44D23 /* FullScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenController.swift; sourceTree = "<group>"; };
 		69A15BF624C85C0B00B44D23 /* TNURLImageView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TNURLImageView.xcodeproj; path = ../../work/Submodules/mobile_ios_utilities/Frameworks/TNURLImageView/TNURLImageView.xcodeproj; sourceTree = "<group>"; };
@@ -134,9 +132,6 @@
 		69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenVideoCell.swift; sourceTree = "<group>"; };
 		69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPresentAnimator.swift; sourceTree = "<group>"; };
 		69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDismissAnimator.swift; sourceTree = "<group>"; };
-		69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadeDismissAnimator.swift; sourceTree = "<group>"; };
-		69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenFadePresentAnimator.swift; sourceTree = "<group>"; };
-		69E43E2124CED52C007252AC /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationHelper.swift; path = "../../../../../../Downloads/GuessThePet-starter/GuessThePet/Helpers/AnimationHelper.swift"; sourceTree = "<group>"; };
 		69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenInteractiveDismissAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +149,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		691374B724D0243F00E73FE8 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */,
+				691374B424D0242D00E73FE8 /* FullScreenVideoCell.xib */,
+			);
+			name = video;
+			sourceTree = "<group>";
+		};
+		691374B924D0245400E73FE8 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+				69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */,
+				692C752A24D0204D0037A221 /* FullScreenPhotoCell.xib */,
+			);
+			name = photo;
+			sourceTree = "<group>";
+		};
+		692C752C24D020900037A221 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				691374B924D0245400E73FE8 /* photo */,
+				691374B724D0243F00E73FE8 /* video */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		69A15B2E24C832C500B44D23 = {
 			isa = PBXGroup;
 			children = (
@@ -177,11 +199,8 @@
 		69A15B3924C832C500B44D23 /* presentingProto */ = {
 			isa = PBXGroup;
 			children = (
-				69A15BDE24C85AE600B44D23 /* animated */,
+				69A15BDE24C85AE600B44D23 /* full screen */,
 				69A15B4F24C8337700B44D23 /* classes */,
-				69A15B3E24C832C500B44D23 /* StartViewController.swift */,
-				69E43E2124CED52C007252AC /* AnimationHelper.swift */,
-				69A15B5624C836AA00B44D23 /* YellowController.swift */,
 				69A15B4024C832C500B44D23 /* Main.storyboard */,
 				69A15B4E24C8336200B44D23 /* New Group */,
 			);
@@ -204,6 +223,9 @@
 		69A15B4F24C8337700B44D23 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				692C752C24D020900037A221 /* cells */,
+				69A15B3E24C832C500B44D23 /* StartViewController.swift */,
+				69A15B5624C836AA00B44D23 /* YellowController.swift */,
 			);
 			name = classes;
 			sourceTree = "<group>";
@@ -224,11 +246,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		69A15BDE24C85AE600B44D23 /* animated */ = {
+		69A15BDE24C85AE600B44D23 /* full screen */ = {
 			isa = PBXGroup;
 			children = (
 				69A15BDF24C85AE600B44D23 /* FullScreenController.storyboard */,
-				69A15BE024C85AE600B44D23 /* cells */,
 				69A15BE324C85AE600B44D23 /* classes */,
 				69A15BE524C85AE600B44D23 /* layout */,
 				69A15BE724C85AE600B44D23 /* animator */,
@@ -237,16 +258,7 @@
 				69A15C3D24C8788A00B44D23 /* transitions */,
 				69A15BEC24C85AE600B44D23 /* FullScreenController.swift */,
 			);
-			path = animated;
-			sourceTree = "<group>";
-		};
-		69A15BE024C85AE600B44D23 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				69A15BE124C85AE600B44D23 /* FullScreenPhotoCell.swift */,
-				69A15C0E24C85E8A00B44D23 /* FullScreenVideoCell.swift */,
-			);
-			path = cells;
+			path = "full screen";
 			sourceTree = "<group>";
 		};
 		69A15BE324C85AE600B44D23 /* classes */ = {
@@ -269,11 +281,8 @@
 		69A15BE724C85AE600B44D23 /* animator */ = {
 			isa = PBXGroup;
 			children = (
-				69A15BE824C85AE600B44D23 /* FullScreenAnimators.swift */,
 				69A15C3424C867C500B44D23 /* FullScreenPresentAnimator.swift */,
 				69A15C3624C8682C00B44D23 /* FullScreenDismissAnimator.swift */,
-				69A15C3A24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift */,
-				69A15C3824C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift */,
 				69E43E6024CEF9D9007252AC /* FullScreenInteractiveDismissAnimator.swift */,
 			);
 			path = animator;
@@ -427,9 +436,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A15B4724C832C700B44D23 /* LaunchScreen.storyboard in Resources */,
-				69A15BED24C85AE600B44D23 /* FullScreenController.storyboard in Resources */,
+				692C752B24D0204D0037A221 /* FullScreenPhotoCell.xib in Resources */,
 				69A15B4424C832C700B44D23 /* Assets.xcassets in Resources */,
 				69A15B4224C832C500B44D23 /* Main.storyboard in Resources */,
+				691374B524D0242D00E73FE8 /* FullScreenVideoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,17 +454,13 @@
 				69A15B5124C8347E00B44D23 /* FullscreenDismissTransition.swift in Sources */,
 				69A15BF024C85AE600B44D23 /* FullscreenDecorationView.swift in Sources */,
 				69A15C3524C867C500B44D23 /* FullScreenPresentAnimator.swift in Sources */,
-				69A15C3924C86B1D00B44D23 /* FullScreenFadeDismissAnimator.swift in Sources */,
-				69E43E2224CED52C007252AC /* AnimationHelper.swift in Sources */,
 				69A15C0D24C85D9500B44D23 /* ImageZoomView.swift in Sources */,
 				69A15BF424C85AE600B44D23 /* FullScreenItem.swift in Sources */,
 				69A15B3F24C832C500B44D23 /* StartViewController.swift in Sources */,
 				69A15B5724C836AA00B44D23 /* YellowController.swift in Sources */,
-				69A15BF224C85AE600B44D23 /* FullScreenAnimators.swift in Sources */,
 				69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */,
 				69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */,
 				69A15B6824C83D4C00B44D23 /* YellowControllerCell.swift in Sources */,
-				69A15C3B24C86B3B00B44D23 /* FullScreenFadePresentAnimator.swift in Sources */,
 				69A15C3724C8682C00B44D23 /* FullScreenDismissAnimator.swift in Sources */,
 				69A15BEE24C85AE600B44D23 /* FullScreenPhotoCell.swift in Sources */,
 				69A15B5324C834DB00B44D23 /* FullscreenPresentationController.swift in Sources */,

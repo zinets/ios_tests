@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullScreenPhotoCell" id="JLa-19-Vzi" customClass="FullScreenPhotoCell" customModule="presentingProto" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="266" height="319"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="266" height="319"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-bz-8ak" customClass="ImageZoomView" customModule="presentingProto" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="266" height="319"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oH9-e4-2qg">
+                        <rect key="frame" x="101" y="127.5" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="Fb8-wF-8Vt"/>
+                            <constraint firstAttribute="height" constant="64" id="r0K-in-FvG"/>
+                        </constraints>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Wsn-bz-8ak" firstAttribute="leading" secondItem="JLa-19-Vzi" secondAttribute="leading" id="57A-G9-OTL"/>
+                <constraint firstItem="oH9-e4-2qg" firstAttribute="centerY" secondItem="Wsn-bz-8ak" secondAttribute="centerY" id="WxX-NH-ZnP"/>
+                <constraint firstItem="Wsn-bz-8ak" firstAttribute="top" secondItem="JLa-19-Vzi" secondAttribute="top" id="bQN-o7-gut"/>
+                <constraint firstAttribute="bottom" secondItem="Wsn-bz-8ak" secondAttribute="bottom" id="dM4-VM-Qvk"/>
+                <constraint firstAttribute="trailing" secondItem="Wsn-bz-8ak" secondAttribute="trailing" id="edo-fV-SQO"/>
+                <constraint firstItem="oH9-e4-2qg" firstAttribute="centerX" secondItem="Wsn-bz-8ak" secondAttribute="centerX" id="fyu-dH-fVN"/>
+            </constraints>
+            <connections>
+                <outlet property="activityIndicator" destination="oH9-e4-2qg" id="XIZ-pb-hew"/>
+                <outlet property="imageView" destination="Wsn-bz-8ak" id="xLk-RF-Wcn"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="154"/>
+        </collectionViewCell>
+    </objects>
+</document>

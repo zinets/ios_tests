@@ -66,6 +66,13 @@ class FullscreenDismissTransition: UIPercentDrivenInteractiveTransition {
             interactionInProgress = false
             
             if let view = (animator as? FullScreenInteractiveDismissAnimator)?.tempView {
+                // странная хрень, не знаю как это работает, оставлю разобраться "на потом"
+//                viewController.transitionCoordinator?.animate(alongsideTransition: { (_) in
+//                    view.transform = .identity
+//                }, completion: { (_) in
+//
+//                })
+                
                 let a = UIViewPropertyAnimator(duration: 0.15, curve: .easeOut)
                 a.addAnimations {
                     view.transform = .identity

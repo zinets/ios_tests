@@ -9,8 +9,11 @@
 import UIKit
 
 class FullScreenDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    private let duration: TimeInterval = 0.35
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.35
+        return duration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
