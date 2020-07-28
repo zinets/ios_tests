@@ -11,6 +11,8 @@ import UIKit
 class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             
     private var currentAnimator: UIViewImplicitlyAnimating?
+    var tempView: ImageZoomView!
+    
     private func animator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
         
         if let animator = currentAnimator {
@@ -31,8 +33,8 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
         let startFrame = transitionContext.initialFrame(for: fromViewController)
         let finalFrame = fromViewController.startFrame!
         
-        let tempView = ImageZoomView(frame: startFrame)
-        tempView.backgroundColor = .clear
+        tempView = ImageZoomView(frame: startFrame)
+//        tempView.backgroundColor = .red
         tempView.contentMode = .scaleAspectFit
         tempView.image = fromViewController.currentImage
         tempView.zoomScale = fromViewController.currentZoom ?? 1
@@ -44,25 +46,24 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
         let animator = UIViewPropertyAnimator(duration: duration, curve: UIView.AnimationCurve.easeInOut)  {
             
             UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    tempView.backgroundColor = .clear
-                }
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.75) {
                     let sz = finalFrame.size
                     let orig = CGPoint(x: (startFrame.size.width - finalFrame.size.width) / 2,
-                                       y: 500)
-                    tempView.frame = CGRect(origin: orig, size: sz)
+                                       y: 800)
+                    self.tempView.frame = CGRect(origin: orig, size: sz)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
-                    tempView.contentMode = .scaleAspectFill
-                    tempView.frame = finalFrame
+                    self.tempView.contentMode = .scaleAspectFill
+                    self.tempView.frame = finalFrame
                 }
             }) { (_) in
                 
             }
         }
         animator.addCompletion { succ in
-            tempView.removeFromSuperview()
+            self.tempView.removeFromSuperview()
+            self.tempView = nil
+            
             if transitionContext.transitionWasCancelled {
                 toView?.removeFromSuperview()
                 fromView?.alpha = 1
@@ -83,7 +84,7 @@ class FullScreenInteractiveDismissAnimator: NSObject, UIViewControllerAnimatedTr
     }
     
     func interruptibleAnimator(using transitionContext: UIViewControllerContextTransitioning) -> UIViewImplicitlyAnimating {
-        return self.animator(using: transitionContext)
+        return self.animator(using: transitionContext)        
     }
 }
 
