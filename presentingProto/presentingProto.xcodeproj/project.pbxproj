@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		691374B524D0242D00E73FE8 /* FullScreenVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 691374B424D0242D00E73FE8 /* FullScreenVideoCell.xib */; };
+		6913752024D03A3E00E73FE8 /* FS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6913751524D0397A00E73FE8 /* FS.framework */; };
+		6913752124D03A3E00E73FE8 /* FS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6913751524D0397A00E73FE8 /* FS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		692C752B24D0204D0037A221 /* FullScreenPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692C752A24D0204D0037A221 /* FullScreenPhotoCell.xib */; };
 		69A15B3B24C832C500B44D23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B3A24C832C500B44D23 /* AppDelegate.swift */; };
 		69A15B3D24C832C500B44D23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A15B3C24C832C500B44D23 /* SceneDelegate.swift */; };
@@ -93,6 +95,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				69A15B6524C83CE200B44D23 /* DiffAble.framework in Embed Frameworks */,
+				6913752124D03A3E00E73FE8 /* FS.framework in Embed Frameworks */,
 				69A15BFD24C85C1800B44D23 /* TNURLImageView.framework in Embed Frameworks */,
 				69A15C0524C85C4500B44D23 /* MD5.framework in Embed Frameworks */,
 			);
@@ -128,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69A15B6424C83CE200B44D23 /* DiffAble.framework in Frameworks */,
+				6913752024D03A3E00E73FE8 /* FS.framework in Frameworks */,
 				69A15BFC24C85C1800B44D23 /* TNURLImageView.framework in Frameworks */,
 				69A15C0424C85C4500B44D23 /* MD5.framework in Frameworks */,
 			);

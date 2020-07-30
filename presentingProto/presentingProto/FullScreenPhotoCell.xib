@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="266" height="319"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oH9-e4-2qg">
+                    <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oH9-e4-2qg">
                         <rect key="frame" x="101" y="127.5" width="64" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="Fb8-wF-8Vt"/>

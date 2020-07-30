@@ -40,7 +40,7 @@ class StartViewController: UIViewController {
         
         destination.pageIndex = 1
         
-        destination.dismissAnimator = FullScreenDismissAnimator() //DismissAnimatorLikeFB()
+//        destination.dismissAnimator = FullScreenDismissAnimator() //DismissAnimatorLikeFB()
         self.present(destination, animated: true, completion: nil)
     }
     

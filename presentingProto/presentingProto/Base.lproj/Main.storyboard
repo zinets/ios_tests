@@ -36,10 +36,19 @@
                                     <constraint firstAttribute="height" constant="128" id="L3U-Ie-sm4"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvX-q8-LfY">
+                                <rect key="frame" x="227" y="108" width="150" height="30"/>
+                                <state key="normal" title="push yellow controller"/>
+                                <connections>
+                                    <segue destination="mBX-ka-cjP" kind="show" id="vPI-Ik-Cje"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fvX-q8-LfY" firstAttribute="centerY" secondItem="XuD-zl-yyt" secondAttribute="centerY" id="2OH-70-4ld"/>
                             <constraint firstItem="HLl-oH-oGB" firstAttribute="firstBaseline" secondItem="XuD-zl-yyt" secondAttribute="baseline" constant="40" id="IJG-hW-FvR"/>
+                            <constraint firstItem="fvX-q8-LfY" firstAttribute="leading" secondItem="XuD-zl-yyt" secondAttribute="trailing" constant="38" id="MTL-Sk-QMI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pGt-cT-PsU" secondAttribute="trailing" constant="96" id="a5t-5n-lwN"/>
                             <constraint firstItem="XuD-zl-yyt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hIn-gB-nWL"/>
                             <constraint firstItem="XuD-zl-yyt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="igO-le-Lma"/>
@@ -67,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MRi-5f-f46">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pj4-oP-vlz">
                                     <size key="itemSize" width="332" height="403"/>
@@ -137,6 +146,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XaZ-Ev-KC2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="o1D-FU-OWw"/>
                     <connections>
                         <outlet property="collectionView" destination="MRi-5f-f46" id="NW9-c3-LwR"/>
                     </connections>
@@ -164,7 +174,10 @@
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vPI-Ik-Cje"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="unnamed" width="512" height="326"/>
+        <image name="unnamed" width="1280" height="720"/>
     </resources>
 </document>

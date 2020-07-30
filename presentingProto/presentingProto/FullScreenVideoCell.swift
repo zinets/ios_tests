@@ -11,6 +11,7 @@ import TNURLImageView
 
 class FullScreenVideoCell: UICollectionViewCell, AnyDiffAbleControl {
     
+    #error("надо подключить VideoPreview")
     @IBOutlet weak var videoPreview: VideoPreview! {
         didSet {
             videoPreview.contentMode = .scaleAspectFit
