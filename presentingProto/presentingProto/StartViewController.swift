@@ -19,9 +19,18 @@ class StartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    var transition: TransitionCoordinator!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        segue.destination.transitioningDelegate = self.transition
-        segue.destination.modalPresentationStyle = .custom
+        switch segue.identifier {
+        case "present":
+            segue.destination.modalPresentationStyle = .custom
+        case "push":
+            transition = TransitionCoordinator()
+            self.navigationController?.delegate = transition
+        default:
+            break
+        }
+        
     }
     
     @IBAction func showFS(_ sender: Any) {
