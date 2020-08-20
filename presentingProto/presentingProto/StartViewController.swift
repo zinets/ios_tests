@@ -18,6 +18,9 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet weak var viewToAnimate: UIView!
+    
 
     var transition: TransitionCoordinator!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,5 +64,16 @@ class StartViewController: UIViewController {
                 return FullScreenItem(cellReuseId: FullScreenPhotoCell.reusableIdentifier, photoUrl: url, videoUrl: nil)
         }
         return items
+    }
+}
+
+
+
+
+
+extension StartViewController: Transitionable {
+    
+    var view1: UIView? {
+        return self.viewToAnimate
     }
 }

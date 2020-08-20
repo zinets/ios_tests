@@ -97,6 +97,7 @@
                     <navigationItem key="navigationItem" id="zwf-Jh-sk1"/>
                     <connections>
                         <outlet property="startImageView" destination="pGt-cT-PsU" id="wZZ-ei-PYI"/>
+                        <outlet property="viewToAnimate" destination="ALZ-9J-Vf8" id="oH4-2K-WPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

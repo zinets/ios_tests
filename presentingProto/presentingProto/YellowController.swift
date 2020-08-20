@@ -51,3 +51,13 @@ class YellowController: UIViewController {
         dataSource.endUpdates(false)
     }
 }
+
+
+extension YellowController: Transitionable {
+    
+    var view1: UIView? {
+        return self.view
+    }
+    
+    
+}
