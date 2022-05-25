@@ -15,11 +15,18 @@ class ViewController: UIViewController {
         
     }
 
+    @IBOutlet var starField: DotsView!
     
+    @IBAction func start(_ sender: Any) {
+        starField.startAnimation()
+    }
     
+    @IBAction func stop(_ sender: Any) {
+        starField.stopAnimation()
+    }
 }
 
-class Dot {
+fileprivate class Dot {
     var pos: CGPoint {
         didSet {
             updatePath()
@@ -29,7 +36,7 @@ class Dot {
     
     var bright: CGFloat {
         didSet {
-        updateColor()
+            updateColor()
         }
     }
     
@@ -45,9 +52,9 @@ class Dot {
     
     init(w: CGFloat, h: CGFloat) {
         pos = CGPoint(x: CGFloat.random(in: 0..<w), y: CGFloat.random(in: 0..<h))
-        size = CGFloat.random(in: 0.7...1.6)
+        size = CGFloat.random(in: 0.7...2)
         
-        bright = CGFloat.random(in: 0...0.8)
+        bright = CGFloat.random(in: 100...900) / 1000
         
         updateColor()
         updatePath()
@@ -55,17 +62,26 @@ class Dot {
 }
 
 class DotsView: UIView {
-    let dotsAmount = 1000
-    var dots: [Dot] = []
+    private let dotsAmount = 500
+    private var dots: [Dot] = []
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         initParts()
+    }
+    
+    private var timer: Timer?
+    
+    func startAnimation() {
         initTimer()
     }
     
-    func initParts() {
+    func stopAnimation() {
+        timer?.invalidate()
+    }
+    
+    private func initParts() {
         let w = bounds.width
         let h = bounds.height
         
@@ -76,46 +92,34 @@ class DotsView: UIView {
         }
     }
     
-    func initTimer() {
-        // TODO: display timer или както так
-        let timer = Timer.scheduledTimer(withTimeInterval: 1 / 25, repeats: true) { sender in
+    private func initTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1 / 12, repeats: true) { [weak self] sender in
+            guard let self = self else {
+                sender.invalidate()
+                return
+            }
             self.setNeedsDisplay()
         }
-        
-//        let displaylink = CADisplayLink(target: self, selector: #selector(step))
-//        displaylink.add(to: .current, forMode: .default)
     }
-    
-//    @objc private func step(displaylink: CADisplayLink) {
-//        self.setNeedsDisplay()
-//    }
-    
+   
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         dots.forEach { dot in
-
-//            dot.color.set()
-//            dot.stamp.stroke()
-//
-
             context?.setStrokeColor(dot.color.cgColor)
             context?.setLineWidth(dot.size)
             context?.move(to: CGPoint(x: dot.pos.x - dot.size / 2, y: dot.pos.y + dot.size / 2))
-            context?.addLine(to: CGPoint(x: dot.pos.x + dot.size / 2, y: dot.pos.y + dot.size / 2))
+            context?.addLine(to: CGPoint(x: dot.pos.x + dot.size / 2, y: dot.pos.y + dot.size / 1.5))
             context?.strokePath()
 
-
-            dot.bright -= 0.002
-            dot.pos.y -= 0.2
+            dot.bright -= 0.02
+            dot.pos.y -= 0.5
             if dot.bright <= 0.1 {
-                dot.bright = 0.8
+                dot.bright = 0.9
                 dot.pos = CGPoint(x: CGFloat.random(in: 0...rect.width), y: CGFloat.random(in: 0...rect.height))
             }
             if dot.pos.y < 0 {
                 dot.pos.y += rect.size.height
             }
-
-
         }
     }
 

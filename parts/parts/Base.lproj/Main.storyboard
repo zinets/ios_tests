@@ -47,16 +47,34 @@
                                     <constraint firstItem="szB-KM-xuF" firstAttribute="top" secondItem="HRA-rE-bG4" secondAttribute="top" constant="108" id="DVH-ja-fxO"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBb-Br-uLS">
+                                <rect key="frame" x="33" y="478" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXi-Ff-Yrz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIA-Vi-Wwy">
+                                <rect key="frame" x="93" y="478" width="31" height="30"/>
+                                <state key="normal" title="stop"/>
+                                <connections>
+                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iwd-tB-Jcz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="E59-rM-zFd" firstAttribute="top" secondItem="AcF-q5-ykj" secondAttribute="top" id="5WM-r1-yzH"/>
                             <constraint firstItem="HRA-rE-bG4" firstAttribute="trailing" secondItem="AcF-q5-ykj" secondAttribute="trailing" id="8Ga-1F-tuh"/>
+                            <constraint firstItem="WBb-Br-uLS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="AQu-Iy-6Fh"/>
                             <constraint firstItem="HRA-rE-bG4" firstAttribute="top" secondItem="AcF-q5-ykj" secondAttribute="top" id="Fce-vW-xbI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AcF-q5-ykj" secondAttribute="trailing" id="I2G-T3-Nco"/>
                             <constraint firstItem="HRA-rE-bG4" firstAttribute="bottom" secondItem="AcF-q5-ykj" secondAttribute="bottom" id="Iz6-Jq-C3u"/>
+                            <constraint firstItem="WBb-Br-uLS" firstAttribute="top" secondItem="AcF-q5-ykj" secondAttribute="bottom" constant="34" id="M5V-Ql-Od1"/>
+                            <constraint firstItem="EIA-Vi-Wwy" firstAttribute="top" secondItem="AcF-q5-ykj" secondAttribute="bottom" constant="34" id="M96-yr-nCF"/>
                             <constraint firstItem="E59-rM-zFd" firstAttribute="trailing" secondItem="AcF-q5-ykj" secondAttribute="trailing" id="Vhy-81-M6t"/>
+                            <constraint firstItem="EIA-Vi-Wwy" firstAttribute="leading" secondItem="WBb-Br-uLS" secondAttribute="trailing" constant="28" id="WGp-JE-pYb"/>
                             <constraint firstItem="AcF-q5-ykj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yd5-5p-JRo"/>
                             <constraint firstItem="E59-rM-zFd" firstAttribute="leading" secondItem="AcF-q5-ykj" secondAttribute="leading" id="hTt-GC-5lh"/>
                             <constraint firstItem="E59-rM-zFd" firstAttribute="bottom" secondItem="AcF-q5-ykj" secondAttribute="bottom" id="kZV-Ti-73m"/>
@@ -66,6 +84,7 @@
                     </view>
                     <connections>
                         <outlet property="pix" destination="AcF-q5-ykj" id="4AD-Kr-tIV"/>
+                        <outlet property="starField" destination="HRA-rE-bG4" id="7KX-Uz-kzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
