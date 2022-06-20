@@ -67,8 +67,9 @@ class DotsView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        initParts()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(animationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animationWillMoveToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     private var timer: Timer?
@@ -101,6 +102,13 @@ class DotsView: UIView {
             self.setNeedsDisplay()
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        dots.removeAll()
+        initParts()
+    }
    
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
@@ -123,4 +131,11 @@ class DotsView: UIView {
         }
     }
 
+    @objc func animationWillMoveToBackground() {
+        stopAnimation()
+    }
+    
+    @objc func animationWillEnterForeground() {
+        startAnimation()
+    }
 }
