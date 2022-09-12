@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     
     @IBAction func onTest(_ sender: UIButton) {
         print(StorageDomain.database.user.firstLogin)
-        print(StorageDomain.database.user.sessionCount)
+        print(StorageDomain.database.server.sessionCount)
+        StorageDomain.oneTimeMigration.migration.feature1
     }
     
 }
@@ -30,38 +31,24 @@ class ViewController: UIViewController {
 // FileStorage.currentUserStorage?[.database.user.sessionCount] = 5
 
 
-struct StorageDomain {
-    static var database = DB()
+class StorageDomain {
+    static var database = Database()
+    static var oneTimeMigration = OneTimeLogic()
 }
 
-struct DB: CustomStringConvertible {
+
+
+
+
+class Domain: CustomStringConvertible {
     var description: String { "database." }
-    
-    lazy var user = { UserData(reverse: description) }()
 }
 
-struct UserData: CustomStringConvertible {
-    private var reverse: String
-    init(reverse: String) {
-        self.reverse = reverse
-    }
-    var description: String { reverse + "user." }
-    
-    //
-    lazy var firstLogin = { LastField(value: "firstLogin", reverse: description) }()
-    lazy var sessionCount = { LastField(value: "sessionCount", reverse: description) }()
+final class Database: Domain {
+    lazy var user = { UserData(reverse: self) }()
+    lazy var server = { ServerData(reverse: self) }()
 }
 
-struct LastField: CustomStringConvertible {
-    private var intValue: String
-    private var reverse: String
-    
-    init(value: String, reverse: String) {
-        self.reverse = reverse
-        self.intValue = value
-    }
-    
-    var description: String {
-        return reverse + intValue
-    }
+final class OneTimeLogic: Domain {
+    lazy var feature1 = { data("feature1") }()
 }

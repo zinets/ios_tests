@@ -16,6 +16,8 @@
 		49C5646928CF4752006D00C7 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5646628CF4752006D00C7 /* FileStorage.swift */; };
 		49C5646A28CF4752006D00C7 /* FileStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5646728CF4752006D00C7 /* FileStorageProtocol.swift */; };
 		49C5646B28CF4752006D00C7 /* README_FileStorage.md in Resources */ = {isa = PBXBuildFile; fileRef = 49C5646828CF4752006D00C7 /* README_FileStorage.md */; };
+		49C5646E28CF62CD006D00C7 /* LastField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5646D28CF62CD006D00C7 /* LastField.swift */; };
+		49C5647028CF62E0006D00C7 /* MiddleLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5646F28CF62E0006D00C7 /* MiddleLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		49C5646628CF4752006D00C7 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		49C5646728CF4752006D00C7 /* FileStorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorageProtocol.swift; sourceTree = "<group>"; };
 		49C5646828CF4752006D00C7 /* README_FileStorage.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_FileStorage.md; sourceTree = "<group>"; };
+		49C5646D28CF62CD006D00C7 /* LastField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastField.swift; sourceTree = "<group>"; };
+		49C5646F28CF62E0006D00C7 /* MiddleLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +89,21 @@
 		49C5646528CF4752006D00C7 /* FileStorage */ = {
 			isa = PBXGroup;
 			children = (
+				49C5646C28CF62C3006D00C7 /* New Group */,
 				49C5646628CF4752006D00C7 /* FileStorage.swift */,
 				49C5646728CF4752006D00C7 /* FileStorageProtocol.swift */,
 				49C5646828CF4752006D00C7 /* README_FileStorage.md */,
 			);
 			path = FileStorage;
+			sourceTree = "<group>";
+		};
+		49C5646C28CF62C3006D00C7 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				49C5646D28CF62CD006D00C7 /* LastField.swift */,
+				49C5646F28CF62E0006D00C7 /* MiddleLevel.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C5646E28CF62CD006D00C7 /* LastField.swift in Sources */,
 				49C5646928CF4752006D00C7 /* FileStorage.swift in Sources */,
 				49C5644928CF22EE006D00C7 /* ViewController.swift in Sources */,
+				49C5647028CF62E0006D00C7 /* MiddleLevel.swift in Sources */,
 				49C5646A28CF4752006D00C7 /* FileStorageProtocol.swift in Sources */,
 				49C5644528CF22EE006D00C7 /* AppDelegate.swift in Sources */,
 				49C5644728CF22EE006D00C7 /* SceneDelegate.swift in Sources */,
