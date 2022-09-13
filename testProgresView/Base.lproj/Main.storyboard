@@ -31,14 +31,34 @@
                                     <action selector="getTest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z9Z-Kk-RG2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa7-Cr-JiT">
+                                <rect key="frame" x="34" y="198" width="57" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="store"/>
+                                <connections>
+                                    <action selector="testStore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0m-AI-t7e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wv-hP-KHG">
+                                <rect key="frame" x="121" y="198" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="testGet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTT-Ot-do4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oa7-Cr-JiT" firstAttribute="top" secondItem="GWq-XI-0jh" secondAttribute="bottom" constant="54" id="1Gh-KX-4IA"/>
                             <constraint firstItem="GWq-XI-0jh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="EjW-Ow-AFN"/>
+                            <constraint firstItem="3Wv-hP-KHG" firstAttribute="leading" secondItem="oa7-Cr-JiT" secondAttribute="trailing" constant="30" id="YXa-zz-PYF"/>
                             <constraint firstItem="Aq5-gR-OZI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="ZJi-eS-2Ey"/>
                             <constraint firstItem="Aq5-gR-OZI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="i20-HL-NGa"/>
                             <constraint firstItem="GWq-XI-0jh" firstAttribute="top" secondItem="Aq5-gR-OZI" secondAttribute="bottom" constant="8" symbolic="YES" id="lhy-vb-B7P"/>
+                            <constraint firstItem="3Wv-hP-KHG" firstAttribute="centerY" secondItem="oa7-Cr-JiT" secondAttribute="centerY" id="nnd-Bz-3WU"/>
+                            <constraint firstItem="oa7-Cr-JiT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="ump-Zh-VKN"/>
                         </constraints>
                     </view>
                 </viewController>

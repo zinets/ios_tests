@@ -7,38 +7,40 @@
 
 import Foundation
 
+public typealias StorageKey = LastField
+
 public protocol FileStorageProtocol: AnyObject {
-    subscript(key: String) -> Any? { get set }
+    subscript(key: StorageKey) -> Any? { get set }
 }
 
 // Бесплатные методы, которые получит любой класс сторежда, если законформит протоколу
 public extension FileStorageProtocol {
     
-    func url(for key: String) -> URL? {
+    func url(for key: StorageKey) -> URL? {
         self[key] as? URL
     }
 
-    func array(for key: String) -> [Any] {
+    func array(for key: StorageKey) -> [Any] {
         (self[key] as? [Any]) ?? []
     }
 
-    func dictionary(for key: String) -> [String : Any] {
+    func dictionary(for key: StorageKey) -> [String : Any] {
         (self[key] as? [String : Any]) ?? [:]
     }
 
-    func string(for key: String) -> String {
+    func string(for key: StorageKey) -> String {
         (self[key] as? String) ?? ""
     }
 
-    func stringArray(for key: String) -> [String] {
+    func stringArray(for key: StorageKey) -> [String] {
         (self[key] as? [String]) ?? []
     }
 
-    func data(for key: String) -> Data? {
+    func data(for key: StorageKey) -> Data? {
         self[key] as? Data
     }
 
-    func bool(for key: String) -> Bool {
+    func bool(for key: StorageKey) -> Bool {
         guard let object = self[key] else {
             return false
         }
@@ -57,15 +59,15 @@ public extension FileStorageProtocol {
         return (object as? Bool) ?? false
     }
 
-    func integer(for key: String) -> Int {
+    func integer(for key: StorageKey) -> Int {
         (self[key] as? Int) ?? 0
     }
 
-    func float(for key: String) -> Float {
+    func float(for key: StorageKey) -> Float {
         (self[key] as? Float) ?? .zero
     }
 
-    func double(for key: String) -> Double {
+    func double(for key: StorageKey) -> Double {
         (self[key] as? Double) ?? .zero
     }
 }

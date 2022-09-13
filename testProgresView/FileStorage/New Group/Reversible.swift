@@ -25,7 +25,7 @@ class MiddleLevel: Reversible {
     var keyName: String { fatalError() }
 }
 
-final class LastField: Reversible {
+public final class LastField: Reversible {
     private var intValue: String
     public private(set) weak var reverse: Reversible?
     
@@ -34,5 +34,5 @@ final class LastField: Reversible {
         self.intValue = value
     }
     
-    var keyName: String { intValue }
+    public var keyName: String { intValue }
 }
