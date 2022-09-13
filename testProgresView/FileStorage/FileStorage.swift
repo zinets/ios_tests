@@ -9,7 +9,7 @@
 import Foundation
 
 public final class FileStorage: FileStorageProtocol {
-//    @objc(globalStorage)
+
     public static let global = FileStorage(withStorageName: "__GlobalStorage")
     public static private (set) var currentUserStorage: FileStorage?
     
@@ -23,10 +23,10 @@ public final class FileStorage: FileStorageProtocol {
 
         if let path = plistPath() {
             if let data = try? Data(contentsOf: path) {
-//                storage = try? PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as? NSMutableDictionary
-                storage = NSKeyedUnarchiver.unarchiveObject(with: data) as? [AnyHashable: Any] ?? [:]
+                if let read = try? PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as? NSDictionary {
+                    storage = read as Dictionary
+                }
             }
-
         }
     }
     
@@ -69,7 +69,7 @@ public final class FileStorage: FileStorageProtocol {
             return nil
         }
         set(newValue) {
-            // TODO: если приходит nil в newValue - хорошо бы стирать значение
+            // TODO: если приходит nil в newValue - хорошо бы стирать значение (?)
             if let dictToSave = dictForValue(newValue, reversible: key) {
                 storage = append(dict: dictToSave, to: storage)
             }
@@ -110,9 +110,7 @@ public final class FileStorage: FileStorageProtocol {
     private func save() {
         if let path = plistPath() {
             do {
-                let data = NSKeyedArchiver.archivedData(withRootObject: storage)
-                try data.write(to: path)
-                
+                try (storage as NSDictionary).write(to: path)
             } catch {
                 debugPrint("[FileStorage][ERROR] failed to write storage! \(error)")
             }

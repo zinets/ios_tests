@@ -7,10 +7,12 @@
 
 import Foundation
 
-class StorageDomain {
+class StorageKeys {
     static var database = Database()
 //    static var oneTimeMigration = OneTimeLogic()
 }
+
+
 
 final class Database: Domain {
     override var keyName: String { "database" }
@@ -19,17 +21,13 @@ final class Database: Domain {
     lazy var server = { ServerData(reverse: self) }()
 }
 
-private extension MiddleLevel {
-    func data(_ keyName: String) -> LastField {
-        LastField(value: keyName, reverse: self)
-    }
-}
+
 
 final class UserData: MiddleLevel {
     override var keyName: String { "user" }
     
-    lazy var firstLogin = { data("firstLogin") }()
-    lazy var lastLogin = { data("lastLogin") }()
+    lazy var firstLogin = { LastField(value: "firstLogin", reverse: self) }()
+    lazy var lastLogin = { LastField(value: "lastLogin", reverse: self) }()
     
     lazy var oneLimeLogic = { OneTimeLogic(reverse: self) }()
 }
@@ -37,8 +35,8 @@ final class UserData: MiddleLevel {
 final class ServerData: MiddleLevel {
     override var keyName: String { "server" }
     
-    lazy var sessionCount = { data("sessionCount") }()
-    lazy var sessionTimeout = { data("sessionTimeout") }()
+    lazy var sessionCount = { LastField(value: "sessionCount", reverse: self) }()
+    lazy var sessionTimeout = { LastField(value: "sessionTimeout", reverse: self) }()
 }
 
 final class OneTimeLogic: MiddleLevel {
