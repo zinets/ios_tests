@@ -7,7 +7,7 @@
 
 import Foundation
 
-//public typealias StorageKey = LastField
+public typealias StorageKey = String
 
 public protocol FileStorageProtocol: AnyObject {
     subscript(key: StorageKey) -> Any? { get set }

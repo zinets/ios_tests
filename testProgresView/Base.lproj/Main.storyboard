@@ -31,38 +31,12 @@
                                     <action selector="testGet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTT-Ot-do4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAk-7l-uDI">
-                                <rect key="frame" x="43" y="140" width="124" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="psg-bY-OTP"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="test2 write"/>
-                                <connections>
-                                    <action selector="test2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wm1-G8-Lpg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s95-fl-9af">
-                                <rect key="frame" x="214" y="140" width="124" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="124" id="EOZ-7x-upk"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="test2 read"/>
-                                <connections>
-                                    <action selector="test2read:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VfT-f3-HXZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="s95-fl-9af" firstAttribute="leading" secondItem="xAk-7l-uDI" secondAttribute="trailing" constant="47" id="7xW-0p-9EK"/>
                             <constraint firstItem="oa7-Cr-JiT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Gj0-dr-vv2"/>
-                            <constraint firstItem="xAk-7l-uDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="VGr-q7-n3f"/>
                             <constraint firstItem="3Wv-hP-KHG" firstAttribute="leading" secondItem="oa7-Cr-JiT" secondAttribute="trailing" constant="30" id="YXa-zz-PYF"/>
-                            <constraint firstItem="xAk-7l-uDI" firstAttribute="top" secondItem="oa7-Cr-JiT" secondAttribute="bottom" constant="45" id="dkD-43-nmM"/>
-                            <constraint firstItem="s95-fl-9af" firstAttribute="centerY" secondItem="xAk-7l-uDI" secondAttribute="centerY" id="eSe-hN-PtR"/>
                             <constraint firstItem="3Wv-hP-KHG" firstAttribute="centerY" secondItem="oa7-Cr-JiT" secondAttribute="centerY" id="nnd-Bz-3WU"/>
                             <constraint firstItem="oa7-Cr-JiT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="ump-Zh-VKN"/>
                         </constraints>
