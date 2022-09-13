@@ -14,7 +14,7 @@ public final class FileStorage: FileStorageProtocol {
     public static private (set) var currentUserStorage: FileStorage?
     
     private var storageName: String!
-    private var storage: [AnyHashable: Any] = [:]
+    private var storage: [String: Any] = [:]
 
     // MARK: - Initializer
 
@@ -24,7 +24,7 @@ public final class FileStorage: FileStorageProtocol {
         if let path = plistPath() {
             if let data = try? Data(contentsOf: path) {
                 if let read = try? PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as? NSDictionary {
-                    storage = read as Dictionary
+                    storage = read as? Dictionary<String, Any> ?? [:]
                 }
             }
         }
@@ -46,23 +46,26 @@ public final class FileStorage: FileStorageProtocol {
 
     public subscript(key: StorageKey) -> Any? {
         get {
-            let keyName = key.keyName
-            func getTopLeaf(_ r: Reversible, storage: [AnyHashable: Any]) -> [AnyHashable: Any]? {
-                let key = r.keyName
-                if let top = r.reverse {
-                    let d = getTopLeaf(top, storage: storage) ?? [:]
+            var parts = key.components(separatedBy: ".")
+            let keyName = parts.removeLast()
+            
+            func getTopLeaf(_ r: String, storage: [String: Any]) -> [String: Any]? {
+                var parts = r.components(separatedBy: ".")
+                let key = parts.removeLast()
+                if !parts.isEmpty {
+                    let d = getTopLeaf(parts.joined(separator: "."), storage: storage) ?? [:]
                     
                     if key == keyName {
                         return d
                     } else {
-                        return d[key] as? [AnyHashable: Any]
+                        return d[key] as? [String: Any]
                     }
                 } else {
-                    return storage[key] as? [AnyHashable: Any]
+                    return storage[key] as? [String: Any]
                 }
             }
             
-            if let d = getTopLeaf(key, storage: storage) {
+            if let d = getTopLeaf(parts.joined(separator: "."), storage: storage) {
                 return d[keyName]
             }
             
@@ -70,7 +73,7 @@ public final class FileStorage: FileStorageProtocol {
         }
         set(newValue) {
             // TODO: если приходит nil в newValue - хорошо бы стирать значение (?)
-            if let dictToSave = dictForValue(newValue, reversible: key) {
+            if let dictToSave = dictForValue(newValue, path: key) {
                 storage = append(dict: dictToSave, to: storage)
             }
             save()
@@ -78,20 +81,22 @@ public final class FileStorage: FileStorageProtocol {
     }
 
     // MARK: - Private methods
-    private func dictForValue(_ value: Any, reversible: Reversible) -> [AnyHashable: Any]? {
-        let dict = [reversible.keyName: value]
+    private func dictForValue(_ value: Any, path: String) -> [String: Any]? {
+        var parts = path.components(separatedBy: ".")
+        let keyName = parts.removeLast()
+        let dict = [keyName: value]
         
-        if let l = reversible.reverse {
-            return dictForValue(dict, reversible: l)
+        if !parts.isEmpty {
+            return dictForValue(dict, path: parts.joined(separator: "."))
         }
         
         return dict
     }
-
-    private func append(dict: [AnyHashable: Any], to storage: [AnyHashable: Any]) -> [AnyHashable: Any] {        
+    
+    private func append(dict: [String: Any], to storage: [String: Any]) -> [String: Any] {
         for key in dict.keys {
-            if let leaf = storage[key] as? [AnyHashable: Any],
-               let d = dict[key] as? [AnyHashable : Any] {
+            if let leaf = storage[key] as? [String: Any],
+               let d = dict[key] as? [String : Any] {
                 let a = append(dict: d, to: leaf)
                 
                 var newStorage = storage
