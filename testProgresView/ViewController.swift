@@ -18,37 +18,64 @@ class ViewController: UIViewController {
         
     }
 
-   
+    var dict2store: [AnyHashable: Any] = [:]
     
     @IBAction func onTest(_ sender: UIButton) {
-        print(StorageDomain.database.user.firstLogin)
-        print(StorageDomain.database.server.sessionCount)
-        StorageDomain.oneTimeMigration.migration.feature1
+
+        var key = StorageDomain.database.user.firstLogin
+        if let dictToSave = storeValue(45, reversible: key) {
+            print(dictToSave)
+            dict2store = append(dict: dictToSave, to: dict2store)
+        }
+        
+        key = StorageDomain.database.user.lastLogin
+        if let dictToSave = storeValue("yesterday", reversible: key) {
+            print(dictToSave)
+            dict2store = append(dict: dictToSave, to: dict2store)
+        }
+        
+        key = StorageDomain.database.server.sessionTimeout
+        if let dictToSave = storeValue([1, 3, 7, 11, 13], reversible: key) {
+            print(dictToSave)
+            dict2store = append(dict: dictToSave, to: dict2store)
+        }
+        
+        key = StorageDomain.oneTimeMigration.oneTimeCompleted
+        if let dictToSave = storeValue(true, reversible: key) {
+            print(dictToSave)
+            dict2store = append(dict: dictToSave, to: dict2store)
+        }
     }
     
-}
-
-// FileStorage.currentUserStorage?[.database.user.sessionCount] = 5
-
-
-class StorageDomain {
-    static var database = Database()
-    static var oneTimeMigration = OneTimeLogic()
-}
-
-
-
-
-
-class Domain: CustomStringConvertible {
-    var description: String { "database." }
-}
-
-final class Database: Domain {
-    lazy var user = { UserData(reverse: self) }()
-    lazy var server = { ServerData(reverse: self) }()
-}
-
-final class OneTimeLogic: Domain {
-    lazy var feature1 = { data("feature1") }()
+    private func storeValue(_ value: Any, reversible: Reversible) -> [AnyHashable: Any]? {
+        let dict = [reversible.keyName: value]
+        
+        if let l = reversible.reverse {
+            return storeValue(dict, reversible: l)
+        }
+        
+        return dict
+    }
+    
+    private func append(dict: [AnyHashable: Any], to storage: [AnyHashable: Any]) -> [AnyHashable: Any] {
+        
+        for key in dict.keys {
+            
+            if let leaf = storage[key] as? [AnyHashable: Any],
+               let d = dict[key] as? [AnyHashable : Any] {
+                let a = append(dict: d, to: leaf)
+                
+                var newStorage = storage
+                newStorage[key] = a
+                return newStorage
+            } else {
+                var newStorage = storage
+                newStorage[key] = dict[key]
+                return newStorage
+            }
+        }
+        
+        return [:]
+    }
+    
 }
