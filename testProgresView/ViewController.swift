@@ -20,6 +20,37 @@ class ViewController: UIViewController {
 
     var dict2store: [AnyHashable: Any] = [:]
     
+    @IBAction func getTest(_ sender: Any) {
+        var key = StorageDomain.database.user.firstLogin
+        
+        
+        var keyName = key.keyName
+        func getTopLeaf(_ r: Reversible, storage: [AnyHashable: Any]) -> [AnyHashable: Any]? {
+            let key = r.keyName
+            if let top = r.reverse {
+                let d = getTopLeaf(top, storage: storage) ?? [:]
+                
+                if key == keyName {
+                    return d
+                } else {
+                    return d[key] as? [AnyHashable: Any]
+                }
+            } else {
+                return storage[key] as? [AnyHashable: Any]
+            }
+        }
+        
+        if let d = getTopLeaf(key, storage: dict2store) {
+            print(d[keyName])
+        }
+        
+        key = StorageDomain.database.user.oneLimeLogic.infoPopup
+        keyName = key.keyName
+        if let d = getTopLeaf(key, storage: dict2store) {
+            print(d[keyName])
+        }
+    }
+    
     @IBAction func onTest(_ sender: UIButton) {
 
         var key = StorageDomain.database.user.firstLogin
@@ -40,7 +71,7 @@ class ViewController: UIViewController {
             dict2store = append(dict: dictToSave, to: dict2store)
         }
         
-        key = StorageDomain.oneTimeMigration.oneTimeCompleted
+        key = StorageDomain.database.user.oneLimeLogic.infoPopup
         if let dictToSave = storeValue(true, reversible: key) {
             print(dictToSave)
             dict2store = append(dict: dictToSave, to: dict2store)

@@ -17,7 +17,7 @@ class Domain: Reversible {
     var keyName: String { fatalError() }
 }
 
-class LastLevel: Reversible {
+class MiddleLevel: Reversible {
     public private(set) weak var reverse: Reversible?
     init(reverse: Reversible) {
         self.reverse = reverse
