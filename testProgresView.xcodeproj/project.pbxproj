@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4921D0E128D453750001686A /* FTSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4921D0E028D453750001686A /* FTSwitch.swift */; };
+		4921D0E428D46AC00001686A /* FTSwitch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4921D0E328D46AC00001686A /* FTSwitch.xcassets */; };
 		49C5644528CF22EE006D00C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5644428CF22EE006D00C7 /* AppDelegate.swift */; };
 		49C5644728CF22EE006D00C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5644628CF22EE006D00C7 /* SceneDelegate.swift */; };
 		49C5644928CF22EE006D00C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5644828CF22EE006D00C7 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4921D0E028D453750001686A /* FTSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTSwitch.swift; sourceTree = "<group>"; };
+		4921D0E328D46AC00001686A /* FTSwitch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FTSwitch.xcassets; sourceTree = "<group>"; };
 		49C5644128CF22EE006D00C7 /* testProgresView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testProgresView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C5644428CF22EE006D00C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49C5644628CF22EE006D00C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,7 @@
 		49C5646628CF4752006D00C7 /* FileStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		49C5646728CF4752006D00C7 /* FileStorageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileStorageProtocol.swift; sourceTree = "<group>"; };
 		49C5646828CF4752006D00C7 /* README_FileStorage.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_FileStorage.md; sourceTree = "<group>"; };
+		49C5647C28D0A2BD006D00C7 /* __GlobalStorage.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = __GlobalStorage.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4921D0E228D46AAB0001686A /* FTSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				4921D0E028D453750001686A /* FTSwitch.swift */,
+				4921D0E328D46AC00001686A /* FTSwitch.xcassets */,
+			);
+			path = FTSwitch;
+			sourceTree = "<group>";
+		};
 		49C5643828CF22EE006D00C7 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +80,7 @@
 				49C5644A28CF22EE006D00C7 /* Main.storyboard */,
 				49C5644828CF22EE006D00C7 /* ViewController.swift */,
 				49C5645828CF22FE006D00C7 /* trashcan */,
+				4921D0E228D46AAB0001686A /* FTSwitch */,
 			);
 			path = testProgresView;
 			sourceTree = "<group>";
@@ -85,6 +100,7 @@
 		49C5646528CF4752006D00C7 /* FileStorage */ = {
 			isa = PBXGroup;
 			children = (
+				49C5647C28D0A2BD006D00C7 /* __GlobalStorage.plist */,
 				49C5646628CF4752006D00C7 /* FileStorage.swift */,
 				49C5646728CF4752006D00C7 /* FileStorageProtocol.swift */,
 				49C5646828CF4752006D00C7 /* README_FileStorage.md */,
@@ -152,6 +168,7 @@
 			files = (
 				49C5645128CF22F0006D00C7 /* LaunchScreen.storyboard in Resources */,
 				49C5644E28CF22F0006D00C7 /* Assets.xcassets in Resources */,
+				4921D0E428D46AC00001686A /* FTSwitch.xcassets in Resources */,
 				49C5646B28CF4752006D00C7 /* README_FileStorage.md in Resources */,
 				49C5644C28CF22EE006D00C7 /* Main.storyboard in Resources */,
 			);
@@ -169,6 +186,7 @@
 				49C5646A28CF4752006D00C7 /* FileStorageProtocol.swift in Sources */,
 				49C5644528CF22EE006D00C7 /* AppDelegate.swift in Sources */,
 				49C5644728CF22EE006D00C7 /* SceneDelegate.swift in Sources */,
+				4921D0E128D453750001686A /* FTSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

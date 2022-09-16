@@ -38,4 +38,24 @@ class ViewController: UIViewController {
         print(FileStorage.global[.database.user.prop2] as? Int)
     }
     
+    
+    // MARK: - FTSwitch test
+    @IBOutlet var testSwitch: FTSwitch! {
+        didSet {
+//            testSwitch.onBackgroundImage = UIImage(named: "on-switch")
+//            testSwitch.onKnobImage = UIImage(named: "knob")
+//            testSwitch.offKnobImage = UIImage(named: "knob")
+        }
+    }
+    
+    @IBOutlet var switchLabel: UILabel!
+    @IBAction func onSwitchChanged(_ sender: FTSwitch) {
+        switchLabel.text = sender.isOn ? "is On" : "is Off"
+    }
+    
+    @IBAction func onStdSwitch(_ sender: Any) {
+        testSwitch.isOn.toggle()
+    }
+    
+    
 }
