@@ -57,5 +57,10 @@ class ViewController: UIViewController {
         testSwitch.isOn.toggle()
     }
     
+    @IBAction func setColor(_ sender: UISwitch) {
+        testSwitch.onBackgroundImage = UIImage(named: sender.isOn ? "FTSwitch.on" : "green")
+        
+        testSwitch.offBackgroundImage = UIImage(named: sender.isOn ? "green" : "FTSwitch.off")
+    }
     
 }

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,18 +33,21 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJA-Wu-2yh" customClass="FTSwitch" customModule="testProgresView" customModuleProvider="target">
-                                <rect key="frame" x="34" y="144" width="70" height="31"/>
+                                <rect key="frame" x="34" y="144" width="90" height="31"/>
                                 <color key="backgroundColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="3ux-tX-kCq"/>
-                                    <constraint firstAttribute="width" constant="70" id="eIp-v6-cgq"/>
+                                    <constraint firstAttribute="width" constant="90" id="eIp-v6-cgq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isOn" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSwitchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="76F-N0-TbU"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGX-Af-Htc">
-                                <rect key="frame" x="124" y="149" width="42" height="21"/>
+                                <rect key="frame" x="144" y="149" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -54,17 +58,35 @@
                                     <action selector="onStdSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="AeF-VX-Ro0"/>
                                 </connections>
                             </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0S-O1-2GA">
+                                <rect key="frame" x="34" y="222" width="51" height="31"/>
+                                <connections>
+                                    <action selector="setColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="6qH-Ts-tRf"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IuN-FD-9tM" customClass="FTSwitch" customModule="testProgresView" customModuleProvider="target">
+                                <rect key="frame" x="115" y="222" width="60" height="30"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="FS5-gN-Pcp"/>
+                                    <constraint firstAttribute="height" constant="30" id="Oyz-qa-LUY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IuN-FD-9tM" firstAttribute="top" secondItem="s0S-O1-2GA" secondAttribute="top" id="03Q-E6-Hek"/>
                             <constraint firstItem="Qye-v3-dUj" firstAttribute="leading" secondItem="gJA-Wu-2yh" secondAttribute="leading" id="0dV-Ue-SiK"/>
                             <constraint firstItem="gJA-Wu-2yh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="9Tb-4p-iJU"/>
                             <constraint firstItem="EGX-Af-Htc" firstAttribute="centerY" secondItem="gJA-Wu-2yh" secondAttribute="centerY" id="BEd-MT-lLH"/>
+                            <constraint firstItem="s0S-O1-2GA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="DS1-Ep-E82"/>
                             <constraint firstItem="Qye-v3-dUj" firstAttribute="top" secondItem="gJA-Wu-2yh" secondAttribute="bottom" constant="8" symbolic="YES" id="FDP-2x-044"/>
                             <constraint firstItem="oa7-Cr-JiT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Gj0-dr-vv2"/>
                             <constraint firstItem="EGX-Af-Htc" firstAttribute="leading" secondItem="gJA-Wu-2yh" secondAttribute="trailing" constant="20" id="HwD-85-ASl"/>
+                            <constraint firstItem="IuN-FD-9tM" firstAttribute="leading" secondItem="s0S-O1-2GA" secondAttribute="trailing" constant="32" id="KyZ-1f-5LX"/>
                             <constraint firstItem="3Wv-hP-KHG" firstAttribute="leading" secondItem="oa7-Cr-JiT" secondAttribute="trailing" constant="30" id="YXa-zz-PYF"/>
+                            <constraint firstItem="s0S-O1-2GA" firstAttribute="top" secondItem="Qye-v3-dUj" secondAttribute="bottom" constant="8" symbolic="YES" id="h8H-28-fUH"/>
                             <constraint firstItem="gJA-Wu-2yh" firstAttribute="top" secondItem="oa7-Cr-JiT" secondAttribute="bottom" constant="49" id="hh1-BT-gRO"/>
                             <constraint firstItem="3Wv-hP-KHG" firstAttribute="centerY" secondItem="oa7-Cr-JiT" secondAttribute="centerY" id="nnd-Bz-3WU"/>
                             <constraint firstItem="oa7-Cr-JiT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="ump-Zh-VKN"/>
@@ -80,4 +102,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

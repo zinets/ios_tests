@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class FTSwitch: UIControl {
     
     override init(frame: CGRect) {
@@ -54,7 +55,7 @@ class FTSwitch: UIControl {
     private lazy var knobImageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .center
+        iv.contentMode = .center // или .scaleToFit, но надо смотреть на картинку
         
         iv.isUserInteractionEnabled = true
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan(sender:)))
@@ -86,10 +87,10 @@ class FTSwitch: UIControl {
             knobCenterX
         ])
         
-        onBackgroundImage = UIImage(named: "FTSwitch.on")
-        offBackgroundImage = UIImage(named: "FTSwitch.off")
-        onKnobImage = UIImage(named: "FTSwitch.knob")
-        offKnobImage = UIImage(named: "FTSwitch.knob")
+        onBackgroundImage = UIImage(named: "FTSwitch_on")
+        offBackgroundImage = UIImage(named: "FTSwitch_off")
+        onKnobImage = UIImage(named: "FTSwitch_knob")
+        offKnobImage = UIImage(named: "FTSwitch_knob")
     }
     
     override func layoutSubviews() {
@@ -153,5 +154,23 @@ class FTSwitch: UIControl {
     
     private func valueChanged() {
         sendActions(for: .valueChanged)
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        
+        layoutIfNeeded()
+        
+        let bundle = Bundle(for: type(of: self))
+        
+        onBackgroundImage = UIImage(named: "FTSwitch_on", in: bundle, compatibleWith: nil)
+        offBackgroundImage = UIImage(named: "FTSwitch_off", in: bundle, compatibleWith: nil)
+        onKnobImage = UIImage(named: "FTSwitch_knob", in: bundle, compatibleWith: nil)
+        offKnobImage = UIImage(named: "FTSwitch_knob", in: bundle, compatibleWith: nil)
+        
+        updateState(value: isOn, animated: false)
+
+        layer.cornerRadius = bounds.height / 2
+        clipsToBounds = true
     }
 }
