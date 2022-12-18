@@ -5,6 +5,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,13 +17,125 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gQe-41-mwO">
+                                <rect key="frame" x="0.0" y="670" width="393" height="140"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="R5x-vv-qWi"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PFf-IB-y9A">
+                                    <size key="itemSize" width="242" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TestCell" id="oSD-yi-lf5" customClass="TestCell" customModule="protoStats" customModuleProvider="target">
+                                        <rect key="frame" x="75.666666666666671" y="0.0" width="242" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cds-8h-yCa">
+                                            <rect key="frame" x="0.0" y="0.0" width="242" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYX-Ha-BUF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="242" height="128"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msH-t9-LzC">
+                                                    <rect key="frame" x="32" y="8" width="178" height="52"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAM-d2-FoD">
+                                                    <rect key="frame" x="48" y="68" width="146" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-TF-8df">
+                                                    <rect key="frame" x="48" y="68" width="146" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgf-rc-oni">
+                                                    <rect key="frame" x="48" y="68" width="146" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="eja-F9-lXE"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dAM-d2-FoD" firstAttribute="bottom" secondItem="Dgf-rc-oni" secondAttribute="bottom" id="2Ej-my-7bO"/>
+                                                <constraint firstAttribute="bottom" secondItem="Dgf-rc-oni" secondAttribute="bottom" constant="16" id="84Y-it-Dtz"/>
+                                                <constraint firstAttribute="trailing" secondItem="LYX-Ha-BUF" secondAttribute="trailing" id="8Au-YE-siy"/>
+                                                <constraint firstItem="Dgf-rc-oni" firstAttribute="leading" secondItem="cds-8h-yCa" secondAttribute="leading" constant="48" id="CKi-8F-iWI"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dgf-rc-oni" secondAttribute="trailing" constant="48" id="Cw6-FQ-FWe"/>
+                                                <constraint firstItem="dAM-d2-FoD" firstAttribute="top" secondItem="Dgf-rc-oni" secondAttribute="top" id="DVx-tm-boW"/>
+                                                <constraint firstItem="AGI-TF-8df" firstAttribute="trailing" secondItem="Dgf-rc-oni" secondAttribute="trailing" id="GFM-9a-k02"/>
+                                                <constraint firstAttribute="trailing" secondItem="msH-t9-LzC" secondAttribute="trailing" constant="32" id="GHY-SA-GhM"/>
+                                                <constraint firstItem="AGI-TF-8df" firstAttribute="top" secondItem="Dgf-rc-oni" secondAttribute="top" id="MTz-hb-43X"/>
+                                                <constraint firstItem="dAM-d2-FoD" firstAttribute="leading" secondItem="Dgf-rc-oni" secondAttribute="leading" id="Mdz-bZ-kYM"/>
+                                                <constraint firstItem="Dgf-rc-oni" firstAttribute="top" secondItem="msH-t9-LzC" secondAttribute="bottom" constant="8" id="NB4-Om-RC5"/>
+                                                <constraint firstItem="LYX-Ha-BUF" firstAttribute="leading" secondItem="cds-8h-yCa" secondAttribute="leading" id="W1n-Oh-bys"/>
+                                                <constraint firstItem="msH-t9-LzC" firstAttribute="top" secondItem="cds-8h-yCa" secondAttribute="top" constant="8" id="WAj-16-WTs"/>
+                                                <constraint firstItem="LYX-Ha-BUF" firstAttribute="top" secondItem="cds-8h-yCa" secondAttribute="top" id="aRy-XS-5Hs"/>
+                                                <constraint firstItem="msH-t9-LzC" firstAttribute="leading" secondItem="cds-8h-yCa" secondAttribute="leading" constant="32" id="gYw-1K-w7M"/>
+                                                <constraint firstItem="dAM-d2-FoD" firstAttribute="trailing" secondItem="Dgf-rc-oni" secondAttribute="trailing" id="imm-xo-0LL"/>
+                                                <constraint firstItem="AGI-TF-8df" firstAttribute="bottom" secondItem="Dgf-rc-oni" secondAttribute="bottom" id="j88-cJ-yOP"/>
+                                                <constraint firstAttribute="bottom" secondItem="LYX-Ha-BUF" secondAttribute="bottom" id="m0p-8w-f8L"/>
+                                                <constraint firstItem="AGI-TF-8df" firstAttribute="leading" secondItem="Dgf-rc-oni" secondAttribute="leading" id="s4R-if-2ka"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="242" height="128"/>
+                                        <connections>
+                                            <outlet property="bgCView" destination="LYX-Ha-BUF" id="Ytb-sD-oJt"/>
+                                            <outlet property="button" destination="Dgf-rc-oni" id="xhQ-zx-F0S"/>
+                                            <outlet property="ghost1" destination="dAM-d2-FoD" id="DaV-uO-whh"/>
+                                            <outlet property="ghost2" destination="AGI-TF-8df" id="Ey5-Mu-Kdc"/>
+                                            <outlet property="label" destination="msH-t9-LzC" id="hRD-OU-XRN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pj3-es-JBW" customClass="FTStatProgressView" customModule="protoStats" customModuleProvider="target">
+                                <rect key="frame" x="86.666666666666686" y="119" width="220" height="220"/>
+                                <color key="backgroundColor" red="0.094117647058823528" green="0.11764705882352941" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="4Js-89-ZdS"/>
+                                    <constraint firstAttribute="width" constant="220" id="5nI-R8-3JF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gQe-41-mwO" secondAttribute="bottom" constant="8" id="FOH-yr-ftf"/>
+                            <constraint firstItem="pj3-es-JBW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="MVD-P9-YRR"/>
+                            <constraint firstItem="gQe-41-mwO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bfU-zN-DC1"/>
+                            <constraint firstItem="pj3-es-JBW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qWn-6t-vVO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gQe-41-mwO" secondAttribute="trailing" id="tAP-uo-ycM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="gQe-41-mwO" id="H01-CK-XrZ"/>
+                        <outlet property="statView" destination="pj3-es-JBW" id="w9n-7B-I1q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="-27"/>
+            <point key="canvasLocation" x="397.70992366412213" y="-127.46478873239437"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

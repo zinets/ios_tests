@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497910A0294F254C00F36AB6 /* FTStatProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979109F294F254C00F36AB6 /* FTStatProgressView.swift */; };
+		497910A2294F38CC00F36AB6 /* statAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497910A1294F38CC00F36AB6 /* statAsset.xcassets */; };
+		497910A4294F4A4B00F36AB6 /* FTStatProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */; };
+		497910A6294F4DA600F36AB6 /* FTStatProgressLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497910A5294F4DA600F36AB6 /* FTStatProgressLayout.swift */; };
+		497910A8294F4DDC00F36AB6 /* FTStatProgressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497910A7294F4DDC00F36AB6 /* FTStatProgressType.swift */; };
 		499CDA28294C49E0003CA2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CDA27294C49E0003CA2CD /* AppDelegate.swift */; };
 		499CDA2A294C49E0003CA2CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CDA29294C49E0003CA2CD /* SceneDelegate.swift */; };
 		499CDA2C294C49E0003CA2CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499CDA2B294C49E0003CA2CD /* ViewController.swift */; };
@@ -16,6 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4979109F294F254C00F36AB6 /* FTStatProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressView.swift; sourceTree = "<group>"; };
+		497910A1294F38CC00F36AB6 /* statAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = statAsset.xcassets; sourceTree = "<group>"; };
+		497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressCell.swift; sourceTree = "<group>"; };
+		497910A5294F4DA600F36AB6 /* FTStatProgressLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressLayout.swift; sourceTree = "<group>"; };
+		497910A7294F4DDC00F36AB6 /* FTStatProgressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressType.swift; sourceTree = "<group>"; };
 		499CDA24294C49E0003CA2CD /* protoStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = protoStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499CDA27294C49E0003CA2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499CDA29294C49E0003CA2CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +47,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4979109E294F253100F36AB6 /* progress */ = {
+			isa = PBXGroup;
+			children = (
+				4979109F294F254C00F36AB6 /* FTStatProgressView.swift */,
+				497910A7294F4DDC00F36AB6 /* FTStatProgressType.swift */,
+				497910A5294F4DA600F36AB6 /* FTStatProgressLayout.swift */,
+				497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */,
+				497910A1294F38CC00F36AB6 /* statAsset.xcassets */,
+			);
+			name = progress;
+			sourceTree = "<group>";
+		};
 		499CDA1B294C49E0003CA2CD = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +78,7 @@
 		499CDA26294C49E0003CA2CD /* protoStats */ = {
 			isa = PBXGroup;
 			children = (
+				4979109E294F253100F36AB6 /* progress */,
 				499CDA2D294C49E0003CA2CD /* Main.storyboard */,
 				499CDA2B294C49E0003CA2CD /* ViewController.swift */,
 				499CDA30294C49E1003CA2CD /* Assets.xcassets */,
@@ -135,6 +158,7 @@
 			files = (
 				499CDA34294C49E1003CA2CD /* LaunchScreen.storyboard in Resources */,
 				499CDA31294C49E1003CA2CD /* Assets.xcassets in Resources */,
+				497910A2294F38CC00F36AB6 /* statAsset.xcassets in Resources */,
 				499CDA2F294C49E0003CA2CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,8 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497910A8294F4DDC00F36AB6 /* FTStatProgressType.swift in Sources */,
+				497910A4294F4A4B00F36AB6 /* FTStatProgressCell.swift in Sources */,
 				499CDA2C294C49E0003CA2CD /* ViewController.swift in Sources */,
+				497910A0294F254C00F36AB6 /* FTStatProgressView.swift in Sources */,
 				499CDA28294C49E0003CA2CD /* AppDelegate.swift in Sources */,
+				497910A6294F4DA600F36AB6 /* FTStatProgressLayout.swift in Sources */,
 				499CDA2A294C49E0003CA2CD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
