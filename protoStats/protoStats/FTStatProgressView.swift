@@ -7,7 +7,20 @@
 
 import UIKit
 
-class FTStatProgressView: UIView {
+extension FTStatProgressView: ProgressLayoutDatasource {
+    
+    func progress(for index: Int) -> CGFloat {
+        let cellType = datasource[index]
+        guard            
+            let data = values[cellType]
+        else { fatalError() }
+        
+        return CGFloat(data.value) / CGFloat(data.maxValue)
+    }
+    
+}
+
+class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +56,7 @@ class FTStatProgressView: UIView {
     var visitors: StatItem? {
         get { values[.visitor] }
         set {
-            values[.visitor] = newValue
+            values[.visitor] = newValue            
             collectionView.reloadData()
         }
     }
@@ -69,20 +82,21 @@ class FTStatProgressView: UIView {
         let layout = FTStatProgressLayout()
         layout.spacing = 2
         layout.strokeWidth = 18
+        layout.progressDatasource = self
+        
         collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .clear // потому что снизу блур должен "просвещаться"
+        collectionView.clipsToBounds = false // потому что каунтеры могут и будут вылезать за границу
         addSubview(collectionView)
         
         collectionView.register(FTStatProgressCell.self, forCellWithReuseIdentifier: "FTStatProgressCell")
+        collectionView.register(CounterView.self, forSupplementaryViewOfKind: FTStatProgressLayout.CounterDecorationKind, withReuseIdentifier: "123")
+        collectionView.register(BigCounterView.self, forSupplementaryViewOfKind: FTStatProgressLayout.BigCounterDecorationKind, withReuseIdentifier: "BigCounterView")
         
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-}
-
-extension FTStatProgressView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { 3 }
@@ -97,6 +111,19 @@ extension FTStatProgressView: UICollectionViewDataSource, UICollectionViewDelega
             }
         }
         return cell
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let reuseId = kind == FTStatProgressLayout.BigCounterDecorationKind ? "BigCounterView" : "123"
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseId, for: indexPath)
+        if let view = view as? CounterView {
+            view.selectionAction = { 
+                if let layout = collectionView.collectionViewLayout as? FTStatProgressLayout {
+                    layout.selection = layout.selection == indexPath.item ? nil : indexPath.item
+                }
+            }
+        }
+        return view
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

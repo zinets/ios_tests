@@ -8,7 +8,7 @@
 import UIKit
 
 enum FTStatProgressType: Int {
-    case like, match, visitor // FIXME: кто такой watch?
+    case like, match, visitor
     
     var iconImage: UIImage? {
         switch self {

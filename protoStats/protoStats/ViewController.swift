@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         
         statView.likes = FTStatProgressView.StatItem(maxValue: 10, value: 5)
         statView.matches = FTStatProgressView.StatItem(maxValue: 10, value: 10)
+        statView.visitors = FTStatProgressView.StatItem(maxValue: 100, value: 7)
     }
     
     @IBOutlet var collectionView: UICollectionView! {
