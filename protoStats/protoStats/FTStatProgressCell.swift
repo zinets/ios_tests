@@ -18,23 +18,21 @@ class FTStatProgressCell: UICollectionViewCell {
     
     var maxProgress: Int = 21 {
         didSet {
-            progressMaskLayer.strokeEnd = CGFloat(progressValue) / CGFloat(maxProgress)
+            updateProgress()
         }
     }
     
     var progressValue: Int = 0 {
         didSet {
-            let p = CGFloat(progressValue) / CGFloat(maxProgress)
-            progressMaskLayer.strokeEnd = p
-            
-            counterGroup.isHidden = progressValue == 0
-            counterLabel.text = String(progressValue)
-            
-            let a = CGFloat.pi * 2 * p
-            let lenght = bounds.height / 2 - strokeWidth / 2
-            counterX?.constant = lenght * sin(a)
-            counterY?.constant = lenght * cos(a)
+            updateProgress()
         }
+    }
+    
+    private func updateProgress() {
+        let p = CGFloat(progressValue) / CGFloat(maxProgress)
+        progressMaskLayer.strokeEnd = p
+        fullIconView.isHidden = p < 1
+        typeIconView.isHidden = p == 1    
     }
     
     var strokeWidth: CGFloat = 18 {
@@ -57,30 +55,12 @@ class FTStatProgressCell: UICollectionViewCell {
         setupUI()
     }
     
-    override var isSelected: Bool {
-        didSet {
-            if !isSelected {
-                typeLabel.text = ""
-                typeLabel.isHidden = true
-            } else {
-                typeLabel.text = cellType.counterText(usePlural: progressValue > 1)
-                typeLabel.isHidden = false
-            }
-        }
-    }
-    
     private func setupUI() {
-        
         backgroundColor = .clear
         
         layer.addSublayer(bgLayer)
         layer.addSublayer(progressLayer)
-        
         addSubview(typeIconView)
-        addSubview(counterGroup)
-        counterX = counterGroup.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0)
-        counterY = counterGroup.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0)
-        NSLayoutConstraint.activate([ counterX!, counterY! ])
         
         let bottomSpace = strokeWidth * 0.3334 / 2
         iconBottom = typeIconView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomSpace)
@@ -89,14 +69,20 @@ class FTStatProgressCell: UICollectionViewCell {
             iconBottom!,
             typeIconView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
+        
+        addSubview(fullIconView)
+        NSLayoutConstraint.activate([
+            fullIconView.centerXAnchor.constraint(equalTo: typeIconView.centerXAnchor),
+            fullIconView.centerYAnchor.constraint(equalTo: typeIconView.centerYAnchor),
+            fullIconView.widthAnchor.constraint(equalTo: typeIconView.widthAnchor),
+            fullIconView.heightAnchor.constraint(equalTo: typeIconView.heightAnchor),
+        ])
     }
     
     // MARK: - outlets
     private var iconWidth: NSLayoutConstraint?
     private var iconHeight: NSLayoutConstraint?
     private var iconBottom: NSLayoutConstraint?
-    private var counterX: NSLayoutConstraint?
-    private var counterY: NSLayoutConstraint?
     
     private lazy var bgLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -156,59 +142,14 @@ class FTStatProgressCell: UICollectionViewCell {
         return iv
     }()
     
-    private lazy var counterLabel: UILabel = {
-        let label = UILabel()
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        label.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
-        
-        label.font = UIFont.systemFont(ofSize: 14) // TODO: style
-        label.textColor = .black // TODO: style
-        label.text = "2"
-        label.textAlignment = .center
-        
-        return label
+    private lazy var fullIconView: UIImageView = {
+        let iv = UIImageView(image: UIImage(named: "statFullCheck"))
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.isHidden = true
+        return iv
     }()
     
-    private lazy var typeLabel: UILabel = { // "2 matches"
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10) // TODO: style
-        label.textColor = .lightGray // TODO: style
-        label.text = "Maches"
-        label.isHidden = true
-        return label
-    }()
     
-    private lazy var vStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            counterLabel,
-            typeLabel,
-        ])
-        stack.axis = .vertical
-        stack.spacing = 0
-        stack.backgroundColor = .orange.withAlphaComponent(0.2)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
-    private lazy var counterGroup: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        let circle = UIImageView(image: UIImage(named: "statCounterBg"))
-        circle.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        circle.frame = view.bounds
-        view.addSubview(circle)
-        
-        view.addSubview(vStack)
-        NSLayoutConstraint.activate([
-            vStack.leftAnchor.constraint(equalTo: view.leftAnchor),
-            vStack.rightAnchor.constraint(equalTo: view.rightAnchor),
-            vStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            view.heightAnchor.constraint(equalTo: view.widthAnchor),
-        ])
-        return view
-    }()
+       
 }
+

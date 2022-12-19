@@ -8,13 +8,13 @@
 import UIKit
 
 enum FTStatProgressType: Int {
-    case like, match, watch // FIXME: кто такой watch?
+    case like, match, visitor // FIXME: кто такой watch?
     
     var iconImage: UIImage? {
         switch self {
         case .like: return UIImage(named: "statTypeLike")
         case .match: return UIImage(named: "statTypeMatch")
-        case .watch: return UIImage(named: "statTypeWatch")
+        case .visitor: return UIImage(named: "statTypeWatch")
         }
     }
     
@@ -22,7 +22,7 @@ enum FTStatProgressType: Int {
         switch self {
         case .like: return [.red, .orange]
         case .match: return [.yellow, .gray]
-        case .watch: return [.magenta, .blue]
+        case .visitor: return [.magenta, .blue]
         }
     }
     
@@ -30,7 +30,7 @@ enum FTStatProgressType: Int {
         switch self {
         case .like: return usePlural ? "likes" : "like" // FIXME: localization
         case .match: return usePlural ? "matches" : "match"
-        case .watch: return usePlural ? "watches" : "watch"
+        case .visitor: return usePlural ? "watches" : "watch"
         }
     }
 }

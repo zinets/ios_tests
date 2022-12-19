@@ -16,11 +16,38 @@ class FTStatProgressView: UIView {
     }
     
     // MARK: - datasource
-    var datasource: [FTStatProgressType: (value: Int, maxValue: Int)] = [
-        .like: (1, 10),
-        .watch: (16, 21),
-        .match: (10, 10),
-    ]
+    var datasource: [FTStatProgressType] = [ .visitor, .like, .match]
+    
+    struct StatItem {
+        var maxValue: Int
+        var value: Int
+        var isSelected: Bool = false // хз
+    }
+    
+    private var values: [FTStatProgressType: StatItem] = [:]
+    
+    var likes: StatItem? {
+        get { values[.like] }
+        set {
+            values[.like] = newValue
+            collectionView.reloadData()
+        }
+    }
+    var matches: StatItem? {
+        get { values[.match] }
+        set {
+            values[.match] = newValue
+            collectionView.reloadData()
+        }
+    }
+    var visitors: StatItem? {
+        get { values[.visitor] }
+        set {
+            values[.visitor] = newValue
+            collectionView.reloadData()
+        }
+    }
+    
     
         
     // MARK: - outlets
@@ -62,11 +89,17 @@ extension FTStatProgressView: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FTStatProgressCell", for: indexPath)
         if let cell = cell as? FTStatProgressCell {
-            let cellType = FTStatProgressType(rawValue: indexPath.item) ?? .like
+            let cellType = datasource[indexPath.item]
             cell.cellType = cellType
-            cell.maxProgress = datasource[cellType]?.maxValue ?? 0
-            cell.progressValue = datasource[cellType]?.value ?? 0
+            if let values = values[cellType] {
+                cell.maxProgress = values.maxValue
+                cell.progressValue = values.value
+            }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
     }
 }

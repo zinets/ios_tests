@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        statView.likes = FTStatProgressView.StatItem(maxValue: 10, value: 5)
+        statView.matches = FTStatProgressView.StatItem(maxValue: 10, value: 10)
     }
     
     @IBOutlet var collectionView: UICollectionView! {
@@ -41,9 +44,9 @@ class ViewController: UIViewController {
 
     var datasource = [
         "Benefit 1",
-//        "Benefit 2",
-//        "Benefit 3",
-//        "Benefit 4",
+        "Benefit 2",
+        "Benefit 3",
+        "Benefit 4",
 //        "Benefit 5",
     ]
     
