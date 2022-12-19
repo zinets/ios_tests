@@ -59,17 +59,20 @@ class FTStatProgressLayout: UICollectionViewLayout {
             cachedAttributes.append(attrs)
             
             let kind = selection == index ? FTStatProgressLayout.BigCounterDecorationKind : FTStatProgressLayout.CounterDecorationKind
+            let progress = datasource.progress(for: indexPath.item)
             
-            let counterAttrs = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
-            let distance = frame.height / 2 - strokeWidth / 2
-            let angle = 2 * CGFloat.pi * datasource.progress(for: indexPath.item)
-            
-            let size = selection == index ? 40 : 25
-            counterAttrs.frame = CGRect(x: 0, y: 0, width: size, height: size)
-            counterAttrs.center = CGPoint(x: collection.center.x + distance * sin(angle),
-                                          y: collection.center.y + distance * cos(angle))
-            counterAttrs.zIndex = selection == index ? 100 : (90 - index)
-            cachedAttributes.append(counterAttrs)
+            if progress > 0 && progress < 1 {
+                let counterAttrs = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: kind, with: indexPath)
+                let distance = frame.height / 2 - strokeWidth / 2
+                let angle = 2 * CGFloat.pi * progress
+                
+                let size = selection == index ? 52 : 30
+                counterAttrs.frame = CGRect(x: 0, y: 0, width: size, height: size)
+                counterAttrs.center = CGPoint(x: collection.center.x + distance * sin(angle),
+                                              y: collection.center.y + distance * cos(angle))
+                counterAttrs.zIndex = selection == index ? 100 : (90 - index)
+                cachedAttributes.append(counterAttrs)
+            }
             
             frame = frame.insetBy(dx: strokeWidth + spacing, dy: strokeWidth + spacing)
         }
