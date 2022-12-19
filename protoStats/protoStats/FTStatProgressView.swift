@@ -65,6 +65,7 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
         
     // MARK: - outlets
     private var collectionView: UICollectionView!
+    private var avatarView: UIImageView!
     
     // MARK: -
     private func setupUI() {
@@ -80,7 +81,7 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
         ])
         
         let layout = FTStatProgressLayout()
-        layout.spacing = 2
+        layout.spacing = 4
         layout.strokeWidth = 18
         layout.progressDatasource = self
         
@@ -96,6 +97,20 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        avatarView = UIImageView()
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+        avatarView.contentMode = .scaleAspectFill
+        avatarView.backgroundColor = .gray
+        addSubview(avatarView)
+        let size: CGFloat = 88 // FIXME: размер привязать к дивайсу
+        avatarView.layer.cornerRadius = size / 2
+        NSLayoutConstraint.activate([
+            avatarView.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor),
+            avatarView.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
+            avatarView.heightAnchor.constraint(equalTo: avatarView.widthAnchor),
+            avatarView.widthAnchor.constraint(equalToConstant: size),
+        ])
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }

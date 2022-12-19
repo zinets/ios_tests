@@ -76,10 +76,11 @@ class FTStatProgressLayout: UICollectionViewLayout {
             
             frame = frame.insetBy(dx: strokeWidth + spacing, dy: strokeWidth + spacing)
         }
+                
     }
     
     // MARK: - design
-    var spacing: CGFloat = 2 {
+    var spacing: CGFloat = 4 {
         didSet {
             invalidateLayout()
         }
