@@ -7,63 +7,6 @@
 
 import UIKit
 
-class BigCounterView: CounterView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        backgroundColor = .white
-        layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 1
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        layer.cornerRadius = 4
-    }
-    
-}
-
-class CounterView: UICollectionReusableView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .orange
-        
-        layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 1
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        addGestureRecognizer(tapRecognizer)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        layer.cornerRadius = bounds.height / 2
-    }
-    
-    var selectionAction: (() -> Void)?
-    
-    @objc private func tapAction() {
-        selectionAction?()
-    }
-    
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        
-    }
-}
-
 protocol ProgressLayoutDatasource: AnyObject {
     func progress(for index: Int) -> CGFloat
 }
@@ -84,8 +27,8 @@ class FTStatProgressLayout: UICollectionViewLayout {
     }
     
     private func registerSupplementaries() {
-        register(CounterView.self, forDecorationViewOfKind: FTStatProgressLayout.CounterDecorationKind)
-        register(CounterView.self, forDecorationViewOfKind: FTStatProgressLayout.BigCounterDecorationKind)
+        register(UINib(nibName: "CounterView", bundle: nil), forDecorationViewOfKind: FTStatProgressLayout.CounterDecorationKind)
+        register(UINib(nibName: "BigCounterView", bundle: nil), forDecorationViewOfKind: FTStatProgressLayout.BigCounterDecorationKind)
     }
     
     private var cachedAttributes: [UICollectionViewLayoutAttributes] = []
@@ -159,6 +102,13 @@ class FTStatProgressLayout: UICollectionViewLayout {
         guard let collection = collectionView else { return .zero }
         
         return collection.bounds.size
+    }
+    
+    // бл я никогда не пойму как эта херня должна работать
+    override func initialLayoutAttributesForAppearingSupplementaryElement(ofKind elementKind: String, at elementIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attrs = super.initialLayoutAttributesForAppearingSupplementaryElement(ofKind: elementKind, at: elementIndexPath)
+        attrs?.alpha = 0
+        return attrs
     }
     
 }

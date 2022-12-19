@@ -33,6 +33,7 @@ enum FTStatProgressType: Int {
         case .visitor: return usePlural ? "watches" : "watch"
         }
     }
+    
 }
 
 

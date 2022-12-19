@@ -18,6 +18,10 @@
 		499CDA2F294C49E0003CA2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499CDA2D294C49E0003CA2CD /* Main.storyboard */; };
 		499CDA31294C49E1003CA2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499CDA30294C49E1003CA2CD /* Assets.xcassets */; };
 		499CDA34294C49E1003CA2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499CDA32294C49E1003CA2CD /* LaunchScreen.storyboard */; };
+		49C78BFF29509C5F00EBBC99 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C78BFE29509C5F00EBBC99 /* CounterView.swift */; };
+		49C78C0129509C6A00EBBC99 /* CounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C78C0029509C6A00EBBC99 /* CounterView.xib */; };
+		49C78C0329509EDF00EBBC99 /* BigCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C78C0229509EDF00EBBC99 /* BigCounterView.swift */; };
+		49C78C0529509F2D00EBBC99 /* BigCounterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C78C0429509F2D00EBBC99 /* BigCounterView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		499CDA30294C49E1003CA2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499CDA33294C49E1003CA2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499CDA35294C49E1003CA2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49C78BFE29509C5F00EBBC99 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		49C78C0029509C6A00EBBC99 /* CounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterView.xib; sourceTree = "<group>"; };
+		49C78C0229509EDF00EBBC99 /* BigCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCounterView.swift; sourceTree = "<group>"; };
+		49C78C0429509F2D00EBBC99 /* BigCounterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigCounterView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,10 +58,10 @@
 		4979109E294F253100F36AB6 /* progress */ = {
 			isa = PBXGroup;
 			children = (
-				4979109F294F254C00F36AB6 /* FTStatProgressView.swift */,
 				497910A7294F4DDC00F36AB6 /* FTStatProgressType.swift */,
 				497910A5294F4DA600F36AB6 /* FTStatProgressLayout.swift */,
-				497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */,
+				49C78BFD29509C2600EBBC99 /* cells */,
+				4979109F294F254C00F36AB6 /* FTStatProgressView.swift */,
 				497910A1294F38CC00F36AB6 /* statAsset.xcassets */,
 			);
 			name = progress;
@@ -96,6 +104,18 @@
 				499CDA35294C49E1003CA2CD /* Info.plist */,
 			);
 			name = trash;
+			sourceTree = "<group>";
+		};
+		49C78BFD29509C2600EBBC99 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */,
+				49C78C0029509C6A00EBBC99 /* CounterView.xib */,
+				49C78BFE29509C5F00EBBC99 /* CounterView.swift */,
+				49C78C0429509F2D00EBBC99 /* BigCounterView.xib */,
+				49C78C0229509EDF00EBBC99 /* BigCounterView.swift */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C78C0529509F2D00EBBC99 /* BigCounterView.xib in Resources */,
+				49C78C0129509C6A00EBBC99 /* CounterView.xib in Resources */,
 				499CDA34294C49E1003CA2CD /* LaunchScreen.storyboard in Resources */,
 				499CDA31294C49E1003CA2CD /* Assets.xcassets in Resources */,
 				497910A2294F38CC00F36AB6 /* statAsset.xcassets in Resources */,
@@ -173,10 +195,12 @@
 				497910A8294F4DDC00F36AB6 /* FTStatProgressType.swift in Sources */,
 				497910A4294F4A4B00F36AB6 /* FTStatProgressCell.swift in Sources */,
 				499CDA2C294C49E0003CA2CD /* ViewController.swift in Sources */,
+				49C78C0329509EDF00EBBC99 /* BigCounterView.swift in Sources */,
 				497910A0294F254C00F36AB6 /* FTStatProgressView.swift in Sources */,
 				499CDA28294C49E0003CA2CD /* AppDelegate.swift in Sources */,
 				497910A6294F4DA600F36AB6 /* FTStatProgressLayout.swift in Sources */,
 				499CDA2A294C49E0003CA2CD /* SceneDelegate.swift in Sources */,
+				49C78BFF29509C5F00EBBC99 /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

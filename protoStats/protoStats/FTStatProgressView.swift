@@ -91,8 +91,8 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
         addSubview(collectionView)
         
         collectionView.register(FTStatProgressCell.self, forCellWithReuseIdentifier: "FTStatProgressCell")
-        collectionView.register(CounterView.self, forSupplementaryViewOfKind: FTStatProgressLayout.CounterDecorationKind, withReuseIdentifier: "123")
-        collectionView.register(BigCounterView.self, forSupplementaryViewOfKind: FTStatProgressLayout.BigCounterDecorationKind, withReuseIdentifier: "BigCounterView")
+        collectionView.register(UINib(nibName: "CounterView", bundle: nil), forSupplementaryViewOfKind: FTStatProgressLayout.CounterDecorationKind, withReuseIdentifier: "CounterView")
+        collectionView.register(UINib(nibName: "BigCounterView", bundle: nil), forSupplementaryViewOfKind: FTStatProgressLayout.BigCounterDecorationKind, withReuseIdentifier: "BigCounterView")
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -114,7 +114,7 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
         
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let reuseId = kind == FTStatProgressLayout.BigCounterDecorationKind ? "BigCounterView" : "123"
+        let reuseId = kind == FTStatProgressLayout.BigCounterDecorationKind ? "BigCounterView" : "CounterView"
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseId, for: indexPath)
         if let view = view as? CounterView {
             view.selectionAction = { 
@@ -122,6 +122,12 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
                     layout.selection = layout.selection == indexPath.item ? nil : indexPath.item
                 }
             }
+            let cellType = datasource[indexPath.item]
+            if let values = values[cellType] {
+                view.countLabel.text = String(values.value)
+                view.typeLabel?.text = cellType.counterText(usePlural: values.value > 1)
+            }
+            
         }
         return view
     }
