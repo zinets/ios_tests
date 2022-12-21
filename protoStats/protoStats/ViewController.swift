@@ -75,9 +75,9 @@ class ViewController: UIViewController {
 
     var datasource = [
         "Benefit 1",
-        "Benefit 2",
-        "Benefit 3",
-        "Benefit 4",
+//        "Benefit 2",
+//        "Benefit 3",
+//        "Benefit 4",
 //        "Benefit 5",
     ]
     
