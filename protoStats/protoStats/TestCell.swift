@@ -15,6 +15,10 @@ class TestCell: UICollectionViewCell {
         setupPulsation(on: ghost1, delay: 0.3)
     }
     
+    override func prepareForReuse() {
+        timer?.invalidate()
+    }
+    
     @IBOutlet var label: UILabel!
     @IBOutlet var bgCView: UIView! {
         didSet {
@@ -23,39 +27,58 @@ class TestCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet var ghost1: UIView!
-    @IBOutlet var ghost2: UIView!
+    @IBOutlet var ghost1: UIView!{
+        didSet {
+            ghost1.layer.cornerRadius = 22
+        }
+    }
+    @IBOutlet var ghost2: UIView!{
+        didSet {
+            ghost2.layer.cornerRadius = 22
+        }
+    }
     @IBOutlet var button: UIButton! {
         didSet {
             button.layer.cornerRadius = 22
         }
     }
-    
+    var timer: Timer?
     @IBAction func testPulse(_ sender: Any) {
-        let duration = 0.6
         
-        let a1 = CABasicAnimation(keyPath: "transform.scale")
-        a1.duration = duration
-        a1.fromValue = 1
-        a1.toValue = 2
+        let pulseCode = { [weak self] in
+            let duration = 0.6
+            
+            let a1 = CABasicAnimation(keyPath: "transform.scale")
+            a1.duration = duration
+            a1.fromValue = 1
+            a1.toValue = 1.152
+            
+            let a2 = CABasicAnimation(keyPath: "opacity")
+            a2.duration = duration
+            a2.fromValue = 1
+            a2.toValue = 0
+            
+            let group = CAAnimationGroup()
+            group.duration = duration
+            group.animations = [a1, a2]
+            
+            self?.ghost1.layer.add(group, forKey: nil)
+            
+            let group2 = CAAnimationGroup()
+            group2.duration = duration
+            group2.beginTime = CACurrentMediaTime() + 0.3
+            group2.animations = [a1, a2]
+            
+            self?.ghost2.layer.add(group2, forKey: nil)
+        }
         
-        let a2 = CABasicAnimation(keyPath: "opacity")
-        a2.duration = duration
-        a2.fromValue = 1
-        a2.toValue = 0
-        
-        let group = CAAnimationGroup()
-        group.duration = duration
-        group.animations = [a1, a2]
-        
-        ghost1.layer.add(group, forKey: nil)
-        
-        let group2 = CAAnimationGroup()
-        group2.duration = duration
-        group2.beginTime = CACurrentMediaTime() + 0.3
-        group2.animations = [a1, a2]
-        
-        ghost2.layer.add(group2, forKey: nil)
+        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { [weak self] tmr in
+            guard let self = self else {
+                tmr.invalidate()
+                return
+            }
+            pulseCode()
+        }
     }
     
     private func setupPulsation(on view: UIView, delay: TimeInterval = 0) {

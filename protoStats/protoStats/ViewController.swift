@@ -16,6 +16,8 @@ class ViewController: UIViewController {
         statView.likes = FTStatProgressView.StatItem(maxValue: 10, value: 5)
         statView.matches = FTStatProgressView.StatItem(maxValue: 10, value: 10)
         statView.visitors = FTStatProgressView.StatItem(maxValue: 100, value: 0)
+        
+
     }
     
     @IBOutlet var collectionView: UICollectionView! {
@@ -38,8 +40,36 @@ class ViewController: UIViewController {
         section.orthogonalScrollingBehavior = .groupPaging
         section.interGroupSpacing = 8
         
+        section.visibleItemsInvalidationHandler = { [weak self] visibleItems, offset, _ in
+            
+            guard let self = self else { return }
+            let center = CGPoint(x: self.collectionView.bounds.width / 2 + offset.x,
+                                 y: self.collectionView.bounds.height / 2)
+            let item = visibleItems.filter { $0.frame.contains(center) }.first
+            self.itemToScroll = item?.indexPath.item ?? 0
+                        
+            self.restartTimer()
+        }
+        
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
+    }
+    
+    private var scrollTimer: Timer?
+    private var itemToScroll: Int = 0
+    private func restartTimer() {
+        scrollTimer?.invalidate()
+        
+        scrollTimer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { [weak self] tmr in
+            guard let self = self else {
+                tmr.invalidate()
+                return
+            }
+            
+            self.itemToScroll = (self.itemToScroll + 1) % self.datasource.count
+            let index = IndexPath(item: self.itemToScroll, section: 0)
+            self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        })
     }
     
 
