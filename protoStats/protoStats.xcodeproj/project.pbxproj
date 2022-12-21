@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		495853262952E39700892873 /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495853252952E39700892873 /* TestCell.swift */; };
 		497910A0294F254C00F36AB6 /* FTStatProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4979109F294F254C00F36AB6 /* FTStatProgressView.swift */; };
 		497910A2294F38CC00F36AB6 /* statAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497910A1294F38CC00F36AB6 /* statAsset.xcassets */; };
 		497910A4294F4A4B00F36AB6 /* FTStatProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		495853252952E39700892873 /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		4979109F294F254C00F36AB6 /* FTStatProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressView.swift; sourceTree = "<group>"; };
 		497910A1294F38CC00F36AB6 /* statAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = statAsset.xcassets; sourceTree = "<group>"; };
 		497910A3294F4A4B00F36AB6 /* FTStatProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTStatProgressCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				4979109E294F253100F36AB6 /* progress */,
 				499CDA2D294C49E0003CA2CD /* Main.storyboard */,
+				495853252952E39700892873 /* TestCell.swift */,
 				499CDA2B294C49E0003CA2CD /* ViewController.swift */,
 				499CDA30294C49E1003CA2CD /* Assets.xcassets */,
 				499CDA3B294C49E8003CA2CD /* trash */,
@@ -199,6 +202,7 @@
 				497910A0294F254C00F36AB6 /* FTStatProgressView.swift in Sources */,
 				499CDA28294C49E0003CA2CD /* AppDelegate.swift in Sources */,
 				497910A6294F4DA600F36AB6 /* FTStatProgressLayout.swift in Sources */,
+				495853262952E39700892873 /* TestCell.swift in Sources */,
 				499CDA2A294C49E0003CA2CD /* SceneDelegate.swift in Sources */,
 				49C78BFF29509C5F00EBBC99 /* CounterView.swift in Sources */,
 			);
