@@ -10,6 +10,7 @@ import UIKit
 class CounterView: UICollectionReusableView {
     
     // MARK: - outlets
+    var cellType: FTStatProgressType = .like
     @IBOutlet var countLabel: UILabel! // FIXME: style
     @IBOutlet var typeLabel: UILabel?
     
@@ -32,6 +33,23 @@ class CounterView: UICollectionReusableView {
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         addGestureRecognizer(tapRecognizer)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateView(notifiction:)), name: .FTStatProgressCellFilled, object: nil)
+    }
+    
+    private var isTransformed: Bool = false
+    
+    @objc private func updateView(notifiction: Notification) {
+        if let data = notifiction.userInfo,
+           let cellType = data["FTStatProgressType"] as? FTStatProgressType,
+           cellType == self.cellType {
+            UIView.animate(withDuration: 0.5) {
+                self.alpha = 1
+                self.transform = .identity
+                
+                self.isTransformed = true
+            }
+        }
     }
     
     override func layoutSubviews() {
@@ -49,5 +67,9 @@ class CounterView: UICollectionReusableView {
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
+        if !isTransformed {
+            self.alpha = 0
+            self.transform = .init(scaleX: 0, y: 0)
+        }
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let FTStatProgressCellFilled = Notification.Name("FTStatProgressCellFilled")
+}
+
 class FTStatProgressCell: UICollectionViewCell {
     
     var cellType: FTStatProgressType = .like {
@@ -24,15 +28,43 @@ class FTStatProgressCell: UICollectionViewCell {
     
     var progressValue: Int = 0 {
         didSet {
-            updateProgress()
+            updateProgress(animated: true)
         }
     }
     
-    private func updateProgress() {
+    private func updateProgress(animated: Bool = false) {
         let p = CGFloat(progressValue) / CGFloat(maxProgress)
-        progressMaskLayer.strokeEnd = p
-        fullIconView.isHidden = p < 1
-        typeIconView.isHidden = p == 1    
+        if !animated {
+            progressMaskLayer.strokeEnd = p
+            fullIconView.isHidden = p < 1
+            typeIconView.isHidden = p == 1
+        } else {
+            let delay = p * 0.8 // ну пусть типа 0,8 сек это заполнение до 1
+            let a1 = CABasicAnimation(keyPath: "strokeEnd")
+            a1.duration = delay
+            a1.toValue = p
+            a1.isRemovedOnCompletion = false
+            a1.fillMode = .forwards
+            progressMaskLayer.add(a1, forKey: "appearing")
+            
+            fullIconView.isHidden = false
+            typeIconView.isHidden = false
+            fullIconView.alpha = 0
+            typeIconView.alpha = 0
+            UIView.animate(withDuration: 0.5, delay: delay, options: []) {
+                self.fullIconView.alpha = p < 1 ? 0 : 1
+                self.typeIconView.alpha = p == 1 ? 0 : 1
+            } completion: { _ in
+                self.fullIconView.isHidden = p < 1
+                self.typeIconView.isHidden = p == 1
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay * 0.7) {
+                NotificationCenter.default.post(name: .FTStatProgressCellFilled, object: nil,
+                                                userInfo: ["FTStatProgressType": self.cellType])
+            }
+
+        }
     }
     
     var strokeWidth: CGFloat = 18 {

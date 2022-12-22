@@ -9,4 +9,11 @@ import UIKit
 
 class BigCounterView: CounterView {
     
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+//        super.apply(layoutAttributes)
+//     
+//        self.alpha = 1
+//        self.transform = .identity
+//    
+    }
 }

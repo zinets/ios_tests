@@ -71,6 +71,10 @@ class FTStatProgressLayout: UICollectionViewLayout {
                 counterAttrs.center = CGPoint(x: collection.center.x + distance * sin(angle),
                                               y: collection.center.y + distance * cos(angle))
                 counterAttrs.zIndex = selection == index ? 100 : (90 - index)
+                
+//                counterAttrs.alpha = 0
+//                counterAttrs.transform = .init(scaleX: 0, y: 0)
+                
                 cachedAttributes.append(counterAttrs)
             }
             

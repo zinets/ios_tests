@@ -13,9 +13,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        statView.likes = FTStatProgressView.StatItem(maxValue: 10, value: 5)
-        statView.matches = FTStatProgressView.StatItem(maxValue: 10, value: 10)
-        statView.visitors = FTStatProgressView.StatItem(maxValue: 100, value: 0)
+        statView.likes = FTStatProgressView.StatItem(maxValue: 10, value: 9)
+        statView.matches = FTStatProgressView.StatItem(maxValue: 10, value: 1)
+        statView.visitors = FTStatProgressView.StatItem(maxValue: 10, value: 5)
         
 
     }

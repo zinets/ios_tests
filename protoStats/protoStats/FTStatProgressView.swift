@@ -141,6 +141,7 @@ class FTStatProgressView: UIView, UICollectionViewDataSource, UICollectionViewDe
             if let values = values[cellType] {
                 view.countLabel.text = String(values.value)
                 view.typeLabel?.text = cellType.counterText(usePlural: values.value > 1)
+                view.cellType = cellType
             }
             
         }
